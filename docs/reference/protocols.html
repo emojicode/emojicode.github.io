@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation &middot; Protocols</title>
+	</head>
+	<body>
+		<nav class="navbar" role="navigation">
+      <a href="..&#x2F;">Home</a>
+      <a href="..&#x2F;guides">Guides</a>
+			<a href="..&#x2F;reference">Language Reference</a>
+			<a href="..&#x2F;packages">Package Index</a>
+      <a href="..&#x2F;.." class="logo">
+        Emojicode
+      </a>
+		</nav>
+		<div class="container-fluid">
+			<div class="toc fixed">
+	<h2>The Definite Language Reference &amp; Guide</h2>
+	<ol>
+    	<li>
+        <a href="basics.html">The Basics</a>
+      </li>
+    	<li>
+        <a href="the-s-package.html">The s package</a>
+      </li>
+    	<li>
+        <a href="types.html">Types</a>
+      </li>
+    	<li>
+        <a href="controlflow.html">Control Flow</a>
+      </li>
+    	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
+        <a href="classes.html">Classes</a>
+      </li>
+    	<li>
+        <a href="extensions.html">Extensions</a>
+      </li>
+    	<li>
+        <a href="protocols.html">Protocols</a>
+          <ul>
+            <li><a href="#declaration">Declaration</a></li>
+            <li><a href="#conforming">Conforming</a></li>
+            <li><a href="#example">Example</a></li>
+          </ul>
+      </li>
+    	<li>
+        <a href="enums.html">Enums</a>
+      </li>
+    	<li>
+        <a href="generics.html">Generics</a>
+      </li>
+    	<li>
+        <a href="callables.html">Callables</a>
+      </li>
+    	<li>
+        <a href="memory.html">Memory Management</a>
+      </li>
+    	<li>
+        <a href="packages.html">Package System</a>
+      </li>
+    	<li>
+        <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
+      </li>
+    	<li>
+        <a href="credits.html">Credits and Licensing</a>
+      </li>
+    	<li>
+        <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
+      </li>
+    	<li>
+        <a href="packageAPI.html">Appendix II: Package API</a>
+      </li>
+	</ol>
+</div>
+
+<div class="content">
+	<h1 id="protocols">Protocols</h1>
+<p>A protocol defines methods for a special functionality. Protocols only describe the methods a class must have to support this functionality. Classes can conform to protocols by implementing all methods and declaring the conformation.</p>
+<p>Defining a protocol defines a type. All classes that agree to that protocol are compatible with this type.</p>
+<h2 id="declaration">Declaration</h2>
+<p>You define a protocol like this:</p>
+<pre><code>🐊 protocolName 🍇
+
+🍉
+</code></pre><p><em>protocolName</em> must be a type identifier.</p>
+<p>Then inside the body you can use the same syntax to define methods as you do in classes, however without a method body.</p>
+<h2 id="conforming">Conforming</h2>
+<p>To make a class conform to a protocol you must declare that it conforms to the protocol:</p>
+<pre><code>🐊 protocolName
+</code></pre><p><em>protocolName</em> must be the type name of the protocol.</p>
+<p>Then implement the methods described in the protocol. Do not break <a href="inheritance.html#promises">promises</a>!</p>
+<h2 id="example">Example</h2>
+<pre><code>🐊 🚘 🍇
+
+    🐖 🎶 ➡️ 🔡
+
+🍉
+
+🐇 🐻 🍇
+    🐊 🚘
+
+    🐖 🎶 ➡️ 🔡 🍇
+        🍎 🔤Brumm brumm🔤
+    🍉
+
+🍉
+
+🐇 📺 🍇
+
+    🐊 🚘
+
+    🐖 🎶 ➡️ 🔡 🍇
+        🍎 🔤Surrrrrr🔤
+    🍉
+
+    🐇🐖 🚼 carlike 🚘 🍇
+        😀 🔤Here is another object making noise!🔤
+        😀 🎶 carlike
+    🍉
+
+    🐇🐖 🏁 ➡️ 🚂 🍇
+
+        🍰 d 🚘
+        🍰 b 🚘
+
+        🍮 d 🔷📺🆕
+        🍮 b 🔷🐻🆕
+
+        🍩 🚼 🐀 d
+        🍩 🚼 🐀 b
+
+        🍎 0
+    🍉
+
+🍉
+</code></pre>
+
+	<div class="reference-navigation-bottom">
+		<a href="extensions.html" class="left">
+			← Previous
+		</a>
+		<a href="enums.html" class="right">
+			Next →
+		</a>
+	</div>
+</div>
+
+		</div>
+
+		<script type="text/javascript">
+			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
+			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
+				twemoji.parse(document.body);
+			}
+		</script>
+	</body>
+</html>

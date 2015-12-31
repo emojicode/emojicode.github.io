@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="{{rootpath}}static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation{{#title}} &middot; {{title}}{{/title}}</title>
+	</head>
+	<body>
+		<nav class="navbar" role="navigation">
+      <a href="{{rootpath}}">Home</a>
+      <a href="{{rootpath}}guides">Guides</a>
+			<a href="{{rootpath}}reference">Language Reference</a>
+			<a href="{{rootpath}}packages">Package Index</a>
+      <a href="{{rootpath}}.." class="logo">
+        Emojicode
+      </a>
+		</nav>
+		<div class="container-fluid">
+			{{content}}
+		</div>
+
+		<script type="text/javascript">
+			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
+			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
+				twemoji.parse(document.body);
+			}
+		</script>
+	</body>
+</html>

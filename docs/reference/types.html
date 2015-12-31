@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation &middot; Types</title>
+	</head>
+	<body>
+		<nav class="navbar" role="navigation">
+      <a href="..&#x2F;">Home</a>
+      <a href="..&#x2F;guides">Guides</a>
+			<a href="..&#x2F;reference">Language Reference</a>
+			<a href="..&#x2F;packages">Package Index</a>
+      <a href="..&#x2F;.." class="logo">
+        Emojicode
+      </a>
+		</nav>
+		<div class="container-fluid">
+			<div class="toc fixed">
+	<h2>The Definite Language Reference &amp; Guide</h2>
+	<ol>
+    	<li>
+        <a href="basics.html">The Basics</a>
+      </li>
+    	<li>
+        <a href="the-s-package.html">The s package</a>
+      </li>
+    	<li>
+        <a href="types.html">Types</a>
+          <ul>
+            <li><a href="#primitives">Primitives</a></li>
+            <li><a href="#-namespaces">🔶 Namespaces</a></li>
+            <li><a href="#-down-casting">🔲 Down Casting</a></li>
+            <li><a href="#-something">⚪ Something</a></li>
+            <li><a href="#-someobject">🔵 SomeObject</a></li>
+          </ul>
+      </li>
+    	<li>
+        <a href="controlflow.html">Control Flow</a>
+      </li>
+    	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
+        <a href="classes.html">Classes</a>
+      </li>
+    	<li>
+        <a href="extensions.html">Extensions</a>
+      </li>
+    	<li>
+        <a href="protocols.html">Protocols</a>
+      </li>
+    	<li>
+        <a href="enums.html">Enums</a>
+      </li>
+    	<li>
+        <a href="generics.html">Generics</a>
+      </li>
+    	<li>
+        <a href="callables.html">Callables</a>
+      </li>
+    	<li>
+        <a href="memory.html">Memory Management</a>
+      </li>
+    	<li>
+        <a href="packages.html">Package System</a>
+      </li>
+    	<li>
+        <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
+      </li>
+    	<li>
+        <a href="credits.html">Credits and Licensing</a>
+      </li>
+    	<li>
+        <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
+      </li>
+    	<li>
+        <a href="packageAPI.html">Appendix II: Package API</a>
+      </li>
+	</ol>
+</div>
+
+<div class="content">
+	<h1 id="types">Types</h1>
+<p>Emojicode is a strongly type language and therefore has very strict rules concerning types.</p>
+<p>Types are defined by classes, protocols, enums and primitives. Each type belongs to a namespace in which it has a unique name. The default namespace 🔴 provides a few special types which are discussed in this chapter. Seperate chapters are devoted to classes, protocols and enums.</p>
+<h2 id="primitives">Primitives</h2>
+<p>Primitives are a special kind of type as they cannot be defined in code. They are built into the language and therefore also directly known by the compiler. As with class types you can call methods on primitives, you, however, cannot inherit from primitives or extend them. Methods of primitive types are known as <em>primitive methods</em>.</p>
+<p>You have already gotten to know most primitive types in <a href="basics.html">The Basics</a>. They are:</p>
+<ul>
+<li>🚂</li>
+<li>🚀</li>
+<li>👌</li>
+<li>🔣</li>
+<li>✨ (You’ll learn more about this primitive in <a href="optionals.html">Optionals</a>.)</li>
+</ul>
+<h2 id="-namespaces">🔶 Namespaces</h2>
+<p>As already mentioned each type belongs to a namespace whose name is exactly one Emoji.</p>
+<p>When a type is expected you can either only use the name of the type and the compiler will assume the type belongs to the default namespace 🔴 or you can use the namespace accessor:</p>
+<pre><code>🔶 namespace name
+</code></pre><p>This identifies type <em>name</em> of namespace <em>namespace</em>. Both must be exactly one identifier.</p>
+<p>This is an example of explicitly referring to the 🔡 class of 🔴:</p>
+<pre><code>🔶🔴🔡
+</code></pre><p>You can use this syntax everywhere you would specify a type name, thus also when declaring a type. The example below declares the class 🎁 in the namespace 🎅:</p>
+<pre><code>🐇 🔶🎅🎁 🍇
+
+🍉
+</code></pre><p>Unlike in other languages source code files always belong to the default namespace 🔴, with the exception of package header files.</p>
+<p>All standard library types are available in the default namespace 🔴.</p>
+<h2 id="-down-casting">🔲 Down Casting</h2>
+<p>If you are sure that a value is of a more specific type, whose specific methods you wish to call, you must downcast the value. If at runtime the value is not of the type specified Nothingness will be returned.</p>
+<p>Syntax:</p>
+<pre><code>🔲 something type
+</code></pre><p><em>something</em> and <em>type</em> must be types.</p>
+<p>For instance, here a value of a mixed list is downcasted:</p>
+<pre><code>🍮 list 🍦 14 🔤catwalk🔤 🍆
+🍮 string 🔲 🐽 list 1 🔡
+
+😀 string
+</code></pre><h2 id="-something">⚪ Something</h2>
+<p>Something is a special type as it is compatible to <em>all</em> other types. Because of this you cannot call methods or perform any  actions on ⚪.</p>
+<p>You can however use 🔲 to cast ⚪ objects to meaningful types.</p>
+<p>It is an abstract type and therefore only known at compile-time. Therefore you cannot cast to ⚪ at run-time.</p>
+<p>⚪ is different from 🔵 as primitives are not compatible to 🔵 because they aren’t instances of classes.</p>
+<h2 id="-someobject">🔵 SomeObject</h2>
+<p>SomeObject is compatible to <em>all</em> instances.</p>
+<p>It is an abstract type and therefore only known at compile-time. Therefore you cannot cast to 🔵 at run-time.</p>
+<p>You cannot call methods on 🔵.</p>
+
+
+	<div class="reference-navigation-bottom">
+		<a href="the-s-package.html" class="left">
+			← Previous
+		</a>
+		<a href="controlflow.html" class="right">
+			Next →
+		</a>
+	</div>
+</div>
+
+		</div>
+
+		<script type="text/javascript">
+			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
+			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
+				twemoji.parse(document.body);
+			}
+		</script>
+	</body>
+</html>

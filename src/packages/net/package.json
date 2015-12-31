@@ -1,0 +1,14 @@
+{
+	"name": "net",
+	"author": "Theo Weidmann",
+	"version": "0.1",
+	"license": "ECL",
+	"classes": 
+	{
+		"📨": "URLRequest"
+	},
+	"protocols":
+	{
+		"📪": "URLRequestDelegate"
+	}
+}

@@ -1,0 +1,91 @@
+<div class="toc">
+  <h3>Package</h3>
+  <p><a href="../{{package}}">{{package}}</a></p>
+
+  {{#conformsToItems}}
+    <h3>Conforms to</h3>
+    <div class="link-list">
+      {{#conformsTo}}
+        {{{thisTypeLink}}}
+      {{/conformsTo}}
+    </div>
+  {{/conformsToItems}}
+  {{#initializers.length}}
+    <h3>Initializers</h3>
+    <div class="link-list">
+      {{#initializers}}
+        <a href="#i{{name}}">{{name}}</a>
+      {{/initializers}}
+    </div>
+  {{/initializers.length}}
+  {{#methods.length}}
+    <h3>Methods</h3>
+    <div class="link-list">
+      {{#methods}}
+        <a href="#m{{name}}">{{name}}</a>
+      {{/methods}}
+    </div>
+  {{/methods.length}}
+  {{#classMethods.length}}
+    <h3>Class Methods</h3>
+    <div class="link-list">
+      {{#classMethods}}
+        <a href="#cm{{name}}">{{name}}</a>
+      {{/classMethods}}
+    </div>
+  {{/classMethods.length}}
+</div>
+<div class="content">
+<h1>{{typeType}} {{typeName}}</h1>
+<p>{{{mdDocumentation}}}</p>
+
+{{#initializers.length}}
+  <h2>Initializers</h2>
+  {{#initializers}}
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="i{{name}}">{{name}}</h3>
+        {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+      </div>
+
+      <pre>{{access}} {{#canReturnNothingness}}🍬{{/canReturnNothingness}} 🐈 {{name}} {{#arguments}}{{name}} {{{typeLink}}}{{/arguments}}</pre>
+
+      {{>argdoc}}
+    </div>
+  {{/initializers}}
+{{/initializers.length}}
+
+{{#methods.length}}
+  <h2>Methods</h2>
+
+  {{#methods}}
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="m{{name}}">{{name}}</h3>
+        {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+      </div>
+
+      <pre>{{access}} 🐖 {{name}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+
+      {{>argdoc}}
+    </div>
+  {{/methods}}
+{{/methods.length}}
+
+{{#classMethods.length}}
+  <h2>Class Methods</h2>
+
+  {{#classMethods}}
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="cm{{name}}">{{name}}</h3>
+        {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+    </div>
+
+    <pre>{{access}} 🐇🐖 {{name}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+
+    {{>argdoc}}
+    </div>
+  {{/classMethods}}
+{{/classMethods.length}}
+</div>

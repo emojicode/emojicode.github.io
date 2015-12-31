@@ -1,0 +1,40 @@
+<class>
+	<name>💬</name>
+  <conformsTo>🍐</conformsTo>
+	<inheritance>
+		<c>🔵</c>
+	</inheritance>
+	<discussion>
+		
+	</discussion>
+
+	<initializer>
+		<name>👋</name>
+		<short>Create a query</short>
+		<arg name="database" type="📚"></arg>
+		<arg name="query" type="🔡">The SQL query</arg>
+		<discussion>
+			
+		</discussion>
+	</initializer>
+
+	<method>
+		<name>📍</name>
+		<short>Bind a value</short>
+		<arg name="placeholder#" type="🚂"></arg>
+		<arg name="value" type="🍬🔵">The object to bind to the placeholder.</arg>
+		<discussion>
+			
+		</discussion>
+		<returnType>🍬🚨</returnType>
+	</method>
+
+	<method>
+		<name>🔽</name>
+		<short>Read data</short>
+		<discussion>Reads as many bytes as specified from the file pointer position.</discussion>
+		<arg name="bytesToRead" type="🚈"></arg>
+		<returnType>🍬📇</returnType>
+	</method>
+
+</class>
