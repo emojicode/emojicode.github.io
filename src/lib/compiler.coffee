@@ -77,7 +77,7 @@ class Compiler
 
     linkPath = @outPath(name, "index.html")
     fs.unlinkSync(linkPath) if fs.existsSync(linkPath)
-    fs.symlinkSync(@outPath(name, "#{chapters[0].name}.html"), linkPath)
+    fs.symlinkSync("#{chapters[0].name}.html", linkPath)
 
   createReference: -> @createBook "reference", "The Definite Language Reference & Guide"
 
