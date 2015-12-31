@@ -202,10 +202,11 @@
 <p>The first package in the bytecode file must be <code>s</code>.</p>
 <h3 id="package">Package</h3>
 <ol>
-<li>8-bit unsigned integer: Number of characters.</li>
+<li>16-bit unsigned integer: Number of characters.</li>
 <li>8-bit unsigned integer *1.: ASCII characters representing the name of the package</li>
 <li>16-bit unsigned integer: Required major version.</li>
 <li>16-bit unsigned integer: Required minor version.</li>
+<li>8-bit unsigned integer: 1 if the package requires a native binary to be loaded, 0 otherwise.</li>
 <li><em>Class</em><strong>es</strong>: The classes which belong to this package.</li>
 </ol>
 <h3 id="class">Class</h3>

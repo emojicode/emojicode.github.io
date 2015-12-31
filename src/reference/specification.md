@@ -142,11 +142,12 @@ The first package in the bytecode file must be `s`.
 
 ### Package
 
-1.  8-bit unsigned integer: Number of characters.
+1.  16-bit unsigned integer: Number of characters.
 2.  8-bit unsigned integer *1.: ASCII characters representing the name of the package
 3.  16-bit unsigned integer: Required major version.
 4.  16-bit unsigned integer: Required minor version.
-5. 	*Class*__es__: The classes which belong to this package.
+5.  8-bit unsigned integer: 1 if the package requires a native binary to be loaded, 0 otherwise.
+6. 	*Class*__es__: The classes which belong to this package.
 
 ### Class
 

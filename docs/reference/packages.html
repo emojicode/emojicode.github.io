@@ -59,9 +59,9 @@
     	<li>
         <a href="packages.html">Package System</a>
           <ul>
-            <li><a href="#packages-what-for-">Packages? What for?</a></li>
-            <li><a href="#package-register">Package Register</a></li>
-            <li><a href="#package-manager">Package Manager</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#package-management">Package Management</a></li>
+            <li><a href="#package-register-and-manager">Package Register and Manager</a></li>
           </ul>
       </li>
     	<li>
@@ -81,18 +81,28 @@
 
 <div class="content">
 	<h1 id="package-system">Package System</h1>
-<h2 id="packages-what-for-">Packages? What for?</h2>
-<p>Packages are intended to add core functionality to Emojicode that is hard to achieve using implementations in Emojicode, for instance: Database access to databases like MySQL or Postgres, or access to graphic APIs like OpenGL.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Packages are not a replacement for simple libraries and should only be used if native code (C) is really necessary. Packages introduce an overhead and can limit cross-platform functionality of your program.</p>
+<h2 id="packages">Packages</h2>
+<p>A package is a versioned bundle of code, that can be required from your program. A package can also come with a native binary to access special parts of the host system, like for instance the GPU (the graphics card). The version of the package is built into the program so that at runtime a compatible binary can be loaded if required.</p>
+<p>You can require a package using this syntax:</p>
+<pre><code>📦 packageName destinationNamespace
+</code></pre><p><em>packageName</em> must be a <strong>variable</strong> which represents the name of the package. <em>destinationNamespace</em> is the name of the destination into which the package provided classes are loaded. Example:</p>
+<pre><code>📦 files 🔴
+</code></pre><p>All packages must be loaded before a class was declared.</p>
+<p>Emojicode comes bundled with a few packages:</p>
+<ul>
+<li><code>files</code> which allows you to interact with the file system and</li>
+<li><code>sqlite</code> which allows you to work with SQLite 3 databases.</li>
+</ul>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>The package system is still in its infancy and will be improved in the next versions.</p>
+<p>You can of course build a package yourself but the documentation in <a href="packageAPI.html">Appendix II</a> is not complete and the interface and the belonging language constructs might drastically change.</p>
 </div></div>
 
-<h2 id="package-register">Package Register</h2>
-<p>The Emojicode Committee is running a package register which contains all package approved by it. This packages are also listed in this documentation under <a href="../packages/">Package Index</a>.</p>
-<h2 id="package-manager">Package Manager</h2>
-<p>These packages must be place at a special place on your computer, likely /usr/local/EmojicodePackages/. This directory has a special structure, which allows a very fast loading of the packages.</p>
-<p>You can theoretically manually build the packages and copy them there, though using the <em>Emojicode Package Manager</em> (short <em>EPM</em>) is a lot easier.</p>
+<h2 id="package-management">Package Management</h2>
+<p>Packages available on your system must be place at a special place on your computer: <code>/usr/local/EmojicodePackages/</code>. This directory has a special structure, which allows a very fast loading of the packages.</p>
 <p>The package manager manages the packages on your system and allows you to install, update and remove packages.</p>
 <p>Only one version of a major release of a package can exist on a system. Multiple major versions of a package can exist together. The package manager will always update major versions to their latest minor version. Since all packages have to agree to semantic versioning it is guaranteed that updating to minor versions does not introduce not backwards compatible changes.</p>
+<h2 id="package-register-and-manager">Package Register and Manager</h2>
+<p>There are plans to run an package register and build a package manger for easy install, update and use of packages.</p>
 
 
 	<div class="reference-navigation-bottom">
