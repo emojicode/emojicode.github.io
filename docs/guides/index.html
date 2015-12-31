@@ -1,1 +1,91 @@
-install.html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation &middot; Installing Emojicode</title>
+	</head>
+	<body>
+		<nav class="navbar" role="navigation">
+      <a href="..&#x2F;">Home</a>
+      <a href="..&#x2F;guides">Guides</a>
+			<a href="..&#x2F;reference">Language Reference</a>
+			<a href="..&#x2F;packages">Package Index</a>
+      <a href="..&#x2F;.." class="logo">
+        Emojicode
+      </a>
+		</nav>
+		<div class="container-fluid">
+			<div class="toc fixed">
+	<h2>Emojicode Guides</h2>
+	<ol>
+    	<li>
+        <a href="install.html">Installing Emojicode</a>
+          <ul>
+            <li><a href="#downloads">Downloads</a></li>
+            <li><a href="#installing">Installing</a></li>
+          </ul>
+      </li>
+    	<li>
+        <a href="compile-and-run.html">Compile and Run Your First Program</a>
+      </li>
+	</ol>
+</div>
+
+<div class="content">
+	<h1 id="installing-emojicode">Installing Emojicode</h1>
+<h2 id="downloads">Downloads</h2>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>By downloading any Emojicode binary you agree to the Emojicode License. All items in the downloaded bundle are subject to this licenese if not otherwise noted.</p>
+</div></div>
+
+<div class="link-list">
+  <a href="reference" class="link-box">
+    <div class="name">
+      Mac OS X
+    </div>
+    Suitable for any Mac running OS X 10.5 or later.
+  </a>
+  <a href="reference" class="link-box">
+    <div class="name">
+      Linux* 64bit
+    </div>
+    Suitable for most Linux OSs running on a 64bit processor.
+  </a>
+  <a href="reference" class="link-box">
+    <div class="name">
+      Linux* 32bit
+    </div>
+    Suitable for most Linux OSs running on a 32bit processor.
+  </a>
+</div>
+
+<p>* The Linux executables are actually built on Debian but should work on most Linux operating systems including Ubuntu.</p>
+<h2 id="installing">Installing</h2>
+<p>1.
+  Download the SDK for your system.
+  Run the <code>install.sh</code> script with root privileges. For instance:</p>
+<pre><code>sudo ./install.sh
+</code></pre><p>2.
+  Probably your system is not yet ready to display emojis. While Mac OS X is, you will likely have to install
+  the <code>ttf-ancient-fonts</code> on Linux.</p>
+<pre><code>sudo apt-get install ttf-ancient-fonts
+</code></pre>
+
+	<div class="reference-navigation-bottom">
+		<a href="compile-and-run.html" class="right">
+			Next →
+		</a>
+	</div>
+</div>
+
+		</div>
+
+		<script type="text/javascript">
+			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
+			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
+				twemoji.parse(document.body);
+			}
+		</script>
+	</body>
+</html>
