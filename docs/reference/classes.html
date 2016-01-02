@@ -30,6 +30,9 @@
         <a href="types.html">Types</a>
       </li>
     	<li>
+        <a href="primitive-methods.html">Primitive Methods</a>
+      </li>
+    	<li>
         <a href="controlflow.html">Control Flow</a>
       </li>
     	<li>
@@ -46,6 +49,7 @@
             <li><a href="#nothingness-initializers">Nothingness Initializers</a></li>
             <li><a href="#methods">Methods</a></li>
             <li><a href="#-this-object">🐕 This Object</a></li>
+            <li><a href="#calling-super-methods">Calling Super Methods</a></li>
             <li><a href="#class-methods">Class Methods</a></li>
             <li><a href="#-this-class">🐀 This Class</a></li>
             <li><a href="#overriding-methods-and-initializers">Overriding Methods and Initializers</a></li>
@@ -222,9 +226,14 @@ defined. Subclasses can’t access their superclasses instance variables.</p>
     👴 take the photo
     💾 🐕
 🍉
-</code></pre><div class="callout-caution"><div class="title">Caution</div><div class="text"><p>In an initializer you cannot use 🐕 before the object is fully initialized: You must set all instance variables first and you must have called the superinitializer.</p>
+</code></pre><div class="callout-caution"><div class="title">Caution</div><div class="text"><p>In an initializer you cannot use 🐕 before the object is fully initialized: You must set all instance variables first and you must have called the super initializer.</p>
 </div></div>
 
+<h2 id="calling-super-methods">Calling Super Methods</h2>
+<p>Inside a method you can use this syntax to call the super method:</p>
+<pre><code>🐿 methodEmoji [arguments ...]
+</code></pre><p>This simply calls the super method named <em>methodEmoji</em> and returns it value.</p>
+<p>You should of course only use this method if its really needed.</p>
 <h2 id="class-methods">Class Methods</h2>
 <p>You can also define class methods which are methods that are called on the class instead of calling them on an instance.</p>
 <p>Class methods are simply methods with the 🐇 attribute which turns them into class methods. E.g.</p>

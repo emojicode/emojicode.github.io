@@ -7,11 +7,12 @@ sass = require 'node-sass'
 
 markdownToHTML = (markdown) ->
   callouts = N: 'Caution', H: 'Hint'
+  markdown = stripIndent(markdown)
   markdown = markdown.replace />!([NH]) ?([^\n]*(\n>![NH] ?[^\n]*)*)(\n|$)/g, (match, tl, text) ->
     type = callouts[tl]
     '<div class="callout-' + type.toLowerCase() + '"><div class="title">' + type + '</div>' +
       '<div class="text">' + marked(text.replace(/>![NH] ?/g, '')) + "</div></div>\n"
-  marked(stripIndent(markdown))
+  marked(markdown)
 
 class Compiler
   constructor: (@out, @src) ->
@@ -139,6 +140,8 @@ class Package
       thisTypeLink: -> Package.typeLink(this)
       mdDocumentation: -> markdownToHTML(@documentation) if @documentation?
 
+    type
+
   build: ->
     fs.removeSync(@out) if fs.existsSync(@out)
     fs.mkdirSync(@out)
@@ -148,14 +151,14 @@ class Package
 
     types = require @srcPath("package.json")
 
-    for cl in types.classes
+    classes = for cl in types.classes when cl.documentation?
       @templateType(cl, 'Class', packageMeta)
-    for protocol in types.protocols
+    protocols = for protocol in types.protocols when protocol.documentation?
       @templateType(protocol, 'Protocol', packageMeta)
 
     @compiler.template "package.html", @outPath("index.html"),
-      classes: types.classes
-      protocols: types.protocols
+      classes: classes
+      protocols: protocols
       classesItems: types.classes.length > 0
       protocolsItems: types.protocols.length > 0
       name: packageMeta.name

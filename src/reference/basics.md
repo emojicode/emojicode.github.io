@@ -62,6 +62,16 @@ The easiest way to declare and set a variable is to use 🍮. If the variable ca
 
 *variableName* must be a valid variable name as described in the introduction. *variableValue* may be an expression of any type.
 
+### 🍦 Setting a Frozen Variable
+
+You can also set and declare a frozen variable. A frozen variable can’t be modified
+after its first initialization.
+The type of the variable will be inferred from the type of *variableValue*.
+
+	🍦 variableName variableValue
+
+You should **always use frozen variables if you don’t intend to modify** the variable.
+
 ### 🍰 Declaring Variables
 
 You can declare a variable yourself regardless if a variable with the same name was declared in the parent scope but you may not declare a variable more than one time.

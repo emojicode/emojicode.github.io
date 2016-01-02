@@ -1,80 +1,115 @@
 # Optionals and Nothingness
 
-## ✨ – Nothingness
+## ✨ Nothingness
 
-Nothingness is a primitive value used to represent a missing value. Many methods, for example, return nothingness on failure. Additionally any method that does not explicitly declare a return type is assumed to return nothingness.
+Nothingness is a primitive value used to represent a missing value. Many
+methods, for example, return nothingness on failure. Additionally any method
+that does not explicitly declare a return type is assumed to return Nothingness.
 
-To get Nothingness you use ⚡️.
+To get Nothingness one uses:
 
-## 🍬 – Optionals (🍺 & ☁️)
+```
+⚡️
+```
+
+## 🍬 Optionals
 
 Optionals can be used in cases where a value may be missing.
 
-To make a type nothingness compatible you need to declare it as an optional by prepending 🍬. Examples:
+An optional means: It’s either an instance of the type or Nothingness.
 
-	🍰 buildingAge 🍬🚂 👴 The age of old buildings is often not known exactly.
-	🍰 petName 🍬🔡 👴 Some pets have no name.
+To make an optional type you need to prepend 🍬. Examples:
 
-A type declared as optional can contain ✨.
+```
+🍰 buildingAge 🍬🚂 👴The age of old buildings is often not known exactly.
+🍰 petName 🍬🔡 👴Some pets have no name.
+```
 
-This example illustrates why optionals are important:
+There are many methods that return Nothingness on failure. For instance the
+method 🔬 of 🔡, which returns the symbol at the given index or Nothingness.
 
-	🍮 display 🍩🌳💻 🔤DISPLAY🔤
+```
+🍮 first 🔬 🔤Kumquat🔤 0
+🍮 twelfth 🔬 🔤Kumquat🔤 11
+```
 
-`display` might now contain a string or it might not, because not every system has an environment variable called `DISPLAY`.
+As you can see `first` will now actually contain a symbol and `twelfth` will
+only contain Nothingness.
 
-If you now would want to use the value of `display` you need to unwrap the optional using the 🍺:
+## 🍺 Unwrapping
 
-	🍺 object
+If you want to use the value of `first` or `twelfth` from the example above
+you need to unwrap the optional using the 🍺:
 
-On a system with a `display` environment variable this would print the value of `display`.
+```
+🍺 object
+```
 
-	😀 🍺 display
+This tells Emojicode to check that the given value is not Nothingness and
+returns it.
 
-What would happen if `display` was nothingness? The program would crash with a message like:
+If the value is Nothingness the program will terminate with an error message
+like:
 
-	🚨 Fatal Error: Unexpectedly found ✨ while unwrapping a 🍬.
+```
+🚨 Fatal Error: Unexpectedly found ✨ while unwrapping a 🍬.
+```
 
-Obviously unwrapping an optional without checking its content is very unsafe and should not be done.
-
-You should always check first to see if ✨ is inside:
-
-	🍊 ❎ ☁️ display 🍇
-		😀 🍺 display
-	🍉
-
-The above example introduced the ☁️ operator whose use is very simple: It determines whether an optional contains nothingness.
+Naturally unwrapping an optional without a check is not safe and should not
+be done. See the sections below for safe ways.
 
 Optionals are very cheap in use as most of the work is done at compile time.
 
-## 🍻 – Optional method call
+## ☁️ Nothingness Test
 
-Using 🍻 you can perform a method call on a object, without the need to check if ✨ is inside. The call will only be executed if the *object* is not ✨ Syntax:
+You can use ☁️ to test if an optional is Nothingness.
 
-	🍻 !methodEmoji object [arguments ...]
+```
+☁️ value
+```
 
-For instance this can be helpful if you want to call a method on the return of a function which probably returns nothingness or on a variable which probably contains nothingness.
+☁️ returns true if *value* is Nothingness.
 
-🍻 returns always ✨.
+## 🍊🍦 Condition Assignment
 
-## 🍌
+You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:
 
->!N This is a very experimental feature and may get removed in the future.
+```
+🍊🍦 variableName value
+```
 
-The banana is a language struct that unwraps a variable in place.
+This will unwrap and set the value of *value*  into the variable *variableName*
+and execute the code block assigned if *value* is not Nothingness. If *value* is
+not Nothingness the 🍊 or 🍋 statement will behave as if an expression evaluated
+to true; otherwise the 🍊 or 🍋 statement will behave as if the expression
+evaluated to false.
 
-Take a look at this example:
+Example:
 
-	🐇🐖 🏁 ➡️ 🚂 🍇
+```
+🍊🍦 string 🔲 sth 🔡 🍇
+  😀 🍪🔤sth is a string with this content: 🔤 string🍪
+🍉
+```
 
-		🍮 display 🍩🌳💻 🔤DISPLAY🔤
-		🍌 display 🍇
-			🍎 1
-		🍉
+## 🍻 Optional method call
 
-		😀 display
+Using 🍻 you can perform a method call on an object, without the need to check
+if it’s actually Nothingness inside. The call will only be executed if *object*
+is not Nothingness.
 
-		🍎 0
-	🍉
+Syntax:
 
-🍌 tests whether the variable contains nothingness. If the variable does contain nothingness, the block is executed. You must leave the current scope (the method scope) in this handler. After the 🍌 the variable is no longer an optional, since the code after the 🍌 will not get executed if the variable contains nothingness.
+```
+🍻 methodEmoji object [arguments ...]
+```
+
+🍻 returns the return of the method as optional.
+
+You can of course encapsulate several 🍻 calls. E.g.
+
+```
+🍰 w 🍬🔡
+
+🍻 😀 🍻 📝 w 🔟!
+```

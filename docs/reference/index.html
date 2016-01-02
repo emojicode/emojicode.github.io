@@ -41,6 +41,9 @@
         <a href="types.html">Types</a>
       </li>
     	<li>
+        <a href="primitive-methods.html">Primitive Methods</a>
+      </li>
+    	<li>
         <a href="controlflow.html">Control Flow</a>
       </li>
     	<li>
@@ -123,6 +126,12 @@ line breaks. 👵
 <p>The easiest way to declare and set a variable is to use 🍮. If the variable can be found its value will be changed. Otherwise the variable will be declared in the current scope. The type of the variable will be inferred from the type of <em>variableValue</em>.</p>
 <pre><code>🍮 variableName variableValue
 </code></pre><p><em>variableName</em> must be a valid variable name as described in the introduction. <em>variableValue</em> may be an expression of any type.</p>
+<h3 id="-setting-a-frozen-variable">🍦 Setting a Frozen Variable</h3>
+<p>You can also set and declare a frozen variable. A frozen variable can’t be modified
+after its first initialization.
+The type of the variable will be inferred from the type of <em>variableValue</em>.</p>
+<pre><code>🍦 variableName variableValue
+</code></pre><p>You should <strong>always use frozen variables if you don’t intend to modify</strong> the variable.</p>
 <h3 id="-declaring-variables">🍰 Declaring Variables</h3>
 <p>You can declare a variable yourself regardless if a variable with the same name was declared in the parent scope but you may not declare a variable more than one time.</p>
 <pre><code>🍰 variableName variableType

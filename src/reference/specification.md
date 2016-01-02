@@ -302,6 +302,20 @@ Each instruction returns *Something*. This return value can be used by the instr
 	</td>
 </tr>
 <tr>
+	<td>0x5</td>
+	<td>Super Method Call</td>
+	<td>
+		<ol>
+			<li>Coin: Index of the Super Class</li>
+			<li>Coin: Method Virtual Table Index.</li>
+			<li>Something *Initializer’s Argument Count</li>
+		</ol>
+	</td>
+	<td>
+		The newly created object.
+	</td>
+</tr>
+<tr>
 	<td>0x10</td>
 	<td>String</td>
 	<td>
@@ -848,6 +862,20 @@ Each instruction returns *Something*. This return value can be used by the instr
 	</td>
 	<td>
 		Returns A if it is not Nothingness, otherwise a fatal error occours.
+	</td>
+</tr>
+<tr>
+	<td>0x3E</td>
+	<td>Conditional Assignment</td>
+	<td>
+		<ol>
+			<li>Coin: Variable Index</li>
+      <li>Something: A</li>
+		</ol>
+	</td>
+	<td>
+		If A is not Nothingness true is returned and the variable is set to A;
+    otherwise false is returned.
 	</td>
 </tr>
 

@@ -2,6 +2,7 @@
   "basics.md",
   "the-s-package.md",
   "types.md",
+  "primitive-methods.md",
   "controlflow.md",
   "optionals.md",
   "classes.md",

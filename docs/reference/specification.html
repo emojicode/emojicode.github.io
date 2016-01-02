@@ -30,6 +30,9 @@
         <a href="types.html">Types</a>
       </li>
     	<li>
+        <a href="primitive-methods.html">Primitive Methods</a>
+      </li>
+    	<li>
         <a href="controlflow.html">Control Flow</a>
       </li>
     	<li>
@@ -356,6 +359,20 @@
             <li>Coin: Class Index</li>
             <li>Coin: Initializer Virtual Table Index.</li>
             <li>Something </em>Initializer’s Argument Count</li>
+        </ol>
+    </td>
+    <td>
+        The newly created object.
+    </td>
+</tr>
+<tr>
+    <td>0x5</td>
+    <td>Super Method Call</td>
+    <td>
+        <ol>
+            <li>Coin: Index of the Super Class</li>
+            <li>Coin: Method Virtual Table Index.</li>
+            <li>Something <em>Initializer’s Argument Count</li>
         </ol>
     </td>
     <td>
@@ -911,6 +928,20 @@
         Returns A if it is not Nothingness, otherwise a fatal error occours.
     </td>
 </tr>
+<tr>
+    <td>0x3E</td>
+    <td>Conditional Assignment</td>
+    <td>
+        <ol>
+            <li>Coin: Variable Index</li>
+      <li>Something: A</li>
+        </ol>
+    </td>
+    <td>
+        If A is not Nothingness true is returned and the variable is set to A;
+    otherwise false is returned.
+    </td>
+</tr>
 
 <tr>
     <td>0x40</td>
@@ -1018,7 +1049,7 @@
     <td>
         <ol>
             <li>Coin: Number of key-value pairs.</li>
-            <li>Something 2<em> Number of key value pairs.</li>
+            <li>Something 2</em> Number of key value pairs.</li>
         </ol>
     </td>
     <td>
@@ -1031,7 +1062,7 @@
     <td>
         <ol>
             <li>Coin: Number of list items.</li>
-            <li>Something </em>Number of list items.</li>
+            <li>Something <em>Number of list items.</li>
         </ol>
     </td>
     <td>
@@ -1044,7 +1075,7 @@
     <td>
         <ol>
             <li>Coin: Number of strings.</li>
-            <li>Something *Number of strings.</li>
+            <li>Something </em>Number of strings.</li>
         </ol>
     </td>
     <td>

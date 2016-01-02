@@ -206,7 +206,19 @@ Example:
 		💾 🐕
 	🍉
 
->!N In an initializer you cannot use 🐕 before the object is fully initialized: You must set all instance variables first and you must have called the superinitializer.
+>!N In an initializer you cannot use 🐕 before the object is fully initialized: You must set all instance variables first and you must have called the super initializer.
+
+## Calling Super Methods
+
+Inside a method you can use this syntax to call the super method:
+
+```
+🐿 methodEmoji [arguments ...]
+```
+
+This simply calls the super method named *methodEmoji* and returns it value.
+
+You should of course only use this method if its really needed.
 
 ## Class Methods
 

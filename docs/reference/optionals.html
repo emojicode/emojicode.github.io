@@ -30,15 +30,20 @@
         <a href="types.html">Types</a>
       </li>
     	<li>
+        <a href="primitive-methods.html">Primitive Methods</a>
+      </li>
+    	<li>
         <a href="controlflow.html">Control Flow</a>
       </li>
     	<li>
         <a href="optionals.html">Optionals and Nothingness</a>
           <ul>
-            <li><a href="#-nothingness">✨ – Nothingness</a></li>
-            <li><a href="#-optionals-">🍬 – Optionals (🍺 &amp; ☁️)</a></li>
-            <li><a href="#-optional-method-call">🍻 – Optional method call</a></li>
-            <li><a href="#-">🍌</a></li>
+            <li><a href="#-nothingness">✨ Nothingness</a></li>
+            <li><a href="#-optionals">🍬 Optionals</a></li>
+            <li><a href="#-unwrapping">🍺 Unwrapping</a></li>
+            <li><a href="#-nothingness-test">☁️ Nothingness Test</a></li>
+            <li><a href="#-condition-assignment">🍊🍦 Condition Assignment</a></li>
+            <li><a href="#-optional-method-call">🍻 Optional method call</a></li>
           </ul>
       </li>
     	<li>
@@ -82,55 +87,64 @@
 
 <div class="content">
 	<h1 id="optionals-and-nothingness">Optionals and Nothingness</h1>
-<h2 id="-nothingness">✨ – Nothingness</h2>
-<p>Nothingness is a primitive value used to represent a missing value. Many methods, for example, return nothingness on failure. Additionally any method that does not explicitly declare a return type is assumed to return nothingness.</p>
-<p>To get Nothingness you use ⚡️.</p>
-<h2 id="-optionals-">🍬 – Optionals (🍺 &amp; ☁️)</h2>
+<h2 id="-nothingness">✨ Nothingness</h2>
+<p>Nothingness is a primitive value used to represent a missing value. Many
+methods, for example, return nothingness on failure. Additionally any method
+that does not explicitly declare a return type is assumed to return Nothingness.</p>
+<p>To get Nothingness one uses:</p>
+<pre><code>⚡️
+</code></pre><h2 id="-optionals">🍬 Optionals</h2>
 <p>Optionals can be used in cases where a value may be missing.</p>
-<p>To make a type nothingness compatible you need to declare it as an optional by prepending 🍬. Examples:</p>
-<pre><code>🍰 buildingAge 🍬🚂 👴 The age of old buildings is often not known exactly.
-🍰 petName 🍬🔡 👴 Some pets have no name.
-</code></pre><p>A type declared as optional can contain ✨.</p>
-<p>This example illustrates why optionals are important:</p>
-<pre><code>🍮 display 🍩🌳💻 🔤DISPLAY🔤
-</code></pre><p><code>display</code> might now contain a string or it might not, because not every system has an environment variable called <code>DISPLAY</code>.</p>
-<p>If you now would want to use the value of <code>display</code> you need to unwrap the optional using the 🍺:</p>
+<p>An optional means: It’s either an instance of the type or Nothingness.</p>
+<p>To make an optional type you need to prepend 🍬. Examples:</p>
+<pre><code>🍰 buildingAge 🍬🚂 👴The age of old buildings is often not known exactly.
+🍰 petName 🍬🔡 👴Some pets have no name.
+</code></pre><p>There are many methods that return Nothingness on failure. For instance the
+method 🔬 of 🔡, which returns the symbol at the given index or Nothingness.</p>
+<pre><code>🍮 first 🔬 🔤Kumquat🔤 0
+🍮 twelfth 🔬 🔤Kumquat🔤 11
+</code></pre><p>As you can see <code>first</code> will now actually contain a symbol and <code>twelfth</code> will
+only contain Nothingness.</p>
+<h2 id="-unwrapping">🍺 Unwrapping</h2>
+<p>If you want to use the value of <code>first</code> or <code>twelfth</code> from the example above
+you need to unwrap the optional using the 🍺:</p>
 <pre><code>🍺 object
-</code></pre><p>On a system with a <code>display</code> environment variable this would print the value of <code>display</code>.</p>
-<pre><code>😀 🍺 display
-</code></pre><p>What would happen if <code>display</code> was nothingness? The program would crash with a message like:</p>
+</code></pre><p>This tells Emojicode to check that the given value is not Nothingness and
+returns it.</p>
+<p>If the value is Nothingness the program will terminate with an error message
+like:</p>
 <pre><code>🚨 Fatal Error: Unexpectedly found ✨ while unwrapping a 🍬.
-</code></pre><p>Obviously unwrapping an optional without checking its content is very unsafe and should not be done.</p>
-<p>You should always check first to see if ✨ is inside:</p>
-<pre><code>🍊 ❎ ☁️ display 🍇
-    😀 🍺 display
-🍉
-</code></pre><p>The above example introduced the ☁️ operator whose use is very simple: It determines whether an optional contains nothingness.</p>
+</code></pre><p>Naturally unwrapping an optional without a check is not safe and should not
+be done. See the sections below for safe ways.</p>
 <p>Optionals are very cheap in use as most of the work is done at compile time.</p>
-<h2 id="-optional-method-call">🍻 – Optional method call</h2>
-<p>Using 🍻 you can perform a method call on a object, without the need to check if ✨ is inside. The call will only be executed if the <em>object</em> is not ✨ Syntax:</p>
-<pre><code>🍻 !methodEmoji object [arguments ...]
-</code></pre><p>For instance this can be helpful if you want to call a method on the return of a function which probably returns nothingness or on a variable which probably contains nothingness.</p>
-<p>🍻 returns always ✨.</p>
-<h2 id="-">🍌</h2>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>This is a very experimental feature and may get removed in the future.</p>
-</div></div>
-
-<p>The banana is a language struct that unwraps a variable in place.</p>
-<p>Take a look at this example:</p>
-<pre><code>🐇🐖 🏁 ➡️ 🚂 🍇
-
-    🍮 display 🍩🌳💻 🔤DISPLAY🔤
-    🍌 display 🍇
-        🍎 1
-    🍉
-
-    😀 display
-
-    🍎 0
+<h2 id="-nothingness-test">☁️ Nothingness Test</h2>
+<p>You can use ☁️ to test if an optional is Nothingness.</p>
+<pre><code>☁️ value
+</code></pre><p>☁️ returns true if <em>value</em> is Nothingness.</p>
+<h2 id="-condition-assignment">🍊🍦 Condition Assignment</h2>
+<p>You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:</p>
+<pre><code>🍊🍦 variableName value
+</code></pre><p>This will unwrap and set the value of <em>value</em>  into the variable <em>variableName</em>
+and execute the code block assigned if <em>value</em> is not Nothingness. If <em>value</em> is
+not Nothingness the 🍊 or 🍋 statement will behave as if an expression evaluated
+to true; otherwise the 🍊 or 🍋 statement will behave as if the expression
+evaluated to false.</p>
+<p>Example:</p>
+<pre><code>🍊🍦 string 🔲 sth 🔡 🍇
+  😀 🍪🔤sth is a string with this content: 🔤 string🍪
 🍉
-</code></pre><p>🍌 tests whether the variable contains nothingness. If the variable does contain nothingness, the block is executed. You must leave the current scope (the method scope) in this handler. After the 🍌 the variable is no longer an optional, since the code after the 🍌 will not get executed if the variable contains nothingness.</p>
+</code></pre><h2 id="-optional-method-call">🍻 Optional method call</h2>
+<p>Using 🍻 you can perform a method call on an object, without the need to check
+if it’s actually Nothingness inside. The call will only be executed if <em>object</em>
+is not Nothingness.</p>
+<p>Syntax:</p>
+<pre><code>🍻 methodEmoji object [arguments ...]
+</code></pre><p>🍻 returns the return of the method as optional.</p>
+<p>You can of course encapsulate several 🍻 calls. E.g.</p>
+<pre><code>🍰 w 🍬🔡
 
+🍻 😀 🍻 📝 w 🔟!
+</code></pre>
 
 	<div class="reference-navigation-bottom">
 		<a href="controlflow.html" class="left">
