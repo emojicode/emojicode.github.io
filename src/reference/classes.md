@@ -16,7 +16,7 @@ When you define a new class you are also creating a new type.
 
 ## Instance Variables
 
-When a class is created a scope is created in which the *instance variables* live. This scope is always available to methods and in initializers as top most scope. You can declare variables in this scope by using the 🍰 syntax in the class body.
+When a class is created a scope is created in which the *instance variables* live. This scope is always available to methods and in initializers as top scope. You can declare variables in this scope by using the 🍰 syntax in the class body.
 
 	🐇 📷 🍇
 
@@ -26,7 +26,10 @@ When a class is created a scope is created in which the *instance variables* liv
 
 	🍉
 
-As the name suggests instance variables are just variables inside a scope. They cannot be accessed from outside that scope, this means only the methods of the class have access to them. If you want to modify or access them from outside the class you have to write getters and setters.
+As the name suggests instance variables are just variables inside a scope. They **cannot be accessed from outside** the class. If you want to modify or access them from outside the class you have to write **getters and setters**.
+
+It’s also noteworthy that instance variables are **private to the class** in which they were
+defined. Subclasses can’t access their superclasses instance variables.
 
 Example:
 

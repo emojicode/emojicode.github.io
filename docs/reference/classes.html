@@ -101,7 +101,7 @@
 </code></pre><p>When you define a new class you are also creating a new type.</p>
 <p><em>class</em> must be an Emoji. <em>superclass</em> the class’s superclass. If <em>superclass</em> is omitted the class does not have a superclass. You can subclass any existing class.</p>
 <h2 id="instance-variables">Instance Variables</h2>
-<p>When a class is created a scope is created in which the <em>instance variables</em> live. This scope is always available to methods and in initializers as top most scope. You can declare variables in this scope by using the 🍰 syntax in the class body.</p>
+<p>When a class is created a scope is created in which the <em>instance variables</em> live. This scope is always available to methods and in initializers as top scope. You can declare variables in this scope by using the 🍰 syntax in the class body.</p>
 <pre><code>🐇 📷 🍇
 
     🍰 megapixels 🚂
@@ -109,7 +109,9 @@
     🍰 hasFlash 👌
 
 🍉
-</code></pre><p>As the name suggests instance variables are just variables inside a scope. They cannot be accessed from outside that scope, this means only the methods of the class have access to them. If you want to modify or access them from outside the class you have to write getters and setters.</p>
+</code></pre><p>As the name suggests instance variables are just variables inside a scope. They <strong>cannot be accessed from outside</strong> the class. If you want to modify or access them from outside the class you have to write <strong>getters and setters</strong>.</p>
+<p>It’s also noteworthy that instance variables are <strong>private to the class</strong> in which they were
+defined. Subclasses can’t access their superclasses instance variables.</p>
 <p>Example:</p>
 <pre><code>🐇 📷 🍇
     🍰 megapixels 🚂
