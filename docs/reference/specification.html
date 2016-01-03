@@ -125,7 +125,7 @@
 <p>Since <em>primitives</em> and <em>object references</em> can be stored together in a list or dictionary, the engine must be able to store <em>primitives</em> and <em>objects references</em> in the same space but must still be able to distinguish them later.</p>
 <h3 id="heap">Heap</h3>
 <p>The <em>heap</em> is an area of storage in which objects are allocated.</p>
-<p>The heap must be managed by the Engine using a automatic storage management system provided by the engine. The Emojicode Real-Time Engine uses a Garbage Collector after C. J. Cheney. If the engine is no longer able to manage the heap for any reason it must terminate the program.</p>
+<p>The heap must be managed by the Engine using an automatic storage management system provided by the engine. The Emojicode Real-Time Engine uses a Garbage Collector after C. J. Cheney. If the engine is no longer able to manage the heap for any reason it must terminate the program.</p>
 <h3 id="call-stack">Call Stack</h3>
 <p>The <em>call stack</em> is an area of storage dedicated to store data about the active subroutines of the program. If the Engine supports Threads each thread must have its own call stack.</p>
 <p>The call stack consists of <em>stack frames</em>. <em>Stack frames</em> store local variables and the <em>current object context</em>. The <em>current object context</em> is the object on which a method was called. If a routine is called which allocates a stack frame but does not have an object context the object context may be undefined, given that no code trying to access the <em>current object context</em> will run.</p>

@@ -3,29 +3,11 @@
 ## Downloads
 
 >!N By downloading any Emojicode binary you agree to the Emojicode License.
->!N All items in the downloaded bundle are subject to this licenese if
+>!N All items in the downloaded bundle are subject to this license if
 >!N not otherwise noted.
 
-<div class="link-list">
-  <a href="reference" class="link-box">
-    <div class="name">
-      Mac OS X
-    </div>
-    Suitable for any Mac running OS X 10.5 or later.
-  </a>
-  <a href="reference" class="link-box">
-    <div class="name">
-      Debian & Ubuntu
-    </div>
-    Suitable for most Linux OSs running on a 64bit processor.
-  </a>
-  <a href="reference" class="link-box">
-    <div class="name">
-      Raspberry
-    </div>
-    Suitable for Raspberry 1 & 2 running Raspbian.
-  </a>
-</div>
+You can download the SDK for you system here:
+https://github.com/emojicode/emojicode/releases
 
 ## Installing
 

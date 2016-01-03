@@ -61,7 +61,7 @@ Since *primitives* and *object references* can be stored together in a list or d
 
 The *heap* is an area of storage in which objects are allocated.
 
-The heap must be managed by the Engine using a automatic storage management system provided by the engine. The Emojicode Real-Time Engine uses a Garbage Collector after C. J. Cheney. If the engine is no longer able to manage the heap for any reason it must terminate the program.
+The heap must be managed by the Engine using an automatic storage management system provided by the engine. The Emojicode Real-Time Engine uses a Garbage Collector after C. J. Cheney. If the engine is no longer able to manage the heap for any reason it must terminate the program.
 
 ### Call Stack
 
