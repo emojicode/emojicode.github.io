@@ -25,6 +25,7 @@
           <ul>
             <li><a href="#downloads">Downloads</a></li>
             <li><a href="#installing">Installing</a></li>
+            <li><a href="#building">Building</a></li>
           </ul>
       </li>
     	<li>
@@ -36,7 +37,9 @@
 <div class="content">
 	<h1 id="installing-emojicode">Installing Emojicode</h1>
 <h2 id="downloads">Downloads</h2>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>By downloading any Emojicode binary you agree to the Emojicode License. All items in the downloaded bundle are subject to this licenese if not otherwise noted.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>By downloading any Emojicode binary you agree to the Emojicode License.
+All items in the downloaded bundle are subject to this licenese if
+not otherwise noted.</p>
 </div></div>
 
 <div class="link-list">
@@ -48,29 +51,57 @@
   </a>
   <a href="reference" class="link-box">
     <div class="name">
-      Linux* 64bit
+      Debian &amp; Ubuntu
     </div>
     Suitable for most Linux OSs running on a 64bit processor.
   </a>
   <a href="reference" class="link-box">
     <div class="name">
-      Linux* 32bit
+      Raspberry
     </div>
-    Suitable for most Linux OSs running on a 32bit processor.
+    Suitable for Raspberry 1 &amp; 2 running Raspbian.
   </a>
 </div>
 
-<p>* The Linux executables are actually built on Debian but should work on most Linux operating systems including Ubuntu.</p>
 <h2 id="installing">Installing</h2>
-<p>1.
-  Download the SDK for your system.
-  Run the <code>install.sh</code> script with root privileges. For instance:</p>
+<ol>
+<li><p>Download the SDK for your system and extract the tarfile.
+Run the <code>install.sh</code> script in it with root privileges:</p>
 <pre><code>sudo ./install.sh
-</code></pre><p>2.
-  Probably your system is not yet ready to display emojis. While Mac OS X is, you will likely have to install
-  the <code>ttf-ancient-fonts</code> on Linux.</p>
+</code></pre></li>
+<li><p>Probably your system is not yet ready to display emojis. While Mac OS X is,
+you will likely have to install the <code>ttf-ancient-fonts</code> on Linux.</p>
 <pre><code>sudo apt-get install ttf-ancient-fonts
-</code></pre>
+</code></pre></li>
+</ol>
+<h2 id="building">Building</h2>
+<p>You can also build Emojicode directly on your system if no binary is available
+for your system.</p>
+<p>Perquisites:</p>
+<ul>
+<li>clang or GCC 4.7+</li>
+<li>Ruby and Rake<ul>
+<li><code>sudo apt-get install ruby rake</code> on Debian/Ubuntu</li>
+<li><code>brew install ruby</code> on OS X</li>
+</ul>
+</li>
+<li>SDL2 (libsdl2-dev) to compile the SDL package<ul>
+<li><code>sudo apt-get install libsdl2-dev</code> on Debian/Ubuntu</li>
+<li><code>brew install SDL2</code> on OS X</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://github.com/emojicode/emojicode">Download the source code from GitHub.</a></p>
+<p>Extract the downloaded source and navigate into it. Then simply run:</p>
+<pre><code>rake package
+</code></pre><p>This will compile the Emojicode Compiler, the Emojicode Engine and the default
+packages. After the command is done you will find a directory and a tarfile
+in <code>builds</code> named after your platform, e.g. <code>x86_64-apple-darwin15.2.0</code>.</p>
+<p>You can then navigate into the director and install Emojicode by running
+<code>install.sh</code>:</p>
+<pre><code>sudo ./install.sh
+</code></pre><p>The tarfile is the directory tar archived and gzipped.</p>
+
 
 	<div class="reference-navigation-bottom">
 		<a href="compile-and-run.html" class="right">
