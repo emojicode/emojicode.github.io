@@ -11,14 +11,23 @@ https://github.com/emojicode/emojicode/releases
 
 ## Installing
 
-1. Download the SDK for your system and extract the tarfile.
-  Run the `install.sh` script in it with root privileges:
+1. [Download the SDK](https://github.com/emojicode/emojicode/releases) for your
+  system and extract the tar file. For instance:
 
   ```
-  sudo ./install.sh
+  tar -xzf Emojicode-VERSION-YOUR-PLATFORM.tar.gz
   ```
 
-2. Probably your system is not yet ready to display emojis. While Mac OS X is,
+2.  Run the `install.sh` script in the extracted directory:
+
+  ```
+  cd Emojicode-VERSION-YOUR-PLATFORM
+  ./install.sh
+  ```
+
+  You might need to run it with root privileges.
+
+3. Probably your system is not yet ready to display emojis. While Mac OS X is,
   you will likely have to install the `ttf-ancient-fonts` on Linux.
 
   ```
@@ -31,31 +40,35 @@ You can also build Emojicode directly on your system if no binary is available
 for your system.
 
 Perquisites:
-- clang or GCC 4.7+
-- Ruby and Rake
-  - `sudo apt-get install ruby rake` on Debian/Ubuntu
-  - `brew install ruby` on OS X
+- **clang** or **GCC 4.7+**
+- **make** (Preferably GNU Make)
 - SDL2 (libsdl2-dev) to compile the SDL package
   - `sudo apt-get install libsdl2-dev` on Debian/Ubuntu
   - `brew install SDL2` on OS X
 
-[Download the source code from GitHub.](https://github.com/emojicode/emojicode)
+Steps:
 
-Extract the downloaded source and navigate into it. Then simply run:
+1. [Download the source code from GitHub.](https://github.com/emojicode/emojicode)
+2. Extract the downloaded source and navigate into it. Then simply run
 
-```
-rake package
-```
+  ```
+  make
+  ```
 
-This will compile the Emojicode Compiler, the Emojicode Engine and the default
-packages. After the command is done you will find a directory and a tarfile
-in `builds` named after your platform, e.g. `x86_64-apple-darwin15.2.0`.
+  to compile the Engine, the compiler and all default packages.
 
-You can then navigate into the director and install Emojicode by running
-`install.sh`:
+  You may need to change the heap size, which defaults to 512 MB, to something
+  different on older Raspberry Pis:
 
-```
-sudo ./install.sh
-```
+  ```
+  make HEAP_SIZE=128000000
+  ```
+3. Run
 
-The tarfile is the directory tar archived and gzipped.
+  ```
+  make dist
+  ```
+
+  After the command is done you will find a directory and a tarfile
+in `builds` named after your platform, e.g. `Emojicode-0.2.0-beta.2-x86_64-linux-gnu`.
+4. Go to step 2 in the [Installing](#installing) guide above.

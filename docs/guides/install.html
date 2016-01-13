@@ -46,10 +46,15 @@ not otherwise noted.</p>
 <a href="https://github.com/emojicode/emojicode/releases">https://github.com/emojicode/emojicode/releases</a></p>
 <h2 id="installing">Installing</h2>
 <ol>
-<li><p>Download the SDK for your system and extract the tarfile.
-Run the <code>install.sh</code> script in it with root privileges:</p>
-<pre><code>sudo ./install.sh
+<li><p><a href="https://github.com/emojicode/emojicode/releases">Download the SDK</a> for your
+system and extract the tar file. For instance:</p>
+<pre><code>tar -xzf Emojicode-VERSION-YOUR-PLATFORM.tar.gz
 </code></pre></li>
+<li><p>Run the <code>install.sh</code> script in the extracted directory:</p>
+<pre><code>cd Emojicode-VERSION-YOUR-PLATFORM
+./install.sh
+</code></pre><p>You might need to run it with root privileges.</p>
+</li>
 <li><p>Probably your system is not yet ready to display emojis. While Mac OS X is,
 you will likely have to install the <code>ttf-ancient-fonts</code> on Linux.</p>
 <pre><code>sudo apt-get install ttf-ancient-fonts
@@ -60,28 +65,31 @@ you will likely have to install the <code>ttf-ancient-fonts</code> on Linux.</p>
 for your system.</p>
 <p>Perquisites:</p>
 <ul>
-<li>clang or GCC 4.7+</li>
-<li>Ruby and Rake<ul>
-<li><code>sudo apt-get install ruby rake</code> on Debian/Ubuntu</li>
-<li><code>brew install ruby</code> on OS X</li>
-</ul>
-</li>
+<li><strong>clang</strong> or <strong>GCC 4.7+</strong></li>
+<li><strong>make</strong> (Preferably GNU Make)</li>
 <li>SDL2 (libsdl2-dev) to compile the SDL package<ul>
 <li><code>sudo apt-get install libsdl2-dev</code> on Debian/Ubuntu</li>
 <li><code>brew install SDL2</code> on OS X</li>
 </ul>
 </li>
 </ul>
-<p><a href="https://github.com/emojicode/emojicode">Download the source code from GitHub.</a></p>
-<p>Extract the downloaded source and navigate into it. Then simply run:</p>
-<pre><code>rake package
-</code></pre><p>This will compile the Emojicode Compiler, the Emojicode Engine and the default
-packages. After the command is done you will find a directory and a tarfile
-in <code>builds</code> named after your platform, e.g. <code>x86_64-apple-darwin15.2.0</code>.</p>
-<p>You can then navigate into the director and install Emojicode by running
-<code>install.sh</code>:</p>
-<pre><code>sudo ./install.sh
-</code></pre><p>The tarfile is the directory tar archived and gzipped.</p>
+<p>Steps:</p>
+<ol>
+<li><a href="https://github.com/emojicode/emojicode">Download the source code from GitHub.</a></li>
+<li><p>Extract the downloaded source and navigate into it. Then simply run</p>
+<pre><code>make
+</code></pre><p>to compile the Engine, the compiler and all default packages.</p>
+<p>You may need to change the heap size, which defaults to 512 MB, to something
+different on older Raspberry Pis:</p>
+<pre><code>make HEAP_SIZE=128000000
+</code></pre></li>
+<li><p>Run</p>
+<pre><code>make dist
+</code></pre><p>After the command is done you will find a directory and a tarfile
+in <code>builds</code> named after your platform, e.g. <code>Emojicode-0.2.0-beta.2-x86_64-linux-gnu</code>.</p>
+</li>
+<li>Go to step 2 in the <a href="#installing">Installing</a> guide above.</li>
+</ol>
 
 
 	<div class="reference-navigation-bottom">
