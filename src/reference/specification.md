@@ -138,8 +138,6 @@ The *starting flag class method* is the first part of the program to be called.
 1. 8-bit unsigned integer: Packages count.
 2. *Packages* *1.
 
-The first package in the bytecode file must be `s`.
-
 ### Package
 
 1.  16-bit unsigned integer: Number of characters.
