@@ -4,7 +4,7 @@
 
   {{#conformsToItems}}
     <h3>Conforms to</h3>
-    <div class="link-list">
+    <div class="link-list u4">
       {{#conformsTo}}
         {{{thisTypeLink}}}
       {{/conformsTo}}
@@ -12,7 +12,7 @@
   {{/conformsToItems}}
   {{#initializers.length}}
     <h3>Initializers</h3>
-    <div class="link-list">
+    <div class="link-list u4">
       {{#initializers}}
         <a href="#i{{name}}">{{name}}</a>
       {{/initializers}}
@@ -20,7 +20,7 @@
   {{/initializers.length}}
   {{#methods.length}}
     <h3>Methods</h3>
-    <div class="link-list">
+    <div class="link-list u4">
       {{#methods}}
         <a href="#m{{name}}">{{name}}</a>
       {{/methods}}
@@ -28,7 +28,7 @@
   {{/methods.length}}
   {{#classMethods.length}}
     <h3>Class Methods</h3>
-    <div class="link-list">
+    <div class="link-list u4">
       {{#classMethods}}
         <a href="#cm{{name}}">{{name}}</a>
       {{/classMethods}}

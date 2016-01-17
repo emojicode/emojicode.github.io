@@ -57,12 +57,15 @@ Steps:
 
   to compile the Engine, the compiler and all default packages.
 
-  You may need to change the heap size, which defaults to 512 MB, to something
-  different on older Raspberry Pis:
+  You may need to use a smaller heap size on older Raspberry Pis. You can
+  specify the heap size in bytes when compiling the engine:
 
   ```
   make HEAP_SIZE=128000000
   ```
+
+  The default heap size is 512MB.
+
 3. Run
 
   ```

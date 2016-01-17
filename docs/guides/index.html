@@ -79,10 +79,11 @@ for your system.</p>
 <li><p>Extract the downloaded source and navigate into it. Then simply run</p>
 <pre><code>make
 </code></pre><p>to compile the Engine, the compiler and all default packages.</p>
-<p>You may need to change the heap size, which defaults to 512 MB, to something
-different on older Raspberry Pis:</p>
+<p>You may need to use a smaller heap size on older Raspberry Pis. You can
+specify the heap size in bytes when compiling the engine:</p>
 <pre><code>make HEAP_SIZE=128000000
-</code></pre></li>
+</code></pre><p>The default heap size is 512MB.</p>
+</li>
 <li><p>Run</p>
 <pre><code>make dist
 </code></pre><p>After the command is done you will find a directory and a tarfile
