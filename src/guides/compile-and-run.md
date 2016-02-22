@@ -54,7 +54,7 @@ Congratulations! You’ve written your first program. But how does it actually w
 
 It’s simple: `🔤Howdy, partner!🔤` is a string literal. Every character between two 🔤 is then part of the string.
 
-Then we call the 😀 method on this string. And guess what, it just prints the string to the standard output. The thing to notice here is, that the method is actually called by putting its emoji **before the object**. It’s also noteworthy that Emojicode never uses parentheses around arguments to method calls.
+Then we call the 😀 method on this string. And guess what, it just prints the string to the standard output. The thing to notice here is, that the method is actually called by putting its emoji **before the object**. It’s also noteworthy that Emojicode usually does not use parentheses around arguments to method calls.
 
 ## Warming Up
 

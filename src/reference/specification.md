@@ -48,10 +48,10 @@ Like the compiler the engine distinguishes between *primitives* and *objects*.
 
 *Primitives* are a fixed amount of data types which are represented by a single value. These data types are:
 
-- Integer, which must be able to store the range of a 32-bit signed integer.
+- Integer, which must be able to store the range of a 64-bit signed integer.
 - Float
 - Boolean, which must be able to store a truthy or a falsy.
-- Symbol, which must be able to store the range of a 32-bit unsigned integer.
+- Symbol, which must be able to represent any Unicode Character defined in the latest Unicode standard.
 
 *Objects* are allocated on the heap and only passed by their reference.
 

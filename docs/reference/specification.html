@@ -116,10 +116,10 @@
 <p>Like the compiler the engine distinguishes between <em>primitives</em> and <em>objects</em>.</p>
 <p><em>Primitives</em> are a fixed amount of data types which are represented by a single value. These data types are:</p>
 <ul>
-<li>Integer, which must be able to store the range of a 32-bit signed integer.</li>
+<li>Integer, which must be able to store the range of a 64-bit signed integer.</li>
 <li>Float</li>
 <li>Boolean, which must be able to store a truthy or a falsy.</li>
-<li>Symbol, which must be able to store the range of a 32-bit unsigned integer.</li>
+<li>Symbol, which must be able to represent any Unicode Character defined in the latest Unicode standard.</li>
 </ul>
 <p><em>Objects</em> are allocated on the heap and only passed by their reference.</p>
 <p>Since <em>primitives</em> and <em>object references</em> can be stored together in a list or dictionary, the engine must be able to store <em>primitives</em> and <em>objects references</em> in the same space but must still be able to distinguish them later.</p>
