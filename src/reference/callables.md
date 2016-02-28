@@ -41,6 +41,15 @@ Example of calling a callable:
 
 You can *capture* a method call on a given object. This creates a function taking all arguments the method would take and returning the same value the method would return, this function however will always execute the method on the same object.
 
+The syntax is:
+
+```
+🌶 methodName object
+```
+
+*methodName* is the emoji representing the method. *object* must be an object
+which has a method *methodName* and to which the method will be bound.
+
 Example:
 
 ```
@@ -96,6 +105,11 @@ Let’s take a look at a more advanced use of a closure:
 
 Here we’ve got a class method that returns a closure. The closure actually closes over the `name` variable here and copies it value so that it can be used when the closure is called later.
 
+>!N Closures **copy** the closured **local variables** and freeze them in the scope of the closure.
+>!N If you modify one of the copied variable only the copy local to the closure will be modified.
+>!N
+>!N **Instance variables** are **not copied** and really change when modified inside a closure.
+
 Now if we call the class method we’ll get a closure:
 
 ```
@@ -115,7 +129,3 @@ This will produce:
 Hello, Walfried
 Have a good lunch, Walfried
 ```
-
->!N Closures **copy** the closured **local variables**. If you modify one of the copied variable only the copy local to the closure will be modified.
->!N
->!N **Instance variables** are **not copied** and really change when modified inside a closure.

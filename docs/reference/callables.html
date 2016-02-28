@@ -103,6 +103,10 @@
 🍭 greet 🔤Bob🔤
 </code></pre><h2 id="capturing-a-method-call">Capturing a Method Call</h2>
 <p>You can <em>capture</em> a method call on a given object. This creates a function taking all arguments the method would take and returning the same value the method would return, this function however will always execute the method on the same object.</p>
+<p>The syntax is:</p>
+<pre><code>🌶 methodName object
+</code></pre><p><em>methodName</em> is the emoji representing the method. <em>object</em> must be an object
+which has a method <em>methodName</em> and to which the method will be bound.</p>
 <p>Example:</p>
 <pre><code>🍮 string 🔤Strawberry🔤
 
@@ -138,6 +142,11 @@
   🍉
 🍉
 </code></pre><p>Here we’ve got a class method that returns a closure. The closure actually closes over the <code>name</code> variable here and copies it value so that it can be used when the closure is called later.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Closures <strong>copy</strong> the closured <strong>local variables</strong> and freeze them in the scope of the closure.
+If you modify one of the copied variable only the copy local to the closure will be modified.</p>
+<p><strong>Instance variables</strong> are <strong>not copied</strong> and really change when modified inside a closure.</p>
+</div></div>
+
 <p>Now if we call the class method we’ll get a closure:</p>
 <pre><code>🍮 walfriedGreeter 🍩🙋🐀 🔤Walfried🔤
 </code></pre><p>Now we can call the closure with an argument for <code>hour</code>:</p>
@@ -146,10 +155,7 @@
 </code></pre><p>This will produce:</p>
 <pre><code>Hello, Walfried
 Have a good lunch, Walfried
-</code></pre><div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Closures <strong>copy</strong> the closured <strong>local variables</strong>. If you modify one of the copied variable only the copy local to the closure will be modified.</p>
-<p><strong>Instance variables</strong> are <strong>not copied</strong> and really change when modified inside a closure.</p>
-</div></div>
-
+</code></pre>
 
 	<div class="reference-navigation-bottom">
 		<a href="generics.html" class="left">
