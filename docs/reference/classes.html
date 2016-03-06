@@ -107,27 +107,25 @@
 <h2 id="instance-variables">Instance Variables</h2>
 <p>When a class is created a scope is created in which the <em>instance variables</em> live. This scope is always available to methods and in initializers as top scope. You can declare variables in this scope by using the 🍰 syntax in the class body.</p>
 <pre><code>🐇 📷 🍇
-
-    🍰 megapixels 🚂
-    🍰 manufacturer 🔡
-    🍰 hasFlash 👌
-
+  🍰 megapixels 🚂
+  🍰 manufacturer 🔡
+  🍰 flashOn 👌
 🍉
 </code></pre><p>As the name suggests instance variables are just variables inside a scope. They <strong>cannot be accessed from outside</strong> the class. If you want to modify or access them from outside the class you have to write <strong>getters and setters</strong>.</p>
 <p>It’s also noteworthy that instance variables are <strong>private to the class</strong> in which they were
 defined. Subclasses can’t access their superclasses instance variables.</p>
 <p>Example:</p>
 <pre><code>🐇 📷 🍇
-    🍰 megapixels 🚂
-    🍰 manufacturer 🔡
-    🍰 flashOn 👌
+  🍰 megapixels 🚂
+  🍰 manufacturer 🔡
+  🍰 flashOn 👌
 
-    🐖 💾 🍇
-        😀 🍪🔤We are now taking a photo of 🔤 megapixels 🔤megapixels.🔤🍪
-        🍊 flashOn 🍇
-            😀 🔤Don’t close your eyes!🔤
-        🍉
+  🐖 💾 🍇
+    😀 🍪🔤We are now taking a photo with a camera manufactured by 🔤 manufacturer 🍪
+    🍊 flashOn 🍇
+      😀 🔤Don’t close your eyes!🔤
     🍉
+  🍉
 🍉
 </code></pre><div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Please note that the class defined in this example is not useful as it is missing an initializer.</p>
 </div></div>
@@ -140,15 +138,15 @@ defined. Subclasses can’t access their superclasses instance variables.</p>
 🍉
 </code></pre><p>The <em>name</em> must be an emoji. Then any number of <code>variable type</code> can follow. These define the parameters the initializer takes. <em>variable</em> must be a valid variable name and <em>type</em> and valid type.</p>
 <p>An initializer for our 📷 class could look like this:</p>
-<pre><code>🐇 📷 🍇
-  🍰 megapixels 🚂
-  🍰 manufacturer 🔡
-  🍰 flashOn 👌
+<pre><code>🐈 💳 @flashOn 👌 @megapixels 🚂 🍇
+  🍮 manufacturer 🔡Pana cotta🔡
+  🍮 megapixels @megapixels
+  🍮 flashOn @flashOn
 🍉
-</code></pre><p>As you can see this initializer sets <code>megapixels</code> and <code>manufacturer</code> to default values, and sets <code>flashOn</code> based on an argument. Notice how <code>flashOn?</code> was used in the argument list. If we had used <code>flashOn</code> we would have shadowed the instance variable <code>flashOn</code>, and we would not have been able to set it.</p>
+</code></pre><p>As you can see this initializer sets <code>manufacturer</code> to a default value, and sets <code>flashOn</code> and <code>megapixels</code> based on an argument. Notice how <code>@flashOn</code> and <code>@megapixels</code> were used in the argument list. If we had used <code>flashOn</code> or <code>megapixels</code> we would have shadowed the instance variables, and thus we would not have been able to set them.</p>
 <div class="callout-caution"><div class="title">Caution</div><div class="text"><p>In the initializer you <strong>must</strong> set all instance variables that are not optionals to an appropriate value.</p>
 <p>You <strong>must</strong> also call an initializer of your class’s superclass, given the class has a superclass. To do this you use 🐐:</p>
-<pre><code>🐐 !superinitializer [arguments ...]
+<pre><code>🐐 superinitializer [arguments ...]
 </code></pre><p>This guarantees that the object is fully initialized.</p>
 </div></div>
 
@@ -158,7 +156,7 @@ defined. Subclasses can’t access their superclasses instance variables.</p>
 <pre><code>🔷 className initializerName [arguments ...]
 </code></pre><p><em>className</em> must be the name of the class you want to instantiate. <em>initializerName</em> must be the name of the initializer you wan to use. Naturally you need to provide the correct number of appropriate arguments.</p>
 <p>To create a 📷 instance we would do:</p>
-<pre><code>🔷📷💳 👎
+<pre><code>🔷📷💳 👎 25
 </code></pre><h2 id="required-initializers">Required Initializers</h2>
 <p>By default subclasses are not required to implement the initializers of their parent classes. This means that a parent class may define a initializer which no subclass has.</p>
 <p>Sometimes a class may need to enforce its descendants to implement a specific initializer. In such cases the 🔑 attribute should be used. A class must implement all initializers defined in its superclass that were marked with 🔑.</p>
@@ -178,8 +176,6 @@ defined. Subclasses can’t access their superclasses instance variables.</p>
     👴 The pizza burned if the temperature was above 573.15K
     🍎 ⚡️
   🍉
-
-  🐐 🆕
 🍉
 </code></pre><p>As you can see in the above example you use the 🍎 in combination with ⚡️ to return nothingness. Using such an initializer with 🔷 gives you, of course, an optional.</p>
 <h2 id="methods">Methods</h2>
@@ -221,10 +217,10 @@ defined. Subclasses can’t access their superclasses instance variables.</p>
 <p>Example:</p>
 <pre><code>👴 Automatically takes a photo of fireworks
 🐖 🎆 🍇
-    👴 launch it
-    💥 fireworkInterface
-    👴 take the photo
-    💾 🐕
+  👴 launch it
+  💥 fireworkInterface
+  👴 take the photo
+  💾 🐕
 🍉
 </code></pre><div class="callout-caution"><div class="title">Caution</div><div class="text"><p>In an initializer you cannot use 🐕 before the object is fully initialized: You must set all instance variables first and you must have called the super initializer.</p>
 </div></div>
@@ -233,13 +229,12 @@ defined. Subclasses can’t access their superclasses instance variables.</p>
 <p>Inside a method you can use this syntax to call the super method:</p>
 <pre><code>🐿 methodEmoji [arguments ...]
 </code></pre><p>This simply calls the super method named <em>methodEmoji</em> and returns it value.</p>
-<p>You should of course only use this method if its really needed.</p>
+<p>You should of course only use this method if it’s really needed.</p>
 <h2 id="class-methods">Class Methods</h2>
 <p>You can also define class methods which are methods that are called on the class instead of calling them on an instance.</p>
 <p>Class methods are simply methods with the 🐇 attribute which turns them into class methods. E.g.</p>
 <pre><code>🐇🐖 🏁 ➡️ 🚂 🍇
-  🍮 counter 0
-  🍫 counter
+  😀 🔤Howdy!🔤
 
   🍎 0
 🍉
