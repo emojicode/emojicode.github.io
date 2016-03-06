@@ -9,6 +9,9 @@
 You can download the SDK for you system here:
 https://github.com/emojicode/emojicode/releases
 
+Instruction to build Emojicode from source can be found in the 
+[GitHub repository](https://github.com/emojicode/emojicode/).
+
 ## Installing
 
 1. [Download the SDK](https://github.com/emojicode/emojicode/releases) for your
@@ -33,45 +36,3 @@ https://github.com/emojicode/emojicode/releases
   ```
   sudo apt-get install ttf-ancient-fonts
   ```
-
-## Building
-
-You can also build Emojicode directly on your system if no binary is available
-for your system.
-
-Perquisites:
-- **clang** or **GCC 4.7+**
-- **make** (Preferably GNU Make)
-- SDL2 (libsdl2-dev) to compile the SDL package
-  - `sudo apt-get install libsdl2-dev` on Debian/Ubuntu
-  - `brew install SDL2` on OS X
-
-Steps:
-
-1. [Download the source code from GitHub.](https://github.com/emojicode/emojicode)
-2. Extract the downloaded source and navigate into it. Then simply run
-
-  ```
-  make
-  ```
-
-  to compile the Engine, the compiler and all default packages.
-
-  You may need to use a smaller heap size on older Raspberry Pis. You can
-  specify the heap size in bytes when compiling the engine:
-
-  ```
-  make HEAP_SIZE=128000000
-  ```
-
-  The default heap size is 512MB.
-
-3. Run
-
-  ```
-  make dist
-  ```
-
-  After the command is done you will find a directory and a tarfile
-in `builds` named after your platform, e.g. `Emojicode-0.2.0-beta.2-x86_64-linux-gnu`.
-4. Go to step 2 in the [Installing](#installing) guide above.

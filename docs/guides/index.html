@@ -25,7 +25,6 @@
           <ul>
             <li><a href="#downloads">Downloads</a></li>
             <li><a href="#installing">Installing</a></li>
-            <li><a href="#building">Building</a></li>
           </ul>
       </li>
     	<li>
@@ -44,6 +43,8 @@ not otherwise noted.</p>
 
 <p>You can download the SDK for you system here:
 <a href="https://github.com/emojicode/emojicode/releases">https://github.com/emojicode/emojicode/releases</a></p>
+<p>Instruction to build Emojicode from source can be found in the 
+<a href="https://github.com/emojicode/emojicode/">GitHub repository</a>.</p>
 <h2 id="installing">Installing</h2>
 <ol>
 <li><p><a href="https://github.com/emojicode/emojicode/releases">Download the SDK</a> for your
@@ -59,37 +60,6 @@ system and extract the tar file. For instance:</p>
 you will likely have to install the <code>ttf-ancient-fonts</code> on Linux.</p>
 <pre><code>sudo apt-get install ttf-ancient-fonts
 </code></pre></li>
-</ol>
-<h2 id="building">Building</h2>
-<p>You can also build Emojicode directly on your system if no binary is available
-for your system.</p>
-<p>Perquisites:</p>
-<ul>
-<li><strong>clang</strong> or <strong>GCC 4.7+</strong></li>
-<li><strong>make</strong> (Preferably GNU Make)</li>
-<li>SDL2 (libsdl2-dev) to compile the SDL package<ul>
-<li><code>sudo apt-get install libsdl2-dev</code> on Debian/Ubuntu</li>
-<li><code>brew install SDL2</code> on OS X</li>
-</ul>
-</li>
-</ul>
-<p>Steps:</p>
-<ol>
-<li><a href="https://github.com/emojicode/emojicode">Download the source code from GitHub.</a></li>
-<li><p>Extract the downloaded source and navigate into it. Then simply run</p>
-<pre><code>make
-</code></pre><p>to compile the Engine, the compiler and all default packages.</p>
-<p>You may need to use a smaller heap size on older Raspberry Pis. You can
-specify the heap size in bytes when compiling the engine:</p>
-<pre><code>make HEAP_SIZE=128000000
-</code></pre><p>The default heap size is 512MB.</p>
-</li>
-<li><p>Run</p>
-<pre><code>make dist
-</code></pre><p>After the command is done you will find a directory and a tarfile
-in <code>builds</code> named after your platform, e.g. <code>Emojicode-0.2.0-beta.2-x86_64-linux-gnu</code>.</p>
-</li>
-<li>Go to step 2 in the <a href="#installing">Installing</a> guide above.</li>
 </ol>
 
 
