@@ -99,8 +99,8 @@ The above example will increment *numberOfCats* and decrement *watermelons*.
 Integer literals can be written in
 
 - Decimal notation, like `29`
-- Hexadecimal notation, with the prefix 0x, like `0x1D`
-- Octal notation, with the prefix 0, like `035`
+- Hexadecimal notation, with the prefix `0x`, like `0x1D`
+- Octal notation, with the prefix `0`, like `035`
 
 >!N Be careful, `0xXAD` for instance is an integer (value 0) and a variable (`XAD`)
 
