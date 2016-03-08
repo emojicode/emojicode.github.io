@@ -70,7 +70,7 @@ Consider the following example. While the first comparison of object references 
 
 ## 🍨 Lists
 
-Lists are an ordered mutable collection of values. They are represeneted by the 🍨 class. Their sizes are theoretically unlimited, but practically hardware and the fact that Emojicode’s integers have an upper bound makes them limited.
+Lists are ordered mutable collections of values. They are represeneted by the 🍨 class. Their sizes are theoretically unlimited, but practically hardware and the fact that Emojicode’s integers have an upper bound makes them limited.
 
 Lists are optimized for fast by index access. You can access by index, pop and append in `O(1)`.
 
