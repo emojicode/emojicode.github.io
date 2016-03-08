@@ -20,7 +20,7 @@ EmojiExample = (function() {
       html: "You like cute little rabbits and powerful fast classes. Any questions?"
     }, {
       img: "2712",
-      html: "Overriding is fun and secure. Me more specific or more general, just do not break promises."
+      html: "Overriding is fun and secure. Be more specific or more general, just do not break promises."
     }
   ];
 
