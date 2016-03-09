@@ -9,7 +9,7 @@ All Emojicode source files are named like `file.emojic`. So let’s get started 
 ```
 🐇 🐼 🍇
   🐇🐖 🏁 ➡️ 🚂 🍇
-    😀 🔤￼Howdy, partner!🔤
+  
     🍎 0
   🍉
 🍉

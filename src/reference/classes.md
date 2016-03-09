@@ -6,9 +6,11 @@ Emojicode is object orientated and allows you to create class types. This chapte
 
 The syntax to create a new class is the following:
 
-	🐇 class [superclass] 🍇
+```
+🐇 class [superclass] 🍇
 
-	🍉
+🍉
+```
 
 When you define a new class you are also creating a new type.
 
@@ -18,13 +20,13 @@ When you define a new class you are also creating a new type.
 
 When a class is created a scope is created in which the *instance variables* live. This scope is always available to methods and in initializers as top scope. You can declare variables in this scope by using the 🍰 syntax in the class body.
 
-	🐇 📷 🍇
-
-		🍰 megapixels 🚂
-		🍰 manufacturer 🔡
-		🍰 hasFlash 👌
-
-	🍉
+```
+🐇 📷 🍇
+  🍰 megapixels 🚂
+  🍰 manufacturer 🔡
+  🍰 flashOn 👌
+🍉
+```
 
 As the name suggests instance variables are just variables inside a scope. They **cannot be accessed from outside** the class. If you want to modify or access them from outside the class you have to write **getters and setters**.
 
@@ -33,18 +35,20 @@ defined. Subclasses can’t access their superclasses instance variables.
 
 Example:
 
-    🐇 📷 🍇
-    	🍰 megapixels 🚂
-    	🍰 manufacturer 🔡
-    	🍰 flashOn 👌
+```
+🐇 📷 🍇
+  🍰 megapixels 🚂
+  🍰 manufacturer 🔡
+  🍰 flashOn 👌
 
-    	🐖 💾 🍇
-    		😀 🍪🔤We are now taking a photo of 🔤 megapixels 🔤megapixels.🔤🍪
-    		🍊 flashOn 🍇
-    			😀 🔤Don’t close your eyes!🔤
-    		🍉
-    	🍉
+  🐖 💾 🍇
+    😀 🍪🔤We are now taking a photo with a camera manufactured by 🔤 manufacturer 🍪
+    🍊 flashOn 🍇
+      😀 🔤Don’t close your eyes!🔤
     🍉
+  🍉
+🍉
+```
 
 >!H Please note that the class defined in this example is not useful as it is missing an initializer.
 
@@ -54,27 +58,32 @@ An initializer performs all required steps to make an object ready for use and i
 
 The syntax is:
 
-    🐈 name [(variable type) ...] 🍇
+```
+🐈 name [(variable type) ...] 🍇
 
-    🍉
+🍉
+```
 
 The *name* must be an emoji. Then any number of `variable type` can follow. These define the parameters the initializer takes. *variable* must be a valid variable name and *type* and valid type.
 
 An initializer for our 📷 class could look like this:
 
-    🐇 📷 🍇
-      🍰 megapixels 🚂
-      🍰 manufacturer 🔡
-      🍰 flashOn 👌
-    🍉
+```
+🐈 💳 @flashOn 👌 @megapixels 🚂 🍇
+  🍮 manufacturer 🔡Pana cotta🔡
+  🍮 megapixels @megapixels
+  🍮 flashOn @flashOn
+🍉
+```
 
-As you can see this initializer sets `megapixels` and `manufacturer` to default values, and sets `flashOn` based on an argument. Notice how `flashOn?` was used in the argument list. If we had used `flashOn` we would have shadowed the instance variable `flashOn`, and we would not have been able to set it.
+As you can see this initializer sets `manufacturer` to a default value, and sets `flashOn` and `megapixels` based on an argument. Notice how `@flashOn` and `@megapixels` were used in the argument list. If we had used `flashOn` or `megapixels` we would have shadowed the instance variables, and thus we would not have been able to set them.
 
 >!N In the initializer you **must** set all instance variables that are not optionals to an appropriate value.
 >!N
 >!N You **must** also call an initializer of your class’s superclass, given the class has a superclass. To do this you use 🐐:
->!N
->!N	🐐 !superinitializer [arguments ...]
+>!N ```
+>!N 🐐 superinitializer [arguments ...]
+>!N ```
 >!N This guarantees that the object is fully initialized.
 
 ## Instantiation
@@ -83,14 +92,17 @@ Now that we have declared an initializer we can get an instance of our class. To
 
 Its syntax is:
 
-    🔷 className initializerName [arguments ...]
+```
+🔷 className initializerName [arguments ...]
+```
 
 *className* must be the name of the class you want to instantiate. *initializerName* must be the name of the initializer you wan to use. Naturally you need to provide the correct number of appropriate arguments.
 
 To create a 📷 instance we would do:
 
-    🔷📷💳 👎
-
+```
+🔷📷💳 👎 25
+```
 
 ## Required Initializers
 
@@ -125,8 +137,6 @@ To declare a Nothingness Initializer you must use the 🍬 attribute. Example:
     👴 The pizza burned if the temperature was above 573.15K
     🍎 ⚡️
   🍉
-
-  🐐 🆕
 🍉
 ```
 
@@ -136,9 +146,11 @@ As you can see in the above example you use the 🍎 in combination with ⚡️ 
 
 The method syntax is:
 
-    🐖 name [(variable type) ...] [➡️ returnType] 🍇
+```
+🐖 name [(variable type) ...] [➡️ returnType] 🍇
 
-    🍉
+🍉
+```
 
 You can declare a *returnType* for the method. If you don’t declare a return type the return type defaults to ✨. Indeed ✨ will be returned if you never use a 🍎. To return a value one uses 🍎:
 
@@ -178,7 +190,9 @@ This method is named ✉️ and takes to arguments: `to` and `subject`. It retur
 
 The syntax to call a method is a bit different:
 
-	methodEmoji object [arguments ...]
+```
+methodEmoji object [arguments ...]
+```
 
 *methodEmoji* is the name of the method you wish to call. *object* is the object instance whose method will be called. Of course all arguments must be provided as required.
 
@@ -186,25 +200,31 @@ The syntax to call a method is a bit different:
 
 Example:
 
-    ✉️ myCamera 🔤someone@emojicode.org🔤 🔤Important Photo🔤
+```
+✉️ myCamera 🔤someone@emojicode.org🔤 🔤Important Photo🔤
+```
 
 ## 🐕 This Object
 
 Syntax:
 
-	🐕
+```
+🐕
+```
 
 The 🐕 returns the current object, whose method or initializer is being called.
 
 Example:
 
-	👴 Automatically takes a photo of fireworks
-	🐖 🎆 🍇
-		👴 launch it
-		💥 fireworkInterface
-		👴 take the photo
-		💾 🐕
-	🍉
+```
+👴 Automatically takes a photo of fireworks
+🐖 🎆 🍇
+  👴 launch it
+  💥 fireworkInterface
+  👴 take the photo
+  💾 🐕
+🍉
+```
 
 >!N In an initializer you cannot use 🐕 before the object is fully initialized: You must set all instance variables first and you must have called the super initializer.
 
@@ -218,7 +238,7 @@ Inside a method you can use this syntax to call the super method:
 
 This simply calls the super method named *methodEmoji* and returns it value.
 
-You should of course only use this method if its really needed.
+You should of course only use this method if it’s really needed.
 
 ## Class Methods
 
@@ -228,8 +248,7 @@ Class methods are simply methods with the 🐇 attribute which turns them into c
 
 ```
 🐇🐖 🏁 ➡️ 🚂 🍇
-  🍮 counter 0
-  🍫 counter
+  😀 🔤Howdy!🔤
 
   🍎 0
 🍉
