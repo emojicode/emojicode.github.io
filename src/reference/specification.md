@@ -118,7 +118,7 @@ The structure of each file is shown below. The next section describes the exact 
 
 ### Version
 
-The first byte of the file represents the specification version. Files that comply with this specification shall save the value 2.
+The first byte of the file represents the specification version. Files that comply with this specification shall save the value 3.
 
 Engines might reject a bytecode file based on the version number.
 
