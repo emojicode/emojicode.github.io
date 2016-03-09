@@ -452,18 +452,6 @@ section {
   .header-emojis.out {
     opacity: 0; }
 
-@media (max-width: 790px) {
-  .header h1 {
-    font-size: 65px; }
-
-  .header h2 {
-    font-size: 22px;
-    margin-top: 0.5em; }
-
-  .header .header-read {
-    font-size: 16px; }
-    .header .header-read i {
-      font-size: 32px; } }
 .menu {
   padding: 8px;
   color: #fff;
@@ -500,7 +488,7 @@ section {
   text-align: center;
   width: 120px;
   height: 120px;
-  line-height: 120px;
+  line-height: 110px;
   margin: 0 auto; }
   .feature-circle img {
     vertical-align: middle;
@@ -565,5 +553,36 @@ section {
     -ms-transform: translateY(-6px);
     -o-transform: translateY(-6px);
     transform: translateY(-6px); } }
+
+@media (max-width: 700px) {
+  
+  .header h1 {
+    font-size: 65px; }
+
+  .header h2 {
+    font-size: 22px;
+    margin-top: 0.5em; }
+
+  .header .header-read {
+    font-size: 16px; }
+    .header .header-read i {
+      font-size: 32px; } 
+	.header-emojis {
+
+		width: 90%
+	}
+	.example-code {
+		width: 100%
+	}
+	.intro, .action {
+		padding: 10px;
+	}
+	.u-1-2 {
+		width: 100%;
+	}
+	.cta-btn {
+		text-align: center
+	}
+}
 
 /*# sourceMappingURL=style.css.map */
