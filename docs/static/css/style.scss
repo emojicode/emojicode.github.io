@@ -4,12 +4,17 @@
   font-family: 'Varela Round';
   font-style: normal;
   font-weight: 400;
-  src: local('Varela Round'), local('VarelaRound-Regular'), url(/docs/static/fonts/VarelaRound-Regular.ttf) format('woff');
+  src: local('Varela Round'), local('VarelaRound-Regular'), 
+       url(/docs/static/fonts/VarelaRound-Regular.ttf) format('woff');
 }
 
 $header-color: #312d67;
 $navbar-height: 50px;
 $navbar-item-color: #fff;
+
+$global-nav-height: 30px;
+$global-nav-color: #25224d;
+$global-nav-text-color: #999;
 
 $code-background: #eee;
 $code-font: Monaco, Menlo, monospace;
@@ -43,7 +48,7 @@ body {
   padding: 0;
   margin: 0;
 
-  padding-top: 50px;
+  padding-top: 80px;
   padding-bottom: 24px;
 
   vertical-align: baseline;
@@ -93,7 +98,7 @@ section,
 .content {
   max-width: $content-width;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;
 }
 
 h1 {
@@ -141,15 +146,34 @@ table {
 
 // ==== SPECIAL ====
 
-.navbar {
+.global-nav {
   position: fixed;
   top: 0;
+  width: 100%;
+  height: $global-nav-height;
+  line-height: $global-nav-height;
+  background-color: $global-nav-color;
+  color: $global-nav-text-color;
+  font-size: 14px;
+  padding: 0 10px;
+  z-index: 1000;
+}
+
+.global-nav-link {
+  padding: 0 4px;
+}
+
+.navbar {
+  position: fixed;
+  top: $global-nav-height;
   width: 100%;
   height: $navbar-height;
   line-height: $navbar-height;
   background-color: $header-color;
   -webkit-font-smoothing: subpixel-antialiased;
   z-index: 1000;
+  overflow-x: scroll;
+  white-space: nowrap;
 
   a {
     display: inline-block;
@@ -164,21 +188,22 @@ table {
   }
 
   .logo {
-    float: right;
     font-family: Varela Round, sans-serif;
     letter-spacing: $logo-letter-spacing;
-    color: $white;
-    padding: 0 15px;
-    font-size: 24px;
+    font-size: 22px;
   }
+}
+
+.navbar-right {
+  float: right;
 }
 
 :target:before {
   background-color: transparent;
   content: '';
   display: block;
-  height: $navbar-height + 10px;
-  margin: -($navbar-height + 10px) 0 0;
+  height: $navbar-height + $global-nav-height + 10px;
+  margin: -($navbar-height + $global-nav-height + 10px) 0 0;
 }
 
 .method-emoji {
@@ -223,7 +248,7 @@ table {
   position: absolute;
   font-size: 14px;
   padding: 10px;
-  top: 40px;
+  top: 70px;
   width: 300px;
 
   &.fixed {
@@ -236,7 +261,6 @@ table {
 }
 
 .content {
-  padding: 3px 20px;
   margin-left: 310px;
 }
 
@@ -291,9 +315,7 @@ table {
   }
 }
 
-.reference-navigation-bottom {
-  .right {
-    float: right;
-    text-align: right;
-  }
+.reference-navigation-bottom .right {
+  float: right;
+  text-align: right;
 }

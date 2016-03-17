@@ -7,18 +7,22 @@
 		<title>Emojicode Documentation{{#title}} &middot; {{title}}{{/title}}</title>
 	</head>
 	<body>
-		<nav class="navbar" role="navigation">
-      <a href="{{rootpath}}">Home</a>
-      <a href="{{rootpath}}guides">Guides</a>
-			<a href="{{rootpath}}reference">Language Reference</a>
-			<a href="{{rootpath}}packages">Package Index</a>
-      <a href="{{rootpath}}.." class="logo">
-        Emojicode
-      </a>
-		</nav>
-		<div class="container-fluid">
-			{{content}}
+		<div class="global-nav">
+			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
+		<nav class="navbar" role="navigation">
+			<a href="{{rootpath}}" class="logo">
+        Emojicode Documentation
+      </a>
+      <div class="navbar-right">
+	      <a href="{{rootpath}}">Home</a>
+	      <a href="{{rootpath}}guides">Guides</a>
+				<a href="{{rootpath}}reference">Language Reference</a>
+				<a href="{{rootpath}}packages">Package Index</a>
+			</div>
+		</nav>
+
+		{{content}}
 
 		<script type="text/javascript">
 			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
