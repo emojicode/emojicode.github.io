@@ -248,8 +248,10 @@ defined. Subclasses can’t access their superclasses instance variables.</p>
 <p>Syntax to call a class method:</p>
 <pre><code>🍩 methodEmoji class [arguments ...]
 </code></pre><p>Example:</p>
-<pre><code>🍩 🎱
-</code></pre><p>This calls the 🎱 class method on the class 🐪 in namespace 🕚.</p>
+<pre><code>🍩 🌍 💻
+</code></pre><p>This calls the class method 🌍 on the class 💻. 💻 is a class defined
+in the s package. The 🌍 method will return the <em>current working 
+directory</em>. </p>
 <h2 id="-this-class">🐀 This Class</h2>
 <p>Inside class methods 🐀 can be used instead of a class name. At runtime 🐀 is replaced with the class on which the class method was called, which is not necessarily the class in which the method was defined.</p>
 <p>Example:</p>

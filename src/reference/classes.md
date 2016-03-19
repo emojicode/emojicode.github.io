@@ -264,9 +264,11 @@ Syntax to call a class method:
 
 Example:
 
-    🍩 🎱
+    🍩 🌍 💻
 
-This calls the 🎱 class method on the class 🐪 in namespace 🕚.
+This calls the class method 🌍 on the class 💻. 💻 is a class defined
+in the s package. The 🌍 method will return the *current working 
+directory*. 
 
 ## 🐀 This Class
 
