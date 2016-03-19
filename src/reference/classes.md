@@ -184,7 +184,7 @@ A method like this might be more interesting:
 🍉
 ```
 
-This method is named ✉️ and takes to arguments: `to` and `subject`. It returns a 👌.
+This method is named ✉️ and takes two arguments: `to` and `subject`. It returns a 👌.
 
 ### Calling Methods
 
@@ -298,9 +298,9 @@ You can override methods and initializers by redeclaring them in a subclass lead
 
 ### Promises
 
-You must watch out not break the superclass’s *promises*. Promises are a set of rules that ensure that the class’s routines can be used the same way as its superclass’s routines – a main characteristic of object orientation. These promises are:
+You must watch out not to break the superclass’s *promises*. Promises are a set of rules that ensure that the class’s routines can be used the same way as its superclass’s routines – a main characteristic of object orientation. These promises are:
 
-- The new routine must the take the same number of arguments.
+- The new routine must take the same number of arguments.
 - The return type of the new routine must be the same or a subtype of the super method’s return type.
 - The arguments of the new routine must be of the same type or a super type of the super method’s argument type.
 
