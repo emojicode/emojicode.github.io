@@ -136,7 +136,9 @@ class Package
       methods: type.methods
       classMethods: type.classMethods
       typeType: typeType
+      genericArguments: type.genericArguments
       typeLink: -> Package.typeLink(this.type)
+      constraintTypeLink: -> Package.typeLink(this.constraint)
       thisTypeLink: -> Package.typeLink(this)
       mdDocumentation: -> markdownToHTML(@documentation) if @documentation?
 
