@@ -29,6 +29,7 @@
     <h3>Initializers</h3>
     <div class="link-list u4">
         <a href="#i🐸">🐸</a>
+        <a href="#i🐧">🐧</a>
     </div>
     <h3>Methods</h3>
     <div class="link-list u4">
@@ -41,6 +42,8 @@
         <a href="#m🐼">🐼</a>
         <a href="#m🐹">🐹</a>
         <a href="#m🐰">🐰</a>
+        <a href="#m🐭">🐭</a>
+        <a href="#m🐯">🐯</a>
     </div>
 </div>
 <div class="content">
@@ -59,6 +62,20 @@ language reference.</a></p>
       <pre>  🐈 🐸 </pre>
 
 <p>Creates an empty list. </p>
+
+    </div>
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="i🐧">🐧</h3>
+        
+      </div>
+
+      <pre>  🐈 🐧 capacity 🚂</pre>
+
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Available from 0.2 Beta 4 which is yet to be released</p>
+</div></div>
+
+<p>Creates an empty list with the given initial capacity.</p>
 
     </div>
 
@@ -164,12 +181,42 @@ be considered secure on any BSD or Linux system.</p>
 
       <pre> 🐖 🐰 🐚A⚪ callback 🍇Element➡️A🍉 ➡️ <a href="../s/t5535657192.html">🍨🐚A</a></pre>
 
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Available from 0.2 Beta 4</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Available from 0.2 Beta 4 which is yet to be released</p>
 </div></div>
 
 <p>Calls callback with each element in the list and appends the returned
 value to the end of a new list.</p>
-<p>Expect undefined behavior if you mutate the list from <code>callback</code>.</p>
+
+    </div>
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="m🐭">🐭</h3>
+        
+      </div>
+
+      <pre> 🐖 🐭  callback 🍇Element➡️👌🍉 ➡️ <a href="../s/t5535657192.html">🍨🐚Element</a></pre>
+
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Available from 0.2 Beta 4 which is yet to be released</p>
+</div></div>
+
+<p>Returns a new array with all elements that pass the test implemented by
+<code>callback</code>.</p>
+
+    </div>
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="m🐯">🐯</h3>
+        
+      </div>
+
+      <pre> 🐖 🐯  callback 🍇Element➡️👌🍉 ➡️ 👌</pre>
+
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Available from 0.2 Beta 4 which is yet to be released</p>
+</div></div>
+
+<p>Tests whether all elements in the array pass the test implemented by 
+<code>callback</code>.</p>
+<p>The method immdiately returns 👎 if <code>callback</code> returned 👎 for one element.</p>
 
     </div>
 
