@@ -48,6 +48,7 @@
         <a href="#m💣">💣</a>
         <a href="#m📏">📏</a>
         <a href="#m📐">📐</a>
+        <a href="#m🚂">🚂</a>
         <a href="#m📝">📝</a>
         <a href="#m🔬">🔬</a>
         <a href="#m📇">📇</a>
@@ -114,7 +115,10 @@ by <em>separator</em>.</p>
 
       <pre>  🐈 🚂 integer 🚂base 🚂</pre>
 
-<p>Creates a string representation of the given integer. </p>
+<p>Creates a string representation of the given integer.</p>
+<p>The digits used to represent the integer are 
+<code>0123456789abcdefghijklmnopqrstuvxyz</code>. Therefore you shouldn&#39;t use a base
+greater than 35.</p>
 
     </div>
     <div class="method">
@@ -264,6 +268,23 @@ since Emojicode encodes everything into UTF8.</p>
       <pre> 🐖 📐  ➡️ 🚂</pre>
 
 <p>Returns the number of bytes needed to encode this string into proper UTF8.</p>
+
+    </div>
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="m🚂">🚂</h3>
+        
+      </div>
+
+      <pre> 🐖 🚂  base 🚂 ➡️ 🍬🚂</pre>
+
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Available from 0.2 Beta 4 which is yet to be released</p>
+</div></div>
+
+<p>This methods tries to construct an integer from this string in the given 
+base. It returns the integer or Nothingness if the string does not match the 
+regeular expression <code>[+-]?[0-9a-zA-Z]+</code> or it does not represent a valid 
+value in the given base.</p>
 
     </div>
     <div class="method">
