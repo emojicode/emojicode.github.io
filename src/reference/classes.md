@@ -326,8 +326,6 @@ Any attempt to override a method, initializer or class method attributed with �
 - 🔒: The method, initializer, or class method may only be accessed within the class it was defined.
 - 🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.
 
->!N Undefined behavior is expected in 1.0.0chi1 if you override a 🔒 method.
-
 ## Attributes Order
 
 The order of the attributes for a method or initializer:
@@ -340,7 +338,7 @@ The order of the attributes for a method or initializer:
 
 These emojis cannot be used as method names:
 
-🍮🍩🍰🍨🍯🍫🍳🍪🍭🍺🍻🔁🔂🍎🍏🍊🍋🍇🍉🍓🍆🍌🔲🔷🐕⚡️
+🍮🍩🍰🍨🍯🍦🍫🍳🍪🍭🍺🍻🔁🔂🍎🍊🍋🍇🍉🍓🍆🍌🔲🔷🐕⚡️☁️🐚⏭⏩
 
 These emojis are reserved at lexer level and can therefore not be used for method or class names:
 
