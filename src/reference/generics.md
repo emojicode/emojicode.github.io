@@ -54,6 +54,9 @@ If the subclass itself takes a generic argument this argument can be used as arg
 
 A generic type *A* is compatible to a generic type *B* if their base types are compatible and all generic argument values of *A* are compatible to those of *B*.
 
+>!N This kind of typing is known to lead to problems and will likely change in
+>!N the future.
+
 ## Runtime Typing (Casting)
 
 >!H This is a 0.x limitation. Enhancements in the future will possibly remove this limitation.
@@ -76,4 +79,46 @@ The above example will not compile. Instead you have to specify:
 🍰 box ⚪️
 
 🔲 box 🎁🐚🔵
+```
+
+## Generic Methods
+
+>!N Available from 0.2 Beta 4 which is yet to be released
+
+It’s also possible to define a generic method. A generic method is a method
+that takes generic arguments which then can be used as argument types, as return
+types or as types in the method body.
+
+A good example from the standard library is 🍨’s 🐰 method. It is defined like 
+this:
+
+```
+🐖 🐰 🐚A⚪️ callback 🍇Element➡️A🍉 ➡️ 🍨🐚A 🍇
+  👴 ...
+🍉
+```
+
+Therefore the complete method syntax is:
+
+```
+🐖 name [(🐚 name type) ...] [(variable type) ...] [➡️ returnType] 🍇
+
+🍉
+```
+
+As you can see above it takes one generic argument named `A` which is restricted
+to subtypes of ⚪️, that is any type. Now, if you'd wish to call this method
+you need to specify the generic type argument `A`.
+
+```
+🍦 list 🍨🔤aa🔤 🔤12345🔤🍆
+🐰 list 🐚🔡 🍇 a 🔡 ➡️ 🔡
+  🍎 🍪a 🔤!🔤🍪
+🍉
+```
+
+The formal syntax to call a method with generic type arguments is:
+
+```
+methodEmoji object (🐚 typeArgument)... [arguments ...]
 ```
