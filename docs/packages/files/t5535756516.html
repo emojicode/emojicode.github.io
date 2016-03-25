@@ -41,8 +41,6 @@
     </div>
     <h3>Class Methods</h3>
     <div class="link-list u4">
-        <a href="#cm💾">💾</a>
-        <a href="#cm📖">📖</a>
         <a href="#cm📻">📻</a>
         <a href="#cm📇">📇</a>
         <a href="#cm📤">📤</a>
@@ -157,29 +155,6 @@ Nothingness is returned.</p>
 
     <div class="method">
       <div class="method-heading">
-        <h3 class="method-emoji" id="cm💾">💾</h3>
-        
-    </div>
-
-    <pre> 🐇🐖 💾  path <a href="../s/t5535756609.html">🔡</a> string <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
-
-<p>This class method tries to write the string encoded as UTF8 to the given
-path. If the file already exists, it will be overwritten.</p>
-
-    </div>
-    <div class="method">
-      <div class="method-heading">
-        <h3 class="method-emoji" id="cm📖">📖</h3>
-        
-    </div>
-
-    <pre> 🐇🐖 📖  path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756609.html">🍬🔡</a></pre>
-
-<p>This method reads a whole file, assuming it is encoded into proper UTF8.</p>
-
-    </div>
-    <div class="method">
-      <div class="method-heading">
         <h3 class="method-emoji" id="cm📻">📻</h3>
         
     </div>
@@ -198,8 +173,9 @@ already exists, it will be overwritten.</p>
 
     <pre> 🐇🐖 📇  path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756519.html">🍬📇</a></pre>
 
-<p>Reads as many bytes as specified from the file pointer position. Keep in 
-mind that a byte is not equal to one character!</p>
+<p>This class method tries to read the file at given path <code>path</code> and returns
+a 📇 object representing its content on success. On failure Nothingness
+is returned.</p>
 
     </div>
     <div class="method">

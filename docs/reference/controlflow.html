@@ -105,7 +105,11 @@
 
 🍉
 </code></pre><p>🔂 allows you to quickly enumerate an object. 🔂 can enumerate any class implementing the <a href="../packages/s/">🔂 protocol</a> as well as the 🍨 class.</p>
-<p>🔂 declares the variable <em>variable</em> in the current scope, and therefore cannot reuse any previously declared variable. The type of the variable is guessed to be the first generic argument of the type to enumerate. If the type can’t be interfered the variable is declared as ⚪️. Then on each iteration, the current object is assigned to <em>variable</em>.</p>
+<p>🔂 declares the variable <em>variable</em> in the current scope, and therefore cannot reuse any previously declared variable. The type of the variable is guessed to be the first generic argument of the type to enumerate. If the type can’t be inferred the variable is declared as ⚪️. Then on each iteration, the current object is assigned to <em>variable</em>.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>If you need to repeat something for a given amount of times you possibly
+should use <a href="the-s-package.html#-ranges">⏩ Ranges</a>.</p>
+</div></div>
+
 <h2 id="-conditional">🍊 – Conditional</h2>
 <p>The 🍊 construct is very important. It allows for conditional execution of code fragments. The structure is:</p>
 <pre><code>🍊 boolean 🍇

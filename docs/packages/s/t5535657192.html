@@ -122,10 +122,11 @@ language reference.</a></p>
         
       </div>
 
-      <pre> 🐖 🐨  index 🚂 ➡️ ✨</pre>
+      <pre> 🐖 🐨  index 🚂 ➡️ 👌</pre>
 
 <p>Removes the item at <em>index</em> and shifts all following items to the left in
 O(length - index).</p>
+<p>Returns 👍 unless the index is out of range.</p>
 
     </div>
     <div class="method">
@@ -136,8 +137,9 @@ O(length - index).</p>
 
       <pre> 🐖 🐵  index 🚂 item Element ➡️ ✨</pre>
 
-<p>Shifts all items beginning from <em>index</em> to the right and inserts <em>item</em> at
-<em>index</em> in O(length - index).</p>
+<p>Inserts the given values before the element with the given index.</p>
+<p>All items beginning from <em>index</em> are shifted to the right and <em>item</em> is 
+then inserted at <em>index</em>. Complexity: O(length - index).</p>
 
     </div>
     <div class="method">

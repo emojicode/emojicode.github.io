@@ -24,7 +24,10 @@ Syntax:
 
 🔂 allows you to quickly enumerate an object. 🔂 can enumerate any class implementing the [🔂 protocol](../packages/s/) as well as the 🍨 class.
 
-🔂 declares the variable *variable* in the current scope, and therefore cannot reuse any previously declared variable. The type of the variable is guessed to be the first generic argument of the type to enumerate. If the type can’t be interfered the variable is declared as ⚪️. Then on each iteration, the current object is assigned to *variable*.
+🔂 declares the variable *variable* in the current scope, and therefore cannot reuse any previously declared variable. The type of the variable is guessed to be the first generic argument of the type to enumerate. If the type can’t be inferred the variable is declared as ⚪️. Then on each iteration, the current object is assigned to *variable*.
+
+>!H If you need to repeat something for a given amount of times you possibly
+>!H should use [⏩ Ranges](the-s-package.html#-ranges).
 
 ## 🍊 – Conditional
 

@@ -4,7 +4,7 @@ This chapter provides a very brief overview of the standard package and its most
 
 The s package can be compared to what’s called standard library in other programing languages. It provides some of the most important classes to write meaningful programs. Another characteristic of standard libraries is that the programming language could theoretically be used without them, which is also the case with Emojicode’s s package.
 
->!H This chapter only introduces the three most important classes although there are many more.
+>!H This chapter only introduces the most important classes although there are many more.
 >!H
 >!H You can browse the whole API of the s package [here](../packages/s/).
 
@@ -74,6 +74,8 @@ Lists are ordered mutable collections of values. They are represeneted by the �
 
 Lists are optimized for fast by index access. You can access by index, pop and append in `O(1)`.
 
+List indexing starts at 0, as in C or Java. A negative index is assumed to be relative to the end of the list — that is, an index of -1 indicates the last element of the array, -2 is the next to last element in the array, and so on.
+
 ### The 🍨 Type
 
 The 🍨 class is generic and needs to know of what type the values are. If you use the class name you will also have to specify this generic argument. To specify a list that can hold strings you would write:
@@ -92,7 +94,7 @@ You can create a list just by listing the values for the list between 🍨 and �
 
     🍨 14 67 2434 🍆
 
-The compiler will try to interfere the generic type argument for the list.
+The compiler will try to infer the generic type argument for the list.
 
 ## 🍯 Dictionaries
 
@@ -110,7 +112,7 @@ The shortcut syntax to create a dictionary is:
 
     🍯 (key value) ... 🍆
 
-*key* must be a string. The compiler will try to interfere the generic type argument for the dictionary.
+*key* must be a string. The compiler will try to infer the generic type argument for the dictionary.
 
 Example:
 
@@ -120,3 +122,65 @@ Example:
       🔤Chakotay🔤 🔤Commander🔤
       🔤Kes🔤 🔤Crewman🔤
     🍆
+
+## ⏩ Ranges
+
+>!N Available from 0.2 Beta 4 which is yet to be released
+
+Emojicode supports a range type called ⏩. A range is an immutable sequence of 
+numbers, or more strictly speaking of integers. 
+
+A range is always defined by three values: *start*, *stop* and *step*. Every 
+number which can be created from `start + x * step` (x is any integer)
+that is smaller than *stop* is an element of the range.
+
+Ranges can be created by using the shortcut syntax, which is depending on your
+needs either
+
+```
+⏭ start stop step
+```
+
+or
+
+```
+⏩ start stop
+```
+
+The latter uses 1 as *step* value.
+
+Ranges can be very helpful in combination with 🔂 if you need to repeat 
+something for a specific number of times:
+
+```
+🔂 i ⏭ 0 10 2 🍇
+  😀 🔷🔡🚂 i 10
+🍉
+```
+```
+🔂 j ⏩ 0 10 🍇
+  😀 🔷🔡🚂 j 10
+🍉
+```
+
+The result of running these examples would be:
+
+```
+0
+2
+4
+6
+8
+```
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```

@@ -34,6 +34,7 @@
             <li><a href="#-strings">🔡 Strings</a></li>
             <li><a href="#-lists">🍨 Lists</a></li>
             <li><a href="#-dictionaries">🍯 Dictionaries</a></li>
+            <li><a href="#-ranges">⏩ Ranges</a></li>
           </ul>
       </li>
     	<li>
@@ -91,7 +92,7 @@
 	<h1 id="the-s-package">The s package</h1>
 <p>This chapter provides a very brief overview of the standard package and its most important classes.</p>
 <p>The s package can be compared to what’s called standard library in other programing languages. It provides some of the most important classes to write meaningful programs. Another characteristic of standard libraries is that the programming language could theoretically be used without them, which is also the case with Emojicode’s s package.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This chapter only introduces the three most important classes although there are many more.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This chapter only introduces the most important classes although there are many more.</p>
 <p>You can browse the whole API of the s package <a href="../packages/s/">here</a>.</p>
 </div></div>
 
@@ -136,6 +137,7 @@
 <h2 id="-lists">🍨 Lists</h2>
 <p>Lists are ordered mutable collections of values. They are represeneted by the 🍨 class. Their sizes are theoretically unlimited, but practically hardware and the fact that Emojicode’s integers have an upper bound makes them limited.</p>
 <p>Lists are optimized for fast by index access. You can access by index, pop and append in <code>O(1)</code>.</p>
+<p>List indexing starts at 0, as in C or Java. A negative index is assumed to be relative to the end of the list — that is, an index of -1 indicates the last element of the array, -2 is the next to last element in the array, and so on.</p>
 <h3 id="the-type">The 🍨 Type</h3>
 <p>The 🍨 class is generic and needs to know of what type the values are. If you use the class name you will also have to specify this generic argument. To specify a list that can hold strings you would write:</p>
 <pre><code>🍨🐚🔡
@@ -145,7 +147,7 @@
 <h3 id="list-literals">List Literals</h3>
 <p>You can create a list just by listing the values for the list between 🍨 and 🍆. The example below creates a list with the values <code>14</code>, <code>67</code>, <code>2434</code>.</p>
 <pre><code>🍨 14 67 2434 🍆
-</code></pre><p>The compiler will try to interfere the generic type argument for the list.</p>
+</code></pre><p>The compiler will try to infer the generic type argument for the list.</p>
 <h2 id="-dictionaries">🍯 Dictionaries</h2>
 <p>Dictionaries can be used to assign values to string keys. The size of a dictionary is theoretically unlimited. The Emojicode Real-Time Engine implements dictionaries using linear probing and the Fowler–Noll–Vo hash function.</p>
 <h3 id="the-type">The 🍯 Type</h3>
@@ -154,7 +156,7 @@
 </code></pre><h3 id="dictionary-literals">Dictionary Literals</h3>
 <p>The shortcut syntax to create a dictionary is:</p>
 <pre><code>🍯 (key value) ... 🍆
-</code></pre><p><em>key</em> must be a string. The compiler will try to interfere the generic type argument for the dictionary.</p>
+</code></pre><p><em>key</em> must be a string. The compiler will try to infer the generic type argument for the dictionary.</p>
 <p>Example:</p>
 <pre><code>🍯
   🔤Tuvok🔤 🔤Lieutenant🔤
@@ -162,6 +164,45 @@
   🔤Chakotay🔤 🔤Commander🔤
   🔤Kes🔤 🔤Crewman🔤
 🍆
+</code></pre><h2 id="-ranges">⏩ Ranges</h2>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Available from 0.2 Beta 4 which is yet to be released</p>
+</div></div>
+
+<p>Emojicode supports a range type called ⏩. A range is an immutable sequence of 
+numbers, or more strictly speaking of integers. </p>
+<p>A range is always defined by three values: <em>start</em>, <em>stop</em> and <em>step</em>. Every 
+number which can be created from <code>start + x * step</code> (x is any integer)
+that is smaller than <em>stop</em> is an element of the range.</p>
+<p>Ranges can be created by using the shortcut syntax, which is depending on your
+needs either</p>
+<pre><code>⏭ start stop step
+</code></pre><p>or</p>
+<pre><code>⏩ start stop
+</code></pre><p>The latter uses 1 as <em>step</em> value.</p>
+<p>Ranges can be very helpful in combination with 🔂 if you need to repeat 
+something for a specific number of times:</p>
+<pre><code>🔂 i ⏭ 0 10 2 🍇
+  😀 🔷🔡🚂 i 10
+🍉
+</code></pre><pre><code>🔂 j ⏩ 0 10 🍇
+  😀 🔷🔡🚂 j 10
+🍉
+</code></pre><p>The result of running these examples would be:</p>
+<pre><code>0
+2
+4
+6
+8
+</code></pre><pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
 </code></pre>
 
 	<div class="reference-navigation-bottom">
