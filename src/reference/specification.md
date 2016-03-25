@@ -1016,6 +1016,33 @@ Each instruction returns *Something*. This return value can be used by the instr
 		Creates a new string by concatenating all given strings.
 	</td>
 </tr>
+<tr>
+	<td>0x53</td>
+	<td>Range</td>
+	<td>
+		<ol>
+			<li>Something: Start</li>
+			<li>Something: Stop</li>
+		</ol>
+	</td>
+	<td>
+
+	</td>
+</tr>
+<tr>
+	<td>0x54</td>
+	<td>Range Step</td>
+	<td>
+		<ol>
+			<li>Something: Start</li>
+			<li>Something: Stop</li>
+			<li>Something: Step</li>
+		</ol>
+	</td>
+	<td>
+
+	</td>
+</tr>
 
 <tr>
 	<td>0x60</td>
@@ -1035,11 +1062,11 @@ Each instruction returns *Something*. This return value can be used by the instr
 	<td>
 		<ol>
 			<li>Something: A</li>
-      <li>Something: C (usually a block)</li>
+      <li>Block: C</li>
 		</ol>
 	</td>
 	<td>
-		Repeatedly evaluates C1 while A evaluates to true.
+		Repeatedly evaluates C while A evaluates to true.
 	</td>
 </tr>
 <tr>
@@ -1049,7 +1076,7 @@ Each instruction returns *Something*. This return value can be used by the instr
 		<ol>
 			<li>Coin: Length of the complete if statement</li>
       <li>Something: A</li>
-      <li>Something: C (usually a block)</li>
+      <li>Block: C</li>
 		</ol>
 	</td>
 	<td>
@@ -1066,9 +1093,9 @@ Each instruction returns *Something*. This return value can be used by the instr
   <td>
     <ol>
       <li>Coin: Variable index.</li>
-      <li>Coin: Private Variable index.</li>
       <li>Something: A</li>
-      <li>Something: C</li>
+      <li>Coin: Private Variable index.</li>
+      <li>Block: C</li>
     </ol>
   </td>
   <td>
@@ -1081,9 +1108,9 @@ Each instruction returns *Something*. This return value can be used by the instr
   <td>
     <ol>
       <li>Coin: Variable index.</li>
-      <li>Coin: Private Variable index.</li>
       <li>Something: A</li>
-      <li>Something: C</li>
+      <li>Coin: Private Variable index.</li>
+      <li>Block: C</li>
     </ol>
   </td>
   <td>
@@ -1092,7 +1119,17 @@ Each instruction returns *Something*. This return value can be used by the instr
 </tr>
 <tr>
 	<td>0x66</td>
-	<td colspan="3">Reserved (Each Range?)</td>
+  <td>Each Range</td>
+  <td>
+    <ol>
+      <li>Coin: Variable index.</li>
+      <li>Something: A</li>
+      <li>Block: C</li>
+    </ol>
+  </td>
+  <td>
+    Repeats C for each item of the given range A.
+  </td>
 </tr>
 <tr>
   <td>0x67</td>
