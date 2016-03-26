@@ -53,12 +53,19 @@ which has a method *methodName* and to which the method will be bound.
 Example:
 
 ```
-🍮 string 🔤Strawberry🔤
+🍦 string 🔤Strawberry🔤
 
-🍮 append 🌶 📝 string
+🍦 append 🌶 📝 string
 
 😀 🍭 append 🔟!
 😀 🍭 append 🔟?
+```
+
+You might have gueesed it, the output of the above is:
+
+```
+Strawberry!
+Strawberry?
 ```
 
 ## Closure
@@ -76,19 +83,25 @@ This is basically the same syntax that applies to methods and initializers. Ther
 Example:
 
 ```
-🍮 greet 🍇 name 🔡 ➡️ 🔡
-  🍮 i ➖ 📏 name 1
+🍦 greet 🍇 name 🔡 ➡️ 🔡
   🍮 out 🔤🔤
 
-  🔁 ➡️ i 0 🍇
-    🍮 out 📝 out 🍺🔬 name i
-    🍳 i
+  🔂 i ⏭ ➖ 📏 name 1 -1 -1 🍇
+    🍮 out 📝 out 🍺 🔬 name i
   🍉
+
   🍎 out
 🍉
+
+😀🍭 greet 🔤Franz🔤
 ```
 
-The above is a very simple example of a closure that simply reverses a given string.
+The above is a very simple example of a closure that simply reverses a given 
+string and will output:
+
+```
+znarF
+```
 
 Let’s take a look at a more advanced use of a closure:
 
@@ -113,7 +126,7 @@ Here we’ve got a class method that returns a closure. The closure actually clo
 Now if we call the class method we’ll get a closure:
 
 ```
-🍮 walfriedGreeter 🍩🙋🐀 🔤Walfried🔤
+🍦 walfriedGreeter 🍩🙋🐀 🔤Walfried🔤
 ```
 
 Now we can call the closure with an argument for `hour`:

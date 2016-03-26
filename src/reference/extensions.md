@@ -1,6 +1,7 @@
 # Extensions
 
-Extensions allow you to extend an existing class. You can use all code you could use in the class’s body.
+Extensions allow you to extend an existing class. You can do everything in an 
+extension you could do in a class definition body.
 
 ## Extending
 
@@ -12,9 +13,10 @@ The syntax is:
 
 *class* must be an existing class.
 
-It is possible to declare that a class agrees to a protocol in the class definition and to implement the required methods in an extension.
+It is possible to declare that a class agrees to a protocol in the class 
+definition and to implement the required methods in an extension.
 
-You can extend classes from packages. Example:
+You can also extend classes from other packages. Example:
 
 ```
 🐇 📺 🍇
@@ -28,12 +30,10 @@ You can extend classes from packages. Example:
 🐋 🔡 🍇
   🌮 Reverses a string 🌮
   🐖 😈 ➡️ 🔡 🍇
-    🍮 i ➖ 📏 🐕 1
     🍮 out 🔤🔤
 
-    🔁 ➡️ i 0 🍇
-      🍮 out 📝 out 🔬 🐕 i
-      🍳 i
+    🔂 i ⏭ ➖ 📏 🐕 1 -1 -1 🍇
+      🍮 out 📝 out 🍺 🔬 🐕 i
     🍉
 
     🍎 out
@@ -43,7 +43,8 @@ You can extend classes from packages. Example:
 
 ## Circumvent circular dependencies
 
-Extension can also be used to circumvent circular dependencies. Imagine this problem:
+Extension can also be used to circumvent circular dependencies. Imagine this 
+problem:
 
 ```
 🐇 🌕 🍇
@@ -72,4 +73,5 @@ This problem can be solved using extensions:
 🍉
 ```
 
-Although extensions to classes are practically cost free it is not considered good style to always “forward declare” classes to extend them later.
+Although extensions to classes are practically cost free it is not considered 
+good style to always “forward declare” classes to extend them later.

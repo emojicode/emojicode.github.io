@@ -113,12 +113,15 @@
 </code></pre><p><em>methodName</em> is the emoji representing the method. <em>object</em> must be an object
 which has a method <em>methodName</em> and to which the method will be bound.</p>
 <p>Example:</p>
-<pre><code>🍮 string 🔤Strawberry🔤
+<pre><code>🍦 string 🔤Strawberry🔤
 
-🍮 append 🌶 📝 string
+🍦 append 🌶 📝 string
 
 😀 🍭 append 🔟!
 😀 🍭 append 🔟?
+</code></pre><p>You might have gueesed it, the output of the above is:</p>
+<pre><code>Strawberry!
+Strawberry?
 </code></pre><h2 id="closure">Closure</h2>
 <p>You can define closures which remember the environment in which they were defined. The basic syntax to define a closure is:</p>
 <pre><code>🍇 [(variable type) ...] [➡️ returnType]
@@ -126,18 +129,21 @@ which has a method <em>methodName</em> and to which the method will be bound.</p
 🍉
 </code></pre><p>This is basically the same syntax that applies to methods and initializers. There may be any number of <code>variable type</code>. These define the parameters the closure takes. <code>variable</code> must be a valid variable name and type and valid type.</p>
 <p>Example:</p>
-<pre><code>🍮 greet 🍇 name 🔡 ➡️ 🔡
-  🍮 i ➖ 📏 name 1
+<pre><code>🍦 greet 🍇 name 🔡 ➡️ 🔡
   🍮 out 🔤🔤
 
-  🔁 ➡️ i 0 🍇
-    🍮 out 📝 out 🍺🔬 name i
-    🍳 i
+  🔂 i ⏭ ➖ 📏 name 1 -1 -1 🍇
+    🍮 out 📝 out 🍺 🔬 name i
   🍉
+
   🍎 out
 🍉
-</code></pre><p>The above is a very simple example of a closure that simply reverses a given string.</p>
-<p>Let’s take a look at a more advanced use of a closure:</p>
+
+😀🍭 greet 🔤Franz🔤
+</code></pre><p>The above is a very simple example of a closure that simply reverses a given 
+string and will output:</p>
+<pre><code>znarF
+</code></pre><p>Let’s take a look at a more advanced use of a closure:</p>
 <pre><code>🐇🐖 🙋 name 🔡 ➡️ 🍇🚂➡️🔡🍉 🍇
   🍎 🍇 hour 🚂 ➡️ 🔡
     🍊 😛 hour 12 🍇
@@ -153,7 +159,7 @@ If you modify one of the copied variable only the copy local to the closure will
 </div></div>
 
 <p>Now if we call the class method we’ll get a closure:</p>
-<pre><code>🍮 walfriedGreeter 🍩🙋🐀 🔤Walfried🔤
+<pre><code>🍦 walfriedGreeter 🍩🙋🐀 🔤Walfried🔤
 </code></pre><p>Now we can call the closure with an argument for <code>hour</code>:</p>
 <pre><code>😀 🍭 walfriedGreeter 7
 😀 🍭 walfriedGreeter 12

@@ -106,8 +106,8 @@ that does not explicitly declare a return type is assumed to return Nothingness.
 🍰 petName 🍬🔡 👴Some pets have no name.
 </code></pre><p>There are many methods that return Nothingness on failure. For instance the
 method 🔬 of 🔡, which returns the symbol at the given index or Nothingness.</p>
-<pre><code>🍮 first 🔬 🔤Kumquat🔤 0
-🍮 twelfth 🔬 🔤Kumquat🔤 11
+<pre><code>🍦 first 🔬 🔤Kumquat🔤 0
+🍦 twelfth 🔬 🔤Kumquat🔤 11
 </code></pre><p>As you can see <code>first</code> will now actually contain a symbol and <code>twelfth</code> will
 only contain Nothingness.</p>
 <h2 id="-unwrapping">🍺 Unwrapping</h2>
@@ -127,8 +127,11 @@ be done. See the sections below for safe ways.</p>
 <pre><code>☁️ value
 </code></pre><p>☁️ returns true if <em>value</em> is Nothingness.</p>
 <h2 id="-condition-assignment">🍊🍦 Condition Assignment</h2>
-<p>You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:</p>
+<p>An even more useful way to protect from Nothingness is the Condition Assingment.
+You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:</p>
 <pre><code>🍊🍦 variableName value
+</code></pre><p>or</p>
+<pre><code>🍋🍦 variableName value
 </code></pre><p>This will unwrap and set the value of <em>value</em>  into the variable <em>variableName</em>
 and execute the code block assigned if <em>value</em> is not Nothingness. If <em>value</em> is
 not Nothingness the 🍊 or 🍋 statement will behave as if an expression evaluated

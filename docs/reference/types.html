@@ -121,11 +121,13 @@
 <p>Syntax:</p>
 <pre><code>🔲 something type
 </code></pre><p><em>something</em> and <em>type</em> must be types.</p>
-<p>For instance, here a value of a mixed list is downcasted:</p>
-<pre><code>🍮 list 🍦 14 🔤catwalk🔤 🍆
-🍮 string 🔲 🐽 list 1 🔡
+<p>Here for instance, a value from a parsed JSON string is downcasted:</p>
+<pre><code>🍦 object 🗞 🔤&quot;catwalk&quot;🔤
+🍦 string 🍺 🔲 object 🔡
 
 😀 string
+</code></pre><p>Output:</p>
+<pre><code>catwalk
 </code></pre><h2 id="-something">⚪ Something</h2>
 <p>Something is a special type as it is compatible to <em>all</em> other types. Because of this you cannot call methods or perform any  actions on ⚪.</p>
 <p>You can however use 🔲 to cast ⚪ objects to meaningful types.</p>

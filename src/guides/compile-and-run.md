@@ -63,14 +63,14 @@ Let’s call a few more methods to warm up. We’ll now write a method to conver
 In Emojicode you can easily extend every existing class, so to follow good object-orientated practices we’ll extend the string class to have a method to convert an English word to Pig Latin. Add the following into the file:
 
 ```
-🐋 ￼🔡 🍇
+🐋 🔡 🍇
   🐖 🐷 ➡️ 🔡￼ 🍇
   ￼￼
   🍉
 🍉
 ```
 
-`🐋 ￼🔡 🍇` says: Extend the class `🔡` (That’s the string class). `🐖 🐷 ➡️ 🔡￼` declares a method called `🐷` and
+`🐋 🔡 🍇` says: Extend the class `🔡` (That’s the string class). `🐖 🐷 ➡️ 🔡￼` declares a method called `🐷` and
 returning an instance of the 🔡 class￼￼.
 
 Ok, let’s take the first letter of this string by using the `🔪` method, which is, according to the [documentation](../packages/s/t5535756609.html#m🔪), capable of giving us just part of a string. It’s signature is:
@@ -94,38 +94,59 @@ This should get us a string containing the first character of the string we are 
 
 ```
 🐖 🐷 ➡️ 🔡￼ 🍇
-￼￼  🍮 firstLetter 🔪 🐕 0 1
+￼￼  🍦 firstLetter 🔪 🐕 0 1
 🍉
 ```
 
-The above code stores the result into the variable `firstLetter`. The variable is actually declared and initialized here. The compiler will detect that the variable hasn’t been used before and will look at the return of the assignment value. The variable’s type will be set to the return value’s type.
+The above code stores the result into the variable `firstLetter`. The variable 
+is actually declared and initialized here. It’s important to notice that 🍦 was
+used here to declare the variable which prevents the variable from being changed
+later. This kind of variable is called “frozen variable”.
+
+You may have also noticed that we didn't declare a type for the variable.
+Emojicode supports type inference that is the compiler infers the variable’s 
+type by looking at the type of the value for the variable.
 
 Now we need to get the rest of the word.
 
 ```
 🐖 🐷 ➡️ 🔡￼ 🍇
-￼￼  🍮 firstLetter 🔪 🐕 0 1
-  🍮 rest 🔪 🐕 1 📏 🐕
+  🍦 firstLetter 🔪 🐕 0 1
+  🍦 rest 🔪 🐕 1 📏 🐕
 🍉
 ```
 
-The `📏` method returns the length of a string, so we get the whole string. You can see that the result of the `📏`  method is used as argument to 🔪.
+The `📏` method returns the length of a string, so we get the whole string. You
+can see that the result of the `📏`  method is used as argument to 🔪.
 
-Finally we just need to concatenate `firstLetter`, `rest` and *ay* and return it from the method.
+Finally we just need to concatenate `firstLetter`, `rest` and *ay* and return it
+from the method.
 
 ```
 🐖 🐷 ➡️ 🔡 🍇
-  🍮 firstLetter 🔪 🐕 0 1
-  🍮 rest 🔪 🐕 1 📏 🐕
+  🍦 firstLetter 🔪 🐕 0 1
+  🍦 rest 🔪 🐕 1 📏 🐕
   🍎 🍪 rest firstLetter 🔤ay🔤 🍪
 🍉
 ```
 
-The `🍪`s are the most efficient way of concatenating strings. You can wrap any amount of strings between `🍪` and you will get them concatenated into one string. You should already know the 🍎 from above. It returns a value from the method.
+The `🍪`s are the most efficient way of concatenating strings. You can wrap any 
+amount of strings between `🍪` and you will get them concatenated into one 
+string. You should already know the 🍎 from above. It returns a value from the
+method.
 
-Well done! Let’s update the 🏁 method to give us a few examples.
+Well done! Let’s update the 🏁 method to give us a few examples. The file should
+now look like this:
 
 ```
+🐋 🔡 🍇
+  🐖 🐷 ➡️ 🔡 🍇
+    🍦 firstLetter 🔪 🐕 0 1
+    🍦 rest 🔪 🐕 1 📏 🐕
+    🍎 🍪 rest firstLetter 🔤ay🔤 🍪
+  🍉
+🍉
+
 🐇 🐼 🍇
   🐇🐖 🏁 ➡️ 🚂 🍇
     😀 🐷 🔤cat🔤
@@ -134,6 +155,7 @@ Well done! Let’s update the 🏁 method to give us a few examples.
     🍎 0
   🍉
 🍉
+
 ```
 
 Compile and let’s see:
@@ -153,6 +175,8 @@ Cool! We have successfully translated English words into Pig Latin.
 
 ## What to do next
 
-I highly recommend you to read through the [Language Reference](../reference) which is a bit more formal.
+I highly recommend you to read through the [Language Reference](../reference)
+which is a bit more formal but also a really good starting point.
 
-Of course try and fail is also a good way to learn something...
+>!H You should really read the [Language Reference](../reference), you gonna
+>!H miss Emojicode’s incredible power if you don’t.

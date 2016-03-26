@@ -22,19 +22,25 @@ As already mentioned each type belongs to a namespace whose name is exactly one 
 
 When a type is expected you can either only use the name of the type and the compiler will assume the type belongs to the default namespace 🔴 or you can use the namespace accessor:
 
-    🔶 namespace name
+```
+🔶 namespace name
+```
 
 This identifies type *name* of namespace *namespace*. Both must be exactly one identifier.
 
 This is an example of explicitly referring to the 🔡 class of 🔴:
 
-    🔶🔴🔡
+```
+🔶🔴🔡
+```
 
 You can use this syntax everywhere you would specify a type name, thus also when declaring a type. The example below declares the class 🎁 in the namespace 🎅:
 
-    🐇 🔶🎅🎁 🍇
+```
+🐇 🔶🎅🎁 🍇
 
-    🍉
+🍉
+```
 
 Unlike in other languages source code files always belong to the default namespace 🔴, with the exception of package header files.
 
@@ -46,16 +52,26 @@ If you are sure that a value is of a more specific type, whose specific methods 
 
 Syntax:
 
-	🔲 something type
+```
+🔲 something type
+```
 
 *something* and *type* must be types.
 
-For instance, here a value of a mixed list is downcasted:
+Here for instance, a value from a parsed JSON string is downcasted:
 
-    🍮 list 🍦 14 🔤catwalk🔤 🍆
-    🍮 string 🔲 🐽 list 1 🔡
+```
+🍦 object 🗞 🔤"catwalk"🔤
+🍦 string 🍺 🔲 object 🔡
 
-    😀 string
+😀 string
+```
+
+Output:
+
+```
+catwalk
+```
 
 ## ⚪ Something
 

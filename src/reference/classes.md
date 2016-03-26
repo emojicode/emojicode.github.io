@@ -343,7 +343,3 @@ These emojis cannot be used as method names:
 These emojis are reserved at lexer level and can therefore not be used for method or class names:
 
 🔤👵🔟👍👎👴
-
-These emojis should not be used as class or method name:
-
-🐇🐖🐊🐋➡️🔶🍬🐀

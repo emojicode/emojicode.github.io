@@ -124,8 +124,8 @@ A true value is created using 👍 and a false value is created using 👎.
 
 In the example below two variables are set to a boolean value.
 
-    🍮 emojicodeIsTheFunniestLanguage 👍
-    🍮 phpIsAsCool 👎
+    🍦 emojicodeIsTheFunniestLanguage 👍
+    🍦 phpIsAsCool 👎
 
 ## Symbol literals
 
@@ -135,4 +135,4 @@ You can include the symbol in the source code file by prepending 🔟 before the
 
 Example:
 
-    🍮 theAcceptedCurrency 🔟€
+    🍦 theAcceptedCurrency 🔟€

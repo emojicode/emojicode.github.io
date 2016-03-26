@@ -8,9 +8,11 @@ Defining a protocol defines a type. All classes that agree to that protocol are 
 
 You define a protocol like this:
 
-	🐊 protocolName 🍇
+```
+🐊 protocolName 🍇
 
-	🍉
+🍉
+```
 
 *protocolName* must be a type identifier.
 
@@ -20,7 +22,9 @@ Then inside the body you can use the same syntax to define methods as you do in 
 
 To make a class conform to a protocol you must declare that it conforms to the protocol:
 
-	🐊 protocolName
+```
+🐊 protocolName
+```
 
 *protocolName* must be the type name of the protocol.
 
@@ -28,46 +32,43 @@ Then implement the methods described in the protocol. Do not break [promises](in
 
 ## Example
 
-	🐊 🚘 🍇
+```
+🐊 🚘 🍇
+	🐖 🎶 ➡️ 🔡
+🍉
 
-		🐖 🎶 ➡️ 🔡
+🐇 🐻 🍇
+	🐊 🚘
 
+	🐖 🎶 ➡️ 🔡 🍇
+		🍎 🔤Brumm brumm🔤
+	🍉
+🍉
+
+🐇 📺 🍇
+	🐊 🚘
+
+	🐖 🎶 ➡️ 🔡 🍇
+		🍎 🔤Surrrrrr🔤
 	🍉
 
-	🐇 🐻 🍇
-		🐊 🚘
-
-		🐖 🎶 ➡️ 🔡 🍇
-			🍎 🔤Brumm brumm🔤
-		🍉
-
+	🐇🐖 🚼 carlike 🚘 🍇
+		😀 🔤Here is another object making noise!🔤
+		😀 🎶 carlike
 	🍉
 
-	🐇 📺 🍇
+	🐇🐖 🏁 ➡️ 🚂 🍇
 
-		🐊 🚘
+		🍰 d 🚘
+		🍰 b 🚘
 
-		🐖 🎶 ➡️ 🔡 🍇
-			🍎 🔤Surrrrrr🔤
-		🍉
+		🍮 d 🔷📺🆕
+		🍮 b 🔷🐻🆕
 
-		🐇🐖 🚼 carlike 🚘 🍇
-			😀 🔤Here is another object making noise!🔤
-			😀 🎶 carlike
-		🍉
+		🍩 🚼 🐀 d
+		🍩 🚼 🐀 b
 
-		🐇🐖 🏁 ➡️ 🚂 🍇
-
-			🍰 d 🚘
-			🍰 b 🚘
-
-			🍮 d 🔷📺🆕
-			🍮 b 🔷🐻🆕
-
-			🍩 🚼 🐀 d
-			🍩 🚼 🐀 b
-
-			🍎 0
-		🍉
-
+		🍎 0
 	🍉
+🍉
+```

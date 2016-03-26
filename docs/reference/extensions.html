@@ -88,15 +88,17 @@
 
 <div class="content">
 	<h1 id="extensions">Extensions</h1>
-<p>Extensions allow you to extend an existing class. You can use all code you could use in the class’s body.</p>
+<p>Extensions allow you to extend an existing class. You can do everything in an 
+extension you could do in a class definition body.</p>
 <h2 id="extending">Extending</h2>
 <p>The syntax is:</p>
 <pre><code>🐋 class 🍇
 
 🍉
 </code></pre><p><em>class</em> must be an existing class.</p>
-<p>It is possible to declare that a class agrees to a protocol in the class definition and to implement the required methods in an extension.</p>
-<p>You can extend classes from packages. Example:</p>
+<p>It is possible to declare that a class agrees to a protocol in the class 
+definition and to implement the required methods in an extension.</p>
+<p>You can also extend classes from other packages. Example:</p>
 <pre><code>🐇 📺 🍇
   🐇🐖 🏁 ➡️ 🚂 🍇
     😀 😈 🔤The Candy Man🔤
@@ -108,19 +110,18 @@
 🐋 🔡 🍇
   🌮 Reverses a string 🌮
   🐖 😈 ➡️ 🔡 🍇
-    🍮 i ➖ 📏 🐕 1
     🍮 out 🔤🔤
 
-    🔁 ➡️ i 0 🍇
-      🍮 out 📝 out 🔬 🐕 i
-      🍳 i
+    🔂 i ⏭ ➖ 📏 🐕 1 -1 -1 🍇
+      🍮 out 📝 out 🍺 🔬 🐕 i
     🍉
 
     🍎 out
   🍉
 🍉
 </code></pre><h2 id="circumvent-circular-dependencies">Circumvent circular dependencies</h2>
-<p>Extension can also be used to circumvent circular dependencies. Imagine this problem:</p>
+<p>Extension can also be used to circumvent circular dependencies. Imagine this 
+problem:</p>
 <pre><code>🐇 🌕 🍇
   🍰 belongingTo 🌍
 🍉
@@ -139,7 +140,8 @@
 🐋 🌍 🍇
   🍰 moon 🌕
 🍉
-</code></pre><p>Although extensions to classes are practically cost free it is not considered good style to always “forward declare” classes to extend them later.</p>
+</code></pre><p>Although extensions to classes are practically cost free it is not considered 
+good style to always “forward declare” classes to extend them later.</p>
 
 
 	<div class="reference-navigation-bottom">

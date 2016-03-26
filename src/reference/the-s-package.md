@@ -20,15 +20,15 @@ You can include strings in your code by surrounding the characters by a pair of 
 
 Example:
 
-    🍮 aString 🔤This is a string.🔤
+    🍦 aString 🔤This is a string.🔤
 
 You will see that you cannot just include the 🔤 symbol in a string literal as it would be understood as the ending of the string. You can however *escape* the 🔤 using the ❌.
 
-    🍮 aboutStringLiterals 🔤A string literal begins with a ❌🔤 symbol.🔤
+    🍦 aboutStringLiterals 🔤A string literal begins with a ❌🔤 symbol.🔤
 
 If you want to include the ❌ symbol in a string literal you will need to escape it as well:
 
-    🍮 theEscapeSymbol 🔤The escape character is ❌❌ (red cross).🔤
+    🍦 theEscapeSymbol 🔤The escape character is ❌❌ (red cross).🔤
 
 The escape character can also be used to produce the following characters:
 
@@ -50,8 +50,8 @@ To compare two strings you must use the equality method 😛.
 
 To concatenate two or more strings you should use the 🍪 language struct. Wrap all strings you want to concatenate between two 🍪. They will get concatenated in order of appearance into one string.
 
-    🍮 string1 🔤Hello 🔤
-    🍮 string2 🔤my dear🔤
+    🍦 string1 🔤Hello 🔤
+    🍦 string2 🔤my dear🔤
 
     😀 🍪 string1 string2 🔤 World!🔤 🍪
 

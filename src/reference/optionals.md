@@ -29,8 +29,8 @@ There are many methods that return Nothingness on failure. For instance the
 method 🔬 of 🔡, which returns the symbol at the given index or Nothingness.
 
 ```
-🍮 first 🔬 🔤Kumquat🔤 0
-🍮 twelfth 🔬 🔤Kumquat🔤 11
+🍦 first 🔬 🔤Kumquat🔤 0
+🍦 twelfth 🔬 🔤Kumquat🔤 11
 ```
 
 As you can see `first` will now actually contain a symbol and `twelfth` will
@@ -72,10 +72,17 @@ You can use ☁️ to test if an optional is Nothingness.
 
 ## 🍊🍦 Condition Assignment
 
+An even more useful way to protect from Nothingness is the Condition Assingment.
 You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:
 
 ```
 🍊🍦 variableName value
+```
+
+or
+
+```
+🍋🍦 variableName value
 ```
 
 This will unwrap and set the value of *value*  into the variable *variableName*
