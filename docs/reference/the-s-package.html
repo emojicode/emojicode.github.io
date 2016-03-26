@@ -179,17 +179,22 @@ needs either</p>
 <pre><code>⏭ start stop step
 </code></pre><p>or</p>
 <pre><code>⏩ start stop
-</code></pre><p>The latter uses 1 as <em>step</em> value.</p>
+</code></pre><p>The latter uses 1 as <em>step</em> value if <em>start</em> is less than <em>stop</em>, otherwise
+-1 is used as <em>step</em> value. If you provide 0 as <em>step</em> value <em>step</em> will be 
+set to an appropriate value as described before.</p>
 <p>Ranges can be very helpful in combination with 🔂 if you need to repeat 
 something for a specific number of times:</p>
 <pre><code>🔂 i ⏭ 0 10 2 🍇
   😀 🔷🔡🚂 i 10
 🍉
-</code></pre><pre><code>🔂 j ⏩ 0 10 🍇
-  😀 🔷🔡🚂 j 10
+</code></pre><pre><code>🔂 i ⏩ 0 10 🍇
+  😀 🔷🔡🚂 i 10
 🍉
-</code></pre><pre><code>🔂 j ⏭ 100 -10 -10 🍇
-  😀 🔷🔡🚂 j 10
+</code></pre><pre><code>🔂 i ⏩ 10 0 🍇
+  😀 🔷🔡🚂 i 10
+🍉
+</code></pre><pre><code>🔂 i ⏭ 100 -10 -10 🍇
+  😀 🔷🔡🚂 i 10
 🍉
 </code></pre><p>The result of running these examples would be:</p>
 <pre><code>0
@@ -207,6 +212,16 @@ something for a specific number of times:</p>
 7
 8
 9
+</code></pre><pre><code>10
+9
+8
+7
+6
+5
+4
+3
+2
+1
 </code></pre><pre><code>100
 90
 80

@@ -32,7 +32,7 @@ You can also extend classes from other packages. Example:
   🐖 😈 ➡️ 🔡 🍇
     🍮 out 🔤🔤
 
-    🔂 i ⏭ ➖ 📏 🐕 1 -1 -1 🍇
+    🔂 i ⏩ ➖ 📏 🐕 1 -1 🍇
       🍮 out 📝 out 🍺 🔬 🐕 i
     🍉
 

@@ -149,7 +149,9 @@ or
 ⏩ start stop
 ```
 
-The latter uses 1 as *step* value.
+The latter uses 1 as *step* value if *start* is less than *stop*, otherwise
+-1 is used as *step* value. If you provide 0 as *step* value *step* will be 
+set to an appropriate value as described before.
 
 Ranges can be very helpful in combination with 🔂 if you need to repeat 
 something for a specific number of times:
@@ -160,13 +162,18 @@ something for a specific number of times:
 🍉
 ```
 ```
-🔂 j ⏩ 0 10 🍇
-  😀 🔷🔡🚂 j 10
+🔂 i ⏩ 0 10 🍇
+  😀 🔷🔡🚂 i 10
 🍉
 ```
 ```
-🔂 j ⏭ 100 -10 -10 🍇
-  😀 🔷🔡🚂 j 10
+🔂 i ⏩ 10 0 🍇
+  😀 🔷🔡🚂 i 10
+🍉
+```
+```
+🔂 i ⏭ 100 -10 -10 🍇
+  😀 🔷🔡🚂 i 10
 🍉
 ```
 
@@ -190,6 +197,18 @@ The result of running these examples would be:
 7
 8
 9
+```
+```
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
 ```
 ```
 100
