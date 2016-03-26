@@ -130,9 +130,11 @@ Example:
 Emojicode supports a range type called ⏩. A range is an immutable sequence of 
 numbers, or more strictly speaking of integers. 
 
-A range is always defined by three values: *start*, *stop* and *step*. Every 
-number which can be created from `start + x * step` (x is any integer)
-that is smaller than *stop* is an element of the range.
+A range is always defined by three values: *start*, *stop* and *step*. 
+
+Every number `f(x) = start + x * step`
+that matches the constraint `start ≤ f(x) < stop` is an element of the range. If
+`step` is negative the constraint `stop < f(x) ≤ start` applies instead.
 
 Ranges can be created by using the shortcut syntax, which is depending on your
 needs either
@@ -162,6 +164,11 @@ something for a specific number of times:
   😀 🔷🔡🚂 j 10
 🍉
 ```
+```
+🔂 j ⏭ 100 -10 -10 🍇
+  😀 🔷🔡🚂 j 10
+🍉
+```
 
 The result of running these examples would be:
 
@@ -183,4 +190,17 @@ The result of running these examples would be:
 7
 8
 9
+```
+```
+100
+90
+80
+70
+60
+50
+40
+30
+20
+10
+0
 ```

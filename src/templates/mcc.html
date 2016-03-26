@@ -36,7 +36,7 @@
   {{/classMethods.length}}
 </div>
 <div class="content">
-<h1>{{typeType}} {{typeName}} {{#genericArguments}}🐚{{name}}{{constraintTypeLink}}{{/genericArguments}}</h1>
+<h1>{{typeType}} {{typeName}}{{#genericArguments}} 🐚{{name}}{{constraintTypeLink}}{{/genericArguments}}</h1>
 <p>{{{mdDocumentation}}}</p>
 
 {{#initializers.length}}
@@ -65,7 +65,7 @@
         {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
       </div>
 
-      <pre>{{access}} 🐖 {{name}} {{#genericArguments}}🐚{{name}}{{constraintTypeLink}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+      <pre>{{access}} 🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{constraintTypeLink}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
       {{>argdoc}}
     </div>
@@ -82,7 +82,7 @@
         {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
     </div>
 
-    <pre>{{access}} 🐇🐖 {{name}} {{#genericArguments}}🐚{{name}}{{constraintTypeLink}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+    <pre>{{access}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{constraintTypeLink}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
     {{>argdoc}}
     </div>

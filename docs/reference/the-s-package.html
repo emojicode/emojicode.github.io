@@ -170,9 +170,10 @@
 
 <p>Emojicode supports a range type called ⏩. A range is an immutable sequence of 
 numbers, or more strictly speaking of integers. </p>
-<p>A range is always defined by three values: <em>start</em>, <em>stop</em> and <em>step</em>. Every 
-number which can be created from <code>start + x * step</code> (x is any integer)
-that is smaller than <em>stop</em> is an element of the range.</p>
+<p>A range is always defined by three values: <em>start</em>, <em>stop</em> and <em>step</em>. </p>
+<p>Every number <code>f(x) = start + x * step</code>
+that matches the constraint <code>start ≤ f(x) &lt; stop</code> is an element of the range. If
+<code>step</code> is negative the constraint <code>stop &lt; f(x) ≤ start</code> applies instead.</p>
 <p>Ranges can be created by using the shortcut syntax, which is depending on your
 needs either</p>
 <pre><code>⏭ start stop step
@@ -185,6 +186,9 @@ something for a specific number of times:</p>
   😀 🔷🔡🚂 i 10
 🍉
 </code></pre><pre><code>🔂 j ⏩ 0 10 🍇
+  😀 🔷🔡🚂 j 10
+🍉
+</code></pre><pre><code>🔂 j ⏭ 100 -10 -10 🍇
   😀 🔷🔡🚂 j 10
 🍉
 </code></pre><p>The result of running these examples would be:</p>
@@ -203,6 +207,17 @@ something for a specific number of times:</p>
 7
 8
 9
+</code></pre><pre><code>100
+90
+80
+70
+60
+50
+40
+30
+20
+10
+0
 </code></pre>
 
 	<div class="reference-navigation-bottom">
