@@ -9,6 +9,10 @@ All types support
 
 to determine equality.
 
+>!H If you need more advanced functionality like calculating roots or 
+>!H trigonometric functions, take a look at the
+>!H [🚄 class](../packages/s/t5535756964.html).
+
 ## Type 👌
 
 <h3 class="method-emoji" id="m🎊">🎊</h3>
