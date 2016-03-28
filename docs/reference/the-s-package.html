@@ -165,12 +165,9 @@
   🔤Kes🔤 🔤Crewman🔤
 🍆
 </code></pre><h2 id="-ranges">⏩ Ranges</h2>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Available from 0.2 Beta 4 which is yet to be released</p>
-</div></div>
-
-<p>Emojicode supports a range type called ⏩. A range is an immutable sequence of 
-numbers, or more strictly speaking of integers. </p>
-<p>A range is always defined by three values: <em>start</em>, <em>stop</em> and <em>step</em>. </p>
+<p>Emojicode supports a range type called ⏩. A range is an immutable sequence of
+numbers, or more strictly speaking of integers.</p>
+<p>A range is always defined by three values: <em>start</em>, <em>stop</em> and <em>step</em>.</p>
 <p>Every number <code>f(x) = start + x * step</code>
 that matches the constraint <code>start ≤ f(x) &lt; stop</code> is an element of the range. If
 <code>step</code> is negative the constraint <code>stop &lt; f(x) ≤ start</code> applies instead.</p>
@@ -180,9 +177,9 @@ needs either</p>
 </code></pre><p>or</p>
 <pre><code>⏩ start stop
 </code></pre><p>The latter uses 1 as <em>step</em> value if <em>start</em> is less than <em>stop</em>, otherwise
--1 is used as <em>step</em> value. If you provide 0 as <em>step</em> value <em>step</em> will be 
+-1 is used as <em>step</em> value. If you provide 0 as <em>step</em> value <em>step</em> will be
 set to an appropriate value as described before.</p>
-<p>Ranges can be very helpful in combination with 🔂 if you need to repeat 
+<p>Ranges can be very helpful in combination with 🔂 if you need to repeat
 something for a specific number of times:</p>
 <pre><code>🔂 i ⏭ 0 10 2 🍇
   😀 🔷🔡🚂 i 10

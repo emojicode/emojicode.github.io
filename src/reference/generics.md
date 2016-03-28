@@ -83,13 +83,11 @@ The above example will not compile. Instead you have to specify:
 
 ## Generic Methods
 
->!N Available from 0.2 Beta 4 which is yet to be released
-
 It’s also possible to define a generic method. A generic method is a method
 that takes generic arguments which then can be used as argument types, as return
 types or as types in the method body.
 
-A good example from the standard library is 🍨’s 🐰 method. It is defined like 
+A good example from the standard library is 🍨’s 🐰 method. It is defined like
 this:
 
 ```

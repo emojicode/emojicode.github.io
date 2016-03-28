@@ -125,12 +125,10 @@ Example:
 
 ## ⏩ Ranges
 
->!N Available from 0.2 Beta 4 which is yet to be released
+Emojicode supports a range type called ⏩. A range is an immutable sequence of
+numbers, or more strictly speaking of integers.
 
-Emojicode supports a range type called ⏩. A range is an immutable sequence of 
-numbers, or more strictly speaking of integers. 
-
-A range is always defined by three values: *start*, *stop* and *step*. 
+A range is always defined by three values: *start*, *stop* and *step*.
 
 Every number `f(x) = start + x * step`
 that matches the constraint `start ≤ f(x) < stop` is an element of the range. If
@@ -150,10 +148,10 @@ or
 ```
 
 The latter uses 1 as *step* value if *start* is less than *stop*, otherwise
--1 is used as *step* value. If you provide 0 as *step* value *step* will be 
+-1 is used as *step* value. If you provide 0 as *step* value *step* will be
 set to an appropriate value as described before.
 
-Ranges can be very helpful in combination with 🔂 if you need to repeat 
+Ranges can be very helpful in combination with 🔂 if you need to repeat
 something for a specific number of times:
 
 ```
