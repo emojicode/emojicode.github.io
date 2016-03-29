@@ -126,7 +126,7 @@ returned.</p>
       <pre> 🐖 🐷 index 🚂 value Element ➡️ ✨</pre>
 
 <p>Sets <code>value</code> at <code>index</code>. If <code>index</code> is bigger than the capacity of the list,
-the list is resized to a capacity of <code>index</code>. Complexity: <code>O(1)</code>.</p>
+the list is resized to a capacity of <code>index + 1</code>. Complexity: <code>O(1)</code>.</p>
 <div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Not available in 0.2 Beta 4</p>
 </div></div>
 
@@ -186,7 +186,7 @@ If the list is empty ✨ is returned.</p>
         
       </div>
 
-      <pre> 🐖 🐗 ➡️ 🍬Element</pre>
+      <pre> 🐖 🐗 ➡️ ✨</pre>
 
 <p>Removes all elements from the list but keeps the list’s capacity.</p>
 <p>This can be much more efficient than using a new list. Complexity:
@@ -201,10 +201,12 @@ If the list is empty ✨ is returned.</p>
         
       </div>
 
-      <pre> 🐖 🐴 capacity 🚂 ➡️ 🍬Element</pre>
+      <pre> 🐖 🐴 capacity 🚂 ➡️ ✨</pre>
 
-<p>Ensures that the list can store at least <code>capacity</code> elements.
-Complexity: <code>O(1)</code>.</p>
+<p>Ensures that the list is large enoguh to store at least <code>capacity</code> elements.</p>
+<p>You should use this method if you plan to heavily use 🐷 with large indices
+in order to avoid automatic, useless allocations.</p>
+<p>Complexity: <code>O(1)</code>.</p>
 <div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Not available in 0.2 Beta 4</p>
 </div></div>
 
