@@ -876,6 +876,18 @@ Each instruction returns *Something*. This return value can be used by the instr
     otherwise false is returned.
 	</td>
 </tr>
+<tr>
+	<td>0x3F</td>
+	<td>Integer To Double</td>
+	<td>
+		<ol>
+			<li>Object: Integer</li>
+		</ol>
+	</td>
+	<td>
+		Returns the double representation of this integer.
+	</td>
+</tr>
 
 <tr>
 	<td>0x40</td>
