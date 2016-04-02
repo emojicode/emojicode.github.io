@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
-		<title>Emojicode Documentation &middot; Package System</title>
+		<title>Emojicode Documentation &middot; Packages</title>
 	</head>
 	<body>
 		<div class="global-nav">
@@ -32,7 +32,7 @@
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
-        <a href="types.html">Types</a>
+        <a href="types.html">Types and Namespaces</a>
       </li>
     	<li>
         <a href="primitive-methods.html">Primitive Methods</a>
@@ -62,15 +62,17 @@
         <a href="callables.html">Callables</a>
       </li>
     	<li>
-        <a href="memory.html">Memory Management</a>
-      </li>
-    	<li>
-        <a href="packages.html">Package System</a>
+        <a href="packages.html">Packages</a>
           <ul>
-            <li><a href="#packages">Packages</a></li>
-            <li><a href="#package-management">Package Management</a></li>
+            <li><a href="#what-is-a-package-">What is a Package?</a></li>
+            <li><a href="#importing-other-packages">Importing other packages</a></li>
+            <li><a href="#making-a-package-importable">Making a Package Importable</a></li>
+            <li><a href="#native-binaries">Native Binaries</a></li>
             <li><a href="#package-register-and-manager">Package Register and Manager</a></li>
           </ul>
+      </li>
+    	<li>
+        <a href="memory.html">Memory Management</a>
       </li>
     	<li>
         <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
@@ -88,36 +90,140 @@
 </div>
 
 <div class="content">
-	<h1 id="package-system">Package System</h1>
-<h2 id="packages">Packages</h2>
-<p>A package is a versioned bundle of code, that can be required from your program. A package can also come with a native binary to access special parts of the host system, like for instance the GPU (the graphics card). The version of the package is built into the program so that at runtime a compatible binary can be loaded if required.</p>
-<p>You can require a package using this syntax:</p>
-<pre><code>📦 packageName destinationNamespace
-</code></pre><p><em>packageName</em> must be a <strong>variable</strong> which represents the name of the package. <em>destinationNamespace</em> is the name of the destination into which the package provided classes are loaded. Example:</p>
-<pre><code>📦 files 🔴
-</code></pre><p>All packages must be loaded before a class was declared.</p>
-<p>Emojicode comes bundled with a few packages:</p>
-<ul>
-<li><code>files</code> which allows you to interact with the file system and</li>
-<li><code>sqlite</code> which allows you to work with SQLite 3 databases.</li>
-</ul>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>The package system is still in its infancy and will be improved in the next versions.</p>
-<p>You can of course build a package yourself but the documentation in <a href="packageAPI.html">Appendix II</a> is not complete and the interface and the belonging language constructs might drastically change.</p>
+	<h1 id="packages">Packages</h1>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Before reading this chapter make sure you’re familiar with <a href="types.html#namespaces">Emojicode’s
+namespacing</a>.</p>
 </div></div>
 
-<h2 id="package-management">Package Management</h2>
-<p>Packages available on your system must be place at a special place on your computer: <code>/usr/local/EmojicodePackages/</code>. This directory has a special structure, which allows a very fast loading of the packages.</p>
-<p>The package manager manages the packages on your system and allows you to install, update and remove packages.</p>
-<p>Only one version of a major release of a package can exist on a system. Multiple major versions of a package can exist together. The package manager will always update major versions to their latest minor version. Since all packages have to agree to semantic versioning it is guaranteed that updating to minor versions does not introduce not backwards compatible changes.</p>
+<h2 id="what-is-a-package-">What is a Package?</h2>
+<p>Emojicode divides code into so called <em>packages</em>. A package is a unit of code
+that can consist of one or more Emojicode source code files. All packages have a
+name associated with them and all code belongs to a pacakge. If you tell the
+compiler to compile a file this file implicitely becomes the starting point for
+a package called <code>_</code>. So remember, all code you write belongs to a package.</p>
+<p>Each package has its own set of types and own namespaces. If you define or
+import types in one package, this types will not be available in other packages
+without explicitly importing them.</p>
+<h2 id="importing-other-packages">Importing other packages</h2>
+<p>The object of packages is to provide an easy way to reuse code. Therefore
+naturally, you can import other packages into a package. The syntax to do this
+is:</p>
+<pre><code>📦 packageName destinationNamespace
+</code></pre><p>If such a statment ocours to the compiler, the compiler will search the
+<em>Package Search Path</em> for a package with the given name <code>packageName</code> and will
+try to import it. The default <em>Package Search Path</em> is
+<code>/usr/local/EmojicodePackages/</code> for UNIX operating systems.</p>
+<p>If you import a package, all types that were exported from the
+imported package will be made available in the importing package. The types will
+be added to the given namespace <code>destinationNamespace</code>. If this would cause a
+naming collision the compiler will emit an error. It’s also important to note
+hear, that namespaces are completely local to a package.</p>
+<p>The example below imports the <code>files</code> package into the global namespace 🔴.
+The progamm then continues to use the class 📄 which was imported from the
+<code>files</code> package.</p>
+<pre><code>📦 files 🔴
+
+🐇 💯 🍇
+  🐇🐖 🏁 ➡️ 🚂 🍇
+    🍦 file 🔷📄📜 🔤tests/fileTest_testFile.txt🔤
+
+    🍎 0
+  🍉
+🍉
+</code></pre><p>Any package can load other packages as long as this doesn’t lead to a circular
+dependency. The compiler will detect circular dependencies and abort the
+compilation.</p>
+<p>The s package is implicitly imported into the global namespace 🔴 of
+every package.</p>
+<h2 id="making-a-package-importable">Making a Package Importable</h2>
+<p>A package always has a single file as starting point which is either called
+<code>header.emojic</code> for an importable package or arbitrarily named for the <code>_</code>
+package. This file then can include other files using 📜.</p>
+<p>By default all types defined within a package are internal and not exported. If
+you want to export a type defined in your package you must prepend it with 🌍.</p>
+<p>Extensions are always applied to the extended class and can therefore not be
+explicitely marked with 🌍. Packages are only loaded once and their types are
+then shared across all packages when imported. Therefore extending a class will
+make the extensions show up anywhere after the package with the extension was
+loaded from anywhere within the program.</p>
+<p>Additionally an importable package must declare its version using 🔮:</p>
+<pre><code>🔮 major minor
+</code></pre><p>The <code>header.emojic</code> of a cat-simulator package must look like this:</p>
+<pre><code>🔮 1 4
+
+🌍 🐇 🐱 🍇
+  🐈 🎀 🍇🍉
+
+  🐖 🎙 🍇
+    😀 🔤Meow🔤
+  🍉
+🍉
+
+🐇 💊 🍇
+  🐈 🔬 🍇🍉
+
+  🐖 💉 🍇
+    👴 ... secret code ...
+  🍉
+🍉
+</code></pre><p>Now, to make this package finally importable we’ll move this file into the
+Package Search Path. The structure of this directory is like shown below:</p>
+<p>TODO: Explain structure</p>
+<p>So we will need to create a directory whose name is in the format
+<code>{name}-v{major}</code>: <code>cat-simulator-v1</code>.</p>
+<p>If we imported this package, we would gain access to the 🐱 but we’d not be able
+to access the 💊 class as it was not exported.</p>
+<pre><code>📦 cat-simulator 🔴
+
+🐇 💯 🍇
+  🐇🐖 🏁 ➡️ 🚂 🍇
+    🍦 cat 🔷🐱🎀
+    🎙 cat
+
+    👴 The line below won&#39;t compile and should be removed
+    🍦 drug 🔷💊🔬
+
+    🍎 0
+  🍉
+🍉
+</code></pre><h2 id="native-binaries">Native Binaries</h2>
+<p>Packages can be backed by a native compiled binary. Native binaries can
+introduce performance issues and are not easy to get right and should only be
+used when absolutely necessary.</p>
+<p>To declare that a package comes with a native binary, you place a 📻 at the
+document level.</p>
+<pre><code>🔮 0 1
+📻
+
+🌍 🐇 📑 🍇
+  👴 ...
+🍉
+</code></pre><p>From then on, you can use 📻 instead of initializer and method bodies:</p>
+<pre><code>🔮 0 1
+📻
+
+🌍 🐇 📑 🍇
+  🐇🐖 📁 path 🔡 ➡️ 🍬🚨 📻
+  🐇🐖 🔫 path 🔡 ➡️ 🍬🚨 📻
+  🍬 🐈 📝 message 🔡 📻
+🍉
+</code></pre><p>You should consult your virtual machine’s manual to learn more about
+implementing the methods in C. It’s noteworthy that additional to the
+difficulties mentioned at the beginning of this section native APIs
+are not standardised and aren’t even required. A virtual machine can reject
+a bytecode file if it depends on an external native binary.</p>
+<p>The Emojicode Real-Time Engine supports native binaries. The API is
+documented in <a href="packageAPI.html">Appendix II</a>.</p>
 <h2 id="package-register-and-manager">Package Register and Manager</h2>
-<p>There are plans to run an package register and build a package manger for easy install, update and use of packages.</p>
+<p>There are plans to run an package register and build a package manger for easy
+install, update and use of packages.</p>
 
 
 	<div class="reference-navigation-bottom">
-		<a href="memory.html" class="left">
+		<a href="callables.html" class="left">
 			← Previous
 		</a>
-		<a href="specification.html" class="right">
+		<a href="memory.html" class="right">
 			Next →
 		</a>
 	</div>
