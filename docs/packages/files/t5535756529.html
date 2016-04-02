@@ -38,6 +38,7 @@
         <a href="#cm📝">📝</a>
         <a href="#cm👟">👟</a>
         <a href="#cm📏">📏</a>
+        <a href="#cm⛓">⛓</a>
     </div>
 </div>
 <div class="content">
@@ -59,7 +60,7 @@ system.</p>
 
     <pre> 🐇🐖 📁 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
 
-<p>This method creates a directory at the given path. 
+<p>This method creates a directory at the given path.
 If the directory already exists an error is returned.</p>
 
     </div>
@@ -84,7 +85,7 @@ If the directory already exists an error is returned.</p>
 
     <pre> 🐇🐖 🔥 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
 
-<p>This method deletes an <em>empty</em> directory at the given path. 
+<p>This method deletes an <em>empty</em> directory at the given path.
 If you need to delete a whole directory hierarchy use 💣.</p>
 
     </div>
@@ -96,8 +97,8 @@ If you need to delete a whole directory hierarchy use 💣.</p>
 
     <pre> 🐇🐖 💣 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
 
-<p>This method deletes an directory with its content. The method recursively 
-descends the directory hierarchy and deletes every file or directory it 
+<p>This method deletes an directory with its content. The method recursively
+descends the directory hierarchy and deletes every file or directory it
 finds. Once finished, it deletes the directory itself.</p>
 
     </div>
@@ -164,8 +165,23 @@ finds. Once finished, it deletes the directory itself.</p>
 
     <pre> 🐇🐖 📏 path <a href="../s/t5535756609.html">🔡</a> ➡️ 🚂</pre>
 
-<p>Determines the size of a file at a given path. If the file cannot be found 
-or any other error occurs the method returns -1. </p>
+<p>Determines the size of a file at a given path. If the file cannot be found
+or any other error occurs the method returns -1.</p>
+
+    </div>
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="cm⛓">⛓</h3>
+        
+    </div>
+
+    <pre> 🐇🐖 ⛓ path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756609.html">🍬🔡</a></pre>
+
+<p>Returns an absolute pathname derived from <code>path</code> that
+resolves to the same directory entry, whose resolution does not involve <code>.</code>,
+<code>..</code>, or symbolic links. On failure Nothingness is returned.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Not available in 0.2 Beta 4</p>
+</div></div>
 
     </div>
 </div>
