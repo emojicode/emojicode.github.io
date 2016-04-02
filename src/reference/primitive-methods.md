@@ -3,13 +3,13 @@
 You can also, of course, call methods on the primitive types. These methods are
 documented here.
 
-All types support
+All primitive types support
 
 <pre>🐖 😛 other A ➡️ 👌</pre>
 
 to determine equality.
 
->!H If you need more advanced functionality like calculating roots or 
+>!H If you need more advanced functionality like calculating roots or
 >!H trigonometric functions, take a look at the
 >!H [🚄 class](../packages/s/t5535756964.html).
 
@@ -77,6 +77,13 @@ Returns true if the receiver is smaller than or equal to *other*.
 <pre>🐖 ➡️ other 🚂 ➡️ 👌</pre>
 
 Returns true if the receiver is greater than or equal to *other*.
+
+<h3 class="method-emoji" id="m🚀">🚀</h3>
+<pre>🐖 🚀 ➡️ 🚀</pre>
+
+Returns the double representation of this integer.
+
+>!N Not available in 0.2 Beta 4
 
 ## Type 🚀
 
