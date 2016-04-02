@@ -1057,6 +1057,58 @@ Each instruction returns *Something*. This return value can be used by the instr
 </tr>
 
 <tr>
+	<td>0x5A</td>
+	<td>AND</td>
+	<td>
+		<ol>
+			<li>Something: A</li>
+			<li>Something: B</li>
+		</ol>
+	</td>
+	<td>
+	A AND B
+	</td>
+</tr>
+<tr>
+	<td>0x5B</td>
+	<td>OR</td>
+	<td>
+		<ol>
+			<li>Something: A</li>
+			<li>Something: B</li>
+		</ol>
+	</td>
+	<td>
+	A OR B
+	</td>
+</tr>
+<tr>
+	<td>0x5C</td>
+	<td>XOR</td>
+	<td>
+		<ol>
+			<li>Something: A</li>
+			<li>Something: B</li>
+		</ol>
+	</td>
+	<td>
+	A XOR B
+	</td>
+</tr>
+<tr>
+	<td>0x5D</td>
+	<td>NOT</td>
+	<td>
+		<ol>
+			<li>Something: A</li>
+		</ol>
+	</td>
+	<td>
+	NOT A
+	</td>
+</tr>
+
+<tr>
 	<td>0x60</td>
 	<td>Return</td>
 	<td>
@@ -1141,19 +1193,6 @@ Each instruction returns *Something*. This return value can be used by the instr
   </td>
   <td>
     Repeats C for each item of the given range A.
-  </td>
-</tr>
-<tr>
-  <td>0x67</td>
-  <td>Guard</td>
-  <td>
-    <ol>
-      <li>Something: A</li>
-      <li>Something: C</li>
-    </ol>
-  </td>
-  <td>
-    Evaluates C if A is nothingness.
   </td>
 </tr>
 </table>

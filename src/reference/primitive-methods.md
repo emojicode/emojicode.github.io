@@ -83,7 +83,25 @@ Returns true if the receiver is greater than or equal to *other*.
 
 Returns the double representation of this integer.
 
->!N Not available in 0.2 Beta 4
+<h3 class="method-emoji" id="m⭕️">⭕️</h3>
+<pre>🐖 ⭕️ other 🚂 ➡️ 🚂</pre>
+
+Returns this integer AND `other`.
+
+<h3 class="method-emoji" id="m️💢️">💢️</h3>
+<pre>🐖 💢 other 🚂 ➡️ 🚂</pre>
+
+Returns this integer OR `other`.
+
+<h3 class="method-emoji" id="m❌">❌️</h3>
+<pre>🐖 ❌ other 🚂 ➡️ 🚂</pre>
+
+Returns this integer XOR `other`.
+
+<h3 class="method-emoji" id="m🚫">🚫️</h3>
+<pre>🐖 🚫 ➡️ 🚂</pre>
+
+Returns NOT applied to this integer.
 
 ## Type 🚀
 
