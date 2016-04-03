@@ -145,7 +145,7 @@ section {
   flex-wrap: wrap;
 
   div {
-    flex-grow: 1;
+    width: percentage(1 / 6);
     padding: 0 20px;
   }
 }
@@ -161,6 +161,10 @@ section {
 
   .header-left-col {
     padding: 30px;
+  }
+
+  .emoji-row div {
+    width: percentage(1 / 3);
   }
 }
 
