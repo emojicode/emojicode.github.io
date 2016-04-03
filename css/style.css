@@ -485,6 +485,14 @@ section {
 .header-linked-list {
   padding-top: 20px; }
 
+.emoji-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .emoji-row div {
+    flex-grow: 1;
+    padding: 0 20px; }
+
 @media (max-width: 880px) {
   .menu {
     font-size: 15px; }
@@ -498,13 +506,6 @@ section {
   padding: 10px 0; }
 .features .u-1-2:nth-child(odd) {
   padding-right: 5px; }
-
-.emoji-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap; }
-  .emoji-row img {
-    padding: 0 20px; }
 
 .footer {
   padding: 15px;

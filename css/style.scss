@@ -139,6 +139,17 @@ section {
   padding-top: 20px;
 }
 
+.emoji-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  div {
+    flex-grow: 1;
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: $break) {
   .menu {
     font-size: 15px;
@@ -160,16 +171,6 @@ section {
 
   .u-1-2:nth-child(odd) {
     padding-right: 5px;
-  }
-}
-
-.emoji-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-
-  img {
-    padding: 0 20px;
   }
 }
 
