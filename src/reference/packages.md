@@ -34,10 +34,10 @@ If you import a package, all types that were exported from the
 imported package will be made available in the importing package. The types will
 be added to the given namespace `destinationNamespace`. If this would cause a
 naming collision the compiler will emit an error. It’s also important to note
-hear, that namespaces are completely local to a package.
+here, that namespaces are completely local to a package.
 
 The example below imports the `files` package into the global namespace 🔴.
-The progamm then continues to use the class 📄 which was imported from the
+The progam then uses the class 📄 which was imported from the
 `files` package.
 
 ```
