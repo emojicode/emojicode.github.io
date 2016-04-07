@@ -1195,4 +1195,47 @@ Each instruction returns *Something*. This return value can be used by the instr
     Repeats C for each item of the given range A.
   </td>
 </tr>
+<tr>
+	<td>0x70</td>
+  <td>Closure Creation</td>
+  <td>
+    <ol>
+      <li>Coin: Variable count.</li>
+      <li>Coin: Coin count.</li>
+      <li>Coin: Argument count.</li>
+      <li>
+      	Coin: Captured variable count (`& 0xFFFF`) and capture
+      	self (`& 0xFFFF0000`).
+      </li>
+    </ol>
+  </td>
+  <td>
+    Creates a clousre.
+  </td>
+</tr>
+<tr>
+	<td>0x71</td>
+  <td>Captured Method</td>
+  <td>
+    <ol>
+   		<li>Something: The object.</li>
+      <li>Coin: Virtual Table Index</li>
+    </ol>
+  </td>
+  <td>
+    Captures the method identified by the given VTI from the given object.
+  </td>
+</tr>
+<tr>
+	<td>0x72</td>
+  <td>Callable execution</td>
+  <td>
+    <ol>
+   		<li>Something: Callable.</li>
+    </ol>
+  </td>
+  <td>
+    Executes the given callable.
+  </td>
+</tr>
 </table>
