@@ -94,8 +94,11 @@
 <h2 id="defining-a-generic-class">Defining a Generic Class</h2>
 <p>To define a Generic Class you define a class and append</p>
 <pre><code>🐚 name type
-</code></pre><p>for each generic argument the class shall take. This structure is called <em>generic argument</em>. <em>name</em>  must be the name of the argument and <em>type</em> any type name.</p>
-<p><em>type</em>  is a <em>generic argument constraint</em> and types provided for this argument must be compatible with that constraint.</p>
+</code></pre><p>for each generic argument the class shall take. This structure is called
+<em>generic argument</em>. <em>name</em>  must be the name of the argument and <em>type</em> any type
+name.</p>
+<p><em>type  is a generic argument constraint and types provided for this argument
+</em>must be compatible with that constraint.</p>
 <p>In the class body you can reference to the generic type arguments by its name.</p>
 <p>See this example for a “box” that can store objects.</p>
 <pre><code>🐇 🎁 🐚 T 🔵 🍇
@@ -112,21 +115,36 @@
 
 🍉
 </code></pre><h2 id="subclassing-a-generic-class">Subclassing a Generic Class</h2>
-<p>Naturally you can subclass a generic class. Like in any other circumstance you have to provide values for the superclass’s generic arguments. For instance:</p>
+<p>Naturally you can subclass a generic class. Like in any other circumstance you
+have to provide values for the superclass’s generic arguments. For instance:</p>
 <pre><code>🐇 ☑️ 🎁 🐚 🔡 🍇
 
 🍉
-</code></pre><p>If the subclass itself takes a generic argument this argument can be used as argument for the superclass:</p>
+</code></pre><p>If the subclass itself takes a generic argument this argument can be used as
+argument for the superclass:</p>
 <pre><code>🐇 🌟 🐚 A 🔵 🎁 🐚 A 🍇
 
 🍉
 </code></pre><h2 id="compatibility">Compatibility</h2>
-<p>A generic type <em>A</em> is compatible to a generic type <em>B</em> if their base types are compatible and all generic argument values of <em>A</em> are compatible to those of <em>B</em>.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>This kind of typing is known to lead to problems and will likely change in
-the future.</p>
-</div></div>
+<p>Generic classes with arguments are only compatible if they have exactly the
+same arguments. So <code>🍨🐚🔡</code> is only compatible to <code>🍨🐚🔡</code> but not to
+<code>🍨🐚⚪️</code> as one might expect.</p>
+<p>The following example will <strong>not</strong> compile and illustrates why this
+kind of type conversion is not allowed.</p>
+<pre><code>🍦 listOfStrings 🍨 🔤Curiosity🔤 🔤Doesn’t🔤 🍆
 
-<h2 id="runtime-typing-casting-">Runtime Typing (Casting)</h2>
+🍰 listOfSomethings 🍨🐚⚪️
+🍮 listOfSomethings listOfStrings
+👴 Our list of strings is now suddenly a list of somethings
+👴 (remember listOfSomethings points to the same list as listOfStrings)
+
+🐻 listOfSomethings 13 👴 Add an integer
+
+🔂 string listOfStrings 🍇
+  👴 The program would crash as there’s an integer in our list of strings
+  😀 string
+🍉
+</code></pre><h2 id="runtime-typing-casting-">Runtime Typing (Casting)</h2>
 <div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This is a 0.x limitation. Enhancements in the future will possibly remove this limitation.</p>
 </div></div>
 

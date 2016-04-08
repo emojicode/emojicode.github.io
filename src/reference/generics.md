@@ -8,9 +8,12 @@ To define a Generic Class you define a class and append
 🐚 name type
 ```
 
-for each generic argument the class shall take. This structure is called *generic argument*. *name*  must be the name of the argument and *type* any type name.
+for each generic argument the class shall take. This structure is called
+*generic argument*. *name*  must be the name of the argument and *type* any type
+name.
 
-*type*  is a *generic argument constraint* and types provided for this argument must be compatible with that constraint.
+*type  is a generic argument constraint and types provided for this argument
+*must be compatible with that constraint.
 
 In the class body you can reference to the generic type arguments by its name.
 
@@ -34,7 +37,8 @@ See this example for a “box” that can store objects.
 
 ## Subclassing a Generic Class
 
-Naturally you can subclass a generic class. Like in any other circumstance you have to provide values for the superclass’s generic arguments. For instance:
+Naturally you can subclass a generic class. Like in any other circumstance you
+have to provide values for the superclass’s generic arguments. For instance:
 
 ```
 🐇 ☑️ 🎁 🐚 🔡 🍇
@@ -42,7 +46,8 @@ Naturally you can subclass a generic class. Like in any other circumstance you h
 🍉
 ```
 
-If the subclass itself takes a generic argument this argument can be used as argument for the superclass:
+If the subclass itself takes a generic argument this argument can be used as
+argument for the superclass:
 
 ```
 🐇 🌟 🐚 A 🔵 🎁 🐚 A 🍇
@@ -52,10 +57,28 @@ If the subclass itself takes a generic argument this argument can be used as arg
 
 ## Compatibility
 
-A generic type *A* is compatible to a generic type *B* if their base types are compatible and all generic argument values of *A* are compatible to those of *B*.
+Generic classes with arguments are only compatible if they have exactly the
+same arguments. So `🍨🐚🔡` is only compatible to `🍨🐚🔡` but not to
+`🍨🐚⚪️` as one might expect.
 
->!N This kind of typing is known to lead to problems and will likely change in
->!N the future.
+The following example will **not** compile and illustrates why this
+kind of type conversion is not allowed.
+
+```
+🍦 listOfStrings 🍨 🔤Curiosity🔤 🔤Doesn’t🔤 🍆
+
+🍰 listOfSomethings 🍨🐚⚪️
+🍮 listOfSomethings listOfStrings
+👴 Our list of strings is now suddenly a list of somethings
+👴 (remember listOfSomethings points to the same list as listOfStrings)
+
+🐻 listOfSomethings 13 👴 Add an integer
+
+🔂 string listOfStrings 🍇
+  👴 The program would crash as there’s an integer in our list of strings
+  😀 string
+🍉
+```
 
 ## Runtime Typing (Casting)
 
