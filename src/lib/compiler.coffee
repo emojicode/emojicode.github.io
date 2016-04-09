@@ -142,7 +142,7 @@ class Package
       thisTypeLink: -> Package.typeLink(this)
       mdDocumentation: -> markdownToHTML(@documentation) if @documentation?
       simpleAccess: -> if this.access == '🔓' then '' else this.access
-      procedureVisible: -> this.access != '🔐'
+      procedureVisible: -> this.access != '🔒'
 
     type
 
