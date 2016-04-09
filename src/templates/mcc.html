@@ -42,16 +42,18 @@
 {{#initializers.length}}
   <h2>Initializers</h2>
   {{#initializers}}
-    <div class="method">
-      <div class="method-heading">
-        <h3 class="method-emoji" id="i{{name}}">{{name}}</h3>
-        {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+    {{#procedureVisible}}
+      <div class="method">
+        <div class="method-heading">
+          <h3 class="method-emoji" id="i{{name}}">{{name}}</h3>
+          {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+        </div>
+
+        <pre>{{simpleAccess}} {{#canReturnNothingness}}🍬{{/canReturnNothingness}} 🐈 {{name}} {{#arguments}}{{name}} {{{typeLink}}}{{/arguments}}</pre>
+
+        {{>argdoc}}
       </div>
-
-      <pre>{{access}} {{#canReturnNothingness}}🍬{{/canReturnNothingness}} 🐈 {{name}} {{#arguments}}{{name}} {{{typeLink}}}{{/arguments}}</pre>
-
-      {{>argdoc}}
-    </div>
+    {{/procedureVisible}}
   {{/initializers}}
 {{/initializers.length}}
 
@@ -59,16 +61,18 @@
   <h2>Methods</h2>
 
   {{#methods}}
-    <div class="method">
-      <div class="method-heading">
-        <h3 class="method-emoji" id="m{{name}}">{{name}}</h3>
-        {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+    {{#procedureVisible}}
+      <div class="method">
+        <div class="method-heading">
+          <h3 class="method-emoji" id="m{{name}}">{{name}}</h3>
+          {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+        </div>
+
+        <pre>{{simpleAccess}} 🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+
+        {{>argdoc}}
       </div>
-
-      <pre>{{access}} 🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
-
-      {{>argdoc}}
-    </div>
+    {{/procedureVisible}}
   {{/methods}}
 {{/methods.length}}
 
@@ -76,16 +80,18 @@
   <h2>Class Methods</h2>
 
   {{#classMethods}}
-    <div class="method">
-      <div class="method-heading">
-        <h3 class="method-emoji" id="cm{{name}}">{{name}}</h3>
-        {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
-    </div>
+    {{#procedureVisible}}
+      <div class="method">
+        <div class="method-heading">
+          <h3 class="method-emoji" id="cm{{name}}">{{name}}</h3>
+          {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+      </div>
 
-    <pre>{{access}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+      <pre>{{simpleAccess}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
-    {{>argdoc}}
-    </div>
+      {{>argdoc}}
+      </div>
+    {{/procedureVisible}}
   {{/classMethods}}
 {{/classMethods.length}}
 </div>
