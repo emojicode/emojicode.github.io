@@ -14,7 +14,9 @@
     <h3>Initializers</h3>
     <div class="link-list u4">
       {{#initializers}}
-        <a href="#i{{name}}">{{name}}</a>
+        {{#procedureVisible}}
+          <a href="#i{{name}}">{{name}}</a>
+        {{/procedureVisible}}
       {{/initializers}}
     </div>
   {{/initializers.length}}
@@ -22,7 +24,9 @@
     <h3>Methods</h3>
     <div class="link-list u4">
       {{#methods}}
-        <a href="#m{{name}}">{{name}}</a>
+        {{#procedureVisible}}
+          <a href="#m{{name}}">{{name}}</a>
+        {{/procedureVisible}}
       {{/methods}}
     </div>
   {{/methods.length}}
@@ -30,7 +34,9 @@
     <h3>Class Methods</h3>
     <div class="link-list u4">
       {{#classMethods}}
-        <a href="#cm{{name}}">{{name}}</a>
+        {{#procedureVisible}}
+          <a href="#cm{{name}}">{{name}}</a>
+        {{/procedureVisible}}
       {{/classMethods}}
     </div>
   {{/classMethods.length}}
