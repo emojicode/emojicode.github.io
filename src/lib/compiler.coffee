@@ -141,7 +141,7 @@ class Package
       constraintTypeLink: -> Package.typeLink(this.constraint)
       thisTypeLink: -> Package.typeLink(this)
       mdDocumentation: -> markdownToHTML(@documentation) if @documentation?
-      simpleAccess: -> (if this.access == '🔓' then '' else this.access)
+      simpleAccess: -> if this.access == '🔓' then '' else this.access
       procedureVisible: -> this.access != '🔐'
 
     type
