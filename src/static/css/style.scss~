@@ -331,6 +331,9 @@ table {
    flex-direction: row; 	
   }
   .xs-inner {
-    font-size: 20px;
+    font-size: 30px;
+  }
+  .link-list a {
+    width: 50%
   }
 }

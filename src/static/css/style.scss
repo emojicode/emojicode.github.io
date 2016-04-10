@@ -321,14 +321,16 @@ table {
 }
 
 @media (max-width: 500px) {
-	.link-list {
-		flex-direction: column;
-	}
-	.overflow-grid {
-		width: 100%
-	}
-	
-	.link-list.u4.name {
-		font-size: 10px
-	}
+  .link-list {
+    flex-direction: column;
+  }
+  .link-list.u3 a {
+    width: 100%
+  }
+  .u4 {
+   flex-direction: row; 	
+  }
+  .xs-inner {
+    font-size: 20px;
+  }
 }

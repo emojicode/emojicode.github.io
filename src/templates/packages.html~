@@ -16,9 +16,7 @@
 		{{#packages}}
 			<a href="{{.}}" class="link-box">
         <div class="name">
-          <div class="xs-inner">  
-            {{.}}
-          </div>
+          {{.}}
         </div>
       </a>
 		{{/packages}}
