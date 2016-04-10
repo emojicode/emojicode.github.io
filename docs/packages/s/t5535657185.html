@@ -26,25 +26,18 @@
   <h3>Package</h3>
   <p><a href="../s">s</a></p>
 
-    <h3>Conforms to</h3>
-    <div class="link-list u4">
-        <a href="../s/t5535756578.html">🔂</a>
-    </div>
     <h3>Methods</h3>
     <div class="link-list u4">
         <a href="#m🔽">🔽</a>
         <a href="#m❓">❓</a>
-        <a href="#m🍡">🍡</a>
     </div>
 </div>
 <div class="content">
-<h1>Class 🍡 🐚Element⚪</h1>
-<p><p>🍡 is a class whose subclasses can enumerate other objects. The 🍡 itself is
-never initiated.</p>
-<p>To get the items from an iterator call the 🔽 method on it until ❓ returns
-👎, which indicates that there are no more items.</p>
-<p>Enumerators conform <a href="t5535756578.html">🔂</a> and return themselves in the 🍡
-method.</p>
+<h1>Protocol 🍡 🐚Element⚪</h1>
+<p><p>🍡 can enumerate a collection and generates elements from the object it
+enumerates.</p>
+<p>To get the items from an iterator call the 🔽 method on it, until ❓ returns
+👎 which indicates that there are no more items.</p>
 </p>
 
 
@@ -56,18 +49,10 @@ method.</p>
         
       </div>
 
-      <pre> 🐖 🔽 ➡️ ⚪</pre>
+      <pre>🔓 🐖 🔽 ➡️ Element</pre>
 
-<p>Returns the next object or ✨ if there are no elements left.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>You should not rely on the return of Nothingness to indicate there are
-no more objects to enumerate. Nothigness could be an ordinary element of
-the enumerated object. Use ❓ instead to determine whether there are
-elements left.</p>
-</div></div>
-
-<p>The default implementation always returns ✨.</p>
-<p>Subclasses of this class are encouraged to declare a more specific return
-type.</p>
+<p>Returns the next object. Expect undefined behavior if you call this method
+when ❓ previously returned 👎.</p>
 
     </div>
     <div class="method">
@@ -76,21 +61,9 @@ type.</p>
         
       </div>
 
-      <pre> 🐖 ❓ ➡️ 👌</pre>
+      <pre>🔓 🐖 ❓ ➡️ 👌</pre>
 
 <p>Whether the enumerator has more elements to provide.</p>
-
-    </div>
-    <div class="method">
-      <div class="method-heading">
-        <h3 class="method-emoji" id="m🍡">🍡</h3>
-        
-      </div>
-
-      <pre> 🐖 🍡 ➡️ <a href="../s/t5535657185.html">🍡🐚Element</a></pre>
-
-<p>This method is implemented in order to confrom to <a href="t5535756578.html">🔂</a>.
-Enumerators should return themselves.</p>
 
     </div>
 
