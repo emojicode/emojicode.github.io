@@ -319,3 +319,16 @@ table {
   float: right;
   text-align: right;
 }
+
+@media (max-width: 500px) {
+	.link-list {
+		flex-direction: column;
+	}
+	.overflow-grid {
+		width: 100%
+	}
+	
+	.link-list.u4.name {
+		font-size: 10px
+	}
+}
