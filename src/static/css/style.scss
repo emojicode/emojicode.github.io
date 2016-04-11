@@ -4,7 +4,7 @@
   font-family: 'Varela Round';
   font-style: normal;
   font-weight: 400;
-  src: local('Varela Round'), local('VarelaRound-Regular'), 
+  src: local('Varela Round'), local('VarelaRound-Regular'),
        url(/docs/static/fonts/VarelaRound-Regular.ttf) format('woff');
 }
 
@@ -172,7 +172,6 @@ table {
   background-color: $header-color;
   -webkit-font-smoothing: subpixel-antialiased;
   z-index: 1000;
-  overflow-x: scroll;
   white-space: nowrap;
 
   a {
@@ -191,6 +190,7 @@ table {
     font-family: Varela Round, sans-serif;
     letter-spacing: $logo-letter-spacing;
     font-size: 22px;
+    float: left;
   }
 }
 
@@ -246,10 +246,15 @@ table {
 
 .toc {
   position: absolute;
-  font-size: 14px;
-  padding: 10px;
-  top: 70px;
+  left: 0;
+  top: $global-nav-height + $navbar-height;
+  bottom: 0;
   width: 300px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  font-size: 14px;
+  padding: 12px;
+  z-index: 100;
 
   &.fixed {
     position: fixed;
