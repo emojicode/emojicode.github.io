@@ -28,16 +28,16 @@
     	<li>
         <a href="basics.html">The Basics</a>
           <ul>
-            <li><a href="#the-compiler">The Compiler</a></li>
-            <li><a href="#the-real-time-engine">The Real-Time Engine</a></li>
             <li><a href="#comments">Comments</a></li>
             <li><a href="#the-class-method">The 🏁 class method</a></li>
             <li><a href="#when-to-use-emojis-">When to use Emojis?</a></li>
-            <li><a href="#including-other-source-code-files">Including Other Source Code Files</a></li>
             <li><a href="#variables">Variables</a></li>
             <li><a href="#numeric-literals">Numeric Literals</a></li>
             <li><a href="#booleans">Booleans</a></li>
             <li><a href="#symbol-literals">Symbol literals</a></li>
+            <li><a href="#including-other-source-code-files">Including Other Source Code Files</a></li>
+            <li><a href="#the-compiler">The Compiler</a></li>
+            <li><a href="#the-real-time-engine">The Real-Time Engine</a></li>
           </ul>
       </li>
     	<li>
@@ -96,24 +96,24 @@
 
 <div class="content">
 	<h1 id="the-basics">The Basics</h1>
-<h2 id="the-compiler">The Compiler</h2>
-<p>The <em>Emojicode Compiler</em> will only correctly compile files that are UTF8
-encoded. The compiler accepts a single file which can include other files
-and is processed into one <em>Emojicode Bytecode file</em>. The <strong>order of inclusion
-files can be important</strong> if for instance one file declares a type on which other
-files depend.</p>
-<h2 id="the-real-time-engine">The Real-Time Engine</h2>
-<p>The <em>Emojicode Real-Time Engine</em> is the part of Emojicode that <strong>actually
-executes your program</strong>. It takes the bytecode file and executes it. The
-bytecode file can be executed on any platform on which the engine runs.</p>
-<p>The Real-Time Engine was built to load and run bytecode files as quickly as
-possible. Therefore it does not perform any kind of error checking. Passing a
-malformed bytecode file to the engine can lead to a crash.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>If you are unfamiliar with the command line interfaces you might want to
-read the guide
+<p>Emojicode is a language that aims to provide the most modern and powerful
+features to make it easy, fast and fun to write programs. These powerful
+features include classes, optionals, which can handle the absence of a value,
+generics, closures and much more.</p>
+<p>Emojicode is a strongly typed language, which means that the compiler will
+verify that all of your operations are correct. This for instance prevents you
+from treating a number as a list of texts.</p>
+<p>Although Emojicode only uses Emojis to express the program’s structure, it is
+similar to programming languages you might know, like C.</p>
+<p>Emojicode was designed to allow the development of platform independent
+applications by running them inside a virtual machine. Your code is first
+compiled to bytecode by a compiler and can then be executed. The reference
+implemention of such a virtual machine is called <em>Emojicode Real-Time</em> and can,
+as the name suggests, execute your code rather fast.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>If you need guidance on how to use the compiler and the Real-Time Engine
+see
 <a href="../guides/compile-and-run.html">“Compile and Run Your First Program”</a>,
-which discusses the use of the Emojicode Compiler and the Emojicode
-Real-Time Engine.</p>
+which is a short tutorial on writing applications in Emojicode.</p>
 </div></div>
 
 <h2 id="comments">Comments</h2>
@@ -143,20 +143,6 @@ minutes.</p>
 <p>All <strong>type, method, class method and initializer</strong> names are <strong>Emojis</strong>. On the
 other hand <strong>variables cannot include emojis</strong> but must be any combination of
 characters that cannot be confused with numbers.</p>
-<h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
-<p>You can include other source code files into a source file. Basically this
-just inserts the code from the file at the point where you included it.</p>
-<p>Syntax:</p>
-<pre><code>📜 string
-</code></pre><p><em>string</em> must be a string whose value is a path to another Emojicode source
-file. The path is relative to the directory which included the document with the
-📜 statement.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Do <strong>not</strong> use this method to share code accross projects. If you have
-written really fancy code,
-<a href="/docs/reference/packages.html"><strong>create a package</a>, which you can easily
-make available to other people</strong>.</p>
-</div></div>
-
 <h2 id="variables">Variables</h2>
 <p>Variables pair a name, the <em>variable name</em>, with a value. The variable name can
 consist of any sequence of characters but <strong>may not contain spaces or emojis</strong>
@@ -238,7 +224,34 @@ The symbol type can represent any character defined in Unicode.</p>
 desired symbol. This is called a <em>Symbol literal</em>.</p>
 <p>Example:</p>
 <pre><code>🍦 theAcceptedCurrency 🔟€
-</code></pre>
+</code></pre><h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
+<p>You can include other source code files into a source file. Basically this
+just inserts the code from the file at the point where you included it.</p>
+<p>Syntax:</p>
+<pre><code>📜 string
+</code></pre><p><em>string</em> must be a string whose value is a path to another Emojicode source
+file. The path is relative to the directory which included the document with the
+📜 statement.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Do <strong>not</strong> use this method to share code accross projects. If you have
+written really fancy code,
+<a href="/docs/reference/packages.html"><strong>create a package</a>, which you can easily
+make available to other people</strong>.</p>
+</div></div>
+
+<h2 id="the-compiler">The Compiler</h2>
+<p>The <em>Emojicode Compiler</em> will only correctly compile files that are UTF8
+encoded. The compiler accepts a single file which can include other files
+and is processed into one <em>Emojicode Bytecode file</em>. The <strong>order of inclusion
+files can be important</strong> if for instance one file declares a type on which other
+files depend.</p>
+<h2 id="the-real-time-engine">The Real-Time Engine</h2>
+<p>The <em>Emojicode Real-Time Engine</em> is the part of Emojicode that <strong>actually
+executes your program</strong>. It takes the bytecode file and executes it. The
+bytecode file can be executed on any platform on which the engine runs.</p>
+<p>The Real-Time Engine was built to load and run bytecode files as quickly as
+possible. Therefore it does not perform any kind of error checking. Passing a
+malformed bytecode file to the engine can lead to a crash.</p>
+
 
 	<div class="reference-navigation-bottom">
 		<a href="the-s-package.html" class="right">

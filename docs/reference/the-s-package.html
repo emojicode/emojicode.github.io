@@ -90,22 +90,35 @@
 
 <div class="content">
 	<h1 id="the-s-package">The s package</h1>
-<p>This chapter provides a very brief overview of the standard package and its most important classes.</p>
-<p>The s package can be compared to what’s called standard library in other programing languages. It provides some of the most important classes to write meaningful programs. Another characteristic of standard libraries is that the programming language could theoretically be used without them, which is also the case with Emojicode’s s package.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This chapter only introduces the most important classes although there are many more.</p>
+<p>This chapter provides a very brief overview of the s package and its most
+important classes.</p>
+<p>The s package can be compared to what’s called standard library in other
+programing languages. It provides some of the most important classes to write
+meaningful programs. Another characteristic of standard libraries is that the
+programming language could theoretically be used without them, which is also the
+case with Emojicode’s s package.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This chapter only introduces the most important classes although there are
+many more.</p>
 <p>You can browse the whole API of the s package <a href="../packages/s/">here</a>.</p>
 </div></div>
 
 <h2 id="-strings">🔡 Strings</h2>
-<p>In Emojicode a string is an ordered immutable collection of symbols (or easily speaking a text). Strings are represented by the 🔡 class which represent a collection of 🔣, a primitive type representing a single Unicode code point.</p>
-<p>Emojicode strings are rather fast and of course fully Unicode-Compliant. The Unicode compatibility is achieved by using UTF-32 encoding. This causes strings to consume more memory but makes working with special Unicode characters like Emojis a lot faster.</p>
+<p>In Emojicode a string is an ordered immutable collection of symbols (or easily
+speaking a text). Strings are represented by the 🔡 class which represent a
+collection of 🔣, a primitive type representing a single Unicode code point.</p>
 <h3 id="string-literals">String Literals</h3>
-<p>You can include strings in your code by surrounding the characters by a pair of 🔤.</p>
-<p>Example:</p>
+<p>You can include strings in your code by surrounding the characters by a pair of
+🔤:</p>
 <pre><code>🍦 aString 🔤This is a string.🔤
-</code></pre><p>You will see that you cannot just include the 🔤 symbol in a string literal as it would be understood as the ending of the string. You can however <em>escape</em> the 🔤 using the ❌.</p>
+</code></pre><p>You can of course also create an empty string:</p>
+<pre><code>🍦 emptyString 🔤🔤
+</code></pre><p>Such a string is 0 symbols long and doesn’t have any value.</p>
+<p>Obviously, you cannot just include the 🔤 symbol in a string literal as it would
+be understood as the ending of the string. You can however <em>escape</em> the 🔤 using
+the ❌.</p>
 <pre><code>🍦 aboutStringLiterals 🔤A string literal begins with a ❌🔤 symbol.🔤
-</code></pre><p>If you want to include the ❌ symbol in a string literal you will need to escape it as well:</p>
+</code></pre><p>If you want to include the ❌ symbol in a string literal you will need to escape
+it as well:</p>
 <pre><code>🍦 theEscapeSymbol 🔤The escape character is ❌❌ (red cross).🔤
 </code></pre><p>The escape character can also be used to produce the following characters:</p>
 <ul>
@@ -117,46 +130,72 @@
 </ul>
 <p>All other combinations of a ❌ and another character lead to a compiler error.</p>
 <h3 id="comparing-strings">Comparing Strings</h3>
-<p>To compare two strings you must use the equality method 😛.</p>
+<p>If you want to determine whether to strings represent the same value, you can
+use the equality method 😛.</p>
 <pre><code>😛 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤
 </code></pre><h3 id="concatenating-strings">Concatenating Strings</h3>
-<p>To concatenate two or more strings you should use the 🍪 language struct. Wrap all strings you want to concatenate between two 🍪. They will get concatenated in order of appearance into one string.</p>
+<p>To add two or more strings together (<em>concatenate</em>) you should use the 🍪
+language struct. Wrap all strings you want to concatenate between two 🍪. They
+will get concatenated in order of appearance into one string.</p>
 <pre><code>🍦 string1 🔤Hello 🔤
 🍦 string2 🔤my dear🔤
 
 😀 🍪 string1 string2 🔤 World!🔤 🍪
-</code></pre><p>🍪s are the most efficient way of concatenating strings as the compiler can optimize the concatenation.</p>
+</code></pre><p>🍪s are the most efficient way of concatenating strings as the compiler can
+🍪optimize the concatenation. Please note that 🍪s are not methods but part
+of the language.</p>
 <h3 id="string-pooling">String Pooling</h3>
-<p>At compile time all strings will be pooled. This means that each string literal with the same value occurs only once in the bytecode file and at runtime equal strings created from string literals will be represented by the same object.</p>
-<p>Consider the following example. While the first comparison of object references will evaluate to true, the second one won’t.</p>
+<p>At compile time all strings will be pooled. This means that each string literal
+with the same value occurs only once in the bytecode file and at runtime equal
+strings created from string literals will be represented by the same object.</p>
+<p>Consider the following example. While the first comparison of object references
+will evaluate to true, the second one won’t.</p>
 <pre><code>😜 🔤Strawberries🔤 🔤Strawberries🔤 👴true
 😜 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤 👴false
 </code></pre><div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Never use 😜 to compare strings. Use 😛 instead.</p>
 </div></div>
 
+<h3 id="string-mutablility">String Mutablility</h3>
+<p>Strings are immutable. This means that you can’t modify any string. You can
+however call methods on strings that return modified copies of the orginal
+string, but those themselves are then immutable again.</p>
 <h2 id="-lists">🍨 Lists</h2>
-<p>Lists are ordered mutable collections of values. They are represeneted by the 🍨 class. Their sizes are theoretically unlimited, but practically hardware and the fact that Emojicode’s integers have an upper bound makes them limited.</p>
-<p>Lists are optimized for fast by index access. You can access by index, pop and append in <code>O(1)</code>.</p>
-<p>List indexing starts at 0, as in C or Java. A negative index is assumed to be relative to the end of the list — that is, an index of -1 indicates the last element of the array, -2 is the next to last element in the array, and so on.</p>
+<p>Lists are ordered mutable collections of values. They are represeneted by the 🍨
+class. Their sizes are theoretically unlimited, but practically hardware and the
+fact that Emojicode’s integers have an upper bound makes them limited.</p>
+<p>Lists are optimized for fast by index access. You can access by index, pop and
+append in <code>O(1)</code>.</p>
+<p>List indexing starts at 0, as in C or Java. A negative index is assumed to be
+relative to the end of the list — that is, an index of -1 indicates the last
+element of the array, -2 is the next to last element in the array, and so on.</p>
 <h3 id="the-type">The 🍨 Type</h3>
-<p>The 🍨 class is generic and needs to know of what type the values are. If you use the class name you will also have to specify this generic argument. To specify a list that can hold strings you would write:</p>
+<p>The 🍨 class is generic and needs to know of what type the values are. If you use
+the class name you will also have to specify this generic argument. To specify a
+list that can hold strings you would write:</p>
 <pre><code>🍨🐚🔡
 </code></pre><p>If you created a list like this</p>
 <pre><code>🍮 list 🔷 🍨🐚🔡 🐸
-</code></pre><p>you would only be able to add strings to the list and you will always get back strings from the list. (The syntax used above will be discussed in <a href="classes.html">Classes</a>.)</p>
+</code></pre><p>you would only be able to add strings to the list and you will always get back
+strings from the list. (The syntax used above will be discussed in
+<a href="classes.html">Classes</a>.)</p>
 <h3 id="list-literals">List Literals</h3>
-<p>You can create a list just by listing the values for the list between 🍨 and 🍆. The example below creates a list with the values <code>14</code>, <code>67</code>, <code>2434</code>.</p>
+<p>You can create a list just by listing the values for the list between 🍨 and 🍆.
+The example below creates a list with the values <code>14</code>, <code>67</code>, <code>2434</code>.</p>
 <pre><code>🍨 14 67 2434 🍆
 </code></pre><p>The compiler will try to infer the generic type argument for the list.</p>
 <h2 id="-dictionaries">🍯 Dictionaries</h2>
-<p>Dictionaries can be used to assign values to string keys. The size of a dictionary is theoretically unlimited. The Emojicode Real-Time Engine implements dictionaries using linear probing and the Fowler–Noll–Vo hash function.</p>
+<p>Dictionaries can be used to assign values to string keys. The size of a
+dictionary is theoretically unlimited. The Emojicode Real-Time Engine implements
+dictionaries using linear probing and the Fowler–Noll–Vo hash function.</p>
 <h3 id="the-type">The 🍯 Type</h3>
-<p>The 🍯 class is also generic and requires you to specify the type of the values. For instance if the values were booleans the type would be written like this:</p>
+<p>The 🍯 class is also generic and requires you to specify the type of the values.
+For instance if the values were booleans the type would be written like this:</p>
 <pre><code>🍯🐚👌
 </code></pre><h3 id="dictionary-literals">Dictionary Literals</h3>
 <p>The shortcut syntax to create a dictionary is:</p>
 <pre><code>🍯 (key value) ... 🍆
-</code></pre><p><em>key</em> must be a string. The compiler will try to infer the generic type argument for the dictionary.</p>
+</code></pre><p><em>key must be a string. The compiler will try to infer the generic type argument
+</em>for the dictionary.</p>
 <p>Example:</p>
 <pre><code>🍯
   🔤Tuvok🔤 🔤Lieutenant🔤

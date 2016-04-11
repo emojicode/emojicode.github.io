@@ -1,28 +1,27 @@
 # The Basics
 
-## The Compiler
+Emojicode is a language that aims to provide the most modern and powerful
+features to make it easy, fast and fun to write programs. These powerful
+features include classes, optionals, which can handle the absence of a value,
+generics, closures and much more.
 
-The *Emojicode Compiler* will only correctly compile files that are UTF8
-encoded. The compiler accepts a single file which can include other files
-and is processed into one *Emojicode Bytecode file*. The **order of inclusion
-files can be important** if for instance one file declares a type on which other
-files depend.
+Emojicode is a strongly typed language, which means that the compiler will
+verify that all of your operations are correct. This for instance prevents you
+from treating a number as a list of texts.
 
-## The Real-Time Engine
+Although Emojicode only uses Emojis to express the program’s structure, it is
+similar to programming languages you might know, like C.
 
-The *Emojicode Real-Time Engine* is the part of Emojicode that **actually
-executes your program**. It takes the bytecode file and executes it. The
-bytecode file can be executed on any platform on which the engine runs.
+Emojicode was designed to allow the development of platform independent
+applications by running them inside a virtual machine. Your code is first
+compiled to bytecode by a compiler and can then be executed. The reference
+implemention of such a virtual machine is called *Emojicode Real-Time* and can,
+as the name suggests, execute your code rather fast.
 
-The Real-Time Engine was built to load and run bytecode files as quickly as
-possible. Therefore it does not perform any kind of error checking. Passing a
-malformed bytecode file to the engine can lead to a crash.
-
->!H If you are unfamiliar with the command line interfaces you might want to
->!H read the guide
+>!H If you need guidance on how to use the compiler and the Real-Time Engine
+>!H see
 >!H [“Compile and Run Your First Program”](../guides/compile-and-run.html),
->!H which discusses the use of the Emojicode Compiler and the Emojicode
->!H Real-Time Engine.
+>!H which is a short tutorial on writing applications in Emojicode.
 
 ## Comments
 
@@ -64,26 +63,6 @@ There’s sometimes confusion when emojis are used. Basically it’s very simple
 All **type, method, class method and initializer** names are **Emojis**. On the
 other hand **variables cannot include emojis** but must be any combination of
 characters that cannot be confused with numbers.
-
-## Including Other Source Code Files
-
-You can include other source code files into a source file. Basically this
-just inserts the code from the file at the point where you included it.
-
-Syntax:
-
-```
-📜 string
-```
-
-*string* must be a string whose value is a path to another Emojicode source
-file. The path is relative to the directory which included the document with the
-📜 statement.
-
->!H Do **not** use this method to share code accross projects. If you have
->!H written really fancy code,
->!H [**create a package](/docs/reference/packages.html), which you can easily
->!H make available to other people**.
 
 ## Variables
 
@@ -200,3 +179,41 @@ desired symbol. This is called a *Symbol literal*.
 Example:
 
     🍦 theAcceptedCurrency 🔟€
+
+## Including Other Source Code Files
+
+You can include other source code files into a source file. Basically this
+just inserts the code from the file at the point where you included it.
+
+Syntax:
+
+```
+📜 string
+```
+
+*string* must be a string whose value is a path to another Emojicode source
+file. The path is relative to the directory which included the document with the
+📜 statement.
+
+>!H Do **not** use this method to share code accross projects. If you have
+>!H written really fancy code,
+>!H [**create a package](/docs/reference/packages.html), which you can easily
+>!H make available to other people**.
+
+## The Compiler
+
+The *Emojicode Compiler* will only correctly compile files that are UTF8
+encoded. The compiler accepts a single file which can include other files
+and is processed into one *Emojicode Bytecode file*. The **order of inclusion
+files can be important** if for instance one file declares a type on which other
+files depend.
+
+## The Real-Time Engine
+
+The *Emojicode Real-Time Engine* is the part of Emojicode that **actually
+executes your program**. It takes the bytecode file and executes it. The
+bytecode file can be executed on any platform on which the engine runs.
+
+The Real-Time Engine was built to load and run bytecode files as quickly as
+possible. Therefore it does not perform any kind of error checking. Passing a
+malformed bytecode file to the engine can lead to a crash.

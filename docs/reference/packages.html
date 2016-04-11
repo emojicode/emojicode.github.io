@@ -98,14 +98,15 @@ namespacing</a>.</p>
 <h2 id="what-is-a-package-">What is a Package?</h2>
 <p>Emojicode divides code into so called <em>packages</em>. A package is a unit of code
 that can consist of one or more Emojicode source code files. All packages have a
-name associated with them and all code belongs to a pacakge. If you tell the
-compiler to compile a file this file implicitely becomes the starting point for
-a package called <code>_</code>. So remember, all code you write belongs to a package.</p>
-<p>Each package has its own set of types and own namespaces. If you define or
+name associated with them and <strong>all code belongs to a pacakge</strong>. If you tell the
+compiler to <strong>compile a file</strong> this file implicitely becomes the starting point
+for a <strong>package called <code>_</code></strong>. So remember, all code you write belongs to a
+package.</p>
+<p>Each package has its <strong>own set of types and own namespaces</strong>. If you define or
 import types in one package, this types will not be available in other packages
 without explicitly importing them.</p>
 <h2 id="importing-other-packages">Importing other packages</h2>
-<p>The object of packages is to provide an easy way to reuse code. Therefore
+<p>The object of packages is to provide an <strong>easy way to reuse code</strong>. Therefore
 naturally, you can import other packages into a package. The syntax to do this
 is:</p>
 <pre><code>📦 packageName destinationNamespace
@@ -113,9 +114,9 @@ is:</p>
 <em>Package Search Path</em> for a package with the given name <code>packageName</code> and will
 try to import it. The default <em>Package Search Path</em> is
 <code>/usr/local/EmojicodePackages/</code> for UNIX operating systems.</p>
-<p>If you import a package, all types that were exported from the
-imported package will be made available in the importing package. The types will
-be added to the given namespace <code>destinationNamespace</code>. If this would cause a
+<p>If you import a package, <strong>all types that were exported from the imported
+package will be made available in the importing package</strong>. The types will be
+added to the given namespace <code>destinationNamespace</code>. If this would cause a
 naming collision the compiler will emit an error. It’s also important to note
 here, that namespaces are completely local to a package.</p>
 <p>The example below imports the <code>files</code> package into the global namespace 🔴.
@@ -133,19 +134,20 @@ The progam then uses the class 📄 which was imported from the
 </code></pre><p>Any package can load other packages as long as this doesn’t lead to a circular
 dependency. The compiler will detect circular dependencies and abort the
 compilation.</p>
-<p>The s package is implicitly imported into the global namespace 🔴 of
-every package.</p>
+<p>The <strong>s package is implicitly imported</strong> into the global namespace 🔴 of
+<strong>every package</strong>.</p>
 <h2 id="making-a-package-importable">Making a Package Importable</h2>
 <p>A package always has a single file as starting point which is either called
 <code>header.emojic</code> for an importable package or arbitrarily named for the <code>_</code>
 package. This file then can include other files using 📜.</p>
-<p>By default all types defined within a package are internal and not exported. If
-you want to export a type defined in your package you must prepend it with 🌍.</p>
+<p><strong>By default all types</strong> defined within a package are internal and <strong>not
+exported</strong>. If you want to export a type defined in your package you must
+prepend it with 🌍.</p>
 <p>Extensions are always applied to the extended class and can therefore not be
-explicitely marked with 🌍. Packages are only loaded once and their types are
-then shared across all packages when imported. Therefore extending a class will
-make the extensions show up anywhere after the package with the extension was
-loaded from anywhere within the program.</p>
+explicitely marked with 🌍. Packages are cached so an extension will only be
+applied once. If your package extends a class the extensions will be available
+everywhere after the package with the extension was loaded from somewhere within
+the program.</p>
 <p>Additionally an importable package must declare its version using 🔮:</p>
 <pre><code>🔮 major minor
 </code></pre><p>The <code>header.emojic</code> of a cat-simulator package must look like this:</p>
@@ -187,7 +189,7 @@ to access the 💊 class as it was not exported.</p>
   🍉
 🍉
 </code></pre><h2 id="native-binaries">Native Binaries</h2>
-<p>Packages can be backed by a native compiled binary. Native binaries can
+<p>Packages can be accompanied by a native compiled binary. Native binaries can
 introduce performance issues and are not easy to get right and should only be
 used when absolutely necessary.</p>
 <p>To declare that a package comes with a native binary, you place a 📻 at the

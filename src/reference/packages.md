@@ -7,17 +7,18 @@
 
 Emojicode divides code into so called *packages*. A package is a unit of code
 that can consist of one or more Emojicode source code files. All packages have a
-name associated with them and all code belongs to a pacakge. If you tell the
-compiler to compile a file this file implicitely becomes the starting point for
-a package called `_`. So remember, all code you write belongs to a package.
+name associated with them and **all code belongs to a pacakge**. If you tell the
+compiler to **compile a file** this file implicitely becomes the starting point
+for a **package called `_`**. So remember, all code you write belongs to a
+package.
 
-Each package has its own set of types and own namespaces. If you define or
+Each package has its **own set of types and own namespaces**. If you define or
 import types in one package, this types will not be available in other packages
 without explicitly importing them.
 
 ## Importing other packages
 
-The object of packages is to provide an easy way to reuse code. Therefore
+The object of packages is to provide an **easy way to reuse code**. Therefore
 naturally, you can import other packages into a package. The syntax to do this
 is:
 
@@ -30,9 +31,9 @@ If such a statment ocours to the compiler, the compiler will search the
 try to import it. The default *Package Search Path* is
 `/usr/local/EmojicodePackages/` for UNIX operating systems.
 
-If you import a package, all types that were exported from the
-imported package will be made available in the importing package. The types will
-be added to the given namespace `destinationNamespace`. If this would cause a
+If you import a package, **all types that were exported from the imported
+package will be made available in the importing package**. The types will be
+added to the given namespace `destinationNamespace`. If this would cause a
 naming collision the compiler will emit an error. It’s also important to note
 here, that namespaces are completely local to a package.
 
@@ -56,8 +57,8 @@ Any package can load other packages as long as this doesn’t lead to a circular
 dependency. The compiler will detect circular dependencies and abort the
 compilation.
 
-The s package is implicitly imported into the global namespace 🔴 of
-every package.
+The **s package is implicitly imported** into the global namespace 🔴 of
+**every package**.
 
 ## Making a Package Importable
 
@@ -65,14 +66,15 @@ A package always has a single file as starting point which is either called
 `header.emojic` for an importable package or arbitrarily named for the `_`
 package. This file then can include other files using 📜.
 
-By default all types defined within a package are internal and not exported. If
-you want to export a type defined in your package you must prepend it with 🌍.
+**By default all types** defined within a package are internal and **not
+exported**. If you want to export a type defined in your package you must
+prepend it with 🌍.
 
 Extensions are always applied to the extended class and can therefore not be
-explicitely marked with 🌍. Packages are only loaded once and their types are
-then shared across all packages when imported. Therefore extending a class will
-make the extensions show up anywhere after the package with the extension was
-loaded from anywhere within the program.
+explicitely marked with 🌍. Packages are cached so an extension will only be
+applied once. If your package extends a class the extensions will be available
+everywhere after the package with the extension was loaded from somewhere within
+the program.
 
 Additionally an importable package must declare its version using 🔮:
 
@@ -131,7 +133,7 @@ to access the 💊 class as it was not exported.
 
 ## Native Binaries
 
-Packages can be backed by a native compiled binary. Native binaries can
+Packages can be accompanied by a native compiled binary. Native binaries can
 introduce performance issues and are not easy to get right and should only be
 used when absolutely necessary.
 

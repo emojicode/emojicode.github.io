@@ -1,5 +1,10 @@
 # Generics
 
+*Generics* allow you to write code in which you can use a placeholder – variable
+names – instead of actual type names, which will then be substitued with real
+types when you use that code later. This is a really powerful feature and is a
+great way to avoid code duplication.
+
 ## Defining a Generic Class
 
 To define a Generic Class you define a class and append

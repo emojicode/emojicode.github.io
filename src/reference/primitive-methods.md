@@ -1,7 +1,7 @@
 # Primitive Methods
 
-You can also, of course, call methods on the primitive types. These methods are
-documented here.
+You can, of course, call methods on instances of the primitive types. These
+methods are documented here.
 
 All primitive types support
 
