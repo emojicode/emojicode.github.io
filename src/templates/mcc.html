@@ -55,7 +55,7 @@
           {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
         </div>
 
-        <pre>{{simpleAccess}} {{#canReturnNothingness}}🍬{{/canReturnNothingness}} 🐈 {{name}} {{#arguments}}{{name}} {{{typeLink}}}{{/arguments}}</pre>
+        <pre>{{simpleAccess}}{{#canReturnNothingness}}🍬 {{/canReturnNothingness}}🐈 {{name}} {{#arguments}}{{name}} {{{typeLink}}}{{/arguments}}</pre>
 
         {{>argdoc}}
       </div>
@@ -74,7 +74,7 @@
           {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
         </div>
 
-        <pre>{{simpleAccess}} 🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+        <pre>{{simpleAccess}}🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
         {{>argdoc}}
       </div>
@@ -93,7 +93,7 @@
           {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
       </div>
 
-      <pre>{{simpleAccess}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+      <pre>{{simpleAccess}}🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
       {{>argdoc}}
       </div>
