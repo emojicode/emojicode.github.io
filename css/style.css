@@ -485,6 +485,14 @@ section {
 .header-linked-list {
   padding-top: 20px; }
 
+.emoji-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .emoji-row div {
+    width: 16.66667%;
+    padding: 0 20px; }
+
 @media (max-width: 880px) {
   .menu {
     font-size: 15px; }
@@ -493,18 +501,14 @@ section {
     padding: 10px; }
 
   .header-left-col {
-    padding: 30px; } }
+    padding: 30px; }
+
+  .emoji-row div {
+    width: 33.33333%; } }
 .features .u-1-2 {
   padding: 10px 0; }
 .features .u-1-2:nth-child(odd) {
   padding-right: 5px; }
-
-.emoji-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap; }
-  .emoji-row img {
-    padding: 0 20px; }
 
 .footer {
   padding: 15px;

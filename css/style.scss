@@ -139,6 +139,17 @@ section {
   padding-top: 20px;
 }
 
+.emoji-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  div {
+    width: percentage(1 / 6);
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: $break) {
   .menu {
     font-size: 15px;
@@ -151,6 +162,10 @@ section {
   .header-left-col {
     padding: 30px;
   }
+
+  .emoji-row div {
+    width: percentage(1 / 3);
+  }
 }
 
 .features {
@@ -160,16 +175,6 @@ section {
 
   .u-1-2:nth-child(odd) {
     padding-right: 5px;
-  }
-}
-
-.emoji-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-
-  img {
-    padding: 0 20px;
   }
 }
 
