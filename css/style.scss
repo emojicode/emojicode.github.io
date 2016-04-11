@@ -151,6 +151,10 @@ section {
   }
 }
 
+.action {
+  margin-bottom: 2em;
+}
+
 @media (max-width: $break) {
   .menu {
     font-size: 15px;
@@ -180,7 +184,7 @@ section {
 }
 
 .footer {
-  padding: 15px;
+  padding: 18px;
   color: $footer-color;
   text-align: center;
   font-size: 14px;

@@ -222,7 +222,7 @@ h4 {
   font-family: Varela Round;
   font-weight: normal;
   color: #312d67;
-  margin-top: 2.5rem;
+  margin-top: 2.9rem;
   margin-bottom: 0.6rem; }
 
 table {
@@ -268,7 +268,6 @@ table {
   background-color: #312d67;
   -webkit-font-smoothing: subpixel-antialiased;
   z-index: 1000;
-  overflow-x: scroll;
   white-space: nowrap; }
   .navbar a {
     display: inline-block;
@@ -281,7 +280,8 @@ table {
   .navbar .logo {
     font-family: Varela Round, sans-serif;
     letter-spacing: -0.03em;
-    font-size: 22px; }
+    font-size: 22px;
+    float: left; }
 
 .navbar-right {
   float: right; }
@@ -321,10 +321,15 @@ table {
 
 .toc {
   position: absolute;
+  left: 0;
+  top: 80px;
+  bottom: 0;
+  width: 300px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   font-size: 14px;
-  padding: 10px;
-  top: 70px;
-  width: 300px; }
+  padding: 12px;
+  z-index: 100; }
   .toc.fixed {
     position: fixed; }
   .toc a {
@@ -439,7 +444,8 @@ section {
 .header {
   background-color: #312d67;
   color: #fff; }
-  .header h1, .header h2 {
+  .header h1,
+  .header h2 {
     color: #fff; }
 
 .menu {
@@ -493,6 +499,9 @@ section {
     width: 16.66667%;
     padding: 0 20px; }
 
+.action {
+  margin-bottom: 2em; }
+
 @media (max-width: 880px) {
   .menu {
     font-size: 15px; }
@@ -511,7 +520,7 @@ section {
   padding-right: 5px; }
 
 .footer {
-  padding: 15px;
+  padding: 18px;
   color: #7f7f7f;
   text-align: center;
   font-size: 14px; }
