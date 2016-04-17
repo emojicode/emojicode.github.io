@@ -29,6 +29,9 @@
         <a href="basics.html">The Basics</a>
       </li>
     	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
@@ -39,9 +42,6 @@
       </li>
     	<li>
         <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -88,7 +88,7 @@
 
 <div class="content">
 	<h1 id="extensions">Extensions</h1>
-<p>Extensions allow you to extend an existing class. You can do everything in an 
+<p>Extensions allow you to extend an existing class. You can do everything in an
 extension you could do in a class definition body.</p>
 <h2 id="extending">Extending</h2>
 <p>The syntax is:</p>
@@ -96,8 +96,6 @@ extension you could do in a class definition body.</p>
 
 🍉
 </code></pre><p><em>class</em> must be an existing class.</p>
-<p>It is possible to declare that a class agrees to a protocol in the class 
-definition and to implement the required methods in an extension.</p>
 <p>You can also extend classes from other packages. Example:</p>
 <pre><code>🐇 📺 🍇
   🐇🐖 🏁 ➡️ 🚂 🍇
@@ -120,7 +118,7 @@ definition and to implement the required methods in an extension.</p>
   🍉
 🍉
 </code></pre><h2 id="circumvent-circular-dependencies">Circumvent circular dependencies</h2>
-<p>Extension can also be used to circumvent circular dependencies. Imagine this 
+<p>Extension can also be used to circumvent circular dependencies. Imagine this
 problem:</p>
 <pre><code>🐇 🌕 🍇
   🍰 belongingTo 🌍
@@ -140,7 +138,7 @@ problem:</p>
 🐋 🌍 🍇
   🍰 moon 🌕
 🍉
-</code></pre><p>Although extensions to classes are practically cost free it is not considered 
+</code></pre><p>Although extensions to classes are practically cost free it is not considered
 good style to always “forward declare” classes to extend them later.</p>
 
 

@@ -29,6 +29,9 @@
         <a href="basics.html">The Basics</a>
       </li>
     	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
@@ -39,9 +42,6 @@
       </li>
     	<li>
         <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -90,26 +90,34 @@
 
 <div class="content">
 	<h1 id="appendix-i-the-emojicode-compiler">Appendix I: The Emojicode Compiler</h1>
-<p>This chapter is dedicated to the Emojicode Compiler as published by the Emojicode Committee. Other Emojicode compilers may provide a different command-line interface.</p>
+<p>This chapter is dedicated to the Emojicode Compiler as published by the
+Emojicode Committee. Other Emojicode compilers may provide a different command-
+line interface.</p>
 <h2 id="compiling-files-to-a-binary">Compiling files to a binary</h2>
-<p>The most obvious purpose of the compiler is the compilation of Emojicode source files to Emojicode Byte-Code files.</p>
-<p>You can pass any number of files to the compiler, which will read them in order of appearance. Basically the compiler doesn’t care at all where the source code came from, so passing one big file or multiple small files does not make any difference.</p>
-<p>It is however important to note that the order of type declarations matter. You cannot refer to a type before it was defined.</p>
+<p>The most obvious purpose of the compiler is the compilation of Emojicode source
+files to Emojicode Byte-Code files.</p>
+<p>You can pass a single source code file to the compiler.</p>
 <p>Example command:</p>
-<pre><code>emojicodec aFile.emojic anotherFile.emojic
-</code></pre><p>By default the output file will have the same name as the first input file. You can explicitly set an output name with the <code>-o</code> option:</p>
-<pre><code>emojicodec -o awesomeProgram.emojib aFile.emojic anotherFile.emojic
+<pre><code>emojicodec aFile.emojic
+</code></pre><p>By default the output file will have the same name as the first input file. You
+can explicitly set an output name with the <code>-o</code> option:</p>
+<pre><code>emojicodec -o awesomeProgram.emojib aFile.emojic
 </code></pre><h2 id="switch-the-compiler-into-json-mode">Switch the compiler into JSON mode</h2>
-<p>The option <code>-j</code> can be used to switch the compiler into the JSON mode. When working in the JSON mode the compiler will  print all errors and warnings to the standard error as a JSON array.</p>
+<p>The option <code>-j</code> can be used to switch the compiler into the JSON mode. When
+working in the JSON mode the compiler will  print all errors and warnings to the
+standard error as a JSON array.</p>
 <p>Example:</p>
 <pre><code>emojicodec -j haferPackageTest.emojic
-</code></pre><pre><code>[{&quot;type&quot;: &quot;error&quot;, &quot;line&quot;: 0, &quot;character&quot;: 0, &quot;file&quot;:&quot;&quot;, &quot;message&quot;:&quot;Couldn&#39;t read input file \/usr\/local\/EmojicodePackages\/hafer\/header.emojic.&quot;}
+</code></pre><pre><code>[{&quot;type&quot;: &quot;error&quot;, &quot;line&quot;: 0, &quot;character&quot;: 0, &quot;file&quot;:&quot;&quot;, &quot;message&quot;:&quot;Couldn&#39;t read input file \/usr\/local\/EmojicodePackages\/hafer\/header.emojic.&quot;}]
 </code></pre><h2 id="print-the-version">Print the version</h2>
 <p>Of course you can print the version of the compiler. E.g.</p>
 <pre><code>emojicodec -v
 </code></pre><h2 id="package-report">Package Report</h2>
-<p>You can ask the compiler to generate a JSON report of all types defined in a given package.</p>
-<p>To generate a report of all files directly passed to the compiler use the <code>-r</code> option. To generate a report of a specific package use the <code>-R packageName</code> option.</p>
+<p>You can ask the compiler to generate a JSON report of all types defined in a
+given package.</p>
+<p>To generate a report of all files directly passed to the compiler use the <code>-r</code>
+option. To generate a report of a specific package use the <code>-R packageName</code>
+option.</p>
 
 
 	<div class="reference-navigation-bottom">

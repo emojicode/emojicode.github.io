@@ -35,10 +35,12 @@
             <li><a href="#numeric-literals">Numeric Literals</a></li>
             <li><a href="#booleans">Booleans</a></li>
             <li><a href="#symbol-literals">Symbol literals</a></li>
+            <li><a href="#context-based-parsing">Context Based Parsing</a></li>
             <li><a href="#including-other-source-code-files">Including Other Source Code Files</a></li>
-            <li><a href="#the-compiler">The Compiler</a></li>
-            <li><a href="#the-real-time-engine">The Real-Time Engine</a></li>
           </ul>
+      </li>
+    	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="the-s-package.html">The s package</a>
@@ -51,9 +53,6 @@
       </li>
     	<li>
         <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -146,31 +145,28 @@ characters that cannot be confused with numbers.</p>
 <h2 id="variables">Variables</h2>
 <p>Variables pair a name, the <em>variable name</em>, with a value. The variable name can
 consist of any sequence of characters but <strong>may not contain spaces or emojis</strong>
-and may not start with a number.</p>
-<p>Before its first use a variable is declared and the type of the variable is
-defined. The variable can only hold values that are compatible to this type.</p>
-<p>Variables are only accessible from the <em>scope</em> in which they were declared.
-Every class method, method or initializer defines an own scope which disappears
-once the procedure has ended. A scope may also allow you to access its <em>parent
-scope</em>, which gives you the opportunity to access the variables inside that
-scope. Methods and initializer for instance allow you to access the parent
-scope, which in this case is the <em>object scope</em>, in which all instance variables
-live.</p>
-<h3 id="-setting-variables">🍮 Setting Variables</h3>
-<p>The easiest way to declare and set a variable is to use 🍮. If the variable can
-be found its value will be changed. Otherwise the variable will be declared in
-the current scope. The type of the variable will be inferred from the type of
-<em>variableValue</em>.</p>
-<pre><code>🍮 variableName variableValue
-</code></pre><p><em>variableName must be a valid variable name as described in the introduction.
-</em>variableValue may be an expression of any type.</p>
-<h3 id="-setting-a-frozen-variable">🍦 Setting a Frozen Variable</h3>
-<p>You can also set and declare a frozen variable. A frozen variable can’t be
-modified after its first initialization. The type of the variable will be
-inferred from the type of <em>variableValue</em>.</p>
-<pre><code>🍦 variableName variableValue
-</code></pre><p>You should <strong>always use frozen variables if you don’t intend to modify</strong> the
-variable.</p>
+and may not begin with a number.</p>
+<p>There are two types of variables: normal variables and frozen variables. Frozen
+variables differ from normal ones in that they cannot be changed after
+they were initially set.</p>
+<h3 id="-declaring-a-frozen-variable">🍦 Declaring a Frozen Variable</h3>
+<p>The easiest way to declare and set a frozen variable at once is to use 🍦.</p>
+<pre><code>🍦 daysInDecember 31
+🍦 approximationOf𝜋 3.14159265359
+</code></pre><p>The above code sets the variable <code>daysInDecember</code> to <code>31</code> and <code>approximationOf𝜋</code>
+to <code>3.14159265359</code>. These variables were declared as frozen variables as they
+never change.</p>
+<p>The compiler infers the type of the variables from the values given.</p>
+<h3 id="-setting-and-declaring-a-variable">🍮 Setting and Declaring a Variable</h3>
+<p>To declare or change are normal, changeable variable you should use 🍮. If the
+variable you want to set is already declared its value will be changed, given
+that it is not frozen; in that particular case an error message would be
+emitted. Otherwise the variable is declared in the current scope.</p>
+<pre><code>🍮 moneyLeft 20
+🍮 numberOfTimes“SmokeOnTheWater”WasPlayed 20348292837483929
+</code></pre><p>These variables were justifiably declared as changeable variables because they
+obviously change often. You should however <strong>always prefer frozen variables if
+you don’t intend to modify</strong> the variable.</p>
 <h3 id="-declaring-variables">🍰 Declaring Variables</h3>
 <p>You can declare a variable yourself regardless if a variable with the same name
 was declared in the parent scope but you may not declare a variable more than
@@ -180,11 +176,22 @@ one time.</p>
 </em>of any type.</p>
 <p>After you declared the variable in the local scope you can use 🍮 to set it to a
 value. The compiler will throw an error if you try to access an uninitialized
-variable.</p>
+variable. Optionals are automatically initialized to Nothingness.</p>
 <div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can for
 instance make instance variables inaccessible.</p>
 </div></div>
 
+<h3 id="scoping">Scoping</h3>
+<p>Variables are only accessible from the <em>scope</em> in which they were declared.
+Every class method, method or initializer defines an own scope which disappears
+once the procedure has ended. A scope may also allow you to access its <em>parent
+scope</em>, which gives you the opportunity to access the variables inside that
+scope. Methods and initializer for instance allow you to access the parent
+scope, which in this case is the <em>object scope</em>, in which all instance variables
+live.</p>
+<p>It’s important to note that unlike in other languages flow control blocks do not
+create a scope. If you declare a variable within an flow control it will also
+be available outside. This might change in future versions.</p>
 <h3 id="-incrementing-and-decrementing-variables">🍫 &amp; 🍳 Incrementing and Decrementing Variables</h3>
 <p>Variables containing numbers can be incremented by using 🍫 and decremented by
 using 🍳.</p>
@@ -223,8 +230,16 @@ The symbol type can represent any character defined in Unicode.</p>
 <p>You can include the symbol in the source code file by prepending 🔟 before the
 desired symbol. This is called a <em>Symbol literal</em>.</p>
 <p>Example:</p>
-<pre><code>🍦 theAcceptedCurrency 🔟€
-</code></pre><h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
+<pre><code>🍦 percent 🔟%
+</code></pre><h2 id="context-based-parsing">Context Based Parsing</h2>
+<p>Emojicode heavily uses <em>context based parsing</em>. This means that something can
+have a completely different meaning based on the context.</p>
+<p>All statments introduced above are only valid inside a method or initializer
+body. If you however used 🍦 when a type name was expected, 🍦 would be
+interpreted as a type called 🍦.</p>
+<p>The statment introduced below is, on the contrary, only valid at document
+level – you can’t use it inside a method or class.</p>
+<h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
 <p>You can include other source code files into a source file. Basically this
 just inserts the code from the file at the point where you included it.</p>
 <p>Syntax:</p>
@@ -238,23 +253,9 @@ written really fancy code,
 make available to other people</strong>.</p>
 </div></div>
 
-<h2 id="the-compiler">The Compiler</h2>
-<p>The <em>Emojicode Compiler</em> will only correctly compile files that are UTF8
-encoded. The compiler accepts a single file which can include other files
-and is processed into one <em>Emojicode Bytecode file</em>. The <strong>order of inclusion
-files can be important</strong> if for instance one file declares a type on which other
-files depend.</p>
-<h2 id="the-real-time-engine">The Real-Time Engine</h2>
-<p>The <em>Emojicode Real-Time Engine</em> is the part of Emojicode that <strong>actually
-executes your program</strong>. It takes the bytecode file and executes it. The
-bytecode file can be executed on any platform on which the engine runs.</p>
-<p>The Real-Time Engine was built to load and run bytecode files as quickly as
-possible. Therefore it does not perform any kind of error checking. Passing a
-malformed bytecode file to the engine can lead to a crash.</p>
-
 
 	<div class="reference-navigation-bottom">
-		<a href="the-s-package.html" class="right">
+		<a href="optionals.html" class="right">
 			Next →
 		</a>
 	</div>

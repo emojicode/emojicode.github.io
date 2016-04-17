@@ -29,6 +29,9 @@
         <a href="basics.html">The Basics</a>
       </li>
     	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
@@ -39,9 +42,6 @@
       </li>
     	<li>
         <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -61,8 +61,9 @@
             <li><a href="#defining-a-generic-class">Defining a Generic Class</a></li>
             <li><a href="#subclassing-a-generic-class">Subclassing a Generic Class</a></li>
             <li><a href="#compatibility">Compatibility</a></li>
-            <li><a href="#runtime-typing-casting-">Runtime Typing (Casting)</a></li>
             <li><a href="#generic-methods">Generic Methods</a></li>
+            <li><a href="#generic-protocols">Generic Protocols</a></li>
+            <li><a href="#runtime-typing-casting-">Runtime Typing (Casting)</a></li>
           </ul>
       </li>
     	<li>
@@ -101,8 +102,8 @@ great way to avoid code duplication.</p>
 </code></pre><p>for each generic argument the class shall take. This structure is called
 <em>generic argument</em>. <em>name</em>  must be the name of the argument and <em>type</em> any type
 name.</p>
-<p><em>type  is a generic argument constraint and types provided for this argument
-</em>must be compatible with that constraint.</p>
+<p><em>type</em> is a generic argument constraint and types provided for this argument
+must be compatible with that constraint.</p>
 <p>In the class body you can reference to the generic type arguments by its name.</p>
 <p>See this example for a “box” that can store objects.</p>
 <pre><code>🐇 🎁 🐚 T 🔵 🍇
@@ -148,22 +149,6 @@ kind of type conversion is not allowed.</p>
   👴 The program would crash as there’s an integer in our list of strings
   😀 string
 🍉
-</code></pre><h2 id="runtime-typing-casting-">Runtime Typing (Casting)</h2>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This is a 0.x limitation. Enhancements in the future will possibly remove this limitation.</p>
-</div></div>
-
-<p>At the moment it’s not possible to store the type information of instances of generic classes at runtime. Therefore casts to classes with specific generic arguments cannot be verified and are forbidden. You will be confronted with the following error message if you try that anyway:</p>
-<blockquote>
-<p>Dynamic casts involving generic type arguments are not possible yet. Please specify the generic argument constraints of the class for compatibility with future versions.</p>
-</blockquote>
-<p>When you perform a cast you must always specify the generic argument constraint for each argument. Example:</p>
-<pre><code>🍰 box ⚪️
-
-🔲 box 🎁🐚🔡
-</code></pre><p>The above example will not compile. Instead you have to specify:</p>
-<pre><code>🍰 box ⚪️
-
-🔲 box 🎁🐚🔵
 </code></pre><h2 id="generic-methods">Generic Methods</h2>
 <p>It’s also possible to define a generic method. A generic method is a method
 that takes generic arguments which then can be used as argument types, as return
@@ -186,6 +171,55 @@ you need to specify the generic type argument <code>A</code>.</p>
 🍉
 </code></pre><p>The formal syntax to call a method with generic type arguments is:</p>
 <pre><code>methodEmoji object (🐚 typeArgument)... [arguments ...]
+</code></pre><h2 id="generic-protocols">Generic Protocols</h2>
+<p>It’s also possible to define generic protocols. Generic protocols work
+very similar to generic classes and the same compatibility rules apply.</p>
+<p>A generic protocol which you might use is 🔂.</p>
+<pre><code>🐊 🔂🐚Element⚪️ 🍇
+  🐖 🍡 ➡️ 🍡🐚Element
+🍉
+</code></pre><p>It takes one generic argument <code>Element</code> which determines the generic argument
+for the iterator (🍡) the 🍡 method must return.</p>
+<p>A class conforming to this protocol must pass a generic argument, like the
+string class does for example:</p>
+<pre><code>🐇 📴 🍇
+  🐊 🍡🐚🔣
+
+  👴 ...
+🍉
+
+🐋 🔡 🍇
+  🐊 🔂🐚🔣
+
+  👴 ...
+
+  🐖 🍡 ➡️ 📴 🍇
+     👴 ...
+  🍉
+🍇
+</code></pre><h2 id="runtime-typing-casting-">Runtime Typing (Casting)</h2>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This is a 0.x limitation. Enhancements in the future will possibly
+remove this limitation.</p>
+</div></div>
+
+<p>At the moment it’s not possible to store the type information of instances of
+generic classes at runtime. Therefore casts to classes with specific generic
+arguments cannot be verified and are forbidden. You will be confronted with the
+following error message if you try that anyway:</p>
+<blockquote>
+<p>Dynamic casts involving generic type arguments are not possible yet. Please
+specify the generic argument constraints of the class for compatibility with
+future versions.</p>
+</blockquote>
+<p>When you perform a cast you must always specify the generic argument constraint
+for each argument. Example:</p>
+<pre><code>🍰 box ⚪️
+
+🔲 box 🎁🐚🔡
+</code></pre><p>The above example will not compile. Instead you have to specify:</p>
+<pre><code>🍰 box ⚪️
+
+🔲 box 🎁🐚🔵
 </code></pre>
 
 	<div class="reference-navigation-bottom">

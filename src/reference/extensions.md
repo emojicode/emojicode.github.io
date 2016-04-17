@@ -1,20 +1,19 @@
 # Extensions
 
-Extensions allow you to extend an existing class. You can do everything in an 
+Extensions allow you to extend an existing class. You can do everything in an
 extension you could do in a class definition body.
 
 ## Extending
 
 The syntax is:
 
-	🐋 class 🍇
+```
+🐋 class 🍇
 
-	🍉
+🍉
+```
 
 *class* must be an existing class.
-
-It is possible to declare that a class agrees to a protocol in the class 
-definition and to implement the required methods in an extension.
 
 You can also extend classes from other packages. Example:
 
@@ -43,7 +42,7 @@ You can also extend classes from other packages. Example:
 
 ## Circumvent circular dependencies
 
-Extension can also be used to circumvent circular dependencies. Imagine this 
+Extension can also be used to circumvent circular dependencies. Imagine this
 problem:
 
 ```
@@ -73,5 +72,5 @@ This problem can be solved using extensions:
 🍉
 ```
 
-Although extensions to classes are practically cost free it is not considered 
+Although extensions to classes are practically cost free it is not considered
 good style to always “forward declare” classes to extend them later.

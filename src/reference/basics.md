@@ -68,10 +68,64 @@ characters that cannot be confused with numbers.
 
 Variables pair a name, the *variable name*, with a value. The variable name can
 consist of any sequence of characters but **may not contain spaces or emojis**
-and may not start with a number.
+and may not begin with a number.
 
-Before its first use a variable is declared and the type of the variable is
-defined. The variable can only hold values that are compatible to this type.
+There are two types of variables: normal variables and frozen variables. Frozen
+variables differ from normal ones in that they cannot be changed after
+they were initially set.
+
+### 🍦 Declaring a Frozen Variable
+
+The easiest way to declare and set a frozen variable at once is to use 🍦.
+
+```
+🍦 daysInDecember 31
+🍦 approximationOf𝜋 3.14159265359
+```
+
+The above code sets the variable `daysInDecember` to `31` and `approximationOf𝜋`
+to `3.14159265359`. These variables were declared as frozen variables as they
+never change.
+
+The compiler infers the type of the variables from the values given.
+
+### 🍮 Setting and Declaring a Variable
+
+To declare or change are normal, changeable variable you should use 🍮. If the
+variable you want to set is already declared its value will be changed, given
+that it is not frozen; in that particular case an error message would be
+emitted. Otherwise the variable is declared in the current scope.
+
+```
+🍮 moneyLeft 20
+🍮 numberOfTimes“SmokeOnTheWater”WasPlayed 20348292837483929
+```
+
+These variables were justifiably declared as changeable variables because they
+obviously change often. You should however **always prefer frozen variables if
+you don’t intend to modify** the variable.
+
+### 🍰 Declaring Variables
+
+You can declare a variable yourself regardless if a variable with the same name
+was declared in the parent scope but you may not declare a variable more than
+one time.
+
+```
+🍰 variableName variableType
+```
+
+*variableName must be a valid variable name. variableValue may be an expression
+*of any type.
+
+After you declared the variable in the local scope you can use 🍮 to set it to a
+value. The compiler will throw an error if you try to access an uninitialized
+variable. Optionals are automatically initialized to Nothingness.
+
+>!N Beware of that 🍰 can shadow variables from parent scopes and can for
+>!N instance make instance variables inaccessible.
+
+### Scoping
 
 Variables are only accessible from the *scope* in which they were declared.
 Every class method, method or initializer defines an own scope which disappears
@@ -81,57 +135,21 @@ scope. Methods and initializer for instance allow you to access the parent
 scope, which in this case is the *object scope*, in which all instance variables
 live.
 
-### 🍮 Setting Variables
-
-The easiest way to declare and set a variable is to use 🍮. If the variable can
-be found its value will be changed. Otherwise the variable will be declared in
-the current scope. The type of the variable will be inferred from the type of
-*variableValue*.
-
-	🍮 variableName variableValue
-
-*variableName must be a valid variable name as described in the introduction.
-*variableValue may be an expression of any type.
-
-### 🍦 Setting a Frozen Variable
-
-You can also set and declare a frozen variable. A frozen variable can’t be
-modified after its first initialization. The type of the variable will be
-inferred from the type of *variableValue*.
-
-	🍦 variableName variableValue
-
-You should **always use frozen variables if you don’t intend to modify** the
-variable.
-
-### 🍰 Declaring Variables
-
-You can declare a variable yourself regardless if a variable with the same name
-was declared in the parent scope but you may not declare a variable more than
-one time.
-
-	🍰 variableName variableType
-
-*variableName must be a valid variable name. variableValue may be an expression
-*of any type.
-
-After you declared the variable in the local scope you can use 🍮 to set it to a
-value. The compiler will throw an error if you try to access an uninitialized
-variable.
-
->!N Beware of that 🍰 can shadow variables from parent scopes and can for
->!N instance make instance variables inaccessible.
+It’s important to note that unlike in other languages flow control blocks do not
+create a scope. If you declare a variable within an flow control it will also
+be available outside. This might change in future versions.
 
 ### 🍫 & 🍳 Incrementing and Decrementing Variables
 
 Variables containing numbers can be incremented by using 🍫 and decremented by
 using 🍳.
 
-	🍫 numberOfCats
-	🍳 watermelons
+```
+🍫 numberOfCats
+🍳 watermelons
+```
 
 The above example will increment *numberOfCats* and decrement *watermelons*.
-
 
 ## Numeric Literals
 
@@ -165,8 +183,10 @@ using 👎.
 
 In the example below two variables are set to a boolean value.
 
-    🍦 emojicodeIsTheFunniestLanguage 👍
-    🍦 phpIsAsCool 👎
+```
+🍦 emojicodeIsTheFunniestLanguage 👍
+🍦 phpIsAsCool 👎
+```
 
 ## Symbol literals
 
@@ -178,7 +198,21 @@ desired symbol. This is called a *Symbol literal*.
 
 Example:
 
-    🍦 theAcceptedCurrency 🔟€
+```
+🍦 percent 🔟%
+```
+
+## Context Based Parsing
+
+Emojicode heavily uses *context based parsing*. This means that something can
+have a completely different meaning based on the context.
+
+All statments introduced above are only valid inside a method or initializer
+body. If you however used 🍦 when a type name was expected, 🍦 would be
+interpreted as a type called 🍦.
+
+The statment introduced below is, on the contrary, only valid at document
+level – you can’t use it inside a method or class.
 
 ## Including Other Source Code Files
 
@@ -199,21 +233,3 @@ file. The path is relative to the directory which included the document with the
 >!H written really fancy code,
 >!H [**create a package](/docs/reference/packages.html), which you can easily
 >!H make available to other people**.
-
-## The Compiler
-
-The *Emojicode Compiler* will only correctly compile files that are UTF8
-encoded. The compiler accepts a single file which can include other files
-and is processed into one *Emojicode Bytecode file*. The **order of inclusion
-files can be important** if for instance one file declares a type on which other
-files depend.
-
-## The Real-Time Engine
-
-The *Emojicode Real-Time Engine* is the part of Emojicode that **actually
-executes your program**. It takes the bytecode file and executes it. The
-bytecode file can be executed on any platform on which the engine runs.
-
-The Real-Time Engine was built to load and run bytecode files as quickly as
-possible. Therefore it does not perform any kind of error checking. Passing a
-malformed bytecode file to the engine can lead to a crash.

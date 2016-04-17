@@ -105,12 +105,22 @@ The `header.emojic` of a cat-simulator package must look like this:
 ```
 
 Now, to make this package finally importable we’ll move this file into the
-Package Search Path. The structure of this directory is like shown below:
+Package Search Path. Each package has its own directory which must be named
+`{name}-v{major}` and a symbolic link to this directory just named after the
+package.
 
-TODO: Explain structure
+So we will need to create a directory `cat-simulator-v1` and a link `cat-
+simulator` to this directory. The directory will then look similiar to this:
 
-So we will need to create a directory whose name is in the format
-`{name}-v{major}`: `cat-simulator-v1`.
+```
+...
+├── s -> /usr/local/EmojicodePackages/s-v1
+├── s-v1
+│   └── header.emojic
+├── cat-simulator -> /usr/local/EmojicodePackages/cat-simulator-v0
+└── cat-simulator-v0
+    └── header.emojic
+```
 
 If we imported this package, we would gain access to the 🐱 but we’d not be able
 to access the 💊 class as it was not exported.

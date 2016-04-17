@@ -29,6 +29,9 @@
         <a href="basics.html">The Basics</a>
       </li>
     	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
@@ -39,9 +42,6 @@
       </li>
     	<li>
         <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -169,11 +169,19 @@ the program.</p>
   🍉
 🍉
 </code></pre><p>Now, to make this package finally importable we’ll move this file into the
-Package Search Path. The structure of this directory is like shown below:</p>
-<p>TODO: Explain structure</p>
-<p>So we will need to create a directory whose name is in the format
-<code>{name}-v{major}</code>: <code>cat-simulator-v1</code>.</p>
-<p>If we imported this package, we would gain access to the 🐱 but we’d not be able
+Package Search Path. Each package has its own directory which must be named
+<code>{name}-v{major}</code> and a symbolic link to this directory just named after the
+package.</p>
+<p>So we will need to create a directory <code>cat-simulator-v1</code> and a link <code>cat-
+simulator</code> to this directory. The directory will then look similiar to this:</p>
+<pre><code>...
+├── s -&gt; /usr/local/EmojicodePackages/s-v1
+├── s-v1
+│   └── header.emojic
+├── cat-simulator -&gt; /usr/local/EmojicodePackages/cat-simulator-v0
+└── cat-simulator-v0
+    └── header.emojic
+</code></pre><p>If we imported this package, we would gain access to the 🐱 but we’d not be able
 to access the 💊 class as it was not exported.</p>
 <pre><code>📦 cat-simulator 🔴
 

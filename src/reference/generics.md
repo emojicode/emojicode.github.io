@@ -17,8 +17,8 @@ for each generic argument the class shall take. This structure is called
 *generic argument*. *name*  must be the name of the argument and *type* any type
 name.
 
-*type  is a generic argument constraint and types provided for this argument
-*must be compatible with that constraint.
+*type* is a generic argument constraint and types provided for this argument
+must be compatible with that constraint.
 
 In the class body you can reference to the generic type arguments by its name.
 
@@ -85,30 +85,6 @@ kind of type conversion is not allowed.
 🍉
 ```
 
-## Runtime Typing (Casting)
-
->!H This is a 0.x limitation. Enhancements in the future will possibly remove this limitation.
-
-At the moment it’s not possible to store the type information of instances of generic classes at runtime. Therefore casts to classes with specific generic arguments cannot be verified and are forbidden. You will be confronted with the following error message if you try that anyway:
-
-> Dynamic casts involving generic type arguments are not possible yet. Please specify the generic argument constraints of the class for compatibility with future versions.
-
-When you perform a cast you must always specify the generic argument constraint for each argument. Example:
-
-```
-🍰 box ⚪️
-
-🔲 box 🎁🐚🔡
-```
-
-The above example will not compile. Instead you have to specify:
-
-```
-🍰 box ⚪️
-
-🔲 box 🎁🐚🔵
-```
-
 ## Generic Methods
 
 It’s also possible to define a generic method. A generic method is a method
@@ -147,4 +123,72 @@ The formal syntax to call a method with generic type arguments is:
 
 ```
 methodEmoji object (🐚 typeArgument)... [arguments ...]
+```
+
+## Generic Protocols
+
+It’s also possible to define generic protocols. Generic protocols work
+very similar to generic classes and the same compatibility rules apply.
+
+A generic protocol which you might use is 🔂.
+
+```
+🐊 🔂🐚Element⚪️ 🍇
+  🐖 🍡 ➡️ 🍡🐚Element
+🍉
+```
+
+It takes one generic argument `Element` which determines the generic argument
+for the iterator (🍡) the 🍡 method must return.
+
+A class conforming to this protocol must pass a generic argument, like the
+string class does for example:
+
+```
+🐇 📴 🍇
+  🐊 🍡🐚🔣
+
+  👴 ...
+🍉
+
+🐋 🔡 🍇
+  🐊 🔂🐚🔣
+
+  👴 ...
+
+  🐖 🍡 ➡️ 📴 🍇
+     👴 ...
+  🍉
+🍇
+```
+
+## Runtime Typing (Casting)
+
+>!H This is a 0.x limitation. Enhancements in the future will possibly
+>!H remove this limitation.
+
+At the moment it’s not possible to store the type information of instances of
+generic classes at runtime. Therefore casts to classes with specific generic
+arguments cannot be verified and are forbidden. You will be confronted with the
+following error message if you try that anyway:
+
+> Dynamic casts involving generic type arguments are not possible yet. Please
+> specify the generic argument constraints of the class for compatibility with
+> future versions.
+
+When you perform a cast you must always specify the generic argument constraint
+for each argument. Example:
+
+```
+🍰 box ⚪️
+
+🔲 box 🎁🐚🔡
+```
+
+The above example will not compile. Instead you have to specify:
+
+```
+🍰 box ⚪️
+
+🔲 box 🎁🐚🔵
 ```
