@@ -1,20 +1,20 @@
 [
   "basics.md",
+  "optionals.md",
   "the-s-package.md",
   "types.md",
   "primitive-methods.md",
   "controlflow.md",
-  "optionals.md",
   "classes.md",
   "extensions.md",
   "protocols.md",
   "enums.md",
   "generics.md",
   "callables.md",
-  "memory.md",
+  "threads.md",
   "packages.md",
+  "memory.md",
   "specification.md",
-  "credits.md",
   "compiler.md",
   "packageAPI.md"
 ]

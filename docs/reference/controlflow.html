@@ -29,10 +29,13 @@
         <a href="basics.html">The Basics</a>
       </li>
     	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
-        <a href="types.html">Types</a>
+        <a href="types.html">Types and Namespaces</a>
       </li>
     	<li>
         <a href="primitive-methods.html">Primitive Methods</a>
@@ -46,9 +49,6 @@
             <li><a href="#-">🍓</a></li>
             <li><a href="#-">🍋</a></li>
           </ul>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -69,16 +69,16 @@
         <a href="callables.html">Callables</a>
       </li>
     	<li>
+        <a href="threads.html">Threads</a>
+      </li>
+    	<li>
+        <a href="packages.html">Packages</a>
+      </li>
+    	<li>
         <a href="memory.html">Memory Management</a>
       </li>
     	<li>
-        <a href="packages.html">Package System</a>
-      </li>
-    	<li>
         <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
-      </li>
-    	<li>
-        <a href="credits.html">Credits and Licensing</a>
       </li>
     	<li>
         <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
@@ -91,37 +91,50 @@
 
 <div class="content">
 	<h1 id="control-flow">Control Flow</h1>
-<p>Emojicode provides different types of control flow structures that allow you to structure the flow of the program.</p>
-<p>Emojicode differs from other programming languages as it is missing statements that let you immediately exit a loop or to leave out an iteration.</p>
+<p>Emojicode provides different types of control flow structures that allow you to
+structure the flow of the program.</p>
+<p>Emojicode differs from other programming languages as it is missing statements
+that let you immediately exit a loop or to leave out an iteration.</p>
 <h2 id="-">🔁</h2>
 <p>Syntax:</p>
 <pre><code>🔁 expression 🍇
 
 🍉
-</code></pre><p>🔁 repeats a given code block as long as <em>expression</em> is true. This also means that if the <em>expression</em> is never true the block of code will never execute.</p>
+</code></pre><p>🔁 repeats a given code block as long as <em>expression</em> is true. This also means
+🔁 that if the <em>expression</em> is never true the block of code will never execute.</p>
 <h2 id="-">🔂</h2>
 <p>Syntax:</p>
 <pre><code>🔂 variable something 🍇
 
 🍉
-</code></pre><p>🔂 allows you to quickly enumerate an object. 🔂 can enumerate any class implementing the <a href="../packages/s/">🔂 protocol</a> as well as the 🍨 class.</p>
-<p>🔂 declares the variable <em>variable</em> in the current scope, and therefore cannot reuse any previously declared variable. The type of the variable is guessed to be the first generic argument of the type to enumerate. If the type can’t be inferred the variable is declared as ⚪️. Then on each iteration, the current object is assigned to <em>variable</em>.</p>
+</code></pre><p>🔂 allows you to quickly enumerate an object. can enumerate any class
+🔂 implementing the <a href="../packages/s/">protocol</a> as well as the 🍨 class.</p>
+<p>🔂 declares the variable <em>variable</em> in the current scope, and therefore cannot
+🔂 reuse any previously declared variable. The type of the variable is guessed to
+🔂 be the first generic argument of the type to enumerate. If the type can’t be
+🔂 inferred the variable is declared as ⚪️. Then on each iteration, the current
+🔂 object is assigned to <em>variable</em>.</p>
 <div class="callout-hint"><div class="title">Hint</div><div class="text"><p>If you need to repeat something for a given amount of times you possibly
 should use <a href="the-s-package.html#-ranges">⏩ Ranges</a>.</p>
 </div></div>
 
 <h2 id="-conditional">🍊 – Conditional</h2>
-<p>The 🍊 construct is very important. It allows for conditional execution of code fragments. The structure is:</p>
+<p>The 🍊 construct is very important. It allows for conditional execution of code
+fragments. The structure is:</p>
 <pre><code>🍊 boolean 🍇
 
 🍉
-</code></pre><p>If <em>boolean</em> is true, Emojicode will execute the code block, and if it evaluates to false it&#39;ll ignore it.</p>
+</code></pre><p>If <em>boolean</em> is true, Emojicode will execute the code block, and if it evaluates
+to false it&#39;ll ignore it.</p>
 <p>This example will display a is bigger b if <em>a</em> is bigger <em>b</em>:</p>
 <pre><code>🍊 ▶️ a b 🍇
     😀 🔤a is bigger b🔤
 🍉
 </code></pre><h2 id="-">🍓</h2>
-<p>🍓 extends an 🍊 statement to execute a statement in case the expression in the if statement evaluates to false. For example, the following code would display a is greater than b if “a is greater than b” and “a is not greater than b” otherwise:</p>
+<p>🍓 extends an 🍊 statement to execute a statement in case the expression in the if
+🍓 statement evaluates to false. For example, the following code would display a
+🍓 is greater than b if “a is greater than b” and “a is not greater than b”
+🍓 otherwise:</p>
 <pre><code>🍊 ▶️ a b 🍇
     😀 🔤a is bigger b🔤
 🍉
@@ -147,7 +160,7 @@ should use <a href="the-s-package.html#-ranges">⏩ Ranges</a>.</p>
 		<a href="primitive-methods.html" class="left">
 			← Previous
 		</a>
-		<a href="optionals.html" class="right">
+		<a href="classes.html" class="right">
 			Next →
 		</a>
 	</div>

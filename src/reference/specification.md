@@ -1057,6 +1057,58 @@ Each instruction returns *Something*. This return value can be used by the instr
 </tr>
 
 <tr>
+	<td>0x5A</td>
+	<td>AND</td>
+	<td>
+		<ol>
+			<li>Something: A</li>
+			<li>Something: B</li>
+		</ol>
+	</td>
+	<td>
+	A AND B
+	</td>
+</tr>
+<tr>
+	<td>0x5B</td>
+	<td>OR</td>
+	<td>
+		<ol>
+			<li>Something: A</li>
+			<li>Something: B</li>
+		</ol>
+	</td>
+	<td>
+	A OR B
+	</td>
+</tr>
+<tr>
+	<td>0x5C</td>
+	<td>XOR</td>
+	<td>
+		<ol>
+			<li>Something: A</li>
+			<li>Something: B</li>
+		</ol>
+	</td>
+	<td>
+	A XOR B
+	</td>
+</tr>
+<tr>
+	<td>0x5D</td>
+	<td>NOT</td>
+	<td>
+		<ol>
+			<li>Something: A</li>
+		</ol>
+	</td>
+	<td>
+	NOT A
+	</td>
+</tr>
+
+<tr>
 	<td>0x60</td>
 	<td>Return</td>
 	<td>
@@ -1144,16 +1196,46 @@ Each instruction returns *Something*. This return value can be used by the instr
   </td>
 </tr>
 <tr>
-  <td>0x67</td>
-  <td>Guard</td>
+	<td>0x70</td>
+  <td>Closure Creation</td>
   <td>
     <ol>
-      <li>Something: A</li>
-      <li>Something: C</li>
+      <li>Coin: Variable count.</li>
+      <li>Coin: Coin count.</li>
+      <li>Coin: Argument count.</li>
+      <li>
+      	Coin: Captured variable count (`& 0xFFFF`) and capture
+      	self (`& 0xFFFF0000`).
+      </li>
     </ol>
   </td>
   <td>
-    Evaluates C if A is nothingness.
+    Creates a clousre.
+  </td>
+</tr>
+<tr>
+	<td>0x71</td>
+  <td>Captured Method</td>
+  <td>
+    <ol>
+   		<li>Something: The object.</li>
+      <li>Coin: Virtual Table Index</li>
+    </ol>
+  </td>
+  <td>
+    Captures the method identified by the given VTI from the given object.
+  </td>
+</tr>
+<tr>
+	<td>0x72</td>
+  <td>Callable execution</td>
+  <td>
+    <ol>
+   		<li>Something: Callable.</li>
+    </ol>
+  </td>
+  <td>
+    Executes the given callable.
   </td>
 </tr>
 </table>

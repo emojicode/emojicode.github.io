@@ -29,10 +29,13 @@
         <a href="basics.html">The Basics</a>
       </li>
     	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
-        <a href="types.html">Types</a>
+        <a href="types.html">Types and Namespaces</a>
       </li>
     	<li>
         <a href="primitive-methods.html">Primitive Methods</a>
@@ -44,9 +47,6 @@
       </li>
     	<li>
         <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -67,16 +67,16 @@
         <a href="callables.html">Callables</a>
       </li>
     	<li>
+        <a href="threads.html">Threads</a>
+      </li>
+    	<li>
+        <a href="packages.html">Packages</a>
+      </li>
+    	<li>
         <a href="memory.html">Memory Management</a>
       </li>
     	<li>
-        <a href="packages.html">Package System</a>
-      </li>
-    	<li>
         <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
-      </li>
-    	<li>
-        <a href="credits.html">Credits and Licensing</a>
       </li>
     	<li>
         <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
@@ -89,8 +89,8 @@
 
 <div class="content">
 	<h1 id="primitive-methods">Primitive Methods</h1>
-<p>You can also, of course, call methods on the primitive types. These methods are
-documented here.</p>
+<p>You can, of course, call methods on instances of the primitive types. These
+methods are documented here.</p>
 <p>All primitive types support</p>
 <pre>🐖 😛 other A ➡️ 👌</pre>
 
@@ -155,9 +155,22 @@ boolean is true.</p>
 <pre>🐖 🚀 ➡️ 🚀</pre>
 
 <p>Returns the double representation of this integer.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Not available in 0.2 Beta 4</p>
-</div></div>
+<p><h3 class="method-emoji" id="m⭕️">⭕️</h3></p>
+<pre>🐖 ⭕️ other 🚂 ➡️ 🚂</pre>
 
+<p>Returns this integer AND <code>other</code>.</p>
+<p><h3 class="method-emoji" id="m️💢️">💢️</h3></p>
+<pre>🐖 💢 other 🚂 ➡️ 🚂</pre>
+
+<p>Returns this integer OR <code>other</code>.</p>
+<p><h3 class="method-emoji" id="m❌">❌️</h3></p>
+<pre>🐖 ❌ other 🚂 ➡️ 🚂</pre>
+
+<p>Returns this integer XOR <code>other</code>.</p>
+<p><h3 class="method-emoji" id="m🚫">🚫️</h3></p>
+<pre>🐖 🚫 ➡️ 🚂</pre>
+
+<p>Returns NOT applied to this integer.</p>
 <h2 id="type-">Type 🚀</h2>
 <p><h3 class="method-emoji" id="m➖">➖</h3></p>
 <pre>🐖 ➖ other 🚀 ➡️ 🚀</pre>

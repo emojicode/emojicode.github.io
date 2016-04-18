@@ -28,8 +28,6 @@
     	<li>
         <a href="basics.html">The Basics</a>
           <ul>
-            <li><a href="#the-compiler">The Compiler</a></li>
-            <li><a href="#the-real-time-engine">The Real-Time Engine</a></li>
             <li><a href="#comments">Comments</a></li>
             <li><a href="#the-class-method">The 🏁 class method</a></li>
             <li><a href="#when-to-use-emojis-">When to use Emojis?</a></li>
@@ -37,22 +35,24 @@
             <li><a href="#numeric-literals">Numeric Literals</a></li>
             <li><a href="#booleans">Booleans</a></li>
             <li><a href="#symbol-literals">Symbol literals</a></li>
+            <li><a href="#context-based-parsing">Context Based Parsing</a></li>
+            <li><a href="#including-other-source-code-files">Including Other Source Code Files</a></li>
           </ul>
+      </li>
+    	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
-        <a href="types.html">Types</a>
+        <a href="types.html">Types and Namespaces</a>
       </li>
     	<li>
         <a href="primitive-methods.html">Primitive Methods</a>
       </li>
     	<li>
         <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -73,16 +73,16 @@
         <a href="callables.html">Callables</a>
       </li>
     	<li>
+        <a href="threads.html">Threads</a>
+      </li>
+    	<li>
+        <a href="packages.html">Packages</a>
+      </li>
+    	<li>
         <a href="memory.html">Memory Management</a>
       </li>
     	<li>
-        <a href="packages.html">Package System</a>
-      </li>
-    	<li>
         <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
-      </li>
-    	<li>
-        <a href="credits.html">Credits and Licensing</a>
       </li>
     	<li>
         <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
@@ -95,16 +95,29 @@
 
 <div class="content">
 	<h1 id="the-basics">The Basics</h1>
-<h2 id="the-compiler">The Compiler</h2>
-<p>The <em>Emojicode Compiler</em> will only correctly compile files that are UTF8 encoded. All files given to the compiler are processed in the order of appearance into one <em>Emojicode Bytecode file</em>. The <strong>order of the files can be important</strong> if for instance one file declares a type on which other files depend.</p>
-<h2 id="the-real-time-engine">The Real-Time Engine</h2>
-<p>The <em>Emojicode Real-Time Engine</em> is the part of Emojicode that <strong>actually executes your program</strong>. It takes the bytecode file and executes it. The bytecode file can be executed on any platform on which the engine runs.</p>
-<p>The Real-Time Engine was built to load and run bytecode files as quickly as possible. Therefore it does not perform any kind of error checking. Passing a malformed bytecode file to the engine can lead to a crash.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>If you are unfamiliar with the command line interfaces you might want to read the guide <a href="../guides/compile-and-run.html">“Compile and Run Your First Program”</a>, which discusses the use of the Emojicode Compiler and the Emojicode Real-Time Engine.</p>
+<p>Emojicode is a language that aims to provide the most modern and powerful
+features to make it easy, fast and fun to write programs. These powerful
+features include classes, optionals, which can handle the absence of a value,
+generics, closures and much more.</p>
+<p>Emojicode is a strongly typed language, which means that the compiler will
+verify that all of your operations are correct. This for instance prevents you
+from treating a number as a list of texts.</p>
+<p>Although Emojicode only uses Emojis to express the program’s structure, it is
+similar to programming languages you might know, like C.</p>
+<p>Emojicode was designed to allow the development of platform independent
+applications by running them inside a virtual machine. Your code is first
+compiled to bytecode by a compiler and can then be executed. The reference
+implemention of such a virtual machine is called <em>Emojicode Real-Time</em> and can,
+as the name suggests, execute your code rather fast.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>If you need guidance on how to use the compiler and the Real-Time Engine
+see
+<a href="../guides/compile-and-run.html">“Compile and Run Your First Program”</a>,
+which is a short tutorial on writing applications in Emojicode.</p>
 </div></div>
 
 <h2 id="comments">Comments</h2>
-<p>You can include non-executable text in your code by marking it as a comment. Comments begin with 👴 and end at the line break.</p>
+<p>You can include non-executable text in your code by marking it as a comment.
+Comments begin with 👴 and end at the line break.</p>
 <p>Example:</p>
 <pre><code>👴 This comment ends at the end of the line. Exactly here
 </code></pre><p>Multiline comments starts with 👵 and ends with 👵 and can contain line breaks.</p>
@@ -112,41 +125,76 @@
 <pre><code>👵 This is a multiline comment. You can even make
 line breaks. 👵
 </code></pre><h2 id="the-class-method">The 🏁 class method</h2>
-<p>Emojicode needs to know where your program should start. The compiler will therefore look for a class method called 🏁. This method will be  called on the program startup. Example:</p>
+<p>Emojicode needs to know where your program should start. The compiler will
+therefore look for a class method called 🏁. This method will be  called on the
+program startup. Example:</p>
 <pre><code>🐇 ⚽️ 🍇
   🐇🐖 🏁 ➡️ 🚂 🍇
     👴 The code to start up the program goes here.
     🍎 0
   🍉
 🍉
-</code></pre><p>If you don’t understand all the code above yet don’t worry, you will learn more about <a href="classes.html#class-methods">class methods </a> and all this stuff in a few minutes.</p>
+</code></pre><p>If you don’t understand all the code above yet don’t worry, you will learn more
+about <a href="classes.html#class-methods">class methods </a> and all this stuff in a few
+minutes.</p>
 <h2 id="when-to-use-emojis-">When to use Emojis?</h2>
 <p>There’s sometimes confusion when emojis are used. Basically it’s very simple:</p>
-<p>All <strong>type, method, class method and initializer</strong> names are <strong>Emojis</strong>. On the other hand <strong>variables cannot include emojis</strong> but must be any combination of characters that cannot be confused with numbers.</p>
+<p>All <strong>type, method, class method and initializer</strong> names are <strong>Emojis</strong>. On the
+other hand <strong>variables cannot include emojis</strong> but must be any combination of
+characters that cannot be confused with numbers.</p>
 <h2 id="variables">Variables</h2>
-<p>Variables pair a name, the <em>variable name</em>, with a value. The variable name can consist of any sequence of characters but <strong>may not contain spaces or emojis</strong> and may not start with a number.  </p>
-<p>Before its first use a variable is declared and the type of the variable is defined. The variable can only hold values that are compatible to this type.</p>
-<p>Variables are only accessible from the <em>scope</em> in which they were declared. Every class method, method or initializer defines an own scope which disappears once the procedure has ended. A scope may also allow you to access its <em>parent scope</em>, which gives you the opportunity to access the variables inside that scope. Methods and initializer for instance allow you to access the parent scope, which in this case is the <em>object scope</em>, in which all instance variables live.</p>
-<h3 id="-setting-variables">🍮 Setting Variables</h3>
-<p>The easiest way to declare and set a variable is to use 🍮. If the variable can be found its value will be changed. Otherwise the variable will be declared in the current scope. The type of the variable will be inferred from the type of <em>variableValue</em>.</p>
-<pre><code>🍮 variableName variableValue
-</code></pre><p><em>variableName</em> must be a valid variable name as described in the introduction. <em>variableValue</em> may be an expression of any type.</p>
-<h3 id="-setting-a-frozen-variable">🍦 Setting a Frozen Variable</h3>
-<p>You can also set and declare a frozen variable. A frozen variable can’t be modified
-after its first initialization.
-The type of the variable will be inferred from the type of <em>variableValue</em>.</p>
-<pre><code>🍦 variableName variableValue
-</code></pre><p>You should <strong>always use frozen variables if you don’t intend to modify</strong> the variable.</p>
+<p>Variables pair a name, the <em>variable name</em>, with a value. The variable name can
+consist of any sequence of characters but <strong>may not contain spaces or emojis</strong>
+and may not begin with a number.</p>
+<p>There are two types of variables: normal variables and frozen variables. Frozen
+variables differ from normal ones in that they cannot be changed after
+they were initially set.</p>
+<h3 id="-declaring-a-frozen-variable">🍦 Declaring a Frozen Variable</h3>
+<p>The easiest way to declare and set a frozen variable at once is to use 🍦.</p>
+<pre><code>🍦 daysInDecember 31
+🍦 approximationOf𝜋 3.14159265359
+</code></pre><p>The above code sets the variable <code>daysInDecember</code> to <code>31</code> and <code>approximationOf𝜋</code>
+to <code>3.14159265359</code>. These variables were declared as frozen variables as they
+never change.</p>
+<p>The compiler infers the type of the variables from the values given.</p>
+<h3 id="-setting-and-declaring-a-variable">🍮 Setting and Declaring a Variable</h3>
+<p>To declare or change are normal, changeable variable you should use 🍮. If the
+variable you want to set is already declared its value will be changed, given
+that it is not frozen; in that particular case an error message would be
+emitted. Otherwise the variable is declared in the current scope.</p>
+<pre><code>🍮 moneyLeft 20
+🍮 numberOfTimes“SmokeOnTheWater”WasPlayed 20348292837483929
+</code></pre><p>These variables were justifiably declared as changeable variables because they
+obviously change often. You should however <strong>always prefer frozen variables if
+you don’t intend to modify</strong> the variable.</p>
 <h3 id="-declaring-variables">🍰 Declaring Variables</h3>
-<p>You can declare a variable yourself regardless if a variable with the same name was declared in the parent scope but you may not declare a variable more than one time.</p>
+<p>You can declare a variable yourself regardless if a variable with the same name
+was declared in the parent scope but you may not declare a variable more than
+one time.</p>
 <pre><code>🍰 variableName variableType
-</code></pre><p><em>variableName</em> must be a valid variable name. <em>variableValue</em> may be an expression of any type.</p>
-<p>After you declared the variable in the local scope you can use 🍮 to set it to a value. The compiler will throw an error if you try to access an uninitialized variable.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can for instance make instance variables inaccessible.</p>
+</code></pre><p><em>variableName must be a valid variable name. variableValue may be an expression
+</em>of any type.</p>
+<p>After you declared the variable in the local scope you can use 🍮 to set it to a
+value. The compiler will throw an error if you try to access an uninitialized
+variable. Optionals are automatically initialized to Nothingness.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can for
+instance make instance variables inaccessible.</p>
 </div></div>
 
+<h3 id="scoping">Scoping</h3>
+<p>Variables are only accessible from the <em>scope</em> in which they were declared.
+Every class method, method or initializer defines an own scope which disappears
+once the procedure has ended. A scope may also allow you to access its <em>parent
+scope</em>, which gives you the opportunity to access the variables inside that
+scope. Methods and initializer for instance allow you to access the parent
+scope, which in this case is the <em>object scope</em>, in which all instance variables
+live.</p>
+<p>It’s important to note that unlike in other languages flow control blocks do not
+create a scope. If you declare a variable within an flow control it will also
+be available outside. This might change in future versions.</p>
 <h3 id="-incrementing-and-decrementing-variables">🍫 &amp; 🍳 Incrementing and Decrementing Variables</h3>
-<p>Variables containing numbers can be incremented by using 🍫 and decremented by using 🍳.</p>
+<p>Variables containing numbers can be incremented by using 🍫 and decremented by
+using 🍳.</p>
 <pre><code>🍫 numberOfCats
 🍳 watermelons
 </code></pre><p>The above example will increment <em>numberOfCats</em> and decrement <em>watermelons</em>.</p>
@@ -157,33 +205,57 @@ The type of the variable will be inferred from the type of <em>variableValue</em
 <li>Hexadecimal notation, with the prefix <code>0x</code>, like <code>0x1D</code></li>
 <li>Octal notation, with the prefix <code>0</code>, like <code>035</code></li>
 </ul>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Be careful, <code>0xXAD</code> for instance is an integer (value 0) and a variable (<code>XAD</code>)</p>
-</div></div>
-
 <p>You can use <code>_</code> within integer literals to improve readability:</p>
 <pre><code>344_000_000_000
 </code></pre><p>The <code>.</code> can be used as decimal separator to create a 🚀.</p>
 <h3 id="number-types">Number Types</h3>
 <p>There are only two numeric types in Emojicode:</p>
 <ul>
-<li>🚂 can represent any integer in the interval [-2<sup>63</sup>+1, 2<sup>63</sup>-1].</li>
-<li>🚀 can be used to store a real number with the common limitations. Read this <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Wikipedia article</a> for more information.</li>
+<li>🚂 can represent any integer in the interval [-2<sup>63</sup>+1,
+2<sup>63</sup>-1].</li>
+<li>🚀 can be used to store a real number with the common
+limitations. Read this <a href="https://en.wikipedia.org/wiki/Double-
+precision_floating-point_format">Wikipedia article</a> for more information.</li>
 </ul>
 <h2 id="booleans">Booleans</h2>
-<p>Emojicode has a type to represent Boolean values: 👌. A Boolean values can either be true or false.
-A true value is created using 👍 and a false value is created using 👎.</p>
+<p>Emojicode has a type to represent Boolean values: 👌. A boolean value can either
+be true or false. A true value is created using 👍 and a false value is created
+using 👎.</p>
 <p>In the example below two variables are set to a boolean value.</p>
 <pre><code>🍦 emojicodeIsTheFunniestLanguage 👍
 🍦 phpIsAsCool 👎
 </code></pre><h2 id="symbol-literals">Symbol literals</h2>
-<p>A <strong>Symbol</strong> is a <strong>single Unicode character</strong> represented by the symbol type 🔣. The symbol type can represent any character defined in Unicode.</p>
-<p>You can include the symbol in the source code file by prepending 🔟 before the desired symbol. This is called a <em>Symbol literal</em>.</p>
+<p>A <strong>Symbol</strong> is a <strong>single Unicode character</strong> represented by the symbol type 🔣.
+The symbol type can represent any character defined in Unicode.</p>
+<p>You can include the symbol in the source code file by prepending 🔟 before the
+desired symbol. This is called a <em>Symbol literal</em>.</p>
 <p>Example:</p>
-<pre><code>🍦 theAcceptedCurrency 🔟€
-</code></pre>
+<pre><code>🍦 percent 🔟%
+</code></pre><h2 id="context-based-parsing">Context Based Parsing</h2>
+<p>Emojicode heavily uses <em>context based parsing</em>. This means that something can
+have a completely different meaning based on the context.</p>
+<p>All statments introduced above are only valid inside a method or initializer
+body. If you however used 🍦 when a type name was expected, 🍦 would be
+interpreted as a type called 🍦.</p>
+<p>The statment introduced below is, on the contrary, only valid at document
+level – you can’t use it inside a method or class.</p>
+<h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
+<p>You can include other source code files into a source file. Basically this
+just inserts the code from the file at the point where you included it.</p>
+<p>Syntax:</p>
+<pre><code>📜 string
+</code></pre><p><em>string</em> must be a string whose value is a path to another Emojicode source
+file. The path is relative to the directory which included the document with the
+📜 statement.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Do <strong>not</strong> use this method to share code accross projects. If you have
+written really fancy code,
+<a href="/docs/reference/packages.html"><strong>create a package</a>, which you can easily
+make available to other people</strong>.</p>
+</div></div>
+
 
 	<div class="reference-navigation-bottom">
-		<a href="the-s-package.html" class="right">
+		<a href="optionals.html" class="right">
 			Next →
 		</a>
 	</div>

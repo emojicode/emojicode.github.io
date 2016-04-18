@@ -29,19 +29,19 @@
         <a href="basics.html">The Basics</a>
       </li>
     	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
-        <a href="types.html">Types</a>
+        <a href="types.html">Types and Namespaces</a>
       </li>
     	<li>
         <a href="primitive-methods.html">Primitive Methods</a>
       </li>
     	<li>
         <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
       </li>
     	<li>
         <a href="classes.html">Classes</a>
@@ -62,16 +62,16 @@
         <a href="callables.html">Callables</a>
       </li>
     	<li>
+        <a href="threads.html">Threads</a>
+      </li>
+    	<li>
+        <a href="packages.html">Packages</a>
+      </li>
+    	<li>
         <a href="memory.html">Memory Management</a>
       </li>
     	<li>
-        <a href="packages.html">Package System</a>
-      </li>
-    	<li>
         <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
-      </li>
-    	<li>
-        <a href="credits.html">Credits and Licensing</a>
       </li>
     	<li>
         <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
@@ -79,8 +79,7 @@
     	<li>
         <a href="packageAPI.html">Appendix II: Package API</a>
           <ul>
-            <li><a href="#the-package-header">The Package Header</a></li>
-            <li><a href="#c-api-headers">C API Headers</a></li>
+            <li><a href="#c-headers">C Headers</a></li>
           </ul>
       </li>
 	</ol>
@@ -88,38 +87,23 @@
 
 <div class="content">
 	<h1 id="appendix-ii-package-api">Appendix II: Package API</h1>
-<p>The package API allows to write a package whose logic can be implemented (partly if needed) in C or C++.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Before writing a package make sure you have read the <strong>whole</strong> chapter. A badly written package can destabilize the Real-Time Engine and break programs.</p>
+<p>The package API allows to write a package whose logic can be implemented (partly
+if needed) in C.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Before writing a package make sure you have read the <strong>whole</strong> chapter.
+A badly written package can destabilize the Real-Time Engine and break
+programs.</p>
 </div></div>
 
-<p>The C API is specific to the Real-Time Engine. APIs of other Emojicode Engines may be different. The header files should work across all compilers as the produced bytecode files must.</p>
-<h2 id="the-package-header">The Package Header</h2>
-<p>You start writing a package by creating a file called <code>header.emojic</code>. This is an ordinary Emojicode source file with the following differences from the normal syntax:</p>
-<ul>
-<li>Instead of providing a body at a method, class method or constructor declaration you can use 📻.</li>
-<li>The package header must declare the package version using 🔮. The syntax is <code>🔮 major minor</code>. <code>major</code> and <code>minor</code> must be integers.</li>
-</ul>
-<p>In a class extension you can only define a method with native code if the class which you want to extend was defined in the same package.</p>
-<p>This example show the header of the SQLite package. Example:</p>
-<pre><code>🔮 0 1
-
-🐇 📚 🍇
-    🐈 📂 path 🔶🔴🔡 📻
-
-    🐖 🚨 ➡️ 🍬🔶🔴🚨 📻
-    🐖 🔑 ➡️ 🔶🔴🚂 📻
-🍉
-
-🐇 💬 🍇
-    🐈 👋 database 📚 query 🔶🔴🔡 📻
-    🐖 📍 placeholder# 🔶🔴🚂 value 🍬🔶🔴🔵 ➡️ 🍬🔶🔴🚨 📻
-    🐖 🔽 ➡️ 🍬🔶🔴🍨 📻
-🍉
-</code></pre><h2 id="c-api-headers">C API Headers</h2>
-<p>After having created the package header you can start implementing the C part of you application.</p>
-<p>To get started include the header API header of the latest Emojicode version: (<a href="../download">Download here</a>)</p>
+<p>The C API is specific to the Real-Time Engine. APIs of other Emojicode Engines
+may be different.</p>
+<h2 id="c-headers">C Headers</h2>
+<p>To get started include the header API header of the latest Emojicode version.
+You can get them from the (<a href="../download">GitHub repository</a>).</p>
 <pre><code>#include &quot;EmojicodeAPI.h&quot;
-</code></pre><p>This headers defines Emojicode’s public interfaces you will use. It also includes most of the C standard libraries: <code>stdlib.h</code>, <code>stdio.h</code>, <code>stdbool.h</code>, <code>stdint.h</code>, <code>stddef.h</code>. If you need to work with Strings, Lists, or Dictionaries you must also include <code>EmojicodeString.h</code>, <code>EmojicodeList.h</code> and <code>EmojicodeDictionary.h</code> respectively.</p>
+</code></pre><p>This headers defines Emojicode’s public interfaces you will use.  It also
+includes most of the C standard libraries: <code>stdlib.h</code>, <code>stdio.h</code>, <code>stdbool.h</code>,
+<code>stdint.h</code>, <code>stddef.h</code>. If you need to work with Strings and Lists
+you must also include <code>EmojicodeString.h</code> and <code>EmojicodeList.h</code> respectively.</p>
 
 
 	<div class="reference-navigation-bottom">

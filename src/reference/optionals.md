@@ -2,23 +2,27 @@
 
 ## ✨ Nothingness
 
-Nothingness is a primitive value used to represent a missing value. Many
-methods, for example, return nothingness on failure. Additionally any method
-that does not explicitly declare a return type is assumed to return Nothingness.
+Nothingness is a value used to represent a missing value. Many methods, for
+example, return nothingness on failure. Additionally any method that does not
+explicitly declare a return type is assumed to return Nothingness.
 
-To get Nothingness one uses:
+To get Nothingness you use:
 
 ```
 ⚡️
 ```
 
+While Nothingness is a completely valid type and value on its own, it’s normally
+used in conjunction with *Optionals*.
+
 ## 🍬 Optionals
 
-Optionals can be used in cases where a value may be missing.
+An optional is a way to make a type optional. This is like saying: either it’s
+something of the delcared type, or it’s Nothingness. Optionals are very userful
+in cases where a value might be missing or a method migh fail and return nothing
+instead of a expected value.
 
-An optional means: It’s either an instance of the type or Nothingness.
-
-To make an optional type you need to prepend 🍬. Examples:
+To make a type optional you need to prepend a 🍬. Examples:
 
 ```
 🍰 buildingAge 🍬🚂 👴The age of old buildings is often not known exactly.
@@ -36,20 +40,22 @@ method 🔬 of 🔡, which returns the symbol at the given index or Nothingness.
 As you can see `first` will now actually contain a symbol and `twelfth` will
 only contain Nothingness.
 
+The point of Optionals is providing more safety. This is achieved by forcing
+the programmer to take special care of optionals as optionals cannot be used
+like the they make optionals.
+
 ## 🍺 Unwrapping
 
 If you want to use the value of `first` or `twelfth` from the example above
-you need to unwrap the optional using the 🍺:
+you could unwrap the optional using 🍺:
 
 ```
 🍺 object
 ```
 
 This tells Emojicode to check that the given value is not Nothingness and
-returns it.
-
-If the value is Nothingness the program will terminate with an error message
-like:
+returns it. If the value, however, is Nothingness the program will terminate
+with an error message like:
 
 ```
 🚨 Fatal Error: Unexpectedly found ✨ while unwrapping a 🍬.
@@ -57,8 +63,6 @@ like:
 
 Naturally unwrapping an optional without a check is not safe and should not
 be done. See the sections below for safe ways.
-
-Optionals are very cheap in use as most of the work is done at compile time.
 
 ## ☁️ Nothingness Test
 

@@ -1,20 +1,32 @@
 # The Basics
 
-## The Compiler
+Emojicode is a language that aims to provide the most modern and powerful
+features to make it easy, fast and fun to write programs. These powerful
+features include classes, optionals, which can handle the absence of a value,
+generics, closures and much more.
 
-The *Emojicode Compiler* will only correctly compile files that are UTF8 encoded. All files given to the compiler are processed in the order of appearance into one *Emojicode Bytecode file*. The **order of the files can be important** if for instance one file declares a type on which other files depend.
+Emojicode is a strongly typed language, which means that the compiler will
+verify that all of your operations are correct. This for instance prevents you
+from treating a number as a list of texts.
 
-## The Real-Time Engine
+Although Emojicode only uses Emojis to express the program’s structure, it is
+similar to programming languages you might know, like C.
 
-The *Emojicode Real-Time Engine* is the part of Emojicode that **actually executes your program**. It takes the bytecode file and executes it. The bytecode file can be executed on any platform on which the engine runs.
+Emojicode was designed to allow the development of platform independent
+applications by running them inside a virtual machine. Your code is first
+compiled to bytecode by a compiler and can then be executed. The reference
+implemention of such a virtual machine is called *Emojicode Real-Time* and can,
+as the name suggests, execute your code rather fast.
 
-The Real-Time Engine was built to load and run bytecode files as quickly as possible. Therefore it does not perform any kind of error checking. Passing a malformed bytecode file to the engine can lead to a crash.
-
->!H If you are unfamiliar with the command line interfaces you might want to read the guide [“Compile and Run Your First Program”](../guides/compile-and-run.html), which discusses the use of the Emojicode Compiler and the Emojicode Real-Time Engine.
+>!H If you need guidance on how to use the compiler and the Real-Time Engine
+>!H see
+>!H [“Compile and Run Your First Program”](../guides/compile-and-run.html),
+>!H which is a short tutorial on writing applications in Emojicode.
 
 ## Comments
 
-You can include non-executable text in your code by marking it as a comment. Comments begin with 👴 and end at the line break.
+You can include non-executable text in your code by marking it as a comment.
+Comments begin with 👴 and end at the line break.
 
 Example:
 
@@ -29,7 +41,9 @@ Example:
 
 ## The 🏁 class method
 
-Emojicode needs to know where your program should start. The compiler will therefore look for a class method called 🏁. This method will be  called on the program startup. Example:
+Emojicode needs to know where your program should start. The compiler will
+therefore look for a class method called 🏁. This method will be  called on the
+program startup. Example:
 
     🐇 ⚽️ 🍇
       🐇🐖 🏁 ➡️ 🚂 🍇
@@ -38,61 +52,104 @@ Emojicode needs to know where your program should start. The compiler will there
       🍉
     🍉
 
-If you don’t understand all the code above yet don’t worry, you will learn more about [class methods ](classes.html#class-methods) and all this stuff in a few minutes.
+If you don’t understand all the code above yet don’t worry, you will learn more
+about [class methods ](classes.html#class-methods) and all this stuff in a few
+minutes.
 
 ## When to use Emojis?
 
 There’s sometimes confusion when emojis are used. Basically it’s very simple:
 
-All **type, method, class method and initializer** names are **Emojis**. On the other hand **variables cannot include emojis** but must be any combination of characters that cannot be confused with numbers.
+All **type, method, class method and initializer** names are **Emojis**. On the
+other hand **variables cannot include emojis** but must be any combination of
+characters that cannot be confused with numbers.
 
 ## Variables
 
-Variables pair a name, the *variable name*, with a value. The variable name can consist of any sequence of characters but **may not contain spaces or emojis** and may not start with a number.  
+Variables pair a name, the *variable name*, with a value. The variable name can
+consist of any sequence of characters but **may not contain spaces or emojis**
+and may not begin with a number.
 
-Before its first use a variable is declared and the type of the variable is defined. The variable can only hold values that are compatible to this type.
+There are two types of variables: normal variables and frozen variables. Frozen
+variables differ from normal ones in that they cannot be changed after
+they were initially set.
 
-Variables are only accessible from the *scope* in which they were declared. Every class method, method or initializer defines an own scope which disappears once the procedure has ended. A scope may also allow you to access its *parent scope*, which gives you the opportunity to access the variables inside that scope. Methods and initializer for instance allow you to access the parent scope, which in this case is the *object scope*, in which all instance variables live.
+### 🍦 Declaring a Frozen Variable
 
-### 🍮 Setting Variables
+The easiest way to declare and set a frozen variable at once is to use 🍦.
 
-The easiest way to declare and set a variable is to use 🍮. If the variable can be found its value will be changed. Otherwise the variable will be declared in the current scope. The type of the variable will be inferred from the type of *variableValue*.
+```
+🍦 daysInDecember 31
+🍦 approximationOf𝜋 3.14159265359
+```
 
-	🍮 variableName variableValue
+The above code sets the variable `daysInDecember` to `31` and `approximationOf𝜋`
+to `3.14159265359`. These variables were declared as frozen variables as they
+never change.
 
-*variableName* must be a valid variable name as described in the introduction. *variableValue* may be an expression of any type.
+The compiler infers the type of the variables from the values given.
 
-### 🍦 Setting a Frozen Variable
+### 🍮 Setting and Declaring a Variable
 
-You can also set and declare a frozen variable. A frozen variable can’t be modified
-after its first initialization.
-The type of the variable will be inferred from the type of *variableValue*.
+To declare or change are normal, changeable variable you should use 🍮. If the
+variable you want to set is already declared its value will be changed, given
+that it is not frozen; in that particular case an error message would be
+emitted. Otherwise the variable is declared in the current scope.
 
-	🍦 variableName variableValue
+```
+🍮 moneyLeft 20
+🍮 numberOfTimes“SmokeOnTheWater”WasPlayed 20348292837483929
+```
 
-You should **always use frozen variables if you don’t intend to modify** the variable.
+These variables were justifiably declared as changeable variables because they
+obviously change often. You should however **always prefer frozen variables if
+you don’t intend to modify** the variable.
 
 ### 🍰 Declaring Variables
 
-You can declare a variable yourself regardless if a variable with the same name was declared in the parent scope but you may not declare a variable more than one time.
+You can declare a variable yourself regardless if a variable with the same name
+was declared in the parent scope but you may not declare a variable more than
+one time.
 
-	🍰 variableName variableType
+```
+🍰 variableName variableType
+```
 
-*variableName* must be a valid variable name. *variableValue* may be an expression of any type.
+*variableName must be a valid variable name. variableValue may be an expression
+*of any type.
 
-After you declared the variable in the local scope you can use 🍮 to set it to a value. The compiler will throw an error if you try to access an uninitialized variable.
+After you declared the variable in the local scope you can use 🍮 to set it to a
+value. The compiler will throw an error if you try to access an uninitialized
+variable. Optionals are automatically initialized to Nothingness.
 
->!N Beware of that 🍰 can shadow variables from parent scopes and can for instance make instance variables inaccessible.
+>!N Beware of that 🍰 can shadow variables from parent scopes and can for
+>!N instance make instance variables inaccessible.
+
+### Scoping
+
+Variables are only accessible from the *scope* in which they were declared.
+Every class method, method or initializer defines an own scope which disappears
+once the procedure has ended. A scope may also allow you to access its *parent
+scope*, which gives you the opportunity to access the variables inside that
+scope. Methods and initializer for instance allow you to access the parent
+scope, which in this case is the *object scope*, in which all instance variables
+live.
+
+It’s important to note that unlike in other languages flow control blocks do not
+create a scope. If you declare a variable within an flow control it will also
+be available outside. This might change in future versions.
 
 ### 🍫 & 🍳 Incrementing and Decrementing Variables
 
-Variables containing numbers can be incremented by using 🍫 and decremented by using 🍳.
+Variables containing numbers can be incremented by using 🍫 and decremented by
+using 🍳.
 
-	🍫 numberOfCats
-	🍳 watermelons
+```
+🍫 numberOfCats
+🍳 watermelons
+```
 
 The above example will increment *numberOfCats* and decrement *watermelons*.
-
 
 ## Numeric Literals
 
@@ -101,8 +158,6 @@ Integer literals can be written in
 - Decimal notation, like `29`
 - Hexadecimal notation, with the prefix `0x`, like `0x1D`
 - Octal notation, with the prefix `0`, like `035`
-
->!N Be careful, `0xXAD` for instance is an integer (value 0) and a variable (`XAD`)
 
 You can use `_` within integer literals to improve readability:
 
@@ -114,25 +169,67 @@ The `.` can be used as decimal separator to create a 🚀.
 
 There are only two numeric types in Emojicode:
 
-- 🚂 can represent any integer in the interval [-2<sup>63</sup>+1, 2<sup>63</sup>-1].
-- 🚀 can be used to store a real number with the common limitations. Read this [Wikipedia article](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) for more information.
+- 🚂 can represent any integer in the interval [-2<sup>63</sup>+1,
+2<sup>63</sup>-1].
+- 🚀 can be used to store a real number with the common
+limitations. Read this [Wikipedia article](https://en.wikipedia.org/wiki/Double-
+precision_floating-point_format) for more information.
 
 ## Booleans
 
-Emojicode has a type to represent Boolean values: 👌. A Boolean values can either be true or false.
-A true value is created using 👍 and a false value is created using 👎.
+Emojicode has a type to represent Boolean values: 👌. A boolean value can either
+be true or false. A true value is created using 👍 and a false value is created
+using 👎.
 
 In the example below two variables are set to a boolean value.
 
-    🍦 emojicodeIsTheFunniestLanguage 👍
-    🍦 phpIsAsCool 👎
+```
+🍦 emojicodeIsTheFunniestLanguage 👍
+🍦 phpIsAsCool 👎
+```
 
 ## Symbol literals
 
-A **Symbol** is a **single Unicode character** represented by the symbol type 🔣. The symbol type can represent any character defined in Unicode.
+A **Symbol** is a **single Unicode character** represented by the symbol type 🔣.
+The symbol type can represent any character defined in Unicode.
 
-You can include the symbol in the source code file by prepending 🔟 before the desired symbol. This is called a *Symbol literal*.
+You can include the symbol in the source code file by prepending 🔟 before the
+desired symbol. This is called a *Symbol literal*.
 
 Example:
 
-    🍦 theAcceptedCurrency 🔟€
+```
+🍦 percent 🔟%
+```
+
+## Context Based Parsing
+
+Emojicode heavily uses *context based parsing*. This means that something can
+have a completely different meaning based on the context.
+
+All statments introduced above are only valid inside a method or initializer
+body. If you however used 🍦 when a type name was expected, 🍦 would be
+interpreted as a type called 🍦.
+
+The statment introduced below is, on the contrary, only valid at document
+level – you can’t use it inside a method or class.
+
+## Including Other Source Code Files
+
+You can include other source code files into a source file. Basically this
+just inserts the code from the file at the point where you included it.
+
+Syntax:
+
+```
+📜 string
+```
+
+*string* must be a string whose value is a path to another Emojicode source
+file. The path is relative to the directory which included the document with the
+📜 statement.
+
+>!H Do **not** use this method to share code accross projects. If you have
+>!H written really fancy code,
+>!H [**create a package](/docs/reference/packages.html), which you can easily
+>!H make available to other people**.
