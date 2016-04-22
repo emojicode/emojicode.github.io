@@ -18,12 +18,12 @@ to determine equality.
 <h3 class="method-emoji" id="m🎊">🎊</h3>
 <pre>🐖 🎊 other 👌 ➡️ 👌</pre>
 
-Logical and. Returns true if both, the receiver and *other*, are true.
+Logical and. Returns true if both, the receiver and `other`, are true.
 
 <h3 class="method-emoji" id="m🎉">🎉</h3>
 <pre>🐖 🎉 other 👌 ➡️ 👌</pre>
 
-Logical or. Returns true if the receiver or *other* or both are true.
+Logical or. Returns true if the receiver or `other` or both are true.
 
 <h3 class="method-emoji" id="m❎">❎</h3>
 <pre>🐖 ❎ ➡️ 👌</pre>
@@ -36,47 +36,47 @@ boolean is true.
 <h3 class="method-emoji" id="m➖">➖</h3>
 <pre>🐖 ➖ other 🚂 ➡️ 🚂</pre>
 
-Returns the receiver minus *other*.
+Returns the receiver minus `other`.
 
 <h3 class="method-emoji" id="m➕">➕</h3>
 <pre>🐖 ➕ other 🚂 ➡️ 🚂</pre>
 
-Returns the receiver plus *other*.
+Returns the receiver plus `other`.
 
 <h3 class="method-emoji" id="m➗">➗</h3>
 <pre>🐖 ➗ other 🚂 ➡️ 🚂</pre>
 
-Returns the receiver divided by *other*.
+Returns the receiver divided by `other`.
 
 <h3 class="method-emoji" id="m✖️">✖️</h3>
 <pre>🐖 ✖️ other 🚂 ➡️ 🚂</pre>
 
-Returns the receiver multiplied by *other*.
+Returns the receiver multiplied by `other`.
 
 <h3 class="method-emoji" id="m🚮">🚮</h3>
 <pre>🐖 🚮 other 🚂 ➡️ 🚂</pre>
 
-Returns the receiver modulus *other*.
+Returns the receiver modulus `other`.
 
 <h3 class="method-emoji" id="m◀️">◀️</h3>
 <pre>🐖 ◀️ other 🚂 ➡️ 👌</pre>
 
-Returns true if the receiver is smaller than *other*.
+Returns true if the receiver is smaller than `other`.
 
 <h3 class="method-emoji" id="m▶️">▶️</h3>
 <pre>🐖 ▶️ other 🚂 ➡️ 👌</pre>
 
-Returns true if the receiver is greater than *other*.
+Returns true if the receiver is greater than `other`.
 
 <h3 class="method-emoji" id="m⬅️">⬅️</h3>
 <pre>🐖 ⬅️ other 🚂 ➡️ 👌</pre>
 
-Returns true if the receiver is smaller than or equal to *other*.
+Returns true if the receiver is smaller than or equal to `other`.
 
 <h3 class="method-emoji" id="m➡️">➡️</h3>
 <pre>🐖 ➡️ other 🚂 ➡️ 👌</pre>
 
-Returns true if the receiver is greater than or equal to *other*.
+Returns true if the receiver is greater than or equal to `other`.
 
 <h3 class="method-emoji" id="m🚀">🚀</h3>
 <pre>🐖 🚀 ➡️ 🚀</pre>
@@ -108,39 +108,46 @@ Returns NOT applied to this integer.
 <h3 class="method-emoji" id="m➖">➖</h3>
 <pre>🐖 ➖ other 🚀 ➡️ 🚀</pre>
 
-Returns the receiver minus *other*.
+Returns the receiver minus `other`.
 
 <h3 class="method-emoji" id="m➕">➕</h3>
 <pre>🐖 ➕ other 🚀 ➡️ 🚀</pre>
 
-Returns the receiver plus *other*.
+Returns the receiver plus `other`.
 
 <h3 class="method-emoji" id="m➗">➗</h3>
 <pre>🐖 ➗ other 🚀 ➡️ 🚀</pre>
 
-Returns the receiver divided by *other*.
+Returns the receiver divided by `other`.
 
 <h3 class="method-emoji" id="m✖️">✖️</h3>
 <pre>🐖 ✖️ other 🚀 ➡️ 🚀</pre>
 
-Returns the receiver multiplied by *other*.
+Returns the receiver multiplied by `other`.
+
+<h3 class="method-emoji" id="m🚮">🚮</h3>
+<pre>🐖 🚮 other 🚀 ➡️ 🚀</pre>
+
+Returns the floating-point remainder of the division operation `receiver/other`.
+This will always be the value of `receiver - n*other` and will always have the same
+sign as the receiver.
 
 <h3 class="method-emoji" id="m◀️">◀️</h3>
 <pre>🐖 ◀️ other 🚀 ➡️ 👌</pre>
 
-Returns true if the receiver is smaller than *other*.
+Returns true if the receiver is smaller than `other`.
 
 <h3 class="method-emoji" id="m▶️">▶️</h3>
 <pre>🐖 ▶️ other 🚀 ➡️ 👌</pre>
 
-Returns true if the receiver is greater than *other*.
+Returns true if the receiver is greater than `other`.
 
 <h3 class="method-emoji" id="m⬅️">⬅️</h3>
 <pre>🐖 ⬅️ other 🚀 ➡️ 👌</pre>
 
-Returns true if the receiver is smaller than or equal to *other*.
+Returns true if the receiver is smaller than or equal to `other`.
 
 <h3 class="method-emoji" id="m➡️">➡️</h3>
 <pre>🐖 ➡️ other 🚀 ➡️ 👌</pre>
 
-Returns true if the receiver is greater than or equal to *other*.
+Returns true if the receiver is greater than or equal to `other`.
