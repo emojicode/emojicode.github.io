@@ -85,11 +85,12 @@ kind of type conversion is not allowed.
 🍉
 ```
 
-## Generic Methods
+## Generic Methods and Intializers
 
-It’s also possible to define a generic method. A generic method is a method
-that takes generic arguments which then can be used as argument types, as return
-types or as types in the method body.
+It’s also possible to define a generic method, class method or intializer. A
+generic procedure is a method, class method or intializer that takes generic
+arguments which then can be used as argument types, as return types or as types
+in the method body.
 
 A good example from the standard library is 🍨’s 🐰 method. It is defined like
 this:
@@ -110,7 +111,8 @@ Therefore the complete method syntax is:
 
 As you can see above it takes one generic argument named `A` which is restricted
 to subtypes of ⚪️, that is any type. Now, if you'd wish to call this method
-you need to specify the generic type argument `A`.
+you can know provide the generic type arguments after the object or class on
+which on which you call the method:
 
 ```
 🍦 list 🍨🔤aa🔤 🔤12345🔤🍆
@@ -119,11 +121,16 @@ you need to specify the generic type argument `A`.
 🍉
 ```
 
-The formal syntax to call a method with generic type arguments is:
+Emojicode is, however, actually capable of automatically inferring the generic
+arguments for you, so you could just write:
 
 ```
-methodEmoji object (🐚 typeArgument)... [arguments ...]
+🐰 list 🍇 a 🔡 ➡️ 🔡
+  🍎 🍪a 🔤!🔤🍪
+🍉
 ```
+
+and Emojicode will automatically provide `🔡` as generic argument for `A`.
 
 ## Generic Protocols
 

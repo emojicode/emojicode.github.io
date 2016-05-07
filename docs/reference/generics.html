@@ -61,7 +61,7 @@
             <li><a href="#defining-a-generic-class">Defining a Generic Class</a></li>
             <li><a href="#subclassing-a-generic-class">Subclassing a Generic Class</a></li>
             <li><a href="#compatibility">Compatibility</a></li>
-            <li><a href="#generic-methods">Generic Methods</a></li>
+            <li><a href="#generic-methods-and-intializers">Generic Methods and Intializers</a></li>
             <li><a href="#generic-protocols">Generic Protocols</a></li>
             <li><a href="#runtime-typing-casting-">Runtime Typing (Casting)</a></li>
           </ul>
@@ -149,10 +149,11 @@ kind of type conversion is not allowed.</p>
   👴 The program would crash as there’s an integer in our list of strings
   😀 string
 🍉
-</code></pre><h2 id="generic-methods">Generic Methods</h2>
-<p>It’s also possible to define a generic method. A generic method is a method
-that takes generic arguments which then can be used as argument types, as return
-types or as types in the method body.</p>
+</code></pre><h2 id="generic-methods-and-intializers">Generic Methods and Intializers</h2>
+<p>It’s also possible to define a generic method, class method or intializer. A
+generic procedure is a method, class method or intializer that takes generic
+arguments which then can be used as argument types, as return types or as types
+in the method body.</p>
 <p>A good example from the standard library is 🍨’s 🐰 method. It is defined like
 this:</p>
 <pre><code>🐖 🐰 🐚A⚪️ callback 🍇Element➡️A🍉 ➡️ 🍨🐚A 🍇
@@ -164,14 +165,19 @@ this:</p>
 🍉
 </code></pre><p>As you can see above it takes one generic argument named <code>A</code> which is restricted
 to subtypes of ⚪️, that is any type. Now, if you&#39;d wish to call this method
-you need to specify the generic type argument <code>A</code>.</p>
+you can know provide the generic type arguments after the object or class on
+which on which you call the method:</p>
 <pre><code>🍦 list 🍨🔤aa🔤 🔤12345🔤🍆
 🐰 list 🐚🔡 🍇 a 🔡 ➡️ 🔡
   🍎 🍪a 🔤!🔤🍪
 🍉
-</code></pre><p>The formal syntax to call a method with generic type arguments is:</p>
-<pre><code>methodEmoji object (🐚 typeArgument)... [arguments ...]
-</code></pre><h2 id="generic-protocols">Generic Protocols</h2>
+</code></pre><p>Emojicode is, however, actually capable of automatically inferring the generic
+arguments for you, so you could just write:</p>
+<pre><code>🐰 list 🍇 a 🔡 ➡️ 🔡
+  🍎 🍪a 🔤!🔤🍪
+🍉
+</code></pre><p>and Emojicode will automatically provide <code>🔡</code> as generic argument for <code>A</code>.</p>
+<h2 id="generic-protocols">Generic Protocols</h2>
 <p>It’s also possible to define generic protocols. Generic protocols work
 very similar to generic classes and the same compatibility rules apply.</p>
 <p>A generic protocol which you might use is 🔂.</p>
