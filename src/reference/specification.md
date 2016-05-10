@@ -571,7 +571,7 @@ Each instruction returns *Something*. This return value can be used by the instr
 </tr>
 <tr>
 	<td>0x25</td>
-	<td>Modulus</td>
+	<td>Integer Modulus</td>
 	<td>
 		<ol>
 			<li>Object: Primitive A.</li>
@@ -813,6 +813,19 @@ Each instruction returns *Something*. This return value can be used by the instr
 	</td>
 	<td>
 		True if the first integer is bigger than or equal to the second.
+	</td>
+</tr>
+<tr>
+	<td>0x38</td>
+	<td>Double Modulus</td>
+	<td>
+		<ol>
+			<li>Object: Double</li>
+			<li>Object: Double</li>
+		</ol>
+	</td>
+	<td>
+		Remainder of A / B. Return is a double.
 	</td>
 </tr>
 
