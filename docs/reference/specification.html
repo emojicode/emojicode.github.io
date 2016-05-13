@@ -92,11 +92,23 @@
 <div class="content">
 	<h1 id="emojicode-engine-compilation-specification">Emojicode Engine &amp; Compilation Specification</h1>
 <h2 id="introduction">Introduction</h2>
-<p>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be interpreted as described in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.</p>
-<p>This document describes version 3 of the Emojicode Specification which is used with Emojicode 0.x.</p>
-<p>Emojicode programs are traditionally compiled to Emojicode Bytecode which is then executed by an Emojicode Engine. The reference implementation is the Emojicode Real-Time Engine.</p>
-<p>The Emojicode Engine should have the ability to execute the given bytecode file regardless of the underlying operating system and system architecture. Bytecode instruction instruct the Engine what to do.</p>
-<p>It is noteworthy that Emojicode does not use reverse Polish notation but Polish prefix notation. This means that the bytecode file would contain the following instructions to sum up 3 and 5. (Instructions are space-separated and in hexadecimal representation.)</p>
+<p>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;,
+&quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be
+interpreted as described in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.</p>
+<p>This document describes version 3 of the Emojicode Engine &amp; Compilation
+Specification which is used with Emojicode 0.2.</p>
+<p>Emojicode programs are traditionally compiled to Emojicode Bytecode which is
+then executed by an Emojicode Engine. The reference implementation is the
+Emojicode Real-Time Engine.</p>
+<p>The Emojicode Engine should have the ability to execute the given bytecode file
+regardless of the underlying operating system and system architecture. Bytecode
+instruction instruct the Engine what to do. It may be of pariticular intereset
+that the Emojicode Bytecode is on a higher level than other bytecode formats of
+other programming languages.</p>
+<p>It is noteworthy that Emojicode does not use reverse Polish notation but Polish
+prefix notation. This means that the bytecode file would contain the following
+instructions to sum up 3 and 5. (Instructions are space-separated and in
+hexadecimal representation.)</p>
 <pre><code>0x22 0x13 0x3 0x13 0x5
 </code></pre><h2 id="emojicode-compilation">Emojicode Compilation</h2>
 <h3 id="error-reporting">Error Reporting</h3>
@@ -112,9 +124,17 @@
 </ul>
 <p>An error shall terminate the compilation and the compiler can delete the output file. A warning does not affect the compilation in any way.</p>
 <h3 id="limits">Limits</h3>
-<p>A program must not consist of more than 2<sup>16</sup>-1 (65 535) classes, and not of more than 2<sup>16</sup>-1 protocols.</p>
-<p>Methods, Class Methods and Initializers must not take more than 2<sup>8</sup>-1 (255) arguments. Methods, Class Methods and Initializers are limited to 2<sup>32</sup>-1 (4 294 967 295) coins. A class must not define more than 2<sup>16</sup>-1 instance variables, 2<sup>16</sup>-1 Methods, 2<sup>16</sup>-1 Class methods and 2<sup>16</sup>-1 Initializers, <em>including</em> those inherited from super classes.</p>
-<p>A block is limited to 2<sup>8</sup>-1 variables. It is recommended that a compiler throws a warning or an error once the limit is exceeded.</p>
+<p>A program and thus the bytecode file must not consist of more than
+2<sup>16</sup> (65,536) classes, and not of more than 2<sup>16</sup>
+protocols.</p>
+<p>Callables (Methods, Class Methods, Initializers and Closures) must not take more
+than 2<sup>8</sup> (256) arguments. Methods, Class Methods and Initializers are
+limited to 2<sup>32</sup> (4,294,967,296) coins. A class must not define more
+than 2<sup>16</sup> instance variables, 2<sup>16</sup> Methods,
+2<sup>16</sup> Class methods and 2<sup>16</sup> Initializers, <em>including</em>
+those inherited from super classes.</p>
+<p>A code block is limited to 2<sup>8</sup> variables. Code blocks are only defined
+by Callables. Captured variables inside Closures count towards this limit.</p>
 <p>A compiler must emit an error if one of these limits is exceeded.</p>
 <h2 id="emojicode-engine">Emojicode Engine</h2>
 <h3 id="data-types">Data Types</h3>
@@ -130,11 +150,20 @@
 <p>Since <em>primitives</em> and <em>object references</em> can be stored together in a list or dictionary, the engine must be able to store <em>primitives</em> and <em>objects references</em> in the same space but must still be able to distinguish them later.</p>
 <h3 id="heap">Heap</h3>
 <p>The <em>heap</em> is an area of storage in which objects are allocated.</p>
-<p>The heap must be managed by the Engine using an automatic storage management system provided by the engine. The Emojicode Real-Time Engine uses a Garbage Collector after C. J. Cheney. If the engine is no longer able to manage the heap for any reason it must terminate the program.</p>
+<p>The heap must be managed by the Engine using an automatic storage management
+system provided by the engine. The Emojicode Real-Time Engine uses a Garbage
+Collector after C. J. Cheney. If the engine is no longer able to manage the heap
+for any reason it must terminate the program.</p>
 <h3 id="call-stack">Call Stack</h3>
-<p>The <em>call stack</em> is an area of storage dedicated to store data about the active subroutines of the program. If the Engine supports Threads each thread must have its own call stack.</p>
-<p>The call stack consists of <em>stack frames</em>. <em>Stack frames</em> store local variables and the <em>current object context</em>. The <em>current object context</em> is the object on which a method was called. If a routine is called which allocates a stack frame but does not have an object context the object context may be undefined, given that no code trying to access the <em>current object context</em> will run.</p>
-<p>An Engine is allowed to not use a call stack if it is able to fulfill the specification without one.</p>
+<p>The <em>call stack</em> is an area of storage dedicated to store data about the active
+subroutines of the program. Each thread has its own call stack.</p>
+<p>The call stack consists of <em>stack frames</em>. <em>Stack frames</em> store local variables
+and the <em>current object context</em>. The <em>current object context</em> is the object on
+which a method was called. If a routine is called which allocates a stack frame
+but does not have an object context the object context may be undefined, given
+that no code trying to access the <em>current object context</em> will run.</p>
+<p>An Engine is allowed to not use a call stack if it is able to fulfill the
+specification without one.</p>
 <h3 id="string-pool">String Pool</h3>
 <p>The <em>string pool</em> is an area of storage reserved to store references to all String objects known at compile time.</p>
 <p>The compiler will replace each string literal with a instruction to retrieve the string from the string pool by its index. The strings itself are then listed in a section of the bytecode file. After the initial read of the bytecode file the string pool may not be modified.</p>
@@ -142,9 +171,12 @@
 <h3 id="class-table">Class Table</h3>
 <p>The <em>class table</em> is a list of all classes, which can be accessed by the class index. The class table is populated from the bytecode file at the initial read. It may not be modified.</p>
 <h2 id="emojicode-bytecode-file">Emojicode Bytecode File</h2>
-<p>An Emojicode Bytecode file consists of 8-bit bytes. All 16-bit and 32-bit integers are constructed by reading 2 or 4 bytes respectively. These integers are stored in Big-Endian in the bytecode file.</p>
+<p>An Emojicode Bytecode file consists of 8-bit bytes. All 16-bit and 32-bit
+integers are constructed by reading 2 or 4 bytes respectively. These integers
+are stored in Big-Endian in the bytecode file.</p>
 <h3 id="structure-of-each-file">Structure of Each File</h3>
-<p>The structure of each file is shown below. The next section describes the exact length and structure of all structures and how they shall be read.</p>
+<p>The structure of each file is shown below. The next section describes the exact
+length and structure of all structures and how they shall be read.</p>
 <ol>
 <li>Version</li>
 <li>Number of Classes</li>
@@ -190,7 +222,8 @@
 <li>Starting Flag</li>
 </ol>
 <h3 id="version">Version</h3>
-<p>The first byte of the file represents the specification version. Files that comply with this specification shall save the value 3.</p>
+<p>The first byte of the file represents the specification version. Files that
+comply with this specification shall store the value 3.</p>
 <p>Engines might reject a bytecode file based on the version number.</p>
 <h3 id="number-of-classes">Number of Classes</h3>
 <ol>
