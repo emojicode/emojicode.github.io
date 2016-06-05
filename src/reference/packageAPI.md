@@ -406,7 +406,7 @@ The class we’ll implement a class that looks like this:
 ```
 
 First of all, `sizeForClass` must return the size of the value that is stored by
-the object. We’ll return the size of `SHA256_CTX` here for our posthorn class:
+the object. We’ll return the size of `SHA256_CTX` here for our 📯 class:
 
 ```
 uint_fast32_t sizeForClass(Class *class, EmojicodeChar name) {
@@ -517,8 +517,8 @@ gcc -shared -fPIC -undefined dynamic_lookup crypto.o -o crypto.so
 
 ## Deinitialization
 
-There are two provider functions we haven’t yet discussed: `markerPointerForClass`
-and `deinitializerPointerForClass`.
+There are two provider functions we haven’t yet discussed:
+`markerPointerForClass` and `deinitializerPointerForClass`.
 
 If you return a deinitializer handler from `deinitializerPointerForClass` for a
 class it will be called before an instance from the given class is abandoned and
@@ -543,7 +543,7 @@ field which contains the object reference**. This is really important because
 the `mark` function actually changes the value of the field to which your
 references points.
 
-Below you can see part of the list’s marking function:
+Below you can see part of 🍨’s marking function:
 
 ```
 void listMark(Object *self){
@@ -556,5 +556,5 @@ void listMark(Object *self){
 ```
 
 As `list->items` is an object reference, a pointer to this field is passed to
-`mark` which updates this field to point to the new object (and some other
+`mark`, which updates this field to point to the new object (and some other
 garbage collector related stuff).
