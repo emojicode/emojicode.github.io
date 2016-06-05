@@ -134,22 +134,22 @@ We now implement a function to achieve this:
 
 ```
 Something cryptoSHA256(Thread *thread) {
-  Object *output = newArray(SHA256_DIGEST_LENGTH);  // 1.
-  Data *data = stackGetVariable(0, thread).object->value;  // 2.
+    Object *output = newArray(SHA256_DIGEST_LENGTH);  // 1.
+    Data *data = stackGetVariable(0, thread).object->value;  // 2.
 
-  SHA256_CTX sha256;  // 3. OpenSSL API
-  SHA256_Init(&sha256);
-  SHA256_Update(&sha256, data->bytes, data->length);
-  SHA256_Final(output->value, &sha256);
+    SHA256_CTX sha256;  // 3. OpenSSL API
+    SHA256_Init(&sha256);
+    SHA256_Update(&sha256, data->bytes, data->length);
+    SHA256_Final(output->value, &sha256);
 
-  stackSetVariable(0, somethingObject(output), thread);  // 4.
+    stackSetVariable(0, somethingObject(output), thread);  // 4.
 
-  Object *obj = newObject(CL_DATA);  // 5.
-  Data *data = obj->value;  // 6.
-  data->length = SHA256_DIGEST_LENGTH;
-  data->bytesObject = stackGetVariable(0, thread).object;
-  data->bytes = data->bytesObject->value;
-  return somethingObject(obj);  // 7.
+    Object *obj = newObject(CL_DATA);  // 5.
+    Data *outData = obj->value;  // 6.
+    outData->length = SHA256_DIGEST_LENGTH;
+    outData->bytesObject = stackGetVariable(0, thread).object;
+    outData->bytes = outData->bytesObject->value;
+    return somethingObject(obj);  // 7.
 }
 ```
 
@@ -210,6 +210,19 @@ used with any C API as they are just a continuous space in memory.
 
 (SHA256 could of course be implemented in Emojicode, but it’s better to rely
 on well-tested libraries like OpenSSL in cryptography.)
+
+Finally, the `handlerPointerForClassMethod` function should return the function
+when the handler for 📯 is requested:
+
+```
+ClassMethodHandler handlerPointerForClassMethod(EmojicodeChar className, EmojicodeChar methodName) {
+    switch (className) {
+        case 0x1f4ef: //📯
+            return cryptoSHA256;
+    }
+    return NULL;
+}
+```
 
 ## Clashing with the Garbage Collector
 
@@ -381,7 +394,12 @@ The class we’ll implement a class that looks like this:
 ```
 🌮 An SHA256 hash 🌮
 🌍 🐇 📯 🍇
+  🌮 The default initializer to get a 📯 instance. 🌮
   🐈 🆕 📻
+  🌮 Appends the given chunk of data to the hash. 🌮
+  🐖 📇 data 📻
+  🌮 Returns the hash. 🌮
+  🐖 📩 ➡️ 📇 📻
   🌮 Returns the SHA256 hash for the given chunk of data. 🌮
   🐇🐖 📯 data 📇 ➡️ 📇 📻
 🍉
@@ -400,4 +418,143 @@ uint_fast32_t sizeForClass(Class *class, EmojicodeChar name) {
 }
 ```
 
-Then we need to implement the initializer:
+Whenever a 📯 instance is now allocated, a value area will be reserved capable
+of represesnting `SHA256_CTX`. Of course, we need to also implement our
+intializer:
+
+```
+void cryptoSHA256Initalizer(Thread *thread) {
+    SHA256_CTX *sha26 = stackGetThis(thread)->value;
+    SHA256_Init(sha26);
+}
+```
+
+An initialzer handler is slightly different from a method handler as it returns
+nothing. If you want a Nothingness initializer to return Nothingness, you can
+set the value field of the this object to `NULL`, like so:
+`stackGetThis(thread)->value = NULL;`. This is the only case in which you may
+assign the `value` field.
+
+Our intializer above does nothing special. It casts the pointer to the value
+field to a `SHA256_CTX` pointer and calls `SHA256_Init`.
+
+Now the implementations for the methods 📇 and 📩 follow:
+
+```
+Something cryptoSHA256Append(Thread *thread) {
+    SHA256_CTX *sha256 = stackGetThis(thread)->value;
+    Data *data = stackGetVariable(0, thread).object->value;
+    SHA256_Update(sha256, data->bytes, data->length);
+    return NOTHINGNESS;
+}
+
+Something cryptoSHA256Final(Thread *thread) {
+    SHA256_CTX *sha256 = stackGetThis(thread)->value;
+
+    Object *output = newArray(SHA256_DIGEST_LENGTH);
+    SHA256_Final(output->value, sha256);
+
+    stackPush(output, 0, 0, thread);  // 1.
+    Object *obj = newObject(CL_DATA);
+    Data *outData = obj->value;
+    outData->length = SHA256_DIGEST_LENGTH;
+    outData->bytesObject = stackGetThis(thread);  // 2.
+    outData->bytes = outData->bytesObject->value;
+    stackPop(thread);  // 3.
+
+    return outData;
+}
+```
+
+There’s nothing special going on in `cryptoSHA256Append`, but there are a few
+things in `cryptoSHA256Final` to be discussed:
+
+1. As you already know from *Clashing with the Garbage Collector* we need to
+  store the `output` array in the stack before allocating another object.
+2. Remeber that we have pushed a stack frame in which the `output` array is the
+  this object. We retrieve it here and put it into the `bytesObject` field.
+3. Last but not least: The stack frame which was previously pushed is now
+  popped.
+
+Finally, let’s return these handlers:
+
+```
+MethodHandler handlerPointerForMethod(EmojicodeChar className, EmojicodeChar methodName) {
+    switch (className) {
+        case 0x1f4ef: //📯
+            switch (methodName) {
+                case 0x1f4c7: //📇
+                    return cryptoSHA256Append;
+                case 0x1f4e9: //📩
+                    return cryptoSHA256Final;
+            }
+    }
+    return NULL;
+}
+
+InitializerHandler handlerPointerForInitializer(EmojicodeChar className, EmojicodeChar initializerName) {
+    switch (className) {
+        case 0x1f4ef: //📯
+            return cryptoSHA256Initalizer;
+    }
+    return NULL;
+}
+```
+
+## Compiling The Package
+
+>!H This step will be drastically simplified as we’re developing a package
+>!H manager. Until it is finished you need to take care of compiling yourself,
+>!H however.
+
+To compile a package this should be a good starting point. `-undefined
+dynamic_lookup` is Mac OS X only, remove it for any other OS.
+
+```
+gcc -O3 -iquote . -std=c11 -Wno-unused-result -fPIC -c crypto.c -o crypto.o
+gcc -shared -fPIC -undefined dynamic_lookup crypto.o -o crypto.so
+```
+
+## Deinitialization
+
+There are two provider functions we haven’t yet discussed: `markerPointerForClass`
+and `deinitializerPointerForClass`.
+
+If you return a deinitializer handler from `deinitializerPointerForClass` for a
+class it will be called before an instance from the given class is abandoned and
+invalidated, thus no longer accessible.
+
+## Marking
+
+`markerPointerForClass` is also important. If you store an object reference
+within the value data structure, you obviously need to tell the garbage
+collector about it. You do this by returning a *marker* for your class.
+
+>!N It’s important that you write a proper marker function when your class
+>!N stores references to objects in its value area.
+
+The marker is a function that is called by the garbage collector when it
+inspects an object and copies it into a new location in memory. This function
+must inform the garbage collector of any object references kept within the
+object currently marked, which is passed to marker function.
+
+For every object reference you need to call `mark` and pass a reference **to the
+field which contains the object reference**. This is really important because
+the `mark` function actually changes the value of the field to which your
+references points.
+
+Below you can see part of the list’s marking function:
+
+```
+void listMark(Object *self){
+    List *list = self->value;
+    if (list->items) {
+        mark(&list->items);
+    }
+    // ...
+}
+```
+
+As `list->items` is an object reference, a pointer to this field is passed to
+`mark` which updates this field to point to the new object (and some other
+garbage collector related stuff).

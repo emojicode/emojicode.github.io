@@ -86,6 +86,9 @@
             <li><a href="#clashing-with-the-garbage-collector">Clashing with the Garbage Collector</a></li>
             <li><a href="#something">Something</a></li>
             <li><a href="#backing-a-class">Backing a class</a></li>
+            <li><a href="#compiling-the-package">Compiling The Package</a></li>
+            <li><a href="#deinitialization">Deinitialization</a></li>
+            <li><a href="#marking">Marking</a></li>
           </ul>
       </li>
 	</ol>
@@ -197,22 +200,22 @@ looks like this:</p>
 🍉
 </code></pre><p>We now implement a function to achieve this:</p>
 <pre><code>Something cryptoSHA256(Thread *thread) {
-  Object *output = newArray(SHA256_DIGEST_LENGTH);  // 1.
-  Data *data = stackGetVariable(0, thread).object-&gt;value;  // 2.
+    Object *output = newArray(SHA256_DIGEST_LENGTH);  // 1.
+    Data *data = stackGetVariable(0, thread).object-&gt;value;  // 2.
 
-  SHA256_CTX sha256;  // 3. OpenSSL API
-  SHA256_Init(&amp;sha256);
-  SHA256_Update(&amp;sha256, data-&gt;bytes, data-&gt;length);
-  SHA256_Final(output-&gt;value, &amp;sha256);
+    SHA256_CTX sha256;  // 3. OpenSSL API
+    SHA256_Init(&amp;sha256);
+    SHA256_Update(&amp;sha256, data-&gt;bytes, data-&gt;length);
+    SHA256_Final(output-&gt;value, &amp;sha256);
 
-  stackSetVariable(0, somethingObject(output), thread);  // 4.
+    stackSetVariable(0, somethingObject(output), thread);  // 4.
 
-  Object *obj = newObject(CL_DATA);  // 5.
-  Data *data = obj-&gt;value;  // 6.
-  data-&gt;length = SHA256_DIGEST_LENGTH;
-  data-&gt;bytesObject = stackGetVariable(0, thread).object;
-  data-&gt;bytes = data-&gt;bytesObject-&gt;value;
-  return somethingObject(obj);  // 7.
+    Object *obj = newObject(CL_DATA);  // 5.
+    Data *outData = obj-&gt;value;  // 6.
+    outData-&gt;length = SHA256_DIGEST_LENGTH;
+    outData-&gt;bytesObject = stackGetVariable(0, thread).object;
+    outData-&gt;bytes = outData-&gt;bytesObject-&gt;value;
+    return somethingObject(obj);  // 7.
 }
 </code></pre><p>Let’s walk through this function.</p>
 <ol>
@@ -267,7 +270,16 @@ wrapped an returned.</p>
 </ol>
 <p>(SHA256 could of course be implemented in Emojicode, but it’s better to rely
 on well-tested libraries like OpenSSL in cryptography.)</p>
-<h2 id="clashing-with-the-garbage-collector">Clashing with the Garbage Collector</h2>
+<p>Finally, the <code>handlerPointerForClassMethod</code> function should return the function
+when the handler for 📯 is requested:</p>
+<pre><code>ClassMethodHandler handlerPointerForClassMethod(EmojicodeChar className, EmojicodeChar methodName) {
+    switch (className) {
+        case 0x1f4ef: //📯
+            return cryptoSHA256;
+    }
+    return NULL;
+}
+</code></pre><h2 id="clashing-with-the-garbage-collector">Clashing with the Garbage Collector</h2>
 <p>One thing that is really important when creating a package binary is to take
 of the Garbage Collector. While we all love the Garbage Collector, it may
 become your enemy when creating a package binary. Read on to learn why.</p>
@@ -395,7 +407,12 @@ that is backed by some C data structure and that needs initialization.</p>
 <p>The class we’ll implement a class that looks like this:</p>
 <pre><code>🌮 An SHA256 hash 🌮
 🌍 🐇 📯 🍇
+  🌮 The default initializer to get a 📯 instance. 🌮
   🐈 🆕 📻
+  🌮 Appends the given chunk of data to the hash. 🌮
+  🐖 📇 data 📻
+  🌮 Returns the hash. 🌮
+  🐖 📩 ➡️ 📇 📻
   🌮 Returns the SHA256 hash for the given chunk of data. 🌮
   🐇🐖 📯 data 📇 ➡️ 📇 📻
 🍉
@@ -408,7 +425,118 @@ the object. We’ll return the size of <code>SHA256_CTX</code> here for our post
     }
     return 0;
 }
-</code></pre><p>Then we need to implement the initializer:</p>
+</code></pre><p>Whenever a 📯 instance is now allocated, a value area will be reserved capable
+of represesnting <code>SHA256_CTX</code>. Of course, we need to also implement our
+intializer:</p>
+<pre><code>void cryptoSHA256Initalizer(Thread *thread) {
+    SHA256_CTX *sha26 = stackGetThis(thread)-&gt;value;
+    SHA256_Init(sha26);
+}
+</code></pre><p>An initialzer handler is slightly different from a method handler as it returns
+nothing. If you want a Nothingness initializer to return Nothingness, you can
+set the value field of the this object to <code>NULL</code>, like so:
+<code>stackGetThis(thread)-&gt;value = NULL;</code>. This is the only case in which you may
+assign the <code>value</code> field.</p>
+<p>Our intializer above does nothing special. It casts the pointer to the value
+field to a <code>SHA256_CTX</code> pointer and calls <code>SHA256_Init</code>.</p>
+<p>Now the implementations for the methods 📇 and 📩 follow:</p>
+<pre><code>Something cryptoSHA256Append(Thread *thread) {
+    SHA256_CTX *sha256 = stackGetThis(thread)-&gt;value;
+    Data *data = stackGetVariable(0, thread).object-&gt;value;
+    SHA256_Update(sha256, data-&gt;bytes, data-&gt;length);
+    return NOTHINGNESS;
+}
+
+Something cryptoSHA256Final(Thread *thread) {
+    SHA256_CTX *sha256 = stackGetThis(thread)-&gt;value;
+
+    Object *output = newArray(SHA256_DIGEST_LENGTH);
+    SHA256_Final(output-&gt;value, sha256);
+
+    stackPush(output, 0, 0, thread);  // 1.
+    Object *obj = newObject(CL_DATA);
+    Data *outData = obj-&gt;value;
+    outData-&gt;length = SHA256_DIGEST_LENGTH;
+    outData-&gt;bytesObject = stackGetThis(thread);  // 2.
+    outData-&gt;bytes = outData-&gt;bytesObject-&gt;value;
+    stackPop(thread);  // 3.
+
+    return outData;
+}
+</code></pre><p>There’s nothing special going on in <code>cryptoSHA256Append</code>, but there are a few
+things in <code>cryptoSHA256Final</code> to be discussed:</p>
+<ol>
+<li>As you already know from <em>Clashing with the Garbage Collector</em> we need to
+store the <code>output</code> array in the stack before allocating another object.</li>
+<li>Remeber that we have pushed a stack frame in which the <code>output</code> array is the
+this object. We retrieve it here and put it into the <code>bytesObject</code> field.</li>
+<li>Last but not least: The stack frame which was previously pushed is now
+popped.</li>
+</ol>
+<p>Finally, let’s return these handlers:</p>
+<pre><code>MethodHandler handlerPointerForMethod(EmojicodeChar className, EmojicodeChar methodName) {
+    switch (className) {
+        case 0x1f4ef: //📯
+            switch (methodName) {
+                case 0x1f4c7: //📇
+                    return cryptoSHA256Append;
+                case 0x1f4e9: //📩
+                    return cryptoSHA256Final;
+            }
+    }
+    return NULL;
+}
+
+InitializerHandler handlerPointerForInitializer(EmojicodeChar className, EmojicodeChar initializerName) {
+    switch (className) {
+        case 0x1f4ef: //📯
+            return cryptoSHA256Initalizer;
+    }
+    return NULL;
+}
+</code></pre><h2 id="compiling-the-package">Compiling The Package</h2>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This step will be drastically simplified as we’re developing a package
+manager. Until it is finished you need to take care of compiling yourself,
+however.</p>
+</div></div>
+
+<p>To compile a package this should be a good starting point. <code>-undefined
+dynamic_lookup</code> is Mac OS X only, remove it for any other OS.</p>
+<pre><code>gcc -O3 -iquote . -std=c11 -Wno-unused-result -fPIC -c crypto.c -o crypto.o
+gcc -shared -fPIC -undefined dynamic_lookup crypto.o -o crypto.so
+</code></pre><h2 id="deinitialization">Deinitialization</h2>
+<p>There are two provider functions we haven’t yet discussed: <code>markerPointerForClass</code>
+and <code>deinitializerPointerForClass</code>.</p>
+<p>If you return a deinitializer handler from <code>deinitializerPointerForClass</code> for a
+class it will be called before an instance from the given class is abandoned and
+invalidated, thus no longer accessible.</p>
+<h2 id="marking">Marking</h2>
+<p><code>markerPointerForClass</code> is also important. If you store an object reference
+within the value data structure, you obviously need to tell the garbage
+collector about it. You do this by returning a <em>marker</em> for your class.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>It’s important that you write a proper marker function when your class
+stores references to objects in its value area.</p>
+</div></div>
+
+<p>The marker is a function that is called by the garbage collector when it
+inspects an object and copies it into a new location in memory. This function
+must inform the garbage collector of any object references kept within the
+object currently marked, which is passed to marker function.</p>
+<p>For every object reference you need to call <code>mark</code> and pass a reference <strong>to the
+field which contains the object reference</strong>. This is really important because
+the <code>mark</code> function actually changes the value of the field to which your
+references points.</p>
+<p>Below you can see part of the list’s marking function:</p>
+<pre><code>void listMark(Object *self){
+    List *list = self-&gt;value;
+    if (list-&gt;items) {
+        mark(&amp;list-&gt;items);
+    }
+    // ...
+}
+</code></pre><p>As <code>list-&gt;items</code> is an object reference, a pointer to this field is passed to
+<code>mark</code> which updates this field to point to the new object (and some other
+garbage collector related stuff).</p>
 
 
 	<div class="reference-navigation-bottom">
