@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
-		<title>Emojicode Documentation &middot; Appendix II: Package API</title>
+		<title>Emojicode Documentation &middot; The Package API</title>
 	</head>
 	<body>
 		<div class="global-nav">
@@ -23,61 +23,19 @@
 		</nav>
 
 		<div class="toc fixed">
-	<h2>The Definite Language Reference &amp; Guide</h2>
+	<h2>Emojicode Guides</h2>
 	<ol>
     	<li>
-        <a href="basics.html">The Basics</a>
+        <a href="install.html">Installing Emojicode</a>
       </li>
     	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
+        <a href="compile-and-run.html">Compile and Run Your First Program</a>
       </li>
     	<li>
-        <a href="the-s-package.html">The s package</a>
+        <a href="input-methods.html">Input methods</a>
       </li>
     	<li>
-        <a href="types.html">Types and Namespaces</a>
-      </li>
-    	<li>
-        <a href="primitive-methods.html">Primitive Methods</a>
-      </li>
-    	<li>
-        <a href="controlflow.html">Control Flow</a>
-      </li>
-    	<li>
-        <a href="classes.html">Classes</a>
-      </li>
-    	<li>
-        <a href="extensions.html">Extensions</a>
-      </li>
-    	<li>
-        <a href="protocols.html">Protocols</a>
-      </li>
-    	<li>
-        <a href="enums.html">Enums</a>
-      </li>
-    	<li>
-        <a href="generics.html">Generics</a>
-      </li>
-    	<li>
-        <a href="callables.html">Callables</a>
-      </li>
-    	<li>
-        <a href="threads.html">Threads</a>
-      </li>
-    	<li>
-        <a href="packages.html">Packages</a>
-      </li>
-    	<li>
-        <a href="memory.html">Memory Management</a>
-      </li>
-    	<li>
-        <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
-      </li>
-    	<li>
-        <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
-      </li>
-    	<li>
-        <a href="packageAPI.html">Appendix II: Package API</a>
+        <a href="packageAPI.html">The Package API</a>
           <ul>
             <li><a href="#native-binaries">Native Binaries</a></li>
             <li><a href="#run-time-native-linking">Run-Time Native Linking</a></li>
@@ -95,12 +53,12 @@
 </div>
 
 <div class="content">
-	<h1 id="appendix-ii-package-api">Appendix II: Package API</h1>
+	<h1 id="the-package-api">The Package API</h1>
 <p>The package API allows to write a package whose logic can be implemented (partly
 if needed) in C. This allows you to expand Emojicode’s capabilities, like
 accessing special system APIs.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Make sure that you have read <a href="packages.html">Packages</a> and understand how
-packages work.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Make sure that you have read <a href="../reference/packages.html">Packages</a> and
+understand how packages work.</p>
 </div></div>
 
 <p>The C API is specific to the Real-Time Engine. APIs of other Emojicode Engines
@@ -542,7 +500,7 @@ garbage collector related stuff).</p>
 
 
 	<div class="reference-navigation-bottom">
-		<a href="compiler.html" class="left">
+		<a href="input-methods.html" class="left">
 			← Previous
 		</a>
 	</div>

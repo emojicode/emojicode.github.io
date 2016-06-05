@@ -1,11 +1,11 @@
-# Appendix II: Package API
+# The Package API
 
 The package API allows to write a package whose logic can be implemented (partly
 if needed) in C. This allows you to expand Emojicode’s capabilities, like
 accessing special system APIs.
 
->!H Make sure that you have read [Packages](packages.html) and understand how
->!H packages work.
+>!H Make sure that you have read [Packages](../reference/packages.html) and
+>!H understand how packages work.
 
 The C API is specific to the Real-Time Engine. APIs of other Emojicode Engines
 may be different.
@@ -133,6 +133,8 @@ looks like this:
 We now implement a function to achieve this:
 
 ```
+#include <openssl/sha.h>
+
 Something cryptoSHA256(Thread *thread) {
     Object *output = newArray(SHA256_DIGEST_LENGTH);  // 1.
     Data *data = stackGetVariable(0, thread).object->value;  // 2.

@@ -15,6 +15,5 @@
   "packages.md",
   "memory.md",
   "specification.md",
-  "compiler.md",
-  "packageAPI.md"
+  "compiler.md"
 ]

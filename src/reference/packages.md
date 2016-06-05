@@ -178,8 +178,8 @@ difficulties mentioned at the beginning of this section native APIs
 are not standardised and aren’t even required. A virtual machine can reject
 a bytecode file if it depends on an external native binary.
 
-The Emojicode Real-Time Engine supports native binaries. The API is
-documented in [Appendix II](packageAPI.html).
+The Emojicode Real-Time Engine supports native binaries. You can learn more
+in the [The Package API](../guides/packageAPI.html) guide.
 
 ## Package Register and Manager
 
