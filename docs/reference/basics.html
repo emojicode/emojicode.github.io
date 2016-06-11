@@ -29,7 +29,7 @@
         <a href="basics.html">The Basics</a>
           <ul>
             <li><a href="#comments">Comments</a></li>
-            <li><a href="#the-class-method">The 🏁 class method</a></li>
+            <li><a href="#the-block">The 🏁 block</a></li>
             <li><a href="#when-to-use-emojis-">When to use Emojis?</a></li>
             <li><a href="#variables">Variables</a></li>
             <li><a href="#numeric-literals">Numeric Literals</a></li>
@@ -121,19 +121,15 @@ Comments begin with 👴 and end at the line break.</p>
 <p>Example:</p>
 <pre><code>👵 This is a multiline comment. You can even make
 line breaks. 👵
-</code></pre><h2 id="the-class-method">The 🏁 class method</h2>
-<p>Emojicode needs to know where your program should start. The compiler will
-therefore look for a class method called 🏁. This method will be  called on the
-program startup. Example:</p>
-<pre><code>🐇 ⚽️ 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    👴 The code to start up the program goes here.
-    🍎 0
-  🍉
+</code></pre><h2 id="the-block">The 🏁 block</h2>
+<p>Emojicode needs to know what your program should do when it starts, therefore
+it requires you to provide a <em>🏁 block</em>. Here’s an example of a 🏁 block.</p>
+<pre><code>🏁 🍇
+  👴 Get things up and running here...
+
+  🍎 0 👴 Indicates that things went smoothly.
 🍉
-</code></pre><p>If you don’t understand all the code above yet don’t worry, you will learn more
-about <a href="classes.html#class-methods">class methods </a> and all this stuff in a few
-minutes.</p>
+</code></pre><p>It occours at the document level of a document.</p>
 <h2 id="when-to-use-emojis-">When to use Emojis?</h2>
 <p>There’s sometimes confusion when emojis are used. Basically it’s very simple:</p>
 <p>All <strong>type, method, class method and initializer</strong> names are <strong>Emojis</strong>. On the
@@ -231,9 +227,9 @@ desired symbol. This is called a <em>Symbol literal</em>.</p>
 </code></pre><h2 id="context-based-parsing">Context Based Parsing</h2>
 <p>Emojicode heavily uses <em>context based parsing</em>. This means that something can
 have a completely different meaning based on the context.</p>
-<p>All statments introduced above are only valid inside a method or initializer
-body. If you however used 🍦 when a type name was expected, 🍦 would be
-interpreted as a type called 🍦.</p>
+<p>All statments introduced above except for 🏁 are only valid inside a method or
+initializer body. If you however used 🍦 when a type name was expected, 🍦
+would be interpreted as a type called 🍦.</p>
 <p>The statment introduced below is, on the contrary, only valid at document
 level – you can’t use it inside a method or class.</p>
 <h2 id="including-other-source-code-files">Including Other Source Code Files</h2>

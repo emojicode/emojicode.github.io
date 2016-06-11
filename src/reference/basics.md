@@ -39,22 +39,20 @@ Example:
     👵 This is a multiline comment. You can even make
     line breaks. 👵
 
-## The 🏁 class method
+## The 🏁 block
 
-Emojicode needs to know where your program should start. The compiler will
-therefore look for a class method called 🏁. This method will be  called on the
-program startup. Example:
+Emojicode needs to know what your program should do when it starts, therefore
+it requires you to provide a *🏁 block*. Here’s an example of a 🏁 block.
 
-    🐇 ⚽️ 🍇
-      🐇🐖 🏁 ➡️ 🚂 🍇
-        👴 The code to start up the program goes here.
-        🍎 0
-      🍉
-    🍉
+```
+🏁 🍇
+  👴 Get things up and running here...
 
-If you don’t understand all the code above yet don’t worry, you will learn more
-about [class methods ](classes.html#class-methods) and all this stuff in a few
-minutes.
+  🍎 0 👴 Indicates that things went smoothly.
+🍉
+```
+
+It occours at the document level of a document.
 
 ## When to use Emojis?
 
@@ -207,9 +205,9 @@ Example:
 Emojicode heavily uses *context based parsing*. This means that something can
 have a completely different meaning based on the context.
 
-All statments introduced above are only valid inside a method or initializer
-body. If you however used 🍦 when a type name was expected, 🍦 would be
-interpreted as a type called 🍦.
+All statments introduced above except for 🏁 are only valid inside a method or
+initializer body. If you however used 🍦 when a type name was expected, 🍦
+would be interpreted as a type called 🍦.
 
 The statment introduced below is, on the contrary, only valid at document
 level – you can’t use it inside a method or class.
