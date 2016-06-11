@@ -6,8 +6,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-This document describes version 3 of the Emojicode Engine & Compilation
-Specification which is used with Emojicode 0.2.
+This document describes version 5 of the Emojicode Engine & Compilation
+Specification which is used with Emojicode 0.3.
 
 Emojicode programs are traditionally compiled to Emojicode Bytecode which is
 then executed by an Emojicode Engine. The reference implementation is the
@@ -15,7 +15,7 @@ Emojicode Real-Time Engine.
 
 The Emojicode Engine should have the ability to execute the given bytecode file
 regardless of the underlying operating system and system architecture. Bytecode
-instruction instruct the Engine what to do. It may be of pariticular intereset
+instruction instruct the Engine what to do. It may be of particular interest
 that the Emojicode Bytecode is on a higher level than other bytecode formats of
 other programming languages.
 
@@ -45,8 +45,8 @@ An error shall terminate the compilation and the compiler can delete the output 
 ### Limits
 
 A program and thus the bytecode file must not consist of more than
-2<sup>16</sup> (65,536) classes, and not of more than 2<sup>16</sup>
-protocols.
+2<sup>16</sup> (65,536) classes, not of more than 2<sup>16</sup>
+protocols, and not of more than 2<sup>16</sup> functions.
 
 Callables (Methods, Class Methods, Initializers and Closures) must not take more
 than 2<sup>8</sup> (256) arguments. Methods, Class Methods and Initializers are
@@ -116,147 +116,460 @@ The *class table* is a list of all classes, which can be accessed by the class i
 
 An Emojicode Bytecode file consists of 8-bit bytes. All 16-bit and 32-bit
 integers are constructed by reading 2 or 4 bytes respectively. These integers
-are stored in Big-Endian in the bytecode file.
+are stored in Little-Endian in the bytecode file.
 
-### Structure of Each File
+Every bytecode file is contains a single [File](#header) structure as top level
+data structure. All structures are described below.
 
-The structure of each file is shown below. The next section describes the exact
-length and structure of all structures and how they shall be read.
+### File
 
-1.  Version
-2. 	Number of Classes
-3.  Packages
-	- Count
-	- Packages
-		- Name
-		- Classes
-			- Qualified Type Name
-			- Variables
-		    - Methods
-		        - Arguments
-		            - Qualified Class Name
-		        - Handler
-		    - Initializers
-		        - Arguments
-		            - Qualified Class Name
-		        - Handler
-		    - Class Methods
-		        - Arguments
-		            - Qualified Class Name
-		        - Handler
-		    - Following Indicator
-4.	String Pool
-5.	Starting Flag
-
-### Version
-
-The first byte of the file represents the specification version. Files that
-comply with this specification shall store the value 3.
-
-Engines might reject a bytecode file based on the version number.
-
-### Number of Classes
-
-1.	16-bit unsigned integer: The number of classes defined in this file.
-
-### Starting Flag Class
-
-The *starting flag class method* is the first part of the program to be called.
-
-1. 16-bit unsigned integer: The class index of the class in which the *starting flag class method* is located.
-2. 16-bit unsigned integer: The index of the starting flag method.
-
-### Packages
-
-1. 8-bit unsigned integer: Packages count.
-2. *Packages* *1.
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+	<td>8-bit unsigned integer</td>
+	<td>
+		The specification version. This must be 5 to comply to this specification.
+		Engines might reject a bytecode file based on the version number.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of all classes in the program.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>8-bit unsigned integer</td>
+	<td>
+		The number of packages.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td><a href="#package">Package</a></td>
+	<td>
+		The packages.
+	</td>
+	<td>
+		Specified by above
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of functions.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td><a href="#function">Function</a></td>
+	<td>
+		The functions.
+	</td>
+	<td>
+		Specified by above
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of String Pool items.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td><a href="#string">String</a></td>
+	<td>
+		The String Pool items.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+</table>
 
 ### Package
 
-1.  16-bit unsigned integer: Number of characters.
-2.  8-bit unsigned integer *1.: ASCII characters representing the name of the package
-3.  16-bit unsigned integer: Required major version.
-4.  16-bit unsigned integer: Required minor version.
-5.  8-bit unsigned integer: 1 if the package requires a native binary to be loaded, 0 otherwise.
-6. 	*Class*__es__: The classes which belong to this package.
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		Number of characters of the package name. 0 indicates that the package
+		needs no binary (and the name was therefore not stored in the bytecode
+		file)
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>8-bit unsigned integer</td>
+	<td>ASCII characters representing the name of the package.</td>
+	<td>
+		Specified by above value
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>Required major version</td>
+	<td>
+		1 if package needs binary otherwise 0
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>Required minor version</td>
+	<td>
+		1 if package needs binary otherwise 0
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>Number of classes</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td><a href="#class">Class</a></td>
+	<td>The classes belonging to this package</td>
+	<td>
+		Specified by above value
+	</td>
+</tr>
+</table>
 
 ### Class
 
-1.  `EmojicodeChar`: The name of the class.
-2.  16-bit unsigned integer: Class Index of the superclass.
-3.  16-bit unsigned integer: The number of instance variables. Including superclass’s instance variables.
-4.	16-bit unsigned integer: The number of methods this class will have *including* inherited ones. Therefore if the class does not define methods itself this value must be equal to it superclass’s value.
-5.	16-bit unsigned integer: The number of class methods this class will have *including* inherited ones.
-6.  8-bit unsigned integer: 0 if the class does not inherit initializers, 1 if it does.
-7.	16-bit unsigned integer: The number of initializers this class will have *including* inherited ones. If the class does not define initializers itself but 6. was 1 this value must be equal to it superclass’s value. If 6. however was 0 and the class does not define initializers this value must be equal to 0.
-8.  16-bit unsigned integer: The number of methods.
-9.  *Method*__s__: As many methods as defined in 6.
-10.  16-bit unsigned integer: The number of initializers.
-11.  *Initializer*__s__: As many methods as defined in 8.
-12.	16-bit unsigned integer: The number of class methods.
-13.	*Class Methods*__s__: As many methods as defined in 10.
-14. 16-bit unsigned integer: The number of protocols this class agrees to.
-15. 16-bit unsigned integer if 14. not 0: The biggest index.
-16. 16-bit unsigned integer if 14. not 0: The smallest index.
-17. *Protocol Method* *14.: Protocol methods
-18.	8-bit unsigned integer: 1 if a class follows, 0 if no class follows
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+	<td>EmojicodeChar</td>
+	<td>The name of the class</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		Class Index of the superclass. The class’ own index if it
+		has no superclass.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of instance variables. Including superclass’s instance variables.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of instance variables. Including superclass’s instance variables.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of methods this class will have *including* inherited ones.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of class methods this class will have *including* inherited ones.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>8-bit unsigned integer</td>
+	<td>
+		0 if the class does not inherit initializers, 1 if it does.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of initializers this class will have *including* inherited ones.
+		If the class does not define initializers itself but it inherits
+		superintializers this value must be equal to it superclass’s value.
+		If it doesn’t, however, and the class does not define initializers this
+		value must be equal to 0.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of methods.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td><a href="#function">Function</a></td>
+	<td>
+		The methods.
+	</td>
+	<td>
+		Specified by above
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of initializers.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td><a href="#function">Function</a></td>
+	<td>
+		The initializers.
+	</td>
+	<td>
+		Specified by above
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of class methods.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td><a href="#function">Function</a></td>
+	<td>
+		The class methods.
+	</td>
+	<td>
+		Specified by above
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The number of protocols this class agrees to.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The biggest protocol index.
+	</td>
+	<td>
+		If the class agrees to any protocol 1 otherwise 0
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The smallest index.
+	</td>
+	<td>
+		If the class agrees to any protocol 1 otherwise 0
+	</td>
+</tr>
+<tr>
+	<td><a href="#protocol-agreement">Protocol Agreement</a></td>
+	<td>
+		The protocol agreements.
+	</td>
+	<td>
+		biggest - smallest protocol index
+	</td>
+</tr>
+</table>
 
-**If a method, initializer or class method is marked with `native` this package’s dynamic library is queried for a function pointer.**
+If a method, initializer or class method is marked with `native` this package’s
+dynamic library is queried for a function pointer.
 
-### Method
+### Function
 
-1.  `EmojicodeChar`: The name of the method.
-2.  `uint16_t`: The index at which to store this method in the virtual table.
-3.  `uint8_t`: The number of arguments excepted by the method. The arguments must receive the lowest ID. The first argument must always receive ID 0, the second always ID 1 and so on.
-4.  *Handler*: How to execute.
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+	<td>EmojicodeChar</td>
+	<td>
+		The name of the method.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The index at which to store this function in the according table.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>8-bit unsigned integer</td>
+	<td>
+		The number of arguments excepted by the method. The arguments must receive
+		the lowest variable IDs. The first argument must always be put into the
+		variable with ID 0, the second always into the variable with ID 1 and so on.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>8-bit unsigned integer</td>
+	<td>
+		Whether it is natively implemented.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td><a href="#block">Block</a></td>
+	<td>
+		The implementation.
+	</td>
+	<td>
+		1 if above is 0 otherwise 0
+	</td>
+</tr>
+</table>
 
-### Class Method
+### Protocol Agreement
 
-1.  `EmojicodeChar`: The name of the method.
-2.  `uint16_t`: The index at which to store this method in the virtual table.
-3.  `uint8_t`: The number of arguments excepted by the method. The arguments must receive the lowest variable IDs. The first argument must always be put into the variable with ID 0, the second always into the variable with ID 1 and so on.
-4.  *Handler*: How to execute.
-
-### Initializers
-
-1.  `EmojicodeChar`: The name of the method.
-2.  `uint16_t`: The index at which to store this initializer in the virtual table.
-3.  `uint8_t`: The number of arguments excepted by the method. The arguments must receive the lowest ID. The first argument must always receive ID 0, the second always ID 1 and so on.
-4.  *Handler*: How to execute.
-
-### Protocol
-
-1.	16-bit unsigned integer: Protocol Index
-2.	16-bit unsigned integer: Number of methods
-3.	16-bit unsigned integer *3.: These are the indexes of the corresponding method in the class’s virtual method table.
-
-### Handler
-
-1.	`uint8_t`: Whether it is natively implemented.
-2.	- If 1. is not 0: The block must be read from the package.
-	- If 1. is 0: *Block*: Emojicode instructions.
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		Protocol Index
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		Number of methods
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>32-bit unsigned integer</td>
+	<td>
+		These are the indexes of the corresponding method in the class’s virtual
+		method table. So the protocol’s method with index 0 maps to the class’s
+		method at index of the first value provided.
+	</td>
+	<td>
+		Specified by above
+	</td>
+</tr>
+</table>
 
 ### Block
 
-1.  `uint8_t`: The number of variables.
-2.  `uint32_t`: Token count.
-3.  *Coin*__s__: As many tokens as defined in 1.
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+	<td>8-bit unsigned integer</td>
+	<td>
+		The number of variables.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>32-bit unsigned integer</td>
+	<td>
+		The number of coins in the block.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>32-bit unsigned integer</td>
+	<td>
+		The coins.
+	</td>
+	<td>
+		Specified by above
+	</td>
+</tr>
+</table>
 
-### Coin
+### String
 
-Then tokens follow. The number of tokens is not limited.
-
-A Coin is a 32-bit unsigned integer and is interpreted as defined in the Instructions section below.
-
-### String Pool
-
-1. `uint16_t`: Number of String Pool items.
-2. *String Pool Item* *1: The String Pool items.
-
-### String Pool Item
-
-1. `uint16_t`: The length of the string.
-2. Coin *1.: The characters of the string.
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+	<td>16-bit unsigned integer</td>
+	<td>
+		The length of the string.
+	</td>
+	<td>
+		1
+	</td>
+</tr>
+<tr>
+	<td>8-bit unsigned integer</td>
+	<td>
+		The characters of the string.
+	</td>
+	<td>
+		Specified by above
+	</td>
+</tr>
+</table>
 
 ## Bytecode Instructions
 

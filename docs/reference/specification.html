@@ -92,14 +92,14 @@
 <p>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;,
 &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be
 interpreted as described in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.</p>
-<p>This document describes version 3 of the Emojicode Engine &amp; Compilation
-Specification which is used with Emojicode 0.2.</p>
+<p>This document describes version 5 of the Emojicode Engine &amp; Compilation
+Specification which is used with Emojicode 0.3.</p>
 <p>Emojicode programs are traditionally compiled to Emojicode Bytecode which is
 then executed by an Emojicode Engine. The reference implementation is the
 Emojicode Real-Time Engine.</p>
 <p>The Emojicode Engine should have the ability to execute the given bytecode file
 regardless of the underlying operating system and system architecture. Bytecode
-instruction instruct the Engine what to do. It may be of pariticular intereset
+instruction instruct the Engine what to do. It may be of particular interest
 that the Emojicode Bytecode is on a higher level than other bytecode formats of
 other programming languages.</p>
 <p>It is noteworthy that Emojicode does not use reverse Polish notation but Polish
@@ -122,8 +122,8 @@ hexadecimal representation.)</p>
 <p>An error shall terminate the compilation and the compiler can delete the output file. A warning does not affect the compilation in any way.</p>
 <h3 id="limits">Limits</h3>
 <p>A program and thus the bytecode file must not consist of more than
-2<sup>16</sup> (65,536) classes, and not of more than 2<sup>16</sup>
-protocols.</p>
+2<sup>16</sup> (65,536) classes, not of more than 2<sup>16</sup>
+protocols, and not of more than 2<sup>16</sup> functions.</p>
 <p>Callables (Methods, Class Methods, Initializers and Closures) must not take more
 than 2<sup>8</sup> (256) arguments. Methods, Class Methods and Initializers are
 limited to 2<sup>32</sup> (4,294,967,296) coins. A class must not define more
@@ -170,159 +170,451 @@ specification without one.</p>
 <h2 id="emojicode-bytecode-file">Emojicode Bytecode File</h2>
 <p>An Emojicode Bytecode file consists of 8-bit bytes. All 16-bit and 32-bit
 integers are constructed by reading 2 or 4 bytes respectively. These integers
-are stored in Big-Endian in the bytecode file.</p>
-<h3 id="structure-of-each-file">Structure of Each File</h3>
-<p>The structure of each file is shown below. The next section describes the exact
-length and structure of all structures and how they shall be read.</p>
-<ol>
-<li>Version</li>
-<li>Number of Classes</li>
-<li>Packages<ul>
-<li>Count</li>
-<li>Packages<ul>
-<li>Name</li>
-<li>Classes<ul>
-<li>Qualified Type Name</li>
-<li>Variables</li>
-<li>Methods<ul>
-<li>Arguments<ul>
-<li>Qualified Class Name</li>
-</ul>
-</li>
-<li>Handler</li>
-</ul>
-</li>
-<li>Initializers<ul>
-<li>Arguments<ul>
-<li>Qualified Class Name</li>
-</ul>
-</li>
-<li>Handler</li>
-</ul>
-</li>
-<li>Class Methods<ul>
-<li>Arguments<ul>
-<li>Qualified Class Name</li>
-</ul>
-</li>
-<li>Handler</li>
-</ul>
-</li>
-<li>Following Indicator</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>String Pool</li>
-<li>Starting Flag</li>
-</ol>
-<h3 id="version">Version</h3>
-<p>The first byte of the file represents the specification version. Files that
-comply with this specification shall store the value 3.</p>
-<p>Engines might reject a bytecode file based on the version number.</p>
-<h3 id="number-of-classes">Number of Classes</h3>
-<ol>
-<li>16-bit unsigned integer: The number of classes defined in this file.</li>
-</ol>
-<h3 id="starting-flag-class">Starting Flag Class</h3>
-<p>The <em>starting flag class method</em> is the first part of the program to be called.</p>
-<ol>
-<li>16-bit unsigned integer: The class index of the class in which the <em>starting flag class method</em> is located.</li>
-<li>16-bit unsigned integer: The index of the starting flag method.</li>
-</ol>
-<h3 id="packages">Packages</h3>
-<ol>
-<li>8-bit unsigned integer: Packages count.</li>
-<li><em>Packages</em> *1.</li>
-</ol>
+are stored in Little-Endian in the bytecode file.</p>
+<p>Every bytecode file is contains a single <a href="#header">File</a> structure as top level
+data structure. All structures are described below.</p>
+<h3 id="file">File</h3>
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+    <td>8-bit unsigned integer</td>
+    <td>
+        The specification version. This must be 5 to comply to this specification.
+        Engines might reject a bytecode file based on the version number.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of all classes in the program.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>8-bit unsigned integer</td>
+    <td>
+        The number of packages.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td><a href="#package">Package</a></td>
+    <td>
+        The packages.
+    </td>
+    <td>
+        Specified by above
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of functions.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td><a href="#function">Function</a></td>
+    <td>
+        The functions.
+    </td>
+    <td>
+        Specified by above
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of String Pool items.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td><a href="#string">String</a></td>
+    <td>
+        The String Pool items.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+</table>
+
 <h3 id="package">Package</h3>
-<ol>
-<li>16-bit unsigned integer: Number of characters.</li>
-<li>8-bit unsigned integer *1.: ASCII characters representing the name of the package</li>
-<li>16-bit unsigned integer: Required major version.</li>
-<li>16-bit unsigned integer: Required minor version.</li>
-<li>8-bit unsigned integer: 1 if the package requires a native binary to be loaded, 0 otherwise.</li>
-<li><em>Class</em><strong>es</strong>: The classes which belong to this package.</li>
-</ol>
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        Number of characters of the package name. 0 indicates that the package
+        needs no binary (and the name was therefore not stored in the bytecode
+        file)
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>8-bit unsigned integer</td>
+    <td>ASCII characters representing the name of the package.</td>
+    <td>
+        Specified by above value
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>Required major version</td>
+    <td>
+        1 if package needs binary otherwise 0
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>Required minor version</td>
+    <td>
+        1 if package needs binary otherwise 0
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>Number of classes</td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td><a href="#class">Class</a></td>
+    <td>The classes belonging to this package</td>
+    <td>
+        Specified by above value
+    </td>
+</tr>
+</table>
+
 <h3 id="class">Class</h3>
-<ol>
-<li><code>EmojicodeChar</code>: The name of the class.</li>
-<li>16-bit unsigned integer: Class Index of the superclass.</li>
-<li>16-bit unsigned integer: The number of instance variables. Including superclass’s instance variables.</li>
-<li>16-bit unsigned integer: The number of methods this class will have <em>including</em> inherited ones. Therefore if the class does not define methods itself this value must be equal to it superclass’s value.</li>
-<li>16-bit unsigned integer: The number of class methods this class will have <em>including</em> inherited ones.</li>
-<li>8-bit unsigned integer: 0 if the class does not inherit initializers, 1 if it does.</li>
-<li>16-bit unsigned integer: The number of initializers this class will have <em>including</em> inherited ones. If the class does not define initializers itself but 6. was 1 this value must be equal to it superclass’s value. If 6. however was 0 and the class does not define initializers this value must be equal to 0.</li>
-<li>16-bit unsigned integer: The number of methods.</li>
-<li><em>Method</em><strong>s</strong>: As many methods as defined in 6.</li>
-<li>16-bit unsigned integer: The number of initializers.</li>
-<li><em>Initializer</em><strong>s</strong>: As many methods as defined in 8.</li>
-<li>16-bit unsigned integer: The number of class methods.</li>
-<li><em>Class Methods</em><strong>s</strong>: As many methods as defined in 10.</li>
-<li>16-bit unsigned integer: The number of protocols this class agrees to.</li>
-<li>16-bit unsigned integer if 14. not 0: The biggest index.</li>
-<li>16-bit unsigned integer if 14. not 0: The smallest index.</li>
-<li><em>Protocol Method</em> *14.: Protocol methods</li>
-<li>8-bit unsigned integer: 1 if a class follows, 0 if no class follows</li>
-</ol>
-<p><strong>If a method, initializer or class method is marked with <code>native</code> this package’s dynamic library is queried for a function pointer.</strong></p>
-<h3 id="method">Method</h3>
-<ol>
-<li><code>EmojicodeChar</code>: The name of the method.</li>
-<li><code>uint16_t</code>: The index at which to store this method in the virtual table.</li>
-<li><code>uint8_t</code>: The number of arguments excepted by the method. The arguments must receive the lowest ID. The first argument must always receive ID 0, the second always ID 1 and so on.</li>
-<li><em>Handler</em>: How to execute.</li>
-</ol>
-<h3 id="class-method">Class Method</h3>
-<ol>
-<li><code>EmojicodeChar</code>: The name of the method.</li>
-<li><code>uint16_t</code>: The index at which to store this method in the virtual table.</li>
-<li><code>uint8_t</code>: The number of arguments excepted by the method. The arguments must receive the lowest variable IDs. The first argument must always be put into the variable with ID 0, the second always into the variable with ID 1 and so on.</li>
-<li><em>Handler</em>: How to execute.</li>
-</ol>
-<h3 id="initializers">Initializers</h3>
-<ol>
-<li><code>EmojicodeChar</code>: The name of the method.</li>
-<li><code>uint16_t</code>: The index at which to store this initializer in the virtual table.</li>
-<li><code>uint8_t</code>: The number of arguments excepted by the method. The arguments must receive the lowest ID. The first argument must always receive ID 0, the second always ID 1 and so on.</li>
-<li><em>Handler</em>: How to execute.</li>
-</ol>
-<h3 id="protocol">Protocol</h3>
-<ol>
-<li>16-bit unsigned integer: Protocol Index</li>
-<li>16-bit unsigned integer: Number of methods</li>
-<li>16-bit unsigned integer *3.: These are the indexes of the corresponding method in the class’s virtual method table.</li>
-</ol>
-<h3 id="handler">Handler</h3>
-<ol>
-<li><code>uint8_t</code>: Whether it is natively implemented.</li>
-<li><ul>
-<li>If 1. is not 0: The block must be read from the package.</li>
-<li>If 1. is 0: <em>Block</em>: Emojicode instructions.</li>
-</ul>
-</li>
-</ol>
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+    <td>EmojicodeChar</td>
+    <td>The name of the class</td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        Class Index of the superclass. The class’ own index if it
+        has no superclass.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of instance variables. Including superclass’s instance variables.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of instance variables. Including superclass’s instance variables.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of methods this class will have <em>including</em> inherited ones.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of class methods this class will have <em>including</em> inherited ones.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>8-bit unsigned integer</td>
+    <td>
+        0 if the class does not inherit initializers, 1 if it does.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of initializers this class will have <em>including</em> inherited ones.
+        If the class does not define initializers itself but it inherits
+        superintializers this value must be equal to it superclass’s value.
+        If it doesn’t, however, and the class does not define initializers this
+        value must be equal to 0.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of methods.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td><a href="#function">Function</a></td>
+    <td>
+        The methods.
+    </td>
+    <td>
+        Specified by above
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of initializers.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td><a href="#function">Function</a></td>
+    <td>
+        The initializers.
+    </td>
+    <td>
+        Specified by above
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of class methods.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td><a href="#function">Function</a></td>
+    <td>
+        The class methods.
+    </td>
+    <td>
+        Specified by above
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The number of protocols this class agrees to.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The biggest protocol index.
+    </td>
+    <td>
+        If the class agrees to any protocol 1 otherwise 0
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The smallest index.
+    </td>
+    <td>
+        If the class agrees to any protocol 1 otherwise 0
+    </td>
+</tr>
+<tr>
+    <td><a href="#protocol-agreement">Protocol Agreement</a></td>
+    <td>
+        The protocol agreements.
+    </td>
+    <td>
+        biggest - smallest protocol index
+    </td>
+</tr>
+</table>
+
+<p>If a method, initializer or class method is marked with <code>native</code> this package’s
+dynamic library is queried for a function pointer.</p>
+<h3 id="function">Function</h3>
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+    <td>EmojicodeChar</td>
+    <td>
+        The name of the method.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The index at which to store this function in the according table.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>8-bit unsigned integer</td>
+    <td>
+        The number of arguments excepted by the method. The arguments must receive
+        the lowest variable IDs. The first argument must always be put into the
+        variable with ID 0, the second always into the variable with ID 1 and so on.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>8-bit unsigned integer</td>
+    <td>
+        Whether it is natively implemented.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td><a href="#block">Block</a></td>
+    <td>
+        The implementation.
+    </td>
+    <td>
+        1 if above is 0 otherwise 0
+    </td>
+</tr>
+</table>
+
+<h3 id="protocol-agreement">Protocol Agreement</h3>
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        Protocol Index
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        Number of methods
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>32-bit unsigned integer</td>
+    <td>
+        These are the indexes of the corresponding method in the class’s virtual
+        method table. So the protocol’s method with index 0 maps to the class’s
+        method at index of the first value provided.
+    </td>
+    <td>
+        Specified by above
+    </td>
+</tr>
+</table>
+
 <h3 id="block">Block</h3>
-<ol>
-<li><code>uint8_t</code>: The number of variables.</li>
-<li><code>uint32_t</code>: Token count.</li>
-<li><em>Coin</em><strong>s</strong>: As many tokens as defined in 1.</li>
-</ol>
-<h3 id="coin">Coin</h3>
-<p>Then tokens follow. The number of tokens is not limited.</p>
-<p>A Coin is a 32-bit unsigned integer and is interpreted as defined in the Instructions section below.</p>
-<h3 id="string-pool">String Pool</h3>
-<ol>
-<li><code>uint16_t</code>: Number of String Pool items.</li>
-<li><em>String Pool Item</em> *1: The String Pool items.</li>
-</ol>
-<h3 id="string-pool-item">String Pool Item</h3>
-<ol>
-<li><code>uint16_t</code>: The length of the string.</li>
-<li>Coin *1.: The characters of the string.</li>
-</ol>
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+    <td>8-bit unsigned integer</td>
+    <td>
+        The number of variables.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>32-bit unsigned integer</td>
+    <td>
+        The number of coins in the block.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>32-bit unsigned integer</td>
+    <td>
+        The coins.
+    </td>
+    <td>
+        Specified by above
+    </td>
+</tr>
+</table>
+
+<h3 id="string">String</h3>
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+    <td>16-bit unsigned integer</td>
+    <td>
+        The length of the string.
+    </td>
+    <td>
+        1
+    </td>
+</tr>
+<tr>
+    <td>8-bit unsigned integer</td>
+    <td>
+        The characters of the string.
+    </td>
+    <td>
+        Specified by above
+    </td>
+</tr>
+</table>
+
 <h2 id="bytecode-instructions">Bytecode Instructions</h2>
 <p>The Engine must run a code block using the following routine:</p>
 <ol>
