@@ -118,8 +118,8 @@ An Emojicode Bytecode file consists of 8-bit bytes. All 16-bit and 32-bit
 integers are constructed by reading 2 or 4 bytes respectively. These integers
 are stored in Little-Endian in the bytecode file.
 
-Every bytecode file is contains a single [File](#header) structure as top level
-data structure. All structures are described below.
+Every bytecode file is defined by a single [File](#header) structure as top
+level data structure. All structures are described below.
 
 ### File
 
@@ -658,6 +658,19 @@ Each instruction returns *Something*. This return value can be used by the instr
 	<td>
 		The newly created object.
 	</td>
+</tr>
+<tr>
+  <td>0x6</td>
+  <td>Function Call</td>
+  <td>
+    <ol>
+      <li>Coin: Index of the Function</li>
+      <li>Something *Function’s Argument Count</li>
+    </ol>
+  </td>
+  <td>
+    The function’s return.
+  </td>
 </tr>
 <tr>
 	<td>0x10</td>

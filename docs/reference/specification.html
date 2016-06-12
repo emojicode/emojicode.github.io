@@ -171,8 +171,8 @@ specification without one.</p>
 <p>An Emojicode Bytecode file consists of 8-bit bytes. All 16-bit and 32-bit
 integers are constructed by reading 2 or 4 bytes respectively. These integers
 are stored in Little-Endian in the bytecode file.</p>
-<p>Every bytecode file is contains a single <a href="#header">File</a> structure as top level
-data structure. All structures are described below.</p>
+<p>Every bytecode file is defined by a single <a href="#header">File</a> structure as top
+level data structure. All structures are described below.</p>
 <h3 id="file">File</h3>
 <table class="table table-bordered table-condensed instructions-table">
 <tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
@@ -704,6 +704,19 @@ dynamic library is queried for a function pointer.</p>
     <td>
         The newly created object.
     </td>
+</tr>
+<tr>
+  <td>0x6</td>
+  <td>Function Call</td>
+  <td>
+    <ol>
+      <li>Coin: Index of the Function</li>
+      <li>Something </em>Function’s Argument Count</li>
+    </ol>
+  </td>
+  <td>
+    The function’s return.
+  </td>
 </tr>
 <tr>
     <td>0x10</td>
@@ -1400,7 +1413,7 @@ dynamic library is queried for a function pointer.</p>
     <td>
         <ol>
             <li>Coin: Number of key-value pairs.</li>
-            <li>Something 2</em> Number of key value pairs.</li>
+            <li>Something 2<em> Number of key value pairs.</li>
         </ol>
     </td>
     <td>
@@ -1413,7 +1426,7 @@ dynamic library is queried for a function pointer.</p>
     <td>
         <ol>
             <li>Coin: Number of list items.</li>
-            <li>Something <em>Number of list items.</li>
+            <li>Something </em>Number of list items.</li>
         </ol>
     </td>
     <td>
@@ -1426,7 +1439,7 @@ dynamic library is queried for a function pointer.</p>
     <td>
         <ol>
             <li>Coin: Number of strings.</li>
-            <li>Something </em>Number of strings.</li>
+            <li>Something *Number of strings.</li>
         </ol>
     </td>
     <td>
