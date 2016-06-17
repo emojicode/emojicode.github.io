@@ -4,10 +4,8 @@ This chapter provides a very brief overview of the s package and its most
 important classes.
 
 The s package can be compared to what’s called standard library in other
-programing languages. It provides some of the most important classes to write
-meaningful programs. Another characteristic of standard libraries is that the
-programming language could theoretically be used without them, which is also the
-case with Emojicode’s s package.
+programing languages. It provides some of the most important classes and value
+types to write meaningful programs.
 
 >!H This chapter only introduces the most important classes although there are
 >!H many more.
