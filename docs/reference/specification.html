@@ -214,18 +214,27 @@ level data structure. All structures are described below.</p>
     </td>
 </tr>
 <tr>
+  <td>16-bit unsigned integer</td>
+  <td>
+    The number of functions.
+  </td>
+  <td>
+    1
+  </td>
+</tr>
+<tr>
     <td>16-bit unsigned integer</td>
     <td>
-        The number of functions.
+        The number of function sections.
     </td>
     <td>
         1
     </td>
 </tr>
 <tr>
-    <td><a href="#function">Function</a></td>
+    <td><a href="#function-section">Function Section</a></td>
     <td>
-        The functions.
+        The function sections.
     </td>
     <td>
         Specified by above
@@ -526,6 +535,38 @@ dynamic library is queried for a function pointer.</p>
 </tr>
 </table>
 
+<h3 id="function-section">Function Section</h3>
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+  <td>EmojicodeChar</td>
+  <td>
+    The name of the section.
+  </td>
+  <td>
+    1
+  </td>
+</tr>
+<tr>
+  <td>16-bit unsigned integer</td>
+  <td>
+    The number of functions.
+  </td>
+  <td>
+    1
+  </td>
+</tr>
+<tr>
+  <td><a href="#function">Function</a></td>
+  <td>
+    The functions.
+  </td>
+  <td>
+    Specified by above
+  </td>
+</tr>
+</table>
+
 <h3 id="protocol-agreement">Protocol Agreement</h3>
 <table class="table table-bordered table-condensed instructions-table">
 <tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
@@ -636,7 +677,7 @@ dynamic library is queried for a function pointer.</p>
 <tr><th>Code</th><th>Description</th><th>Arguments</th><th>Return</th></tr>
 <tr>
     <td>0x1</td>
-    <td>This instructions means an ordinary method call.</td>
+    <td>Method call</td>
     <td>
         <ol>
             <li>Object</li>
@@ -707,11 +748,25 @@ dynamic library is queried for a function pointer.</p>
 </tr>
 <tr>
   <td>0x6</td>
+  <td>Contexted Function Call</td>
+  <td>
+    <ol>
+      <li>Coin: Index of the Function</li>
+      <li>Something: This Context</li>
+      <li>Something </em>Function’s Argument Count</li>
+    </ol>
+  </td>
+  <td>
+    The function’s return.
+  </td>
+</tr>
+<tr>
+  <td>0x7</td>
   <td>Function Call</td>
   <td>
     <ol>
       <li>Coin: Index of the Function</li>
-      <li>Something </em>Function’s Argument Count</li>
+      <li>Something <em>Function’s Argument Count</li>
     </ol>
   </td>
   <td>
@@ -1413,7 +1468,7 @@ dynamic library is queried for a function pointer.</p>
     <td>
         <ol>
             <li>Coin: Number of key-value pairs.</li>
-            <li>Something 2<em> Number of key value pairs.</li>
+            <li>Something 2</em> Number of key value pairs.</li>
         </ol>
     </td>
     <td>
@@ -1426,7 +1481,7 @@ dynamic library is queried for a function pointer.</p>
     <td>
         <ol>
             <li>Coin: Number of list items.</li>
-            <li>Something </em>Number of list items.</li>
+            <li>Something <em>Number of list items.</li>
         </ol>
     </td>
     <td>
@@ -1439,7 +1494,7 @@ dynamic library is queried for a function pointer.</p>
     <td>
         <ol>
             <li>Coin: Number of strings.</li>
-            <li>Something *Number of strings.</li>
+            <li>Something </em>Number of strings.</li>
         </ol>
     </td>
     <td>

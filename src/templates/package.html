@@ -7,6 +7,21 @@
 
 	{{#readme}}<div>{{{readme}}}</div>{{/readme}}
 
+  {{#valueTypesItems}}
+  <h2>Value Types</h2>
+
+  <div class="link-list u3">
+    {{#valueTypes}}
+      <a href="{{asciiTypeName}}.html" class="link-box">
+        <div class="name">
+          {{name}}
+        </div>
+        {{firstSentence}}
+      </a>
+    {{/valueTypes}}
+  </div>
+  {{/valueTypesItems}}
+
 	{{#classesItems}}
 	<h2>Classes</h2>
 

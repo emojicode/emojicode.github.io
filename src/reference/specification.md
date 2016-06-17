@@ -163,18 +163,27 @@ level data structure. All structures are described below.
 	</td>
 </tr>
 <tr>
+  <td>16-bit unsigned integer</td>
+  <td>
+    The number of functions.
+  </td>
+  <td>
+    1
+  </td>
+</tr>
+<tr>
 	<td>16-bit unsigned integer</td>
 	<td>
-		The number of functions.
+		The number of function sections.
 	</td>
 	<td>
 		1
 	</td>
 </tr>
 <tr>
-	<td><a href="#function">Function</a></td>
+	<td><a href="#function-section">Function Section</a></td>
 	<td>
-		The functions.
+		The function sections.
 	</td>
 	<td>
 		Specified by above
@@ -479,6 +488,39 @@ dynamic library is queried for a function pointer.
 </tr>
 </table>
 
+### Function Section
+
+<table class="table table-bordered table-condensed instructions-table">
+<tr><th>Size</th><th>Description</th><th>Quantity</th></tr>
+<tr>
+  <td>EmojicodeChar</td>
+  <td>
+    The name of the section.
+  </td>
+  <td>
+    1
+  </td>
+</tr>
+<tr>
+  <td>16-bit unsigned integer</td>
+  <td>
+    The number of functions.
+  </td>
+  <td>
+    1
+  </td>
+</tr>
+<tr>
+  <td><a href="#function">Function</a></td>
+  <td>
+    The functions.
+  </td>
+  <td>
+    Specified by above
+  </td>
+</tr>
+</table>
+
 ### Protocol Agreement
 
 <table class="table table-bordered table-condensed instructions-table">
@@ -590,7 +632,7 @@ Each instruction returns *Something*. This return value can be used by the instr
 <tr><th>Code</th><th>Description</th><th>Arguments</th><th>Return</th></tr>
 <tr>
 	<td>0x1</td>
-	<td>This instructions means an ordinary method call.</td>
+	<td>Method call</td>
 	<td>
 		<ol>
 			<li>Object</li>
@@ -661,6 +703,20 @@ Each instruction returns *Something*. This return value can be used by the instr
 </tr>
 <tr>
   <td>0x6</td>
+  <td>Contexted Function Call</td>
+  <td>
+    <ol>
+      <li>Coin: Index of the Function</li>
+      <li>Something: This Context</li>
+      <li>Something *Function’s Argument Count</li>
+    </ol>
+  </td>
+  <td>
+    The function’s return.
+  </td>
+</tr>
+<tr>
+  <td>0x7</td>
   <td>Function Call</td>
   <td>
     <ol>

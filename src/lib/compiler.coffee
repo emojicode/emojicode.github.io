@@ -151,7 +151,7 @@ class Package
     fs.mkdirSync(@out)
 
     packageMeta = require @srcPath("meta.json")
-    console.log("Building package #{packageMeta.name}");
+    console.log("Building package #{packageMeta.name}")
 
     types = require @srcPath("package.json")
 
@@ -159,12 +159,16 @@ class Package
       @templateType(cl, 'Class', packageMeta)
     protocols = for protocol in types.protocols when protocol.documentation?
       @templateType(protocol, 'Protocol', packageMeta)
+    valueTypes = for valueType in types.valueTypes when valueType.documentation?
+      @templateType(valueType, 'Value Type', packageMeta)
 
     @compiler.template "package.html", @outPath("index.html"),
       classes: classes
       protocols: protocols
-      classesItems: types.classes.length > 0
-      protocolsItems: types.protocols.length > 0
+      valueTypes: valueTypes
+      classesItems: classes.length > 0
+      protocolsItems: protocols.length > 0
+      valueTypesItems: valueTypes.length > 0
       name: packageMeta.name
       version: packageMeta.version
       author: packageMeta.author
@@ -176,9 +180,10 @@ class Package
       firstSentence: -> this.documentation?.split('.', 2)[0] + '.'
       asciiTypeName: -> Package.typeAsciiName(@name)
 
-console.log('🔨📗📘');
+console.log('🔨📗📘')
 
-compiler = new Compiler(path.resolve(__dirname, "..", "..", "docs"), path.resolve(__dirname, '..'))
+compiler = new Compiler(path.resolve(__dirname, "..", "..", "docs"),
+                        path.resolve(__dirname, '..'))
 compiler.createStatic()
 compiler.createPages()
 compiler.createReference()
