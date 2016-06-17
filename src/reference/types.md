@@ -28,12 +28,10 @@ Each type when defined is loaded into a namespace. By definition the type
 doesn’t bascially belong to this namespace but is *reachable* through this
 namespace. A type may actually even be reachable through multiple namespaces.
 
->!H The facts above play a very important role when importing other packages.
-
 Everywhere a type name is expected you can either just use the name of the type
-without explicitely specifying a namespace and the type will be assumed to be
-reachable thorugh the default namespace 🔴, or you can explicitely specify a
-namespace with the namespace accessor:
+without explicitely specifying a namespace and the compiler will asumme that the
+type is reachable thorugh the default namespace 🔴, or you can explicitely
+specify a namespace with the namespace accessor:
 
 ```
 🔶 namespace name
@@ -58,8 +56,12 @@ in namespace 🎅:
 🍉
 ```
 
-Remember that the class’s name is nevertheless just 🎁 but was made reachable
-in the 🎅 namespace.
+Remember that the class’s name is nevertheless just called 🎁 but was made
+reachable in the 🎅 namespace.
+
+>!H The facts above play a very important role when importing other packages.
+>!H It’s also worth noting, that namespaces are per package. To learn more about
+>!H this, please see [Packages](packages.html).
 
 ## ⚪ Something
 

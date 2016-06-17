@@ -110,13 +110,10 @@ of primitive types are known as <em>primitive methods</em>.</p>
 <p>Each type when defined is loaded into a namespace. By definition the type
 doesn’t bascially belong to this namespace but is <em>reachable</em> through this
 namespace. A type may actually even be reachable through multiple namespaces.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>The facts above play a very important role when importing other packages.</p>
-</div></div>
-
 <p>Everywhere a type name is expected you can either just use the name of the type
-without explicitely specifying a namespace and the type will be assumed to be
-reachable thorugh the default namespace 🔴, or you can explicitely specify a
-namespace with the namespace accessor:</p>
+without explicitely specifying a namespace and the compiler will asumme that the
+type is reachable thorugh the default namespace 🔴, or you can explicitely
+specify a namespace with the namespace accessor:</p>
 <pre><code>🔶 namespace name
 </code></pre><p>This identifies type <em>name</em> of namespace <em>namespace</em>. Both must be exactly one
 identifier.</p>
@@ -128,8 +125,13 @@ in namespace 🎅:</p>
 <pre><code>🐇 🔶🎅🎁 🍇
 
 🍉
-</code></pre><p>Remember that the class’s name is nevertheless just 🎁 but was made reachable
-in the 🎅 namespace.</p>
+</code></pre><p>Remember that the class’s name is nevertheless just called 🎁 but was made
+reachable in the 🎅 namespace.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>The facts above play a very important role when importing other packages.
+It’s also worth noting, that namespaces are per package. To learn more about
+this, please see <a href="packages.html">Packages</a>.</p>
+</div></div>
+
 <h2 id="-something">⚪ Something</h2>
 <p>Something is a special type as it is compatible to <em>all</em> other types. Because of
 this you cannot call methods or perform any actions on ⚪.</p>
