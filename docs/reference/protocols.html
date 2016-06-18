@@ -35,9 +35,6 @@
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
-        <a href="types.html">Types and Namespaces</a>
-      </li>
-    	<li>
         <a href="controlflow.html">Control Flow</a>
       </li>
     	<li>
@@ -52,11 +49,14 @@
             <li><a href="#declaration">Declaration</a></li>
             <li><a href="#conforming">Conforming</a></li>
             <li><a href="#protocols-as-types">Protocols as Types</a></li>
-            <li><a href="#-the-class">🐓 The Class</a></li>
+            <li><a href="#-the-class">🐕 The Class</a></li>
           </ul>
       </li>
     	<li>
         <a href="enums.html">Enums</a>
+      </li>
+    	<li>
+        <a href="types.html">Types and Namespaces</a>
       </li>
     	<li>
         <a href="generics.html">Generics</a>
@@ -122,18 +122,18 @@ types and you can call methods on them:</p>
 🍮 cdPlayable 🔷📻🆕
 🎶 cdPlayable
 </code></pre><p>You can of course also cast to protocols.</p>
-<h2 id="-the-class">🐓 The Class</h2>
-<p>You should already know 🐓 from classes where it stands for the class on which a
-method or initializer is called. The function of 🐓 inside protocol is different
+<h2 id="-the-class">🐕 The Class</h2>
+<p>You should already know 🐕 from class method bodies where it stands for the class
+on which the methodis invoked. The function of 🐓 inside protocol is different
 however.</p>
-<p>In the context of a protocol 🐓 stands for the class which implements the
+<p>In the context of a protocol 🐕 stands for the class which implements the
 protocol. The following protocol in the following example enforces a method
 🛅 that the takes an instance of the class implementing the protocol:</p>
 <pre><code>🐊 💿 🍇
-  🐖 🛅 anotherOfMe 🐓
+  🐖 🛅 anotherCDLikeThing 🐕
 🍉
-</code></pre><p>If you use 🐓 in a protocol the protocol can no longer be used as a standalone
-type for obvious reasons: there is no class to which 🐓 could relate. You can
+</code></pre><p>If you use 🐕 in a protocol the protocol can no longer be used as a standalone
+type for obvious reasons: there is no class to which 🐕 could relate. You can
 however still use such a protocol as a generic constraint.</p>
 
 

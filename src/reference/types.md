@@ -1,27 +1,5 @@
 # Types and Namespaces
 
-Emojicode is a strongly type language and therefore has very strict rules
-concerning types.
-
-Types are defined by classes, protocols, enums and primitives. Seperate chapters
-are devoted to classes, protocols and enums.
-
-## Primitives
-
-Primitives are a special kind of type as they are part of the language and are
-nowhere defined in the s package. They are built into the language and therefore
-also directly known by the compiler. As with class types you can call methods on
-primitives, you, however, cannot inherit from primitives or extend them. Methods
-of primitive types are known as *primitive methods*.
-
-You have already gotten to the primitive types. They are:
-
-- 🚂
-- 🚀
-- 👌
-- 🔣
-- ✨
-
 ## Namespaces
 
 Each type when defined is loaded into a namespace. By definition the type

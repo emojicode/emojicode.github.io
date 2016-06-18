@@ -35,9 +35,6 @@
         <a href="the-s-package.html">The s package</a>
       </li>
     	<li>
-        <a href="types.html">Types and Namespaces</a>
-      </li>
-    	<li>
         <a href="controlflow.html">Control Flow</a>
       </li>
     	<li>
@@ -53,9 +50,12 @@
         <a href="enums.html">Enums</a>
           <ul>
             <li><a href="#defining-an-enum">Defining an Enum</a></li>
-            <li><a href="#accessing-an-enum-s-values">Accessing an Enum’s Values</a></li>
+            <li><a href="#instantiating-an-enum">Instantiating an Enum</a></li>
             <li><a href="#type-compatibility">Type compatibility</a></li>
           </ul>
+      </li>
+    	<li>
+        <a href="types.html">Types and Namespaces</a>
       </li>
     	<li>
         <a href="generics.html">Generics</a>
@@ -84,24 +84,27 @@
 <div class="content">
 	<h1 id="enums">Enums</h1>
 <h2 id="defining-an-enum">Defining an Enum</h2>
-<p>To define an enum you use the 🦃. For example this defines an enum named 🏷 which has the values 🏁, 🚧 and 📜.</p>
-<pre><code>🦃 🏷 🍇
-    🏁
-    🚧
-    📜
+<p>To define an enum you use 🦃. For example this defines an enum named 📜 which
+has the values 🌭, 🍕 and 🍔.</p>
+<pre><code>🦃 📜 🍇
+  🌭
+  🍕
+  🍔
 🍉
-</code></pre><h2 id="accessing-an-enum-s-values">Accessing an Enum’s Values</h2>
-<p>To access an enum you use the 🔺.</p>
-<pre><code>🔺🏷📜
+</code></pre><h2 id="instantiating-an-enum">Instantiating an Enum</h2>
+<p>Enums are instantiated by 🔷:</p>
+<pre><code>🔷📜🍕
 </code></pre><h2 id="type-compatibility">Type compatibility</h2>
-<p>All enum types are compatible to 🚂 because at runtime the enum values will be represented by 🚂. This of course means that you cannot cast to an enum at runtime.</p>
+<p>All enum types are compatible to 🚂 because at runtime the enum values will be
+represented by 🚂. This of course means that you cannot cast to an enum at
+runtime.</p>
 
 
 	<div class="reference-navigation-bottom">
 		<a href="protocols.html" class="left">
 			← Previous
 		</a>
-		<a href="generics.html" class="right">
+		<a href="types.html" class="right">
 			Next →
 		</a>
 	</div>
