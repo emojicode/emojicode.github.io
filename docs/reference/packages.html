@@ -142,6 +142,10 @@ explicitely marked with 🌍. Packages are cached so an extension will only be
 applied once. If your package extends a class the extensions will be available
 everywhere after the package with the extension was loaded from somewhere within
 the program.</p>
+<p>Keep in mind that types don’t actually belong to a namespace. When exporting a
+type the namespace is completely irrelevant. All exported types will be
+imported into the requested namespace regardless in which namespace they were
+intially exported.</p>
 <p>Additionally an importable package must declare its version using 🔮:</p>
 <pre><code>🔮 major minor
 </code></pre><p>The <code>header.emojic</code> of a cat-simulator package must look like this:</p>

@@ -380,9 +380,12 @@ You can use 🐓 for flexible and powerful solutions, like shown below.
 🍉
 ```
 
-As you can see from the example 🐓 can be used in the body of a method as well
-as in a method or initializer declaration and always stands for the class on
-which a method or initializer is called.
+As you can see from the example 🐓 can be used in a method or initializer
+declaration and always stands for the class on which a method or initializer is
+called. 🐓 can also be used inside a class method body where it refers to the
+class on which it was called.
+
+>!N 🐓 **must not** be used in the body of a method or initializer.
 
 >!N Because 🐓 could be used in class methods, which can execute on subclasses
 >!N that do not have all non-required initializers, you can only use required

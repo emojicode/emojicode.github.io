@@ -76,6 +76,11 @@ applied once. If your package extends a class the extensions will be available
 everywhere after the package with the extension was loaded from somewhere within
 the program.
 
+Keep in mind that types don’t actually belong to a namespace. When exporting a
+type the namespace is completely irrelevant. All exported types will be
+imported into the requested namespace regardless in which namespace they were
+intially exported.
+
 Additionally an importable package must declare its version using 🔮:
 
 ```

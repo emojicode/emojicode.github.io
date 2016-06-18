@@ -338,9 +338,13 @@ will lead to a compiler error.</p>
     🍎 0
   🍉
 🍉
-</code></pre><p>As you can see from the example 🐓 can be used in the body of a method as well
-as in a method or initializer declaration and always stands for the class on
-which a method or initializer is called.</p>
+</code></pre><p>As you can see from the example 🐓 can be used in a method or initializer
+declaration and always stands for the class on which a method or initializer is
+called. 🐓 can also be used inside a class method body where it refers to the
+class on which it was called.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>🐓 <strong>must not</strong> be used in the body of a method or initializer.</p>
+</div></div>
+
 <div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Because 🐓 could be used in class methods, which can execute on subclasses
 that do not have all non-required initializers, you can only use required
 initializers to instantiate 🐓.</p>
