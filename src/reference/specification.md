@@ -713,6 +713,18 @@ Each instruction returns *Something*. This return value can be used by the instr
   </td>
 </tr>
 <tr>
+  <td>0xF</td>
+  <td>Class Type</td>
+  <td>
+    <ol>
+      <li>Coin: Index of the class</li>
+    </ol>
+  </td>
+  <td>
+    Returns the dynamic class type for the given class.
+  </td>
+</tr>
+<tr>
 	<td>0x10</td>
 	<td>String</td>
 	<td>
@@ -1608,7 +1620,19 @@ Each instruction returns *Something*. This return value can be used by the instr
   </td>
 </tr>
 <tr>
-	<td>0x70</td>
+  <td>0x70</td>
+  <td>Callable execution</td>
+  <td>
+    <ol>
+      <li>Something: Callable.</li>
+    </ol>
+  </td>
+  <td>
+    Executes the given callable.
+  </td>
+</tr>
+<tr>
+	<td>0x71</td>
   <td>Closure Creation</td>
   <td>
     <ol>
@@ -1626,8 +1650,8 @@ Each instruction returns *Something*. This return value can be used by the instr
   </td>
 </tr>
 <tr>
-	<td>0x71</td>
-  <td>Captured Method</td>
+	<td>0x72</td>
+  <td>Capture Instance Method</td>
   <td>
     <ol>
    		<li>Something: The object.</li>
@@ -1639,15 +1663,30 @@ Each instruction returns *Something*. This return value can be used by the instr
   </td>
 </tr>
 <tr>
-	<td>0x72</td>
-  <td>Callable execution</td>
+  <td>0x73</td>
+  <td>Capture Class Method</td>
   <td>
     <ol>
-   		<li>Something: Callable.</li>
+      <li>Something: The class.</li>
+      <li>Coin: Virtual Table Index</li>
     </ol>
   </td>
   <td>
-    Executes the given callable.
+    Captures the method identified by the given VTI from the given class.
+  </td>
+</tr>
+<tr>
+  <td>0x74</td>
+  <td>Capture Function</td>
+  <td>
+    <ol>
+      <li>Something: The function context.</li>
+      <li>Coin: Virtual Table Index</li>
+    </ol>
+  </td>
+  <td>
+    Captures the function identified by the given VTI called on the given
+    context.
   </td>
 </tr>
 </table>
