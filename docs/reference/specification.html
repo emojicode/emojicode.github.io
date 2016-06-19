@@ -425,24 +425,6 @@ level data structure. All structures are described below.</p>
 <tr>
     <td>16-bit unsigned integer</td>
     <td>
-        The number of class methods.
-    </td>
-    <td>
-        1
-    </td>
-</tr>
-<tr>
-    <td><a href="#function">Function</a></td>
-    <td>
-        The class methods.
-    </td>
-    <td>
-        Specified by above
-    </td>
-</tr>
-<tr>
-    <td>16-bit unsigned integer</td>
-    <td>
         The number of protocols this class agrees to.
     </td>
     <td>
@@ -515,7 +497,9 @@ dynamic library is queried for a function pointer.</p>
 <tr>
     <td>8-bit unsigned integer</td>
     <td>
-        Whether it is natively implemented.
+        0 if the function is implemented in Emojicode, 1 if it’s an instance method
+    and Native Linking must occur or 2 if it’s a type method and Native
+    Linking must occur.
     </td>
     <td>
         1
