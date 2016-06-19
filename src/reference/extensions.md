@@ -18,12 +18,10 @@ The syntax is:
 You can also extend classes from other packages. Example:
 
 ```
-🐇 📺 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    😀 😈 🔤The Candy Man🔤
+🏁 🍇
+  😀 😈 🔤James Tiberius Kirk🔤
 
-    🍎 0
-  🍉
+  🍎 0
 🍉
 
 🐋 🔡 🍇
