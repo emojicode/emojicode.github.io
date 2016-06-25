@@ -1,21 +1,20 @@
 # Extensions
 
-Extensions allow you to extend an existing class. You can do everything in an
-extension you could do in a class definition body.
+Extensions allow you to extend an existing class or value type. You can do
+everything in an extension you could do in the initial definition.
 
 ## Extending
 
 The syntax is:
 
 ```
-🐋 class 🍇
+🐋 type 🍇
 
 🍉
 ```
 
-*class* must be an existing class.
-
-You can also extend classes from other packages. Example:
+*type* must be an type identifier either identifying a class type or value type.
+ou can also extend classes from other packages. For example:
 
 ```
 🏁 🍇
