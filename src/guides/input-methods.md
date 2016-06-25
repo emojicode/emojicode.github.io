@@ -4,6 +4,14 @@ So, you've installed Emojicode and are willing to spend the rest of the weekend 
 
 Do not fear, for Gods where not crazy when they crafted Emojicode, they also created input methods and shortcuts so you could code in this beautiful language.
 
+## macOS Emojipicker
+
+Entering Emoji on macOS should be as easy as falling off a log. Just press
+^⌘Space and an emoji picker will show up. If you start dragging it, it will be
+become a window and stay open so you can easily enter code.
+
+<img src="/docs/static/img/macosemoji.png" width="311">
+
 ## IBus
 
 Available for GNU/Linux and other *nix-like OSes, this input method, when correctly configured will let you switch between Emojis and other, not so worthy, things.
