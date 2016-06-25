@@ -157,33 +157,29 @@ load factor of the computer.</p>
   🍉
 🍉
 
-🐇 💫 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    🍦 threads 🔷🍨🐚💈🐸
+🏁 🍇
+  🍦 threads 🔷🍨🐚💈🐸
 
-    🍦 account 🔷🏦🆕
+  🍦 account 🔷🏦🆕
 
-    🔂 i ⏩ 0 10 🍇
-      🐻 threads 🔷💈🆕 🍇
+  🔂 i ⏩ 0 10 🍇
+    🐻 threads 🔷💈🆕 🍇
 
-        🔂 j ⏩ 0 5 🍇
-          🍊 ➡️ 💶 account 10 🍇 👴 There’s money left
-            😀 🔤Money, money, money – Must be funny🔤
-            💸 account 10
-          🍉
+      🔂 j ⏩ 0 5 🍇
+        🍊 ➡️ 💶 account 10 🍇 👴 There’s money left
+          😀 🔤Money, money, money – Must be funny🔤
+          💸 account 10
         🍉
-
       🍉
+
     🍉
-
-    🔂 thread threads 🍇
-      🛂 thread
-    🍉
-
-    😀 🔷🔡🚂 💶 account 10 👴 Print the balance
-
-    🍎 0
   🍉
+
+  🔂 thread threads 🍇
+    🛂 thread
+  🍉
+
+  😀 🔡 💶 account 10 👴 Print the balance
 🍉
 </code></pre><p>It creates a bank account with an initial credit balance of 300€. Then 10
 threads are created which each try to withdraw 10€ 5 times if there is money
@@ -215,20 +211,32 @@ and all threads execute this same piece of code at the same time.</p>
 <p>Now how can fix this? The solution is to use an instance of 🔐, which is also
 called a <em>mutex</em>. A mutex ensures that only ever one thread can access a data
 structure or run a piece of code.</p>
-<p>We’ve overworked our example to use a mutex:</p>
-<pre><code>🍦 mutex 🔷🔐🆕
+<p>We’ve reworked our example to use a mutex:</p>
+<pre><code>🏁 🍇
+  🍦 threads 🔷🍨🐚💈🐸
 
-🔂 i ⏩ 0 10 🍇
-  🐻 threads 🔷💈🆕 🍇
-    🔂 j ⏩ 0 5 🍇
-      🔒 mutex
-      🍊 ➡️ 💶 account 10 🍇
-        😀 🔤Money, money, money – Must be funny🔤
-        💸 account 10
+  🍦 account 🔷🏦🆕
+
+  🍦 mutex 🔷🔐🆕
+
+  🔂 i ⏩ 0 10 🍇
+    🐻 threads 🔷💈🆕 🍇
+      🔂 j ⏩ 0 5 🍇
+        🔒 mutex
+        🍊 ➡️ 💶 account 10 🍇
+          😀 🔤Money, money, money – Must be funny🔤
+          💸 account 10
+        🍉
+        🔓 mutex
       🍉
-      🔓 mutex
     🍉
   🍉
+
+  🔂 thread threads 🍇
+    🛂 thread
+  🍉
+
+  😀 🔡 💶 account 10 👴 Print the balance
 🍉
 </code></pre><p>If a thread comes to the line <code>🔒 mutex</code> it will try to <em>lock</em> the mutex. If the
 mutex is not already locked, that is if no other thread has already passed this

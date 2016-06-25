@@ -91,33 +91,29 @@ Imagine the following program:
   🍉
 🍉
 
-🐇 💫 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    🍦 threads 🔷🍨🐚💈🐸
+🏁 🍇
+  🍦 threads 🔷🍨🐚💈🐸
 
-    🍦 account 🔷🏦🆕
+  🍦 account 🔷🏦🆕
 
-    🔂 i ⏩ 0 10 🍇
-      🐻 threads 🔷💈🆕 🍇
+  🔂 i ⏩ 0 10 🍇
+    🐻 threads 🔷💈🆕 🍇
 
-        🔂 j ⏩ 0 5 🍇
-          🍊 ➡️ 💶 account 10 🍇 👴 There’s money left
-            😀 🔤Money, money, money – Must be funny🔤
-            💸 account 10
-          🍉
+      🔂 j ⏩ 0 5 🍇
+        🍊 ➡️ 💶 account 10 🍇 👴 There’s money left
+          😀 🔤Money, money, money – Must be funny🔤
+          💸 account 10
         🍉
-
       🍉
+
     🍉
-
-    🔂 thread threads 🍇
-      🛂 thread
-    🍉
-
-    😀 🔷🔡🚂 💶 account 10 👴 Print the balance
-
-    🍎 0
   🍉
+
+  🔂 thread threads 🍇
+    🛂 thread
+  🍉
+
+  😀 🔡 💶 account 10 👴 Print the balance
 🍉
 ```
 
@@ -165,22 +161,34 @@ Now how can fix this? The solution is to use an instance of 🔐, which is also
 called a *mutex*. A mutex ensures that only ever one thread can access a data
 structure or run a piece of code.
 
-We’ve overworked our example to use a mutex:
+We’ve reworked our example to use a mutex:
 
 ```
-🍦 mutex 🔷🔐🆕
+🏁 🍇
+  🍦 threads 🔷🍨🐚💈🐸
 
-🔂 i ⏩ 0 10 🍇
-  🐻 threads 🔷💈🆕 🍇
-    🔂 j ⏩ 0 5 🍇
-      🔒 mutex
-      🍊 ➡️ 💶 account 10 🍇
-        😀 🔤Money, money, money – Must be funny🔤
-        💸 account 10
+  🍦 account 🔷🏦🆕
+
+  🍦 mutex 🔷🔐🆕
+
+  🔂 i ⏩ 0 10 🍇
+    🐻 threads 🔷💈🆕 🍇
+      🔂 j ⏩ 0 5 🍇
+        🔒 mutex
+        🍊 ➡️ 💶 account 10 🍇
+          😀 🔤Money, money, money – Must be funny🔤
+          💸 account 10
+        🍉
+        🔓 mutex
       🍉
-      🔓 mutex
     🍉
   🍉
+
+  🔂 thread threads 🍇
+    🛂 thread
+  🍉
+
+  😀 🔡 💶 account 10 👴 Print the balance
 🍉
 ```
 
