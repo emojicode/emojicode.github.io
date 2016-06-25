@@ -20,8 +20,6 @@ You can also extend classes from other packages. Example:
 ```
 🏁 🍇
   😀 😈 🔤James Tiberius Kirk🔤
-
-  🍎 0
 🍉
 
 🐋 🔡 🍇

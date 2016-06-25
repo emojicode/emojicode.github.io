@@ -114,7 +114,7 @@ like the they make optionals.</p>
 <h2 id="-unwrapping">🍺 Unwrapping</h2>
 <p>If you want to use the value of <code>first</code> or <code>twelfth</code> from the example above
 you could unwrap the optional using 🍺:</p>
-<pre><code>🍺 object
+<pre><code>🍺 optionalValue
 </code></pre><p>This tells Emojicode to check that the given value is not Nothingness and
 returns it. If the value, however, is Nothingness the program will terminate
 with an error message like:</p>
@@ -123,29 +123,29 @@ with an error message like:</p>
 be done. See the sections below for safe ways.</p>
 <h2 id="-nothingness-test">☁️ Nothingness Test</h2>
 <p>You can use ☁️ to test if an optional is Nothingness.</p>
-<pre><code>☁️ value
-</code></pre><p>☁️ returns true if <em>value</em> is Nothingness.</p>
+<pre><code>☁️ optionalValue
+</code></pre><p>☁️ returns true if <em>optionalValue</em> is Nothingness.</p>
 <h2 id="-condition-assignment">🍊🍦 Condition Assignment</h2>
 <p>An even more useful way to protect from Nothingness is the Condition Assingment.
 You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:</p>
-<pre><code>🍊🍦 variableName value
+<pre><code>🍊🍦 variableName optionalValue
 </code></pre><p>or</p>
-<pre><code>🍋🍦 variableName value
-</code></pre><p>This will unwrap and set the value of <em>value</em>  into the variable <em>variableName</em>
-and execute the code block assigned if <em>value</em> is not Nothingness. If <em>value</em> is
-not Nothingness the 🍊 or 🍋 statement will behave as if an expression evaluated
-to true; otherwise the 🍊 or 🍋 statement will behave as if the expression
-evaluated to false.</p>
+<pre><code>🍋🍦 variableName optionalValue
+</code></pre><p>This will unwrap and set the value of <em>optionalValue</em>  into the variable
+<em>variableName</em> and execute the code block assigned if <em>optionalValue</em> is not
+Nothingness. If <em>optionalValue</em> is not Nothingness the 🍊 or 🍋 statement will
+behave as if an expression evaluated to true; otherwise the 🍊 or 🍋 statement
+will behave as if the expression evaluated to false.</p>
 <p>Example:</p>
 <pre><code>🍊🍦 string 🔲 sth 🔡 🍇
   😀 🍪🔤sth is a string with this content: 🔤 string🍪
 🍉
 </code></pre><h2 id="-optional-method-call">🍻 Optional method call</h2>
-<p>Using 🍻 you can perform a method call on an object, without the need to check
-if it’s actually Nothingness inside. The call will only be executed if <em>object</em>
-is not Nothingness.</p>
+<p>Using 🍻 you can perform a method call on an object, without the need to check if
+it’s actually Nothingness inside. The call will only be executed if
+<em>optionalValue</em> is not Nothingness.</p>
 <p>Syntax:</p>
-<pre><code>🍻 methodEmoji object [arguments ...]
+<pre><code>🍻 methodEmoji optionalValue [arguments ...]
 </code></pre><p>🍻 returns the return of the method as optional.</p>
 <p>You can of course encapsulate several 🍻 calls. E.g.</p>
 <pre><code>🍰 w 🍬🔡

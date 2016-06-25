@@ -50,7 +50,7 @@ If you want to use the value of `first` or `twelfth` from the example above
 you could unwrap the optional using 🍺:
 
 ```
-🍺 object
+🍺 optionalValue
 ```
 
 This tells Emojicode to check that the given value is not Nothingness and
@@ -69,10 +69,10 @@ be done. See the sections below for safe ways.
 You can use ☁️ to test if an optional is Nothingness.
 
 ```
-☁️ value
+☁️ optionalValue
 ```
 
-☁️ returns true if *value* is Nothingness.
+☁️ returns true if *optionalValue* is Nothingness.
 
 ## 🍊🍦 Condition Assignment
 
@@ -80,20 +80,20 @@ An even more useful way to protect from Nothingness is the Condition Assingment.
 You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:
 
 ```
-🍊🍦 variableName value
+🍊🍦 variableName optionalValue
 ```
 
 or
 
 ```
-🍋🍦 variableName value
+🍋🍦 variableName optionalValue
 ```
 
-This will unwrap and set the value of *value*  into the variable *variableName*
-and execute the code block assigned if *value* is not Nothingness. If *value* is
-not Nothingness the 🍊 or 🍋 statement will behave as if an expression evaluated
-to true; otherwise the 🍊 or 🍋 statement will behave as if the expression
-evaluated to false.
+This will unwrap and set the value of *optionalValue*  into the variable
+*variableName* and execute the code block assigned if *optionalValue* is not
+Nothingness. If *optionalValue* is not Nothingness the 🍊 or 🍋 statement will
+behave as if an expression evaluated to true; otherwise the 🍊 or 🍋 statement
+will behave as if the expression evaluated to false.
 
 Example:
 
@@ -105,14 +105,14 @@ Example:
 
 ## 🍻 Optional method call
 
-Using 🍻 you can perform a method call on an object, without the need to check
-if it’s actually Nothingness inside. The call will only be executed if *object*
-is not Nothingness.
+Using 🍻 you can perform a method call on an object, without the need to check if
+it’s actually Nothingness inside. The call will only be executed if
+*optionalValue* is not Nothingness.
 
 Syntax:
 
 ```
-🍻 methodEmoji object [arguments ...]
+🍻 methodEmoji optionalValue [arguments ...]
 ```
 
 🍻 returns the return of the method as optional.

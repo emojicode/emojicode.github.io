@@ -47,8 +47,16 @@ it requires you to provide a *🏁 block*. Here’s an example of a 🏁 block.
 ```
 🏁 🍇
   👴 Get things up and running here...
+🍉
+```
 
-  🍎 0 👴 Indicates that things went smoothly.
+The 🏁 block can also return an integer which is then used as the exit code:
+
+```
+🏁 ➡️ 🚂 🍇
+  👴 Get things up and running here...
+
+  🍎 0 👴 Return a code here.
 🍉
 ```
 
