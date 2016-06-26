@@ -53,9 +53,11 @@
         <a href="types.html">Types and Namespaces</a>
           <ul>
             <li><a href="#namespaces">Namespaces</a></li>
+            <li><a href="#-the-inferred-type">⚫️ The Inferred Type</a></li>
             <li><a href="#-something">⚪ Something</a></li>
             <li><a href="#-someobject">🔵 Someobject</a></li>
             <li><a href="#-casting">🔲 Casting</a></li>
+            <li><a href="#expectations">Expectations</a></li>
           </ul>
       </li>
     	<li>
@@ -89,11 +91,11 @@
 	<h1 id="types-and-namespaces">Types and Namespaces</h1>
 <h2 id="namespaces">Namespaces</h2>
 <p>Each type when defined is loaded into a namespace. By definition the type
-doesn’t bascially belong to this namespace but is <em>reachable</em> through this
+doesn’t basically belong to this namespace but is <em>reachable</em> through this
 namespace. A type may actually even be reachable through multiple namespaces.</p>
 <p>Everywhere a type name is expected you can either just use the name of the type
-without explicitely specifying a namespace and the compiler will asumme that the
-type is reachable thorugh the default namespace 🔴, or you can explicitely
+without explicitely specifying a namespace and the compiler will assume that the
+type is reachable through the default namespace 🔴, or you can explicitly
 specify a namespace with the namespace accessor:</p>
 <pre><code>🔶 namespace name
 </code></pre><p>This identifies type <em>name</em> of namespace <em>namespace</em>. Both must be exactly one
@@ -113,6 +115,17 @@ It’s also worth noting, that namespaces are per package. To learn more about
 this, please see <a href="packages.html">Packages</a>.</p>
 </div></div>
 
+<h2 id="-the-inferred-type">⚫️ The Inferred Type</h2>
+<p><em>The inferred type</em> is a reserved emoji that can be used instead of a type name
+and the compiler will try to establish the substituted type. ⚫️ works in nearly
+every situation:</p>
+<p>In rare cases the use of the inferred type can be confusing and should be
+avoided. As for example:</p>
+<pre><code>🍰 euler’sNumber 🚀
+🍮 euler’sNumber 🍩⚫️🏹
+</code></pre><p>For a not so experienced Emojicode programmer it may be pretty confusing what’s
+going on as ⚫️ refers to 🚀 here. Additionally, it’s not really advantageous to
+use ⚫️ over 🚀 here.</p>
 <h2 id="-something">⚪ Something</h2>
 <p>Something is a special type as it is compatible to <em>all</em> other types. Because of
 this you cannot call methods or perform any actions on ⚪.</p>
@@ -126,18 +139,34 @@ cannot cast to 🔵 at run-time.</p>
 <h2 id="-casting">🔲 Casting</h2>
 <p><em>Casting</em> is a way to determine whether a value is of a given type and to treat
 the value as this type of value.</p>
-<p>Type casting is implemented with the 🔲 statment:</p>
+<p>Type casting is implemented with the 🔲 statement:</p>
 <pre><code>🔲 something type
 </code></pre><p><em>something</em> must be the value to cast and <em>type</em> must be a valid type.</p>
 <p>If <em>something</em> can be casted to <em>type</em> <em>something</em> is returned as <em>type</em>.
 If <em>something</em> cannot be casted to <em>type</em> Nothingness is returned.</p>
-<p>Here for instance, a value from a parsed JSON string is downcasted:</p>
+<p>Here for instance, a value from a parsed JSON string is down casted:</p>
 <pre><code>🍦 object 🗞 🔤&quot;catwalk&quot;🔤 👴 object is of type ⚪️
 🍦 string 🍺 🔲 object 🔡
 
 😀 string 👴 Prints catwalk
 </code></pre><p>Type casting may not be confused with type conversion. You can’t cast 🚂 to
 🚀. In such a case you would have to use appropriate methods.</p>
+<h2 id="expectations">Expectations</h2>
+<p>The compiler internally uses so-called <em>expectations</em>. When you define a method
+that expects a 🚀 as single argument the compiler will expect a 🚀 to occur when
+it parses the arguments to a call of this method. This information isn’t only
+used to verify that the correct kind of argument was passed but is also used in
+several other cases:</p>
+<ul>
+<li>The compiler uses expectations to automatically convert 🚂 literals to 🚀
+literals when a 🚀 is expected. Please note, that this only applies to
+literals.</li>
+<li>Dictionary and list literals don’t infer their type when a list or dictionary
+literal is expected. If, for instance, an argument of type 🍨🐚⚪️ is expected
+and you provide <code>🍨34 21 63🍆</code> this list literal won’t be of type 🍨🐚🚂
+(which would be incompatible to the argument) but of type 🍨🐚⚪️. The same
+applies to dictionary literals.</li>
+</ul>
 
 
 	<div class="reference-navigation-bottom">
