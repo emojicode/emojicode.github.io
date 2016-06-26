@@ -134,16 +134,26 @@ variable. Optionals are automatically initialized to Nothingness.
 ### Scoping
 
 Variables are only accessible from the *scope* in which they were declared.
-Every class method, method or initializer defines an own scope which disappears
-once the procedure has ended. A scope may also allow you to access its *parent
-scope*, which gives you the opportunity to access the variables inside that
-scope. Methods and initializer for instance allow you to access the parent
-scope, which in this case is the *object scope*, in which all instance variables
-live.
+Every code block (everything between a 🍇 and 🍉) defines an own scope which
+disappears once the block was executed:
 
-It’s important to note that unlike in other languages flow control blocks do not
-create a scope. If you declare a variable within an flow control it will also
-be available outside. This might change in future versions.
+```
+🏁 🍇
+  🍦 work 🔤Work It Harder Make It Better🔤
+  🍊 👍 🍇
+    😀 work  👴 work is accessible here
+    🍦 doIt 🔤Do It Faster, Makes Us stronger🔤
+  🍉
+  😀 work  👴 work still works, of course
+  😀 doIt  👴 doIt is no longer accessible here
+🍉
+```
+
+You cannot access scopes beyond the method, class method or intializer from your
+code. Nevertheless, you can access the *object scope* in instance methods and
+intializers. Closures are also considered an exception from this rule. You’ll
+learn more about these two kinds for special scoping  in [Classes & Value Types
+](classes-valuetypes.html) and [Callables](callables.html).
 
 ### 🍫 & 🍳 Incrementing and Decrementing Variables
 
@@ -222,8 +232,9 @@ level – you can’t use it inside a method or class.
 
 ## Including Other Source Code Files
 
-You can include other source code files into a source file. Basically this
-just inserts the code from the file at the point where you included it.
+An Emojicode program is always compiled from a single file. Nevertheless, you
+can include other source code files. Basically, this just
+inserts the code from the file at the point where you included it.
 
 Syntax:
 
