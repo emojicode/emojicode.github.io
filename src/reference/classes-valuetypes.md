@@ -13,32 +13,33 @@ There are significant difference betweeen classes and value types:
 
 - Classes feature inheritance while value types don’t.
 
->!H Defining a value type yourself isn’t really useful in 0.3. It’s still
->!H helpful to know about value types in order to extend them.
-
 ## Definition Syntax
 
 The syntax to define a class is the following:
 
-```
-🐇 class [superclass] 🍇
+<pre class="syntax">
+🐇 $class$ $[superclass]$ 🍇
 
 🍉
-```
+$superclass$> $type-identifier$
+$class$> $type$
+</pre>
 
-*class* must be a type identifier. *superclass* must be a type identifier
-identifying the superclass. If *superclass* is omitted the class doesn’t have a
-superclass. You can subclass any existing class.
+*class* must be a type identifier. If *superclass* is omitted the class doesn’t
+have a superclass. You can subclass any existing class.
 
 The syntax to define a value type is the following:
 
-```
-🕊 valueType 🍇
+<pre class="syntax">
+🕊 $value-type$ 🍇
 
 🍉
-```
+$value-type$> $type-identifier$
+</pre>
 
-*valueType* must be a type identifier.
+>!H The types are directly made available in the namespaces provided in
+>!H *value-type* or *class*. Please see [Types](types.html) to gain a deeper
+>!H understanding of namespaces and their use in declarations.
 
 As for example the code below defines a 🐟 class, that has no superclass.
 
@@ -47,6 +48,18 @@ As for example the code below defines a 🐟 class, that has no superclass.
 
 🍉
 ```
+
+We can now subclass this 🐟 class and declare a 🐡 class that represents a
+blowfish – a more concrete type of fish:
+
+```
+🐇 🐡 🐟 🍇
+
+🍉
+```
+
+Defining a value type yourself isn’t really useful as for the moment (version
+0.3) but extending it is.
 
 ## Instance Variables
 
@@ -80,24 +93,27 @@ As for the moment value types do not support instance variables.
 ## Initializers
 
 Initializers are responsible to prepare an instance for use and is called to
-instantiate an class.
+instantiate a type, that is gaining an instance, sometimes also called object,
+of the given type.
 
 The syntax to define an initializer is:
 
-```
-🐈 name [(variable type) ...] 🍇
+<pre class="syntax">
+🐈 $name$ $[parameters]$ 🍇
 
 🍉
-```
+$parameters$ ⟶ $parameter$ | $parameter$ $parameters$
+$parameter$ ⟶ $variable$ $type$
+</pre>
 
 In the initializer you **must set all instance variables** that are not
 optionals to an appropriate value. You **must also call an initializer** of your
 class’s superclass given the class has a superclass. 🐐 must be used to call
 superinitializers:
 
-```
-🐐 superinitializer [arguments ...]
-```
+<pre class="syntax">
+🐐 $superinitializer$ $[arguments]$
+</pre>
 
 As a result objects are guaranteed fully initialized.
 
@@ -120,20 +136,26 @@ contrast to class initializers they return a value. This is due to the fact that
 value types only represent *primitive* values. The following is an example for
 an initializer for 🚂, which is a value type.
 
+### Initializer Inheritance
+
+In contrast to other programming languages, initializers are only inherited by
+subclasses if some criteria are met:
+
+- The subclass does not define any instance variables.
+- The subclass does not define any initializer.
+
 ## Instantiation
 
 To get an instance of a class or value type, you must *instantiate* it.
-
-To instantiate a class or value type 🔷 is used.
+🔷 is used for instantiation.
 
 Its syntax is:
 
-```
-🔷 typeName initializerName [arguments ...]
-```
+<pre class="syntax">
+🔷 $type$ $initializer$ $[arguments]$
+</pre>
 
-*typeName* must be a type identifier identifying the class or value type you
-want to instantiate. *initializerName* must be the name of the initializer you
+*initializer* must be the name of the initializer you
 want to use. Naturally, you need to provide the correct number of appropriate
 arguments.
 
@@ -164,7 +186,6 @@ This example defines an initializer 🔨 all subclasses of 🚪 must provide:
 ```
 
 An initializer implementing a required initializer must mark itself with 🔑 too.
-
 
 ## Nothingness Initializers
 
@@ -198,11 +219,12 @@ Methods are functionality bound to a specific type: a class or value type.
 
 The syntax to define a method is:
 
-```
-🐖 name [(variable type) ...] [➡️ returnType] 🍇
+<pre class="syntax">
+🐖 $method-emoji$ $[parameters]$ $[return-type]$ 🍇
 
 🍉
-```
+$return-type$ ⟶ ➡️ $type$
+</pre>
 
 Here’s an example from the 🐟 class:
 
@@ -217,9 +239,9 @@ Every methods return a value. As you can see in the syntax definition, you can
 declare a *returnType* for the method. If you don’t declare a return type the
 return type defaults to ✨. 🍎 is used to explicitly return a value:
 
-```
-🍎 returnValue
-```
+<pre class="syntax">
+🍎 $value$
+</pre>
 
 Let’s look at another example from the 🐟 class that uses 🍎:
 
@@ -238,11 +260,11 @@ reserved emojis](#reserved-emojis) at the end of this chapter.
 
 The syntax to call a method is special:
 
-```
-methodEmoji value [arguments ...]
-```
+<pre class="syntax">
+$method-emoji$ $value$ $[arguments]$
+</pre>
 
-*methodEmoji* is the name of the method you wish to call. *value* is the
+*method-emoji* is the name of the method you wish to call. *value* is the
 instance whose method should be called. Of course all arguments must be provided
 as required.
 
@@ -263,9 +285,9 @@ Example:
 You often will want to get the value on which the method was called, this is
 the object or the value. 🐕 is your friend here:
 
-```
+<pre class="syntax">
 🐕
-```
+</pre>
 
 The 🐕 returns the current value, whose method or initializer is being called.
 
@@ -293,9 +315,9 @@ sign a new contract:
 
 Inside a method you can use this syntax to call the super method:
 
-```
-🐿 methodEmoji [arguments ...]
-```
+<pre class="syntax">
+🐿 $method-emoji$ $[arguments]$
+</pre>
 
 This simply calls the super method named *methodEmoji* and returns it value.
 
@@ -324,9 +346,9 @@ Type method on classes are also inherited by subclasses.
 
 The syntax to call a type method is:
 
-```
-🍩 methodEmoji type [arguments ...]
-```
+<pre class="syntax">
+🍩 $method-emoji$ $type$ $[arguments]$
+</pre>
 
 Example:
 

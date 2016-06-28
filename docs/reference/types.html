@@ -58,6 +58,7 @@
             <li><a href="#-someobject">🔵 Someobject</a></li>
             <li><a href="#-casting">🔲 Casting</a></li>
             <li><a href="#expectations">Expectations</a></li>
+            <li><a href="#syntactic-definition">Syntactic Definition</a></li>
           </ul>
       </li>
     	<li>
@@ -70,7 +71,7 @@
         <a href="threads.html">Threads</a>
       </li>
     	<li>
-        <a href="dynamism.html">Dynamism</a>
+        <a href="metatypes.html">Metatypes</a>
       </li>
     	<li>
         <a href="packages.html">Packages</a>
@@ -97,8 +98,13 @@ namespace. A type may actually even be reachable through multiple namespaces.</p
 without explicitely specifying a namespace and the compiler will assume that the
 type is reachable through the default namespace 🔴, or you can explicitly
 specify a namespace with the namespace accessor:</p>
-<pre><code>🔶 namespace name
-</code></pre><p>This identifies type <em>name</em> of namespace <em>namespace</em>. Both must be exactly one
+<pre class="syntax">
+🔶 <span class="syntax-placeholder">namespace</span> <span class="syntax-placeholder">name</span>
+<span class="syntax-placeholder">namespace</span> ⟶ <span class="syntax-placeholder">emoji</span>
+<span class="syntax-placeholder">name</span> ⟶ <span class="syntax-placeholder">emoji</span>
+</pre>
+
+<p>This identifies type <em>name</em> of namespace <em>namespace</em>. Both must be exactly one
 identifier.</p>
 <p>This is an example of explicitly referring to the 🔡 class in 🔴:</p>
 <pre><code>🔶🔴🔡
@@ -140,10 +146,13 @@ cannot cast to 🔵 at run-time.</p>
 <p><em>Casting</em> is a way to determine whether a value is of a given type and to treat
 the value as this type of value.</p>
 <p>Type casting is implemented with the 🔲 statement:</p>
-<pre><code>🔲 something type
-</code></pre><p><em>something</em> must be the value to cast and <em>type</em> must be a valid type.</p>
-<p>If <em>something</em> can be casted to <em>type</em> <em>something</em> is returned as <em>type</em>.
-If <em>something</em> cannot be casted to <em>type</em> Nothingness is returned.</p>
+<pre class="syntax">
+🔲 <span class="syntax-placeholder">value</span> <span class="syntax-placeholder">type</span>
+</pre>
+
+<p><em>value</em> is the value to be casted to <em>type</em>. If <em>value</em> can be casted to <em>type</em>
+<em>value</em> is returned as <em>type</em>. If <em>value</em> can’t be casted to <em>type</em> Nothingness
+is returned.</p>
 <p>Here for instance, a value from a parsed JSON string is down casted:</p>
 <pre><code>🍦 object 🗞 🔤&quot;catwalk&quot;🔤 👴 object is of type ⚪️
 🍦 string 🍺 🔲 object 🔡
@@ -167,6 +176,14 @@ and you provide <code>🍨34 21 63🍆</code> this list literal won’t be of ty
 (which would be incompatible to the argument) but of type 🍨🐚⚪️. The same
 applies to dictionary literals.</li>
 </ul>
+<h2 id="syntactic-definition">Syntactic Definition</h2>
+<p>From the above, we can conclude that the grammar of a type is defined as
+follows:</p>
+<pre class="syntax">
+<span class="syntax-placeholder">type</span> ⟶ ⚫️ | 🍬 <span class="syntax-placeholder">type-main</span> | 🔳 <span class="syntax-placeholder">value</span>
+<span class="syntax-placeholder">type-main</span> ⟶ <span class="syntax-placeholder">variable</span> | 🐕 | <span class="syntax-placeholder">callable-type</span> | <span class="syntax-placeholder">type-identifier</span>
+<span class="syntax-placeholder">type-identifier</span> ⟶ 🔶 <span class="syntax-placeholder">emoji</span> <span class="syntax-placeholder">emoji</span> | <span class="syntax-placeholder">emoji</span>
+</pre>
 
 
 	<div class="reference-navigation-bottom">

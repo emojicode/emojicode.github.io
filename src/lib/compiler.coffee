@@ -5,15 +5,6 @@ stripIndent = require 'strip-indent'
 marked = require 'marked'
 sass = require 'node-sass'
 
-markdownToHTML = (markdown) ->
-  callouts = N: 'Caution', H: 'Hint'
-  markdown = stripIndent(markdown)
-  markdown = markdown.replace />!([NH]) ?([^\n]*(\n>![NH] ?[^\n]*)*)(\n|$)/g, (match, tl, text) ->
-    type = callouts[tl]
-    '<div class="callout-' + type.toLowerCase() + '"><div class="title">' + type + '</div>' +
-      '<div class="text">' + marked(text.replace(/>![NH] ?/g, '')) + "</div></div>\n"
-  marked(markdown)
-
 class Compiler
   constructor: (@out, @src) ->
     @mainTemplate = fs.readFileSync(@srcPath('templates', 'main.html')).toString()
@@ -58,7 +49,7 @@ class Compiler
       pattern = /\n##([^#\n]+)/g
 
       name: path.basename(file, '.md')
-      html: markdownToHTML(markdown)
+      html: @markdownToHTML(markdown)
       title: /(\s|^)(#[^#\n]+)/.exec(markdown)?[2].substring(1).trim()
       sections: r[1].trim() while r = pattern.exec(markdown)
 
@@ -96,6 +87,20 @@ class Compiler
       rootpath: '../'
       title: 'Packages'
 
+  markdownToHTML: (markdown) ->
+    callouts = N: 'Caution', H: 'Hint'
+    markdown = stripIndent(markdown)
+    markdown = markdown.replace />!([NH]) ?([^\n]*(\n>![NH] ?[^\n]*)*)(\n|$)/g, (match, tl, text) ->
+      type = callouts[tl]
+      '<div class="callout-' + type.toLowerCase() + '"><div class="title">' + type + '</div>' +
+        '<div class="text">' + marked(text.replace(/>![NH] ?/g, '')) + "</div></div>\n"
+    markdown = markdown.replace /\$([a-z-\[\]]+)\$(>)?/g, (_, name, def) ->
+      if def == '>'
+        '<span class="syntax-placeholder">' + name + '</span> ⟶'
+      else
+        '<span class="syntax-placeholder">' + name + '</span>'
+    marked(markdown)
+
 class Package
   constructor: (@compiler, @src, @out) ->
 
@@ -110,7 +115,8 @@ class Package
   readReadme: ->
     readmePath = @srcPath('README.md')
 
-    markdownToHTML(fs.readFileSync(readmePath).toString()) if fs.existsSync(readmePath)
+    if fs.existsSync(readmePath)
+      @compiler.markdownToHTML(fs.readFileSync(readmePath).toString())
 
   @typeAsciiName: (name) ->
     't' + name.charCodeAt(0) + name.charCodeAt(1)
@@ -140,7 +146,7 @@ class Package
       typeLink: -> Package.typeLink(this.type)
       constraintTypeLink: -> Package.typeLink(this.constraint)
       thisTypeLink: -> Package.typeLink(this)
-      mdDocumentation: -> markdownToHTML(@documentation) if @documentation?
+      mdDocumentation: => @compiler.markdownToHTML(@documentation) if @documentation?
       simpleAccess: -> if this.access == '🔓' then '' else this.access + ' '
       procedureVisible: -> this.access != '🔒'
 

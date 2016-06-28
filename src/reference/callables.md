@@ -8,9 +8,10 @@ object and can therefore be stored in variables, passed as argument, etc.
 
 The callable type is declared using this syntax:
 
-```
-🍇 [type ...] [➡️ returnType]🍉
-```
+<pre class="syntax">
+🍇 $[type-list]$ $[return-type]$ 🍉
+$type-list$> $type$ | $type$ $type-list$
+</pre>
 
 Each *type* stands for one argument of that type. You can specify a
 *returnType*. If no return type is specified the callable is assumed to return
@@ -28,9 +29,9 @@ Examples:
 
 The 🍭 must be used to call a callable.
 
-```
-🍭 callable [arguments ...]
-```
+<pre class="syntax">
+🍭 $callable$ $[arguments ...]$
+</pre>
 
 *callable* must be a callable. Of course you must provide the required number of
 correctly typed arguments.
@@ -51,17 +52,17 @@ execute the method in the same context, though.
 
 The syntaxes are:
 
-```
-🌶 methodName instance
-```
+<pre class="syntax">
+🌶 $methodName$ $instance$
+</pre>
 
 *methodName* is the emoji representing the method. *instance* must be an
 instance which has a method *methodName* and can be either a class or value type
 instance.
 
-```
-🌶🍩 methodName type
-```
+<pre class="syntax">
+🌶🍩 $methodName$ $type$
+</pre>
 
 This syntax is used to capture type methods. *methodName* is the emoji
 representing the method. *type* must be a type identifier whose type method
@@ -90,11 +91,11 @@ Strawberry?
 You can define closures which remember the environment in which they were
 defined. The basic syntax to define a closure is:
 
-```
+<pre class="syntax">
 🍇 [(variable type) ...] [➡️ returnType]
 
 🍉
-```
+</pre>
 
 This is basically the same syntax that applies to methods and initializers.
 There may be any number of *variable type*. These define the parameters the

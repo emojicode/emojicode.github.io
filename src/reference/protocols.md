@@ -63,7 +63,7 @@ You can of course also cast to protocols.
 ## 🐕 The Class
 
 You should already know 🐕 from class method bodies where it stands for the class
-on which the methodis invoked. The function of 🐓 inside protocol is different
+on which the methodis invoked. The function of 🐕 inside protocol is different
 however.
 
 In the context of a protocol 🐕 stands for the class which implements the

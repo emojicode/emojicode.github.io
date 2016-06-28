@@ -8,9 +8,9 @@ explicitly declare a return type is assumed to return Nothingness.
 
 To get Nothingness you use:
 
-```
+<pre class="syntax">
 ⚡️
-```
+</pre>
 
 While Nothingness is a completely valid type and value on its own, it’s normally
 used in conjunction with *Optionals*.
@@ -49,11 +49,11 @@ like the they make optionals.
 If you want to use the value of `first` or `twelfth` from the example above
 you could unwrap the optional using 🍺:
 
-```
-🍺 optionalValue
-```
+<pre class="syntax">
+🍺 $value$
+</pre>
 
-This tells Emojicode to check that the given value is not Nothingness and
+This tells Emojicode to check that *value* is not Nothingness and
 returns it. If the value, however, is Nothingness the program will terminate
 with an error message like:
 
@@ -68,29 +68,29 @@ be done. See the sections below for safe ways.
 
 You can use ☁️ to test if an optional is Nothingness.
 
-```
-☁️ optionalValue
-```
+<pre class="syntax">
+☁️ $value$
+</pre>
 
-☁️ returns true if *optionalValue* is Nothingness.
+☁️ returns true if *value* is Nothingness.
 
 ## 🍊🍦 Condition Assignment
 
 An even more useful way to protect from Nothingness is the Condition Assingment.
 You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:
 
-```
-🍊🍦 variableName optionalValue
-```
+<pre class="syntax">
+🍊🍦 $variable$ $value$
+</pre>
 
 or
 
-```
-🍋🍦 variableName optionalValue
-```
+<pre class="syntax">
+🍋🍦 $variable$ $value$
+</pre>
 
-This will unwrap and set the value of *optionalValue*  into the variable
-*variableName* and execute the code block assigned if *optionalValue* is not
+This will unwrap and store the value of *value* into the variable
+*variable* and execute the code block assigned if *value* is not
 Nothingness. If *optionalValue* is not Nothingness the 🍊 or 🍋 statement will
 behave as if an expression evaluated to true; otherwise the 🍊 or 🍋 statement
 will behave as if the expression evaluated to false.
@@ -107,13 +107,11 @@ Example:
 
 Using 🍻 you can perform a method call on an object, without the need to check if
 it’s actually Nothingness inside. The call will only be executed if
-*optionalValue* is not Nothingness.
+*optionalValue* is not Nothingness:
 
-Syntax:
-
-```
-🍻 methodEmoji optionalValue [arguments ...]
-```
+<pre class="syntax">
+🍻 $method-emoji$ $value$ $[arguments]$
+</pre>
 
 🍻 returns the return of the method as optional.
 

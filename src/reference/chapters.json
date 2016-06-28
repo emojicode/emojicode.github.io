@@ -11,7 +11,7 @@
   "generics.md",
   "callables.md",
   "threads.md",
-  "dynamism.md",
+  "metatypes.md",
   "packages.md",
   "memory.md",
   "specification.md",

@@ -25,6 +25,12 @@ $heavy-link-hover-color: lighten($header-color, 45%);
 $callout-note: #ffb300;
 $callout-hint: rgb(45, 121, 210);
 
+$pre-before: $callout-hint;
+$pre-before-syntax: $header-color;
+$pre-before-negative: $callout-note;
+
+$syntax-placeholder-color: lighten($header-color, 60%);
+
 $link-color: lighten($header-color, 30%);
 $font-color: rgb(58, 58, 58);
 $background-color: rgb(254, 254, 254);
@@ -82,10 +88,46 @@ code {
 }
 
 pre {
-  padding: 20px;
+  padding: 1.05em;
   background-color: $code-background;
   font-size: 0.9em;
   overflow-x: scroll;
+  position: relative;
+
+  &::before {
+    text-transform: uppercase;
+    font-size: 0.6em;
+    padding: 0.6em 0.8em;
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    color: $white;
+    border-bottom-left-radius: 10px;
+  }
+}
+
+.syntax::before {
+  content: 'Syntax';
+  background-color: $pre-before-syntax;
+}
+
+.negative-example::before {
+  content: 'Don’t Example';
+  background-color: $pre-before-negative;
+}
+
+pre:not(.negative-example):not(.syntax)::before {
+  content: 'Example';
+  background-color: $pre-before;
+}
+
+.syntax-placeholder {
+  display: inline-block;
+  border-radius: 9px;
+  margin: 0.1em 0;
+  padding: 0.25em 0.4em;
+  background-color: $syntax-placeholder-color;
 }
 
 code {

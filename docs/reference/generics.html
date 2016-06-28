@@ -70,7 +70,7 @@
         <a href="threads.html">Threads</a>
       </li>
     	<li>
-        <a href="dynamism.html">Dynamism</a>
+        <a href="metatypes.html">Metatypes</a>
       </li>
     	<li>
         <a href="packages.html">Packages</a>
@@ -95,16 +95,17 @@ types when you use that code later. This is a really powerful feature and is a
 great way to avoid code duplication.</p>
 <h2 id="defining-a-generic-class">Defining a Generic Class</h2>
 <p>To define a Generic Class you define a class and append</p>
-<pre><code>🐚 name type
-</code></pre><p>for each generic argument the class shall take. This structure is called
-<em>generic argument</em>. <em>name</em>  must be the name of the argument and <em>type</em> any type
-name.</p>
-<p><em>type</em> is a generic argument constraint and types provided for this argument
-must be compatible with that constraint.</p>
+<pre class="syntax">
+🐚 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
+</pre>
+
+<p>for each generic argument the class shall take. This structure is called
+<em>generic argument</em>. <em>variable</em> is the name of the argument. <em>type</em> is a generic
+argument constraint and types provided for this argument must be compatible with
+that constraint.</p>
 <p>In the class body you can reference to the generic type arguments by its name.</p>
 <p>See this example for a “box” that can store objects.</p>
 <pre><code>🐇 🎁 🐚 T 🔵 🍇
-
   🍰 content T
 
   🐈 ✂️ =content T 🍇
@@ -114,7 +115,6 @@ must be compatible with that constraint.</p>
   🐖 🎉 ➡️ T 🍇
     🍎 content
   🍉
-
 🍉
 </code></pre><h2 id="subclassing-a-generic-class">Subclassing a Generic Class</h2>
 <p>Naturally you can subclass a generic class. Like in any other circumstance you
@@ -133,7 +133,8 @@ same arguments. So <code>🍨🐚🔡</code> is only compatible to <code>🍨�
 <code>🍨🐚⚪️</code> as one might expect.</p>
 <p>The following example will <strong>not</strong> compile and illustrates why this
 kind of type conversion is not allowed.</p>
-<pre><code>🍦 listOfStrings 🍨 🔤Curiosity🔤 🔤Doesn’t🔤 🍆
+<pre class="negative-example">
+🍦 listOfStrings 🍨 🔤Curiosity🔤 🔤Doesn’t🔤 🍆
 
 🍰 listOfSomethings 🍨🐚⚪️
 🍮 listOfSomethings listOfStrings
@@ -146,7 +147,9 @@ kind of type conversion is not allowed.</p>
   👴 The program would crash as there’s an integer in our list of strings
   😀 string
 🍉
-</code></pre><h2 id="generic-methods-and-intializers">Generic Methods and Intializers</h2>
+</pre>
+
+<h2 id="generic-methods-and-intializers">Generic Methods and Intializers</h2>
 <p>It’s also possible to define a generic method, class method or intializer. A
 generic procedure is a method, class method or intializer that takes generic
 arguments which then can be used as argument types, as return types or as types
@@ -157,10 +160,13 @@ this:</p>
   👴 ...
 🍉
 </code></pre><p>Therefore the complete method syntax is:</p>
-<pre><code>🐖 name [(🐚 name type) ...] [(variable type) ...] [➡️ returnType] 🍇
+<pre class="syntax">
+🐖 <span class="syntax-placeholder">name</span> [(🐚 <span class="syntax-placeholder">name</span> <span class="syntax-placeholder">type</span>) ...] [(<span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>) ...] [➡️ $returnType$] 🍇
 
 🍉
-</code></pre><p>As you can see above it takes one generic argument named <code>A</code> which is restricted
+</pre>
+
+<p>As you can see above it takes one generic argument named <code>A</code> which is restricted
 to subtypes of ⚪️, that is any type. Now, if you&#39;d wish to call this method
 you can know provide the generic type arguments after the object or class on
 which on which you call the method:</p>
@@ -216,10 +222,13 @@ future versions.</p>
 </blockquote>
 <p>When you perform a cast you must always specify the generic argument constraint
 for each argument. Example:</p>
-<pre><code>🍰 box ⚪️
+<pre class="negative-example">
+🍰 box ⚪️
 
 🔲 box 🎁🐚🔡
-</code></pre><p>The above example will not compile. Instead you have to specify:</p>
+</pre>
+
+<p>The above example will not compile. Instead you have to specify:</p>
 <pre><code>🍰 box ⚪️
 
 🔲 box 🎁🐚🔵

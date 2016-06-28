@@ -68,7 +68,7 @@
         <a href="threads.html">Threads</a>
       </li>
     	<li>
-        <a href="dynamism.html">Dynamism</a>
+        <a href="metatypes.html">Metatypes</a>
       </li>
     	<li>
         <a href="packages.html">Packages</a>
@@ -188,15 +188,21 @@ For instance if the values were booleans the type would be written like this:</p
 <pre><code>🍯🐚👌
 </code></pre><h3 id="dictionary-literals">Dictionary Literals</h3>
 <p>The shortcut syntax to create a dictionary is:</p>
-<pre><code>🍯 (key value) ... 🍆
-</code></pre><p><em>key must be a string. The compiler will try to infer the generic type argument
-</em>for the dictionary.</p>
-<p>Example:</p>
+<pre class="syntax">
+🍯 <span class="syntax-placeholder">kv-pair-list</span>🍆
+<span class="syntax-placeholder">kv-pair-list</span> ⟶ <span class="syntax-placeholder">kv-pair</span> <span class="syntax-placeholder">kv-pair-list</span> | <span class="syntax-placeholder">kv-pair</span>
+<span class="syntax-placeholder">kv-pair</span> ⟶ <span class="syntax-placeholder">key</span> <span class="syntax-placeholder">pair-value</span>
+<span class="syntax-placeholder">key</span> ⟶ <span class="syntax-placeholder">value</span>
+<span class="syntax-placeholder">pair-value</span> ⟶ <span class="syntax-placeholder">value</span>
+</pre>
+
+<p><em>key</em> must be a string. The compiler will try to infer the generic type argument
+for the dictionary.</p>
+<p>Here’s an example for a dictionary that associates artists with their birthplaces:</p>
 <pre><code>🍯
-  🔤Tuvok🔤 🔤Lieutenant🔤
-  🔤Seven of Nine🔤 🔤Crewman🔤
-  🔤Chakotay🔤 🔤Commander🔤
-  🔤Kes🔤 🔤Crewman🔤
+  🔤Aaron Copland🔤 🔤Brooklyn🔤
+  🔤Michael Jackson🔤 🔤Gary🔤
+  🔤Falco🔤 🔤Vienna🔤
 🍆
 </code></pre><h2 id="-ranges">⏩ Ranges</h2>
 <p>Emojicode supports a range type called ⏩. A range is an immutable sequence of
@@ -207,10 +213,16 @@ that matches the constraint <code>start ≤ f(x) &lt; stop</code> is an element 
 <code>step</code> is negative the constraint <code>stop &lt; f(x) ≤ start</code> applies instead.</p>
 <p>Ranges can be created by using the shortcut syntax, which is depending on your
 needs either</p>
-<pre><code>⏭ start stop step
-</code></pre><p>or</p>
-<pre><code>⏩ start stop
-</code></pre><p>The latter uses 1 as <em>step</em> value if <em>start</em> is less than <em>stop</em>, otherwise
+<pre class="syntax">
+⏭ <span class="syntax-placeholder">start</span> <span class="syntax-placeholder">stop</span> <span class="syntax-placeholder">step</span>
+</pre>
+
+<p>or</p>
+<pre class="syntax">
+⏩ <span class="syntax-placeholder">start</span> <span class="syntax-placeholder">stop</span>
+</pre>
+
+<p>The latter uses 1 as <em>step</em> value if <em>start</em> is less than <em>stop</em>, otherwise
 -1 is used as <em>step</em> value. If you provide 0 as <em>step</em> value <em>step</em> will be
 set to an appropriate value as described before.</p>
 <p>Ranges can be very helpful in combination with 🔂 if you need to repeat

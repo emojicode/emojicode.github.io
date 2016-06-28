@@ -37,11 +37,11 @@
     	<li>
         <a href="controlflow.html">Control Flow</a>
           <ul>
-            <li><a href="#-">🔁</a></li>
             <li><a href="#-">🔂</a></li>
-            <li><a href="#-conditional">🍊 – Conditional</a></li>
-            <li><a href="#-">🍓</a></li>
+            <li><a href="#-">🔁</a></li>
+            <li><a href="#-">🍊</a></li>
             <li><a href="#-">🍋</a></li>
+            <li><a href="#-">🍓</a></li>
           </ul>
       </li>
     	<li>
@@ -69,7 +69,7 @@
         <a href="threads.html">Threads</a>
       </li>
     	<li>
-        <a href="dynamism.html">Dynamism</a>
+        <a href="metatypes.html">Metatypes</a>
       </li>
     	<li>
         <a href="packages.html">Packages</a>
@@ -88,69 +88,81 @@
 
 <div class="content">
 	<h1 id="control-flow">Control Flow</h1>
-<p>Emojicode provides different types of control flow structures that allow you to
+<p>Emojicode provides different types of control flow statements that allow you to
 structure the flow of the program.</p>
 <p>Emojicode differs from other programming languages as it is missing statements
 that let you immediately exit a loop or to leave out an iteration.</p>
-<h2 id="-">🔁</h2>
-<p>Syntax:</p>
-<pre><code>🔁 expression 🍇
-
-🍉
-</code></pre><p>🔁 repeats a given code block as long as <em>expression</em> is true. This also means
-🔁 that if the <em>expression</em> is never true the block of code will never execute.</p>
 <h2 id="-">🔂</h2>
-<p>Syntax:</p>
-<pre><code>🔂 variable something 🍇
+<p>🔂 allows you to quickly enumerate an object. It can enumerate any class
+that implements the <a href="../packages/s/">protocol</a> as well as the 🍨 and ⏩ class.</p>
+<pre class="syntax">
+🔂 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">value</span> 🍇
 
 🍉
-</code></pre><p>🔂 allows you to quickly enumerate an object. can enumerate any class
-🔂 implementing the <a href="../packages/s/">protocol</a> as well as the 🍨 class.</p>
-<p>🔂 declares the variable <em>variable</em> in the current scope, and therefore cannot
-🔂 reuse any previously declared variable. The type of the variable is guessed to
-🔂 be the first generic argument of the type to enumerate. If the type can’t be
-🔂 inferred the variable is declared as ⚪️. Then on each iteration, the current
-🔂 object is assigned to <em>variable</em>.</p>
+</pre>
+
+<p>The type of the variable is guessed to be the first generic argument of the type
+to enumerate. If the type can’t be inferred the variable is declared as ⚪️.
+Then on each iteration, the current value is assigned to <em>variable</em>.</p>
 <div class="callout-hint"><div class="title">Hint</div><div class="text"><p>If you need to repeat something for a given amount of times you possibly
 should use <a href="the-s-package.html#-ranges">⏩ Ranges</a>.</p>
 </div></div>
 
-<h2 id="-conditional">🍊 – Conditional</h2>
-<p>The 🍊 construct is very important. It allows for conditional execution of code
-fragments. The structure is:</p>
-<pre><code>🍊 boolean 🍇
+<h2 id="-">🔁</h2>
+<p>🔁 repeats a given code block as long as <em>expression</em> is true. This also means
+that if the <em>expression</em> is never true the block of code will never execute.</p>
+<pre class="syntax">
+🔁 <span class="syntax-placeholder">expression</span> 🍇
 
 🍉
-</code></pre><p>If <em>boolean</em> is true, Emojicode will execute the code block, and if it evaluates
+</pre>
+
+<h2 id="-">🍊</h2>
+<p>The 🍊 construct is very important. It allows for conditional execution of code
+fragments. The syntax is:</p>
+<pre class="syntax">
+🍊 <span class="syntax-placeholder">boolean</span> 🍇
+
+🍉
+</pre>
+
+<p>If <em>boolean</em> is true, Emojicode will execute the code block, and if it evaluates
 to false it&#39;ll ignore it.</p>
 <p>This example will display a is bigger b if <em>a</em> is bigger <em>b</em>:</p>
 <pre><code>🍊 ▶️ a b 🍇
     😀 🔤a is bigger b🔤
 🍉
-</code></pre><h2 id="-">🍓</h2>
-<p>🍓 extends an 🍊 statement to execute a statement in case the expression in the if
-🍓 statement evaluates to false. For example, the following code would display a
-🍓 is greater than b if “a is greater than b” and “a is not greater than b”
-🍓 otherwise:</p>
+</code></pre><h2 id="-">🍋</h2>
+<p>🍋 extends an 🍊 statement to execute different statements in case the original
+🍊 expression evaluates to false. However, unlike 🍊, it will execute that
+alternative expressions only if the 🍊 expression is true. For example, the
+following code would display “a is bigger than b”, “a equal to b” or “a is
+smaller than b”:</p>
+<pre><code>🍊 ▶️ a b 🍇
+  😀 🔤a is bigger b🔤
+🍉
+🍋 😛 a b 🍇
+  😀 🔤a equal to b🔤
+🍉
+🍓 🍇
+  😀 🔤a is smaller than b🔤
+🍉
+</code></pre><p>The 🍋 statement is only executed if the preceding 🍊 expression and any
+preceding 🍋 expressions evaluated to false, and the current 🍋 expression
+evaluated to true.</p>
+<h2 id="-">🍓</h2>
+<p>🍓 extends an 🍊 statement to execute an additional code block in case the
+expression in the if statement evaluates to false. For example, the following
+code would display a is greater than b if “a is greater than b” and “a is not
+greater than b” otherwise:</p>
 <pre><code>🍊 ▶️ a b 🍇
     😀 🔤a is bigger b🔤
 🍉
 🍓 🍇
     😀 🔤a is not greater than b🔤
 🍉
-</code></pre><p>The 🍓 statements is only executed if the 🍊 expression evaluated to false, and if there were any 🍋 expressions - only if they evaluated to false as well (see 🍋 below).</p>
-<h2 id="-">🍋</h2>
-<p>🍋 extends an 🍊 statement to execute different statements in case the original 🍊 expression evaluates to false. However, unlike 🍊, it will execute that alternative expressions only if the 🍊 expression is true. For example, the following code would display “a is bigger than b”, “a equal to b” or “a is smaller than b”:</p>
-<pre><code>🍊 ▶️ a b 🍇
-    😀 🔤a is bigger b🔤
-🍉
-🍋 😛 a b 🍇
-    😀 🔤a equal to b🔤
-🍉
-🍓 🍇
-    😀 🔤a is smaller than b🔤
-🍉
-</code></pre><p>The 🍋 statement is only executed if the preceding 🍊 expression and any preceding 🍋 expressions evaluated to false, and the current 🍋 expression evaluated to true.</p>
+</code></pre><p>The 🍓 statements is only executed if the 🍊 expression evaluated to false, and
+if all 🍋 expressions evaluated to false too.</p>
 
 
 	<div class="reference-navigation-bottom">

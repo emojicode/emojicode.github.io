@@ -22,9 +22,9 @@ The object of packages is to provide an **easy way to reuse code**. Therefore
 naturally, you can import other packages into a package. The syntax to do this
 is:
 
-```
-📦 packageName destinationNamespace
-```
+<pre class="syntax">
+📦 <span class="syntax-placeholder">packageName</span> <span class="syntax-placeholder">destinationNamespace</span>
+</pre>
 
 If such a statment ocours to the compiler, the compiler will search the
 *Package Search Path* for a package with the given name `packageName` and will
@@ -83,9 +83,9 @@ intially exported.
 
 Additionally an importable package must declare its version using 🔮:
 
-```
-🔮 major minor
-```
+<pre class="syntax">
+🔮 <span class="syntax-placeholder">major</span> <span class="syntax-placeholder">minor</span>
+</pre>
 
 The `header.emojic` of a cat-simulator package must look like this:
 

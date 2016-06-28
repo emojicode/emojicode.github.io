@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
-		<title>Emojicode Documentation &middot; Dynamism</title>
+		<title>Emojicode Documentation &middot; Metatypes</title>
 	</head>
 	<body>
 		<div class="global-nav">
@@ -62,8 +62,11 @@
         <a href="threads.html">Threads</a>
       </li>
     	<li>
-        <a href="dynamism.html">Dynamism</a>
+        <a href="metatypes.html">Metatypes</a>
           <ul>
+            <li><a href="#metatype">Metatype</a></li>
+            <li><a href="#compatibility-of-metatypes">Compatibility of Metatypes</a></li>
+            <li><a href="#using-metatype-instances">Using Metatype Instances</a></li>
             <li><a href="#-the-class">🐓 The Class</a></li>
             <li><a href="#access-modifiers">Access Modifiers</a></li>
             <li><a href="#reserved-emojis">Reserved Emojis</a></li>
@@ -85,8 +88,73 @@
 </div>
 
 <div class="content">
-	<h1 id="dynamism">Dynamism</h1>
-<h2 id="-the-class">🐓 The Class</h2>
+	<h1 id="metatypes">Metatypes</h1>
+<p>Emojicode allows you to pass certain types as value. You can then call
+type methods on these types or instantiate them.</p>
+<h2 id="metatype">Metatype</h2>
+<p>Metatypes are the types of types such as classes or value types.</p>
+<p>The metatype of a type is the normal type name prefixed by 🔳. The metatype
+of 🔡, for instance, is 🔳🔡 and the metatype of 🚂 is 🔳🚂. A variable that
+holds the type of the 🐟 class, for example, looks like this:</p>
+<pre><code>🍰 fishType 🔳🐟
+</code></pre><p>To get an instance of such a metatype, or in other words a type as value, you
+can use the 🔳 statment:</p>
+<pre>
+🔳 <span class="syntax-placeholder">type</span>
+</pre>
+
+<p><em>type</em> must be a type identifier identifying a type whose meta type is available
+to be used at runtime. These types are classes, enums and value types. This
+metatype can then be treated like any other value.</p>
+<p>To populate the variable from the above example, this code could be used:</p>
+<pre><code>🍮 fishType 🔳🐟
+</code></pre><h2 id="compatibility-of-metatypes">Compatibility of Metatypes</h2>
+<p>Metatypes are compatible as the types their instances represent are.</p>
+<h2 id="using-metatype-instances">Using Metatype Instances</h2>
+<p>You can use metatype instances as type in functions. Instead of providing a type
+you can prefix an expression that evaluates to a metatype instance with ⬛️.</p>
+<p>The following example stores three different metatype instance in a list,
+instantiates them at run-time and calls a method on these instances:</p>
+<pre><code>🐇 🐟 🍇
+  🔑 🐈 🆕 🍇🍉
+
+  🐖 🙋 🍇
+    😀 🔤I’m a fish.🔤
+  🍉
+🍉
+
+🐇 🐡 🐟 🍇
+  ✒️ 🔑 🐈 🆕 🍇 🐐 🆕 🍉
+
+  ✒️  🐖 🙋 🍇
+    😀 🔤I’m a blowfish.🔤
+  🍉
+🍉
+
+🐇 🐋 🐟 🍇
+  ✒️ 🔑 🐈 🆕 🍇 🐐 🆕 🍉
+
+  ✒️  🐖 🙋 🍇
+    😀 🔤I’m a wale.🔤
+  🍉
+🍉
+
+🐇 🐠 🐟 🍇
+  ✒️ 🔑 🐈 🆕 🍇 🐐 🆕 🍉
+
+  ✒️  🐖 🙋 🍇
+    😀 🔤I’m a tropical fish.🔤
+  🍉
+🍉
+
+🏁 🍇
+  🍦 classes 🍨🔳🐟 🔳🐡 🔳🐋 🔳🐠  🍆
+  🔂 class classes 🍇
+    🍦 fish 🔷⬛️ class 🆕
+    🙋 fish
+  🍉
+🍉
+</code></pre><h2 id="-the-class">🐓 The Class</h2>
 <p>Inside a class 🐓 stands for the type on which a method or intializer is called.</p>
 <p>You can use 🐓 for flexible and powerful solutions, like shown below.</p>
 <pre><code>🐇 🐟 🍇

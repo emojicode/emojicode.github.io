@@ -68,7 +68,7 @@
         <a href="threads.html">Threads</a>
       </li>
     	<li>
-        <a href="dynamism.html">Dynamism</a>
+        <a href="metatypes.html">Metatypes</a>
       </li>
     	<li>
         <a href="packages.html">Packages</a>
@@ -92,8 +92,12 @@ types in other programming languages. Callables are objects like any other
 object and can therefore be stored in variables, passed as argument, etc.</p>
 <h2 id="type">Type</h2>
 <p>The callable type is declared using this syntax:</p>
-<pre><code>🍇 [type ...] [➡️ returnType]🍉
-</code></pre><p>Each <em>type</em> stands for one argument of that type. You can specify a
+<pre class="syntax">
+🍇 <span class="syntax-placeholder">[type-list]</span> <span class="syntax-placeholder">[return-type]</span> 🍉
+<span class="syntax-placeholder">type-list</span> ⟶ <span class="syntax-placeholder">type</span> | <span class="syntax-placeholder">type</span> <span class="syntax-placeholder">type-list</span>
+</pre>
+
+<p>Each <em>type</em> stands for one argument of that type. You can specify a
 <em>returnType</em>. If no return type is specified the callable is assumed to return
 Nothingness.</p>
 <p>Examples:</p>
@@ -102,8 +106,11 @@ Nothingness.</p>
 🍇🍉 👴Takes no arguments and returns nothing(ness).
 </code></pre><h2 id="calling-a-callable">Calling a Callable</h2>
 <p>The 🍭 must be used to call a callable.</p>
-<pre><code>🍭 callable [arguments ...]
-</code></pre><p><em>callable</em> must be a callable. Of course you must provide the required number of
+<pre class="syntax">
+🍭 <span class="syntax-placeholder">callable</span> $[arguments ...]$
+</pre>
+
+<p><em>callable</em> must be a callable. Of course you must provide the required number of
 correctly typed arguments.</p>
 <p>Example of calling a callable:</p>
 <pre><code>👴 greet is of type 🍇🔡🍉
@@ -114,12 +121,18 @@ that takes as many arguments of the same type as the method would take and
 returns the same value as the method would return. This callable will always
 execute the method in the same context, though.</p>
 <p>The syntaxes are:</p>
-<pre><code>🌶 methodName instance
-</code></pre><p><em>methodName</em> is the emoji representing the method. <em>instance</em> must be an
+<pre class="syntax">
+🌶 $methodName$ <span class="syntax-placeholder">instance</span>
+</pre>
+
+<p><em>methodName</em> is the emoji representing the method. <em>instance</em> must be an
 instance which has a method <em>methodName</em> and can be either a class or value type
 instance.</p>
-<pre><code>🌶🍩 methodName type
-</code></pre><p>This syntax is used to capture type methods. <em>methodName</em> is the emoji
+<pre class="syntax">
+🌶🍩 $methodName$ <span class="syntax-placeholder">type</span>
+</pre>
+
+<p>This syntax is used to capture type methods. <em>methodName</em> is the emoji
 representing the method. <em>type</em> must be a type identifier whose type method
 should be captured.</p>
 <p>Example:</p>
@@ -135,10 +148,13 @@ Strawberry?
 </code></pre><h2 id="closure">Closure</h2>
 <p>You can define closures which remember the environment in which they were
 defined. The basic syntax to define a closure is:</p>
-<pre><code>🍇 [(variable type) ...] [➡️ returnType]
+<pre class="syntax">
+🍇 [(variable type) ...] [➡️ returnType]
 
 🍉
-</code></pre><p>This is basically the same syntax that applies to methods and initializers.
+</pre>
+
+<p>This is basically the same syntax that applies to methods and initializers.
 There may be any number of <em>variable type</em>. These define the parameters the
 closure takes. <em>variable</em> must be a valid variable name and type and valid type.</p>
 <p>Example:</p>

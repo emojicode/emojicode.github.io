@@ -161,19 +161,26 @@ For instance if the values were booleans the type would be written like this:
 
 The shortcut syntax to create a dictionary is:
 
-    🍯 (key value) ... 🍆
+<pre class="syntax">
+🍯 $kv-pair-list$🍆
+$kv-pair-list$> $kv-pair$ $kv-pair-list$ | $kv-pair$
+$kv-pair$> $key$ $pair-value$
+$key$> $value$
+$pair-value$> $value$
+</pre>
 
-*key must be a string. The compiler will try to infer the generic type argument
-*for the dictionary.
+*key* must be a string. The compiler will try to infer the generic type argument
+for the dictionary.
 
-Example:
+Here’s an example for a dictionary that associates artists with their birthplaces:
 
-    🍯
-      🔤Tuvok🔤 🔤Lieutenant🔤
-      🔤Seven of Nine🔤 🔤Crewman🔤
-      🔤Chakotay🔤 🔤Commander🔤
-      🔤Kes🔤 🔤Crewman🔤
-    🍆
+```
+🍯
+  🔤Aaron Copland🔤 🔤Brooklyn🔤
+  🔤Michael Jackson🔤 🔤Gary🔤
+  🔤Falco🔤 🔤Vienna🔤
+🍆
+```
 
 ## ⏩ Ranges
 
@@ -189,15 +196,15 @@ that matches the constraint `start ≤ f(x) < stop` is an element of the range. 
 Ranges can be created by using the shortcut syntax, which is depending on your
 needs either
 
-```
-⏭ start stop step
-```
+<pre class="syntax">
+⏭ $start$ $stop$ $step$
+</pre>
 
 or
 
-```
-⏩ start stop
-```
+<pre class="syntax">
+⏩ $start$ $stop$
+</pre>
 
 The latter uses 1 as *step* value if *start* is less than *stop*, otherwise
 -1 is used as *step* value. If you provide 0 as *step* value *step* will be

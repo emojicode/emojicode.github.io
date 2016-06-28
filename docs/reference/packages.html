@@ -62,7 +62,7 @@
         <a href="threads.html">Threads</a>
       </li>
     	<li>
-        <a href="dynamism.html">Dynamism</a>
+        <a href="metatypes.html">Metatypes</a>
       </li>
     	<li>
         <a href="packages.html">Packages</a>
@@ -106,8 +106,11 @@ without explicitly importing them.</p>
 <p>The object of packages is to provide an <strong>easy way to reuse code</strong>. Therefore
 naturally, you can import other packages into a package. The syntax to do this
 is:</p>
-<pre><code>📦 packageName destinationNamespace
-</code></pre><p>If such a statment ocours to the compiler, the compiler will search the
+<pre class="syntax">
+📦 <span class="syntax-placeholder">packageName</span> <span class="syntax-placeholder">destinationNamespace</span>
+</pre>
+
+<p>If such a statment ocours to the compiler, the compiler will search the
 <em>Package Search Path</em> for a package with the given name <code>packageName</code> and will
 try to import it. The default <em>Package Search Path</em> is
 <code>/usr/local/EmojicodePackages/</code> for UNIX operating systems.</p>
@@ -150,8 +153,11 @@ type the namespace is completely irrelevant. All exported types will be
 imported into the requested namespace regardless in which namespace they were
 intially exported.</p>
 <p>Additionally an importable package must declare its version using 🔮:</p>
-<pre><code>🔮 major minor
-</code></pre><p>The <code>header.emojic</code> of a cat-simulator package must look like this:</p>
+<pre class="syntax">
+🔮 <span class="syntax-placeholder">major</span> <span class="syntax-placeholder">minor</span>
+</pre>
+
+<p>The <code>header.emojic</code> of a cat-simulator package must look like this:</p>
 <pre><code>🔮 1 4
 
 🌍 🐇 🐱 🍇
@@ -231,7 +237,7 @@ install, update and use of packages.</p>
 
 
 	<div class="reference-navigation-bottom">
-		<a href="dynamism.html" class="left">
+		<a href="metatypes.html" class="left">
 			← Previous
 		</a>
 		<a href="memory.html" class="right">

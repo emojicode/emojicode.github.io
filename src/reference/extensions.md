@@ -7,14 +7,13 @@ everything in an extension you could do in the initial definition.
 
 The syntax is:
 
-```
-🐋 type 🍇
+<pre class="syntax">
+🐋 $type-identifier$ 🍇
 
 🍉
-```
+</pre>
 
-*type* must be an type identifier either identifying a class type or value type.
-ou can also extend classes from other packages. For example:
+You can also extend classes from other packages. For example:
 
 ```
 🏁 🍇

@@ -9,16 +9,14 @@ great way to avoid code duplication.
 
 To define a Generic Class you define a class and append
 
-```
-🐚 name type
-```
+<pre class="syntax">
+🐚 $variable$ $type$
+</pre>
 
 for each generic argument the class shall take. This structure is called
-*generic argument*. *name*  must be the name of the argument and *type* any type
-name.
-
-*type* is a generic argument constraint and types provided for this argument
-must be compatible with that constraint.
+*generic argument*. *variable* is the name of the argument. *type* is a generic
+argument constraint and types provided for this argument must be compatible with
+that constraint.
 
 In the class body you can reference to the generic type arguments by its name.
 
@@ -26,7 +24,6 @@ See this example for a “box” that can store objects.
 
 ```
 🐇 🎁 🐚 T 🔵 🍇
-
   🍰 content T
 
   🐈 ✂️ =content T 🍇
@@ -36,7 +33,6 @@ See this example for a “box” that can store objects.
   🐖 🎉 ➡️ T 🍇
     🍎 content
   🍉
-
 🍉
 ```
 
@@ -69,7 +65,7 @@ same arguments. So `🍨🐚🔡` is only compatible to `🍨🐚🔡` but not t
 The following example will **not** compile and illustrates why this
 kind of type conversion is not allowed.
 
-```
+<pre class="negative-example">
 🍦 listOfStrings 🍨 🔤Curiosity🔤 🔤Doesn’t🔤 🍆
 
 🍰 listOfSomethings 🍨🐚⚪️
@@ -83,7 +79,7 @@ kind of type conversion is not allowed.
   👴 The program would crash as there’s an integer in our list of strings
   😀 string
 🍉
-```
+</pre>
 
 ## Generic Methods and Intializers
 
@@ -103,11 +99,11 @@ this:
 
 Therefore the complete method syntax is:
 
-```
-🐖 name [(🐚 name type) ...] [(variable type) ...] [➡️ returnType] 🍇
+<pre class="syntax">
+🐖 $name$ [(🐚 $name$ $type$) ...] [($variable$ $type$) ...] [➡️ $returnType$] 🍇
 
 🍉
-```
+</pre>
 
 As you can see above it takes one generic argument named `A` which is restricted
 to subtypes of ⚪️, that is any type. Now, if you'd wish to call this method
@@ -186,11 +182,11 @@ following error message if you try that anyway:
 When you perform a cast you must always specify the generic argument constraint
 for each argument. Example:
 
-```
+<pre class="negative-example">
 🍰 box ⚪️
 
 🔲 box 🎁🐚🔡
-```
+</pre>
 
 The above example will not compile. Instead you have to specify:
 

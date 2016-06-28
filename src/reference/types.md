@@ -11,9 +11,11 @@ without explicitely specifying a namespace and the compiler will assume that the
 type is reachable through the default namespace 🔴, or you can explicitly
 specify a namespace with the namespace accessor:
 
-```
-🔶 namespace name
-```
+<pre class="syntax">
+🔶 $namespace$ $name$
+$namespace$> $emoji$
+$name$> $emoji$
+</pre>
 
 This identifies type *name* of namespace *namespace*. Both must be exactly one
 identifier.
@@ -82,14 +84,13 @@ the value as this type of value.
 
 Type casting is implemented with the 🔲 statement:
 
-```
-🔲 something type
-```
+<pre class="syntax">
+🔲 $value$ $type$
+</pre>
 
-*something* must be the value to cast and *type* must be a valid type.
-
-If *something* can be casted to *type* *something* is returned as *type*.
-If *something* cannot be casted to *type* Nothingness is returned.
+*value* is the value to be casted to *type*. If *value* can be casted to *type*
+*value* is returned as *type*. If *value* can’t be casted to *type* Nothingness
+is returned.
 
 Here for instance, a value from a parsed JSON string is down casted:
 
@@ -119,3 +120,14 @@ several other cases:
   and you provide `🍨34 21 63🍆` this list literal won’t be of type 🍨🐚🚂
   (which would be incompatible to the argument) but of type 🍨🐚⚪️. The same
   applies to dictionary literals.
+
+## Syntactic Definition
+
+From the above, we can conclude that the grammar of a type is defined as
+follows:
+
+<pre class="syntax">
+$type$> ⚫️ | 🍬 $type-main$ | 🔳 $value$
+$type-main$> $variable$ | 🐕 | $callable-type$ | $type-identifier$
+$type-identifier$> 🔶 $emoji$ $emoji$ | $emoji$
+</pre>
