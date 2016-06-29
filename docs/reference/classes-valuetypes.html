@@ -52,6 +52,8 @@
             <li><a href="#calling-super-methods">Calling Super Methods</a></li>
             <li><a href="#type-methods">Type Methods</a></li>
             <li><a href="#overriding-methods-and-initializers">Overriding Methods and Initializers</a></li>
+            <li><a href="#reserved-emojis">Reserved Emojis</a></li>
+            <li><a href="#access-modifiers">Access Modifiers</a></li>
           </ul>
       </li>
     	<li>
@@ -370,6 +372,23 @@ subclass. Example:</p>
 🍉
 </code></pre><p>Any attempt to override a method, initializer or class method attributed with 🔏
 will lead to a compiler error.</p>
+<h2 id="reserved-emojis">Reserved Emojis</h2>
+<p>These emojis cannot be used as method names:</p>
+<pre class="syntax">
+<span class="syntax-placeholder">method-emoji</span> ⟶ <span class="syntax-placeholder">emoji</span> except <span class="syntax-placeholder">reserved-emoji</span>
+<span class="syntax-placeholder">reserved-emoji</span> ⟶ 🍮|🍩|🍰|🍨|🍯|🍦|🍫|🍳|🍪|🍭
+<span class="syntax-placeholder">reserved-emoji</span> ⟶ 🍺|🍻|🔁|🔂|🍊|🍋|🍇|🍉|🍓|🍆
+<span class="syntax-placeholder">reserved-emoji</span> ⟶ 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
+<span class="syntax-placeholder">reserved-emoji</span> ⟶ 🔤|👵|🔟|👍|👎|👴
+</pre>
+
+<h2 id="access-modifiers">Access Modifiers</h2>
+<p><em>Access Modifiers</em> describe from which context a method, class method or initializer can be called. There are three access modifiers, which can be applied to methods, initializers, and class methods.</p>
+<ul>
+<li>🔓: The method, initializer, or class method can be accessed from everywhere.</li>
+<li>🔒: The method, initializer, or class method may only be accessed within the class it was defined.</li>
+<li>🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.</li>
+</ul>
 
 
 	<div class="reference-navigation-bottom">

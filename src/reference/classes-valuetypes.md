@@ -385,3 +385,23 @@ subclass. Example:
 
 Any attempt to override a method, initializer or class method attributed with 🔏
 will lead to a compiler error.
+
+## Reserved Emojis
+
+These emojis cannot be used as method names:
+
+<pre class="syntax">
+$method-emoji$> $emoji$ except $reserved-emoji$
+$reserved-emoji$> 🍮|🍩|🍰|🍨|🍯|🍦|🍫|🍳|🍪|🍭
+$reserved-emoji$> 🍺|🍻|🔁|🔂|🍊|🍋|🍇|🍉|🍓|🍆
+$reserved-emoji$> 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
+$reserved-emoji$> 🔤|👵|🔟|👍|👎|👴
+</pre>
+
+## Access Modifiers
+
+*Access Modifiers* describe from which context a method, class method or initializer can be called. There are three access modifiers, which can be applied to methods, initializers, and class methods.
+
+- 🔓: The method, initializer, or class method can be accessed from everywhere.
+- 🔒: The method, initializer, or class method may only be accessed within the class it was defined.
+- 🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.

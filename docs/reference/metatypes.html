@@ -67,9 +67,7 @@
             <li><a href="#metatype">Metatype</a></li>
             <li><a href="#compatibility-of-metatypes">Compatibility of Metatypes</a></li>
             <li><a href="#using-metatype-instances">Using Metatype Instances</a></li>
-            <li><a href="#-the-class">🐓 The Class</a></li>
-            <li><a href="#access-modifiers">Access Modifiers</a></li>
-            <li><a href="#reserved-emojis">Reserved Emojis</a></li>
+            <li><a href="#-in-type-methods">🐕 in Type Methods</a></li>
           </ul>
       </li>
     	<li>
@@ -99,7 +97,7 @@ holds the type of the 🐟 class, for example, looks like this:</p>
 <pre><code>🍰 fishType 🔳🐟
 </code></pre><p>To get an instance of such a metatype, or in other words a type as value, you
 can use the 🔳 statment:</p>
-<pre>
+<pre class="syntax">
 🔳 <span class="syntax-placeholder">type</span>
 </pre>
 
@@ -108,11 +106,27 @@ to be used at runtime. These types are classes, enums and value types. This
 metatype can then be treated like any other value.</p>
 <p>To populate the variable from the above example, this code could be used:</p>
 <pre><code>🍮 fishType 🔳🐟
+</code></pre><p>⬜️ can be used to get the type of a type instance. The syntax is:</p>
+<pre class="syntax">
+⬜️ <span class="syntax-placeholder">value</span>
+</pre>
+
+<p>For instance, this can be used to instantiate another instance of the type on
+which the method was called:</p>
+<pre><code>🐖 🦄 🍇
+  🔷⬛️⬜️🐕🆕
+🍉
 </code></pre><h2 id="compatibility-of-metatypes">Compatibility of Metatypes</h2>
 <p>Metatypes are compatible as the types their instances represent are.</p>
 <h2 id="using-metatype-instances">Using Metatype Instances</h2>
 <p>You can use metatype instances as type in functions. Instead of providing a type
-you can prefix an expression that evaluates to a metatype instance with ⬛️.</p>
+you can prefix an expression that evaluates to a metatype instance with ⬛️:</p>
+<pre class="syntax">
+⬛️ <span class="syntax-placeholder">value</span>
+</pre>
+
+<p><em>value</em> must naturally evaluate to a type value. This kind of type
+specification is only available in methods and initializers.</p>
 <p>The following example stores three different metatype instance in a list,
 instantiates them at run-time and calls a method on these instances:</p>
 <pre><code>🐇 🐟 🍇
@@ -154,12 +168,20 @@ instantiates them at run-time and calls a method on these instances:</p>
     🙋 fish
   🍉
 🍉
-</code></pre><h2 id="-the-class">🐓 The Class</h2>
-<p>Inside a class 🐓 stands for the type on which a method or intializer is called.</p>
-<p>You can use 🐓 for flexible and powerful solutions, like shown below.</p>
+</code></pre><h2 id="-in-type-methods">🐕 in Type Methods</h2>
+<p>🐕 is a type available in the context of type methods and in its declarations.</p>
+<p>If you declare that a method returns 🐕, the method must return an instance
+of the type on which the type was called. Obviously, this can only be statisfied
+if you actually instantiate an instance of the type thus by using 🐕:</p>
+<pre><code>🐇🐖 🎛 ➡️ 🐕 🍇
+  🍎 🔷🐕🆕
+🍉
+</code></pre><p>Because the type methods can be called on subclasses that do not have all non-
+required initializers you can only use required initializers to instantiate 🐕.</p>
+<p>You can use 🐕 for flexible and powerful solutions, like shown below.</p>
 <pre><code>🐇 🐟 🍇
-  🐇🐖 🎛 ➡️ 🐓 🍇
-    🍎 🔷🐓🆕
+  🐇🐖 🎛 ➡️ 🐕 🍇
+    🍎 🔷🐕🆕
   🍉
 
   🔑 🐈 🆕 🍇🍉
@@ -186,30 +208,10 @@ instantiates them at run-time and calls a method on these instances:</p>
     🍎 0
   🍉
 🍉
-</code></pre><p>As you can see from the example 🐓 can be used in a method or initializer
+</code></pre><p>As you can see from the example 🐕 can be used in a method or initializer
 declaration and always stands for the class on which a method or initializer is
-called. 🐓 can also be used inside a class method body where it refers to the
+called. 🐕 can also be used inside a class method body where it refers to the
 class on which it was called.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>🐓 <strong>must not</strong> be used in the body of a method or initializer.</p>
-</div></div>
-
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Because 🐓 could be used in class methods, which can execute on subclasses
-that do not have all non-required initializers, you can only use required
-initializers to instantiate 🐓.</p>
-</div></div>
-
-<h2 id="access-modifiers">Access Modifiers</h2>
-<p><em>Access Modifiers</em> describe from which context a method, class method or initializer can be called. There are three access modifiers, which can be applied to methods, initializers, and class methods.</p>
-<ul>
-<li>🔓: The method, initializer, or class method can be accessed from everywhere.</li>
-<li>🔒: The method, initializer, or class method may only be accessed within the class it was defined.</li>
-<li>🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.</li>
-</ul>
-<h2 id="reserved-emojis">Reserved Emojis</h2>
-<p>These emojis cannot be used as method names:</p>
-<p>🍮🍩🍰🍨🍯🍦🍫🍳🍪🍭🍺🍻🔁🔂🍎🍊🍋🍇🍉🍓🍆🍌🔲🔷🐕⚡️☁️🐚⏭⏩</p>
-<p>These emojis are reserved at lexer level and can therefore not be used for method or class names:</p>
-<p>🔤👵🔟👍👎👴</p>
 
 
 	<div class="reference-navigation-bottom">

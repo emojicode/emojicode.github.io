@@ -18,7 +18,7 @@ holds the type of the 🐟 class, for example, looks like this:
 To get an instance of such a metatype, or in other words a type as value, you
 can use the 🔳 statment:
 
-<pre>
+<pre class="syntax">
 🔳 $type$
 </pre>
 
@@ -32,6 +32,21 @@ To populate the variable from the above example, this code could be used:
 🍮 fishType 🔳🐟
 ```
 
+⬜️ can be used to get the type of a type instance. The syntax is:
+
+<pre class="syntax">
+⬜️ $value$
+</pre>
+
+For instance, this can be used to instantiate another instance of the type on
+which the method was called:
+
+```
+🐖 🦄 🍇
+  🔷⬛️⬜️🐕🆕
+🍉
+```
+
 ## Compatibility of Metatypes
 
 Metatypes are compatible as the types their instances represent are.
@@ -39,7 +54,14 @@ Metatypes are compatible as the types their instances represent are.
 ## Using Metatype Instances
 
 You can use metatype instances as type in functions. Instead of providing a type
-you can prefix an expression that evaluates to a metatype instance with ⬛️.
+you can prefix an expression that evaluates to a metatype instance with ⬛️:
+
+<pre class="syntax">
+⬛️ $value$
+</pre>
+
+*value* must naturally evaluate to a type value. This kind of type
+specification is only available in methods and initializers.
 
 The following example stores three different metatype instance in a list,
 instantiates them at run-time and calls a method on these instances:
@@ -86,16 +108,29 @@ instantiates them at run-time and calls a method on these instances:
 🍉
 ```
 
-## 🐓 The Class
+## 🐕 in Type Methods
 
-Inside a class 🐓 stands for the type on which a method or intializer is called.
+🐕 is a type available in the context of type methods and in its declarations.
 
-You can use 🐓 for flexible and powerful solutions, like shown below.
+If you declare that a method returns 🐕, the method must return an instance
+of the type on which the type was called. Obviously, this can only be statisfied
+if you actually instantiate an instance of the type thus by using 🐕:
+
+```
+🐇🐖 🎛 ➡️ 🐕 🍇
+  🍎 🔷🐕🆕
+🍉
+```
+
+Because the type methods can be called on subclasses that do not have all non-
+required initializers you can only use required initializers to instantiate 🐕.
+
+You can use 🐕 for flexible and powerful solutions, like shown below.
 
 ```
 🐇 🐟 🍇
-  🐇🐖 🎛 ➡️ 🐓 🍇
-    🍎 🔷🐓🆕
+  🐇🐖 🎛 ➡️ 🐕 🍇
+    🍎 🔷🐕🆕
   🍉
 
   🔑 🐈 🆕 🍇🍉
@@ -124,31 +159,7 @@ You can use 🐓 for flexible and powerful solutions, like shown below.
 🍉
 ```
 
-As you can see from the example 🐓 can be used in a method or initializer
+As you can see from the example 🐕 can be used in a method or initializer
 declaration and always stands for the class on which a method or initializer is
-called. 🐓 can also be used inside a class method body where it refers to the
+called. 🐕 can also be used inside a class method body where it refers to the
 class on which it was called.
-
->!N 🐓 **must not** be used in the body of a method or initializer.
-
->!N Because 🐓 could be used in class methods, which can execute on subclasses
->!N that do not have all non-required initializers, you can only use required
->!N initializers to instantiate 🐓.
-
-## Access Modifiers
-
-*Access Modifiers* describe from which context a method, class method or initializer can be called. There are three access modifiers, which can be applied to methods, initializers, and class methods.
-
-- 🔓: The method, initializer, or class method can be accessed from everywhere.
-- 🔒: The method, initializer, or class method may only be accessed within the class it was defined.
-- 🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.
-
-## Reserved Emojis
-
-These emojis cannot be used as method names:
-
-🍮🍩🍰🍨🍯🍦🍫🍳🍪🍭🍺🍻🔁🔂🍎🍊🍋🍇🍉🍓🍆🍌🔲🔷🐕⚡️☁️🐚⏭⏩
-
-These emojis are reserved at lexer level and can therefore not be used for method or class names:
-
-🔤👵🔟👍👎👴
