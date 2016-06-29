@@ -182,7 +182,8 @@ instance make instance variables inaccessible.</p>
 <p>Variables are only accessible from the <em>scope</em> in which they were declared.
 Every code block (everything between a 🍇 and 🍉) defines an own scope which
 disappears once the block was executed:</p>
-<pre><code>🏁 🍇
+<pre class="negative-example">
+🏁 🍇
   🍦 work 🔤Work It Harder Make It Better🔤
   🍊 👍 🍇
     😀 work  👴 work is accessible here
@@ -191,7 +192,9 @@ disappears once the block was executed:</p>
   😀 work  👴 work still works, of course
   😀 doIt  👴 doIt is no longer accessible here
 🍉
-</code></pre><p>You cannot access scopes beyond the method, class method or intializer from your
+</pre>
+
+<p>You cannot access scopes beyond the method, class method or intializer from your
 code. Nevertheless, you can access the <em>object scope</em> in instance methods and
 intializers. Closures are also considered an exception from this rule. You’ll
 learn more about these two kinds for special scoping  in <a href="classes-valuetypes.html">Classes &amp; Value Types

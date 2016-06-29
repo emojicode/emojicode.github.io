@@ -137,7 +137,7 @@ Variables are only accessible from the *scope* in which they were declared.
 Every code block (everything between a 🍇 and 🍉) defines an own scope which
 disappears once the block was executed:
 
-```
+<pre class="negative-example">
 🏁 🍇
   🍦 work 🔤Work It Harder Make It Better🔤
   🍊 👍 🍇
@@ -147,7 +147,7 @@ disappears once the block was executed:
   😀 work  👴 work still works, of course
   😀 doIt  👴 doIt is no longer accessible here
 🍉
-```
+</pre>
 
 You cannot access scopes beyond the method, class method or intializer from your
 code. Nevertheless, you can access the *object scope* in instance methods and

@@ -147,8 +147,7 @@ The compiler will try to infer the generic type argument for the list.
 ## 🍯 Dictionaries
 
 Dictionaries can be used to assign values to string keys. The size of a
-dictionary is theoretically unlimited. The Emojicode Real-Time Engine implements
-dictionaries using linear probing and the Fowler–Noll–Vo hash function.
+dictionary is theoretically unlimited.
 
 ### The 🍯 Type
 
