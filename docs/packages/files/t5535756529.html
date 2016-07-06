@@ -45,7 +45,10 @@
 </div>
 <div class="content">
 <h1>Class 📑</h1>
-<p></p>
+<p><p>The 📑 class has many class methods which allow you to work with the file
+system.</p>
+<p>See the 📄 class for reading and writing.</p>
+</p>
 
 
 
@@ -59,6 +62,8 @@
 
       <pre>🐇🐖 📁 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
 
+<p>This method creates a directory at the given path.
+If the directory already exists an error is returned.</p>
 
       </div>
       <div class="method">
@@ -69,6 +74,9 @@
 
       <pre>🐇🐖 🔫 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
 
+<p>This method deletes the file at the given path.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>This method may not be used to delete directories.</p>
+</div></div>
 
       </div>
       <div class="method">
@@ -79,6 +87,8 @@
 
       <pre>🐇🐖 🔥 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
 
+<p>This method deletes an <em>empty</em> directory at the given path.
+If you need to delete a whole directory hierarchy use 💣.</p>
 
       </div>
       <div class="method">
@@ -89,6 +99,9 @@
 
       <pre>🐇🐖 💣 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
 
+<p>This method deletes an directory with its content. The method recursively
+descends the directory hierarchy and deletes every file or directory it
+finds. Once finished, it deletes the directory itself.</p>
 
       </div>
       <div class="method">
@@ -99,6 +112,7 @@
 
       <pre>🐇🐖 🔗 originalFile <a href="../s/t5535756609.html">🔡</a> destination <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535757000.html">🍬🚨</a></pre>
 
+<p>This method creates a symbolic link to another. </p>
 
       </div>
       <div class="method">
@@ -109,6 +123,7 @@
 
       <pre>🐇🐖 📃 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756396.html">👌</a></pre>
 
+<p>Determines whether a file exists at the given path. </p>
 
       </div>
       <div class="method">
@@ -119,6 +134,7 @@
 
       <pre>🐇🐖 📜 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756396.html">👌</a></pre>
 
+<p>Determines whether a file exists and the given path and if it is readable.</p>
 
       </div>
       <div class="method">
@@ -129,6 +145,7 @@
 
       <pre>🐇🐖 📝 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756396.html">👌</a></pre>
 
+<p>Determines whether a file exists and the given path and if it is writeable.</p>
 
       </div>
       <div class="method">
@@ -139,6 +156,7 @@
 
       <pre>🐇🐖 👟 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756396.html">👌</a></pre>
 
+<p>Determines whether a file exists and the given path and if it is executable.</p>
 
       </div>
       <div class="method">
@@ -149,6 +167,8 @@
 
       <pre>🐇🐖 📏 path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756962.html">🚂</a></pre>
 
+<p>Determines the size of a file at a given path. If the file cannot be found
+or any other error occurs the method returns -1.</p>
 
       </div>
       <div class="method">
@@ -159,6 +179,11 @@
 
       <pre>🐇🐖 ⛓ path <a href="../s/t5535756609.html">🔡</a> ➡️ <a href="../s/t5535756609.html">🍬🔡</a></pre>
 
+<p>Returns an absolute pathname derived from <code>path</code> that
+resolves to the same directory entry, whose resolution does not involve <code>.</code>,
+<code>..</code>, or symbolic links. On failure Nothingness is returned.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Not available in 0.2 Beta 4</p>
+</div></div>
 
       </div>
 </div>

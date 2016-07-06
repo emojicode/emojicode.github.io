@@ -131,6 +131,7 @@ class Package
 
   templateType: (type, typeType, packageMeta) ->
     ascii = Package.typeAsciiName(type.name)
+    compiler = @compiler
     @compiler.template "mcc.html", @outPath("#{ascii}.html"),
       rootpath: "../../"
       typeName: type.name
@@ -146,7 +147,7 @@ class Package
       typeLink: -> Package.typeLink(this.type)
       constraintTypeLink: -> Package.typeLink(this.constraint)
       thisTypeLink: -> Package.typeLink(this)
-      mdDocumentation: => @compiler.markdownToHTML(@documentation) if @documentation?
+      mdDocumentation: -> compiler.markdownToHTML(@documentation) if @documentation?
       simpleAccess: -> if this.access == '🔓' then '' else this.access + ' '
       procedureVisible: -> this.access != '🔒'
 
