@@ -21,6 +21,18 @@ Enums are instantiated by 🔷:
 🔷📜🍕
 ```
 
+## Comparing Enums
+
+😛 can be used to compare whether two enum instances are equal:
+
+```
+🍮 a 🔷📜🍕
+🍮 b 🔷📜🍕
+🍊 😛 a b 🍇
+  😀 🔤Equal🔤
+🍉
+```
+
 ## Type compatibility
 
 All enum types are compatible to 🚂 because at runtime the enum values will be
