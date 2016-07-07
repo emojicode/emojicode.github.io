@@ -587,7 +587,7 @@ dynamic library is queried for a function pointer.
 	</td>
 </tr>
 <tr>
-	<td>8-bit unsigned integer</td>
+	<td>32-bit unsigned integer</td>
 	<td>
 		The characters of the string.
 	</td>
@@ -1530,6 +1530,32 @@ Each instruction returns *Something*. This return value can be used by the instr
 	<td>
 	NOT A
 	</td>
+</tr>
+<tr>
+  <td>0x5E</td>
+  <td>Shift Left</td>
+  <td>
+    <ol>
+      <li>Something: A</li>
+      <li>Something: Shift</li>
+    </ol>
+  </td>
+  <td>
+    Shifts A by Shift bits to the left.
+  </td>
+</tr>
+<tr>
+  <td>0x5F</td>
+  <td>Shift Right</td>
+  <td>
+    <ol>
+      <li>Something: A</li>
+      <li>Something: Shift</li>
+    </ol>
+  </td>
+  <td>
+    Shifts A by Shift bits to the right.
+  </td>
 </tr>
 
 <tr>
