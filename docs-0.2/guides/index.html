@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation &middot; Installing Emojicode</title>
+	</head>
+	<body>
+		<div class="global-nav">
+			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
+		</div>
+		<nav class="navbar" role="navigation">
+			<a href="..&#x2F;" class="logo">
+        Emojicode <span class="logo-version">0.2</span> Documentation
+      </a>
+      <div class="navbar-right">
+	      <a href="..&#x2F;">Home</a>
+	      <a href="..&#x2F;guides">Guides</a>
+				<a href="..&#x2F;reference">Language Reference</a>
+				<a href="..&#x2F;packages">Package Index</a>
+			</div>
+		</nav>
+
+		<div class="toc fixed">
+	<h2>Emojicode Guides</h2>
+	<ol>
+    	<li>
+        <a href="install.html">Installing Emojicode</a>
+          <ul>
+            <li><a href="#downloads">Downloads</a></li>
+            <li><a href="#installing">Installing</a></li>
+          </ul>
+      </li>
+    	<li>
+        <a href="compile-and-run.html">Compile and Run Your First Program</a>
+      </li>
+    	<li>
+        <a href="input-methods.html">Input methods</a>
+      </li>
+    	<li>
+        <a href="packageAPI.html">The Package API</a>
+      </li>
+	</ol>
+</div>
+
+<div class="content">
+	<h1 id="installing-emojicode">Installing Emojicode</h1>
+<h2 id="downloads">Downloads</h2>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>By downloading any Emojicode binary you agree to the Emojicode License.
+All items in the downloaded bundle are subject to this license if
+not otherwise noted.</p>
+</div></div>
+
+<p>You can download the SDK for you system here:
+<a href="https://github.com/emojicode/emojicode/releases">https://github.com/emojicode/emojicode/releases</a></p>
+<p>Instruction to build Emojicode from source can be found in the 
+<a href="https://github.com/emojicode/emojicode/">GitHub repository</a>.</p>
+<h2 id="installing">Installing</h2>
+<ol>
+<li><p><a href="https://github.com/emojicode/emojicode/releases">Download the SDK</a> for your
+system and extract the tar file. For instance:</p>
+<pre><code>tar -xzf Emojicode-VERSION-YOUR-PLATFORM.tar.gz
+</code></pre></li>
+<li><p>Run the <code>install.sh</code> script in the extracted directory:</p>
+<pre><code>cd Emojicode-VERSION-YOUR-PLATFORM
+./install.sh
+</code></pre><p>You might need to run it with root privileges.</p>
+</li>
+<li><p>Probably your system is not yet ready to display emojis. While Mac OS X is,
+you will likely have to install the <code>ttf-ancient-fonts</code> on Linux.</p>
+<pre><code>sudo apt-get install ttf-ancient-fonts
+</code></pre></li>
+</ol>
+
+
+	<div class="reference-navigation-bottom">
+		<a href="compile-and-run.html" class="right">
+			Next →
+		</a>
+	</div>
+</div>
+
+
+		<script type="text/javascript">
+			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
+			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
+				twemoji.parse(document.body);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation &middot; Classes</title>
+	</head>
+	<body>
+		<div class="global-nav">
+			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
+		</div>
+		<nav class="navbar" role="navigation">
+			<a href="..&#x2F;" class="logo">
+        Emojicode <span class="logo-version">0.2</span> Documentation
+      </a>
+      <div class="navbar-right">
+	      <a href="..&#x2F;">Home</a>
+	      <a href="..&#x2F;guides">Guides</a>
+				<a href="..&#x2F;reference">Language Reference</a>
+				<a href="..&#x2F;packages">Package Index</a>
+			</div>
+		</nav>
+
+		<div class="toc fixed">
+	<h2>The Definite Language Reference &amp; Guide</h2>
+	<ol>
+    	<li>
+        <a href="basics.html">The Basics</a>
+      </li>
+    	<li>
+        <a href="optionals.html">Optionals and Nothingness</a>
+      </li>
+    	<li>
+        <a href="the-s-package.html">The s package</a>
+      </li>
+    	<li>
+        <a href="types.html">Types and Namespaces</a>
+      </li>
+    	<li>
+        <a href="primitive-methods.html">Primitive Methods</a>
+      </li>
+    	<li>
+        <a href="controlflow.html">Control Flow</a>
+      </li>
+    	<li>
+        <a href="classes.html">Classes</a>
+          <ul>
+            <li><a href="#-defining-a-new-class">🐇 Defining a New Class</a></li>
+            <li><a href="#instance-variables">Instance Variables</a></li>
+            <li><a href="#initializers">Initializers</a></li>
+            <li><a href="#instantiation">Instantiation</a></li>
+            <li><a href="#required-initializers">Required Initializers</a></li>
+            <li><a href="#nothingness-initializers">Nothingness Initializers</a></li>
+            <li><a href="#methods">Methods</a></li>
+            <li><a href="#-this-object">🐕 This Object</a></li>
+            <li><a href="#calling-super-methods">Calling Super Methods</a></li>
+            <li><a href="#class-methods">Class Methods</a></li>
+            <li><a href="#overriding-methods-and-initializers">Overriding Methods and Initializers</a></li>
+            <li><a href="#-the-class">🐓 The Class</a></li>
+            <li><a href="#access-modifiers">Access Modifiers</a></li>
+            <li><a href="#reserved-emojis">Reserved Emojis</a></li>
+          </ul>
+      </li>
+    	<li>
+        <a href="extensions.html">Extensions</a>
+      </li>
+    	<li>
+        <a href="protocols.html">Protocols</a>
+      </li>
+    	<li>
+        <a href="enums.html">Enums</a>
+      </li>
+    	<li>
+        <a href="generics.html">Generics</a>
+      </li>
+    	<li>
+        <a href="callables.html">Callables</a>
+      </li>
+    	<li>
+        <a href="threads.html">Threads</a>
+      </li>
+    	<li>
+        <a href="packages.html">Packages</a>
+      </li>
+    	<li>
+        <a href="memory.html">Memory Management</a>
+      </li>
+    	<li>
+        <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
+      </li>
+    	<li>
+        <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
+      </li>
+	</ol>
+</div>
+
+<div class="content">
+	<h1 id="classes">Classes</h1>
+<p>Emojicode is object orientated and allows you to create class types. This
+chapter discusses classes, instantiation, promises and class extensions.</p>
+<h2 id="-defining-a-new-class">🐇 Defining a New Class</h2>
+<p>The syntax to create a new class is the following:</p>
+<pre><code>🐇 class [superclass] 🍇
+
+🍉
+</code></pre><p>When you define a new class you are also creating a new type.</p>
+<p><em>class</em> must be an Emoji. superclass the class’s superclass. If superclass is
+omitted the class does not have a superclass. You can subclass any existing
+class.</p>
+<h2 id="instance-variables">Instance Variables</h2>
+<p>When a class is created a scope is created in which the <em>instance variables</em>
+live. This scope is always available to methods and in initializers as top
+scope. You can declare variables in this scope by using the 🍰 syntax in the
+class body.</p>
+<pre><code>🐇 📷 🍇
+  🍰 megapixels 🚂
+  🍰 manufacturer 🔡
+  🍰 flashOn 👌
+🍉
+</code></pre><p>As the name suggests instance variables are just variables inside a scope. They
+<strong>cannot be accessed from outside</strong> the class. If you want to modify or access
+them from outside the class you have to write <strong>getters and setters</strong>.</p>
+<p>It’s also noteworthy that instance variables are <strong>private to the class</strong> in
+which they were defined. Subclasses can’t access their superclasses instance
+variables.</p>
+<p>Example:</p>
+<pre><code>🐇 📷 🍇
+  🍰 megapixels 🚂
+  🍰 manufacturer 🔡
+  🍰 flashOn 👌
+
+  🐖 💾 🍇
+    😀 🍪🔤We are now taking a photo with a camera manufactured by 🔤 manufacturer 🍪
+    🍊 flashOn 🍇
+      😀 🔤Don’t close your eyes!🔤
+    🍉
+  🍉
+🍉
+</code></pre><div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Please note that the class defined in this example is not useful as it
+is missing an initializer.</p>
+</div></div>
+
+<h2 id="initializers">Initializers</h2>
+<p>An initializer performs all required steps to make an object ready for use and
+is called to instantiate an class.</p>
+<p>The syntax is:</p>
+<pre><code>🐈 name [(variable type) ...] 🍇
+
+🍉
+</code></pre><p>The <em>name</em> must be an emoji. Then any number of <code>variable type</code> can follow.
+These define the parameters the initializer takes. <em>variable</em> must be a valid
+variable name and <em>type</em> and valid type.</p>
+<p>An initializer for our 📷 class could look like this:</p>
+<pre><code>🐈 💳 @flashOn 👌 @megapixels 🚂 🍇
+  🍮 manufacturer 🔡Pana cotta🔡
+  🍮 megapixels @megapixels
+  🍮 flashOn @flashOn
+🍉
+</code></pre><p>As you can see this initializer sets <code>manufacturer</code> to a default value, and sets
+<code>flashOn</code> and <code>megapixels</code> based on an argument. Notice how <code>@flashOn</code> and
+<code>@megapixels</code> were used in the argument list. If we had used <code>flashOn</code> or
+<code>megapixels</code> we would have shadowed the instance variables, and thus we would
+not have been able to set them.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>In the initializer you <strong>must</strong> set all instance variables that are not optionals to an appropriate value.</p>
+<p>You <strong>must</strong> also call an initializer of your class’s superclass, given the class has a superclass. To do this you use 🐐:</p>
+<pre><code>🐐 superinitializer [arguments ...]
+</code></pre><p>This guarantees that the object is fully initialized.</p>
+</div></div>
+
+<h2 id="instantiation">Instantiation</h2>
+<p>Now that we have declared an initializer we can get an instance of our class. To
+instantiate a class 🔷 is used.</p>
+<p>Its syntax is:</p>
+<pre><code>🔷 className initializerName [arguments ...]
+</code></pre><p><em>className must be the name of the class you want to instantiate.
+</em>initializerName must be the name of the initializer you wan to use. Naturally
+*you need to provide the correct number of appropriate arguments.</p>
+<p>To create a 📷 instance we would do:</p>
+<pre><code>🔷📷💳 👎 25
+</code></pre><h2 id="required-initializers">Required Initializers</h2>
+<p>By default subclasses are not required to implement the initializers of their
+parent classes. This means that a parent class may define a initializer which no
+subclass has.</p>
+<p>Sometimes a class may need to enforce its descendants to implement a specific
+initializer. In such cases the 🔑 attribute should be used. A class must
+implement all initializers defined in its superclass that were marked with 🔑.</p>
+<p>This example defines an initializer 🔨 all subclasses of 🚪 must provide:</p>
+<pre><code>🐇 🚪 🍇
+  🔑 🐈 🔨 🍇
+    👴 Do some initialization here...
+  🍉
+🍉
+</code></pre><p>An initializer implementing a required initializer must mark itself with 🔑 too.</p>
+<h2 id="nothingness-initializers">Nothingness Initializers</h2>
+<p>There are some cases where a initializer can fail. For instance a initializer
+that should open a file, will fail if the file does not exist.</p>
+<p>These kind of initializers are called <em>Nothingness Initializers</em> and they can
+return, as their name suggests, nothingness.</p>
+<p>To declare a Nothingness Initializer you use the 🍬 attribute. Example:</p>
+<pre><code>🍬 🐈 🍕 🍇
+  🍊 ▶️ 🌡 573.15 🍇
+    👴 The pizza burned if the temperature was above 573.15K
+    🍎 ⚡️
+  🍉
+🍉
+</code></pre><p>As you can see in the above example you use the 🍎 in combination with ⚡️ to
+return nothingness. Using such an initializer with 🔷 gives you, of course, an
+optional.</p>
+<h2 id="methods">Methods</h2>
+<p>The method syntax is:</p>
+<pre><code>🐖 name [(variable type) ...] [➡️ returnType] 🍇
+
+🍉
+</code></pre><p>You can declare a <em>returnType</em> for the method. If you don’t declare a return
+type the return type defaults to ✨. Indeed ✨ will be returned if you never use a
+🍎. To return a value one uses 🍎:</p>
+<pre><code>🍎 returnValue
+</code></pre><p>When the method is called all statements are executed. The method runs in an own
+scope whose top scope is the object scope.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Don’t use the names of language constructs as method names. You won’t be
+able to call the method if you do so. You can find a <a href="#reserved-emojis">list of these reserved
+emojis</a> at the end of this chapter.</p>
+</div></div>
+
+<p>You’ve already seen this method:</p>
+<pre><code>🐖 💾 🍇
+  😀 🍪🔤We are now taking a photo of 🔤 megapixels 🔤megapixels.🔤🍪
+  🍊 flashOn 🍇
+    😀 🔤Don’t close your eyes!🔤
+  🍉
+🍉
+</code></pre><p>It does not take any arguments and has no return value.</p>
+<p>A method like this might be more interesting:</p>
+<pre><code>🐖 ✉️ to 🔡 subject 🔡 ➡️ 👌 🍇
+  👴 code to send an email, sets variable emailSent?
+  🍎 emailSent?
+🍉
+</code></pre><p>This method is named ✉️ and takes two arguments: <code>to</code> and <code>subject</code>. It returns a 👌.</p>
+<h3 id="calling-methods">Calling Methods</h3>
+<p>The syntax to call a method is a bit different:</p>
+<pre><code>methodEmoji object [arguments ...]
+</code></pre><p><em>methodEmoji is the name of the method you wish to call. object is the object
+</em>instance whose method will be called. Of course all arguments must be provided
+*as required.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>This means that any emoji that is not used with a language construct
+is a method call!</p>
+</div></div>
+
+<p>Example:</p>
+<pre><code>✉️ myCamera 🔤someone@emojicode.org🔤 🔤Important Photo🔤
+</code></pre><h2 id="-this-object">🐕 This Object</h2>
+<p>Syntax:</p>
+<pre><code>🐕
+</code></pre><p>The 🐕 returns the current object, whose method or initializer is being called.</p>
+<p>Example:</p>
+<pre><code>👴 Automatically takes a photo of fireworks
+🐖 🎆 🍇
+  👴 launch it
+  💥 fireworkInterface
+  👴 take the photo
+  💾 🐕
+🍉
+</code></pre><div class="callout-caution"><div class="title">Caution</div><div class="text"><p>In an initializer you cannot use 🐕 before the object is fully initialized.
+You must set all instance variables first and you must have called the
+super initializer.</p>
+</div></div>
+
+<h2 id="calling-super-methods">Calling Super Methods</h2>
+<p>Inside a method you can use this syntax to call the super method:</p>
+<pre><code>🐿 methodEmoji [arguments ...]
+</code></pre><p>This simply calls the super method named <em>methodEmoji</em> and returns it value.</p>
+<p>You should of course only use this method if it’s really needed.</p>
+<h2 id="class-methods">Class Methods</h2>
+<p>You can also define class methods which are methods that are called on the class
+instead of calling them on an instance.</p>
+<p>Class methods are simply methods with the 🐇 attribute which turns them into
+class methods. E.g.</p>
+<pre><code>🐇🐖 🏁 ➡️ 🚂 🍇
+  😀 🔤Howdy!🔤
+
+  🍎 0
+🍉
+</code></pre><p>Class methods are identical to instance methods, except that they are called on
+the class itself using 🍩. Since these methods don’t execute in an object context
+the use of 🐕 is illegal.</p>
+<h3 id="calling-class-methods">Calling Class Methods</h3>
+<p>The syntax to call a class method is:</p>
+<pre><code>🍩 methodEmoji class [arguments ...]
+</code></pre><p>Example:</p>
+<pre><code>🍩 🌍 💻
+</code></pre><p>This calls the class method 🌍 on the class 💻. 💻 is a class defined
+in the s package. The 🌍 method will return the <em>current working
+directory</em>.</p>
+<h2 id="overriding-methods-and-initializers">Overriding Methods and Initializers</h2>
+<p>You can override methods and initializers by redeclaring them in a subclass leaded by ✒️.</p>
+<h3 id="promises">Promises</h3>
+<p>You must watch out not to break the superclass’s <em>promises</em>. Promises are a set of rules that ensure that the class’s routines can be used the same way as its superclass’s routines – a main characteristic of object orientation. These promises are:</p>
+<ul>
+<li>The new routine must take the same number of arguments.</li>
+<li>The return type of the new routine must be the same or a subtype of the super method’s return type.</li>
+<li>The arguments of the new routine must be of the same type or a super type of the super method’s argument type.</li>
+</ul>
+<h3 id="preventing-overriding">Preventing Overriding</h3>
+<p>The 🔏 attribute prevents overriding a method, initializer or class method in a
+subclass. Example:</p>
+<pre><code>🔏 🐖 🐸 ➡️ 🚂 🍇
+  🍎 34
+🍉
+</code></pre><p>Any attempt to override a method, initializer or class method attributed with 🔏
+will lead to a compiler error.</p>
+<h2 id="-the-class">🐓 The Class</h2>
+<p>Inside a class 🐓 stands for the type on which a method or intializer is called.</p>
+<p>You can use 🐓 for flexible and powerful solutions, like shown below.</p>
+<pre><code>🐇 🐟 🍇
+  🐇🐖 🎛 ➡️ 🐓 🍇
+    🍎 🔷🐓🆕
+  🍉
+
+  🔑 🐈 🆕 🍇🍉
+
+  🐖 🙋 🍇
+    😀 🔤I’m a fish.🔤
+  🍉
+🍉
+
+🐇 🐡 🐟 🍇
+  ✒️ 🔑 🐈 🆕 🍇
+    🐐 🆕
+  🍉
+
+  ✒️ 🐖 🙋 🍇
+    😀 🔤I’m a blowfish.🔤
+  🍉
+🍉
+
+🐇 📺 🍇
+  🐇🐖 🏁 ➡️ 🚂 🍇
+    🙋 🍩🎛🐟 👴 Prints &quot;I’m a fish.&quot;
+    🙋 🍩🎛🐡 👴 Prints &quot;I’m a blowfish.&quot;
+    🍎 0
+  🍉
+🍉
+</code></pre><p>As you can see from the example 🐓 can be used in a method or initializer
+declaration and always stands for the class on which a method or initializer is
+called. 🐓 can also be used inside a class method body where it refers to the
+class on which it was called.</p>
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>🐓 <strong>must not</strong> be used in the body of a method or initializer.</p>
+</div></div>
+
+<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Because 🐓 could be used in class methods, which can execute on subclasses
+that do not have all non-required initializers, you can only use required
+initializers to instantiate 🐓.</p>
+</div></div>
+
+<h2 id="access-modifiers">Access Modifiers</h2>
+<p><em>Access Modifiers</em> describe from which context a method, class method or initializer can be called. There are three access modifiers, which can be applied to methods, initializers, and class methods.</p>
+<ul>
+<li>🔓: The method, initializer, or class method can be accessed from everywhere.</li>
+<li>🔒: The method, initializer, or class method may only be accessed within the class it was defined.</li>
+<li>🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.</li>
+</ul>
+<h2 id="reserved-emojis">Reserved Emojis</h2>
+<p>These emojis cannot be used as method names:</p>
+<p>🍮🍩🍰🍨🍯🍦🍫🍳🍪🍭🍺🍻🔁🔂🍎🍊🍋🍇🍉🍓🍆🍌🔲🔷🐕⚡️☁️🐚⏭⏩</p>
+<p>These emojis are reserved at lexer level and can therefore not be used for method or class names:</p>
+<p>🔤👵🔟👍👎👴</p>
+
+
+	<div class="reference-navigation-bottom">
+		<a href="controlflow.html" class="left">
+			← Previous
+		</a>
+		<a href="extensions.html" class="right">
+			Next →
+		</a>
+	</div>
+</div>
+
+
+		<script type="text/javascript">
+			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
+			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
+				twemoji.parse(document.body);
+			}
+		</script>
+	</body>
+</html>

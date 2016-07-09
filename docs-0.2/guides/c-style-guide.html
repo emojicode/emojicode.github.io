@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation &middot; The Emojicode C Style Guide</title>
+	</head>
+	<body>
+		<nav class="navbar" role="navigation">
+      <a href="..&#x2F;">Home</a>
+      <a href="..&#x2F;guides">Guides</a>
+			<a href="..&#x2F;reference">Language Reference</a>
+			<a href="..&#x2F;packages">Package Index</a>
+      <a href="..&#x2F;.." class="logo">
+        Emojicode
+      </a>
+		</nav>
+		<div class="container-fluid">
+			<div class="toc fixed">
+	<h2>Emojicode Guides</h2>
+	<ol>
+    	<li>
+        <a href="install.html">Installing Emojicode</a>
+      </li>
+    	<li>
+        <a href="compile-and-run.html">Compile and Run Your First Program</a>
+      </li>
+    	<li>
+        <a href="c-style-guide.html">The Emojicode C Style Guide</a>
+          <ul>
+            <li><a href="#whitespace">Whitespace</a></li>
+            <li><a href="#types">Types</a></li>
+            <li><a href="#braces">Braces</a></li>
+            <li><a href="#naming-conventions">Naming Conventions</a></li>
+          </ul>
+      </li>
+	</ol>
+</div>
+
+<div class="content">
+	<h1 id="the-emojicode-c-style-guide">The Emojicode C Style Guide</h1>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Don’t read this guide until you intend to work on Emojicode’s source or to build a
+package in the programming language C.</p>
+</div></div>
+
+<h2 id="whitespace">Whitespace</h2>
+<ul>
+<li>Use soft tabs set to 4 spaces.</li>
+<li>Place 1 space before the leading brace.</li>
+<li>Place 1 space before the opening parenthesis in control statements (if, while etc.). Place no space before the argument list in function calls and declarations.</li>
+<li>Set off operators with spaces.</li>
+</ul>
+<h2 id="types">Types</h2>
+<ul>
+<li><p>Place <strong>1 space before</strong> and <strong>no space after</strong> the asterisk of a pointer type if it is <strong>followed by a variable name</strong> or if it is in a cast.</p>
+<p>Otherwise place <strong>no space</strong> before and <strong>1 space after</strong> in an</p>
+</li>
+</ul>
+<p>Example:</p>
+<pre><code>// bad
+char* string;
+char * anotherString = (char*)bytes;
+
+Thread * magicFunction();
+void *doThat(int * takeMe);
+
+// good
+char *string;
+char *anotherString = (char *)bytes;
+
+Thread* magicFunction();
+void* doThat(int *takeMe);
+</code></pre><h2 id="braces">Braces</h2>
+<p>The <strong>leading brace</strong> goes <strong>always</strong> on the <strong>same line</strong> as the statement to which the block belongs.</p>
+<p>The <strong>closing brace</strong> has <strong>always a line for its own</strong>.</p>
+<pre><code>Something runFunctionBlock() {
+    while (thread-&gt;tokenStream &lt; end) {
+        if (thread-&gt;returned) {
+            doIt(3 * 5 - 3);
+        }
+        else {
+            crash();
+        }
+    }
+    return NOTHINGNESS;
+}
+</code></pre><h2 id="naming-conventions">Naming Conventions</h2>
+<ul>
+<li>Use PascalCase when naming types.</li>
+<li>Use camelCase when naming variables and functions.</li>
+<li>Use descriptive names for variables, functions and type.</li>
+</ul>
+<p>Example:</p>
+<pre><code>// bad
+void itoa();
+void integer_to_string();
+void IntegerToString();
+
+// good
+void integerToString();
+
+// bad
+typedef ei uint64_t;
+typedef emojicodeInteger uint64_t;
+
+// good
+typedef EmojicodeInteger uint64_t;
+</code></pre>
+
+	<div class="reference-navigation-bottom">
+		<a href="compile-and-run.html" class="left">
+			← Previous
+		</a>
+	</div>
+</div>
+
+		</div>
+
+		<script type="text/javascript">
+			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
+			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
+				twemoji.parse(document.body);
+			}
+		</script>
+	</body>
+</html>

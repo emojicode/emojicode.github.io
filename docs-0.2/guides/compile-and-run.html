@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation &middot; Compile and Run Your First Program</title>
+	</head>
+	<body>
+		<div class="global-nav">
+			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
+		</div>
+		<nav class="navbar" role="navigation">
+			<a href="..&#x2F;" class="logo">
+        Emojicode <span class="logo-version">0.2</span> Documentation
+      </a>
+      <div class="navbar-right">
+	      <a href="..&#x2F;">Home</a>
+	      <a href="..&#x2F;guides">Guides</a>
+				<a href="..&#x2F;reference">Language Reference</a>
+				<a href="..&#x2F;packages">Package Index</a>
+			</div>
+		</nav>
+
+		<div class="toc fixed">
+	<h2>Emojicode Guides</h2>
+	<ol>
+    	<li>
+        <a href="install.html">Installing Emojicode</a>
+      </li>
+    	<li>
+        <a href="compile-and-run.html">Compile and Run Your First Program</a>
+          <ul>
+            <li><a href="#the-basic-structure">The basic structure</a></li>
+            <li><a href="#greetings">Greetings</a></li>
+            <li><a href="#warming-up">Warming Up</a></li>
+            <li><a href="#what-to-do-next">What to do next</a></li>
+          </ul>
+      </li>
+    	<li>
+        <a href="input-methods.html">Input methods</a>
+      </li>
+    	<li>
+        <a href="packageAPI.html">The Package API</a>
+      </li>
+	</ol>
+</div>
+
+<div class="content">
+	<h1 id="compile-and-run-your-first-program">Compile and Run Your First Program</h1>
+<p>This guide is a short introduction to Emojicode and assumes you have a basic knowledge of object-orientated programming and familiarity with the command-line.</p>
+<h2 id="the-basic-structure">The basic structure</h2>
+<p>All Emojicode source files are named like <code>file.emojic</code>. So let’s get started by creating a file called <code>greeter.emojic</code> and put some content into it:</p>
+<pre><code>🐇 🐼 🍇
+  🐇🐖 🏁 ➡️ 🚂 🍇
+
+    🍎 0
+  🍉
+🍉
+</code></pre><p>This is the minimum structure every program must have. <code>🐇 🐼￼ 🍇</code> defines a class called <code>🐼</code>. <code>🐇🐖 🏁 ➡️ 🚂 🍇</code>
+defines a class method called <code>🏁</code>, which returns <code>🚂</code>, an integer. <code>🍎 0</code> returns the value.</p>
+<p>When a program is run the class method <code>🏁</code> is called to start the program. Therefore every program must have exactly one class method called <code>🏁</code>.</p>
+<h2 id="greetings">Greetings</h2>
+<p>As you can see our program does not do anything at the moment, so let’s add a greeting.</p>
+<pre><code>🐇 🐼 🍇
+  🐇🐖 🏁 ➡️ 🚂 🍇
+    😀 🔤Howdy, partner!🔤
+    🍎 0
+  🍉
+🍉
+</code></pre><p>Before analyzing this new code we’ll give it a try.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>You must have installed Emojicode to run the following commands. See <a href="install.html">Installing Emojicode</a> if you
+haven’t already.</p>
+</div></div>
+
+<p>Open a command-line and navigate to the directory containing <code>greeter.emojic</code>. Then run this command.</p>
+<pre><code>emojicodec greeter.emojic
+</code></pre><p>This asks the compiler to compile <code>greeter.emojic</code>. If everything goes well it should exit without a message and generate a file called <code>greeter.emojib</code>. This is an Emojicode Byte-Code File, which can be executed by the Emojicode Real-Time Engine. So let’s type:</p>
+<pre><code>emojicode greeter.emojib
+</code></pre><p>Congratulations! You’ve written your first program. But how does it actually work?</p>
+<p>It’s simple: <code>🔤Howdy, partner!🔤</code> is a string literal. Every character between two 🔤 is then part of the string.</p>
+<p>Then we call the 😀 method on this string. And guess what, it just prints the string to the standard output. The thing to notice here is, that the method is actually called by putting its emoji <strong>before the object</strong>. It’s also noteworthy that Emojicode usually does not use parentheses around arguments to method calls.</p>
+<h2 id="warming-up">Warming Up</h2>
+<p>Let’s call a few more methods to warm up. We’ll now write a method to convert English into <em>Pig Latin</em>. This is a very easy language because to get the Pig Latin word you just have to move the first letter of the English word to the end and add <em>ay</em>.</p>
+<p>In Emojicode you can easily extend every existing class, so to follow good object-orientated practices we’ll extend the string class to have a method to convert an English word to Pig Latin. Add the following into the file:</p>
+<pre><code>🐋 🔡 🍇
+  🐖 🐷 ➡️ 🔡￼ 🍇
+  ￼￼
+  🍉
+🍉
+</code></pre><p><code>🐋 🔡 🍇</code> says: Extend the class <code>🔡</code> (That’s the string class). <code>🐖 🐷 ➡️ 🔡￼</code> declares a method called <code>🐷</code> and
+returning an instance of the 🔡 class￼￼.</p>
+<p>Ok, let’s take the first letter of this string by using the <code>🔪</code> method, which is, according to the <a href="../packages/s/t5535756609.html#m🔪">documentation</a>, capable of giving us just part of a string. It’s signature is:</p>
+<pre><code>🐖 🔪 from 🚂 length 🚂 ➡️ 🔡
+</code></pre><p>This tells us that the <code>🔪</code> method takes two arguments named <code>from</code> and <code>length</code>, both of them must be of the type 🚂.
+🚂 stands for an integer, and that the method returns an instance of 🔡.</p>
+<p>Let’s call it on the string we are currently working on.</p>
+<pre><code>🐖 🐷 ➡️ 🔡￼ 🍇
+￼￼  🔪 🐕 0 1
+🍉
+</code></pre><p>This should get us a string containing the first character of the string we are currently working on which is represented by 🐕. You can compare 🐕 to <code>this</code> or <code>self</code> in other languages. However, we need to store the result somewhere.</p>
+<pre><code>🐖 🐷 ➡️ 🔡￼ 🍇
+￼￼  🍦 firstLetter 🔪 🐕 0 1
+🍉
+</code></pre><p>The above code stores the result into the variable <code>firstLetter</code>. The variable 
+is actually declared and initialized here. It’s important to notice that 🍦 was
+used here to declare the variable which prevents the variable from being changed
+later. This kind of variable is called “frozen variable”.</p>
+<p>You may have also noticed that we didn&#39;t declare a type for the variable.
+Emojicode supports type inference that is the compiler infers the variable’s 
+type by looking at the type of the value for the variable.</p>
+<p>Now we need to get the rest of the word.</p>
+<pre><code>🐖 🐷 ➡️ 🔡￼ 🍇
+  🍦 firstLetter 🔪 🐕 0 1
+  🍦 rest 🔪 🐕 1 📏 🐕
+🍉
+</code></pre><p>The <code>📏</code> method returns the length of a string, so we get the whole string. You
+can see that the result of the <code>📏</code>  method is used as argument to 🔪.</p>
+<p>Finally we just need to concatenate <code>firstLetter</code>, <code>rest</code> and <em>ay</em> and return it
+from the method.</p>
+<pre><code>🐖 🐷 ➡️ 🔡 🍇
+  🍦 firstLetter 🔪 🐕 0 1
+  🍦 rest 🔪 🐕 1 📏 🐕
+  🍎 🍪 rest firstLetter 🔤ay🔤 🍪
+🍉
+</code></pre><p>The <code>🍪</code>s are the most efficient way of concatenating strings. You can wrap any 
+amount of strings between <code>🍪</code> and you will get them concatenated into one 
+string. You should already know the 🍎 from above. It returns a value from the
+method.</p>
+<p>Well done! Let’s update the 🏁 method to give us a few examples. The file should
+now look like this:</p>
+<pre><code>🐋 🔡 🍇
+  🐖 🐷 ➡️ 🔡 🍇
+    🍦 firstLetter 🔪 🐕 0 1
+    🍦 rest 🔪 🐕 1 📏 🐕
+    🍎 🍪 rest firstLetter 🔤ay🔤 🍪
+  🍉
+🍉
+
+🐇 🐼 🍇
+  🐇🐖 🏁 ➡️ 🚂 🍇
+    😀 🐷 🔤cat🔤
+    😀 🐷 🔤development🔤
+    😀 🐷 🔤computer🔤
+    🍎 0
+  🍉
+🍉
+</code></pre><p>Compile and let’s see:</p>
+<pre><code>emojicodec greeter.emojic
+emojicode greeter.emojib
+</code></pre><pre><code>atcay
+evelopmentday
+omputercay
+</code></pre><p>Cool! We have successfully translated English words into Pig Latin.</p>
+<h2 id="what-to-do-next">What to do next</h2>
+<p>I highly recommend you to read through the <a href="../reference">Language Reference</a>
+which is a bit more formal but also a really good starting point.</p>
+<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>You should really read the <a href="../reference">Language Reference</a>, you gonna
+miss Emojicode’s incredible power if you don’t.</p>
+</div></div>
+
+
+	<div class="reference-navigation-bottom">
+		<a href="install.html" class="left">
+			← Previous
+		</a>
+		<a href="input-methods.html" class="right">
+			Next →
+		</a>
+	</div>
+</div>
+
+
+		<script type="text/javascript">
+			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
+			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
+				twemoji.parse(document.body);
+			}
+		</script>
+	</body>
+</html>
