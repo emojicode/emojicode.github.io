@@ -25,6 +25,8 @@ $heavy-link-hover-color: lighten($header-color, 45%);
 $callout-note: #ffb300;
 $callout-hint: rgb(45, 121, 210);
 
+$version-color: #68389c;
+
 $link-color: lighten($header-color, 30%);
 $font-color: rgb(58, 58, 58);
 $background-color: rgb(254, 254, 254);
@@ -185,13 +187,19 @@ table {
       background-color: lighten($header-color, 10%);
     }
   }
+}
 
-  .logo {
-    font-family: Varela Round, sans-serif;
-    letter-spacing: $logo-letter-spacing;
-    font-size: 22px;
-    float: left;
-  }
+.logo {
+  font-family: Varela Round, sans-serif;
+  letter-spacing: $logo-letter-spacing;
+  font-size: 22px;
+  float: left;
+}
+
+.logo-version {
+  border-radius: 4px;
+  padding: 0.1em 0.2em;
+  background-color: $version-color;
 }
 
 .navbar-right {
