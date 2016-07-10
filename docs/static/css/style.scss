@@ -28,6 +28,7 @@ $callout-hint: rgb(45, 121, 210);
 $pre-before: $callout-hint;
 $pre-before-syntax: $header-color;
 $pre-before-negative: $callout-note;
+$pre-before-specification: #68389c;
 
 $syntax-placeholder-color: lighten($header-color, 60%);
 
@@ -119,7 +120,12 @@ pre {
   background-color: $pre-before-negative;
 }
 
-pre:not(.negative-example):not(.syntax)::before {
+.declaration::before {
+  content: 'Declaration';
+  background-color: $pre-before-specification;
+}
+
+pre:not(.negative-example):not(.syntax):not(.declaration)::before {
   content: 'Example';
   background-color: $pre-before;
 }
