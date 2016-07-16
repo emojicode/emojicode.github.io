@@ -1,6 +1,5 @@
 <section>
 	<h1>Package {{name}}</h1>
-	<h3>{{#approved}}<span class="label label-info">Approved by the Emojicode Committee</span>{{/approved}}</h3>
 	<p>
 		Version {{version}}{{#author}} by {{author}}{{/author}}{{#license}} licensed under {{license}}{{/license}}
 	</p>
@@ -52,4 +51,18 @@
 	</div>
 	{{/protocolsItems}}
 
+  {{#enumItems}}
+  <h2>Enums</h2>
+
+  <div class="link-list u3">
+    {{#enums}}
+      <a href="{{asciiTypeName}}.html" class="link-box">
+        <div class="name">
+          {{name}}
+        </div>
+        {{firstSentence}}
+      </a>
+    {{/enums}}
+  </div>
+  {{/enumItems}}
 </section>

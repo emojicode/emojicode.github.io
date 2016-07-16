@@ -1,0 +1,28 @@
+<div class="toc">
+  <h3>Package</h3>
+  <div class="link-list">
+    <a href="../{{package}}">{{package}}</a>
+  </div>
+
+  <h3>Enums</h3>
+  <div class="link-list u4">
+    {{#values}}
+      <a href="#i{{value}}">{{value}}</a>
+    {{/values}}
+  </div>
+</div>
+<div class="content">
+<h1>Enum {{typeName}}</h1>
+<p>{{{mdDocumentation}}}</p>
+
+<h2>Values</h2>
+{{#values}}
+  <div class="method">
+    <div class="method-heading">
+      <h3 class="method-emoji" id="i{{value}}">{{value}}</h3>
+    </div>
+
+    {{{mdDocumentation}}}
+  </div>
+{{/values}}
+</div>

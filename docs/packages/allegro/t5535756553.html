@@ -25,63 +25,56 @@
 		<div class="toc">
   <h3>Package</h3>
   <div class="link-list">
-    <a href="../s">s</a>
+    <a href="../allegro">allegro</a>
   </div>
 
-    <h3>Initializers</h3>
-    <div class="link-list u4">
-          <a href="#i⏩">⏩</a>
-          <a href="#i⏭">⏭</a>
-    </div>
     <h3>Methods</h3>
     <div class="link-list u4">
-          <a href="#m🐽">🐽</a>
+          <a href="#m📟">📟</a>
+          <a href="#m🔣">🔣</a>
+          <a href="#m🔃">🔃</a>
     </div>
 </div>
 <div class="content">
-<h1>Class ⏩</h1>
-<p><p>Represents a range which per definition is an immutable sequence of
-numbers. <a href="../../reference/the-s-package.html#-ranges">Read more in the
-language reference.</a></p>
+<h1>Class 📩</h1>
+<p><p>📩 is an event that occurs when a character was typed on the keyboard. </p>
 </p>
 
-  <h2>Initializers</h2>
-      <div class="method">
-        <div class="method-heading">
-          <h3 class="method-emoji" id="i⏩">⏩</h3>
-          
-        </div>
-
-        <pre class="declaration">🐈 ⏩ start <a href="../s/t5535756962.html">🚂</a> stop <a href="../s/t5535756962.html">🚂</a> </pre>
-
-<p>Creates an range from start to stop.</p>
-
-      </div>
-      <div class="method">
-        <div class="method-heading">
-          <h3 class="method-emoji" id="i⏭">⏭</h3>
-          
-        </div>
-
-        <pre class="declaration">🐈 ⏭ start <a href="../s/t5535756962.html">🚂</a> stop <a href="../s/t5535756962.html">🚂</a> step <a href="../s/t5535756962.html">🚂</a> </pre>
-
-<p>Creates an range from start to stop with the given step.</p>
-
-      </div>
 
   <h2>Methods</h2>
 
       <div class="method">
         <div class="method-heading">
-          <h3 class="method-emoji" id="m🐽">🐽</h3>
+          <h3 class="method-emoji" id="m📟">📟</h3>
           
         </div>
 
-        <pre class="declaration">🐖 🐽 n <a href="../s/t5535756962.html">🚂</a> ➡️ <a href="../s/t5535756962.html">🍬🚂</a></pre>
+        <pre class="declaration">🐖 📟 ➡️ <a href="../s/t5535756962.html">🚂</a></pre>
 
-<p>Returns the <code>n</code>th element of the range. <code>n</code> is only valid if
-<code>start + step * n</code> is <code>&gt;= start</code> and <code>&lt; stop</code>. If <code>n</code> is invalid
-Nothingness is returned.</p>
+<p>Returns the keycode associated with this event. </p>
+
+      </div>
+      <div class="method">
+        <div class="method-heading">
+          <h3 class="method-emoji" id="m🔣">🔣</h3>
+          
+        </div>
+
+        <pre class="declaration">🐖 🔣 ➡️ <a href="../s/t5535756611.html">🍬🔣</a></pre>
+
+<p>Returns the symbol that was typed. This may be ✨ if the pressed key cannot
+be represented as a symbol, e.g. if an arrow key was pressed.</p>
+
+      </div>
+      <div class="method">
+        <div class="method-heading">
+          <h3 class="method-emoji" id="m🔃">🔃</h3>
+          
+        </div>
+
+        <pre class="declaration">🐖 🔃 ➡️ <a href="../s/t5535756396.html">👌</a></pre>
+
+<p>Whether the character was repeated. </p>
 
       </div>
 

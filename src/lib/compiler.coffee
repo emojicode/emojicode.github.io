@@ -153,6 +153,20 @@ class Package
 
     type
 
+  templateEnum: (type, packageMeta) ->
+    ascii = Package.typeAsciiName(type.name)
+    compiler = @compiler
+    @compiler.template "enum.html", @outPath("#{ascii}.html"),
+      rootpath: "../../"
+      typeName: type.name
+      documentation: type.documentation
+      package: packageMeta.name
+      genericArguments: type.genericArguments
+      values: type.values
+      mdDocumentation: -> compiler.markdownToHTML(@documentation) if @documentation?
+
+    type
+
   build: ->
     fs.removeSync(@out) if fs.existsSync(@out)
     fs.mkdirSync(@out)
@@ -168,14 +182,18 @@ class Package
       @templateType(protocol, 'Protocol', packageMeta)
     valueTypes = for valueType in types.valueTypes when valueType.documentation?
       @templateType(valueType, 'Value Type', packageMeta)
+    enums = for eenum in types.enums when eenum.documentation?
+      @templateEnum(eenum, packageMeta)
 
     @compiler.template "package.html", @outPath("index.html"),
       classes: classes
       protocols: protocols
       valueTypes: valueTypes
+      enums: enums
       classesItems: classes.length > 0
       protocolsItems: protocols.length > 0
       valueTypesItems: valueTypes.length > 0
+      enumItems: enums.length > 0
       name: packageMeta.name
       version: packageMeta.version
       author: packageMeta.author
@@ -183,7 +201,6 @@ class Package
       readme: @readReadme()
       rootpath: "../../"
       title: packageMeta.name
-      approved: packageMeta.approved
       firstSentence: -> this.documentation?.split('.', 2)[0] + '.'
       asciiTypeName: -> Package.typeAsciiName(@name)
 
