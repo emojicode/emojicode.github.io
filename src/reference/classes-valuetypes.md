@@ -102,8 +102,8 @@ The syntax to define an initializer is:
 🐈 $name$ $[parameters]$ 🍇
 
 🍉
-$parameters$ ⟶ $parameter$ | $parameter$ $parameters$
-$parameter$ ⟶ $variable$ $type$
+$parameters$> $parameter$ | $parameter$ $parameters$
+$parameter$> $variable$ $type$
 </pre>
 
 In the initializer you **must set all instance variables** that are not
@@ -223,7 +223,7 @@ The syntax to define a method is:
 🐖 $method-emoji$ $[parameters]$ $[return-type]$ 🍇
 
 🍉
-$return-type$ ⟶ ➡️ $type$
+$return-type$> ➡️ $type$
 </pre>
 
 Here’s an example from the 🐟 class:

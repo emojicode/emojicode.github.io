@@ -161,9 +161,11 @@ this:</p>
 🍉
 </code></pre><p>Therefore the complete method syntax is:</p>
 <pre class="syntax">
-🐖 <span class="syntax-placeholder">name</span> [(🐚 <span class="syntax-placeholder">name</span> <span class="syntax-placeholder">type</span>) ...] [(<span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>) ...] [➡️ $returnType$] 🍇
+🐖 <span class="syntax-placeholder">name</span> <span class="syntax-placeholder">[generic-arguments]</span> <span class="syntax-placeholder">[arguments]</span> <span class="syntax-placeholder">[return-type]</span> 🍇
 
 🍉
+<span class="syntax-placeholder">generic-arguments</span> ⟶ <span class="syntax-placeholder">generic-argument</span> | <span class="syntax-placeholder">generic-argument</span> <span class="syntax-placeholder">generic-arguments</span>
+<span class="syntax-placeholder">generic-argument</span> ⟶ 🐚 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
 </pre>
 
 <p>As you can see above it takes one generic argument named <code>A</code> which is restricted

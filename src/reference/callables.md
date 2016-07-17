@@ -30,7 +30,7 @@ Examples:
 The 🍭 must be used to call a callable.
 
 <pre class="syntax">
-🍭 $callable$ $[arguments ...]$
+🍭 $callable$ $[arguments]$
 </pre>
 
 *callable* must be a callable. Of course you must provide the required number of
@@ -53,18 +53,18 @@ execute the method in the same context, though.
 The syntaxes are:
 
 <pre class="syntax">
-🌶 $methodName$ $instance$
+🌶 $method-name$ $instance$
 </pre>
 
-*methodName* is the emoji representing the method. *instance* must be an
+*method-name* is the emoji representing the method. *instance* must be an
 instance which has a method *methodName* and can be either a class or value type
 instance.
 
 <pre class="syntax">
-🌶🍩 $methodName$ $type$
+🌶🍩 $method-name$ $type$
 </pre>
 
-This syntax is used to capture type methods. *methodName* is the emoji
+This syntax is used to capture type methods. *method-name* is the emoji
 representing the method. *type* must be a type identifier whose type method
 should be captured.
 
@@ -92,14 +92,12 @@ You can define closures which remember the environment in which they were
 defined. The basic syntax to define a closure is:
 
 <pre class="syntax">
-🍇 [(variable type) ...] [➡️ returnType]
+🍇 $[arguments]$ $[return-type]$
 
 🍉
 </pre>
 
 This is basically the same syntax that applies to methods and initializers.
-There may be any number of *variable type*. These define the parameters the
-closure takes. *variable* must be a valid variable name and type and valid type.
 
 Example:
 
