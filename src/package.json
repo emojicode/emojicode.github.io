@@ -4,7 +4,7 @@
   "description": "Emojicode documentation compiler",
   "main": "compiler.coffee",
   "scripts": {
-    "start": "./node_modules/coffee-script/bin/coffee ./lib/compiler.coffee"
+    "start": "node ./lib/compiler.js"
   },
   "author": "Theo Weidmann",
   "license": "MIT",

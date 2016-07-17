@@ -3,26 +3,26 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
-		<title>Emojicode Documentation &middot; The Basics</title>
+		<link href="&#x2F;docs&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation</title>
 	</head>
 	<body>
 		<div class="global-nav">
 			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
 		<nav class="navbar" role="navigation">
-			<a href="..&#x2F;" class="logo">
+			<a href="&#x2F;docs&#x2F;" class="logo">
         Emojicode <span class="logo-version">0.3 Beta</span> Documentation
       </a>
       <div class="navbar-right">
-	      <a href="..&#x2F;">Home</a>
-	      <a href="..&#x2F;guides">Guides</a>
-				<a href="..&#x2F;reference">Language Reference</a>
-				<a href="..&#x2F;packages">Package Index</a>
+	      <a href="&#x2F;docs&#x2F;">Home</a>
+	      <a href="&#x2F;docs&#x2F;guides">Guides</a>
+				<a href="&#x2F;docs&#x2F;reference">Language Reference</a>
+				<a href="&#x2F;docs&#x2F;packages">Package Index</a>
 			</div>
 		</nav>
 
-		<div class="toc fixed">
+		<div class="toc">
 	<h2>The Definite Language Reference &amp; Guide</h2>
 	<ol>
     	<li>
@@ -106,7 +106,7 @@ applications by running them inside a virtual machine. Your code is first
 compiled to bytecode by a compiler and can then be executed. The reference
 implemention of such a virtual machine is called <em>Emojicode Real-Time</em> and can,
 as the name suggests, execute your code rather fast.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>If you need guidance on how to use the compiler and the Real-Time Engine
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>If you need guidance on how to use the compiler and the Real-Time Engine
 see
 <a href="../guides/compile-and-run.html">“Compile and Run Your First Program”</a>,
 which is a short tutorial on writing applications in Emojicode.</p>
@@ -174,7 +174,7 @@ one time.</p>
 <p>After you declared the variable in the local scope you can use 🍮 to set it to a
 value. The compiler will throw an error if you try to access an uninitialized
 variable. Optionals are automatically initialized to Nothingness.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can for
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can for
 instance make instance variables inaccessible.</p>
 </div></div>
 
@@ -255,7 +255,7 @@ inserts the code from the file at the point where you included it.</p>
 </code></pre><p><em>string</em> must be a string whose value is a path to another Emojicode source
 file. The path is relative to the directory which included the document with the
 📜 statement.</p>
-<div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Do <strong>not</strong> use this method to share code accross projects. If you have
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Do <strong>not</strong> use this method to share code accross projects. If you have
 written really fancy code,
 <a href="/docs/reference/packages.html"><strong>create a package</a>, which you can easily
 make available to other people</strong>.</p>

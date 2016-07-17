@@ -3,26 +3,26 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link href="..&#x2F;static/css/style.css" rel="stylesheet" />
-		<title>Emojicode Documentation &middot; Callables</title>
+		<link href="&#x2F;docs&#x2F;static/css/style.css" rel="stylesheet" />
+		<title>Emojicode Documentation</title>
 	</head>
 	<body>
 		<div class="global-nav">
 			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
 		<nav class="navbar" role="navigation">
-			<a href="..&#x2F;" class="logo">
+			<a href="&#x2F;docs&#x2F;" class="logo">
         Emojicode <span class="logo-version">0.3 Beta</span> Documentation
       </a>
       <div class="navbar-right">
-	      <a href="..&#x2F;">Home</a>
-	      <a href="..&#x2F;guides">Guides</a>
-				<a href="..&#x2F;reference">Language Reference</a>
-				<a href="..&#x2F;packages">Package Index</a>
+	      <a href="&#x2F;docs&#x2F;">Home</a>
+	      <a href="&#x2F;docs&#x2F;guides">Guides</a>
+				<a href="&#x2F;docs&#x2F;reference">Language Reference</a>
+				<a href="&#x2F;docs&#x2F;packages">Package Index</a>
 			</div>
 		</nav>
 
-		<div class="toc fixed">
+		<div class="toc">
 	<h2>The Definite Language Reference &amp; Guide</h2>
 	<ol>
     	<li>
@@ -184,7 +184,7 @@ string and will output:</p>
 </code></pre><p>Here we’ve got a class method that returns a closure. The closure actually
 closes over the <code>name</code> variable here and copies it value so that it can be used
 when the closure is called later.</p>
-<div class="callout-caution"><div class="title">Caution</div><div class="text"><p>Closures <strong>copy</strong> the closured <strong>local variables</strong> and freeze them in the scope of the closure.
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Closures <strong>copy</strong> the closured <strong>local variables</strong> and freeze them in the scope of the closure.
 If you modify one of the copied variable only the copy local to the closure will be modified.</p>
 <p><strong>Instance variables</strong> are <strong>not copied</strong> and really change when modified inside a closure.</p>
 </div></div>
