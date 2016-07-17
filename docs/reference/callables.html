@@ -107,7 +107,7 @@ Nothingness.</p>
 </code></pre><h2 id="calling-a-callable">Calling a Callable</h2>
 <p>The 🍭 must be used to call a callable.</p>
 <pre class="syntax">
-🍭 <span class="syntax-placeholder">callable</span> $[arguments ...]$
+🍭 <span class="syntax-placeholder">callable</span> <span class="syntax-placeholder">[arguments]</span>
 </pre>
 
 <p><em>callable</em> must be a callable. Of course you must provide the required number of
@@ -122,17 +122,17 @@ returns the same value as the method would return. This callable will always
 execute the method in the same context, though.</p>
 <p>The syntaxes are:</p>
 <pre class="syntax">
-🌶 $methodName$ <span class="syntax-placeholder">instance</span>
+🌶 <span class="syntax-placeholder">method-name</span> <span class="syntax-placeholder">instance</span>
 </pre>
 
-<p><em>methodName</em> is the emoji representing the method. <em>instance</em> must be an
+<p><em>method-name</em> is the emoji representing the method. <em>instance</em> must be an
 instance which has a method <em>methodName</em> and can be either a class or value type
 instance.</p>
 <pre class="syntax">
-🌶🍩 $methodName$ <span class="syntax-placeholder">type</span>
+🌶🍩 <span class="syntax-placeholder">method-name</span> <span class="syntax-placeholder">type</span>
 </pre>
 
-<p>This syntax is used to capture type methods. <em>methodName</em> is the emoji
+<p>This syntax is used to capture type methods. <em>method-name</em> is the emoji
 representing the method. <em>type</em> must be a type identifier whose type method
 should be captured.</p>
 <p>Example:</p>
@@ -149,14 +149,12 @@ Strawberry?
 <p>You can define closures which remember the environment in which they were
 defined. The basic syntax to define a closure is:</p>
 <pre class="syntax">
-🍇 [(variable type) ...] [➡️ returnType]
+🍇 <span class="syntax-placeholder">[arguments]</span> <span class="syntax-placeholder">[return-type]</span>
 
 🍉
 </pre>
 
-<p>This is basically the same syntax that applies to methods and initializers.
-There may be any number of <em>variable type</em>. These define the parameters the
-closure takes. <em>variable</em> must be a valid variable name and type and valid type.</p>
+<p>This is basically the same syntax that applies to methods and initializers.</p>
 <p>Example:</p>
 <pre><code>🍦 greet 🍇 name 🔡 ➡️ 🔡
   🍮 out 🔤🔤

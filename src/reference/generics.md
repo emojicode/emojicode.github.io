@@ -100,9 +100,11 @@ this:
 Therefore the complete method syntax is:
 
 <pre class="syntax">
-🐖 $name$ [(🐚 $name$ $type$) ...] [($variable$ $type$) ...] [➡️ $returnType$] 🍇
+🐖 $name$ $[generic-arguments]$ $[arguments]$ $[return-type]$ 🍇
 
 🍉
+$generic-arguments$> $generic-argument$ | $generic-argument$ $generic-arguments$
+$generic-argument$> 🐚 $variable$ $type$
 </pre>
 
 As you can see above it takes one generic argument named `A` which is restricted

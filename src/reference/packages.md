@@ -133,16 +133,12 @@ to access the 💊 class as it was not exported.
 ```
 📦 cat-simulator 🔴
 
-🐇 💯 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    🍦 cat 🔷🐱🎀
-    🎙 cat
+🏁 🍇
+  🍦 cat 🔷🐱🎀
+  🎙 cat
 
-    👴 The line below won't compile and should be removed
-    🍦 drug 🔷💊🔬
-
-    🍎 0
-  🍉
+  👴 The line below won't compile and should be removed
+  🍦 drug 🔷💊🔬
 🍉
 ```
 
