@@ -30,9 +30,9 @@ would look something like:
 When starting up and loading a program, the Real-Time Engine dynamically loads
 the static library and basically links all native methods of your package with
 the corresponding native methods, class methods and initializers. The Real-Time
-Engine does this by asking you to provide a C function for each procedure which
-you declared is implemented natively. It’s noteworthy, however, that
-optimizations might cause that not all methods are compiled into the final
+Engine does this by asking you to provide a C function pointer for each
+procedure which you declared with 📻. It’s noteworthy, however,
+that optimizations might cause that not all methods are compiled into the final
 program and therefore not all native methods your package provides will ever be
 requested.
 
@@ -77,17 +77,12 @@ PackageVersion getVersion() {
     return (PackageVersion){0, 1};
 }
 
-ClassMethodHandler handlerPointerForClassMethod(EmojicodeChar className, EmojicodeChar methodName) {
-    // Return a function pointer to the corresponding class method
-    return NULL;
-}
-
-MethodHandler handlerPointerForMethod(EmojicodeChar className, EmojicodeChar methodName) {
+FunctionFunctionPointer handlerPointerForMethod(EmojicodeChar cl, EmojicodeChar symbol, MethodType t) {
     // Return a function pointer to the corresponding method
     return NULL;
 }
 
-InitializerHandler handlerPointerForInitializer(EmojicodeChar className, EmojicodeChar initializerName) {
+InitializerFunctionFunctionPointer handlerPointerForInitializer(EmojicodeChar cl, EmojicodeChar symbol) {
     // Return a function pointer to the corresponding initializer
     return NULL;
 }
@@ -109,12 +104,12 @@ Deinitializer deinitializerPointerForClass(EmojicodeChar className) {
 
 The purpose of `getVersion` should be pretty clear: Return the version of the
 package. The Real-Time Engine uses this to verify everything matches.
-`handlerPointerForClassMethod`, `handlerPointerForMethod` and
-`handlerPointerForInitializer` are called to get the handles as discussed
-earlier. Returning `NULL` should actually never happen, by the way. We’ll
-analyze how such a handler looks and what it does exactly in a moment.
-`markerPointerForClass`, `sizeForClass` and `deinitializerPointerForClass` are
-important too but we’ll discuss them a bit later.
+`handlerPointerForMethod` and `handlerPointerForInitializer` are called to get
+function pointers as discussed earlier. Returning `NULL` should actually never
+happen, by the way. We’ll analyze how such a handler looks and what it does
+exactly in a moment. `markerPointerForClass`, `sizeForClass` and
+`deinitializerPointerForClass` are important too but we’ll discuss them a bit
+later.
 
 These functions are called *provider functions*.
 
@@ -165,17 +160,17 @@ Let’s walk through this function.
   accessible from Emojicode and are of course implemented using arrays.
 
   Arrays are often used in C code because they are cheaper then lists and can be
-used with any C API as they are just a continuous space in memory.
+  used with C APIs as they are just a continuous space in memory.
 
-  Newly allocated arrays are guaranteed to be completed zeroed.
+  Newly allocated arrays are guaranteed to be completely zeroed.
 
 2. The stack is accessed and the variable at index 0 is retrieved. The stack in
   Emojicode stores the variables of a procedure call and therefore also the
   arguments passed to your procedure. The arguments are begin at index 0.
 
   The stack stores, as most data structures, `Something`s. Something is either
-  a primitive value (boolean, integer, double) or an object reference. Something
-  also stores the type of the value.
+  the value of a value type or an object reference. Something also stores the
+  type of the value.
 
   As 📇 is an object we access the `object` field of the Something representing
   the first argument and then access the value field. To understand this step
@@ -217,14 +212,22 @@ Finally, the `handlerPointerForClassMethod` function should return the function
 when the handler for 📯 is requested:
 
 ```
-ClassMethodHandler handlerPointerForClassMethod(EmojicodeChar className, EmojicodeChar methodName) {
-    switch (className) {
+FunctionFunctionPointer handlerPointerForMethod(EmojicodeChar cl, EmojicodeChar symbol, MethodType t) {
+    switch (cl) {
         case 0x1f4ef: //📯
             return cryptoSHA256;
     }
     return NULL;
 }
 ```
+
+We haven’t yet discussed the `handlerPointerForMethod` provider function in
+detail. For instance, it should be mentioned that the third argument indicates
+whether the requested method is a type or an instance method. We haven’t used
+this value above as our package provides a single method at the moment and there
+was no need to check whether that’s a type method. Otherwise we should have
+compared `t` against `INSTANCE_METHOD` and `TYPE_METHOD` and used `symbol`,
+which is the name of the method, to find the correct method.
 
 ## Clashing with the Garbage Collector
 
@@ -235,7 +238,7 @@ become your enemy when creating a package binary. Read on to learn why.
 ### Invocation and Functioning
 
 The Garbage Collector in Emojicode can be invoked when
-performing any of these actions:
+performing any of these actions, which we call *Garbage-Collector-invoking*:
 
 - Allocating memory
 - Calling a callable or method
@@ -245,16 +248,17 @@ performing any of these actions:
 The Garbage Collector will invalidate any object to which it cannot find a
 reference. It is only capable of searching the stack (where all Emojicode
 variables live). If you kept a reference to an object in a C variable, you could
-not be sure whether the reference is still valid after an allocation, since the
-allocation could have caused a Garbage Collection cycle. Using an invalid
-reference is evidently undefined behavior and can lead to very strange behavior.
-Hence you should put all object references you need later on into the stack
-before performing any operation that could invoke the Garbage Collector. You
-then of course need to retrieve that object reference from the stack after the
-operation is finished, as the reference could have been updated. To recap:
+not be sure whether the reference is still valid after performing a
+Garbage-Collector-invoking operation which obviously could have triggered a
+Garbage Collection cycle. Using an invalid reference is evidently undefined
+behavior and must be avoided. Hence you should store all object references
+you need later on in the stack before performing any operation that could
+invoke the Garbage Collector. You then of course need to retrieve that object
+references from the stack after the operation is finished, as the reference
+could have been updated. To recap:
 
-1. Store all object references of objects you need in the stack.
-2. Perform the Garbage Collector invoking operation(s).
+1. Store all object references of objects you want to keep in the stack.
+2. Perform the Garbage-Collector-invoking operation(s).
 3. Retrieve the probably new object references from the stack.
 
 >!H The Garbage Collector works in a special way: It copies all referenced,
@@ -283,41 +287,46 @@ instance to store an object reference before performing a GC-invoking operation.
 additional slots. In this case you can *push* a new stack frame:
 
 ```
-void stackPush(void *this, uint8_t variableCount, uint8_t argCount, Thread *thread);
+void stackPush(Something thisContext, uint8_t variableCount, uint8_t argCount, Thread *thread);
 void stackPop(Thread *thread);
 ```
 
-If you use `stackPush` you can also use the `this` to store an object reference.
-As the `this` field doesn’t count towards the variable count, a call to
-`stackPush` like this would be completely fine:
+If you use `stackPush` you can also use the `this` to store a value. As the
+`this` field doesn’t count towards the variable count, a call to `stackPush`
+like this would be completely fine:
 
 ```
 Object *bytesObject = newArray(length);  // To provide a bit of context
-stackPush(bytesObject, 0, 0, thread);
+stackPush(somethingObject(bytesObject), 0, 0, thread);
 ```
 
-To get the `this` value you can use `Object* stackGetThis(Thread *);`, which
-automatically casts the value to an object pointer.
+To get the `this` value you can use:
 
-If you for whatever reason don’t use the `this` field you can also store a
-`NULL` pointer. (The Garbage Collector is capable of detecting whether a `this`
-value is an object reference or something different.) Make sure to provide 0
-to `argCount` and an appropriate value to `variableCount`. You can then set
-and get the variables of the current stack frame with `stackGetVariable` and
-`stackSetVariable` as seen before.
+```
+Something stackGetThisContext(Thread *);
+Object* stackGetThisObject(Thread *);
+```
+
+`stackGetThisObject` returns the `object` field of the this context and should
+therefore only be used if the context is an object context.
+
+If you for whatever reason don’t use the `this` field you should populate it
+with `NOTHINGNESS`. Make sure to provide 0 to `argCount` and an appropriate
+value to `variableCount`. You can then set and get the variables of the current
+stack frame with `stackGetVariable` and `stackSetVariable` as seen before.
 
 It goes without saying that the stack must be kept balanced, so before returning
-from the function handler make sure that you have popped all stack frames you
+from a function handler make sure that you have popped all stack frames you
 previously have pushed.
 
 ### Garbage Collection and Threading
 
 Garbage Collection in an multi-threaded environment like Emojicode requires
 further care. The Garbage Collector can only run while all threads are paused
-(“stop the world”). While this will not affect your code most of times, you
-should actually think about this when you implement time consuming activities.
-Unlike with Emojicode procedures, the Real-Time Engine has not much control
-about your code and so it’s your task to ensure that your procedures do
+(“stop the world”). While this will not affect you and your code usually,
+you should actually think about this when you implement time consuming
+activities. Unlike with Emojicode procedures, the Real-Time Engine has not much
+control about your code and so it’s your task to ensure that your procedures do
 not block Garbage Collector cycles. If your procedure takes exceptionally long,
 you should consider using:
 
@@ -332,24 +341,25 @@ necessary to call `disallowGCAndPauseIfNeeded`.
 
 >!N Between a call to `allowGC` and `disallowGCAndPauseIfNeeded` you must
 >!H not perform any allocations or other kind of GC-invoking operations and you
->!H or any called function may not call `allowGC` again.
+>!H or any called function may not call `allowGC` again. Additionally, the
+>!H Garbage Collector might move any objects. Make sure you don’t rely on any
+>!H objects between these two function calls.
 
 If you now wonder what “exceptionally long” is, I must admit, that this is
 difficult to say. Anything above 100ms could be considered exceptionally long
 as it is already human noticeable. Of course one cannot say for sure, how fast
 a given piece of code will execute on another machine, but you get the point.
 
-For completeness also `void pauseForGC(pthread_mutex_t *mutex);` should be
-mentioned, which you should rather not use. It’s exactly the function that
-is called between execution of different Emojicode instructions to determine
-whether a Garbage Collector pause was requested. Please see the header files
-for further information.
+For the sake of completeness, `void pauseForGC(pthread_mutex_t *mutex);` should
+be mentioned, which you should rather not use. It’s exactly the function that is
+called between execution of different Emojicode instructions to determine
+whether a Garbage Collector pause was requested. Please see the header files for
+further information.
 
 ## Something
 
-As mentioned earlier Something is either a primitive value (boolean, integer,
-double) or an object reference and keeps track of the primitive type of the
-value.
+As mentioned before, `Something is either a the value of a value type or an
+object reference and keeps track of the type of its value.
 
 To wrap something into a `Something` you should rely on the appropriate macros:
 
@@ -421,46 +431,46 @@ uint_fast32_t sizeForClass(Class *class, EmojicodeChar name) {
 ```
 
 Whenever a 📯 instance is now allocated, a value area will be reserved capable
-of represesnting `SHA256_CTX`. Of course, we need to also implement our
-intializer:
+of representing `SHA256_CTX`. Of course, we need to also implement our
+initializer:
 
 ```
 void cryptoSHA256Initalizer(Thread *thread) {
-    SHA256_CTX *sha26 = stackGetThis(thread)->value;
+    SHA256_CTX *sha26 = stackGetThisObject(thread)->value;
     SHA256_Init(sha26);
 }
 ```
 
-An initialzer handler is slightly different from a method handler as it returns
-nothing. If you want a Nothingness initializer to return Nothingness, you can
-set the value field of the this object to `NULL`, like so:
-`stackGetThis(thread)->value = NULL;`. This is the only case in which you may
-assign the `value` field.
+An initializer handler is slightly different from a method handler as it returns
+`void. If you want a Nothingness initializer to return Nothingness, you can set
+the value field of the this object to `NULL`, like so:
+`stackGetThisObject(thread)->value = NULL;`. This is the only case in which you
+may assign the `value` field.
 
-Our intializer above does nothing special. It casts the pointer to the value
+Our initializer above does nothing special. It casts the pointer to the value
 field to a `SHA256_CTX` pointer and calls `SHA256_Init`.
 
 Now the implementations for the methods 📇 and 📩 follow:
 
 ```
 Something cryptoSHA256Append(Thread *thread) {
-    SHA256_CTX *sha256 = stackGetThis(thread)->value;
+    SHA256_CTX *sha256 = stackGetThisObject(thread)->value;
     Data *data = stackGetVariable(0, thread).object->value;
     SHA256_Update(sha256, data->bytes, data->length);
     return NOTHINGNESS;
 }
 
 Something cryptoSHA256Final(Thread *thread) {
-    SHA256_CTX *sha256 = stackGetThis(thread)->value;
+    SHA256_CTX *sha256 = stackGetThisObject(thread)->value;
 
     Object *output = newArray(SHA256_DIGEST_LENGTH);
     SHA256_Final(output->value, sha256);
 
-    stackPush(output, 0, 0, thread);  // 1.
+    stackPush(somethingObject(output), 0, 0, thread);  // 1.
     Object *obj = newObject(CL_DATA);
     Data *outData = obj->value;
     outData->length = SHA256_DIGEST_LENGTH;
-    outData->bytesObject = stackGetThis(thread);  // 2.
+    outData->bytesObject = stackGetThisObject(thread);  // 2.
     outData->bytes = outData->bytesObject->value;
     stackPop(thread);  // 3.
 
@@ -473,7 +483,7 @@ things in `cryptoSHA256Final` to be discussed:
 
 1. As you already know from *Clashing with the Garbage Collector* we need to
   store the `output` array in the stack before allocating another object.
-2. Remeber that we have pushed a stack frame in which the `output` array is the
+2. Remember that we have pushed a stack frame in which the `output` array is the
   this object. We retrieve it here and put it into the `bytesObject` field.
 3. Last but not least: The stack frame which was previously pushed is now
   popped.
@@ -481,21 +491,23 @@ things in `cryptoSHA256Final` to be discussed:
 Finally, let’s return these handlers:
 
 ```
-MethodHandler handlerPointerForMethod(EmojicodeChar className, EmojicodeChar methodName) {
-    switch (className) {
+FunctionFunctionPointer handlerPointerForMethod(EmojicodeChar cl, EmojicodeChar symbol, MethodType t) {
+    switch (cl) {
         case 0x1f4ef: //📯
-            switch (methodName) {
+            switch (symbol) {
                 case 0x1f4c7: //📇
                     return cryptoSHA256Append;
                 case 0x1f4e9: //📩
                     return cryptoSHA256Final;
+                case 0x1f4ef: //📯
+                    return cryptoSHA256;
             }
     }
     return NULL;
 }
 
-InitializerHandler handlerPointerForInitializer(EmojicodeChar className, EmojicodeChar initializerName) {
-    switch (className) {
+InitializerFunctionFunctionPointer handlerPointerForInitializer(EmojicodeChar cl, EmojicodeChar symbol) {
+    switch (cl) {
         case 0x1f4ef: //📯
             return cryptoSHA256Initalizer;
     }
