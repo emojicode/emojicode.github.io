@@ -207,22 +207,22 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
       classMethods: type.classMethods,
       typeType,
       genericArguments: type.genericArguments,
-      typeLink: function() {
+      typeLink: function () {
         return that.typeLink(this.type);
       },
-      constraintTypeLink: function() {
+      constraintTypeLink: function () {
         return that.typeLink(this.constraint);
       },
-      thisTypeLink: function() {
+      thisTypeLink: function () {
         return that.typeLink(this);
       },
-      mdDocumentation: function() {
+      mdDocumentation: function () {
         return this.documentation && compiler.markdownToHTML(this.documentation);
       },
-      simpleAccess: function() {
+      simpleAccess: function () {
         return this.access === '🔓' ? '' : this.access + ' ';
       },
-      procedureVisible: function() {
+      procedureVisible: function () {
         return this.access !== '🔒';
       },
     });
@@ -255,9 +255,9 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
 
     const types = require(this.srcPath('package.json'));
 
-    const classes = types.classes.filter(cl => {
-      if (cl.documentation) {
-        this.templateType(cl, 'Class', packageMeta);
+    const classes = types.classes.filter(eclass => {
+      if (eclass.documentation) {
+        this.templateType(eclass, 'Class', packageMeta);
         return true;
       }
       return false;
@@ -300,10 +300,10 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
       license: packageMeta.license,
       readme: this.readReadme(),
       title: packageMeta.name,
-      firstSentence: function() {
-        return this.documentation && this.documentation.split('.', 2)[0] + '.';
+      firstSentence: function () {
+        return this.documentation && `${this.documentation.split('.', 2)[0]}.`;
       },
-      asciiTypeName: function() {
+      asciiTypeName: function () {
         return that.typeAsciiName(this.name);
       },
     });
