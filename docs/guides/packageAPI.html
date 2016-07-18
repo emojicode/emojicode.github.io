@@ -10,7 +10,7 @@
 		<div class="global-nav">
 			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
-		<nav class="navbar" role="navigation">
+		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
         Emojicode <span class="logo-version">0.3 Beta</span> Documentation
       </a>
@@ -24,29 +24,57 @@
 
 		<div class="toc">
 	<h2>Emojicode Guides</h2>
-	<ol>
+	<ol data-gumshoe>
     	<li>
-        <a href="install.html">Installing Emojicode</a>
+        <a href="install.html"
+            
+            class="chapter-link">Installing Emojicode</a>
       </li>
     	<li>
-        <a href="compile-and-run.html">Compile and Run Your First Program</a>
+        <a href="compile-and-run.html"
+            
+            class="chapter-link">Compile and Run Your First Program</a>
       </li>
     	<li>
-        <a href="input-methods.html">Input methods</a>
+        <a href="input-methods.html"
+            
+            class="chapter-link">Input methods</a>
       </li>
     	<li>
-        <a href="packageAPI.html">The Package API</a>
+        <a href="packageAPI.html"
+            class="chapter-link current"
+            >The Package API</a>
           <ul>
-            <li><a href="#native-binaries">Native Binaries</a></li>
-            <li><a href="#run-time-native-linking">Run-Time Native Linking</a></li>
-            <li><a href="#minimal-setup">Minimal Setup</a></li>
-            <li><a href="#implementing-a-handler-function">Implementing a handler function</a></li>
-            <li><a href="#clashing-with-the-garbage-collector">Clashing with the Garbage Collector</a></li>
-            <li><a href="#something">Something</a></li>
-            <li><a href="#backing-a-class">Backing a class</a></li>
-            <li><a href="#compiling-the-package">Compiling The Package</a></li>
-            <li><a href="#deinitialization">Deinitialization</a></li>
-            <li><a href="#marking">Marking</a></li>
+            <li>
+              <a href="#native-binaries" class="section-link">Native Binaries</a>
+            </li>
+            <li>
+              <a href="#run-time-native-linking" class="section-link">Run-Time Native Linking</a>
+            </li>
+            <li>
+              <a href="#minimal-setup" class="section-link">Minimal Setup</a>
+            </li>
+            <li>
+              <a href="#implementing-a-handler-function" class="section-link">Implementing a handler function</a>
+            </li>
+            <li>
+              <a href="#clashing-with-the-garbage-collector" class="section-link">Clashing with the Garbage Collector</a>
+            </li>
+            <li>
+              <a href="#something" class="section-link">Something</a>
+            </li>
+            <li>
+              <a href="#backing-a-class" class="section-link">Backing a class</a>
+            </li>
+            <li>
+              <a href="#compiling-the-package" class="section-link">Compiling The Package</a>
+            </li>
+            <li>
+              <a href="#deinitialization" class="section-link">Deinitialization</a>
+            </li>
+            <li>
+              <a href="#marking" class="section-link">Marking</a>
+            </li>
           </ul>
       </li>
 	</ol>
@@ -513,11 +541,9 @@ garbage collector related stuff).</p>
 </div>
 
 
-		<script type="text/javascript">
-			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
-			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
-				twemoji.parse(document.body);
-			}
-		</script>
+    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script>
+      gumshoe.init({ activeClass: 'current', offset: 80 });
+    </script>
 	</body>
 </html>

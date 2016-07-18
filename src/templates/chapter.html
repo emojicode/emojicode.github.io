@@ -1,13 +1,17 @@
 <div class="toc">
 	<h2>{{bookTitle}}</h2>
-	<ol>
+	<ol data-gumshoe>
   	{{#chapters}}
     	<li>
-        <a href="{{name}}.html">{{title}}</a>
+        <a href="{{name}}.html"
+            {{#current}}class="chapter-link current"{{/current}}
+            {{^current}}class="chapter-link"{{/current}}>{{title}}</a>
         {{#current}}
           <ul>
           {{#sections}}
-            <li><a href="#{{thisHeadingID}}">{{.}}</a></li>
+            <li>
+              <a href="#{{thisHeadingID}}" class="section-link">{{.}}</a>
+            </li>
           {{/sections}}
           </ul>
         {{/current}}

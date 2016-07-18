@@ -10,7 +10,7 @@
 		<div class="global-nav">
 			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
-		<nav class="navbar" role="navigation">
+		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
         Emojicode <span class="logo-version">0.3 Beta</span> Documentation
       </a>
@@ -24,66 +24,114 @@
 
 		<div class="toc">
 	<h2>The Definite Language Reference &amp; Guide</h2>
-	<ol>
+	<ol data-gumshoe>
     	<li>
-        <a href="basics.html">The Basics</a>
+        <a href="basics.html"
+            
+            class="chapter-link">The Basics</a>
       </li>
     	<li>
-        <a href="optionals.html">Optionals and Nothingness</a>
+        <a href="optionals.html"
+            
+            class="chapter-link">Optionals and Nothingness</a>
       </li>
     	<li>
-        <a href="the-s-package.html">The s package</a>
+        <a href="the-s-package.html"
+            
+            class="chapter-link">The s package</a>
       </li>
     	<li>
-        <a href="controlflow.html">Control Flow</a>
+        <a href="controlflow.html"
+            
+            class="chapter-link">Control Flow</a>
       </li>
     	<li>
-        <a href="classes-valuetypes.html">Classes &amp; Value Types</a>
+        <a href="classes-valuetypes.html"
+            
+            class="chapter-link">Classes &amp; Value Types</a>
       </li>
     	<li>
-        <a href="extensions.html">Extensions</a>
+        <a href="extensions.html"
+            
+            class="chapter-link">Extensions</a>
       </li>
     	<li>
-        <a href="protocols.html">Protocols</a>
+        <a href="protocols.html"
+            
+            class="chapter-link">Protocols</a>
       </li>
     	<li>
-        <a href="enums.html">Enums</a>
+        <a href="enums.html"
+            
+            class="chapter-link">Enums</a>
       </li>
     	<li>
-        <a href="types.html">Types and Namespaces</a>
+        <a href="types.html"
+            class="chapter-link current"
+            >Types and Namespaces</a>
           <ul>
-            <li><a href="#namespaces">Namespaces</a></li>
-            <li><a href="#-the-inferred-type">⚫️ The Inferred Type</a></li>
-            <li><a href="#-something">⚪ Something</a></li>
-            <li><a href="#-someobject">🔵 Someobject</a></li>
-            <li><a href="#-casting">🔲 Casting</a></li>
-            <li><a href="#expectations">Expectations</a></li>
-            <li><a href="#syntactic-definition">Syntactic Definition</a></li>
+            <li>
+              <a href="#namespaces" class="section-link">Namespaces</a>
+            </li>
+            <li>
+              <a href="#-the-inferred-type" class="section-link">⚫️ The Inferred Type</a>
+            </li>
+            <li>
+              <a href="#-something" class="section-link">⚪ Something</a>
+            </li>
+            <li>
+              <a href="#-someobject" class="section-link">🔵 Someobject</a>
+            </li>
+            <li>
+              <a href="#-casting" class="section-link">🔲 Casting</a>
+            </li>
+            <li>
+              <a href="#expectations" class="section-link">Expectations</a>
+            </li>
+            <li>
+              <a href="#syntactic-definition" class="section-link">Syntactic Definition</a>
+            </li>
           </ul>
       </li>
     	<li>
-        <a href="generics.html">Generics</a>
+        <a href="generics.html"
+            
+            class="chapter-link">Generics</a>
       </li>
     	<li>
-        <a href="callables.html">Callables</a>
+        <a href="callables.html"
+            
+            class="chapter-link">Callables</a>
       </li>
     	<li>
-        <a href="threads.html">Threads</a>
+        <a href="threads.html"
+            
+            class="chapter-link">Threads</a>
       </li>
     	<li>
-        <a href="metatypes.html">Metatypes</a>
+        <a href="metatypes.html"
+            
+            class="chapter-link">Metatypes</a>
       </li>
     	<li>
-        <a href="packages.html">Packages</a>
+        <a href="packages.html"
+            
+            class="chapter-link">Packages</a>
       </li>
     	<li>
-        <a href="memory.html">Memory Management</a>
+        <a href="memory.html"
+            
+            class="chapter-link">Memory Management</a>
       </li>
     	<li>
-        <a href="specification.html">Emojicode Engine &amp; Compilation Specification</a>
+        <a href="specification.html"
+            
+            class="chapter-link">Emojicode Engine &amp; Compilation Specification</a>
       </li>
     	<li>
-        <a href="compiler.html">Appendix I: The Emojicode Compiler</a>
+        <a href="compiler.html"
+            
+            class="chapter-link">Appendix I: The Emojicode Compiler</a>
       </li>
 	</ol>
 </div>
@@ -197,11 +245,9 @@ follows:</p>
 </div>
 
 
-		<script type="text/javascript">
-			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
-			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
-				twemoji.parse(document.body);
-			}
-		</script>
+    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script>
+      gumshoe.init({ activeClass: 'current', offset: 80 });
+    </script>
 	</body>
 </html>

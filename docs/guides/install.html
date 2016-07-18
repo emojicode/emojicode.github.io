@@ -10,7 +10,7 @@
 		<div class="global-nav">
 			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
-		<nav class="navbar" role="navigation">
+		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
         Emojicode <span class="logo-version">0.3 Beta</span> Documentation
       </a>
@@ -24,22 +24,34 @@
 
 		<div class="toc">
 	<h2>Emojicode Guides</h2>
-	<ol>
+	<ol data-gumshoe>
     	<li>
-        <a href="install.html">Installing Emojicode</a>
+        <a href="install.html"
+            class="chapter-link current"
+            >Installing Emojicode</a>
           <ul>
-            <li><a href="#downloads">Downloads</a></li>
-            <li><a href="#installing">Installing</a></li>
+            <li>
+              <a href="#downloads" class="section-link">Downloads</a>
+            </li>
+            <li>
+              <a href="#installing" class="section-link">Installing</a>
+            </li>
           </ul>
       </li>
     	<li>
-        <a href="compile-and-run.html">Compile and Run Your First Program</a>
+        <a href="compile-and-run.html"
+            
+            class="chapter-link">Compile and Run Your First Program</a>
       </li>
     	<li>
-        <a href="input-methods.html">Input methods</a>
+        <a href="input-methods.html"
+            
+            class="chapter-link">Input methods</a>
       </li>
     	<li>
-        <a href="packageAPI.html">The Package API</a>
+        <a href="packageAPI.html"
+            
+            class="chapter-link">The Package API</a>
       </li>
 	</ol>
 </div>
@@ -82,11 +94,9 @@ you will likely have to install the <code>ttf-ancient-fonts</code> on Linux.</p>
 </div>
 
 
-		<script type="text/javascript">
-			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
-			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
-				twemoji.parse(document.body);
-			}
-		</script>
+    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script>
+      gumshoe.init({ activeClass: 'current', offset: 80 });
+    </script>
 	</body>
 </html>

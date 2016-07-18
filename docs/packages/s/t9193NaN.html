@@ -10,7 +10,7 @@
 		<div class="global-nav">
 			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
-		<nav class="navbar" role="navigation">
+		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
         Emojicode <span class="logo-version">0.3 Beta</span> Documentation
       </a>
@@ -88,11 +88,9 @@ Nothingness is returned.</p>
 </div>
 
 
-		<script type="text/javascript">
-			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
-			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
-				twemoji.parse(document.body);
-			}
-		</script>
+    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script>
+      gumshoe.init({ activeClass: 'current', offset: 80 });
+    </script>
 	</body>
 </html>

@@ -10,7 +10,7 @@
 		<div class="global-nav">
 			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
-		<nav class="navbar" role="navigation">
+		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
         Emojicode <span class="logo-version">0.3 Beta</span> Documentation
       </a>
@@ -24,23 +24,37 @@
 
 		<div class="toc">
 	<h2>Emojicode Guides</h2>
-	<ol>
+	<ol data-gumshoe>
     	<li>
-        <a href="install.html">Installing Emojicode</a>
+        <a href="install.html"
+            
+            class="chapter-link">Installing Emojicode</a>
       </li>
     	<li>
-        <a href="compile-and-run.html">Compile and Run Your First Program</a>
+        <a href="compile-and-run.html"
+            
+            class="chapter-link">Compile and Run Your First Program</a>
       </li>
     	<li>
-        <a href="input-methods.html">Input methods</a>
+        <a href="input-methods.html"
+            class="chapter-link current"
+            >Input methods</a>
           <ul>
-            <li><a href="#macos-emojipicker">macOS Emojipicker</a></li>
-            <li><a href="#ibus">IBus</a></li>
-            <li><a href="#compose-hex-code-">Compose (Hex code)</a></li>
+            <li>
+              <a href="#macos-emojipicker" class="section-link">macOS Emojipicker</a>
+            </li>
+            <li>
+              <a href="#ibus" class="section-link">IBus</a>
+            </li>
+            <li>
+              <a href="#compose-hex-code-" class="section-link">Compose (Hex code)</a>
+            </li>
           </ul>
       </li>
     	<li>
-        <a href="packageAPI.html">The Package API</a>
+        <a href="packageAPI.html"
+            
+            class="chapter-link">The Package API</a>
       </li>
 	</ol>
 </div>
@@ -73,11 +87,9 @@ become a window and stay open so you can easily enter code.</p>
 </div>
 
 
-		<script type="text/javascript">
-			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
-			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
-				twemoji.parse(document.body);
-			}
-		</script>
+    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script>
+      gumshoe.init({ activeClass: 'current', offset: 80 });
+    </script>
 	</body>
 </html>

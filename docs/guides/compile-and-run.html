@@ -10,7 +10,7 @@
 		<div class="global-nav">
 			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
 		</div>
-		<nav class="navbar" role="navigation">
+		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
         Emojicode <span class="logo-version">0.3 Beta</span> Documentation
       </a>
@@ -24,24 +24,40 @@
 
 		<div class="toc">
 	<h2>Emojicode Guides</h2>
-	<ol>
+	<ol data-gumshoe>
     	<li>
-        <a href="install.html">Installing Emojicode</a>
+        <a href="install.html"
+            
+            class="chapter-link">Installing Emojicode</a>
       </li>
     	<li>
-        <a href="compile-and-run.html">Compile and Run Your First Program</a>
+        <a href="compile-and-run.html"
+            class="chapter-link current"
+            >Compile and Run Your First Program</a>
           <ul>
-            <li><a href="#the-basic-structure">The basic structure</a></li>
-            <li><a href="#greetings">Greetings</a></li>
-            <li><a href="#warming-up">Warming Up</a></li>
-            <li><a href="#what-to-do-next">What to do next</a></li>
+            <li>
+              <a href="#the-basic-structure" class="section-link">The basic structure</a>
+            </li>
+            <li>
+              <a href="#greetings" class="section-link">Greetings</a>
+            </li>
+            <li>
+              <a href="#warming-up" class="section-link">Warming Up</a>
+            </li>
+            <li>
+              <a href="#what-to-do-next" class="section-link">What to do next</a>
+            </li>
           </ul>
       </li>
     	<li>
-        <a href="input-methods.html">Input methods</a>
+        <a href="input-methods.html"
+            
+            class="chapter-link">Input methods</a>
       </li>
     	<li>
-        <a href="packageAPI.html">The Package API</a>
+        <a href="packageAPI.html"
+            
+            class="chapter-link">The Package API</a>
       </li>
 	</ol>
 </div>
@@ -184,11 +200,9 @@ miss Emojicode’s incredible power if you don’t.</p>
 </div>
 
 
-		<script type="text/javascript">
-			if(navigator.platform.indexOf('Mac') == -1 && navigator.platform.indexOf('iPhone') == -1
-			&& navigator.platform.indexOf('iPad') == -1 && navigator.platform.indexOf('iPod') == -1){
-				twemoji.parse(document.body);
-			}
-		</script>
+    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script>
+      gumshoe.init({ activeClass: 'current', offset: 80 });
+    </script>
 	</body>
 </html>
