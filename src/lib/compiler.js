@@ -205,6 +205,7 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
       initializers: type.initializers,
       methods: type.methods,
       classMethods: type.classMethods,
+      superclass: type.superclass,
       typeType,
       genericArguments: type.genericArguments,
       typeLink: function () {
