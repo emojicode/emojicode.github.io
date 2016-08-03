@@ -180,7 +180,7 @@ class Package {
   }
 
   typeAsciiName(name) {
-    return `t${name.charCodeAt(0)}${name.charCodeAt(1)}`;
+    return name.codePointAt(0).toString(16);
   }
 
   typeLink(type) {
@@ -192,9 +192,14 @@ class Package {
 ${(type.optional ? '🍬' : '')}${type.name}</a>`;
   }
 
+  markdownToHTML(md) {
+    this.compiler.markdownToHTML(md.replace(/\[\[.+\]\]/g, (match, name) =>
+      `<a href="${this.typeAsciiName(name)}.html">${name}</a>`
+    ));
+  }
+
   templateType(type, typeType, packageMeta) {
     const ascii = this.typeAsciiName(type.name);
-    const compiler = this.compiler;
     const that = this;
     this.compiler.template('mcc.html', this.outPath(`${ascii}.html`), {
       typeName: type.name,
@@ -218,7 +223,7 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
         return that.typeLink(this);
       },
       mdDocumentation: function () {
-        return this.documentation && compiler.markdownToHTML(this.documentation);
+        return this.documentation && that.markdownToHTML(this.documentation);
       },
       simpleAccess: function () {
         return this.access === '🔓' ? '' : this.access + ' ';
@@ -231,7 +236,7 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
 
   templateEnum(type, packageMeta) {
     const ascii = this.typeAsciiName(type.name);
-    const compiler = this.compiler;
+    const that = this;
     this.compiler.template('enum.html', this.outPath(`${ascii}.html`), {
       typeName: type.name,
       documentation: type.documentation,
@@ -239,7 +244,7 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
       genericArguments: type.genericArguments,
       values: type.values,
       mdDocumentation: function() {
-        return this.documentation && compiler.markdownToHTML(this.documentation);
+        return this.documentation && that.markdownToHTML(this.documentation);
       },
     });
   }
