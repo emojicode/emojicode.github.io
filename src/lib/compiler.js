@@ -193,7 +193,7 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
   }
 
   markdownToHTML(md) {
-    this.compiler.markdownToHTML(md.replace(/\[\[.+\]\]/g, (match, name) =>
+    return this.compiler.markdownToHTML(md.replace(/\[\[(.+)\]\]/g, (match, name) =>
       `<a href="${this.typeAsciiName(name)}.html">${name}</a>`
     ));
   }
