@@ -41,7 +41,8 @@
 </div>
 <div class="content">
 <h1>Class ⏲</h1>
-<p></p>
+<p><p>⏲ represents a timer that sends an event in a specified interval. </p>
+</p>
 
   <h2>Initializers</h2>
       <div class="method">
@@ -52,6 +53,8 @@
 
         <pre class="declaration">🐈 🆕 seconds <a href="../s/1f680.html">🚀</a> </pre>
 
+<p>Creates a new, stopped timer that ticks every <em>seconds</em> seconds.
+Seconds must be positive.</p>
 
       </div>
 
@@ -65,6 +68,9 @@
 
         <pre class="declaration">🐖 🏁 ➡️ ✨</pre>
 
+<p>Starts the timer. From then, the timer&#39;s counter will increment at a
+constant rate, and it will begin generating events. Starting a timer that
+is already started does nothing.</p>
 
       </div>
       <div class="method">
@@ -75,6 +81,10 @@
 
         <pre class="declaration">🐖 🚦 ➡️ ✨</pre>
 
+<p>Resume the timer specified. From then, the timer&#39;s counter will increment at
+a constant rate, and it will begin generating events. Resuming a timer
+that is already started does nothing. Resuming a stopped timer will not
+reset the timer&#39;s counter.</p>
 
       </div>
       <div class="method">
@@ -85,6 +95,9 @@
 
         <pre class="declaration">🐖 ⛔ ➡️ ✨</pre>
 
+<p>Stop the timer specified. The timer&#39;s counter will stop incrementing and it
+will stop generating events. Stopping a timer that is already stopped does
+nothing.</p>
 
       </div>
 

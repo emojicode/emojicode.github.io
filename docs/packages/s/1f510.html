@@ -41,7 +41,9 @@
 </div>
 <div class="content">
 <h1>Class 🔐</h1>
-<p></p>
+<p><p>🔐 represents a mutex. A mutex is a simple semaphore that can be used to
+coordinate access to shared data from multiple concurrent threads.</p>
+</p>
 
   <h2>Initializers</h2>
       <div class="method">
@@ -52,6 +54,7 @@
 
         <pre class="declaration">🐈 🆕 </pre>
 
+<p>Creates an new mutex.</p>
 
       </div>
 
@@ -65,6 +68,8 @@
 
         <pre class="declaration">🐖 🔒 ➡️ ✨</pre>
 
+<p>Attempts to lock the mutex and waits until it becomes available if it is
+already locked.</p>
 
       </div>
       <div class="method">
@@ -75,6 +80,7 @@
 
         <pre class="declaration">🐖 🔓 ➡️ ✨</pre>
 
+<p>Unlocks the mutex.</p>
 
       </div>
       <div class="method">
@@ -85,6 +91,8 @@
 
         <pre class="declaration">🐖 🔐 ➡️ <a href="../s/1f44c.html">👌</a></pre>
 
+<p>Attempts to lock the mutex and returns immediately. Returns 👍 if the mutex
+could be locked.</p>
 
       </div>
 
