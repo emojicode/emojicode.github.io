@@ -41,6 +41,11 @@
             class="chapter-link">Input methods</a>
       </li>
     	<li>
+        <a href="allegro.html"
+            
+            class="chapter-link">The Cookie Monster Game</a>
+      </li>
+    	<li>
         <a href="packageAPI.html"
             class="chapter-link current"
             >The Package API</a>
@@ -369,7 +374,7 @@ called between execution of different Emojicode instructions to determine
 whether a Garbage Collector pause was requested. Please see the header files for
 further information.</p>
 <h2 id="something">Something</h2>
-<p>As mentioned before, `Something is either a the value of a value type or an
+<p>As mentioned before, <code>Something</code> is either a the value of a value type or an
 object reference and keeps track of the type of its value.</p>
 <p>To wrap something into a <code>Something</code> you should rely on the appropriate macros:</p>
 <pre><code>somethingObject(o)
@@ -426,9 +431,10 @@ initializer:</p>
     SHA256_Init(sha26);
 }
 </code></pre><p>An initializer handler is slightly different from a method handler as it returns
-<code>void. If you want a Nothingness initializer to return Nothingness, you can set
-the value field of the this object to</code>NULL<code>, like so:</code>stackGetThisObject(thread)-&gt;value = NULL;<code>. This is the only case in which you
-may assign the</code>value` field.</p>
+<code>void</code>. If you want a Nothingness initializer to return Nothingness, you can set
+the value field of the this object to <code>NULL</code>, like so:
+<code>stackGetThisObject(thread)-&gt;value = NULL;</code>. This is the only case in which you
+may assign the <code>value</code> field.</p>
 <p>Our initializer above does nothing special. It casts the pointer to the value
 field to a <code>SHA256_CTX</code> pointer and calls <code>SHA256_Init</code>.</p>
 <p>Now the implementations for the methods 📇 and 📩 follow:</p>
@@ -534,7 +540,7 @@ garbage collector related stuff).</p>
 
 
 	<div class="reference-navigation-bottom">
-		<a href="input-methods.html" class="left">
+		<a href="allegro.html" class="left">
 			← Previous
 		</a>
 	</div>

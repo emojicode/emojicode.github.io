@@ -358,7 +358,7 @@ further information.
 
 ## Something
 
-As mentioned before, `Something is either a the value of a value type or an
+As mentioned before, `Something` is either a the value of a value type or an
 object reference and keeps track of the type of its value.
 
 To wrap something into a `Something` you should rely on the appropriate macros:
@@ -442,7 +442,7 @@ void cryptoSHA256Initalizer(Thread *thread) {
 ```
 
 An initializer handler is slightly different from a method handler as it returns
-`void. If you want a Nothingness initializer to return Nothingness, you can set
+`void`. If you want a Nothingness initializer to return Nothingness, you can set
 the value field of the this object to `NULL`, like so:
 `stackGetThisObject(thread)->value = NULL;`. This is the only case in which you
 may assign the `value` field.
