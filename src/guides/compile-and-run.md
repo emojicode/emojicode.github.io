@@ -128,12 +128,12 @@ Now we need to get the rest of the word.
 ```
 🐖 🐷 ➡️ 🔡￼ 🍇
   🍦 firstLetter 🔪 🐕 0 1
-  🍦 rest 🔪 🐕 1 📏 🐕
+  🍦 rest 🔪 🐕 1 🐔 🐕
 🍉
 ```
 
-The `📏` method returns the length of a string, so we get the whole string. You
-can see that the result of the `📏`  method is used as argument to 🔪.
+The `🐔` method returns the length of a string, so we get the whole string. You
+can see that the result of the `🐔` method is used as argument to 🔪.
 
 Finally we just need to concatenate `firstLetter`, `rest` and *ay* and return it
 from the method.
@@ -141,7 +141,7 @@ from the method.
 ```
 🐖 🐷 ➡️ 🔡 🍇
   🍦 firstLetter 🔪 🐕 0 1
-  🍦 rest 🔪 🐕 1 📏 🐕
+  🍦 rest 🔪 🐕 1 🐔 🐕
   🍎 🍪 rest firstLetter 🔤ay🔤 🍪
 🍉
 ```
@@ -158,7 +158,7 @@ now look like this:
 🐋 🔡 🍇
   🐖 🐷 ➡️ 🔡 🍇
     🍦 firstLetter 🔪 🐕 0 1
-    🍦 rest 🔪 🐕 1 📏 🐕
+    🍦 rest 🔪 🐕 1 🐔 🐕
     🍎 🍪 rest firstLetter 🔤ay🔤 🍪
   🍉
 🍉
