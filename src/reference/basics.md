@@ -60,7 +60,7 @@ The 🏁 block can also return an integer which is then used as the exit code:
 🍉
 ```
 
-It occours at the document level of a document.
+It occurs at the document level of a document.
 
 ## When to use Emojis?
 
@@ -149,11 +149,11 @@ disappears once the block was executed:
 🍉
 </pre>
 
-You cannot access scopes beyond the method, class method or intializer from your
-code. Nevertheless, you can access the *object scope* in instance methods and
-intializers. Closures are also considered an exception from this rule. You’ll
-learn more about these two kinds for special scoping  in [Classes & Value Types
-](classes-valuetypes.html) and [Callables](callables.html).
+You cannot access scopes beyond the method, class method or initializer from
+your code. Nevertheless, you can access the *object scope* in instance methods
+and initializers. Closures are also considered an exception from this rule.
+You’ll learn more about these two kinds for special scoping  in [Classes & Value
+Types](classes-valuetypes.html) and [Callables](callables.html).
 
 ### 🍫 & 🍳 Incrementing and Decrementing Variables
 

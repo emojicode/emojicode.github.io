@@ -45,7 +45,7 @@ $table-alternative-color: #f8f8f8;
 $table-border-color: #ddd;
 $table-row-border-top-color: #ccc;
 
-$logo-letter-spacing: -0.03em;
+$heading-letter-spacing: -0.03em;
 
 $content-width: 700px;
 
@@ -165,6 +165,7 @@ h4 {
   color: $navbar-color;
   margin-top: 2.9rem;
   margin-bottom: 0.6rem;
+  letter-spacing: $heading-letter-spacing;
 }
 
 table {
@@ -240,7 +241,7 @@ table {
 
 .logo {
   font-family: Varela Round, sans-serif;
-  letter-spacing: $logo-letter-spacing;
+  letter-spacing: $heading-letter-spacing;
   font-size: 22px;
   float: left;
 }
