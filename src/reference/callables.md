@@ -105,8 +105,8 @@ Example:
 🍦 greet 🍇 name 🔡 ➡️ 🔡
   🍮 out 🔤🔤
 
-  🔂 i ⏩ ➖ 📏 name 1 -1 🍇
-    🍮 out 📝 out 🍺 🔬 name i
+  🔂 i ⏩ ➖ 🐔 name 1 -1 🍇
+    🍮 out 📝 out 🍺 🐽 name i
   🍉
 
   🍎 out

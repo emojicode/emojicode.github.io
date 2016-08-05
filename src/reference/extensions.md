@@ -25,8 +25,8 @@ You can also extend classes from other packages. For example:
   🐖 😈 ➡️ 🔡 🍇
     🍮 out 🔤🔤
 
-    🔂 i ⏩ ➖ 📏 🐕 1 -1 🍇
-      🍮 out 📝 out 🍺 🔬 🐕 i
+    🔂 i ⏩ ➖ 🐔 🐕 1 -1 🍇
+      🍮 out 📝 out 🍺 🐽 🐕 i
     🍉
 
     🍎 out

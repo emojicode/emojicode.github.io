@@ -22,7 +22,7 @@
 			</div>
 		</nav>
 
-		<div class="toc">
+		  <div class="toc">
 	<h2>The Definite Language Reference &amp; Guide</h2>
 	<ol data-gumshoe>
     	<li>
@@ -121,6 +121,15 @@
 	</ol>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var current = document.querySelector('.chapter-link.current');
+    if (current) {
+      current.scrollIntoView(true);
+    }
+  });
+</script>
+
 <div class="content">
 	<h1 id="extensions">Extensions</h1>
 <p>Extensions allow you to extend an existing class or value type. You can do
@@ -143,8 +152,8 @@ everything in an extension you could do in the initial definition.</p>
   🐖 😈 ➡️ 🔡 🍇
     🍮 out 🔤🔤
 
-    🔂 i ⏩ ➖ 📏 🐕 1 -1 🍇
-      🍮 out 📝 out 🍺 🔬 🐕 i
+    🔂 i ⏩ ➖ 🐔 🐕 1 -1 🍇
+      🍮 out 📝 out 🍺 🐽 🐕 i
     🍉
 
     🍎 out

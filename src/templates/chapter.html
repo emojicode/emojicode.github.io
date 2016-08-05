@@ -1,4 +1,4 @@
-<div class="toc">
+  <div class="toc">
 	<h2>{{bookTitle}}</h2>
 	<ol data-gumshoe>
   	{{#chapters}}
@@ -19,6 +19,15 @@
   	{{/chapters}}
 	</ol>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var current = document.querySelector('.chapter-link.current');
+    if (current) {
+      current.scrollIntoView(true);
+    }
+  });
+</script>
 
 <div class="content">
 	{{{content}}}

@@ -12,6 +12,11 @@ types to write meaningful programs.
 >!H
 >!H You can browse the whole API of the s package [here](../packages/s/).
 
+## 👌 🚂 🚀 🔣
+
+You’ve already got to know the types 👌 🚂 🚀 🔣 in a previous chapter. These
+types are, of course, also defined in the s package.
+
 ## 🔡 Strings
 
 In Emojicode a string is an ordered immutable collection of symbols (or easily

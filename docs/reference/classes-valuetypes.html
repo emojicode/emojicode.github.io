@@ -22,7 +22,7 @@
 			</div>
 		</nav>
 
-		<div class="toc">
+		  <div class="toc">
 	<h2>The Definite Language Reference &amp; Guide</h2>
 	<ol data-gumshoe>
     	<li>
@@ -92,6 +92,9 @@
             <li>
               <a href="#access-modifiers" class="section-link">Access Modifiers</a>
             </li>
+            <li>
+              <a href="#object-address-compare" class="section-link">Object Address Compare</a>
+            </li>
           </ul>
       </li>
     	<li>
@@ -156,6 +159,15 @@
       </li>
 	</ol>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var current = document.querySelector('.chapter-link.current');
+    if (current) {
+      current.scrollIntoView(true);
+    }
+  });
+</script>
 
 <div class="content">
 	<h1 id="classes-value-types">Classes &amp; Value Types</h1>
@@ -451,6 +463,18 @@ will lead to a compiler error.</p>
 <li>🔒: The method, initializer, or class method may only be accessed within the class it was defined.</li>
 <li>🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.</li>
 </ul>
+<h2 id="object-address-compare">Object Address Compare</h2>
+<p>😜 can be used to determine whether two objects have the same memory address
+and are thus really the same object. This isn’t an <em>equality</em> check: Two
+objects might represents the same value but they are still two different object
+not sharing the same memory location. To determine equality use 😛 if available.</p>
+<pre class="syntax">
+😜 <span class="syntax-placeholder">object</span> <span class="syntax-placeholder">object</span>
+<span class="syntax-placeholder">object</span> ⟶ <span class="syntax-placeholder">value</span>
+</pre>
+
+<p>😜 returns true if both <em>object</em>s are references to the same memory location.</p>
+<p><em>object</em> must be a 🔵.</p>
 
 
 	<div class="reference-navigation-bottom">

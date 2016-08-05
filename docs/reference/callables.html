@@ -22,7 +22,7 @@
 			</div>
 		</nav>
 
-		<div class="toc">
+		  <div class="toc">
 	<h2>The Definite Language Reference &amp; Guide</h2>
 	<ol data-gumshoe>
     	<li>
@@ -127,6 +127,15 @@
 	</ol>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var current = document.querySelector('.chapter-link.current');
+    if (current) {
+      current.scrollIntoView(true);
+    }
+  });
+</script>
+
 <div class="content">
 	<h1 id="callables">Callables</h1>
 <p>Emojicode supports a type called <em>callables</em> which is comparable to function
@@ -201,8 +210,8 @@ defined. The basic syntax to define a closure is:</p>
 <pre><code>🍦 greet 🍇 name 🔡 ➡️ 🔡
   🍮 out 🔤🔤
 
-  🔂 i ⏩ ➖ 📏 name 1 -1 🍇
-    🍮 out 📝 out 🍺 🔬 name i
+  🔂 i ⏩ ➖ 🐔 name 1 -1 🍇
+    🍮 out 📝 out 🍺 🐽 name i
   🍉
 
   🍎 out

@@ -405,3 +405,19 @@ $reserved-emoji$> 🔤|👵|🔟|👍|👎|👴
 - 🔓: The method, initializer, or class method can be accessed from everywhere.
 - 🔒: The method, initializer, or class method may only be accessed within the class it was defined.
 - 🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.
+
+## Object Address Compare
+
+😜 can be used to determine whether two objects have the same memory address
+and are thus really the same object. This isn’t an *equality* check: Two
+objects might represents the same value but they are still two different object
+not sharing the same memory location. To determine equality use 😛 if available.
+
+<pre class="syntax">
+😜 $object$ $object$
+$object$> $value$
+</pre>
+
+😜 returns true if both *object*s are references to the same memory location.
+
+*object* must be a 🔵.

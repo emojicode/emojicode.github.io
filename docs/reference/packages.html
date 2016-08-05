@@ -22,7 +22,7 @@
 			</div>
 		</nav>
 
-		<div class="toc">
+		  <div class="toc">
 	<h2>The Definite Language Reference &amp; Guide</h2>
 	<ol data-gumshoe>
     	<li>
@@ -129,6 +129,15 @@
       </li>
 	</ol>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var current = document.querySelector('.chapter-link.current');
+    if (current) {
+      current.scrollIntoView(true);
+    }
+  });
+</script>
 
 <div class="content">
 	<h1 id="packages">Packages</h1>
