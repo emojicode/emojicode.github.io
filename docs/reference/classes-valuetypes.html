@@ -84,7 +84,7 @@
               <a href="#type-methods" class="section-link">Type Methods</a>
             </li>
             <li>
-              <a href="#overriding-methods-and-initializers" class="section-link">Overriding Methods and Initializers</a>
+              <a href="#overriding-and-promises" class="section-link">Overriding and Promises</a>
             </li>
             <li>
               <a href="#reserved-emojis" class="section-link">Reserved Emojis</a>
@@ -429,14 +429,24 @@ Type method on classes are also inherited by subclasses.</p>
 </code></pre><p>This calls the type method 🌍 on the class 💻. 💻 is a class defined
 in the s package. The 🌍 method will return the <em>current working
 directory</em>.</p>
-<h2 id="overriding-methods-and-initializers">Overriding Methods and Initializers</h2>
-<p>You can override methods and initializers by redeclaring them in a subclass leaded by ✒️.</p>
+<h2 id="overriding-and-promises">Overriding and Promises</h2>
+<p>You can override methods and initializers by redeclaring them in a subclass
+leaded by ✒️.</p>
 <h3 id="promises">Promises</h3>
-<p>You must watch out not to break the superclass’s <em>promises</em>. Promises are a set of rules that ensure that the class’s routines can be used the same way as its superclass’s routines – a main characteristic of object orientation. These promises are:</p>
+<p>You must watch out not to break the superclass’s <em>promises</em>. Promises are a set
+of rules that ensure that the methods and required intializers of a class can be
+used the same way as the ones of the superclass – a main characteristic of
+object orientation. These promises are:</p>
 <ul>
-<li>The new routine must take the same number of arguments.</li>
-<li>The return type of the new routine must be the same or a subtype of the super method’s return type.</li>
-<li>The arguments of the new routine must be of the same type or a super type of the super method’s argument type.</li>
+<li>The method or initializer of the subclass must take the same number of
+arguments.</li>
+<li>The return type of the method or initializer of the subclass must be the
+same or a subtype of the return type of the overriden method or intializer.</li>
+<li>The arguments of the method or initializer of the subclass must be of the same
+type or a super type of the argument types of the overriden method or
+intializer.</li>
+<li>The method or initializer of the subclass must have the same access modifier
+as the super method or intializer.</li>
 </ul>
 <h3 id="preventing-overriding">Preventing Overriding</h3>
 <p>The 🔏 attribute prevents overriding a method, initializer or class method in a

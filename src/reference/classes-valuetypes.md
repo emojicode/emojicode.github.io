@@ -360,17 +360,27 @@ This calls the type method 🌍 on the class 💻. 💻 is a class defined
 in the s package. The 🌍 method will return the *current working
 directory*.
 
-## Overriding Methods and Initializers
+## Overriding and Promises
 
-You can override methods and initializers by redeclaring them in a subclass leaded by ✒️.
+You can override methods and initializers by redeclaring them in a subclass
+leaded by ✒️.
 
 ### Promises
 
-You must watch out not to break the superclass’s *promises*. Promises are a set of rules that ensure that the class’s routines can be used the same way as its superclass’s routines – a main characteristic of object orientation. These promises are:
+You must watch out not to break the superclass’s *promises*. Promises are a set
+of rules that ensure that the methods and required intializers of a class can be
+used the same way as the ones of the superclass – a main characteristic of
+object orientation. These promises are:
 
-- The new routine must take the same number of arguments.
-- The return type of the new routine must be the same or a subtype of the super method’s return type.
-- The arguments of the new routine must be of the same type or a super type of the super method’s argument type.
+- The method or initializer of the subclass must take the same number of
+  arguments.
+- The return type of the method or initializer of the subclass must be the
+  same or a subtype of the return type of the overriden method or intializer.
+- The arguments of the method or initializer of the subclass must be of the same
+  type or a super type of the argument types of the overriden method or
+  intializer.
+- The method or initializer of the subclass must have the same access modifier
+  as the super method or intializer.
 
 ### Preventing Overriding
 
