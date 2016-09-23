@@ -2,7 +2,7 @@
 
 So, you've installed Emojicode and are willing to spend the rest of the weekend and maybe your life programming with it. It is a language crafted by Gods, you think. But, suddendly, a realization comes to you. Your keyboard has no worthy symbols. Just those letters you used for your old programming activities.
 
-Do not fear, for Gods where not crazy when they crafted Emojicode, they also created input methods and shortcuts so you could code in this beautiful language.
+Do not fear, for Gods were not crazy when they crafted Emojicode! They also created input methods and shortcuts so you could code in this beautiful language.
 
 ## macOS Emojipicker
 
