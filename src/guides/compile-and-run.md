@@ -187,7 +187,7 @@ Cool! We have successfully translated English words into Pig Latin.
 
 ## What to do next
 
-I highly recommend you to read through the [Language Reference](../reference)
+I highly recommend you read through the [Language Reference](../reference)
 which is a bit more formal but also a really good starting point.
 
 >!H You should really read the [Language Reference](../reference), you gonna
