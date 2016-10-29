@@ -1,26 +1,28 @@
-  <div class="toc">
-	<h2>{{bookTitle}}</h2>
-	<ol data-gumshoe>
-  	{{#chapters}}
-    	<li>
-        <a href="{{name}}.html"
-            {{#current}}class="chapter-link current"{{/current}}
-            {{^current}}class="chapter-link"{{/current}}>{{title}}</a>
-        {{#current}}
-          <ul>
-          {{#sections}}
-            <li>
-              <a href="#{{thisHeadingID}}" class="section-link">{{.}}</a>
-            </li>
-          {{/sections}}
-          </ul>
-        {{/current}}
-      </li>
-  	{{/chapters}}
-	</ol>
-</div>
-
 <div class="content">
+  <div class="toc-wrapper">
+    <div class="toc">
+      <h2>{{bookTitle}}</h2>
+      <ol data-gumshoe>
+        {{#chapters}}
+          <li>
+            <a href="{{name}}.html"
+                {{#current}}class="chapter-link current"{{/current}}
+                {{^current}}class="chapter-link"{{/current}}>{{title}}</a>
+            {{#current}}
+              <ul>
+              {{#sections}}
+                <li>
+                  <a href="#{{thisHeadingID}}" class="section-link">{{.}}</a>
+                </li>
+              {{/sections}}
+              </ul>
+            {{/current}}
+          </li>
+        {{/chapters}}
+      </ol>
+    </div>
+  </div>
+
 	{{{content}}}
 
 	<div class="book-navigation-bottom">

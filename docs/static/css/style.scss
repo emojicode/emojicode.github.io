@@ -8,18 +8,30 @@
        url(/docs/static/fonts/VarelaRound-Regular.ttf) format('woff');
 }
 
-$navbar-color: #312d67;
+$white: #fff;
+$black: #000;
+$gray: #eee;
+$p-dark: #25224d;
+$p-intermediate: #312d67;
+$p-soft: #68389c;
+$p-bright: #934edc;
+$p-gray: lighten($p-intermediate, 65%);
+
+$text-color: rgb(58, 58, 58);
+$link-color: lighten($p-intermediate, 30%);
+$background-color: rgb(254, 254, 254);
+
+$navbar-color: $p-intermediate;
 $navbar-height: 50px;
-$navbar-item-color: #fff;
-$navbar-current-color: #934edc;
+$navbar-item-color: $white;
+$navbar-current-color: $p-bright;
 $navbar-hover-color: lighten($navbar-color, 10%);
-$navbar-s-item-color: lighten($navbar-current-color, 35%);
 
 $global-nav-height: 30px;
-$global-nav-color: #25224d;
+$global-nav-color: $p-dark;
 $global-nav-text-color: #999;
 
-$code-background: #eee;
+$code-background: $gray;
 $code-font: Monaco, Menlo, monospace;
 
 $heavy-link-color: lighten($navbar-color, 40%);
@@ -28,31 +40,32 @@ $heavy-link-hover-color: lighten($navbar-color, 45%);
 $callout-note: #ffb300;
 $callout-hint: rgb(45, 121, 210);
 
-$pre-before: #68389c;
-$pre-before-syntax: #312d67;
+$pre-before: $p-soft;
+$pre-before-syntax: $p-intermediate;
 $pre-before-negative: $callout-note;
-$pre-before-specification: #68389c;
+$pre-before-specification: $p-soft;
 
 $syntax-placeholder-color: lighten($navbar-color, 60%);
 
-$version-color: #68389c;
-
-$link-color: lighten($navbar-color, 30%);
-$font-color: rgb(58, 58, 58);
-$background-color: rgb(254, 254, 254);
+$version-color: $p-soft;
 
 $table-alternative-color: #f8f8f8;
 $table-border-color: #ddd;
 $table-row-border-top-color: #ccc;
 
 $heading-letter-spacing: -0.03em;
+$heading-color: $p-intermediate;
 
 $content-width: 700px;
 
-$improve-background: lighten(#312d67, 65%);
+$toc-color: $p-gray;
+$toc-item-color: $p-intermediate;
+$toc-current-color: #934edc;
+$toc-hover-color: lighten($p-intermediate, 50%);
+$toc-width: 280px;
+$toc-margin-right: 36px;
 
-$white: #fff;
-$black: #000;
+$improve-background: $p-gray;
 
 * {
   box-sizing: border-box;
@@ -67,7 +80,7 @@ body {
 
   vertical-align: baseline;
   -webkit-font-smoothing: antialiased;
-  color: $font-color;
+  color: $text-color;
   text-rendering: optimizelegibility;
 
   font-family: LatoLatinWeb, proxima-nova, 'Helvetica Neue', Arial, sans-serif;
@@ -164,7 +177,7 @@ h3,
 h4 {
   font-family: Varela Round;
   font-weight: normal;
-  color: $navbar-color;
+  color: $heading-color;
   margin-top: 2.9rem;
   margin-bottom: 0.6rem;
   letter-spacing: $heading-letter-spacing;
@@ -305,23 +318,16 @@ table {
 }
 
 .toc {
-  position: fixed;
-  left: 0;
-  top: $global-nav-height + $navbar-height;
-  bottom: 0;
-  width: 280px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   font-size: 16px;
   z-index: 100;
-  background-color: $navbar-color;
-  color: $white;
+  background-color: $toc-color;
+  border-radius: 4px;
 
   h2,
   h3 {
-    margin-left: 0.9em;
-    color: $white;
-    margin-top: 0.8em;
+    margin: 0.8em;
   }
 
   ul,
@@ -333,19 +339,19 @@ table {
 
 .section-link,
 .chapter-link {
-  color: $navbar-s-item-color;
+  color: $toc-item-color;
   display: block;
   padding: 0.35em 0.75em;
   border-left: 10px solid transparent;
 
   &:hover {
-    background-color: $navbar-hover-color;
+    background-color: $toc-hover-color;
     text-decoration: none;
   }
 
   &.current {
-    border-left: 10px solid $navbar-current-color;
-    background-color: $navbar-hover-color;
+    border-left: 10px solid $toc-current-color;
+    background-color: $toc-hover-color;
   }
 }
 
@@ -354,20 +360,22 @@ table {
   font-size: 0.875em;
 }
 
-.content {
-  margin-left: 310px;
-}
+@media (min-width: 750px), print {
+  .toc-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 
-@media (max-width: 750px), print {
-  .toc,
-  .toc.fixed {
-    position: relative;
-    width: auto;
-    display: block;
+  .toc {
+    position: fixed;
+    width: $toc-width;
   }
 
   .content {
-    margin-left: 0;
+    position: relative;
+    padding-left: $toc-width + $toc-margin-right;
+    max-width: $content-width + $toc-width + $toc-margin-right;
   }
 }
 
