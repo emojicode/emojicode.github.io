@@ -49,6 +49,8 @@ $heading-letter-spacing: -0.03em;
 
 $content-width: 700px;
 
+$improve-background: lighten(#312d67, 65%);
+
 $white: #fff;
 $black: #000;
 
@@ -409,11 +411,19 @@ table {
   }
 }
 
-.reference-navigation-bottom {
+.book-navigation-bottom {
   display: flex;
 
   .right {
     text-align: right;
     flex: 1;
   }
+}
+
+.book-improve {
+  font-size: 0.875em;
+  padding: 1em;
+  margin: 1rem 0;
+  background-color: $improve-background;
+  border-radius: 4px;
 }

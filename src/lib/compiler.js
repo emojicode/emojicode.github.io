@@ -84,6 +84,7 @@ class Compiler {
       return {
         name: path.basename(file, '.md'),
         html: this.markdownToHTML(markdown),
+        sourcePath: path.join('src', name, file),
         title,
         sections,
       };
@@ -97,6 +98,7 @@ class Compiler {
         title: chapter.title,
         content: chapter.html,
         sections: chapter.sections,
+        sourcePath: chapter.sourcePath,
         prev: i > 0 ? `${chapters[i - 1].name}.html` : null,
         next: i + 1 < chapters.length ? `${chapters[i + 1].name}.html` : null,
         thisHeadingID: function () {
