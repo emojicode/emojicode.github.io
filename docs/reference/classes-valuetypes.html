@@ -55,10 +55,13 @@
                 >Classes &amp; Value Types</a>
               <ul>
                 <li>
-                  <a href="#classes-versus-value-types" class="section-link">Classes versus Value Types</a>
+                  <a href="#defining-a-class" class="section-link">Defining a Class</a>
                 </li>
                 <li>
-                  <a href="#definition-syntax" class="section-link">Definition Syntax</a>
+                  <a href="#defining-a-value-type" class="section-link">Defining a Value Type</a>
+                </li>
+                <li>
+                  <a href="#classes-versus-value-types" class="section-link">Classes versus Value Types</a>
                 </li>
                 <li>
                   <a href="#instance-variables" class="section-link">Instance Variables</a>
@@ -70,9 +73,6 @@
                   <a href="#instantiation" class="section-link">Instantiation</a>
                 </li>
                 <li>
-                  <a href="#required-initializers" class="section-link">Required Initializers</a>
-                </li>
-                <li>
                   <a href="#nothingness-initializers" class="section-link">Nothingness Initializers</a>
                 </li>
                 <li>
@@ -82,13 +82,7 @@
                   <a href="#this-context" class="section-link">This Context</a>
                 </li>
                 <li>
-                  <a href="#calling-super-methods" class="section-link">Calling Super Methods</a>
-                </li>
-                <li>
                   <a href="#type-methods" class="section-link">Type Methods</a>
-                </li>
-                <li>
-                  <a href="#overriding-and-promises" class="section-link">Overriding and Promises</a>
                 </li>
                 <li>
                   <a href="#reserved-emojis" class="section-link">Reserved Emojis</a>
@@ -105,6 +99,11 @@
             <a href="extensions.html"
                 
                 class="chapter-link">Extensions</a>
+          </li>
+          <li>
+            <a href="inheritance.html"
+                
+                class="chapter-link">Inheritance and Overriding</a>
           </li>
           <li>
             <a href="protocols.html"
@@ -166,8 +165,46 @@
   </div>
 
 	<h1 id="classes-value-types">Classes &amp; Value Types</h1>
-<p>Emojicode features two types that support object-orientation: <strong>Classes and
-Value Types.</strong></p>
+<p>Emojicode features two kind of types that support object-orientation:
+<strong>Classes and Value Types.</strong> All types in Emojicode are either a class or a
+value type.</p>
+<h2 id="defining-a-class">Defining a Class</h2>
+<p>The syntax to define a class is</p>
+<pre class="syntax">
+🐇 <span class="syntax-placeholder">class</span> <span class="syntax-placeholder">[superclass]</span> 🍇
+
+🍉
+<span class="syntax-placeholder">superclass</span> ⟶ <span class="syntax-placeholder">type-identifier</span>
+<span class="syntax-placeholder">class</span> ⟶ <span class="syntax-placeholder">type</span>
+</pre>
+
+<p>If you omit <em>superclass</em> the class won’t have a superclass.</p>
+<p>As for example the code below defines a 🐟 class, that has no superclass.</p>
+<pre><code>🐇 🐟 🍇
+
+🍉
+</code></pre><p>We can now subclass this 🐟 class and declare a 🐡 class that represents a
+blowfish – a more concrete type of fish:</p>
+<pre><code>🐇 🐡 🐟 🍇
+
+🍉
+</code></pre><h2 id="defining-a-value-type">Defining a Value Type</h2>
+<p>The syntax to define a value type is the following:</p>
+<pre class="syntax">
+🕊 <span class="syntax-placeholder">value-type</span> 🍇
+
+🍉
+<span class="syntax-placeholder">value-type</span> ⟶ <span class="syntax-placeholder">type-identifier</span>
+</pre>
+
+<p>Defining a value type yourself isn’t really useful at the moment (version
+0.3). Nevertheless, you can extend built-in value types like 🚂 or 🚀 to
+provide custom funcitonality.</p>
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>The defined types are immediately made available in the namespaces provided
+in <em>value-type</em> or <em>class</em>. Please see <a href="types.html">Types</a> to gain a deeper
+understanding of namespaces and their use in declarations.</p>
+</div></div>
+
 <h2 id="classes-versus-value-types">Classes versus Value Types</h2>
 <p>There are significant difference betweeen classes and value types:</p>
 <ul>
@@ -178,104 +215,69 @@ by</strong> reference. <strong>Instances of value types</strong> are, as their n
 <li><p>Classes feature inheritance while value types don’t.</p>
 </li>
 </ul>
-<h2 id="definition-syntax">Definition Syntax</h2>
-<p>The syntax to define a class is the following:</p>
-<pre class="syntax">
-🐇 <span class="syntax-placeholder">class</span> <span class="syntax-placeholder">[superclass]</span> 🍇
-
-🍉
-<span class="syntax-placeholder">superclass</span> ⟶ <span class="syntax-placeholder">type-identifier</span>
-<span class="syntax-placeholder">class</span> ⟶ <span class="syntax-placeholder">type</span>
-</pre>
-
-<p><em>class</em> must be a type identifier. If <em>superclass</em> is omitted the class doesn’t
-have a superclass. You can subclass any existing class.</p>
-<p>The syntax to define a value type is the following:</p>
-<pre class="syntax">
-🕊 <span class="syntax-placeholder">value-type</span> 🍇
-
-🍉
-<span class="syntax-placeholder">value-type</span> ⟶ <span class="syntax-placeholder">type-identifier</span>
-</pre>
-
-<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>The types are directly made available in the namespaces provided in
-<em>value-type</em> or <em>class</em>. Please see <a href="types.html">Types</a> to gain a deeper
-understanding of namespaces and their use in declarations.</p>
-</div></div>
-
-<p>As for example the code below defines a 🐟 class, that has no superclass.</p>
-<pre><code>🐇 🐟 🍇
-
-🍉
-</code></pre><p>We can now subclass this 🐟 class and declare a 🐡 class that represents a
-blowfish – a more concrete type of fish:</p>
-<pre><code>🐇 🐡 🐟 🍇
-
-🍉
-</code></pre><p>Defining a value type yourself isn’t really useful as for the moment (version
-0.3) but extending it is.</p>
 <h2 id="instance-variables">Instance Variables</h2>
-<p>In the class body the 🍰 syntax can be used to declare variables. These variables
-are then local to the class instances.</p>
-<p>When a class is created a scope is created in which the instance variables
-live. This scope is always available to methods and in initializers as top
-scope.</p>
-<p>The example below defines a 🐟 class with instance variables.</p>
+<p>To store information in your type instances, you’ll use instance variables.</p>
+<p>In the class body the 🍰 syntax can be used to declare variables.
+The example below defines a 🐟 class with instance variables.</p>
 <pre><code>🐇 🐟 🍇
   🍰 age 🚂
   🍰 speedInM/s 🚀
   🍰 name 🍬🔡  👴 Fish kept in aquariums often have names
 🍉
-</code></pre><p>Instance variables are local to the class <strong>cannot be accessed from outside</strong>
-the class. If you want to modify or access them from outside the class you have
-to write <strong>getters and setters</strong>.</p>
-<p>It’s also noteworthy that instance variables are <strong>private to the class</strong> in
-which they were defined. Subclasses can’t access their superclasses instance
-variables and also have to use corresponding getters and setters.</p>
+</code></pre><p>When a class is created a scope is created in which the instance variables
+live. This scope is always available to methods and in initializers as top
+scope.</p>
+<p>Instance variables are <strong>private to the class</strong> and <strong>cannot be accessed from
+outside</strong> the class. If you want to modify or access them from outside the class
+you have to write <strong>getters and setters</strong>. Neither can subclasses directly
+access their superclasses’ instance variables. They also have to use
+corresponding getters and setters.</p>
 <p>As for the moment value types do not support instance variables.</p>
 <h2 id="initializers">Initializers</h2>
-<p>Initializers are responsible to prepare an instance for use and is called to
-instantiate a type, that is gaining an instance, sometimes also called object,
-of the given type.</p>
+<p>Initializers are responsible to prepare an instance for use and are called to
+instantiate a type, that is gaining an instance of the given type.</p>
 <p>The syntax to define an initializer is:</p>
 <pre class="syntax">
-🐈 <span class="syntax-placeholder">name</span> <span class="syntax-placeholder">[parameters]</span> 🍇
+🐈 <span class="syntax-placeholder">name</span> <span class="syntax-placeholder">[init-parameters]</span> 🍇
 
 🍉
-<span class="syntax-placeholder">parameters</span> ⟶ <span class="syntax-placeholder">parameter</span> | <span class="syntax-placeholder">parameter</span> <span class="syntax-placeholder">parameters</span>
-<span class="syntax-placeholder">parameter</span> ⟶ <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
+<span class="syntax-placeholder">init-parameters</span> ⟶ <span class="syntax-placeholder">init-parameter</span> | <span class="syntax-placeholder">init-parameter</span> <span class="syntax-placeholder">init-parameters</span>
+<span class="syntax-placeholder">init-parameter</span> ⟶ [🍼] <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
 </pre>
 
-<p>In the initializer you <strong>must set all instance variables</strong> that are not
-optionals to an appropriate value. You <strong>must also call an initializer</strong> of your
-class’s superclass given the class has a superclass. 🐐 must be used to call
-superinitializers:</p>
+<p>In an initializer <strong>all instance variables must be initialized</strong>. (Remember that
+variables of an optional type are automatically initialized to Nothingness,
+which is also true for instance variables.)</p>
+<p>Furthermore, you <strong>must call an initializer</strong> of your class’s superclass if
+the class has a superclass. The 🐐 is used to call a superinitializer:</p>
 <pre class="syntax">
 🐐 <span class="syntax-placeholder">superinitializer</span> <span class="syntax-placeholder">[arguments]</span>
 </pre>
 
-<p>As a result objects are guaranteed fully initialized.</p>
+<p>By enforcing these rules, Emojicode can guarantee that an object is always
+fully initialized when obtained from the intializer.</p>
 <p>The following example shows an initializer for the 🐟 class:</p>
-<pre><code>🐈 🏞 age. 🚂 name. 🍬🔡 🍇
-  🍮 age age.
-  🍮 name name.
+<pre><code>🐈 🏞 ageGiven 🚂 nameGiven 🍬🔡 🍇
+  🍮 age ageGiven
+  🍮 name nameGiven
   🍮 speedInM/s 0
 🍉
 </code></pre><p>This initializer initializes all variables to appropriate values. <code>age</code> and
 <code>name</code> were initialized to values passed by arguments. <code>speedInM/s</code> was set to
 a default value.</p>
 <p>Value type initializers work quite similarly, with one big difference: In
-contrast to class initializers they return a value. This is due to the fact that
-value types only represent <em>primitive</em> values. The following is an example for
-an initializer for 🚂, which is a value type.</p>
-<h3 id="initializer-inheritance">Initializer Inheritance</h3>
-<p>In contrast to other programming languages, initializers are only inherited by
-subclasses if some criteria are met:</p>
-<ul>
-<li>The subclass does not define any instance variables.</li>
-<li>The subclass does not define any initializer.</li>
-</ul>
-<h2 id="instantiation">Instantiation</h2>
+contrast to class initializers they return a value. This will change in a
+further version of Emojicode.</p>
+<h3 id="initializing-instance-variables-from-arguments">Initializing Instance Variables from Arguments</h3>
+<p>Because it’s so common that instance variables are initialized from arguments,
+there’s a shortcut to this: 🍼. 🍼 can be used in front of the variable name of an
+argument and then automatically copies the value passed into the instance
+variable with the same name.</p>
+<p>The example above improved with 🍼:</p>
+<pre><code>🐈 🏞 🍼 age 🚂 🍼 name 🍬🔡 🍇
+  🍮 speedInM/s 0
+🍉
+</code></pre><h2 id="instantiation">Instantiation</h2>
 <p>To get an instance of a class or value type, you must <em>instantiate</em> it.
 🔷 is used for instantiation.</p>
 <p>Its syntax is:</p>
@@ -288,26 +290,12 @@ want to use. Naturally, you need to provide the correct number of appropriate
 arguments.</p>
 <p>To get a 🐟 instance for example, you would use:</p>
 <pre><code>🔷🐟🏞 2 🔤Billy🔤
-</code></pre><h2 id="required-initializers">Required Initializers</h2>
-<p>By default subclasses are not required to implement the initializers of their
-parent classes. This means that a parent class may define a initializer which no
-subclass has.</p>
-<p>Sometimes a class may need to enforce its descendants to implement a specific
-initializer. In such cases the 🔑 attribute should be used. A class must
-implement all initializers defined in its superclass that were marked with 🔑.</p>
-<p>This example defines an initializer 🔨 all subclasses of 🚪 must provide:</p>
-<pre><code>🐇 🚪 🍇
-  🔑 🐈 🔨 🍇
-    👴 Do some initialization here...
-  🍉
-🍉
-</code></pre><p>An initializer implementing a required initializer must mark itself with 🔑 too.</p>
-<h2 id="nothingness-initializers">Nothingness Initializers</h2>
-<p>There are some cases where a initializer can fail. For instance a initializer
+</code></pre><h2 id="nothingness-initializers">Nothingness Initializers</h2>
+<p>There are some cases where a initializer can fail. For instance, an initializer
 that should open a file, will fail if the file does not exist.</p>
 <p>These kind of initializers are called <em>Nothingness Initializers</em> and they can
 return, as their name suggests, nothingness.</p>
-<p>To declare a Nothingness Initializer you use the 🍬 attribute. Example:</p>
+<p>To declare a Nothingness Initializer, the 🍬 attribute is used. Example:</p>
 <pre><code>🌮 Tries to lure a fish at the given age with pizza. 🌮
 🍬 🐈 🍕 age. 🚂 🍇
   🍊 ◀️ age. 1 🍇
@@ -317,8 +305,8 @@ return, as their name suggests, nothingness.</p>
   🍮 age age.
   👴 ...
 🍉
-</code></pre><p>As you can see in the above example you use 🍎 in combination with ⚡️ to
-return nothingness. Using such an initializer with 🔷 gives you, of course, an
+</code></pre><p>As you can see in the above example, you use 🍎 in combination with ⚡️ to
+return nothingness. Using such an initializer with 🔷 naturally gives you an
 optional.</p>
 <h2 id="methods">Methods</h2>
 <p>Methods are functionality bound to a specific type: a class or value type.</p>
@@ -327,6 +315,8 @@ optional.</p>
 🐖 <span class="syntax-placeholder">method-emoji</span> <span class="syntax-placeholder">[parameters]</span> <span class="syntax-placeholder">[return-type]</span> 🍇
 
 🍉
+<span class="syntax-placeholder">parameters</span> ⟶ <span class="syntax-placeholder">parameter</span> | <span class="syntax-placeholder">parameter</span> <span class="syntax-placeholder">parameters</span>
+<span class="syntax-placeholder">parameter</span> ⟶ <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
 <span class="syntax-placeholder">return-type</span> ⟶ ➡️ <span class="syntax-placeholder">type</span>
 </pre>
 
@@ -336,8 +326,8 @@ optional.</p>
   🍮 speedInM/s ➗ distanceInMeters 3600
 🍉
 </code></pre><p>Every methods return a value. As you can see in the syntax definition, you can
-declare a <em>returnType</em> for the method. If you don’t declare a return type the
-return type defaults to ✨. 🍎 is used to explicitly return a value:</p>
+declare return types. If no return type was declared the return type
+defaults to ✨. 🍎 is used to explicitly return a value:</p>
 <pre class="syntax">
 🍎 <span class="syntax-placeholder">value</span>
 </pre>
@@ -365,6 +355,7 @@ is a method call!</p>
 
 <p>Example:</p>
 <pre><code>🍦 michaelTheFish 🔷🐟🏞 3 🔤Michael🔤
+🏊 michaelTheFish 300
 🍊 👨 michaelTheFish 🍇
   😀 🔤Michael will retire!🔤
 🍉
@@ -376,9 +367,9 @@ the object or the value. 🐕 is your friend here:</p>
 </pre>
 
 <p>The 🐕 returns the current value, whose method or initializer is being called.</p>
-<p>Here, for instance, a method of 🐟 is shown which calls another method to
+<p>Here, for instance, a method of 🐟 is shown, which calls another method to
 determine whether the fish on which the method was called should retire or can
-sign a new contract:</p>
+sign a new contract of employment:</p>
 <pre><code>🌮 Signs a new contract of employment. 🌮
 🐖 🖊 🍇
   🍊 👨 🐕 🍇
@@ -388,31 +379,23 @@ sign a new contract:</p>
     😀 🔤I hope they’ll pay me twice as much.🔤
   🍉
 🍉
-</code></pre><div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>In an initializer, you can’t use 🐕 before the object is fully initialized,
-that is before all instance variables were set and the superintializer was
-called.</p>
-</div></div>
-
-<h2 id="calling-super-methods">Calling Super Methods</h2>
-<p>Inside a method you can use this syntax to call the super method:</p>
-<pre class="syntax">
-🐿 <span class="syntax-placeholder">method-emoji</span> <span class="syntax-placeholder">[arguments]</span>
-</pre>
-
-<p>This simply calls the super method named <em>methodEmoji</em> and returns it value.</p>
-<p>You should of course only use this method if it’s really needed.</p>
+</code></pre><p>Note that in an initializer, you can’t use 🐕 before the object is fully
+initialized, that is before all instance variables were set and the
+superinitializer was called. If this was allowed, you could call methods on the
+instance which might access instance variable that had not been initialized yet.</p>
 <h2 id="type-methods">Type Methods</h2>
-<p>It’s possible to define type methods which are called on the type instead of
-being called on the instances of this type.</p>
+<p>It’s possible to define type methods which are called on the type rather than
+on an instance of the type.</p>
 <p>Type methods are defined like normal methods but with the 🐇 attribute. As for
 example:</p>
-<pre><code>🐇🐖 🍗 🍇
-  😀 🔤Howdy!🔤
-
-  🍎 0
+<pre><code>🐇 🍕 🍇
+  🌮 Returns the available pizzas. 🌮
+  🐇🐖 📜 ➡️ 🍨🐚🔡 🍇
+    🍎 🍨 🔤Margherita🔤 🔤Tonno🔤 🔤Quattro Formaggi🔤 🍆
+  🍉
 🍉
 </code></pre><p>Since type methods don’t execute in an object context the use of 🐕 is illegal.
-Type method on classes are also inherited by subclasses.</p>
+Type methods are also inherited by subclasses.</p>
 <h3 id="calling-type-methods">Calling Type Methods</h3>
 <p>The syntax to call a type method is:</p>
 <pre class="syntax">
@@ -420,37 +403,8 @@ Type method on classes are also inherited by subclasses.</p>
 </pre>
 
 <p>Example:</p>
-<pre><code>🍩 🌍 💻
-</code></pre><p>This calls the type method 🌍 on the class 💻. 💻 is a class defined
-in the s package. The 🌍 method will return the <em>current working
-directory</em>.</p>
-<h2 id="overriding-and-promises">Overriding and Promises</h2>
-<p>You can override methods and initializers by redeclaring them in a subclass
-leaded by ✒️.</p>
-<h3 id="promises">Promises</h3>
-<p>You must watch out not to break the superclass’s <em>promises</em>. Promises are a set
-of rules that ensure that the methods and required intializers of a class can be
-used the same way as the ones of the superclass – a main characteristic of
-object orientation. These promises are:</p>
-<ul>
-<li>The method or initializer of the subclass must take the same number of
-arguments.</li>
-<li>The return type of the method or initializer of the subclass must be the
-same or a subtype of the return type of the overriden method or intializer.</li>
-<li>The arguments of the method or initializer of the subclass must be of the same
-type or a super type of the argument types of the overriden method or
-intializer.</li>
-<li>The method or initializer of the subclass must have the same access modifier
-as the super method or intializer.</li>
-</ul>
-<h3 id="preventing-overriding">Preventing Overriding</h3>
-<p>The 🔏 attribute prevents overriding a method, initializer or class method in a
-subclass. Example:</p>
-<pre><code>🔏 🐖 🐸 ➡️ 🚂 🍇
-  🍎 34
-🍉
-</code></pre><p>Any attempt to override a method, initializer or class method attributed with 🔏
-will lead to a compiler error.</p>
+<pre><code>🍩 📜 🍕
+</code></pre><p>This calls the type method 📜 on the class 🍕, which we just defined above.</p>
 <h2 id="reserved-emojis">Reserved Emojis</h2>
 <p>These emojis cannot be used as method names:</p>
 <pre class="syntax">
@@ -460,6 +414,7 @@ will lead to a compiler error.</p>
 <span class="syntax-placeholder">reserved-emoji</span> ⟶ 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
 <span class="syntax-placeholder">reserved-emoji</span> ⟶ 🔤|👵|🔟|👍|👎|👴
 </pre>
+
 
 <h2 id="access-modifiers">Access Modifiers</h2>
 <p><em>Access Modifiers</em> describe from which context a method, class method or initializer can be called. There are three access modifiers, which can be applied to methods, initializers, and class methods.</p>

@@ -1,21 +1,12 @@
 # Classes & Value Types
 
-Emojicode features two types that support object-orientation: **Classes and
-Value Types.**
+Emojicode features two kind of types that support object-orientation:
+**Classes and Value Types.** All types in Emojicode are either a class or a
+value type.
 
-## Classes versus Value Types
+## Defining a Class
 
-There are significant difference betweeen classes and value types:
-
-- **Instances of classes** are always allocated on the heap and are **passed
-  by** reference. **Instances of value types** are, as their name suggests,
-  **passed by value.**
-
-- Classes feature inheritance while value types don’t.
-
-## Definition Syntax
-
-The syntax to define a class is the following:
+The syntax to define a class is
 
 <pre class="syntax">
 🐇 $class$ $[superclass]$ 🍇
@@ -25,21 +16,7 @@ $superclass$> $type-identifier$
 $class$> $type$
 </pre>
 
-*class* must be a type identifier. If *superclass* is omitted the class doesn’t
-have a superclass. You can subclass any existing class.
-
-The syntax to define a value type is the following:
-
-<pre class="syntax">
-🕊 $value-type$ 🍇
-
-🍉
-$value-type$> $type-identifier$
-</pre>
-
->!H The types are directly made available in the namespaces provided in
->!H *value-type* or *class*. Please see [Types](types.html) to gain a deeper
->!H understanding of namespaces and their use in declarations.
+If you omit *superclass* the class won’t have a superclass.
 
 As for example the code below defines a 🐟 class, that has no superclass.
 
@@ -58,18 +35,40 @@ blowfish – a more concrete type of fish:
 🍉
 ```
 
-Defining a value type yourself isn’t really useful as for the moment (version
-0.3) but extending it is.
+## Defining a Value Type
+
+The syntax to define a value type is the following:
+
+<pre class="syntax">
+🕊 $value-type$ 🍇
+
+🍉
+$value-type$> $type-identifier$
+</pre>
+
+Defining a value type yourself isn’t really useful at the moment (version
+0.3). Nevertheless, you can extend built-in value types like 🚂 or 🚀 to
+provide custom funcitonality.
+
+>!H The defined types are immediately made available in the namespaces provided
+>!H in *value-type* or *class*. Please see [Types](types.html) to gain a deeper
+>!H understanding of namespaces and their use in declarations.
+
+## Classes versus Value Types
+
+There are significant difference betweeen classes and value types:
+
+- **Instances of classes** are always allocated on the heap and are **passed
+  by** reference. **Instances of value types** are, as their name suggests,
+  **passed by value.**
+
+- Classes feature inheritance while value types don’t.
 
 ## Instance Variables
 
-In the class body the 🍰 syntax can be used to declare variables. These variables
-are then local to the class instances.
+To store information in your type instances, you’ll use instance variables.
 
-When a class is created a scope is created in which the instance variables
-live. This scope is always available to methods and in initializers as top
-scope.
-
+In the class body the 🍰 syntax can be used to declare variables.
 The example below defines a 🐟 class with instance variables.
 
 ```
@@ -80,49 +79,53 @@ The example below defines a 🐟 class with instance variables.
 🍉
 ```
 
-Instance variables are local to the class **cannot be accessed from outside**
-the class. If you want to modify or access them from outside the class you have
-to write **getters and setters**.
+When a class is created a scope is created in which the instance variables
+live. This scope is always available to methods and in initializers as top
+scope.
 
-It’s also noteworthy that instance variables are **private to the class** in
-which they were defined. Subclasses can’t access their superclasses instance
-variables and also have to use corresponding getters and setters.
+Instance variables are **private to the class** and **cannot be accessed from
+outside** the class. If you want to modify or access them from outside the class
+you have to write **getters and setters**. Neither can subclasses directly
+access their superclasses’ instance variables. They also have to use
+corresponding getters and setters.
 
 As for the moment value types do not support instance variables.
 
 ## Initializers
 
-Initializers are responsible to prepare an instance for use and is called to
-instantiate a type, that is gaining an instance, sometimes also called object,
-of the given type.
+Initializers are responsible to prepare an instance for use and are called to
+instantiate a type, that is gaining an instance of the given type.
 
 The syntax to define an initializer is:
 
 <pre class="syntax">
-🐈 $name$ $[parameters]$ 🍇
+🐈 $name$ $[init-parameters]$ 🍇
 
 🍉
-$parameters$> $parameter$ | $parameter$ $parameters$
-$parameter$> $variable$ $type$
+$init-parameters$> $init-parameter$ | $init-parameter$ $init-parameters$
+$init-parameter$> [🍼] $variable$ $type$
 </pre>
 
-In the initializer you **must set all instance variables** that are not
-optionals to an appropriate value. You **must also call an initializer** of your
-class’s superclass given the class has a superclass. 🐐 must be used to call
-superinitializers:
+In an initializer **all instance variables must be initialized**. (Remember that
+variables of an optional type are automatically initialized to Nothingness,
+which is also true for instance variables.)
+
+Furthermore, you **must call an initializer** of your class’s superclass if
+the class has a superclass. The 🐐 is used to call a superinitializer:
 
 <pre class="syntax">
 🐐 $superinitializer$ $[arguments]$
 </pre>
 
-As a result objects are guaranteed fully initialized.
+By enforcing these rules, Emojicode can guarantee that an object is always
+fully initialized when obtained from the intializer.
 
 The following example shows an initializer for the 🐟 class:
 
 ```
-🐈 🏞 age. 🚂 name. 🍬🔡 🍇
-  🍮 age age.
-  🍮 name name.
+🐈 🏞 ageGiven 🚂 nameGiven 🍬🔡 🍇
+  🍮 age ageGiven
+  🍮 name nameGiven
   🍮 speedInM/s 0
 🍉
 ```
@@ -132,17 +135,23 @@ This initializer initializes all variables to appropriate values. `age` and
 a default value.
 
 Value type initializers work quite similarly, with one big difference: In
-contrast to class initializers they return a value. This is due to the fact that
-value types only represent *primitive* values. The following is an example for
-an initializer for 🚂, which is a value type.
+contrast to class initializers they return a value. This will change in a
+further version of Emojicode.
 
-### Initializer Inheritance
+### Initializing Instance Variables from Arguments
 
-In contrast to other programming languages, initializers are only inherited by
-subclasses if some criteria are met:
+Because it’s so common that instance variables are initialized from arguments,
+there’s a shortcut to this: 🍼. 🍼 can be used in front of the variable name of an
+argument and then automatically copies the value passed into the instance
+variable with the same name.
 
-- The subclass does not define any instance variables.
-- The subclass does not define any initializer.
+The example above improved with 🍼:
+
+```
+🐈 🏞 🍼 age 🚂 🍼 name 🍬🔡 🍇
+  🍮 speedInM/s 0
+🍉
+```
 
 ## Instantiation
 
@@ -165,37 +174,15 @@ To get a 🐟 instance for example, you would use:
 🔷🐟🏞 2 🔤Billy🔤
 ```
 
-## Required Initializers
-
-By default subclasses are not required to implement the initializers of their
-parent classes. This means that a parent class may define a initializer which no
-subclass has.
-
-Sometimes a class may need to enforce its descendants to implement a specific
-initializer. In such cases the 🔑 attribute should be used. A class must
-implement all initializers defined in its superclass that were marked with 🔑.
-
-This example defines an initializer 🔨 all subclasses of 🚪 must provide:
-
-```
-🐇 🚪 🍇
-  🔑 🐈 🔨 🍇
-    👴 Do some initialization here...
-  🍉
-🍉
-```
-
-An initializer implementing a required initializer must mark itself with 🔑 too.
-
 ## Nothingness Initializers
 
-There are some cases where a initializer can fail. For instance a initializer
+There are some cases where a initializer can fail. For instance, an initializer
 that should open a file, will fail if the file does not exist.
 
 These kind of initializers are called *Nothingness Initializers* and they can
 return, as their name suggests, nothingness.
 
-To declare a Nothingness Initializer you use the 🍬 attribute. Example:
+To declare a Nothingness Initializer, the 🍬 attribute is used. Example:
 
 ```
 🌮 Tries to lure a fish at the given age with pizza. 🌮
@@ -209,8 +196,8 @@ To declare a Nothingness Initializer you use the 🍬 attribute. Example:
 🍉
 ```
 
-As you can see in the above example you use 🍎 in combination with ⚡️ to
-return nothingness. Using such an initializer with 🔷 gives you, of course, an
+As you can see in the above example, you use 🍎 in combination with ⚡️ to
+return nothingness. Using such an initializer with 🔷 naturally gives you an
 optional.
 
 ## Methods
@@ -223,6 +210,8 @@ The syntax to define a method is:
 🐖 $method-emoji$ $[parameters]$ $[return-type]$ 🍇
 
 🍉
+$parameters$> $parameter$ | $parameter$ $parameters$
+$parameter$> $variable$ $type$
 $return-type$> ➡️ $type$
 </pre>
 
@@ -236,8 +225,8 @@ Here’s an example from the 🐟 class:
 ```
 
 Every methods return a value. As you can see in the syntax definition, you can
-declare a *returnType* for the method. If you don’t declare a return type the
-return type defaults to ✨. 🍎 is used to explicitly return a value:
+declare return types. If no return type was declared the return type
+defaults to ✨. 🍎 is used to explicitly return a value:
 
 <pre class="syntax">
 🍎 $value$
@@ -275,6 +264,7 @@ Example:
 
 ```
 🍦 michaelTheFish 🔷🐟🏞 3 🔤Michael🔤
+🏊 michaelTheFish 300
 🍊 👨 michaelTheFish 🍇
   😀 🔤Michael will retire!🔤
 🍉
@@ -291,9 +281,9 @@ the object or the value. 🐕 is your friend here:
 
 The 🐕 returns the current value, whose method or initializer is being called.
 
-Here, for instance, a method of 🐟 is shown which calls another method to
+Here, for instance, a method of 🐟 is shown, which calls another method to
 determine whether the fish on which the method was called should retire or can
-sign a new contract:
+sign a new contract of employment:
 
 ```
 🌮 Signs a new contract of employment. 🌮
@@ -307,40 +297,30 @@ sign a new contract:
 🍉
 ```
 
->!N In an initializer, you can’t use 🐕 before the object is fully initialized,
->!H that is before all instance variables were set and the superintializer was
->!N called.
-
-## Calling Super Methods
-
-Inside a method you can use this syntax to call the super method:
-
-<pre class="syntax">
-🐿 $method-emoji$ $[arguments]$
-</pre>
-
-This simply calls the super method named *methodEmoji* and returns it value.
-
-You should of course only use this method if it’s really needed.
+Note that in an initializer, you can’t use 🐕 before the object is fully
+initialized, that is before all instance variables were set and the
+superinitializer was called. If this was allowed, you could call methods on the
+instance which might access instance variable that had not been initialized yet.
 
 ## Type Methods
 
-It’s possible to define type methods which are called on the type instead of
-being called on the instances of this type.
+It’s possible to define type methods which are called on the type rather than
+on an instance of the type.
 
 Type methods are defined like normal methods but with the 🐇 attribute. As for
 example:
 
 ```
-🐇🐖 🍗 🍇
-  😀 🔤Howdy!🔤
-
-  🍎 0
+🐇 🍕 🍇
+  🌮 Returns the available pizzas. 🌮
+  🐇🐖 📜 ➡️ 🍨🐚🔡 🍇
+    🍎 🍨 🔤Margherita🔤 🔤Tonno🔤 🔤Quattro Formaggi🔤 🍆
+  🍉
 🍉
 ```
 
 Since type methods don’t execute in an object context the use of 🐕 is illegal.
-Type method on classes are also inherited by subclasses.
+Type methods are also inherited by subclasses.
 
 ### Calling Type Methods
 
@@ -353,48 +333,10 @@ The syntax to call a type method is:
 Example:
 
 ```
-🍩 🌍 💻
+🍩 📜 🍕
 ```
 
-This calls the type method 🌍 on the class 💻. 💻 is a class defined
-in the s package. The 🌍 method will return the *current working
-directory*.
-
-## Overriding and Promises
-
-You can override methods and initializers by redeclaring them in a subclass
-leaded by ✒️.
-
-### Promises
-
-You must watch out not to break the superclass’s *promises*. Promises are a set
-of rules that ensure that the methods and required intializers of a class can be
-used the same way as the ones of the superclass – a main characteristic of
-object orientation. These promises are:
-
-- The method or initializer of the subclass must take the same number of
-  arguments.
-- The return type of the method or initializer of the subclass must be the
-  same or a subtype of the return type of the overriden method or intializer.
-- The arguments of the method or initializer of the subclass must be of the same
-  type or a super type of the argument types of the overriden method or
-  intializer.
-- The method or initializer of the subclass must have the same access modifier
-  as the super method or intializer.
-
-### Preventing Overriding
-
-The 🔏 attribute prevents overriding a method, initializer or class method in a
-subclass. Example:
-
-```
-🔏 🐖 🐸 ➡️ 🚂 🍇
-  🍎 34
-🍉
-```
-
-Any attempt to override a method, initializer or class method attributed with 🔏
-will lead to a compiler error.
+This calls the type method 📜 on the class 🍕, which we just defined above.
 
 ## Reserved Emojis
 
@@ -407,6 +349,7 @@ $reserved-emoji$> 🍺|🍻|🔁|🔂|🍊|🍋|🍇|🍉|🍓|🍆
 $reserved-emoji$> 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
 $reserved-emoji$> 🔤|👵|🔟|👍|👎|👴
 </pre>
+
 
 ## Access Modifiers
 

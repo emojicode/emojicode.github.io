@@ -44,12 +44,8 @@ The progam then uses the class 📄 which was imported from the
 ```
 📦 files 🔴
 
-🐇 💯 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    🍦 file 🔷📄📜 🔤tests/fileTest_testFile.txt🔤
-
-    🍎 0
-  🍉
+🏁 🍇
+  🍦 file 🔷📄📜 🔤tests/fileTest_testFile.txt🔤
 🍉
 ```
 
