@@ -173,16 +173,6 @@ class Package {
     return this.compiler.srcPath('packages', this.packageName, ...components);
   }
 
-  readReadme() {
-    const readmePath = this.srcPath('README.md');
-
-    if (fs.existsSync(readmePath)) {
-      const markdown = fs.readFileSync(readmePath).toString();
-      return this.compiler.markdownToHTML(markdown);
-    }
-    return null;
-  }
-
   typeAsciiName(name) {
     return name.codePointAt(0).toString(16);
   }
@@ -308,7 +298,7 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
       version: packageMeta.version,
       author: packageMeta.author,
       license: packageMeta.license,
-      readme: this.readReadme(),
+      packageDocumentation: types.documentation && this.markdownToHTML(types.documentation),
       title: packageMeta.name,
       firstSentence: function () {
         return this.documentation && `${this.documentation.split('.', 2)[0]}.`;
