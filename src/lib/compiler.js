@@ -1,11 +1,10 @@
-"use strict";
-
 const fs = require('fs-extra');
 const path = require('path');
 const Mustache = require('mustache');
 const stripIndent = require('strip-indent');
 const marked = require('marked');
 const sass = require('node-sass');
+const babel = require('babel-core');
 
 class Compiler {
   constructor(out, src, rootpath) {
@@ -49,6 +48,9 @@ class Compiler {
       outputStyle: 'compressed',
     }).css;
     fs.writeFile(this.outPath('static', 'css', 'style.css'), css);
+
+    babel.transformFile(this.srcPath('static', 'js', 'magicinstall.es6'), { presets: ['es2015'] },
+      (err, { code }) => fs.writeFile(this.outPath('static', 'js', 'magicinstall.js'), code));
   }
 
   createPages() {

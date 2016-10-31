@@ -435,3 +435,33 @@ table {
   background-color: $improve-background;
   border-radius: 4px;
 }
+
+// ==== MAGIC INSTALL ====
+
+.magic-install-sw {
+  display: flex;
+}
+
+.magic-install-sw-box {
+  width: 33.33333%;
+
+  select {
+    width: 100%;
+  }
+
+  &.center {
+    padding: 0 0.75em;
+  }
+}
+
+.magic-install-sw-label {
+  color: $heading-color;
+  display: block;
+  margin-bottom: 0.18em;
+}
+
+.magic-install-sw-help {
+  color: $heading-color;
+  font-size: 0.66667em;
+  margin-top: 0.15em;
+}
