@@ -10,10 +10,10 @@ installer.
 
 The installer will tell you what it is about to do and will prompt you for
 confirmation. By default, the installer will try to install Emojicode into
-/usr/local/bin and /usr/local/EmojicodePackages. If your user doesn’t have write
-access to these diretories you will either need to prepend `install.sh` with
-`sudo` or provide a different install location like
-`install.sh ~/bin/ ~/EmojicodePackages`.
+/usr/local/bin and /usr/local/EmojicodePackages. **If your user doesn’t have
+write access to these diretories** you will either need to prepend
+`./install.sh` with `sudo` or provide a different install location like
+`./install.sh ~/bin/ ~/EmojicodePackages`.
 
 <div class="magic-install-sw">
   <div class="magic-install-sw-box">

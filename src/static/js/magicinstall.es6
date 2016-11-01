@@ -24,13 +24,10 @@ function generateCode() {
 
   const dirname = downloadURL.substr(downloadURL.lastIndexOf('/') + 1).slice(0, -7);
 
-  const code = `${downloadCommand}
-tar -xzf emojicode.tar.gz
-rm emojicode.tar.gz
-cd ${dirname}
-./install.sh
-cd ..
-rm -r ${dirname}`;
+  const code = `${downloadCommand} \\
+&& tar -xzf emojicode.tar.gz && rm emojicode.tar.gz \\
+&& cd ${dirname} && ./install.sh \\
+&& cd .. && rm -r ${dirname}`;
   codeCode.innerHTML = code;
 }
 

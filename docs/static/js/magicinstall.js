@@ -30,7 +30,7 @@ function generateCode() {
 
   var dirname = downloadURL.substr(downloadURL.lastIndexOf('/') + 1).slice(0, -7);
 
-  var code = downloadCommand + '\ntar -xzf emojicode.tar.gz\nrm emojicode.tar.gz\ncd ' + dirname + '\n./install.sh\ncd ..\nrm -r ' + dirname;
+  var code = downloadCommand + ' \\\n&& tar -xzf emojicode.tar.gz && rm emojicode.tar.gz \\\n&& cd ' + dirname + ' && ./install.sh \\\n&& cd .. && rm -r ' + dirname;
   codeCode.innerHTML = code;
 }
 
