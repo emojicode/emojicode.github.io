@@ -60,3 +60,7 @@ function processReleaseData(data) {
 versionSelect.addEventListener('change', generateCode);
 osSelect.addEventListener('change', osChanged);
 httpSelect.addEventListener('change', generateCode);
+
+const script = document.createElement('script');
+script.src = 'https://api.github.com/repos/emojicode/emojicode/releases?callback=processReleaseData';
+document.body.appendChild(script);
