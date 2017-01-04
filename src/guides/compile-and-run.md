@@ -16,7 +16,7 @@ creating a file called `greeter.emojic` and put some content into it:
 ```
 
 This is the minimum structure every program must have. 🏁 is a special part
-of a the language after which comes a code block. Every code block begins with
+of the language after which comes a code block. Every code block begins with
 🍇 and ends with 🍉.
 
 When the program is run the code block after 🏁 is executed.
