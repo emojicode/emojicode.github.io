@@ -324,6 +324,7 @@ table {
   z-index: 100;
   background-color: $toc-color;
   border-radius: 4px;
+  max-height: calc(100vh - #{$navbar-height + 30px} - 4.9rem);
 
   h2,
   h3 {
