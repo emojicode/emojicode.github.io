@@ -57,6 +57,7 @@ function processReleaseData(data) {
           index = _step$value[0],
           release = _step$value[1];
 
+      if (!/^0\.3/.test(release.name)) continue;
       var option = document.createElement('option');
       option.value = index;
       option.text = release.name;

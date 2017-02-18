@@ -45,6 +45,7 @@ function processReleaseData(data) {
   releases = data.data;
 
   for (const [index, release] of releases.entries()) {
+    if (!/^0\.3/.test(release.name)) continue;
     const option = document.createElement('option');
     option.value = index;
     option.text = release.name;
