@@ -169,8 +169,9 @@ string class does for example:
 
 ## Runtime Typing (Casting)
 
->!H This is a 0.x limitation. Enhancements in the future will possibly
->!H remove this limitation.
+>!N Casting to generic types is not safe at the moment. It is possible,
+>!N but if used incorrectly, it is evil due to the possibility to accomplish
+>!N something like shown in “Compatibility” above. **Try to avoid it.**
 
 At the moment it’s not possible to store the type information of instances of
 generic classes at runtime. Therefore casts to classes with specific generic
@@ -180,6 +181,9 @@ following error message if you try that anyway:
 > Dynamic casts involving generic type arguments are not possible yet. Please
 > specify the generic argument constraints of the class for compatibility with
 > future versions.
+
+>!H This is a 0.x limitation. Enhancements in the future will possibly
+>!H remove this limitation.
 
 When you perform a cast you must always specify the generic argument constraint
 for each argument. Example:

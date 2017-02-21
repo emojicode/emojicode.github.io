@@ -269,8 +269,9 @@ string class does for example:</p>
   🍉
 🍇
 </code></pre><h2 id="runtime-typing-casting-">Runtime Typing (Casting)</h2>
-<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>This is a 0.x limitation. Enhancements in the future will possibly
-remove this limitation.</p>
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Casting to generic types is not safe at the moment. It is possible,
+but if used incorrectly, it is evil due to the possibility to accomplish
+something like shown in “Compatibility” above. <strong>Try to avoid it.</strong></p>
 </div></div>
 
 <p>At the moment it’s not possible to store the type information of instances of
@@ -282,6 +283,10 @@ following error message if you try that anyway:</p>
 specify the generic argument constraints of the class for compatibility with
 future versions.</p>
 </blockquote>
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>This is a 0.x limitation. Enhancements in the future will possibly
+remove this limitation.</p>
+</div></div>
+
 <p>When you perform a cast you must always specify the generic argument constraint
 for each argument. Example:</p>
 <pre class="negative-example">

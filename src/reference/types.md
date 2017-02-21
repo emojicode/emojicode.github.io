@@ -127,7 +127,7 @@ From the above, we can conclude that the grammar of a type is defined as
 follows:
 
 <pre class="syntax">
-$type$> ⚫️ | 🍬 $type-main$ | 🔳 $value$
+$type$> ⚫️ | [🍬] $type-main$ | 🔳 $value$
 $type-main$> $variable$ | 🐕 | $callable-type$ | $type-identifier$
 $type-identifier$> 🔶 $emoji$ $emoji$ | $emoji$
 </pre>
