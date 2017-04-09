@@ -92,10 +92,10 @@
     {{/methods}}
   {{/methods.length}}
 
-  {{#classMethods.length}}
+  {{#typeMethods.length}}
     <h2>Class Methods</h2>
 
-    {{#classMethods}}
+    {{#typeMethods}}
       {{#procedureVisible}}
         <div class="method">
           <div class="method-heading">
@@ -108,6 +108,6 @@
         {{>argdoc}}
         </div>
       {{/procedureVisible}}
-    {{/classMethods}}
-  {{/classMethods.length}}
+    {{/typeMethods}}
+  {{/typeMethods.length}}
 </div>

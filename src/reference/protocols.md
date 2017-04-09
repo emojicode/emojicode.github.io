@@ -60,22 +60,26 @@ types and you can call methods on them:
 
 You can of course also cast to protocols.
 
-## 🐕 The Class
+## Multiprotocols
 
-You should already know 🐕 from class method bodies where it stands for the class
-on which the methodis invoked. The function of 🐕 inside protocol is different
-however.
+It might happen that you’ll need to deal with values of types that implement
+several protocols. For instance, you might want to provide a method which
+requires an argument that can be accessed with 🐽️ and can be compared as defined
+by the 💿 protocol. This is where multiprotocols are of service.
 
-In the context of a protocol 🐕 stands for the class which implements the
-protocol. The following protocol in the following example enforces a method
-🛅 that the takes an instance of the class implementing the protocol:
+You can use a multiprotocol type like so:
 
 ```
-🐊 💿 🍇
-  🐖 🛅 anotherCDLikeThing 🐕
+🍱 🐽️🐚🔡 💿 🍱
+```
+
+For instance, when declaring the arguments to a method:
+
+```
+🐖 🌈 a 🍱 🐽️🐚🔡 💿 🍱 🍇
+  👴 ...
 🍉
 ```
 
-If you use 🐕 in a protocol the protocol can no longer be used as a standalone
-type for obvious reasons: there is no class to which 🐕 could relate. You can
-however still use such a protocol as a generic constraint.
+As expected, `a` can now be used both as an instance of a type conforming to
+🐽️🐚🔡 and as an insatnce of a type conforming to 💿.

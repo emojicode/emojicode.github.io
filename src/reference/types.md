@@ -13,8 +13,8 @@ specify a namespace with the namespace accessor:
 
 <pre class="syntax">
 🔶 $namespace$ $name$
-$namespace$> $emoji$
-$name$> $emoji$
+$namespace$-> $emoji$
+$name$-> $emoji$
 </pre>
 
 This identifies type *name* of namespace *namespace*. Both must be exactly one
@@ -127,7 +127,8 @@ From the above, we can conclude that the grammar of a type is defined as
 follows:
 
 <pre class="syntax">
-$type$> ⚫️ | [🍬] $type-main$ | 🔳 $value$
-$type-main$> $variable$ | 🐕 | $callable-type$ | $type-identifier$
-$type-identifier$> 🔶 $emoji$ $emoji$ | $emoji$
+$type$-> ⚫️ | [🍬] $type-main$ | 🔳 $value$ | 🚨 $type$ $type$ | 🍱 $types$ 🍱
+$type-main$-> $variable$ | 🐕 | $callable-type$ | $type-identifier$
+$type-identifier$-> 🔶 $emoji$ $emoji$ | $emoji$
+$types$-> $type$ $types$ | $type$
 </pre>

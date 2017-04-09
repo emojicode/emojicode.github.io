@@ -14,7 +14,7 @@
 		</div>
 		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.3</span> Documentation
+        Emojicode <span class="logo-version">0.5β</span> Documentation
       </a>
       <div class="navbar-right">
 	      <a href="&#x2F;docs&#x2F;">Home</a>
@@ -27,7 +27,7 @@
 		<div class="content">
   <div class="toc-wrapper">
     <div class="toc">
-      <h2>The Definite Language Reference &amp; Guide</h2>
+      <h2>The Language Reference &amp; Guide</h2>
       <ol data-gumshoe>
           <li>
             <a href="basics.html"
@@ -64,14 +64,9 @@
               </ul>
           </li>
           <li>
-            <a href="optionals.html"
+            <a href="syntax.html"
                 
-                class="chapter-link">Optionals and Nothingness</a>
-          </li>
-          <li>
-            <a href="the-s-package.html"
-                
-                class="chapter-link">The s package</a>
+                class="chapter-link">Syntax</a>
           </li>
           <li>
             <a href="controlflow.html"
@@ -79,9 +74,19 @@
                 class="chapter-link">Control Flow</a>
           </li>
           <li>
+            <a href="the-s-package.html"
+                
+                class="chapter-link">The s package</a>
+          </li>
+          <li>
             <a href="classes-valuetypes.html"
                 
                 class="chapter-link">Classes &amp; Value Types</a>
+          </li>
+          <li>
+            <a href="optionals.html"
+                
+                class="chapter-link">Optionals</a>
           </li>
           <li>
             <a href="extensions.html"
@@ -101,12 +106,17 @@
           <li>
             <a href="enums.html"
                 
-                class="chapter-link">Enums</a>
+                class="chapter-link">Enumerations</a>
           </li>
           <li>
             <a href="types.html"
                 
                 class="chapter-link">Types and Namespaces</a>
+          </li>
+          <li>
+            <a href="errors.html"
+                
+                class="chapter-link">Error Handling</a>
           </li>
           <li>
             <a href="documentation.html"
@@ -230,24 +240,27 @@ emitted. Otherwise the variable is declared in the current scope.</p>
 </code></pre><p>These variables were justifiably declared as changeable variables because they
 obviously change often. You should however <strong>always prefer frozen variables if
 you don’t intend to modify</strong> the variable.</p>
+<p>🍮 can also be used directly followed by an emoji, which is a special use and
+called <em>assignment by call</em>. Assignment by call is described in
+<a href="classes-valuetypes.html">Classes &amp; Value Types</a>.</p>
 <h3 id="-declaring-variables">🍰 Declaring Variables</h3>
 <p>You can declare a variable yourself regardless if a variable with the same name
 was declared in the parent scope but you may not declare a variable more than
 one time.</p>
 <pre><code>🍰 variableName variableType
-</code></pre><p><em>variableName must be a valid variable name. variableValue may be an expression
-</em>of any type.</p>
+</code></pre><p><em>variableName</em> must be a valid variable name. <em>variableValue</em> may be an
+expression of any type.</p>
 <p>After you declared the variable in the local scope you can use 🍮 to set it to a
 value. The compiler will throw an error if you try to access an uninitialized
 variable. Optionals are automatically initialized to Nothingness.</p>
-<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can for
-instance make instance variables inaccessible.</p>
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can, for
+example, make instance variables inaccessible.</p>
 </div></div>
 
 <h3 id="scoping">Scoping</h3>
 <p>Variables are only accessible from the <em>scope</em> in which they were declared.
-Every code block (everything between a 🍇 and 🍉) defines an own scope which
-disappears once the block was executed:</p>
+Every code block (everything between a 🍇 and 🍉) defines a separate scope,
+which disappears once the block was executed:</p>
 <pre class="negative-example">
 🏁 🍇
   🍦 work 🔤Work It Harder Make It Better🔤
@@ -263,14 +276,8 @@ disappears once the block was executed:</p>
 <p>You cannot access scopes beyond the method, class method or initializer from
 your code. Nevertheless, you can access the <em>object scope</em> in instance methods
 and initializers. Closures are also considered an exception from this rule.
-You’ll learn more about these two kinds for special scoping  in <a href="classes-valuetypes.html">Classes &amp; Value
+You’ll learn more about these two kinds for special scoping in <a href="classes-valuetypes.html">Classes &amp; Value
 Types</a> and <a href="callables.html">Callables</a>.</p>
-<h3 id="-incrementing-and-decrementing-variables">🍫 &amp; 🍳 Incrementing and Decrementing Variables</h3>
-<p>Variables containing numbers can be incremented by using 🍫 and decremented by
-using 🍳.</p>
-<pre><code>🍫 numberOfCats
-🍳 watermelons
-</code></pre><p>The above example will increment <em>numberOfCats</em> and decrement <em>watermelons</em>.</p>
 <h2 id="numeric-literals">Numeric Literals</h2>
 <p>Integer literals can be written in</p>
 <ul>
@@ -329,7 +336,7 @@ make available to other people</strong>.</p>
 
 
 	<div class="book-navigation-bottom">
-		<a href="optionals.html" class="right">
+		<a href="syntax.html" class="right">
 			Next →
 		</a>
 	</div>

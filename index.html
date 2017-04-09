@@ -5,8 +5,7 @@
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/style.css">
-    <meta name="description" content="Emojicode is an open source, high-level,
-    multi-paradigm, object orientated programming language consisting of emojis.">
+    <meta name="description" content="Emojicode is a full-blown programming language consisting of emojis.">
   </head>
   <body>
     <div class="menu">
@@ -18,25 +17,52 @@
       </span>
     </div>
 
-    <div class="header grid" id="header">
-      <div class="u-1-2 header-left-col">
-        <h1>Emojicode</h1>
-        <h2>Emojicode is a static, strongly typed programming language.</h2>
-
-        <div class="link-list header-linked-list">
-          <a href="/docs/guides/install.html">Install Emojicode 0.3</a>
-          <a href="/docs/guides/compile-and-run.html">Taste Emojicode</a>
+    <div class="header" id="header">
+      <section class="emoji-row">
+        <div>
+          <img src="img/1f347.svg">
         </div>
+        <div>
+          <img src="img/1f366.svg">
+        </div>
+        <div>
+          <img src="img/2764.svg">
+        </div>
+      </section>
 
+      <h1>Emojicode</h1>
+      <h2>
+        Emojicode is an open-source, full-blown programming language
+        consisting of emojis.
+      </h2>
+
+      <a class="l-button" href="/docs/guides/install.html">Install Emojicode 0.5 beta</a>
+      <a class="l-button" href="/docs/guides/compile-and-run.html">Taste Emojicode</a>
+    </div>
+
+    <div class="grid">
+      <div class="feature">
+        <pre class="example-code">🐇 🏛 🍇
+  🐈 🆕 port 🚂 🍇
+    🍦 server 🍺 🔷🏄🆕port
+    🔁 👍 🍇
+    🍉
+  🍉
+
+  🐖 📩 socket 📞 🍇
+    🔷💈🆕 🍇
+      🍦 request 😊 🐕 requestData
+    🍉
+  🍉
+🍉</pre>
+        <h3>Object-Orientation</h3>
         <p>
-          <iframe src="https://ghbtns.com/github-btn.html?user=emojicode&repo=emojicode&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-
-          <a class="twitter-follow-button" href="https://twitter.com/Real_Emojicode" data-size="large" data-show-count="false">
-            Follow @Real_Emojicode
-          </a>
+          Emojicode features powerful object-orientation including inheritance,
+          overriding, final methods and classes.
+          <a href="#" class="dont-see-emojis">Don’t see Emojis properly?</a>
         </p>
       </div>
-      <div class="u-1-2 example-code-col">
+      <div class="feature">
         <pre class="example-code">
 🏁 🍇
   👴 Let’s print the first 15 fibonaccis.
@@ -51,149 +77,159 @@
     😀 🔡 r 10
   🍉
 🍉</pre>
-        <a href="#" class="dont-see-emojis">Don’t see Emojis properly?</a>
+        <h3>Value Types</h3>
+        <p>
+          Emojicode also has value types that are passed by copying. Value
+          types, of course, feature methods too.
+        </p>
+      </div>
+      <div class="feature">
+        <pre class="example-code">
+🏁 🍇
+  👴 Let’s print the first 15 fibonaccis.
+
+  🍮 a 0
+  🍮 b 1
+
+  🔂 i ⏩ 0 15 🍇
+    🍦 r ➕ a b
+    🍮 a b
+    🍮 b r
+    😀 🔡 r 10
+  🍉
+🍉</pre>
+        <h3>Optionals</h3>
+        <p>
+          Emojicode also has value types that are passed by copying. Value
+          types, of course, feature methods too.
+        </p>
+      </div>
+
+      <div class="feature">
+        <pre class="example-code">
+🏁 🍇
+  👴 Let’s print the first 15 fibonaccis.
+
+  🍮 a 0
+  🍮 b 1
+
+  🔂 i ⏩ 0 15 🍇
+    🍦 r ➕ a b
+    🍮 a b
+    🍮 b r
+    😀 🔡 r 10
+  🍉
+🍉</pre>
+        <h3>Generics</h3>
+        <p>
+          Emojicode also has value types that are passed by copying. Value
+          types, of course, feature methods too.
+        </p>
+      </div>
+      <div class="feature">
+        <pre class="example-code">
+🏁 🍇
+  🍦 power 🐈🔡😯 🔤Enter a power of your choice: 🔤
+
+  🍦 starships 🍨🔤Enterprise🔤 🔤Excelsior🔤 🔤Relativity🔤🍆
+
+  🍦 sortedStarships 🐰 sortedStarships 🍇 starship 🔡 ➡️ 🔡
+    🍎 🍪 power starship 🍪
+  🍉
+
+  🍦 starshipsWithPower 🐰 sortedStarships 🍇 starship 🔡 ➡️ 🔡
+    🍎 🍪 power starship 🍪
+  🍉
+🍉</pre>
+        <h3>Closures</h3>
+        <p>
+          Closures are a quick way to define functions within functions that
+          can capture variables and can be passed around like any object.
+        </p>
+      </div>
+      <div class="feature">
+        <pre class="example-code">
+🌮
+  A collection whose elements can be accessed by 🐽. The number of elements must
+  be finite and returned by 🐔.
+🌮
+🌍 🐊 🐽️🐚Element⚪️ 🍇
+  🌮
+    Gets the item at `index`. If the index is invalid Nothingness is returned.
+  🌮
+
+  🐖 🐽 index 🚂 ➡️ 🍬Element
+  🌮 Returns the number of items in the list. 🌮
+  🐖 🐔 ➡️ 🚂
+🍉
+</pre>
+        <h3>Protocols</h3>
+        <p>
+          Protocols define how to implement specific functionality so that
+          the type offering it can be used with other existing types.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Unbelievably Fast</h3>
+        <p>
+          Emojicode has incredible performance! Benchmarks¹ show that Emojicode
+          can execute certain programs nearly 2x as fast as Java and about 10x
+          faster than Ruby.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Low Overhead</h3>
+        <p>
+          Above that, Emojicode is tiny. The prebuilt binaries are just about
+          500KB. Emojicode can be built in a few minutes without any
+          dependencies and is installed within seconds, literally.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>Portable</h3>
+        <p>
+          Not to forget, Emojicode binaries are system independent and work
+          everywhere the Real-Time Engine work – macOS, Linux, and, yes,
+          even Windows.
+        </p>
       </div>
     </div>
 
-    <section id="intro" class="intro">
-      <div class="container">
-        <h2>What exactly is Emojicode?</h2>
+    <p>
+      <iframe src="https://ghbtns.com/github-btn.html?user=emojicode&repo=emojicode&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+
+      <a class="twitter-follow-button" href="https://twitter.com/Real_Emojicode" data-size="large" data-show-count="false">
+        Follow @Real_Emojicode
+      </a>
+    </p>
+
+    <div class="action">
+      <div class="action-inner">
+        <h2>Learn Emojicode!</h2>
+
         <p>
-          Emojicode is an open source, <b>high-level, multi-paradigm,
-          object-oriented</b> programming language consisting of emojis, that
-          allows you to build fast cross-platform applications while
-          having a lot of fun. And it’s 100% real.
+          Emojicode is a straightforward language to learn, whatever background
+          you have. Our documentation is known to be excellent and stuffed with
+          walk-through guides and examples.
         </p>
-      </div>
-    </section>
 
-    <section class="emoji-row">
-      <div>
-        <img src="img/1f36b.svg">
-      </div>
-      <div>
-        <img src="img/1f36e.svg">
-      </div>
-      <div>
-        <img src="img/1f4e6.svg">
-      </div>
-      <div>
-        <img src="img/1f37a.svg">
-      </div>
-      <div>
-        <img src="img/1f407.svg">
-      </div>
-      <div>
-        <img src="img/2712.svg">
-      </div>
-    </section>
-
-    <section class="features">
-      <div class="grid">
-        <div class="u-1-2">
-          <h2>Awesome concepts.</h2>
-          <p>
-            Emojicode has got all the awesome paradigms you love:
-            <b>Object-orientation, Optionals, Generics and Closures.</b>
-          </p>
+        <div>
+          <a class="l-button" href="/docs/guides/install.html">Install Emojicode 0.5 beta</a>
+          <a class="l-button" href="/docs/">Emojicode Documentation</a>
         </div>
 
-        <div class="u-1-2">
-          <h2>Portable.</h2>
-          <p>
-            Emojicode binaries run on the so called Real-Time Engine which
-            <b>works across platforms</b>. You can use it on OS X, Ubuntu,
-            Debian, Raspbian...
-          </p>
-        </div>
+        <h2>Get involved!</h2>
+        <p>
+          You can help Emojicode grow! Development takes place on GitHub and you’re
+          invited to drop in.
+        </p>
 
-        <div class="u-1-2">
-          <h2>Small and fast.</h2>
-          <p>
-            The Emojicode Real-Time engine is not just <b>a few times faster
-            than common virtual machines</b>, it’s just about 100 kilobytes.
-          </p>
-        </div>
-
-        <div class="u-1-2">
-          <h2>Packages.</h2>
-          <p>
-            Emojicode has got a ready-to-use package system to access every part
-            of the system.
-          </p>
+        <div>
+          <a class="l-button" href="https://github.com/emojicode/emojicode">GitHub Repo</a>
         </div>
       </div>
-    </section>
-
-    <section class="emoji-row">
-      <div>
-        <img src="img/1f502.svg">
-      </div>
-      <div>
-        <img src="img/1f369.svg">
-      </div>
-      <div>
-        <img src="img/1f4dd.svg">
-      </div>
-      <div>
-        <img src="img/1f602.svg">
-      </div>
-      <div>
-        <img src="img/1f366.svg">
-      </div>
-      <div>
-        <img src="img/1f36d.svg">
-      </div>
-    </section>
-
-    <section class="action">
-      <h2>Learn Emojicode!</h2>
-
-      <p>
-        Like what you hear? Visit the documentation and get started today.
-      </p>
-
-      <div class="link-list">
-        <a href="/docs/">Emojicode Documentation</a>
-        <a href="/docs/guides/compile-and-run.html">An Emojicode Tutorial</a>
-        <a href="https://gitter.im/emojicode/emojicode">Get Help In The Chat</a>
-      </div>
-
-      <h2>Help Building Emojicode!</h2>
-      <p>
-        You can help Emojicode grow! You can help Emojicode even by just using it!
-      </p>
-
-      <div class="link-list">
-        <a href="https://github.com/emojicode/emojicode" class="cta-btn">
-          GitHub Repository
-        </a>
-        <a href="https://github.com/emojicode/emojicode/issues">
-          Found a bug?
-        </a>
-      </div>
-    </section>
-
-    <section class="emoji-row">
-      <div>
-        <img src="img/1f49a.svg">
-      </div>
-      <div>
-        <img src="img/1f43d.svg">
-      </div>
-      <div>
-        <img src="img/1f49c.svg">
-      </div>
-      <div>
-        <img src="img/1f347.svg">
-      </div>
-      <div>
-        <img src="img/2764.svg">
-      </div>
-      <div>
-        <img src="img/1f43b.svg">
-      </div>
-    </section>
+    </div>
 
     <div class="footer">
       <div class="container">

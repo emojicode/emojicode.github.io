@@ -74,6 +74,11 @@ use the equality method 😛.
 😛 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤
 ```
 
+>!H Note that the example above used a method call. 😛 is a method defined in
+>!H the 🔡 class. You’ll learn more about classes and methods in the next
+>!H chapter. For now, just remember that methods are called by placing an emoji
+>!H before the object on which the method should be called.
+
 ### Concatenating Strings
 
 To add two or more strings together (*concatenate*) you should use the 🍪
@@ -167,10 +172,10 @@ The shortcut syntax to create a dictionary is:
 
 <pre class="syntax">
 🍯 $kv-pair-list$🍆
-$kv-pair-list$> $kv-pair$ $kv-pair-list$ | $kv-pair$
-$kv-pair$> $key$ $pair-value$
-$key$> $value$
-$pair-value$> $value$
+$kv-pair-list$-> $kv-pair$ $kv-pair-list$ | $kv-pair$
+$kv-pair$-> $key$ $pair-value$
+$key$-> $value$
+$pair-value$-> $value$
 </pre>
 
 *key* must be a string. The compiler will try to infer the generic type argument

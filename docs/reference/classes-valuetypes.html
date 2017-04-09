@@ -14,7 +14,7 @@
 		</div>
 		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.3</span> Documentation
+        Emojicode <span class="logo-version">0.5β</span> Documentation
       </a>
       <div class="navbar-right">
 	      <a href="&#x2F;docs&#x2F;">Home</a>
@@ -27,7 +27,7 @@
 		<div class="content">
   <div class="toc-wrapper">
     <div class="toc">
-      <h2>The Definite Language Reference &amp; Guide</h2>
+      <h2>The Language Reference &amp; Guide</h2>
       <ol data-gumshoe>
           <li>
             <a href="basics.html"
@@ -35,19 +35,19 @@
                 class="chapter-link">The Basics</a>
           </li>
           <li>
-            <a href="optionals.html"
+            <a href="syntax.html"
                 
-                class="chapter-link">Optionals and Nothingness</a>
-          </li>
-          <li>
-            <a href="the-s-package.html"
-                
-                class="chapter-link">The s package</a>
+                class="chapter-link">Syntax</a>
           </li>
           <li>
             <a href="controlflow.html"
                 
                 class="chapter-link">Control Flow</a>
+          </li>
+          <li>
+            <a href="the-s-package.html"
+                
+                class="chapter-link">The s package</a>
           </li>
           <li>
             <a href="classes-valuetypes.html"
@@ -96,6 +96,11 @@
               </ul>
           </li>
           <li>
+            <a href="optionals.html"
+                
+                class="chapter-link">Optionals</a>
+          </li>
+          <li>
             <a href="extensions.html"
                 
                 class="chapter-link">Extensions</a>
@@ -113,12 +118,17 @@
           <li>
             <a href="enums.html"
                 
-                class="chapter-link">Enums</a>
+                class="chapter-link">Enumerations</a>
           </li>
           <li>
             <a href="types.html"
                 
                 class="chapter-link">Types and Namespaces</a>
+          </li>
+          <li>
+            <a href="errors.html"
+                
+                class="chapter-link">Error Handling</a>
           </li>
           <li>
             <a href="documentation.html"
@@ -201,10 +211,7 @@ blowfish – a more concrete type of fish:</p>
 <span class="syntax-placeholder">value-type</span> ⟶ <span class="syntax-placeholder">type-identifier</span>
 </pre>
 
-<p>Defining a value type yourself isn’t really useful at the moment (version
-0.3). Nevertheless, you can extend built-in value types like 🚂 or 🚀 to
-provide custom funcitonality.</p>
-<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>The defined types are immediately made available in the namespaces provided
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>The defined types are immediately available in the namespaces provided
 in <em>value-type</em> or <em>class</em>. Please see <a href="types.html">Types</a> to gain a deeper
 understanding of namespaces and their use in declarations.</p>
 </div></div>
@@ -220,23 +227,20 @@ by</strong> reference. <strong>Instances of value types</strong> are, as their n
 </li>
 </ul>
 <h2 id="instance-variables">Instance Variables</h2>
-<p>To store information in your type instances, you’ll use instance variables.</p>
-<p>In the class body the 🍰 syntax can be used to declare variables.
-The example below defines a 🐟 class with instance variables.</p>
+<p>To store information in your type instances, instance variables are used. The
+🍰 syntax is used to declare an instance variable.</p>
+<p>The example below defines a 🐟 class with instance variables.</p>
 <pre><code>🐇 🐟 🍇
   🍰 age 🚂
   🍰 speedInM/s 🚀
   🍰 name 🍬🔡  👴 Fish kept in aquariums often have names
 🍉
-</code></pre><p>When a class is created a scope is created in which the instance variables
-live. This scope is always available to methods and in initializers as top
-scope.</p>
-<p>Instance variables are <strong>private to the class</strong> and <strong>cannot be accessed from
-outside</strong> the class. If you want to modify or access them from outside the class
-you have to write <strong>getters and setters</strong>. Neither can subclasses directly
-access their superclasses’ instance variables. They also have to use
-corresponding getters and setters.</p>
-<p>As for the moment value types do not support instance variables.</p>
+</code></pre><p>When a type is instantiated a scope is created in which the instance variables
+live. This scope is always available in methods and initializers.</p>
+<p>Instance variables are <strong>private to the instance</strong> and <strong>cannot be accessed from
+outside</strong>. If you want to allow modification or access of an instance variable
+from outside a class or value type you have to write <strong>getters and setters</strong>.
+Note that instance variables are also kept private from subclasses.</p>
 <h2 id="initializers">Initializers</h2>
 <p>Initializers are responsible to prepare an instance for use and are called to
 instantiate a type, that is gaining an instance of the given type.</p>
@@ -252,15 +256,16 @@ instantiate a type, that is gaining an instance of the given type.</p>
 <p>In an initializer <strong>all instance variables must be initialized</strong>. (Remember that
 variables of an optional type are automatically initialized to Nothingness,
 which is also true for instance variables.)</p>
-<p>Furthermore, you <strong>must call an initializer</strong> of your class’s superclass if
-the class has a superclass. The 🐐 is used to call a superinitializer:</p>
+<p>Furthermore, if you’re initializing a class instance whose class has a
+superclass you <strong>must call an initializer</strong> of the superclass . The 🐐 keyword is
+used to call a superinitializer:</p>
 <pre class="syntax">
 🐐 <span class="syntax-placeholder">superinitializer</span> <span class="syntax-placeholder">[arguments]</span>
 </pre>
 
-<p>By enforcing these rules, Emojicode can guarantee that an object is always
-fully initialized when obtained from the intializer.</p>
-<p>The following example shows an initializer for the 🐟 class:</p>
+<p>By enforcing these rules, Emojicode can guarantee that any instance of any type
+is always fully initialized when obtained from the intializer.</p>
+<p>The following example is an initializer for the 🐟 class:</p>
 <pre><code>🐈 🏞 ageGiven 🚂 nameGiven 🍬🔡 🍇
   🍮 age ageGiven
   🍮 name nameGiven
@@ -442,10 +447,10 @@ not sharing the same memory location. To determine equality use 😛 if availabl
 
 
 	<div class="book-navigation-bottom">
-		<a href="controlflow.html" class="left">
+		<a href="the-s-package.html" class="left">
 			← Previous
 		</a>
-		<a href="extensions.html" class="right">
+		<a href="optionals.html" class="right">
 			Next →
 		</a>
 	</div>

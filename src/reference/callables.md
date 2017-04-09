@@ -10,7 +10,7 @@ The callable type is declared using this syntax:
 
 <pre class="syntax">
 🍇 $[type-list]$ $[return-type]$ 🍉
-$type-list$> $type$ | $type$ $type-list$
+$type-list$-> $type$ | $type$ $type-list$
 </pre>
 
 Each *type* stands for one argument of that type. You can specify a

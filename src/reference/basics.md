@@ -111,6 +111,10 @@ These variables were justifiably declared as changeable variables because they
 obviously change often. You should however **always prefer frozen variables if
 you don’t intend to modify** the variable.
 
+🍮 can also be used directly followed by an emoji, which is a special use and
+called *assignment by call*. Assignment by call is described in
+[Classes & Value Types](classes-valuetypes.html).
+
 ### 🍰 Declaring Variables
 
 You can declare a variable yourself regardless if a variable with the same name
@@ -121,21 +125,21 @@ one time.
 🍰 variableName variableType
 ```
 
-*variableName must be a valid variable name. variableValue may be an expression
-*of any type.
+*variableName* must be a valid variable name. *variableValue* may be an
+expression of any type.
 
 After you declared the variable in the local scope you can use 🍮 to set it to a
 value. The compiler will throw an error if you try to access an uninitialized
 variable. Optionals are automatically initialized to Nothingness.
 
->!N Beware of that 🍰 can shadow variables from parent scopes and can for
->!N instance make instance variables inaccessible.
+>!N Beware of that 🍰 can shadow variables from parent scopes and can, for
+>!N example, make instance variables inaccessible.
 
 ### Scoping
 
 Variables are only accessible from the *scope* in which they were declared.
-Every code block (everything between a 🍇 and 🍉) defines an own scope which
-disappears once the block was executed:
+Every code block (everything between a 🍇 and 🍉) defines a separate scope,
+which disappears once the block was executed:
 
 <pre class="negative-example">
 🏁 🍇
@@ -152,20 +156,8 @@ disappears once the block was executed:
 You cannot access scopes beyond the method, class method or initializer from
 your code. Nevertheless, you can access the *object scope* in instance methods
 and initializers. Closures are also considered an exception from this rule.
-You’ll learn more about these two kinds for special scoping  in [Classes & Value
+You’ll learn more about these two kinds for special scoping in [Classes & Value
 Types](classes-valuetypes.html) and [Callables](callables.html).
-
-### 🍫 & 🍳 Incrementing and Decrementing Variables
-
-Variables containing numbers can be incremented by using 🍫 and decremented by
-using 🍳.
-
-```
-🍫 numberOfCats
-🍳 watermelons
-```
-
-The above example will increment *numberOfCats* and decrement *watermelons*.
 
 ## Numeric Literals
 

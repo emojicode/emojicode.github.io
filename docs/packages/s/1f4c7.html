@@ -14,7 +14,7 @@
 		</div>
 		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.3</span> Documentation
+        Emojicode <span class="logo-version">0.5β</span> Documentation
       </a>
       <div class="navbar-right">
 	      <a href="&#x2F;docs&#x2F;">Home</a>
@@ -36,6 +36,7 @@
         <div class="link-list u4">
             <a href="../s/1f43d.html">🐽🐚🚂</a>
             <a href="../s/1f502.html">🔂🐚🚂</a>
+            <a href="../s/1f61b.html">😛🐚📇</a>
         </div>
         <h3>Methods</h3>
         <div class="link-list u4">
@@ -89,6 +90,9 @@
 
 <p>Returns an integer representing the value of the byte at the given index
 <code>index</code>. A negative index is assumed to be relative to the end of the data.</p>
+<p>This method treats the byte at the index as if it was an unsigned value, that is the front most
+bit is also counted towards the value and does not indicate the sign. The value is therefore
+always positive.</p>
 <p>Nothingness is returned if the index is out of range.</p>
 
         </div>
@@ -123,11 +127,11 @@ various techniques to make this as efficient as possible.</p>
             
           </div>
 
-          <pre class="declaration">🐖 🔍 searchValue <a href="../s/1f4c7.html">📇</a> ➡️ <a href="../s/1f682.html">🍬🚂</a></pre>
+          <pre class="declaration">🐖 🔍 search <a href="../s/1f4c7.html">📇</a> ➡️ <a href="../s/1f682.html">🍬🚂</a></pre>
 
 <p>Finds the first occurrences of <em>search</em> in the bytes represented by this
 instance. Search is done from left to right. Nothingness is returned if
-<em>search</em> cannot be found.</p>
+<em>search</em> cannot be found. 0 is returned if <em>search</em> is empty.</p>
 
         </div>
         <div class="method">

@@ -11,8 +11,8 @@ The syntax to define a class is
 🐇 $class$ $[superclass]$ 🍇
 
 🍉
-$superclass$> $type-identifier$
-$class$> $type$
+$superclass$-> $type-identifier$
+$class$-> $type$
 </pre>
 
 If you omit *superclass* the class won’t have a superclass.
@@ -42,14 +42,10 @@ The syntax to define a value type is the following:
 🕊 $value-type$ 🍇
 
 🍉
-$value-type$> $type-identifier$
+$value-type$-> $type-identifier$
 </pre>
 
-Defining a value type yourself isn’t really useful at the moment (version
-0.3). Nevertheless, you can extend built-in value types like 🚂 or 🚀 to
-provide custom funcitonality.
-
->!H The defined types are immediately made available in the namespaces provided
+>!H The defined types are immediately available in the namespaces provided
 >!H in *value-type* or *class*. Please see [Types](types.html) to gain a deeper
 >!H understanding of namespaces and their use in declarations.
 
@@ -65,9 +61,9 @@ There are significant difference betweeen classes and value types:
 
 ## Instance Variables
 
-To store information in your type instances, you’ll use instance variables.
+To store information in your type instances, instance variables are used. The
+🍰 syntax is used to declare an instance variable.
 
-In the class body the 🍰 syntax can be used to declare variables.
 The example below defines a 🐟 class with instance variables.
 
 ```
@@ -78,17 +74,13 @@ The example below defines a 🐟 class with instance variables.
 🍉
 ```
 
-When a class is created a scope is created in which the instance variables
-live. This scope is always available to methods and in initializers as top
-scope.
+When a type is instantiated a scope is created in which the instance variables
+live. This scope is always available in methods and initializers.
 
-Instance variables are **private to the class** and **cannot be accessed from
-outside** the class. If you want to modify or access them from outside the class
-you have to write **getters and setters**. Neither can subclasses directly
-access their superclasses’ instance variables. They also have to use
-corresponding getters and setters.
-
-As for the moment value types do not support instance variables.
+Instance variables are **private to the instance** and **cannot be accessed from
+outside**. If you want to allow modification or access of an instance variable
+from outside a class or value type you have to write **getters and setters**.
+Note that instance variables are also kept private from subclasses.
 
 ## Initializers
 
@@ -101,25 +93,26 @@ The syntax to define an initializer is:
 🐈 $name$ $[init-parameters]$ 🍇
 
 🍉
-$init-parameters$> $init-parameter$ | $init-parameter$ $init-parameters$
-$init-parameter$> [🍼] $variable$ $type$
+$init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
+$init-parameter$-> [🍼] $variable$ $type$
 </pre>
 
 In an initializer **all instance variables must be initialized**. (Remember that
 variables of an optional type are automatically initialized to Nothingness,
 which is also true for instance variables.)
 
-Furthermore, you **must call an initializer** of your class’s superclass if
-the class has a superclass. The 🐐 is used to call a superinitializer:
+Furthermore, if you’re initializing a class instance whose class has a
+superclass you **must call an initializer** of the superclass . The 🐐 keyword is
+used to call a superinitializer:
 
 <pre class="syntax">
 🐐 $superinitializer$ $[arguments]$
 </pre>
 
-By enforcing these rules, Emojicode can guarantee that an object is always
-fully initialized when obtained from the intializer.
+By enforcing these rules, Emojicode can guarantee that any instance of any type
+is always fully initialized when obtained from the intializer.
 
-The following example shows an initializer for the 🐟 class:
+The following example is an initializer for the 🐟 class:
 
 ```
 🐈 🏞 ageGiven 🚂 nameGiven 🍬🔡 🍇
@@ -209,9 +202,9 @@ The syntax to define a method is:
 🐖 $method-emoji$ $[parameters]$ $[return-type]$ 🍇
 
 🍉
-$parameters$> $parameter$ | $parameter$ $parameters$
-$parameter$> $variable$ $type$
-$return-type$> ➡️ $type$
+$parameters$-> $parameter$ | $parameter$ $parameters$
+$parameter$-> $variable$ $type$
+$return-type$-> ➡️ $type$
 </pre>
 
 Here’s an example from the 🐟 class:
@@ -342,11 +335,11 @@ This calls the type method 📜 on the class 🍕, which we just defined above.
 These emojis cannot be used as method names:
 
 <pre class="syntax">
-$method-emoji$> $emoji$ except $reserved-emoji$
-$reserved-emoji$> 🍮|🍩|🍰|🍨|🍯|🍦|🍫|🍳|🍪|🍭
-$reserved-emoji$> 🍺|🍻|🔁|🔂|🍊|🍋|🍇|🍉|🍓|🍆
-$reserved-emoji$> 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
-$reserved-emoji$> 🔤|👵|🔟|👍|👎|👴
+$method-emoji$-> $emoji$ except $reserved-emoji$
+$reserved-emoji$-> 🍮|🍩|🍰|🍨|🍯|🍦|🍫|🍳|🍪|🍭
+$reserved-emoji$-> 🍺|🍻|🔁|🔂|🍊|🍋|🍇|🍉|🍓|🍆
+$reserved-emoji$-> 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
+$reserved-emoji$-> 🔤|👵|🔟|👍|👎|👴
 </pre>
 
 
@@ -367,7 +360,7 @@ not sharing the same memory location. To determine equality use 😛 if availabl
 
 <pre class="syntax">
 😜 $object$ $object$
-$object$> $value$
+$object$-> $value$
 </pre>
 
 😜 returns true if both *object*s are references to the same memory location.

@@ -32,7 +32,7 @@ $global-nav-color: $p-dark;
 $global-nav-text-color: #999;
 
 $code-background: $gray;
-$code-font: Monaco, Menlo, monospace;
+$code-font: Menlo, Monaco, monospace;
 
 $heavy-link-color: lighten($navbar-color, 40%);
 $heavy-link-hover-color: lighten($navbar-color, 45%);
@@ -390,12 +390,11 @@ table {
     background-color: $color;
     color: $white;
     padding: 7px;
-    margin-bottom: 3px;
-    margin-top: 0;
+    margin: 0;
   }
 
   .text {
-    padding: 18px 13px;
+    padding: 0.75em 0.7em;
   }
 
   p {

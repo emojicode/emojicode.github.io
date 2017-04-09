@@ -118,7 +118,7 @@ class Compiler {
   }
 
   createReference() {
-    this.createBook('reference', 'The Definite Language Reference & Guide');
+    this.createBook('reference', 'The Language Reference & Guide');
   }
 
   createGuides() {
@@ -148,8 +148,8 @@ class Compiler {
         const type = callouts[tl];
         return `<div class="callout-${type.toLowerCase()}"><div class="title">${type}</div>\
           <div class="text">${marked(text.replace(/>![NH] ?/g, ''))}</div></div>\n`;
-      }).replace(/\$([a-z-\[\]]+)\$(>)?/g, (_, name, def) => {
-        if (def === '>') {
+      }).replace(/\$([a-z-\[\]]+)\$(->)?/g, (_, name, def) => {
+        if (def === '->') {
           return `<span class="syntax-placeholder">${name}</span> ⟶`;
         }
         return `<span class="syntax-placeholder">${name}</span>`;
@@ -203,7 +203,7 @@ ${(type.optional ? '🍬' : '')}${type.name}</a>`;
       package: packageMeta.name,
       initializers: type.initializers,
       methods: type.methods,
-      classMethods: type.classMethods,
+      typeMethods: type.typeMethods,
       superclass: type.superclass,
       typeType,
       genericArguments: type.genericArguments,

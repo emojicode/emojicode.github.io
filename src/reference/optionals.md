@@ -1,4 +1,4 @@
-# Optionals and Nothingness
+# Optionals
 
 ## ✨ Nothingness
 
@@ -77,25 +77,12 @@ You can use ☁️ to test if an optional is Nothingness.
 ## 🍊🍦 Condition Assignment
 
 An even more useful way to protect from Nothingness is the Condition Assingment.
-You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:
+You can use 🍦 in conditions, that is in combination with 🍊, 🍋 or 🔁, and the
+conidition will be true if the value provided for the variable is not
+Nothingness. In that case, the variable *variable* will be set to the unwrapped
+value.
 
-<pre class="syntax">
-🍊🍦 $variable$ $value$
-</pre>
-
-or
-
-<pre class="syntax">
-🍋🍦 $variable$ $value$
-</pre>
-
-This will unwrap and store the value of *value* into the variable
-*variable* and execute the code block assigned if *value* is not
-Nothingness. If *optionalValue* is not Nothingness the 🍊 or 🍋 statement will
-behave as if an expression evaluated to true; otherwise the 🍊 or 🍋 statement
-will behave as if the expression evaluated to false.
-
-Example:
+Take a look at this example:
 
 ```
 🍊🍦 string 🔲 sth 🔡 🍇
@@ -103,22 +90,5 @@ Example:
 🍉
 ```
 
-## 🍻 Optional method call
-
-Using 🍻 you can perform a method call on an object, without the need to check if
-it’s actually Nothingness inside. The call will only be executed if
-*optionalValue* is not Nothingness:
-
-<pre class="syntax">
-🍻 $method-emoji$ $value$ $[arguments]$
-</pre>
-
-🍻 returns the return of the method as optional.
-
-You can of course encapsulate several 🍻 calls. E.g.
-
-```
-🍰 w 🍬🔡
-
-🍻 😀 🍻 📝 w 🔟!
-```
+The block of the 🍊 statement will only be executed if `🔲 sth 🔡` does not
+evaluate to Nothingness.

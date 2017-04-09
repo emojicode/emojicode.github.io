@@ -14,7 +14,7 @@
 		</div>
 		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.3</span> Documentation
+        Emojicode <span class="logo-version">0.5β</span> Documentation
       </a>
       <div class="navbar-right">
 	      <a href="&#x2F;docs&#x2F;">Home</a>
@@ -27,7 +27,7 @@
 		<div class="content">
   <div class="toc-wrapper">
     <div class="toc">
-      <h2>The Definite Language Reference &amp; Guide</h2>
+      <h2>The Language Reference &amp; Guide</h2>
       <ol data-gumshoe>
           <li>
             <a href="basics.html"
@@ -35,9 +35,14 @@
                 class="chapter-link">The Basics</a>
           </li>
           <li>
-            <a href="optionals.html"
+            <a href="syntax.html"
                 
-                class="chapter-link">Optionals and Nothingness</a>
+                class="chapter-link">Syntax</a>
+          </li>
+          <li>
+            <a href="controlflow.html"
+                
+                class="chapter-link">Control Flow</a>
           </li>
           <li>
             <a href="the-s-package.html"
@@ -62,14 +67,14 @@
               </ul>
           </li>
           <li>
-            <a href="controlflow.html"
-                
-                class="chapter-link">Control Flow</a>
-          </li>
-          <li>
             <a href="classes-valuetypes.html"
                 
                 class="chapter-link">Classes &amp; Value Types</a>
+          </li>
+          <li>
+            <a href="optionals.html"
+                
+                class="chapter-link">Optionals</a>
           </li>
           <li>
             <a href="extensions.html"
@@ -89,12 +94,17 @@
           <li>
             <a href="enums.html"
                 
-                class="chapter-link">Enums</a>
+                class="chapter-link">Enumerations</a>
           </li>
           <li>
             <a href="types.html"
                 
                 class="chapter-link">Types and Namespaces</a>
+          </li>
+          <li>
+            <a href="errors.html"
+                
+                class="chapter-link">Error Handling</a>
           </li>
           <li>
             <a href="documentation.html"
@@ -190,7 +200,13 @@ it as well:</p>
 <p>If you want to determine whether to strings represent the same value, you can
 use the equality method 😛.</p>
 <pre><code>😛 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤
-</code></pre><h3 id="concatenating-strings">Concatenating Strings</h3>
+</code></pre><div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Note that the example above used a method call. 😛 is a method defined in
+the 🔡 class. You’ll learn more about classes and methods in the next
+chapter. For now, just remember that methods are called by placing an emoji
+before the object on which the method should be called.</p>
+</div></div>
+
+<h3 id="concatenating-strings">Concatenating Strings</h3>
 <p>To add two or more strings together (<em>concatenate</em>) you should use the 🍪
 language struct. Wrap all strings you want to concatenate between two 🍪. They
 will get concatenated in order of appearance into one string.</p>
@@ -340,10 +356,10 @@ something for a specific number of times:</p>
 </code></pre>
 
 	<div class="book-navigation-bottom">
-		<a href="optionals.html" class="left">
+		<a href="controlflow.html" class="left">
 			← Previous
 		</a>
-		<a href="controlflow.html" class="right">
+		<a href="classes-valuetypes.html" class="right">
 			Next →
 		</a>
 	</div>

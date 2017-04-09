@@ -103,8 +103,8 @@ Therefore the complete method syntax is:
 🐖 $name$ $[generic-arguments]$ $[arguments]$ $[return-type]$ 🍇
 
 🍉
-$generic-arguments$> $generic-argument$ | $generic-argument$ $generic-arguments$
-$generic-argument$> 🐚 $variable$ $type$
+$generic-arguments$-> $generic-argument$ | $generic-argument$ $generic-arguments$
+$generic-argument$-> 🐚 $variable$ $type$
 </pre>
 
 As you can see above it takes one generic argument named `A` which is restricted

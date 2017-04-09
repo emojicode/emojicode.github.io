@@ -14,7 +14,7 @@
 		</div>
 		<nav class="navbar" role="navigation" data-gumshoe-header>
 			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.3</span> Documentation
+        Emojicode <span class="logo-version">0.5β</span> Documentation
       </a>
       <div class="navbar-right">
 	      <a href="&#x2F;docs&#x2F;">Home</a>
@@ -27,7 +27,7 @@
 		<div class="content">
   <div class="toc-wrapper">
     <div class="toc">
-      <h2>The Definite Language Reference &amp; Guide</h2>
+      <h2>The Language Reference &amp; Guide</h2>
       <ol data-gumshoe>
           <li>
             <a href="basics.html"
@@ -35,14 +35,9 @@
                 class="chapter-link">The Basics</a>
           </li>
           <li>
-            <a href="optionals.html"
+            <a href="syntax.html"
                 
-                class="chapter-link">Optionals and Nothingness</a>
-          </li>
-          <li>
-            <a href="the-s-package.html"
-                
-                class="chapter-link">The s package</a>
+                class="chapter-link">Syntax</a>
           </li>
           <li>
             <a href="controlflow.html"
@@ -50,26 +45,33 @@
                 >Control Flow</a>
               <ul>
                 <li>
-                  <a href="#-" class="section-link">🔂</a>
+                  <a href="#-code-block" class="section-link">🍇🍉 Code Block</a>
                 </li>
                 <li>
-                  <a href="#-" class="section-link">🔁</a>
+                  <a href="#-if" class="section-link">🍊 If</a>
                 </li>
                 <li>
-                  <a href="#-" class="section-link">🍊</a>
+                  <a href="#-for-in" class="section-link">🔂 For In</a>
                 </li>
                 <li>
-                  <a href="#-" class="section-link">🍋</a>
-                </li>
-                <li>
-                  <a href="#-" class="section-link">🍓</a>
+                  <a href="#-repeat-while" class="section-link">🔁 Repeat While</a>
                 </li>
               </ul>
+          </li>
+          <li>
+            <a href="the-s-package.html"
+                
+                class="chapter-link">The s package</a>
           </li>
           <li>
             <a href="classes-valuetypes.html"
                 
                 class="chapter-link">Classes &amp; Value Types</a>
+          </li>
+          <li>
+            <a href="optionals.html"
+                
+                class="chapter-link">Optionals</a>
           </li>
           <li>
             <a href="extensions.html"
@@ -89,12 +91,17 @@
           <li>
             <a href="enums.html"
                 
-                class="chapter-link">Enums</a>
+                class="chapter-link">Enumerations</a>
           </li>
           <li>
             <a href="types.html"
                 
                 class="chapter-link">Types and Namespaces</a>
+          </li>
+          <li>
+            <a href="errors.html"
+                
+                class="chapter-link">Error Handling</a>
           </li>
           <li>
             <a href="documentation.html"
@@ -148,56 +155,61 @@
 	<h1 id="control-flow">Control Flow</h1>
 <p>Emojicode provides different types of control flow statements that allow you to
 structure the flow of the program.</p>
-<p>Emojicode differs from other programming languages as it is missing statements
-that let you immediately exit a loop or to leave out an iteration.</p>
-<h2 id="-">🔂</h2>
-<p>🔂 allows you to quickly enumerate an object. It can enumerate any class
-that implements the <a href="../packages/s/">protocol</a> as well as the 🍨 and ⏩ class.</p>
+<h2 id="-code-block">🍇🍉 Code Block</h2>
+<p>Code blocks are used in conjunction with control flow structures to group
+statements that will be executed only under if a condition is met or not met
+or that will be repeated.</p>
+<p>Syntactic definition:</p>
 <pre class="syntax">
-🔂 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">value</span> 🍇
-
-🍉
+<span class="syntax-placeholder">block</span> ⟶ 🍇 <span class="syntax-placeholder">statments</span> 🍉
+<span class="syntax-placeholder">statements</span> ⟶ <span class="syntax-placeholder">statement</span> <span class="syntax-placeholder">statements</span> | <span class="syntax-placeholder">statement</span>
 </pre>
 
-<p>The type of the variable is guessed to be the first generic argument of the type
-to enumerate. If the type can’t be inferred the variable is declared as ⚪️.
-Then on each iteration, the current value is assigned to <em>variable</em>.</p>
-<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>If you need to repeat something for a given amount of times you possibly
-should use <a href="the-s-package.html#-ranges">⏩ Ranges</a>.</p>
-</div></div>
-
-<h2 id="-">🔁</h2>
-<p>🔁 repeats a given code block as long as <em>expression</em> is true. This also means
-that if the <em>expression</em> is never true the block of code will never execute.</p>
+<p>Examples of blocks can be seen below.</p>
+<h2 id="-if">🍊 If</h2>
+<p>The 🍊 statement is very important. It allows for conditional execution of a
+code block. The whole syntax is:</p>
 <pre class="syntax">
-🔁 <span class="syntax-placeholder">expression</span> 🍇
-
-🍉
+🍊 <span class="syntax-placeholder">condition</span> <span class="syntax-placeholder">block</span> [<span class="syntax-placeholder">else-ifs</span>] [<span class="syntax-placeholder">else</span>]
+<span class="syntax-placeholder">else-ifs</span> ⟶ <span class="syntax-placeholder">else-if</span> <span class="syntax-placeholder">else-ifs</span> | <span class="syntax-placeholder">else-if</span>
+<span class="syntax-placeholder">else-if</span> ⟶ 🍋 <span class="syntax-placeholder">condition</span> <span class="syntax-placeholder">block</span>
+<span class="syntax-placeholder">else</span> ⟶ 🍓 <span class="syntax-placeholder">block</span>
+<span class="syntax-placeholder">condition</span> ⟶ <span class="syntax-placeholder">expression</span> | <span class="syntax-placeholder">frozen-declaration</span>
 </pre>
 
-<h2 id="-">🍊</h2>
-<p>The 🍊 construct is very important. It allows for conditional execution of code
-fragments. The syntax is:</p>
-<pre class="syntax">
-🍊 <span class="syntax-placeholder">boolean</span> 🍇
-
-🍉
-</pre>
-
-<p>If <em>boolean</em> is true, Emojicode will execute the code block, and if it evaluates
-to false it&#39;ll ignore it.</p>
+<p>If the <em>condition</em> evaluates to 👍, the code block will be executed, and
+if it evaluates to 👎 it&#39;ll be ignored.</p>
 <p>This example will display a is bigger b if <em>a</em> is bigger <em>b</em>:</p>
-<pre><code>🍊 ▶️ a b 🍇
-    😀 🔤a is bigger b🔤
+<pre><code>🍦 a 10
+🍦 b 4
+🍊 ▶️ a b 🍇
+  😀 🔤a is bigger than b🔤
 🍉
-</code></pre><h2 id="-">🍋</h2>
+</code></pre><h3 id="-">🍓</h3>
+<p>🍓 extends an 🍊 statement to execute an additional code block in case the
+expression in the if statement evaluates to false. For example, the following
+code would display a is greater than b if “a is greater than b” and “a is not
+greater than b” otherwise:</p>
+<pre><code>🍦 a 2
+🍦 b 8
+🍊 ▶️ a b 🍇
+  😀 🔤a is bigger b🔤
+🍉
+🍓 🍇
+  😀 🔤a is not greater than b🔤
+🍉
+</code></pre><p>The 🍓 statements is only executed if the 🍊 statement evaluated to false, and
+if all 🍋 statements evaluated to false too.</p>
+<h3 id="-">🍋</h3>
 <p>🍋 extends an 🍊 statement to execute different statements in case the original
-🍊 expression evaluates to false. However, unlike 🍊, it will execute that
-alternative expressions only if the 🍊 expression is true. For example, the
+🍊 condition evaluates to 👎. However, unlike 🍊, it will execute that
+alternative expressions only if the 🍊 expression is 👍. For example, the
 following code would display “a is bigger than b”, “a equal to b” or “a is
 smaller than b”:</p>
-<pre><code>🍊 ▶️ a b 🍇
-  😀 🔤a is bigger b🔤
+<pre><code>🍦 a 2
+🍦 b 7
+🍊 ▶️ a b 🍇
+  😀 🔤a is bigger than b🔤
 🍉
 🍋 😛 a b 🍇
   😀 🔤a equal to b🔤
@@ -206,28 +218,69 @@ smaller than b”:</p>
   😀 🔤a is smaller than b🔤
 🍉
 </code></pre><p>The 🍋 statement is only executed if the preceding 🍊 expression and any
-preceding 🍋 expressions evaluated to false, and the current 🍋 expression
-evaluated to true.</p>
-<h2 id="-">🍓</h2>
-<p>🍓 extends an 🍊 statement to execute an additional code block in case the
-expression in the if statement evaluates to false. For example, the following
-code would display a is greater than b if “a is greater than b” and “a is not
-greater than b” otherwise:</p>
-<pre><code>🍊 ▶️ a b 🍇
-    😀 🔤a is bigger b🔤
+preceding 🍋 expressions evaluated to 👎, and the current 🍋 expression
+evaluated to 👍.</p>
+<h2 id="-for-in">🔂 For In</h2>
+<p>The 🔂 statement allows you to quickly <em>iterate over</em> an instance, that is
+repeatedly retrieving values from it until there are no more values to provide.
+For example, you can iterate over an 🍨 instance and you’ll receive all elements
+contained in the list. The 🔂 statement can iterate over instances of any type
+which conforms to the 🔂🐚Element protocol.</p>
+<p>Its syntax is:</p>
+<pre class="syntax">
+🔂 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">expression</span> <span class="syntax-placeholder">block</span>
+</pre>
+
+<p>The compiler then transforms the statement into byte code equivalent to the
+statement rewritten to</p>
+<pre class="exampe">
+🍦 iterator 🍡<i>iterable</i>
+🔁 ❓ iterator 🍇
+  🍦 <i>variable</i> 🔽 iterator
+  👴 The provided block is executed here
 🍉
-🍓 🍇
-    😀 🔤a is not greater than b🔤
+</pre>
+
+<p>where <em>iteratable</em> is the instance to iterate over (the result from evaluating
+the expression) and <em>variable</em> the variable name provided. Evidently, the
+variable will be of the type that was provided to the generic argument <em>Element</em>
+when the type of <em>iterable</em> declared its conformance to 🔂🐚Element.</p>
+<p>Let’s take a look at an example:</p>
+<pre><code>🍦 list 🍨🔤tree🔤 🔤bee🔤 🔤lee🔤 🔤me🔤🍆
+
+🔂 name list 🍇
+  😀 name
 🍉
-</code></pre><p>The 🍓 statements is only executed if the 🍊 expression evaluated to false, and
-if all 🍋 expressions evaluated to false too.</p>
+</code></pre><p>In this example, the code block will be repeated for every value of the list
+and the values <code>tree</code>, <code>bee</code>, <code>lee</code>, and <code>me</code> will be printed. The type of
+<code>name</code> is naturally 🔡. That’s due to the fact that 🍨🐚Element
+declared its conformance to 🔂 as <code>🔂🐚Element</code> and therefore also returns
+an iterator of type <code>🍡🐚Element</code> from which the type of the variable is
+inferred.</p>
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>If you need to repeat something for a given amount of times you
+should use <a href="the-s-package.html#-ranges">⏩ Ranges</a> in combination with 🔂.</p>
+</div></div>
+
+<h2 id="-repeat-while">🔁 Repeat While</h2>
+<p>🔁 repeats a given code block as long as <em>condition</em> is 👍. This also means
+that if the <em>condition</em> is never 👍 the code block will never be executed.
+The syntax is:</p>
+<pre class="syntax">
+🔁 <span class="syntax-placeholder">condition</span> <span class="syntax-placeholder">block</span>
+</pre>
+
+<p>For example, this program will infinitely print “disko disko partinzani”.</p>
+<pre><code>🔁 👍 🍇
+  😀 🔤disko disko partinzani🔤
+🍉
+</code></pre><p>Due to the ease of use of the 🔂 statement 🔁 is only used very seldom.</p>
 
 
 	<div class="book-navigation-bottom">
-		<a href="the-s-package.html" class="left">
+		<a href="syntax.html" class="left">
 			← Previous
 		</a>
-		<a href="classes-valuetypes.html" class="right">
+		<a href="the-s-package.html" class="right">
 			Next →
 		</a>
 	</div>

@@ -86,8 +86,25 @@
           </li>
           <li>
             <a href="errors.html"
-                
-                class="chapter-link">Error Handling</a>
+                class="chapter-link current"
+                >Error Handling</a>
+              <ul>
+                <li>
+                  <a href="#the-type" class="section-link">The 🚨 Type</a>
+                </li>
+                <li>
+                  <a href="#the-statement" class="section-link">The 🚨 Statement</a>
+                </li>
+                <li>
+                  <a href="#-test-for-errors" class="section-link">🚥 Test for Errors</a>
+                </li>
+                <li>
+                  <a href="#-error-check-control" class="section-link">🥑 Error Check Control</a>
+                </li>
+                <li>
+                  <a href="#-perfect-values" class="section-link">🚇 Perfect Values</a>
+                </li>
+              </ul>
           </li>
           <li>
             <a href="documentation.html"
@@ -131,67 +148,87 @@
           </li>
           <li>
             <a href="compiler.html"
-                class="chapter-link current"
-                >Appendix I: The Emojicode Compiler</a>
-              <ul>
-                <li>
-                  <a href="#compiling-files-to-a-binary" class="section-link">Compiling files to a binary</a>
-                </li>
-                <li>
-                  <a href="#switch-the-compiler-into-json-mode" class="section-link">Switch the compiler into JSON mode</a>
-                </li>
-                <li>
-                  <a href="#print-the-version" class="section-link">Print the version</a>
-                </li>
-                <li>
-                  <a href="#package-report" class="section-link">Package Report</a>
-                </li>
-              </ul>
+                
+                class="chapter-link">Appendix I: The Emojicode Compiler</a>
           </li>
       </ol>
     </div>
   </div>
 
-	<h1 id="appendix-i-the-emojicode-compiler">Appendix I: The Emojicode Compiler</h1>
-<p>This chapter is dedicated to the Emojicode Compiler as published by the
-Emojicode Committee. Other Emojicode compilers may provide a different command-
-line interface.</p>
-<h2 id="compiling-files-to-a-binary">Compiling files to a binary</h2>
-<p>The most obvious purpose of the compiler is the compilation of Emojicode source
-files to Emojicode Byte-Code files.</p>
-<p>You can pass a single source code file to the compiler.</p>
-<p>Example command:</p>
-<pre><code>emojicodec aFile.emojic
-</code></pre><p>By default the output file will have the same name as the first input file. You
-can explicitly set an output name with the <code>-o</code> option:</p>
-<pre><code>emojicodec -o awesomeProgram.emojib aFile.emojic
-</code></pre><h2 id="switch-the-compiler-into-json-mode">Switch the compiler into JSON mode</h2>
-<p>The option <code>-j</code> can be used to switch the compiler into the JSON mode. When
-working in the JSON mode the compiler will  print all errors and warnings to the
-standard error as a JSON array.</p>
-<p>Example:</p>
-<pre><code>emojicodec -j haferPackageTest.emojic
-</code></pre><pre><code>[{&quot;type&quot;: &quot;error&quot;, &quot;line&quot;: 0, &quot;character&quot;: 0, &quot;file&quot;:&quot;&quot;, &quot;message&quot;:&quot;Couldn&#39;t read input file \/usr\/local\/EmojicodePackages\/hafer\/header.emojic.&quot;}]
-</code></pre><h2 id="print-the-version">Print the version</h2>
-<p>Of course you can print the version of the compiler. E.g.</p>
-<pre><code>emojicodec -v
-</code></pre><h2 id="package-report">Package Report</h2>
-<p>You can ask the compiler to generate a JSON report of all types defined in a
-given package.</p>
-<p>To generate a report of all files directly passed to the compiler use the <code>-r</code>
-option. To generate a report of a specific package use the <code>-R packageName</code>
-option.</p>
+	<h1 id="error-handling">Error Handling</h1>
+<p>Proper mechanisms to handle errors are an integral part of modern program
+languages. Being a modern language, Emojicode provides a sophisticated but
+light-weight way to handle errors.</p>
+<h2 id="the-type">The 🚨 Type</h2>
+<p>Emojicode provides a special error type that is denoted by 🚨. 🚨 is always
+followed by two other types: An enumeration that serves as the error enumeration
+indicating the kind of error if one occurs and a contained type – the type that
+is present if no error arises.</p>
+<p>For instance, a method that normally returns a 🔡 can declare that it will
+return an instance of 🏜 in case of an error will declare its return type
+like this:</p>
+<pre><code>🐖 🙅 ➡️ 🚨🏜🔡 🍇
+</code></pre><h3 id="compatibility-of-the-type">Compatibility of the 🚨 Type</h3>
+<p>🚨 types are intentionally not very compatible to enforce prompt error handling
+and to prevent errors from being passed round too easily. 🚨 types are only
+compatible to other types with the exact same error enumeration and contained
+type.</p>
+<h2 id="the-statement">The 🚨 Statement</h2>
+<p>Inside a method whose return type is an 🚨 type the 🚨 can be used to return
+an error:</p>
+<pre><code>🦃 🏜 🍇
+  🔘🔋
+  🔘🍟
+🍉
 
+🐇 👩‍🎤 🍇
+  🐇🐖 🙅 ➡️ 🚨🏜🔡 🍇
+    🚨🔷🏜🔋
+  🍉
+🍉
+</code></pre><h2 id="-test-for-errors">🚥 Test for Errors</h2>
+<p>If you want to make sure that an instance of 🚨 does not represent an error
+but does contain a value you can use the 🚥 expression.</p>
+<p>Syntax:</p>
+<pre class="syntax">
+🚥 <span class="syntax-placeholder">expression</span>
+</pre>
+
+<p>🚥 returns 👍 if the value is an error or 👎 false if its not an error and
+contains a value.</p>
+<h2 id="-error-check-control">🥑 Error Check Control</h2>
+<pre class="syntax">
+🥑 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">expression</span>
+  <span class="syntax-placeholder">block</span>
+🍓 <span class="syntax-placeholder">variable</span>
+  <span class="syntax-placeholder">block</span>
+</pre>
+
+<h2 id="-perfect-values">🚇 Perfect Values</h2>
+<p>If you are sure that an 🚨 instance will never represent an error you can use
+the 🚇 expression to the take contained value without prior error checking.</p>
+<p>Syntax:</p>
+<pre class="syntax">
+🚇 <span class="syntax-placeholder">expression</span>
+</pre>
+
+<p>If, tough, the 🚨 instance represents an error at runtime the program will
+abort with a run-time error similar to:</p>
+<pre><code>🚨 Fatal Error: Unexpectedly found 🚨 with value 2.
+</code></pre>
 
 	<div class="book-navigation-bottom">
-		<a href="specification.html" class="left">
+		<a href="types.html" class="left">
 			← Previous
+		</a>
+		<a href="documentation.html" class="right">
+			Next →
 		</a>
 	</div>
 
   <div class="book-improve">
     Want to improve this page?
-    <a href="https://github.com/emojicode/emojicode.github.io/blob/master/src&#x2F;reference&#x2F;compiler.md" target="_blank">
+    <a href="https://github.com/emojicode/emojicode.github.io/blob/master/src&#x2F;reference&#x2F;errors.md" target="_blank">
       You can edit the source on GitHub and send us a pull request!
     </a>
   </div>
