@@ -1,5 +1,8 @@
 # The Package API
 
+>!N The Package API is subject to constant change and will drastically change
+>!N in Emojicode 0.5.
+
 The package API allows to write a package whose logic can be implemented (partly
 if needed) in C. This allows you to expand Emojicode’s capabilities, like
 accessing special system APIs.
