@@ -10,7 +10,15 @@ Entering Emoji on macOS should be as easy as falling off a log. Just press
 ^⌘Space and an emoji picker will show up. If you start dragging it, it will be
 become a window and stay open so you can easily enter code.
 
-<img src="/docs/static/img/macosemoji.png" width="311">
+<img src="/docs/static/img/macosemoji.png" width="200">
+
+## Editor Syntaxes
+
+Syntax files and bundles are also available so that allow you to write Emojicode
+in your favorite editor:
+
+* [Emojicode Sublime Syntax](https://github.com/orez-/Emojicode-Sublime-Syntax) by orez-
+* [Emojicode TextMate Bundle](https://github.com/ThatsJustCheesy/Emojicode-TM) by ThatsJustCheesy
 
 ## IBus
 
@@ -23,4 +31,3 @@ For other OSes, the installation is similar. Please do refer to your OS document
 ## Compose (Hex code)
 
 Although less user-friendly, it might feel more hacky for you. Just hit `ctrl` + `shift` + `u`, type the hex code of the Emoji and then press `enter`.
-
