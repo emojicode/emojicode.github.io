@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 
-const processMarkdown = require('./processMarkdown');
+const Markdown = require('./markdown');
 const TypeUtils = require('./typeUtils');
 
 class Package {
@@ -41,7 +41,7 @@ class Package {
         return TypeUtils.link(this);
       },
       mdDocumentation() {
-        return this.documentation && processMarkdown(this.documentation);
+        return this.documentation && Markdown.toHtml(this.documentation);
       },
       access() {
         return this.access === '🔓' ? '' : this.access;
@@ -61,7 +61,7 @@ class Package {
       genericArguments: type.genericArguments,
       values: type.values,
       mdDocumentation() {
-        return this.documentation && processMarkdown(this.documentation);
+        return this.documentation && Markdown.toHtml(this.documentation);
       },
     });
   }
@@ -120,7 +120,7 @@ class Package {
       version: packageMeta.version,
       author: packageMeta.author,
       license: packageMeta.license,
-      packageDocumentation: types.documentation && processMarkdown(types.documentation),
+      packageDocumentation: types.documentation && Markdown.toHtml(types.documentation),
       title: packageMeta.name,
       firstSentence() {
         return this.documentation && `${this.documentation.split('.', 2)[0]}.`;

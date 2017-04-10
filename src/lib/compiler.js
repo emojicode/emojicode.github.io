@@ -5,7 +5,7 @@ const sass = require('node-sass');
 const babel = require('babel-core');
 
 const Package = require('./package');
-const processMarkdown = require('./processMarkdown');
+const Markdown = require('./markdown');
 
 class Compiler {
   constructor(out, src, rootpath) {
@@ -72,7 +72,9 @@ class Compiler {
 
     fs.ensureDirSync(this.outPath(name));
 
-    const chapters = require(this.srcPath(name, 'chapters.json')).map(file => {
+    const rulesParser = new Markdown.RulesParser();
+
+    const chapters = require(this.srcPath(name, 'chapters.json')).map((file) => {
       const markdown = fs.readFileSync(this.srcPath(name, file)).toString();
       const pattern = /\n##([^#\n]+)/g;
 
@@ -88,10 +90,13 @@ class Compiler {
         sections.push(match[1].trim());
       }
 
+      const fileName = path.basename(file, '.md');
+      rulesParser.parse(markdown, fileName);
+
       return {
-        name: path.basename(file, '.md'),
-        html: processMarkdown(markdown),
+        name: fileName,
         sourcePath: path.join('src', name, file),
+        markdown,
         title,
         sections,
       };
@@ -103,7 +108,7 @@ class Compiler {
         bookTitle,
         chapters,
         title: chapter.title,
-        content: chapter.html,
+        content: Markdown.toHtml(chapter.markdown, rulesParser, chapter.name),
         sections: chapter.sections,
         sourcePath: chapter.sourcePath,
         prev: i > 0 ? `${chapters[i - 1].name}.html` : null,
@@ -114,6 +119,8 @@ class Compiler {
       });
       chapter.current = false;
     }
+
+    rulesParser.warn('document-statement');
 
     const indexPath = this.outPath(name, 'index.html');
     if (fs.existsSync(indexPath)) {
