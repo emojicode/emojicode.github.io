@@ -47,7 +47,7 @@ class Compiler {
     console.log('Copying static folder.');
     fs.copySync(this.srcPath('static'), this.outPath('static'));
 
-    sass.renderSync({
+    sass.render({
       file: this.srcPath('static', 'css', 'style.scss'),
       outputStyle: 'compressed',
     }, (err, result) => {
