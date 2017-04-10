@@ -6,7 +6,7 @@ features include classes, optionals, which can handle the absence of a value,
 generics, closures and much more.
 
 Emojicode is a strongly typed language, which means that the compiler will
-verify that all of your operations are correct. This for instance prevents you
+verify that all of your operations are correct. This, for instance, prevents you
 from treating a number as a list of texts.
 
 Although Emojicode only uses Emojis to express the program’s structure, it is
@@ -15,8 +15,8 @@ similar to programming languages you might know, like C.
 Emojicode was designed to allow the development of platform independent
 applications by running them inside a virtual machine. Your code is first
 compiled to bytecode by a compiler and can then be executed. The reference
-implemention of such a virtual machine is called *Emojicode Real-Time* and can,
-as the name suggests, execute your code rather fast.
+implementation of such a virtual machine is called *Emojicode Real-Time* and
+can, as the name suggests, execute your code rather fast.
 
 >!H If you need guidance on how to use the compiler and the Real-Time Engine
 >!H see
@@ -223,11 +223,11 @@ Example:
 Emojicode heavily uses *context based parsing*. This means that something can
 have a completely different meaning based on the context.
 
-All statments introduced above except for 🏁 are only valid inside a method or
+All statements introduced above except for 🏁 are only valid inside a method or
 initializer body. If you however used 🍦 when a type name was expected, 🍦
 would be interpreted as a type called 🍦.
 
-The statment introduced below is, on the contrary, only valid at document
+The statement introduced below is, on the contrary, only valid at document
 level – you can’t use it inside a method or class.
 
 ## Including Other Source Code Files
@@ -246,7 +246,7 @@ Syntax:
 file. The path is relative to the directory which included the document with the
 📜 statement.
 
->!H Do **not** use this method to share code accross projects. If you have
+>!H Do **not** use this method to share code across projects. If you have
 >!H written really fancy code,
 >!H [**create a package](/docs/reference/packages.html), which you can easily
 >!H make available to other people**.

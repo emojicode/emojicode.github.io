@@ -163,15 +163,15 @@ features to make it easy, fast and fun to write programs. These powerful
 features include classes, optionals, which can handle the absence of a value,
 generics, closures and much more.</p>
 <p>Emojicode is a strongly typed language, which means that the compiler will
-verify that all of your operations are correct. This for instance prevents you
+verify that all of your operations are correct. This, for instance, prevents you
 from treating a number as a list of texts.</p>
 <p>Although Emojicode only uses Emojis to express the program’s structure, it is
 similar to programming languages you might know, like C.</p>
 <p>Emojicode was designed to allow the development of platform independent
 applications by running them inside a virtual machine. Your code is first
 compiled to bytecode by a compiler and can then be executed. The reference
-implemention of such a virtual machine is called <em>Emojicode Real-Time</em> and can,
-as the name suggests, execute your code rather fast.</p>
+implementation of such a virtual machine is called <em>Emojicode Real-Time</em> and
+can, as the name suggests, execute your code rather fast.</p>
 <div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>If you need guidance on how to use the compiler and the Real-Time Engine
 see
 <a href="../guides/compile-and-run.html">“Compile and Run Your First Program”</a>,
@@ -307,10 +307,10 @@ desired symbol. This is called a <em>Symbol literal</em>.</p>
 </code></pre><h2 id="context-based-parsing">Context Based Parsing</h2>
 <p>Emojicode heavily uses <em>context based parsing</em>. This means that something can
 have a completely different meaning based on the context.</p>
-<p>All statments introduced above except for 🏁 are only valid inside a method or
+<p>All statements introduced above except for 🏁 are only valid inside a method or
 initializer body. If you however used 🍦 when a type name was expected, 🍦
 would be interpreted as a type called 🍦.</p>
-<p>The statment introduced below is, on the contrary, only valid at document
+<p>The statement introduced below is, on the contrary, only valid at document
 level – you can’t use it inside a method or class.</p>
 <h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
 <p>An Emojicode program is always compiled from a single file. Nevertheless, you
@@ -321,7 +321,7 @@ inserts the code from the file at the point where you included it.</p>
 </code></pre><p><em>string</em> must be a string whose value is a path to another Emojicode source
 file. The path is relative to the directory which included the document with the
 📜 statement.</p>
-<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Do <strong>not</strong> use this method to share code accross projects. If you have
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Do <strong>not</strong> use this method to share code across projects. If you have
 written really fancy code,
 <a href="/docs/reference/packages.html"><strong>create a package</a>, which you can easily
 make available to other people</strong>.</p>

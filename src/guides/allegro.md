@@ -2,7 +2,7 @@
 
 This chapter introduces you to the basics of writing a simple game with the
 allegro package, which ships with Emojicode. This guide assumes that you have
-have a basic knowledge of object-orientated programming and have read
+have a basic knowledge of object-oriented programming and have read
 [Compile and Run Your First Program](compile-and-run.html).
 
 ## Creating an app
