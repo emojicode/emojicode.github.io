@@ -14,7 +14,7 @@ function processMarkdown(markdown) {
       const type = callouts[tl];
       return `<div class="callout-${type.toLowerCase()}"><div class="title">${type}</div>\
         <div class="text">${marked(text.replace(/>![NH] ?/g, ''))}</div></div>\n`;
-    }).replace(/\$([a-z-[\]]+)\$(->)?/g, (_, name, def) => {
+    }).replace(/\$([a-z-]+)\$(->)?/g, (_, name, def) => {
       if (def === '->') {
         return `<span class="syntax-placeholder">${name}</span> ⟶`;
       }
