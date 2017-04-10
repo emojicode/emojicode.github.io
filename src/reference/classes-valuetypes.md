@@ -1,8 +1,7 @@
 # Classes & Value Types
 
-Emojicode features two kind of types that support object-orientation:
-**Classes and Value Types.** All types in Emojicode are either a class or a
-value type.
+Emojicode features two kind of types that feature object-orientation:
+**Classes and Value Types.**
 
 ## Defining a Class
 
