@@ -9,20 +9,24 @@
 		<title>Emojicode Documentation</title>
 	</head>
 	<body>
-		<div class="global-nav">
-			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
-		</div>
-		<nav class="navbar" role="navigation" data-gumshoe-header>
-			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.5β</span> Documentation
+    <nav class="menu" role="navigation">
+      <a class="menu-logo" href="/">Emojicode</a>
+
+      <div class="menu-right">
+        <a href="/docs/" class="active">Documentation</a>
+        <a href="https://github.com/emojicode">GitHub</a>
+      </div>
+    </nav>
+		<header class="docs-header">
+			<a href="&#x2F;docs&#x2F;" class="docs-header-title">
+        Emojicode Documentation <span class="docs-header-version">0.5β</span>
       </a>
-      <div class="navbar-right">
-	      <a href="&#x2F;docs&#x2F;">Home</a>
-	      <a href="&#x2F;docs&#x2F;guides">Guides</a>
-				<a href="&#x2F;docs&#x2F;reference">Language Reference</a>
-				<a href="&#x2F;docs&#x2F;packages">Package Index</a>
+      <div class="docs-header-right">
+	      <a href="&#x2F;docs&#x2F;guides" >Guides</a>
+				<a href="&#x2F;docs&#x2F;reference" class="active">Language Reference</a>
+				<a href="&#x2F;docs&#x2F;packages" >Package Index</a>
 			</div>
-		</nav>
+		</header>
 
 		<div class="content">
   <div class="toc-wrapper">
@@ -180,9 +184,9 @@ similar to programming languages you might know, like C.</p>
 <p>Emojicode was designed to allow the development of platform independent
 applications by running them inside a virtual machine. Your code is first
 compiled to bytecode by a compiler and can then be executed. The reference
-implementation of such a virtual machine is called <em>Emojicode Real-Time</em> and
-can, as the name suggests, execute your code rather fast.</p>
-<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>If you need guidance on how to use the compiler and the Real-Time Engine
+implemention of such a virtual machine is called <em>Emojicode Real-Time</em> and can,
+as the name suggests, execute your code rather fast.</p>
+<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>If you need guidance on how to use the compiler and the Real-Time Engine
 see
 <a href="../guides/compile-and-run.html">“Compile and Run Your First Program”</a>,
 which is a short tutorial on writing applications in Emojicode.</p>
@@ -253,7 +257,7 @@ expression of any type.</p>
 <p>After you declared the variable in the local scope you can use 🍮 to set it to a
 value. The compiler will throw an error if you try to access an uninitialized
 variable. Optionals are automatically initialized to Nothingness.</p>
-<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can, for
+<div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>Beware of that 🍰 can shadow variables from parent scopes and can, for
 example, make instance variables inaccessible.</p>
 </div></div>
 
@@ -314,10 +318,10 @@ desired symbol. This is called a <em>Symbol literal</em>.</p>
 </code></pre><h2 id="context-based-parsing">Context Based Parsing</h2>
 <p>Emojicode heavily uses <em>context based parsing</em>. This means that something can
 have a completely different meaning based on the context.</p>
-<p>All statements introduced above except for 🏁 are only valid inside a method or
+<p>All statments introduced above except for 🏁 are only valid inside a method or
 initializer body. If you however used 🍦 when a type name was expected, 🍦
 would be interpreted as a type called 🍦.</p>
-<p>The statement introduced below is, on the contrary, only valid at document
+<p>The statment introduced below is, on the contrary, only valid at document
 level – you can’t use it inside a method or class.</p>
 <h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
 <p>An Emojicode program is always compiled from a single file. Nevertheless, you
@@ -328,7 +332,7 @@ inserts the code from the file at the point where you included it.</p>
 </code></pre><p><em>string</em> must be a string whose value is a path to another Emojicode source
 file. The path is relative to the directory which included the document with the
 📜 statement.</p>
-<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Do <strong>not</strong> use this method to share code across projects. If you have
+<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>Do <strong>not</strong> use this method to share code accross projects. If you have
 written really fancy code,
 <a href="/docs/reference/packages.html"><strong>create a package</a>, which you can easily
 make available to other people</strong>.</p>

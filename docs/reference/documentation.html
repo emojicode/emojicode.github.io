@@ -9,20 +9,24 @@
 		<title>Emojicode Documentation</title>
 	</head>
 	<body>
-		<div class="global-nav">
-			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
-		</div>
-		<nav class="navbar" role="navigation" data-gumshoe-header>
-			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.5β</span> Documentation
+    <nav class="menu" role="navigation">
+      <a class="menu-logo" href="/">Emojicode</a>
+
+      <div class="menu-right">
+        <a href="/docs/" class="active">Documentation</a>
+        <a href="https://github.com/emojicode">GitHub</a>
+      </div>
+    </nav>
+		<header class="docs-header">
+			<a href="&#x2F;docs&#x2F;" class="docs-header-title">
+        Emojicode Documentation <span class="docs-header-version">0.5β</span>
       </a>
-      <div class="navbar-right">
-	      <a href="&#x2F;docs&#x2F;">Home</a>
-	      <a href="&#x2F;docs&#x2F;guides">Guides</a>
-				<a href="&#x2F;docs&#x2F;reference">Language Reference</a>
-				<a href="&#x2F;docs&#x2F;packages">Package Index</a>
+      <div class="docs-header-right">
+	      <a href="&#x2F;docs&#x2F;guides" >Guides</a>
+				<a href="&#x2F;docs&#x2F;reference" class="active">Language Reference</a>
+				<a href="&#x2F;docs&#x2F;packages" >Package Index</a>
 			</div>
-		</nav>
+		</header>
 
 		<div class="content">
   <div class="toc-wrapper">
@@ -169,7 +173,7 @@ Comments</em>. The syntax of these documentation tokens is:</p>
 </code></pre></li>
 <li>Before a method, type method or initializer declaration:<pre><code>🌮
   This method must return an instance of a class that conforms to
-  [[🍡]] which will be used to enumerate this instance.
+  &lt;a href=&quot;1f361.html&quot;&gt;🍡&lt;/a&gt; which will be used to enumerate this instance.
 🌮
 🐖 🍡 ➡️ 🍡🐚Element
 </code></pre></li>
@@ -187,7 +191,7 @@ Comments</em>. The syntax of these documentation tokens is:</p>
 use Markdown. All packages that ship with Emojicode are documented this way  and
 are automatically compiled into the Package Index of this documentation. The
 compiler for this documentation also supports an additional syntax for
-auto-linking types, which is <code>[[type-emoji]]</code> and will automatically link to the
+auto-linking types, which is <code>&lt;a href=&quot;74.html&quot;&gt;type-emoji&lt;/a&gt;</code> and will automatically link to the
 correct type in the package.</p>
 <h2 id="reporting">Reporting</h2>
 <p>The advantage of documentation comments is that the compiler is aware of that

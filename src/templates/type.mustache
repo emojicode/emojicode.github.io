@@ -8,7 +8,7 @@
 
       {{#conformsToItems}}
         <h3>Conforms to</h3>
-        <div class="link-list u4">
+        <div class="link-list">
           {{#conformsTo}}
             {{{thisTypeLink}}}
           {{/conformsTo}}
@@ -16,13 +16,13 @@
       {{/conformsToItems}}
       {{#superclass}}
         <h3>Superclass</h3>
-        <div class="link-list u4">
+        <div class="link-list">
           {{{thisTypeLink}}}
         </div>
       {{/superclass}}
       {{#initializers.length}}
         <h3>Initializers</h3>
-        <div class="link-list u4">
+        <div class="link-list">
           {{#initializers}}
             {{#procedureVisible}}
               <a href="#i{{name}}">{{name}}</a>
@@ -32,7 +32,7 @@
       {{/initializers.length}}
       {{#methods.length}}
         <h3>Methods</h3>
-        <div class="link-list u4">
+        <div class="link-list">
           {{#methods}}
             {{#procedureVisible}}
               <a href="#m{{name}}">{{name}}</a>
@@ -42,7 +42,7 @@
       {{/methods.length}}
       {{#classMethods.length}}
         <h3>Class Methods</h3>
-        <div class="link-list u4">
+        <div class="link-list">
           {{#classMethods}}
             {{#procedureVisible}}
               <a href="#cm{{name}}">{{name}}</a>
@@ -65,7 +65,7 @@
             {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
           </div>
 
-          <pre class="declaration">{{simpleAccess}}{{#canReturnNothingness}}🍬 {{/canReturnNothingness}}🐈 {{name}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}</pre>
+          <pre class="declaration">{{access}} {{#canReturnNothingness}}🍬 {{/canReturnNothingness}}🐈 {{name}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}</pre>
 
           {{>argdoc}}
         </div>
@@ -84,7 +84,7 @@
             {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
           </div>
 
-          <pre class="declaration">{{simpleAccess}}🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+          <pre class="declaration">{{access}} 🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
           {{>argdoc}}
         </div>
@@ -103,7 +103,7 @@
             {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
         </div>
 
-        <pre class="declaration">{{simpleAccess}}🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+        <pre class="declaration">{{access}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
         {{>argdoc}}
         </div>

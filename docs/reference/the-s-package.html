@@ -9,20 +9,24 @@
 		<title>Emojicode Documentation</title>
 	</head>
 	<body>
-		<div class="global-nav">
-			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
-		</div>
-		<nav class="navbar" role="navigation" data-gumshoe-header>
-			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.5β</span> Documentation
+    <nav class="menu" role="navigation">
+      <a class="menu-logo" href="/">Emojicode</a>
+
+      <div class="menu-right">
+        <a href="/docs/" class="active">Documentation</a>
+        <a href="https://github.com/emojicode">GitHub</a>
+      </div>
+    </nav>
+		<header class="docs-header">
+			<a href="&#x2F;docs&#x2F;" class="docs-header-title">
+        Emojicode Documentation <span class="docs-header-version">0.5β</span>
       </a>
-      <div class="navbar-right">
-	      <a href="&#x2F;docs&#x2F;">Home</a>
-	      <a href="&#x2F;docs&#x2F;guides">Guides</a>
-				<a href="&#x2F;docs&#x2F;reference">Language Reference</a>
-				<a href="&#x2F;docs&#x2F;packages">Package Index</a>
+      <div class="docs-header-right">
+	      <a href="&#x2F;docs&#x2F;guides" >Guides</a>
+				<a href="&#x2F;docs&#x2F;reference" class="active">Language Reference</a>
+				<a href="&#x2F;docs&#x2F;packages" >Package Index</a>
 			</div>
-		</nav>
+		</header>
 
 		<div class="content">
   <div class="toc-wrapper">
@@ -161,7 +165,7 @@ important classes.</p>
 <p>The s package can be compared to what’s called standard library in other
 programing languages. It provides some of the most important classes and value
 types to write meaningful programs.</p>
-<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>This chapter only introduces the most important classes although there are
+<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>This chapter only introduces the most important classes although there are
 many more.</p>
 <p>You can browse the whole API of the s package <a href="../packages/s/">here</a>.</p>
 </div></div>
@@ -200,7 +204,7 @@ it as well:</p>
 <p>If you want to determine whether to strings represent the same value, you can
 use the equality method 😛.</p>
 <pre><code>😛 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤
-</code></pre><div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Note that the example above used a method call. 😛 is a method defined in
+</code></pre><div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>Note that the example above used a method call. 😛 is a method defined in
 the 🔡 class. You’ll learn more about classes and methods in the next
 chapter. For now, just remember that methods are called by placing an emoji
 before the object on which the method should be called.</p>
@@ -225,7 +229,7 @@ strings created from string literals will be represented by the same object.</p>
 will evaluate to true, the second one won’t.</p>
 <pre><code>😜 🔤Strawberries🔤 🔤Strawberries🔤 👴true
 😜 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤 👴false
-</code></pre><div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Never use 😜 to compare strings. Use 😛 instead.</p>
+</code></pre><div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>Never use 😜 to compare strings. Use 😛 instead.</p>
 </div></div>
 
 <h3 id="string-mutablility">String Mutablility</h3>

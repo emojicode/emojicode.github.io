@@ -1,10 +1,54 @@
-@import 'bourbon/bourbon';
-@import '../src/static/css/style';
+@import 'latolatinfonts';
+
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Varela Round'), local('VarelaRound-Regular'),
+       url(/fonts/VarelaRound-Regular.ttf) format('woff');
+}
+
+// Emojicode Brand Colors
+
+$white: #fff;
+$black: #000;
+$gray: #eee;
+$p-dark: #25224d;
+$p-intermediate: #312d67;
+$p-soft: #68389c;
+$p-bright: #934edc;
+$p-gray: lighten($p-intermediate, 65%);
+
+// General Colors
+
+$background-color: rgb(254, 254, 254);
+$text-color: rgb(58, 58, 58);
+$link-color: lighten($p-intermediate, 30%);
+$code-background: $gray;
+$code-font: Menlo, Monaco, monospace;
+
+// Heading Settings
+
+$heading-letter-spacing: -0.03em;
+$heading-color: $p-intermediate;
+
+// Global Menu Colors
+
+$menu-height: 50px;
+$menu-color: $p-intermediate;
+
+// Table Settings
+
+$table-alternative-color: #f8f8f8;
+$table-border-color: #ddd;
+$table-row-border-top-color: #ccc;
 
 $footer-color: #7f7f7f;
 $break: 880px;
-$menu-height: 50px;
-$header-color: $p-intermediate;
+
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -13,18 +57,127 @@ body {
 }
 
 body {
+  padding: 0;
+  margin: 0;
+
+  padding-bottom: 24px;
+
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+  color: $text-color;
+  text-rendering: optimizelegibility;
+
+  font-family: LatoLatinWeb, proxima-nova, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+
+  background-color: $background-color;
   margin-top: $menu-height;
 }
 
-.emoji {
-  height: 1em;
-  width: 1em;
-  margin: 0 0.05em 0 0.1em;
-  vertical-align: -0.1em;
+a {
+  text-decoration: none;
+  color: $link-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p {
+  line-height: 27px;
+}
+
+h1 {
+  font-size: 2.8em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Varela Round;
+  font-weight: normal;
+  color: $heading-color;
+  margin-top: 2.9rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: $heading-letter-spacing;
+}
+
+table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: keep-all;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  th {
+    font-weight: bold;
+  }
+
+  th,
+  td {
+    padding: 6px 13px;
+    border: 1px solid $table-border-color;
+  }
+
+  tr {
+    background-color: $white;
+    border-top: 1px solid $table-row-border-top-color;
+  }
+
+  tr:nth-child(2n) {
+    background-color: $table-alternative-color;
+  }
+}
+
+pre,
+code {
+  font-family: $code-font;
+}
+
+pre {
+  padding: 1.05em;
+  background-color: $code-background;
+  font-size: 0.9em;
+  overflow-x: scroll;
+  position: relative;
+}
+
+.menu {
+  -webkit-font-smoothing: subpixel-antialiased;
+  padding: 0 10px;
+  color: $white;
+  position: absolute;
+  background-color: $menu-color;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 18px;
+  height: $menu-height;
+  line-height: $menu-height;
+
+  a {
+    display: inline-block;
+    padding: 0 10px;
+    color: $white;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+      text-decoration: none;
+      background-color: lighten($menu-color, 10%);
+    }
+  }
+}
+
+.menu-right {
+  float: right;
 }
 
 .header {
-  background-color: $header-color;
+  background-color: $menu-color;
   color: $white;
   padding: 1.7em;
   padding-bottom: 3em;
@@ -41,38 +194,8 @@ body {
   }
 }
 
-.menu {
-  -webkit-font-smoothing: subpixel-antialiased;
-  padding: 0 10px;
-  color: $header-color;
-  position: absolute;
-  background-color: $global-nav-color;
-  top: 0;
-  right: 0;
-  left: 0;
-  font-size: 18px;
-  height: $menu-height;
-  line-height: $menu-height;
-
-  a {
-    display: inline-block;
-    padding: 0 10px;
-    color: $white;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-      background-color: lighten($header-color, 10%);
-    }
-  }
-}
-
-.menu-right {
-  float: right;
-}
-
 .example-code {
-  background-color: lighten($header-color, 58%);
+  background-color: lighten($menu-color, 58%);
   border-radius: 0;
   color: $black;
   margin: 0;
@@ -137,7 +260,7 @@ body {
 }
 
 .action {
-  background-color: $header-color;
+  background-color: $menu-color;
   color: $white;
   padding: 1.7em;
   text-align: center;
@@ -161,7 +284,7 @@ body {
 .footer {
   padding: 18px;
   color: $footer-color;
-  background-color: $global-nav-color;
+  background-color: $menu-color;
   text-align: center;
   font-size: 14px;
 }

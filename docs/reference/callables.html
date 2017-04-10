@@ -9,20 +9,24 @@
 		<title>Emojicode Documentation</title>
 	</head>
 	<body>
-		<div class="global-nav">
-			Help and more at <a href="http://emojicode.org">emojicode.org</a>.
-		</div>
-		<nav class="navbar" role="navigation" data-gumshoe-header>
-			<a href="&#x2F;docs&#x2F;" class="logo">
-        Emojicode <span class="logo-version">0.5β</span> Documentation
+    <nav class="menu" role="navigation">
+      <a class="menu-logo" href="/">Emojicode</a>
+
+      <div class="menu-right">
+        <a href="/docs/" class="active">Documentation</a>
+        <a href="https://github.com/emojicode">GitHub</a>
+      </div>
+    </nav>
+		<header class="docs-header">
+			<a href="&#x2F;docs&#x2F;" class="docs-header-title">
+        Emojicode Documentation <span class="docs-header-version">0.5β</span>
       </a>
-      <div class="navbar-right">
-	      <a href="&#x2F;docs&#x2F;">Home</a>
-	      <a href="&#x2F;docs&#x2F;guides">Guides</a>
-				<a href="&#x2F;docs&#x2F;reference">Language Reference</a>
-				<a href="&#x2F;docs&#x2F;packages">Package Index</a>
+      <div class="docs-header-right">
+	      <a href="&#x2F;docs&#x2F;guides" >Guides</a>
+				<a href="&#x2F;docs&#x2F;reference" class="active">Language Reference</a>
+				<a href="&#x2F;docs&#x2F;packages" >Package Index</a>
 			</div>
-		</nav>
+		</header>
 
 		<div class="content">
   <div class="toc-wrapper">
@@ -248,7 +252,7 @@ string and will output:</p>
 </code></pre><p>Here we’ve got a class method that returns a closure. The closure actually
 closes over the <code>name</code> variable here and copies it value so that it can be used
 when the closure is called later.</p>
-<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Closures <strong>copy</strong> the closured <strong>local variables</strong> and freeze them in the scope of the closure.
+<div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>Closures <strong>copy</strong> the closured <strong>local variables</strong> and freeze them in the scope of the closure.
 If you modify one of the copied variable only the copy local to the closure will be modified.</p>
 <p><strong>Instance variables</strong> are <strong>not copied</strong> and really change when modified inside a closure.</p>
 </div></div>
