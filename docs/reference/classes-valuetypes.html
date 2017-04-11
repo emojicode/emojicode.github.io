@@ -59,13 +59,13 @@
                 >Classes &amp; Value Types</a>
               <ul>
                 <li>
+                  <a href="#classes-versus-value-types" class="section-link">Classes versus Value Types</a>
+                </li>
+                <li>
                   <a href="#defining-a-class" class="section-link">Defining a Class</a>
                 </li>
                 <li>
                   <a href="#defining-a-value-type" class="section-link">Defining a Value Type</a>
-                </li>
-                <li>
-                  <a href="#classes-versus-value-types" class="section-link">Classes versus Value Types</a>
                 </li>
                 <li>
                   <a href="#instance-variables" class="section-link">Instance Variables</a>
@@ -75,9 +75,6 @@
                 </li>
                 <li>
                   <a href="#instantiation" class="section-link">Instantiation</a>
-                </li>
-                <li>
-                  <a href="#nothingness-initializers" class="section-link">Nothingness Initializers</a>
                 </li>
                 <li>
                   <a href="#methods" class="section-link">Methods</a>
@@ -92,10 +89,13 @@
                   <a href="#reserved-emojis" class="section-link">Reserved Emojis</a>
                 </li>
                 <li>
-                  <a href="#access-modifiers" class="section-link">Access Modifiers</a>
+                  <a href="#access-levels" class="section-link">Access Levels</a>
                 </li>
                 <li>
-                  <a href="#object-address-compare" class="section-link">Object Address Compare</a>
+                  <a href="#deprecation" class="section-link">Deprecation</a>
+                </li>
+                <li>
+                  <a href="#identity-check" class="section-link">Identity Check</a>
                 </li>
               </ul>
           </li>
@@ -184,20 +184,60 @@
   </div>
 
 	<h1 id="classes-value-types">Classes &amp; Value Types</h1>
-<p>Emojicode features two kind of types that feature object-orientation:
-<strong>Classes and Value Types.</strong></p>
+<p>Emojicode features three kind of types that feature characteristics of object-
+orientation: Classes, Value Types and Enumerations. This chapter is soley
+dedicated to classes and value types. A <a href="enums.html">separate chapter</a> is
+devoted to enumerations, which have a lot in common with value types.</p>
+<p>Object-orientation can be a very broad term, but can be summarized to four
+concepts:</p>
+<ul>
+<li>Dynamic lookup: An object on which a method is called dynamically executes
+its method. This allows inheritance and overriding methods in classes.</li>
+<li>Abstraction: The implementation details are hidden and a set of public
+methods is provided that can manipulate that hidden data.</li>
+<li>Subtyping means that if an object has all of the functionality of a given
+type b it can be used in the context of type b. Emojicode accomplishes
+this using <a href="protocols.md">protocols</a>.</li>
+<li>Inheritance is the ability to reuse the definition of one type for another.</li>
+</ul>
+<p>It should be noted that only classes take advantage of all concepts above, while
+value types and enumerations only provide abstraction and subtyping.</p>
+<h2 id="classes-versus-value-types">Classes versus Value Types</h2>
+<p>There are significant differences between classes and value types:</p>
+<ul>
+<li>Instances of classes are always allocated on the heap and are passed
+by reference. Instances of value types are, as their name suggests,
+passed by value.</li>
+<li>Classes feature inheritance while value types don’t.</li>
+<li>Value Type methods are statically dispatched.</li>
+</ul>
+<p>This makes value types suitable when only the actual data represented matters
+and not the identity of the object. In other words, you should use value types
+when you only care about the values they carry and not about whether you have a
+particular instance of the value type.</p>
+<p>Dates or mathematical vectors are good examples of types that should be value
+types, whereas a type representing a customer should be a class, as it does
+matter with which particular customer instance you’re dealing, since every
+instance represents exactly one customer.</p>
+<p>This is again contrary to the example of a date or a vector: You can&#39;t think of
+them as “the <em>one</em> you’re dealing with”. They are abstract ideas and only
+exist in our brains. You could write them on a piece of paper, but then again
+the piece of paper would be an instance of a class, which stores the date.</p>
 <h2 id="defining-a-class">Defining a Class</h2>
-<p>The syntax to define a class is</p>
+<p>The syntax to define a class is:</p>
 <pre class="syntax">
-🐇 <span class="syntax-placeholder">class</span> <span class="syntax-placeholder">[superclass]</span> 🍇
-
-🍉
-<span class="syntax-placeholder">superclass</span> ⟶ <span class="syntax-placeholder">type-identifier</span>
-<span class="syntax-placeholder">class</span> ⟶ <span class="syntax-placeholder">type</span>
+<span class="syntax-placeholder" id="srule-class">class</span> ⟶ 🐇 <a class="syntax-placeholder" href="types.html#srule-type-identifier">type-identifier</a> [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-superclass">superclass</a>] <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-body">type-body</a>
+<span class="syntax-placeholder" id="srule-type-body">type-body</span> ⟶ 🍇 <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-body-declarations">type-body-declarations</a> 🍉
+<span class="syntax-placeholder" id="srule-type-body-declarations">type-body-declarations</span> ⟶ <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-body-declaration">type-body-declaration</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-body-declaration">type-body-declaration</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-body-declarations">type-body-declarations</a>
+<span class="syntax-placeholder" id="srule-type-body-declaration">type-body-declaration</span> ⟶ <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-body-attributes">type-body-attributes</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-body-declaration-main">type-body-declaration-main</a>
+<span class="syntax-placeholder" id="srule-type-body-attributes">type-body-attributes</span> ⟶ [<a class="syntax-placeholder" href="documentation.html#srule-documentation-comment">documentation-comment</a>] [⚠️] [🔏] [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-access-level">access-level</a>] [✒️] [🐇] [🖍] [🔑]
+<span class="syntax-placeholder" id="srule-type-body-declaration-main">type-body-declaration-main</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-declaration">declaration</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-method">method</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-initializer">initializer</a>
+<span class="syntax-placeholder" id="srule-type-body-declaration-main">type-body-declaration-main</span> ⟶ <a class="syntax-placeholder" href="protocols.html#srule-protocol-conformance">protocol-conformance</a> | <a class="syntax-placeholder" href="enums.html#srule-enum-value">enum-value</a>
+<span class="syntax-placeholder" id="srule-superclass">superclass</span> ⟶ <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
-<p>If you omit <em>superclass</em> the class won’t have a superclass.</p>
-<p>As for example the code below defines a 🐟 class, that has no superclass.</p>
+<p>If you omit <em>superclass</em> the class doesn’t have a superclass.</p>
+<p>For example, the code below defines a class named 🐟, that has no superclass.</p>
 <pre><code>🐇 🐟 🍇
 
 🍉
@@ -209,27 +249,14 @@ blowfish – a more concrete type of fish:</p>
 </code></pre><h2 id="defining-a-value-type">Defining a Value Type</h2>
 <p>The syntax to define a value type is the following:</p>
 <pre class="syntax">
-🕊 <span class="syntax-placeholder">value-type</span> 🍇
-
-🍉
-<span class="syntax-placeholder">value-type</span> ⟶ <span class="syntax-placeholder">type-identifier</span>
+<span class="syntax-placeholder" id="srule-value-type">value-type</span> ⟶ 🕊 <a class="syntax-placeholder" href="types.html#srule-type-identifier">type-identifier</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-body">type-body</a>
 </pre>
 
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>The defined types are immediately available in the namespaces provided
-in <em>value-type</em> or <em>class</em>. Please see <a href="types.html">Types</a> to gain a deeper
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>The defined types are immediately available in the namespaces provided.
+Please see <a href="types.html">Types</a> to gain a deeper
 understanding of namespaces and their use in declarations.</p>
 </div></div>
 
-<h2 id="classes-versus-value-types">Classes versus Value Types</h2>
-<p>There are significant difference betweeen classes and value types:</p>
-<ul>
-<li><p><strong>Instances of classes</strong> are always allocated on the heap and are <strong>passed
-by</strong> reference. <strong>Instances of value types</strong> are, as their name suggests,
-<strong>passed by value.</strong></p>
-</li>
-<li><p>Classes feature inheritance while value types don’t.</p>
-</li>
-</ul>
 <h2 id="instance-variables">Instance Variables</h2>
 <p>To store information in your type instances, instance variables are used. The
 🍰 syntax is used to declare an instance variable.</p>
@@ -238,6 +265,12 @@ by</strong> reference. <strong>Instances of value types</strong> are, as their n
   🍰 age 🚂
   🍰 speedInM/s 🚀
   🍰 name 🍬🔡  👴 Fish kept in aquariums often have names
+🍉
+</code></pre><p>This example defines a value type named 📆 that represents a date:</p>
+<pre><code>🕊 📆 🍇
+  🍰 day 🚂
+  🍰 month 🚂
+  🍰 year 🚂
 🍉
 </code></pre><p>When a type is instantiated a scope is created in which the instance variables
 live. This scope is always available in methods and initializers.</p>
@@ -250,11 +283,10 @@ Note that instance variables are also kept private from subclasses.</p>
 instantiate a type, that is gaining an instance of the given type.</p>
 <p>The syntax to define an initializer is:</p>
 <pre class="syntax">
-🐈 <span class="syntax-placeholder">name</span> <span class="syntax-placeholder">[init-parameters]</span> 🍇
-
-🍉
-<span class="syntax-placeholder">init-parameters</span> ⟶ <span class="syntax-placeholder">init-parameter</span> | <span class="syntax-placeholder">init-parameter</span> <span class="syntax-placeholder">init-parameters</span>
-<span class="syntax-placeholder">init-parameter</span> ⟶ [🍼] <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
+<span class="syntax-placeholder" id="srule-initializer">initializer</span> ⟶ 🐈 [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-init-error">init-error</a>] <a class="syntax-placeholder" href="types.html#srule-name">name</a> [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-init-parameters">init-parameters</a>] <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
+<span class="syntax-placeholder" id="srule-init-parameters">init-parameters</span> ⟶ <a class="syntax-placeholder" href="classes-valuetypes.html#srule-init-parameter">init-parameter</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-init-parameter">init-parameter</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-init-parameters">init-parameters</a>
+<span class="syntax-placeholder" id="srule-init-parameter">init-parameter</span> ⟶ [🍼] <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="types.html#srule-type">type</a>
+<span class="syntax-placeholder" id="srule-init-error">init-error</span> ⟶ 🚨 <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
 <p>In an initializer <strong>all instance variables must be initialized</strong>. (Remember that
@@ -264,7 +296,7 @@ which is also true for instance variables.)</p>
 superclass you <strong>must call an initializer</strong> of the superclass . The 🐐 keyword is
 used to call a superinitializer:</p>
 <pre class="syntax">
-🐐 <span class="syntax-placeholder">superinitializer</span> <span class="syntax-placeholder">[arguments]</span>
+<span class="syntax-placeholder" id="srule-superinitializer">superinitializer</span> ⟶ 🐐 <a class="syntax-placeholder" href="classes-valuetypes.html#srule-superinitializer">superinitializer</a> [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a>]
 </pre>
 
 <p>By enforcing these rules, Emojicode can guarantee that any instance of any type
@@ -295,7 +327,7 @@ variable with the same name.</p>
 🔷 is used for instantiation.</p>
 <p>Its syntax is:</p>
 <pre class="syntax">
-🔷 <span class="syntax-placeholder">type</span> <span class="syntax-placeholder">initializer</span> <span class="syntax-placeholder">[arguments]</span>
+<span class="syntax-placeholder" id="srule-instantiation">instantiation</span> ⟶ 🔷 <a class="syntax-placeholder" href="types.html#srule-type">type</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-initializer">initializer</a> [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a>]
 </pre>
 
 <p><em>initializer</em> must be the name of the initializer you
@@ -303,34 +335,14 @@ want to use. Naturally, you need to provide the correct number of appropriate
 arguments.</p>
 <p>To get a 🐟 instance for example, you would use:</p>
 <pre><code>🔷🐟🏞 2 🔤Billy🔤
-</code></pre><h2 id="nothingness-initializers">Nothingness Initializers</h2>
-<p>There are some cases where a initializer can fail. For instance, an initializer
-that should open a file, will fail if the file does not exist.</p>
-<p>These kind of initializers are called <em>Nothingness Initializers</em> and they can
-return, as their name suggests, nothingness.</p>
-<p>To declare a Nothingness Initializer, the 🍬 attribute is used. Example:</p>
-<pre><code>🌮 Tries to lure a fish at the given age with pizza. 🌮
-🍬 🐈 🍕 age. 🚂 🍇
-  🍊 ◀️ age. 1 🍇
-    👴 You can’t lure fish younger than one year with pizza
-    🍎 ⚡️
-  🍉
-  🍮 age age.
-  👴 ...
-🍉
-</code></pre><p>As you can see in the above example, you use 🍎 in combination with ⚡️ to
-return nothingness. Using such an initializer with 🔷 naturally gives you an
-optional.</p>
-<h2 id="methods">Methods</h2>
+</code></pre><h2 id="methods">Methods</h2>
 <p>Methods are functionality bound to a specific type: a class or value type.</p>
 <p>The syntax to define a method is:</p>
 <pre class="syntax">
-🐖 <span class="syntax-placeholder">method-emoji</span> <span class="syntax-placeholder">[parameters]</span> <span class="syntax-placeholder">[return-type]</span> 🍇
-
-🍉
-<span class="syntax-placeholder">parameters</span> ⟶ <span class="syntax-placeholder">parameter</span> | <span class="syntax-placeholder">parameter</span> <span class="syntax-placeholder">parameters</span>
-<span class="syntax-placeholder">parameter</span> ⟶ <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
-<span class="syntax-placeholder">return-type</span> ⟶ ➡️ <span class="syntax-placeholder">type</span>
+<span class="syntax-placeholder" id="srule-method">method</span> ⟶ 🐖 <a class="syntax-placeholder" href="classes-valuetypes.html#srule-method-emoji">method-emoji</a> [<a class="syntax-placeholder" href="generics.html#srule-generic-arguments">generic-arguments</a>] [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-parameters">parameters</a>] [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-return-type">return-type</a>] <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
+<span class="syntax-placeholder" id="srule-parameters">parameters</span> ⟶ <a class="syntax-placeholder" href="classes-valuetypes.html#srule-parameter">parameter</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-parameter">parameter</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-parameters">parameters</a>
+<span class="syntax-placeholder" id="srule-parameter">parameter</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="types.html#srule-type">type</a>
+<span class="syntax-placeholder" id="srule-return-type">return-type</span> ⟶ ➡️ <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
 <p>Here’s an example from the 🐟 class:</p>
@@ -342,7 +354,7 @@ optional.</p>
 declare return types. If no return type was declared the return type
 defaults to ✨. 🍎 is used to explicitly return a value:</p>
 <pre class="syntax">
-🍎 <span class="syntax-placeholder">value</span>
+<span class="syntax-placeholder" id="srule-return">return</span> ⟶ 🍎 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
 <p>Let’s look at another example from the 🐟 class that uses 🍎:</p>
@@ -350,36 +362,45 @@ defaults to ✨. 🍎 is used to explicitly return a value:</p>
 🐖 👨 ➡️ 👌 🍇
   🍎 ▶️ age 4
 🍉
-</code></pre><p>You can’t use the names of language statements as method names since you
-won’t be able to call the method if you do so. You can find a <a href="#reserved-emojis">list of these
-reserved emojis</a> at the end of this chapter.</p>
+</code></pre><p>This method returns true if the fish is older than four years.
+Let’s also define a method for the 📆 value type:</p>
+<pre><code>🌮 Whether the year of the date is a leap year. 🌮
+🐖 🍁 ➡️ 👌 🍇
+  🍎 🎉 😛🚮 year 4 0 🎊 ▶️🚮 year 100 0 😛🚮 year 400 0
+🍉
+</code></pre><p>There’s a <a href="#reserved-emojis">list of reserved emojis</a> of emojis which can’t be
+used as method names, that can be found at the end of this chapter.</p>
 <h3 id="calling-methods">Calling Methods</h3>
 <p>The syntax to call a method is special:</p>
 <pre class="syntax">
-<span class="syntax-placeholder">method-emoji</span> <span class="syntax-placeholder">value</span> <span class="syntax-placeholder">[arguments]</span>
+<span class="syntax-placeholder" id="srule-method-call">method-call</span> ⟶ <a class="syntax-placeholder" href="classes-valuetypes.html#srule-method-emoji">method-emoji</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-callee">callee</a> [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a>]
+<span class="syntax-placeholder" id="srule-callee">callee</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
+<span class="syntax-placeholder" id="srule-arguments">arguments</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> | <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a>
 </pre>
 
-<p><em>method-emoji</em> is the name of the method you wish to call. <em>value</em> is the
+<p><em>method-emoji</em> is the name of the method you wish to call. <em>callee</em> is the
 instance whose method should be called. Of course all arguments must be provided
 as required.</p>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>This means that any emoji that is not used with a language construct
-is a method call!</p>
-</div></div>
-
-<p>Example:</p>
+<p>Let’s take a look at an example using the 🐟 class:</p>
 <pre><code>🍦 michaelTheFish 🔷🐟🏞 3 🔤Michael🔤
 🏊 michaelTheFish 300
+
 🍊 👨 michaelTheFish 🍇
   😀 🔤Michael will retire!🔤
 🍉
-</code></pre><h2 id="this-context">This Context</h2>
-<p>You often will want to get the value on which the method was called, this is
-the object or the value. 🐕 is your friend here:</p>
-<pre class="syntax">
-🐕
-</pre>
+</code></pre><p>And here is a similar example with the 📆 value type, that prints “It’s a leap
+year” if the content of the variable <em>date</em> represents a leap year:</p>
+<pre><code>🍊 🍁 date 🍇
+  😀 🔤It’s a leap year🔤
+🍉
+</code></pre><div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>It’s worth highlighting again: Every emoji that is not a language defined
+statement or expression is a method call!</p>
+</div></div>
 
-<p>The 🐕 returns the current value, whose method or initializer is being called.</p>
+<h2 id="this-context">This Context</h2>
+<p>You often will want to get the instance on which the method was called, this is
+the object or the value. This is what 🐕 is for.</p>
+<p>🐕 returns the current value, whose method or initializer is being called.</p>
 <p>Here, for instance, a method of 🐟 is shown, which calls another method to
 determine whether the fish on which the method was called should retire or can
 sign a new contract of employment:</p>
@@ -412,7 +433,7 @@ Type methods are also inherited by subclasses.</p>
 <h3 id="calling-type-methods">Calling Type Methods</h3>
 <p>The syntax to call a type method is:</p>
 <pre class="syntax">
-🍩 <span class="syntax-placeholder">method-emoji</span> <span class="syntax-placeholder">type</span> <span class="syntax-placeholder">[arguments]</span>
+<span class="syntax-placeholder" id="srule-type-method-call">type-method-call</span> ⟶ 🍩 <a class="syntax-placeholder" href="classes-valuetypes.html#srule-method-emoji">method-emoji</a> <a class="syntax-placeholder" href="types.html#srule-type">type</a> [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a>]
 </pre>
 
 <p>Example:</p>
@@ -421,33 +442,42 @@ Type methods are also inherited by subclasses.</p>
 <h2 id="reserved-emojis">Reserved Emojis</h2>
 <p>These emojis cannot be used as method names:</p>
 <pre class="syntax">
-<span class="syntax-placeholder">method-emoji</span> ⟶ <span class="syntax-placeholder">emoji</span> except <span class="syntax-placeholder">reserved-emoji</span>
-<span class="syntax-placeholder">reserved-emoji</span> ⟶ 🍮|🍩|🍰|🍨|🍯|🍦|🍫|🍳|🍪|🍭
-<span class="syntax-placeholder">reserved-emoji</span> ⟶ 🍺|🍻|🔁|🔂|🍊|🍋|🍇|🍉|🍓|🍆
-<span class="syntax-placeholder">reserved-emoji</span> ⟶ 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
-<span class="syntax-placeholder">reserved-emoji</span> ⟶ 🔤|👵|🔟|👍|👎|👴
+<span class="syntax-placeholder" id="srule-method-emoji">method-emoji</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a> except <a class="syntax-placeholder" href="classes-valuetypes.html#srule-reserved-emoji">reserved-emoji</a>
+<span class="syntax-placeholder" id="srule-reserved-emoji">reserved-emoji</span> ⟶ 🍮|🍩|🍰|🍨|🍯|🍦|🍫|🍳|🍪|🍭
+<span class="syntax-placeholder" id="srule-reserved-emoji">reserved-emoji</span> ⟶ 🍺|🍻|🔁|🔂|🍊|🍋|🍇|🍉|🍓|🍆
+<span class="syntax-placeholder" id="srule-reserved-emoji">reserved-emoji</span> ⟶ 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
+<span class="syntax-placeholder" id="srule-reserved-emoji">reserved-emoji</span> ⟶ 🔤|👵|🔟|👍|👎|👴
 </pre>
 
 
-<h2 id="access-modifiers">Access Modifiers</h2>
-<p><em>Access Modifiers</em> describe from which context a method, class method or initializer can be called. There are three access modifiers, which can be applied to methods, initializers, and class methods.</p>
+<h2 id="access-levels">Access Levels</h2>
+<p><em>Access Levels</em> describe from which context a method, class method or initializer can be called. There are three access levels:</p>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-access-level">access-level</span> ⟶ 🔓 | 🔒 | 🔐
+</pre>
+
 <ul>
 <li>🔓: The method, initializer, or class method can be accessed from everywhere.</li>
 <li>🔒: The method, initializer, or class method may only be accessed within the class it was defined.</li>
 <li>🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.</li>
 </ul>
-<h2 id="object-address-compare">Object Address Compare</h2>
-<p>😜 can be used to determine whether two objects have the same memory address
-and are thus really the same object. This isn’t an <em>equality</em> check: Two
-objects might represents the same value but they are still two different object
-not sharing the same memory location. To determine equality use 😛 if available.</p>
+<h2 id="deprecation">Deprecation</h2>
+<p>From time to time methods or initializers need to be deprecated. Emojicode
+allows you to mark a method or initializer as deprecated with the ⚠️ attribute.</p>
+<p>The compiler will emit a warning wherever a deprecated method or initializer is
+used.</p>
+<h2 id="identity-check">Identity Check</h2>
+<p>😜 can be used to determine whether two objects references point to the same
+object in memory.</p>
+<p>This isn’t an equality check: Two objects might represents the same value but
+they are still two different object not sharing the same memory location. To
+determine equality use 😛 if available.</p>
 <pre class="syntax">
-😜 <span class="syntax-placeholder">object</span> <span class="syntax-placeholder">object</span>
-<span class="syntax-placeholder">object</span> ⟶ <span class="syntax-placeholder">value</span>
+<span class="syntax-placeholder" id="srule-identity-check">identity-check</span> ⟶ 😜 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
-<p>😜 returns true if both <em>object</em>s are references to the same memory location.</p>
-<p><em>object</em> must be a 🔵.</p>
+<p>😜 returns true if the result of both expression are references to the same
+memory location. Naturally, the expressions’ results must be compatible to 🔵.</p>
 
 
 	<div class="book-navigation-bottom">

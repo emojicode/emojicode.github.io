@@ -95,14 +95,14 @@
   </div>
 
 	<h1 id="the-package-api">The Package API</h1>
-<div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>The Package API is subject to constant change and will drastically change
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>The Package API is subject to constant change and will drastically change
 in Emojicode 0.5.</p>
 </div></div>
 
 <p>The package API allows to write a package whose logic can be implemented (partly
 if needed) in C. This allows you to expand Emojicode’s capabilities, like
 accessing special system APIs.</p>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>Make sure that you have read <a href="../reference/packages.html">Packages</a> and
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Make sure that you have read <a href="../reference/packages.html">Packages</a> and
 understand how packages work.</p>
 </div></div>
 
@@ -315,7 +315,7 @@ could have been updated. To recap:</p>
 <li>Perform the Garbage-Collector-invoking operation(s).</li>
 <li>Retrieve the probably new object references from the stack.</li>
 </ol>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>The Garbage Collector works in a special way: It copies all referenced,
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>The Garbage Collector works in a special way: It copies all referenced,
 still required objects into a new space in memory. The “original” objects
 stay untouched. (They are overwritten in the next cycle.) This can lead to
 very hard-to-track-down bugs if you are accidentally using a reference to
@@ -369,7 +369,7 @@ void disallowGCAndPauseIfNeeded();
 </code></pre><p>By calling <code>allowGC</code> you allow the Garbage Collector to run at any time while
 you are doing work. After the handler is finished with its work, it’s absolutely
 necessary to call <code>disallowGCAndPauseIfNeeded</code>.</p>
-<div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>Between a call to <code>allowGC</code> and <code>disallowGCAndPauseIfNeeded</code> you must
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Between a call to <code>allowGC</code> and <code>disallowGCAndPauseIfNeeded</code> you must
 not perform any allocations or other kind of GC-invoking operations and you
 or any called function may not call <code>allowGC</code> again. Additionally, the
 Garbage Collector might move any objects. Make sure you don’t rely on any
@@ -402,7 +402,7 @@ NOTHINGNESS
 unwrapBool(o)
 unwrapSymbol(o)
 unwrapDouble(o)
-</code></pre><div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p><em>Unwrapping</em> is simply retrieving the value from the <code>Something</code> wrapper.
+</code></pre><div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p><em>Unwrapping</em> is simply retrieving the value from the <code>Something</code> wrapper.
 You must make sure that you only unwrap an integer if the <code>Something</code> wraps
 an integer and so on.</p>
 </div></div>
@@ -507,7 +507,7 @@ InitializerFunctionFunctionPointer handlerPointerForInitializer(EmojicodeChar cl
     return NULL;
 }
 </code></pre><h2 id="compiling-the-package">Compiling The Package</h2>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>This step will be drastically simplified as we’re developing a package
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>This step will be drastically simplified as we’re developing a package
 manager. Until it is finished you need to take care of compiling yourself,
 however.</p>
 </div></div>
@@ -526,7 +526,7 @@ invalidated, thus no longer accessible.</p>
 <p><code>markerPointerForClass</code> is also important. If you store an object reference
 within the value data structure, you obviously need to tell the garbage
 collector about it. You do this by returning a <em>marker</em> for your class.</p>
-<div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>It’s important that you write a proper marker function when your class
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>It’s important that you write a proper marker function when your class
 stores references to objects in its value area.</p>
 </div></div>
 

@@ -85,7 +85,7 @@ the value as this type of value.
 Type casting is implemented with the 🔲 statement:
 
 <pre class="syntax">
-🔲 $value$ $type$
+$cast$-> 🔲 $expression$ $type$
 </pre>
 
 *value* is the value to be casted to *type*. If *value* can be casted to *type*
@@ -127,8 +127,8 @@ From the above, we can conclude that the grammar of a type is defined as
 follows:
 
 <pre class="syntax">
-$type$-> ⚫️ | [🍬] $type-main$ | 🔳 $value$ | 🚨 $type$ $type$ | 🍱 $types$ 🍱
-$type-main$-> $variable$ | 🐕 | $callable-type$ | $type-identifier$
+$type$-> ⚫️ | [🍬] $type-main$ | 🔳 $expression$ | 🚨 $type$ $type$ | 🍱 $types$ 🍱
+$type-main$-> $variable$ | 🐕 | $callable-type$ | $type-identifier$ $generic-arguments$
 $type-identifier$-> 🔶 $emoji$ $emoji$ | $emoji$
 $types$-> $type$ $types$ | $type$
 </pre>

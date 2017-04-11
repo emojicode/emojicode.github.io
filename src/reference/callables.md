@@ -9,7 +9,7 @@ object and can therefore be stored in variables, passed as argument, etc.
 The callable type is declared using this syntax:
 
 <pre class="syntax">
-🍇 $[type-list]$ $[return-type]$ 🍉
+$callable-type$-> 🍇 [$type-list$] [$return-type$] 🍉
 $type-list$-> $type$ | $type$ $type-list$
 </pre>
 
@@ -30,11 +30,11 @@ Examples:
 The 🍭 must be used to call a callable.
 
 <pre class="syntax">
-🍭 $callable$ $[arguments]$
+$callable-call$-> 🍭 $expression$ [$arguments$]
 </pre>
 
-*callable* must be a callable. Of course you must provide the required number of
-correctly typed arguments.
+*expression* must be a callable. Of course you must provide the required number
+of correctly typed arguments.
 
 Example of calling a callable:
 
@@ -50,23 +50,16 @@ that takes as many arguments of the same type as the method would take and
 returns the same value as the method would return. This callable will always
 execute the method in the same context, though.
 
-The syntaxes are:
+The syntax is:
 
 <pre class="syntax">
-🌶 $method-name$ $instance$
+$method-capture$-> 🌶 [🍩] $method-emoji$ $capturee$
+$capturee$-> $expression$ | $type$
 </pre>
 
-*method-name* is the emoji representing the method. *instance* must be an
-instance which has a method *methodName* and can be either a class or value type
-instance.
-
-<pre class="syntax">
-🌶🍩 $method-name$ $type$
-</pre>
-
-This syntax is used to capture type methods. *method-name* is the emoji
-representing the method. *type* must be a type identifier whose type method
-should be captured.
+*method-name* is the emoji representing the method. If you want to capture
+a type method, place the 🍩 in front of the method name. Iff a type method is
+to be caputred *capturee* must be a type.
 
 Example:
 
@@ -92,9 +85,7 @@ You can define closures which remember the environment in which they were
 defined. The basic syntax to define a closure is:
 
 <pre class="syntax">
-🍇 $[arguments]$ $[return-type]$
-
-🍉
+$closure$-> 🍇 [$arguments$] [$return-type$] $statements$ 🍉
 </pre>
 
 This is basically the same syntax that applies to methods and initializers.

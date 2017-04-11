@@ -52,6 +52,12 @@
                 <li>
                   <a href="#statement-and-expression" class="section-link">Statement and Expression</a>
                 </li>
+                <li>
+                  <a href="#emoji-and-variable" class="section-link">Emoji and Variable</a>
+                </li>
+                <li>
+                  <a href="#numeric-literals" class="section-link">Numeric Literals</a>
+                </li>
               </ul>
           </li>
           <li>
@@ -158,13 +164,13 @@
 and guide in one. Since a programming language needs formal definitions, you’ll
 see syntactic definitions from time to time. The notation used and the most
 basic syntactic definitions are described in this chapter.</p>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>If you don’t really care about syntactic definitions, no worries! You should
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>If you don’t really care about syntactic definitions, no worries! You should
 be able to follow along without problems. Just skip this chapter and ignore
 them.</p>
 </div></div>
 
 <h2 id="notation">Notation</h2>
-<p>The Language Reference &amp; Guide uses an enhanced, modified BNF grammar notation:</p>
+<p>The Language Reference &amp; Guide uses a slightly BNF grammar notation:</p>
 <pre class="syntax">
 <span class="syntax-placeholder">hippo</span> ⟶ <span class="syntax-placeholder">rhinoceros</span> 🥘
 <span class="syntax-placeholder">panther</span> ⟶ [🍞] <span class="syntax-placeholder">hyena</span> | 🍮
@@ -175,19 +181,23 @@ states that a <em>hippo</em> consists of a <em>rhinoceros</em>, which is another
 indicated by the purple background, and the emoji 🥘.</p>
 <p>Each rule begins with a name and ⟶ (read “consists of”). A vertical bar (<code>|</code>) is
 used to separate alternatives. Furthermore, rules can be broken into multiple
-lines starting with the same name. Parts enclosed in square
-brackets (<code>[</code> and <code>]</code>) are optional: they can occur but do not have to.</p>
+lines starting with the same name, the new line then is an alternative. Parts
+enclosed in square brackets (<code>[</code> and <code>]</code>) are optional: they can occur but do
+not have to. Whitespaces are never terminals but only appear to improve
+formatting. Moreover, the word <code>except</code> indicates that the terminals or non-
+terminals thereafter must not appear even though the previous non-terminal has
+indicated it could appear. <code>except</code> may appear multiple times one behind another
+to exclude multiple values.</p>
 <h2 id="document-syntax">Document Syntax</h2>
 <p>Every Emojicode source code document consists of any number of
 <em>document-statements</em>.</p>
 <pre class="syntax">
-<span class="syntax-placeholder">document-statement</span> ⟶ <span class="syntax-placeholder">package-import</span> | 📻 | <span class="syntax-placeholder">include</span> | <span class="syntax-placeholder">version</span>
-<span class="syntax-placeholder">document-statement</span> ⟶ [<span class="syntax-placeholder">documentation-comment</span>] <span class="syntax-placeholder">type-definition</span>
-<span class="syntax-placeholder">document-statement</span> ⟶ <span class="syntax-placeholder">start-flag</span>
-<span class="syntax-placeholder">include</span> ⟶ 📜 <span class="syntax-placeholder">string-literal</span>
-<span class="syntax-placeholder">start-flag</span> ⟶ 🏁 <span class="syntax-placeholder">return-type</span> <span class="syntax-placeholder">block</span>
-<span class="syntax-placeholder">type-definition</span> ⟶ <span class="syntax-placeholder">class-definition</span> | <span class="syntax-placeholder">value-type-definition</span> | <span class="syntax-placeholder">extension</span>
-<span class="syntax-placeholder">type-definition</span> ⟶ <span class="syntax-placeholder">protcol-definition</span> | <span class="syntax-placeholder">enum-definition</span>
+<span class="syntax-placeholder" id="srule-document-statement">document-statement</span> ⟶ <a class="syntax-placeholder" href="packages.html#srule-package-import">package-import</a> | 📻 | <a class="syntax-placeholder" href="syntax.html#srule-include">include</a> | <a class="syntax-placeholder" href="packages.html#srule-version">version</a>
+<span class="syntax-placeholder" id="srule-document-statement">document-statement</span> ⟶ [<a class="syntax-placeholder" href="documentation.html#srule-documentation-comment">documentation-comment</a>] <a class="syntax-placeholder" href="syntax.html#srule-type-definition">type-definition</a>
+<span class="syntax-placeholder" id="srule-document-statement">document-statement</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-start-flag">start-flag</a>
+<span class="syntax-placeholder" id="srule-include">include</span> ⟶ 📜 <a class="syntax-placeholder" href="the-s-package.html#srule-string-literal">string-literal</a>
+<span class="syntax-placeholder" id="srule-start-flag">start-flag</span> ⟶ 🏁 <a class="syntax-placeholder" href="classes-valuetypes.html#srule-return-type">return-type</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
+<span class="syntax-placeholder" id="srule-type-definition">type-definition</span> ⟶ <a class="syntax-placeholder" href="classes-valuetypes.html#srule-class">class</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-value-type">value-type</a> | <a class="syntax-placeholder" href="extensions.html#srule-extension">extension</a> | <a class="syntax-placeholder" href="protocols.html#srule-protocol">protocol</a> | <a class="syntax-placeholder" href="enums.html#srule-enum">enum</a>
 </pre>
 
 <p><em>start-flag</em> was already described in the previous chapter.
@@ -196,12 +206,42 @@ All other rules will be explained in detail later on.</p>
 <p>The smallest standalone elements of Emojicode’s normal program code is called
 <em>statement</em>.</p>
 <pre class="syntax">
-<span class="syntax-placeholder">statement</span> ⟶ <span class="syntax-placeholder">expression</span> | <span class="syntax-placeholder">frozen-declaration</span> | <span class="syntax-placeholder">assignment</span> | <span class="syntax-placeholder">declaration</span>
-<span class="syntax-placeholder">frozen-declaration</span> ⟶ 🍦 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">expression</span>
-<span class="syntax-placeholder">assignment</span> ⟶ 🍮 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">expression</span> | 🍮 <span class="syntax-placeholder">method-emoji</span> <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">arguments</span>
-<span class="syntax-placeholder">declaration</span> ⟶ 🍰 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
-<span class="syntax-placeholder">expression</span> ⟶ <span class="syntax-placeholder">numeric-literal</span> | 👍 | 👎 | <span class="syntax-placeholder">symbol-literal</span> | <span class="syntax-placeholder">string-literal</span>
-<span class="syntax-placeholder">string-literal</span> ⟶ except 🔤 | <span class="syntax-placeholder">string-escape-sequence</span>
+<span class="syntax-placeholder" id="srule-statement">statement</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> | <a class="syntax-placeholder" href="syntax.html#srule-frozen-declaration">frozen-declaration</a> | <a class="syntax-placeholder" href="syntax.html#srule-assignment">assignment</a> | <a class="syntax-placeholder" href="syntax.html#srule-declaration">declaration</a>
+<span class="syntax-placeholder" id="srule-statement">statement</span> ⟶ <a class="syntax-placeholder" href="classes-valuetypes.html#srule-instantiation">instantiation</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-superinitializer">superinitializer</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-return">return</a> | <a class="syntax-placeholder" href="errors.html#srule-error-check-control">error-check-control</a>
+<span class="syntax-placeholder" id="srule-statement">statement</span> ⟶ <a class="syntax-placeholder" href="controlflow.html#srule-if">if</a> | <a class="syntax-placeholder" href="controlflow.html#srule-for-in">for-in</a> | <a class="syntax-placeholder" href="controlflow.html#srule-repeat-while">repeat-while</a>
+<span class="syntax-placeholder" id="srule-frozen-declaration">frozen-declaration</span> ⟶ 🍦 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
+<span class="syntax-placeholder" id="srule-assignment">assignment</span> ⟶ 🍮 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> | 🍮 <a class="syntax-placeholder" href="classes-valuetypes.html#srule-method-emoji">method-emoji</a> <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a>
+<span class="syntax-placeholder" id="srule-declaration">declaration</span> ⟶ 🍰 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="types.html#srule-type">type</a>
+<span class="syntax-placeholder" id="srule-expression">expression</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-numeric-literal">numeric-literal</a> | 👍 | 👎 | <a class="syntax-placeholder" href="syntax.html#srule-symbol-literal">symbol-literal</a> | <a class="syntax-placeholder" href="the-s-package.html#srule-string-literal">string-literal</a> | 🐕
+<span class="syntax-placeholder" id="srule-expression">expression</span> ⟶ <a class="syntax-placeholder" href="classes-valuetypes.html#srule-method-call">method-call</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-identity-check">identity-check</a> | <a class="syntax-placeholder" href="optionals.html#srule-nothingness">nothingness</a> | <a class="syntax-placeholder" href="optionals.html#srule-unwrap">unwrap</a> | <a class="syntax-placeholder" href="optionals.html#srule-is-nothingness">is-nothingness</a>
+<span class="syntax-placeholder" id="srule-expression">expression</span> ⟶ <a class="syntax-placeholder" href="callables.html#srule-callable-call">callable-call</a> | <a class="syntax-placeholder" href="callables.html#srule-method-capture">method-capture</a> | <a class="syntax-placeholder" href="callables.html#srule-closure">closure</a> | <a class="syntax-placeholder" href="classes-valuetypes.html#srule-type-method-call">type-method-call</a>
+<span class="syntax-placeholder" id="srule-expression">expression</span> ⟶ <a class="syntax-placeholder" href="the-s-package.html#srule-list-literal">list-literal</a> | <a class="syntax-placeholder" href="the-s-package.html#srule-dictionary-literal">dictionary-literal</a> | <a class="syntax-placeholder" href="the-s-package.html#srule-range-literal">range-literal</a> | <a class="syntax-placeholder" href="the-s-package.html#srule-concatenate-literal">concatenate-literal</a>
+<span class="syntax-placeholder" id="srule-expression">expression</span> ⟶ <a class="syntax-placeholder" href="inheritance.html#srule-supermethod-call">supermethod-call</a> | <a class="syntax-placeholder" href="errors.html#srule-is-error">is-error</a> | <a class="syntax-placeholder" href="errors.html#srule-perfect-extraction">perfect-extraction</a> | <a class="syntax-placeholder" href="types.html#srule-cast">cast</a>
+<span class="syntax-placeholder" id="srule-expression">expression</span> ⟶ <a class="syntax-placeholder" href="metatypes.html#srule-metatype-instance">metatype-instance</a> | <a class="syntax-placeholder" href="metatypes.html#srule-metatype-instance-from-instance">metatype-instance-from-instance</a>
+<span class="syntax-placeholder" id="srule-symbol-literal">symbol-literal</span> ⟶ 🔟 <a class="syntax-placeholder" href="syntax.html#srule-unicode">unicode</a>
+</pre>
+
+<h2 id="emoji-and-variable">Emoji and Variable</h2>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-unicode">unicode</span> ⟶ <i>any Unicode character defined in Unicode 9.0</i>
+<span class="syntax-placeholder" id="srule-emoji">emoji</span> ⟶ <i>see http://www.unicode.org/Public/emoji/4.0//emoji-data.txt</i>
+<span class="syntax-placeholder" id="srule-variable">variable</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-variable-head">variable-head</a> [<a class="syntax-placeholder" href="syntax.html#srule-variable-parts">variable-parts</a>]
+<span class="syntax-placeholder" id="srule-variable-head">variable-head</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-unicode">unicode</a> except <a class="syntax-placeholder" href="syntax.html#srule-integer-prefix">integer-prefix</a> except <a class="syntax-placeholder" href="syntax.html#srule-number">number</a> except <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a>
+<span class="syntax-placeholder" id="srule-variable-parts">variable-parts</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-variable-part">variable-part</a> | <a class="syntax-placeholder" href="syntax.html#srule-variable-part">variable-part</a> <a class="syntax-placeholder" href="syntax.html#srule-variable-parts">variable-parts</a>
+<span class="syntax-placeholder" id="srule-variable-part">variable-part</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-unicode">unicode</a> except <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a>
+</pre>
+
+<h2 id="numeric-literals">Numeric Literals</h2>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-numeric-literal">numeric-literal</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-integer-literal">integer-literal</a> <a class="syntax-placeholder" href="syntax.html#srule-float-literal">float-literal</a>
+<span class="syntax-placeholder" id="srule-integer-literal">integer-literal</span> ⟶ [<a class="syntax-placeholder" href="syntax.html#srule-integer-prefix">integer-prefix</a>] <a class="syntax-placeholder" href="syntax.html#srule-integer-number">integer-number</a>
+<span class="syntax-placeholder" id="srule-integer-prefix">integer-prefix</span> ⟶ + | - | 0x
+<span class="syntax-placeholder" id="srule-float-literal">float-literal</span> ⟶ [<a class="syntax-placeholder" href="syntax.html#srule-float-prefix">float-prefix</a>] <a class="syntax-placeholder" href="syntax.html#srule-numbers">numbers</a>
+<span class="syntax-placeholder" id="srule-float-prefix">float-prefix</span> ⟶ + | -
+<span class="syntax-placeholder" id="srule-integer-numbers">integer-numbers</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-integer-number">integer-number</a> | <a class="syntax-placeholder" href="syntax.html#srule-integer-number">integer-number</a> <a class="syntax-placeholder" href="syntax.html#srule-integer-numbers">integer-numbers</a>
+<span class="syntax-placeholder" id="srule-integer-number">integer-number</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-number">number</a> | a | b | c | d | e | f | A | B | C | D | E | F
+<span class="syntax-placeholder" id="srule-numbers">numbers</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-number">number</a> | <a class="syntax-placeholder" href="syntax.html#srule-number">number</a> <a class="syntax-placeholder" href="syntax.html#srule-numbers">numbers</a>
+<span class="syntax-placeholder" id="srule-number">number</span> ⟶ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 </pre>
 
 

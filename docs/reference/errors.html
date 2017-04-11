@@ -106,7 +106,7 @@
                   <a href="#-error-check-control" class="section-link">🥑 Error Check Control</a>
                 </li>
                 <li>
-                  <a href="#-perfect-values" class="section-link">🚇 Perfect Values</a>
+                  <a href="#-perfect-extraction" class="section-link">🚇 Perfect Extraction</a>
                 </li>
               </ul>
           </li>
@@ -195,25 +195,22 @@ an error:</p>
 but does contain a value you can use the 🚥 expression.</p>
 <p>Syntax:</p>
 <pre class="syntax">
-🚥 <span class="syntax-placeholder">expression</span>
+<span class="syntax-placeholder" id="srule-is-error">is-error</span> ⟶ 🚥 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
 <p>🚥 returns 👍 if the value is an error or 👎 false if its not an error and
 contains a value.</p>
 <h2 id="-error-check-control">🥑 Error Check Control</h2>
 <pre class="syntax">
-🥑 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">expression</span>
-  <span class="syntax-placeholder">block</span>
-🍓 <span class="syntax-placeholder">variable</span>
-  <span class="syntax-placeholder">block</span>
+<span class="syntax-placeholder" id="srule-error-check-control">error-check-control</span> ⟶ 🥑 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a> 🍓 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
 </pre>
 
-<h2 id="-perfect-values">🚇 Perfect Values</h2>
+<h2 id="-perfect-extraction">🚇 Perfect Extraction</h2>
 <p>If you are sure that an 🚨 instance will never represent an error you can use
 the 🚇 expression to the take contained value without prior error checking.</p>
 <p>Syntax:</p>
 <pre class="syntax">
-🚇 <span class="syntax-placeholder">expression</span>
+<span class="syntax-placeholder" id="srule-perfect-extraction">perfect-extraction</span> ⟶ 🚇 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
 <p>If, tough, the 🚨 instance represents an error at runtime the program will

@@ -52,7 +52,7 @@ but does contain a value you can use the 🚥 expression.
 Syntax:
 
 <pre class="syntax">
-🚥 $expression$
+$is-error$-> 🚥 $expression$
 </pre>
 
 🚥 returns 👍 if the value is an error or 👎 false if its not an error and
@@ -61,13 +61,10 @@ contains a value.
 ## 🥑 Error Check Control
 
 <pre class="syntax">
-🥑 $variable$ $expression$
-  $block$
-🍓 $variable$
-  $block$
+$error-check-control$-> 🥑 $variable$ $expression$ $block$ 🍓 $variable$ $block$
 </pre>
 
-## 🚇 Perfect Values
+## 🚇 Perfect Extraction
 
 If you are sure that an 🚨 instance will never represent an error you can use
 the 🚇 expression to the take contained value without prior error checking.
@@ -75,7 +72,7 @@ the 🚇 expression to the take contained value without prior error checking.
 Syntax:
 
 <pre class="syntax">
-🚇 $expression$
+$perfect-extraction$-> 🚇 $expression$
 </pre>
 
 If, tough, the 🚨 instance represents an error at runtime the program will

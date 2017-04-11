@@ -157,7 +157,9 @@ offers built-in tools to document your code.</p>
 <p>Emojicode supports a special type of comments which are called <em>Documentation
 Comments</em>. The syntax of these documentation tokens is:</p>
 <pre class="syntax">
-<span class="syntax-placeholder">documentation-token</span> ⟶ 🌮 <span class="syntax-placeholder">comment-content</span> 🌮
+<span class="syntax-placeholder" id="srule-documentation-comment">documentation-comment</span> ⟶ 🌮 <a class="syntax-placeholder" href="documentation.html#srule-documentation-comment-characters">documentation-comment-characters</a> 🌮
+<span class="syntax-placeholder" id="srule-documentation-comment-characters">documentation-comment-characters</span> ⟶ <a class="syntax-placeholder" href="documentation.html#srule-documentation-comment-character">documentation-comment-character</a> | <a class="syntax-placeholder" href="documentation.html#srule-documentation-comment-characters">documentation-comment-characters</a>
+<span class="syntax-placeholder" id="srule-documentation-comment-character">documentation-comment-character</span> ⟶ except 🌮
 </pre>
 
 <p>Documentation comments can only occur at specific locations:</p>

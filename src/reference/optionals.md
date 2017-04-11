@@ -9,7 +9,7 @@ explicitly declare a return type is assumed to return Nothingness.
 To get Nothingness you use:
 
 <pre class="syntax">
-⚡️
+$nothingness$-> ⚡️
 </pre>
 
 While Nothingness is a completely valid type and value on its own, it’s normally
@@ -50,7 +50,7 @@ If you want to use the value of `first` or `twelfth` from the example above
 you could unwrap the optional using 🍺:
 
 <pre class="syntax">
-🍺 $value$
+$unwrap$-> 🍺 $expression$
 </pre>
 
 This tells Emojicode to check that *value* is not Nothingness and
@@ -61,7 +61,7 @@ with an error message like:
 🚨 Fatal Error: Unexpectedly found ✨ while unwrapping a 🍬.
 ```
 
-Naturally unwrapping an optional without a check is not safe and should not
+Naturally, unwrapping an optional without a check is not safe and should not
 be done. See the sections below for safe ways.
 
 ## ☁️ Nothingness Test
@@ -69,10 +69,10 @@ be done. See the sections below for safe ways.
 You can use ☁️ to test if an optional is Nothingness.
 
 <pre class="syntax">
-☁️ $value$
+$is-nothingness$-> ☁️ $expression$
 </pre>
 
-☁️ returns true if *value* is Nothingness.
+☁️ returns true if the expression is Nothingness.
 
 ## 🍊🍦 Condition Assignment
 

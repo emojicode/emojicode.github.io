@@ -9,7 +9,9 @@ Emojicode supports a special type of comments which are called *Documentation
 Comments*. The syntax of these documentation tokens is:
 
 <pre class="syntax">
-$documentation-token$-> 🌮 $comment-content$ 🌮
+$documentation-comment$-> 🌮 $documentation-comment-characters$ 🌮
+$documentation-comment-characters$-> $documentation-comment-character$ | $documentation-comment-characters$
+$documentation-comment-character$-> except 🌮
 </pre>
 
 Documentation comments can only occur at specific locations:

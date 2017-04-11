@@ -165,7 +165,7 @@ important classes.</p>
 <p>The s package can be compared to what’s called standard library in other
 programing languages. It provides some of the most important classes and value
 types to write meaningful programs.</p>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>This chapter only introduces the most important classes although there are
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>This chapter only introduces the most important classes although there are
 many more.</p>
 <p>You can browse the whole API of the s package <a href="../packages/s/">here</a>.</p>
 </div></div>
@@ -200,11 +200,20 @@ it as well:</p>
 <li><code>❌e</code> Escape (<code>U+1B</code>)</li>
 </ul>
 <p>All other combinations of a ❌ and another character lead to a compiler error.</p>
+<p>Formally, the syntax is:</p>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-string-literal">string-literal</span> ⟶ 🔤 [<a class="syntax-placeholder" href="the-s-package.html#srule-string-literal-characters">string-literal-characters</a>] 🔤
+<span class="syntax-placeholder" id="srule-string-literal-characters">string-literal-characters</span> ⟶ <a class="syntax-placeholder" href="the-s-package.html#srule-string-literal-character">string-literal-character</a> |  <a class="syntax-placeholder" href="the-s-package.html#srule-string-literal-character">string-literal-character</a> <a class="syntax-placeholder" href="the-s-package.html#srule-string-literal-characters">string-literal-characters</a>
+<span class="syntax-placeholder" id="srule-string-literal-character">string-literal-character</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-unicode">unicode</a> except 🔤 except ❌ | <a class="syntax-placeholder" href="the-s-package.html#srule-string-escape-sequence">string-escape-sequence</a>
+<span class="syntax-placeholder" id="srule-string-escape-sequence">string-escape-sequence</span> ⟶ ❌ <a class="syntax-placeholder" href="the-s-package.html#srule-string-escape-tail">string-escape-tail</a>
+<span class="syntax-placeholder" id="srule-string-escape-tail">string-escape-tail</span> ⟶ n | t | r | e
+</pre>
+
 <h3 id="comparing-strings">Comparing Strings</h3>
 <p>If you want to determine whether to strings represent the same value, you can
 use the equality method 😛.</p>
 <pre><code>😛 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤
-</code></pre><div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>Note that the example above used a method call. 😛 is a method defined in
+</code></pre><div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Note that the example above used a method call. 😛 is a method defined in
 the 🔡 class. You’ll learn more about classes and methods in the next
 chapter. For now, just remember that methods are called by placing an emoji
 before the object on which the method should be called.</p>
@@ -221,6 +230,13 @@ will get concatenated in order of appearance into one string.</p>
 </code></pre><p>🍪s are the most efficient way of concatenating strings as the compiler can
 🍪optimize the concatenation. Please note that 🍪s are not methods but part
 of the language.</p>
+<p>The syntax formally is:</p>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-concatenate-literal">concatenate-literal</span> ⟶ 🍪 <a class="syntax-placeholder" href="the-s-package.html#srule-concatenate-expressions">concatenate-expressions</a> 🍪
+<span class="syntax-placeholder" id="srule-concatenate-expressions">concatenate-expressions</span> ⟶ <a class="syntax-placeholder" href="the-s-package.html#srule-concatenate-expression">concatenate-expression</a> | <a class="syntax-placeholder" href="the-s-package.html#srule-concatenate-expression">concatenate-expression</a> <a class="syntax-placeholder" href="the-s-package.html#srule-concatenate-expressions">concatenate-expressions</a>
+<span class="syntax-placeholder" id="srule-concatenate-expression">concatenate-expression</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> except <a class="syntax-placeholder" href="the-s-package.html#srule-concatenate-literal">concatenate-literal</a>
+</pre>
+
 <h3 id="string-pooling">String Pooling</h3>
 <p>At compile time all strings will be pooled. This means that each string literal
 with the same value occurs only once in the bytecode file and at runtime equal
@@ -229,7 +245,7 @@ strings created from string literals will be represented by the same object.</p>
 will evaluate to true, the second one won’t.</p>
 <pre><code>😜 🔤Strawberries🔤 🔤Strawberries🔤 👴true
 😜 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤 👴false
-</code></pre><div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>Never use 😜 to compare strings. Use 😛 instead.</p>
+</code></pre><div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Never use 😜 to compare strings. Use 😛 instead.</p>
 </div></div>
 
 <h3 id="string-mutablility">String Mutablility</h3>
@@ -260,6 +276,11 @@ strings from the list. (The syntax used above will be discussed in
 The example below creates a list with the values <code>14</code>, <code>67</code>, <code>2434</code>.</p>
 <pre><code>🍨 14 67 2434 🍆
 </code></pre><p>The compiler will try to infer the generic type argument for the list.</p>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-list-literal">list-literal</span> ⟶ 🍨 [<a class="syntax-placeholder" href="the-s-package.html#srule-expressions">expressions</a>] 🍆
+<span class="syntax-placeholder" id="srule-expressions">expressions</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> | <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> <a class="syntax-placeholder" href="the-s-package.html#srule-expressions">expressions</a>
+</pre>
+
 <h2 id="-dictionaries">🍯 Dictionaries</h2>
 <p>Dictionaries can be used to assign values to string keys. The size of a
 dictionary is theoretically unlimited.</p>
@@ -270,11 +291,10 @@ For instance if the values were booleans the type would be written like this:</p
 </code></pre><h3 id="dictionary-literals">Dictionary Literals</h3>
 <p>The shortcut syntax to create a dictionary is:</p>
 <pre class="syntax">
-🍯 <span class="syntax-placeholder">kv-pair-list</span>🍆
-<span class="syntax-placeholder">kv-pair-list</span> ⟶ <span class="syntax-placeholder">kv-pair</span> <span class="syntax-placeholder">kv-pair-list</span> | <span class="syntax-placeholder">kv-pair</span>
-<span class="syntax-placeholder">kv-pair</span> ⟶ <span class="syntax-placeholder">key</span> <span class="syntax-placeholder">pair-value</span>
-<span class="syntax-placeholder">key</span> ⟶ <span class="syntax-placeholder">value</span>
-<span class="syntax-placeholder">pair-value</span> ⟶ <span class="syntax-placeholder">value</span>
+<span class="syntax-placeholder" id="srule-dictionary-literal">dictionary-literal</span> ⟶ 🍯 [<a class="syntax-placeholder" href="the-s-package.html#srule-kv-pairs">kv-pairs</a>] 🍆
+<span class="syntax-placeholder" id="srule-kv-pairs">kv-pairs</span> ⟶ <a class="syntax-placeholder" href="the-s-package.html#srule-kv-pair">kv-pair</a> <a class="syntax-placeholder" href="the-s-package.html#srule-kv-pairs">kv-pairs</a> | <a class="syntax-placeholder" href="the-s-package.html#srule-kv-pair">kv-pair</a>
+<span class="syntax-placeholder" id="srule-kv-pair">kv-pair</span> ⟶ <a class="syntax-placeholder" href="the-s-package.html#srule-key">key</a> <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
+<span class="syntax-placeholder" id="srule-key">key</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
 <p><em>key</em> must be a string. The compiler will try to infer the generic type argument
@@ -295,12 +315,16 @@ that matches the constraint <code>start ≤ f(x) &lt; stop</code> is an element 
 <p>Ranges can be created by using the shortcut syntax, which is depending on your
 needs either</p>
 <pre class="syntax">
-⏭ <span class="syntax-placeholder">start</span> <span class="syntax-placeholder">stop</span> <span class="syntax-placeholder">step</span>
+<span class="syntax-placeholder" id="srule-range-literal">range-literal</span> ⟶ <a class="syntax-placeholder" href="the-s-package.html#srule-range-literal-with-step">range-literal-with-step</a> <a class="syntax-placeholder" href="the-s-package.html#srule-range-literal-without-step">range-literal-without-step</a>
+<span class="syntax-placeholder" id="srule-range-literal-with-step">range-literal-with-step</span> ⟶ ⏭ <a class="syntax-placeholder" href="the-s-package.html#srule-start">start</a> <a class="syntax-placeholder" href="the-s-package.html#srule-stop">stop</a> <a class="syntax-placeholder" href="the-s-package.html#srule-step">step</a>
+<span class="syntax-placeholder" id="srule-start">start</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
+<span class="syntax-placeholder" id="srule-stop">stop</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
+<span class="syntax-placeholder" id="srule-step">step</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
 <p>or</p>
 <pre class="syntax">
-⏩ <span class="syntax-placeholder">start</span> <span class="syntax-placeholder">stop</span>
+<span class="syntax-placeholder" id="srule-range-literal-without-step">range-literal-without-step</span> ⟶ ⏩ <a class="syntax-placeholder" href="the-s-package.html#srule-start">start</a> <a class="syntax-placeholder" href="the-s-package.html#srule-stop">stop</a>
 </pre>
 
 <p>The latter uses 1 as <em>step</em> value if <em>start</em> is less than <em>stop</em>, otherwise

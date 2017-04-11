@@ -168,7 +168,7 @@ holds the type of the 🐟 class, for example, looks like this:</p>
 </code></pre><p>To get an instance of such a metatype, or in other words a type as value, you
 can use the 🔳 statment:</p>
 <pre class="syntax">
-🔳 <span class="syntax-placeholder">type</span>
+<span class="syntax-placeholder" id="srule-metatype-instance">metatype-instance</span> ⟶ 🔳 <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
 <p><em>type</em> must be a type identifier identifying a type whose meta type is available
@@ -178,7 +178,7 @@ metatype can then be treated like any other value.</p>
 <pre><code>🍮 fishType 🔳🐟
 </code></pre><p>⬜️ can be used to get the type of a type instance. The syntax is:</p>
 <pre class="syntax">
-⬜️ <span class="syntax-placeholder">value</span>
+<span class="syntax-placeholder" id="srule-metatype-instance-from-instance">metatype-instance-from-instance</span> ⟶ ⬜️ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
 <p>For instance, this can be used to instantiate another instance of the type on
@@ -192,10 +192,10 @@ which the method was called:</p>
 <p>You can use metatype instances as type in functions. Instead of providing a type
 you can prefix an expression that evaluates to a metatype instance with ⬛️:</p>
 <pre class="syntax">
-⬛️ <span class="syntax-placeholder">value</span>
+⬛️ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
-<p><em>value</em> must naturally evaluate to a type value. This kind of type
+<p><em>expresssion</em> must naturally evaluate to a metatype value. This kind of type
 specification is only available in methods and initializers.</p>
 <p>The following example stores three different metatype instance in a list,
 instantiates them at run-time and calls a method on these instances:</p>

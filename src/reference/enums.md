@@ -5,7 +5,14 @@ from which one can be chosen.
 
 ## Defining an Enumeration
 
-Enumerations are defined like this:
+The syntax to define an enumeration is:
+
+<pre class="syntax">
+$enum$-> 🦃 $type-identifier$ $type-body$
+$enum-value$-> 🔘 $emoji$
+</pre>
+
+For example:
 
 ```
 🦃 📜 🍇

@@ -175,9 +175,9 @@ without explicitely specifying a namespace and the compiler will assume that the
 type is reachable through the default namespace 🔴, or you can explicitly
 specify a namespace with the namespace accessor:</p>
 <pre class="syntax">
-🔶 <span class="syntax-placeholder">namespace</span> <span class="syntax-placeholder">name</span>
-<span class="syntax-placeholder">namespace</span> ⟶ <span class="syntax-placeholder">emoji</span>
-<span class="syntax-placeholder">name</span> ⟶ <span class="syntax-placeholder">emoji</span>
+🔶 <a class="syntax-placeholder" href="types.html#srule-namespace">namespace</a> <a class="syntax-placeholder" href="types.html#srule-name">name</a>
+<span class="syntax-placeholder" id="srule-namespace">namespace</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a>
+<span class="syntax-placeholder" id="srule-name">name</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a>
 </pre>
 
 <p>This identifies type <em>name</em> of namespace <em>namespace</em>. Both must be exactly one
@@ -192,7 +192,7 @@ in namespace 🎅:</p>
 🍉
 </code></pre><p>Remember that the class’s name is nevertheless just called 🎁 but was made
 reachable in the 🎅 namespace.</p>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>The facts above play a very important role when importing other packages.
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>The facts above play a very important role when importing other packages.
 It’s also worth noting, that namespaces are per package. To learn more about
 this, please see <a href="packages.html">Packages</a>.</p>
 </div></div>
@@ -223,7 +223,7 @@ cannot cast to 🔵 at run-time.</p>
 the value as this type of value.</p>
 <p>Type casting is implemented with the 🔲 statement:</p>
 <pre class="syntax">
-🔲 <span class="syntax-placeholder">value</span> <span class="syntax-placeholder">type</span>
+<span class="syntax-placeholder" id="srule-cast">cast</span> ⟶ 🔲 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
 <p><em>value</em> is the value to be casted to <em>type</em>. If <em>value</em> can be casted to <em>type</em>
@@ -256,10 +256,10 @@ applies to dictionary literals.</li>
 <p>From the above, we can conclude that the grammar of a type is defined as
 follows:</p>
 <pre class="syntax">
-<span class="syntax-placeholder">type</span> ⟶ ⚫️ | [🍬] <span class="syntax-placeholder">type-main</span> | 🔳 <span class="syntax-placeholder">value</span> | 🚨 <span class="syntax-placeholder">type</span> <span class="syntax-placeholder">type</span> | 🍱 <span class="syntax-placeholder">types</span> 🍱
-<span class="syntax-placeholder">type-main</span> ⟶ <span class="syntax-placeholder">variable</span> | 🐕 | <span class="syntax-placeholder">callable-type</span> | <span class="syntax-placeholder">type-identifier</span>
-<span class="syntax-placeholder">type-identifier</span> ⟶ 🔶 <span class="syntax-placeholder">emoji</span> <span class="syntax-placeholder">emoji</span> | <span class="syntax-placeholder">emoji</span>
-<span class="syntax-placeholder">types</span> ⟶ <span class="syntax-placeholder">type</span> <span class="syntax-placeholder">types</span> | <span class="syntax-placeholder">type</span>
+<span class="syntax-placeholder" id="srule-type">type</span> ⟶ ⚫️ | [🍬] <a class="syntax-placeholder" href="types.html#srule-type-main">type-main</a> | 🔳 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> | 🚨 <a class="syntax-placeholder" href="types.html#srule-type">type</a> <a class="syntax-placeholder" href="types.html#srule-type">type</a> | 🍱 <a class="syntax-placeholder" href="types.html#srule-types">types</a> 🍱
+<span class="syntax-placeholder" id="srule-type-main">type-main</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> | 🐕 | <a class="syntax-placeholder" href="callables.html#srule-callable-type">callable-type</a> | <a class="syntax-placeholder" href="types.html#srule-type-identifier">type-identifier</a> <a class="syntax-placeholder" href="generics.html#srule-generic-arguments">generic-arguments</a>
+<span class="syntax-placeholder" id="srule-type-identifier">type-identifier</span> ⟶ 🔶 <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a> <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a> | <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a>
+<span class="syntax-placeholder" id="srule-types">types</span> ⟶ <a class="syntax-placeholder" href="types.html#srule-type">type</a> <a class="syntax-placeholder" href="types.html#srule-types">types</a> | <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
 

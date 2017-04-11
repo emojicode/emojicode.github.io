@@ -8,9 +8,7 @@ everything in an extension you could do in the initial definition.
 The syntax is:
 
 <pre class="syntax">
-🐋 $type-identifier$ 🍇
-
-🍉
+$extension$-> 🐋 $type-identifier$ $type-body$
 </pre>
 
 You can also extend classes from other packages. For example:

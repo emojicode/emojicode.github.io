@@ -166,7 +166,7 @@ example, return nothingness on failure. Additionally any method that does not
 explicitly declare a return type is assumed to return Nothingness.</p>
 <p>To get Nothingness you use:</p>
 <pre class="syntax">
-⚡️
+<span class="syntax-placeholder" id="srule-nothingness">nothingness</span> ⟶ ⚡️
 </pre>
 
 <p>While Nothingness is a completely valid type and value on its own, it’s normally
@@ -192,22 +192,22 @@ like the they make optionals.</p>
 <p>If you want to use the value of <code>first</code> or <code>twelfth</code> from the example above
 you could unwrap the optional using 🍺:</p>
 <pre class="syntax">
-🍺 <span class="syntax-placeholder">value</span>
+<span class="syntax-placeholder" id="srule-unwrap">unwrap</span> ⟶ 🍺 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
 <p>This tells Emojicode to check that <em>value</em> is not Nothingness and
 returns it. If the value, however, is Nothingness the program will terminate
 with an error message like:</p>
 <pre><code>🚨 Fatal Error: Unexpectedly found ✨ while unwrapping a 🍬.
-</code></pre><p>Naturally unwrapping an optional without a check is not safe and should not
+</code></pre><p>Naturally, unwrapping an optional without a check is not safe and should not
 be done. See the sections below for safe ways.</p>
 <h2 id="-nothingness-test">☁️ Nothingness Test</h2>
 <p>You can use ☁️ to test if an optional is Nothingness.</p>
 <pre class="syntax">
-☁️ <span class="syntax-placeholder">value</span>
+<span class="syntax-placeholder" id="srule-is-nothingness">is-nothingness</span> ⟶ ☁️ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
-<p>☁️ returns true if <em>value</em> is Nothingness.</p>
+<p>☁️ returns true if the expression is Nothingness.</p>
 <h2 id="-condition-assignment">🍊🍦 Condition Assignment</h2>
 <p>An even more useful way to protect from Nothingness is the Condition Assingment.
 You can use 🍦 in conditions, that is in combination with 🍊, 🍋 or 🔁, and the

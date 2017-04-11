@@ -160,7 +160,7 @@
   </div>
 
 	<h1 id="packages">Packages</h1>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>Before reading this chapter make sure you’re familiar with <a href="types.html#namespaces">Emojicode’s
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>Before reading this chapter make sure you’re familiar with <a href="types.html#namespaces">Emojicode’s
 namespacing</a>.</p>
 </div></div>
 
@@ -179,11 +179,12 @@ without explicitly importing them.</p>
 naturally, you can import other packages into a package. The syntax to do this
 is:</p>
 <pre class="syntax">
-📦 <span class="syntax-placeholder">packageName</span> <span class="syntax-placeholder">destinationNamespace</span>
+<span class="syntax-placeholder" id="srule-package-import">package-import</span> ⟶ 📦 <a class="syntax-placeholder" href="packages.html#srule-package-name">package-name</a> <a class="syntax-placeholder" href="syntax.html#srule-emoji">emoji</a>
+<span class="syntax-placeholder" id="srule-package-name">package-name</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a>
 </pre>
 
 <p>If such a statment ocours to the compiler, the compiler will search the
-<em>Package Search Path</em> for a package with the given name <code>packageName</code> and will
+<em>Package Search Path</em> for a package with the given name <em>package-name</em> and will
 try to import it. The default <em>Package Search Path</em> is
 <code>/usr/local/EmojicodePackages/</code> for UNIX operating systems.</p>
 <p>If you import a package, <strong>all types that were exported from the imported
@@ -222,7 +223,9 @@ imported into the requested namespace regardless in which namespace they were
 intially exported.</p>
 <p>Additionally an importable package must declare its version using 🔮:</p>
 <pre class="syntax">
-🔮 <span class="syntax-placeholder">major</span> <span class="syntax-placeholder">minor</span>
+<span class="syntax-placeholder" id="srule-version">version</span> ⟶ [<a class="syntax-placeholder" href="documentation.html#srule-documentation-comment">documentation-comment</a>] 🔮 <a class="syntax-placeholder" href="packages.html#srule-major">major</a> <a class="syntax-placeholder" href="packages.html#srule-minor">minor</a>
+<span class="syntax-placeholder" id="srule-major">major</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-integer-literal">integer-literal</a>
+<span class="syntax-placeholder" id="srule-minor">minor</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-integer-literal">integer-literal</a>
 </pre>
 
 <p>The <code>header.emojic</code> of a cat-simulator package must look like this:</p>

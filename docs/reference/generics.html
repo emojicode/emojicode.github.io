@@ -170,7 +170,7 @@ great way to avoid code duplication.</p>
 <h2 id="defining-a-generic-class">Defining a Generic Class</h2>
 <p>To define a Generic Class you define a class and append</p>
 <pre class="syntax">
-🐚 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
+🐚 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
 <p>for each generic argument the class shall take. This structure is called
@@ -235,11 +235,8 @@ this:</p>
 🍉
 </code></pre><p>Therefore the complete method syntax is:</p>
 <pre class="syntax">
-🐖 <span class="syntax-placeholder">name</span> <span class="syntax-placeholder">[generic-arguments]</span> <span class="syntax-placeholder">[arguments]</span> <span class="syntax-placeholder">[return-type]</span> 🍇
-
-🍉
-<span class="syntax-placeholder">generic-arguments</span> ⟶ <span class="syntax-placeholder">generic-argument</span> | <span class="syntax-placeholder">generic-argument</span> <span class="syntax-placeholder">generic-arguments</span>
-<span class="syntax-placeholder">generic-argument</span> ⟶ 🐚 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">type</span>
+<span class="syntax-placeholder" id="srule-generic-arguments">generic-arguments</span> ⟶ <a class="syntax-placeholder" href="generics.html#srule-generic-argument">generic-argument</a> | <a class="syntax-placeholder" href="generics.html#srule-generic-argument">generic-argument</a> <a class="syntax-placeholder" href="generics.html#srule-generic-arguments">generic-arguments</a>
+<span class="syntax-placeholder" id="srule-generic-argument">generic-argument</span> ⟶ 🐚 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
 <p>As you can see above it takes one generic argument named <code>A</code> which is restricted
@@ -283,7 +280,7 @@ string class does for example:</p>
   🍉
 🍇
 </code></pre><h2 id="runtime-typing-casting-">Runtime Typing (Casting)</h2>
-<div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>Casting to generic types is not safe at the moment. It is possible,
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Casting to generic types is not safe at the moment. It is possible,
 but if used incorrectly, it is evil due to the possibility to accomplish
 something like shown in “Compatibility” above. <strong>Try to avoid it.</strong></p>
 </div></div>
@@ -297,7 +294,7 @@ following error message if you try that anyway:</p>
 specify the generic argument constraints of the class for compatibility with
 future versions.</p>
 </blockquote>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>This is a 0.x limitation. Enhancements in the future will possibly
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>This is a 0.x limitation. Enhancements in the future will possibly
 remove this limitation.</p>
 </div></div>
 

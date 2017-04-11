@@ -165,8 +165,8 @@ statements that will be executed only under if a condition is met or not met
 or that will be repeated.</p>
 <p>Syntactic definition:</p>
 <pre class="syntax">
-<span class="syntax-placeholder">block</span> ⟶ 🍇 <span class="syntax-placeholder">statments</span> 🍉
-<span class="syntax-placeholder">statements</span> ⟶ <span class="syntax-placeholder">statement</span> <span class="syntax-placeholder">statements</span> | <span class="syntax-placeholder">statement</span>
+<span class="syntax-placeholder" id="srule-block">block</span> ⟶ 🍇 <a class="syntax-placeholder" href="controlflow.html#srule-statements">statements</a> 🍉
+<span class="syntax-placeholder" id="srule-statements">statements</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-statement">statement</a> <a class="syntax-placeholder" href="controlflow.html#srule-statements">statements</a> | <a class="syntax-placeholder" href="syntax.html#srule-statement">statement</a>
 </pre>
 
 <p>Examples of blocks can be seen below.</p>
@@ -174,11 +174,11 @@ or that will be repeated.</p>
 <p>The 🍊 statement is very important. It allows for conditional execution of a
 code block. The whole syntax is:</p>
 <pre class="syntax">
-🍊 <span class="syntax-placeholder">condition</span> <span class="syntax-placeholder">block</span> [<span class="syntax-placeholder">else-ifs</span>] [<span class="syntax-placeholder">else</span>]
-<span class="syntax-placeholder">else-ifs</span> ⟶ <span class="syntax-placeholder">else-if</span> <span class="syntax-placeholder">else-ifs</span> | <span class="syntax-placeholder">else-if</span>
-<span class="syntax-placeholder">else-if</span> ⟶ 🍋 <span class="syntax-placeholder">condition</span> <span class="syntax-placeholder">block</span>
-<span class="syntax-placeholder">else</span> ⟶ 🍓 <span class="syntax-placeholder">block</span>
-<span class="syntax-placeholder">condition</span> ⟶ <span class="syntax-placeholder">expression</span> | <span class="syntax-placeholder">frozen-declaration</span>
+<span class="syntax-placeholder" id="srule-if">if</span> ⟶ 🍊 <a class="syntax-placeholder" href="controlflow.html#srule-condition">condition</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a> [<a class="syntax-placeholder" href="controlflow.html#srule-else-ifs">else-ifs</a>] [<a class="syntax-placeholder" href="controlflow.html#srule-else">else</a>]
+<span class="syntax-placeholder" id="srule-else-ifs">else-ifs</span> ⟶ <a class="syntax-placeholder" href="controlflow.html#srule-else-if">else-if</a> <a class="syntax-placeholder" href="controlflow.html#srule-else-ifs">else-ifs</a> | <a class="syntax-placeholder" href="controlflow.html#srule-else-if">else-if</a>
+<span class="syntax-placeholder" id="srule-else-if">else-if</span> ⟶ 🍋 <a class="syntax-placeholder" href="controlflow.html#srule-condition">condition</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
+<span class="syntax-placeholder" id="srule-else">else</span> ⟶ 🍓 <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
+<span class="syntax-placeholder" id="srule-condition">condition</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> | <a class="syntax-placeholder" href="syntax.html#srule-frozen-declaration">frozen-declaration</a>
 </pre>
 
 <p>If the <em>condition</em> evaluates to 👍, the code block will be executed, and
@@ -232,7 +232,7 @@ contained in the list. The 🔂 statement can iterate over instances of any type
 which conforms to the 🔂🐚Element protocol.</p>
 <p>Its syntax is:</p>
 <pre class="syntax">
-🔂 <span class="syntax-placeholder">variable</span> <span class="syntax-placeholder">expression</span> <span class="syntax-placeholder">block</span>
+<span class="syntax-placeholder" id="srule-for-in">for-in</span> ⟶ 🔂 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
 </pre>
 
 <p>The compiler then transforms the statement into byte code equivalent to the
@@ -261,7 +261,7 @@ and the values <code>tree</code>, <code>bee</code>, <code>lee</code>, and <code>
 declared its conformance to 🔂 as <code>🔂🐚Element</code> and therefore also returns
 an iterator of type <code>🍡🐚Element</code> from which the type of the variable is
 inferred.</p>
-<div class="callout-hint"><div class="title">Hint</div>        <div class="text"><p>If you need to repeat something for a given amount of times you
+<div class="callout-hint"><div class="title">Hint</div>          <div class="text"><p>If you need to repeat something for a given amount of times you
 should use <a href="the-s-package.html#-ranges">⏩ Ranges</a> in combination with 🔂.</p>
 </div></div>
 
@@ -270,7 +270,7 @@ should use <a href="the-s-package.html#-ranges">⏩ Ranges</a> in combination wi
 that if the <em>condition</em> is never 👍 the code block will never be executed.
 The syntax is:</p>
 <pre class="syntax">
-🔁 <span class="syntax-placeholder">condition</span> <span class="syntax-placeholder">block</span>
+<span class="syntax-placeholder" id="srule-repeat-while">repeat-while</span> ⟶ 🔁 <a class="syntax-placeholder" href="controlflow.html#srule-condition">condition</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
 </pre>
 
 <p>For example, this program will infinitely print “disko disko partinzani”.</p>

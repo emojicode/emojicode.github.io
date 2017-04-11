@@ -163,7 +163,14 @@ to protocols by implementing all methods and declaring the conformation.</p>
 <p>Defining a protocol defines a type. All classes that agree to that protocol are
 compatible with this type.</p>
 <h2 id="declaration">Declaration</h2>
-<p>You define a protocol in a similar way to classes:</p>
+<p>The syntax to define a protocol is simliar to the way of defining a class:</p>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-protocol">protocol</span> ⟶ 🐊 <a class="syntax-placeholder" href="types.html#srule-type-identifier">type-identifier</a> <a class="syntax-placeholder" href="protocols.html#srule-protocol-body">protocol-body</a>
+<span class="syntax-placeholder" id="srule-protocol-body">protocol-body</span> ⟶ <a class="syntax-placeholder" href="protocols.html#srule-protocol-method">protocol-method</a> | <a class="syntax-placeholder" href="protocols.html#srule-protocol-method">protocol-method</a> <a class="syntax-placeholder" href="protocols.html#srule-protocol-body">protocol-body</a>
+<span class="syntax-placeholder" id="srule-protocol-method">protocol-method</span> ⟶ [<a class="syntax-placeholder" href="documentation.html#srule-documentation-comment">documentation-comment</a>] [⚠️] 🐖 <a class="syntax-placeholder" href="classes-valuetypes.html#srule-method-emoji">method-emoji</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a> <a class="syntax-placeholder" href="classes-valuetypes.html#srule-return-type">return-type</a>
+</pre>
+
+<p>For example:</p>
 <pre><code>🐊 💿 🍇
     🐖 🎶
 🍉
@@ -175,7 +182,12 @@ of playing music and therefore must provide the 🎶 method.</p>
 present it’s not possible to require initializers or class methods.</p>
 <h2 id="conforming">Conforming</h2>
 <p>To make a class conform to a protocol you must declare that it conforms to the
-protocol. Here a radio is declared to be conform to 💿.</p>
+protocol using the conformance syntax:</p>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-protocol-conformance">protocol-conformance</span> ⟶ 🐊 <a class="syntax-placeholder" href="types.html#srule-type">type</a>
+</pre>
+
+<p>Here a radio is declared to be conform to 💿.</p>
 <pre><code>🐇 📻 🍇
   🐊 💿
 

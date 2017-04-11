@@ -65,6 +65,16 @@ The escape character can also be used to produce the following characters:
 
 All other combinations of a ❌ and another character lead to a compiler error.
 
+Formally, the syntax is:
+
+<pre class="syntax">
+$string-literal$-> 🔤 [$string-literal-characters$] 🔤
+$string-literal-characters$-> $string-literal-character$ |  $string-literal-character$ $string-literal-characters$
+$string-literal-character$-> $unicode$ except 🔤 except ❌ | $string-escape-sequence$
+$string-escape-sequence$-> ❌ $string-escape-tail$
+$string-escape-tail$-> n | t | r | e
+</pre>
+
 ### Comparing Strings
 
 If you want to determine whether to strings represent the same value, you can
@@ -95,6 +105,14 @@ will get concatenated in order of appearance into one string.
 🍪s are the most efficient way of concatenating strings as the compiler can
 🍪optimize the concatenation. Please note that 🍪s are not methods but part
 of the language.
+
+The syntax formally is:
+
+<pre class="syntax">
+$concatenate-literal$-> 🍪 $concatenate-expressions$ 🍪
+$concatenate-expressions$-> $concatenate-expression$ | $concatenate-expression$ $concatenate-expressions$
+$concatenate-expression$-> $expression$ except $concatenate-literal$
+</pre>
 
 ### String Pooling
 
@@ -154,6 +172,11 @@ The example below creates a list with the values `14`, `67`, `2434`.
 
 The compiler will try to infer the generic type argument for the list.
 
+<pre class="syntax">
+$list-literal$-> 🍨 [$expressions$] 🍆
+$expressions$-> $expression$ | $expression$ $expressions$
+</pre>
+
 ## 🍯 Dictionaries
 
 Dictionaries can be used to assign values to string keys. The size of a
@@ -171,11 +194,10 @@ For instance if the values were booleans the type would be written like this:
 The shortcut syntax to create a dictionary is:
 
 <pre class="syntax">
-🍯 $kv-pair-list$🍆
-$kv-pair-list$-> $kv-pair$ $kv-pair-list$ | $kv-pair$
-$kv-pair$-> $key$ $pair-value$
-$key$-> $value$
-$pair-value$-> $value$
+$dictionary-literal$-> 🍯 [$kv-pairs$] 🍆
+$kv-pairs$-> $kv-pair$ $kv-pairs$ | $kv-pair$
+$kv-pair$-> $key$ $expression$
+$key$-> $expression$
 </pre>
 
 *key* must be a string. The compiler will try to infer the generic type argument
@@ -206,13 +228,17 @@ Ranges can be created by using the shortcut syntax, which is depending on your
 needs either
 
 <pre class="syntax">
-⏭ $start$ $stop$ $step$
+$range-literal$-> $range-literal-with-step$ $range-literal-without-step$
+$range-literal-with-step$-> ⏭ $start$ $stop$ $step$
+$start$-> $expression$
+$stop$-> $expression$
+$step$-> $expression$
 </pre>
 
 or
 
 <pre class="syntax">
-⏩ $start$ $stop$
+$range-literal-without-step$-> ⏩ $start$ $stop$
 </pre>
 
 The latter uses 1 as *step* value if *start* is less than *stop*, otherwise

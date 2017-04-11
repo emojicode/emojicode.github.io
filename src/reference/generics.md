@@ -1,7 +1,7 @@
 # Generics
 
 *Generics* allow you to write code in which you can use a placeholder – variable
-names – instead of actual type names, which will then be substitued with real
+names – instead of actual type names, which will then be substituted with real
 types when you use that code later. This is a really powerful feature and is a
 great way to avoid code duplication.
 
@@ -100,9 +100,6 @@ this:
 Therefore the complete method syntax is:
 
 <pre class="syntax">
-🐖 $name$ $[generic-arguments]$ $[arguments]$ $[return-type]$ 🍇
-
-🍉
 $generic-arguments$-> $generic-argument$ | $generic-argument$ $generic-arguments$
 $generic-argument$-> 🐚 $variable$ $type$
 </pre>

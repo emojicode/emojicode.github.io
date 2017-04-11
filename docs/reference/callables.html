@@ -163,8 +163,8 @@ object and can therefore be stored in variables, passed as argument, etc.</p>
 <h2 id="type">Type</h2>
 <p>The callable type is declared using this syntax:</p>
 <pre class="syntax">
-🍇 <span class="syntax-placeholder">[type-list]</span> <span class="syntax-placeholder">[return-type]</span> 🍉
-<span class="syntax-placeholder">type-list</span> ⟶ <span class="syntax-placeholder">type</span> | <span class="syntax-placeholder">type</span> <span class="syntax-placeholder">type-list</span>
+<span class="syntax-placeholder" id="srule-callable-type">callable-type</span> ⟶ 🍇 [<a class="syntax-placeholder" href="callables.html#srule-type-list">type-list</a>] [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-return-type">return-type</a>] 🍉
+<span class="syntax-placeholder" id="srule-type-list">type-list</span> ⟶ <a class="syntax-placeholder" href="types.html#srule-type">type</a> | <a class="syntax-placeholder" href="types.html#srule-type">type</a> <a class="syntax-placeholder" href="callables.html#srule-type-list">type-list</a>
 </pre>
 
 <p>Each <em>type</em> stands for one argument of that type. You can specify a
@@ -177,11 +177,11 @@ Nothingness.</p>
 </code></pre><h2 id="calling-a-callable">Calling a Callable</h2>
 <p>The 🍭 must be used to call a callable.</p>
 <pre class="syntax">
-🍭 <span class="syntax-placeholder">callable</span> <span class="syntax-placeholder">[arguments]</span>
+<span class="syntax-placeholder" id="srule-callable-call">callable-call</span> ⟶ 🍭 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a>]
 </pre>
 
-<p><em>callable</em> must be a callable. Of course you must provide the required number of
-correctly typed arguments.</p>
+<p><em>expression</em> must be a callable. Of course you must provide the required number
+of correctly typed arguments.</p>
 <p>Example of calling a callable:</p>
 <pre><code>👴 greet is of type 🍇🔡🍉
 🍭 greet 🔤Bob🔤
@@ -190,21 +190,15 @@ correctly typed arguments.</p>
 that takes as many arguments of the same type as the method would take and
 returns the same value as the method would return. This callable will always
 execute the method in the same context, though.</p>
-<p>The syntaxes are:</p>
+<p>The syntax is:</p>
 <pre class="syntax">
-🌶 <span class="syntax-placeholder">method-name</span> <span class="syntax-placeholder">instance</span>
+<span class="syntax-placeholder" id="srule-method-capture">method-capture</span> ⟶ 🌶 [🍩] <a class="syntax-placeholder" href="classes-valuetypes.html#srule-method-emoji">method-emoji</a> <a class="syntax-placeholder" href="callables.html#srule-capturee">capturee</a>
+<span class="syntax-placeholder" id="srule-capturee">capturee</span> ⟶ <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> | <a class="syntax-placeholder" href="types.html#srule-type">type</a>
 </pre>
 
-<p><em>method-name</em> is the emoji representing the method. <em>instance</em> must be an
-instance which has a method <em>methodName</em> and can be either a class or value type
-instance.</p>
-<pre class="syntax">
-🌶🍩 <span class="syntax-placeholder">method-name</span> <span class="syntax-placeholder">type</span>
-</pre>
-
-<p>This syntax is used to capture type methods. <em>method-name</em> is the emoji
-representing the method. <em>type</em> must be a type identifier whose type method
-should be captured.</p>
+<p><em>method-name</em> is the emoji representing the method. If you want to capture
+a type method, place the 🍩 in front of the method name. Iff a type method is
+to be caputred <em>capturee</em> must be a type.</p>
 <p>Example:</p>
 <pre><code>🍦 string 🔤Strawberry🔤
 
@@ -219,9 +213,7 @@ Strawberry?
 <p>You can define closures which remember the environment in which they were
 defined. The basic syntax to define a closure is:</p>
 <pre class="syntax">
-🍇 <span class="syntax-placeholder">[arguments]</span> <span class="syntax-placeholder">[return-type]</span>
-
-🍉
+<span class="syntax-placeholder" id="srule-closure">closure</span> ⟶ 🍇 [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-arguments">arguments</a>] [<a class="syntax-placeholder" href="classes-valuetypes.html#srule-return-type">return-type</a>] <a class="syntax-placeholder" href="controlflow.html#srule-statements">statements</a> 🍉
 </pre>
 
 <p>This is basically the same syntax that applies to methods and initializers.</p>
@@ -252,7 +244,7 @@ string and will output:</p>
 </code></pre><p>Here we’ve got a class method that returns a closure. The closure actually
 closes over the <code>name</code> variable here and copies it value so that it can be used
 when the closure is called later.</p>
-<div class="callout-caution"><div class="title">Caution</div>        <div class="text"><p>Closures <strong>copy</strong> the closured <strong>local variables</strong> and freeze them in the scope of the closure.
+<div class="callout-caution"><div class="title">Caution</div>          <div class="text"><p>Closures <strong>copy</strong> the closured <strong>local variables</strong> and freeze them in the scope of the closure.
 If you modify one of the copied variable only the copy local to the closure will be modified.</p>
 <p><strong>Instance variables</strong> are <strong>not copied</strong> and really change when modified inside a closure.</p>
 </div></div>

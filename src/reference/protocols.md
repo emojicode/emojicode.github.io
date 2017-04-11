@@ -9,7 +9,15 @@ compatible with this type.
 
 ## Declaration
 
-You define a protocol in a similar way to classes:
+The syntax to define a protocol is simliar to the way of defining a class:
+
+<pre class="syntax">
+$protocol$-> 🐊 $type-identifier$ $protocol-body$
+$protocol-body$-> $protocol-method$ | $protocol-method$ $protocol-body$
+$protocol-method$-> [$documentation-comment$] [⚠️] 🐖 $method-emoji$ $arguments$ $return-type$
+</pre>
+
+For example:
 
 ```
 🐊 💿 🍇
@@ -28,7 +36,13 @@ present it’s not possible to require initializers or class methods.
 ## Conforming
 
 To make a class conform to a protocol you must declare that it conforms to the
-protocol. Here a radio is declared to be conform to 💿.
+protocol using the conformance syntax:
+
+<pre class="syntax">
+$protocol-conformance$-> 🐊 $type$
+</pre>
+
+Here a radio is declared to be conform to 💿.
 
 ```
 🐇 📻 🍇

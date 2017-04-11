@@ -87,7 +87,7 @@ The same logic applies to type methods.
 Inside a method you can use this syntax to call the super method:
 
 <pre class="syntax">
-🐿 $method-emoji$ $[arguments]$
+$supermethod-call$-> 🐿 $method-emoji$ [$arguments$]
 </pre>
 
 This simply calls the super method named *method-emoji* and returns it value.

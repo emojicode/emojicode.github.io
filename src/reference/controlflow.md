@@ -12,7 +12,7 @@ or that will be repeated.
 Syntactic definition:
 
 <pre class="syntax">
-$block$-> 🍇 $statments$ 🍉
+$block$-> 🍇 $statements$ 🍉
 $statements$-> $statement$ $statements$ | $statement$
 </pre>
 
@@ -24,7 +24,7 @@ The 🍊 statement is very important. It allows for conditional execution of a
 code block. The whole syntax is:
 
 <pre class="syntax">
-🍊 $condition$ $block$ [$else-ifs$] [$else$]
+$if$-> 🍊 $condition$ $block$ [$else-ifs$] [$else$]
 $else-ifs$-> $else-if$ $else-ifs$ | $else-if$
 $else-if$-> 🍋 $condition$ $block$
 $else$-> 🍓 $block$
@@ -102,7 +102,7 @@ which conforms to the 🔂🐚Element protocol.
 Its syntax is:
 
 <pre class="syntax">
-🔂 $variable$ $expression$ $block$
+$for-in$-> 🔂 $variable$ $expression$ $block$
 </pre>
 
 The compiler then transforms the statement into byte code equivalent to the
@@ -148,7 +148,7 @@ that if the *condition* is never 👍 the code block will never be executed.
 The syntax is:
 
 <pre class="syntax">
-🔁 $condition$ $block$
+$repeat-while$-> 🔁 $condition$ $block$
 </pre>
 
 For example, this program will infinitely print “disko disko partinzani”.
