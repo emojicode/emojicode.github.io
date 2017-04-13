@@ -11,9 +11,14 @@ installer.
 The installer will tell you what it is about to do and will prompt you for
 confirmation. By default, the installer will try to install Emojicode into
 /usr/local/bin and /usr/local/EmojicodePackages. **If your user doesn’t have
-write access to these diretories** you will either need to prepend
+write access to these directories** you will either need to prepend
 `./install.sh` with `sudo` or provide a different install location like
 `./install.sh ~/bin/ ~/EmojicodePackages`.
+
+If you're on Windows 10, you can use
+[Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
+to install and use Emojicode. From there, simply select `Linux` as your OS and
+proceed as specified above.
 
 <div class="magic-install-sw">
   <div class="magic-install-sw-box">
