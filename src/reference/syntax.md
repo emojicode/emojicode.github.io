@@ -56,7 +56,7 @@ The smallest standalone elements of Emojicode’s normal program code is called
 
 <pre class="syntax">
 $statement$-> $expression$ | $frozen-declaration$ | $assignment$ | $declaration$
-$statement$-> $instantiation$ | $superinitializer$ | $return$ | $error-check-control$
+$statement$-> $superinitializer$ | $return$ | $error-check-control$
 $statement$-> $if$ | $for-in$ | $repeat-while$
 $frozen-declaration$-> 🍦 $variable$ $expression$
 $assignment$-> 🍮 $variable$ $expression$ | 🍮 $method-emoji$ $variable$ $arguments$
@@ -66,7 +66,7 @@ $expression$-> $method-call$ | $identity-check$ | $nothingness$ | $unwrap$ | $is
 $expression$-> $callable-call$ | $method-capture$ | $closure$ | $type-method-call$
 $expression$-> $list-literal$ | $dictionary-literal$ | $range-literal$ | $concatenate-literal$
 $expression$-> $supermethod-call$ | $is-error$ | $perfect-extraction$ | $cast$
-$expression$-> $metatype-instance$ | $metatype-instance-from-instance$
+$expression$-> $metatype-instance$ | $metatype-instance-from-instance$ | $instantiation$
 $symbol-literal$-> 🔟 $unicode$
 </pre>
 
