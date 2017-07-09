@@ -60,9 +60,6 @@
                   <a href="#symbol-literals" class="section-link">Symbol literals</a>
                 </li>
                 <li>
-                  <a href="#context-based-parsing" class="section-link">Context Based Parsing</a>
-                </li>
-                <li>
                   <a href="#including-other-source-code-files" class="section-link">Including Other Source Code Files</a>
                 </li>
               </ul>
@@ -315,15 +312,7 @@ The symbol type can represent any character defined in Unicode.</p>
 desired symbol. This is called a <em>Symbol literal</em>.</p>
 <p>Example:</p>
 <pre><code>🍦 percent 🔟%
-</code></pre><h2 id="context-based-parsing">Context Based Parsing</h2>
-<p>Emojicode heavily uses <em>context based parsing</em>. This means that something can
-have a completely different meaning based on the context.</p>
-<p>All statements introduced above except for 🏁 are only valid inside a method or
-initializer body. If you however used 🍦 when a type name was expected, 🍦
-would be interpreted as a type called 🍦.</p>
-<p>The statement introduced below is, on the contrary, only valid at document
-level – you can’t use it inside a method or class.</p>
-<h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
+</code></pre><h2 id="including-other-source-code-files">Including Other Source Code Files</h2>
 <p>An Emojicode program is always compiled from a single file. Nevertheless, you
 can include other source code files. Basically, this just
 inserts the code from the file at the point where you included it.</p>

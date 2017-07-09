@@ -210,18 +210,6 @@ Example:
 🍦 percent 🔟%
 ```
 
-## Context Based Parsing
-
-Emojicode heavily uses *context based parsing*. This means that something can
-have a completely different meaning based on the context.
-
-All statements introduced above except for 🏁 are only valid inside a method or
-initializer body. If you however used 🍦 when a type name was expected, 🍦
-would be interpreted as a type called 🍦.
-
-The statement introduced below is, on the contrary, only valid at document
-level – you can’t use it inside a method or class.
-
 ## Including Other Source Code Files
 
 An Emojicode program is always compiled from a single file. Nevertheless, you
