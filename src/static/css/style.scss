@@ -101,12 +101,6 @@ pre:not(.negative-example):not(.syntax):not(.declaration)::before {
   background-color: $syntax-placeholder-color;
 }
 
-code {
-  border-radius: 3px;
-  font-size: 0.9em;
-  padding: 2px;
-}
-
 section,
 .content {
   max-width: $content-width;

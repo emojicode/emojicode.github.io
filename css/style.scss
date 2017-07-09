@@ -5,7 +5,15 @@
   font-style: normal;
   font-weight: 400;
   src: local('Varela Round'), local('VarelaRound-Regular'),
-       url(/fonts/VarelaRound-Regular.ttf) format('woff');
+       url(/fonts/VarelaRound-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'),
+       url(/fonts/RobotoMono-Regular);
 }
 
 // Emojicode Brand Colors
@@ -24,8 +32,9 @@ $p-gray: lighten($p-intermediate, 65%);
 $background-color: rgb(254, 254, 254);
 $text-color: rgb(58, 58, 58);
 $link-color: lighten($p-intermediate, 30%);
-$code-background: $gray;
-$code-font: Menlo, Monaco, monospace;
+$pre-background: $gray;
+$code-font: Roboto Mono, Monaco, monospace;
+$code-background: $p-gray;
 
 // Heading Settings
 
@@ -139,10 +148,24 @@ code {
 
 pre {
   padding: 1.05em;
-  background-color: $code-background;
+  background-color: $pre-background;
   font-size: 0.9em;
   overflow-x: scroll;
   position: relative;
+
+  code {
+    padding: 0;
+    background: none;
+    // font-size: 1em;
+  }
+}
+
+code {
+  display: inline-block;
+  background-color: $code-background;
+  padding: 0 0.2em;
+  font-size: 0.9em;
+  border-radius: 2px;
 }
 
 .menu {
