@@ -113,7 +113,7 @@ you don’t intend to modify** the variable.
 
 🍮 can also be used directly followed by an emoji, which is a special use and
 called *assignment by call*. Assignment by call is described in
-[Classes & Value Types](classes-valuetypes.html).
+[Classes & Value Types](classes-valuetypes.html#assignment-by-call).
 
 ### 🍰 Declaring Variables
 

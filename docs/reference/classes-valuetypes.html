@@ -89,6 +89,9 @@
                   <a href="#reserved-emojis" class="section-link">Reserved Emojis</a>
                 </li>
                 <li>
+                  <a href="#assignment-by-call" class="section-link">Assignment by Call</a>
+                </li>
+                <li>
                   <a href="#access-levels" class="section-link">Access Levels</a>
                 </li>
                 <li>
@@ -449,8 +452,20 @@ Type methods are also inherited by subclasses.</p>
 <span class="syntax-placeholder" id="srule-reserved-emoji">reserved-emoji</span> ⟶ 🔤|👵|🔟|👍|👎|👴
 </pre>
 
-
-<h2 id="access-levels">Access Levels</h2>
+<h2 id="assignment-by-call">Assignment by Call</h2>
+<p><em>Assignment by Call</em> is a way of quickly replacing the content of a variable
+with the result of a method call on its value. E.g.</p>
+<pre><code>🍮 counter 1
+🍮➕ counter 1
+</code></pre><p>At the end of the code snippet <code>counter</code> will be 2. The second line works
+exactly like <code>🍮 counter ➕ counter 1</code>.</p>
+<p>Any method can be used in an Assignment by Call as long as it returns the type
+of the variable. Note that the method can take any number of arguments. The
+following example would print the value <code>fries</code>, for instance.</p>
+<pre><code>🍮 string 🔤onion french fries🔤
+🍮🔪 string 13 5
+😀 string
+</code></pre><h2 id="access-levels">Access Levels</h2>
 <p><em>Access Levels</em> describe from which context a method, class method or initializer can be called. There are three access levels:</p>
 <pre class="syntax">
 <span class="syntax-placeholder" id="srule-access-level">access-level</span> ⟶ 🔓 | 🔒 | 🔐

@@ -372,6 +372,28 @@ $reserved-emoji$-> 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
 $reserved-emoji$-> 🔤|👵|🔟|👍|👎|👴
 </pre>
 
+## Assignment by Call
+
+*Assignment by Call* is a way of quickly replacing the content of a variable
+with the result of a method call on its value. E.g.
+
+```
+🍮 counter 1
+🍮➕ counter 1
+```
+
+At the end of the code snippet `counter` will be 2. The second line works
+exactly like `🍮 counter ➕ counter 1`.
+
+Any method can be used in an Assignment by Call as long as it returns the type
+of the variable. Note that the method can take any number of arguments. The
+following example would print the value `fries`, for instance.
+
+```
+🍮 string 🔤onion french fries🔤
+🍮🔪 string 13 5
+😀 string
+```
 
 ## Access Levels
 
