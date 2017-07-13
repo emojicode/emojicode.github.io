@@ -6,48 +6,84 @@ light-weight way to handle errors.
 
 ## The 🚨 Type
 
-Emojicode provides a special error type that is denoted by 🚨. 🚨 is always
-followed by two other types: An enumeration that serves as the error enumeration
-indicating the kind of error if one occurs and a contained type – the type that
+Emojicode provides a special type: 🚨. A 🚨 type is always composed pf two other
+types: An enumeration that serves as the *error enumeration*, which indicates
+the kind of error if an error occurs, and a contained type, i.e. the type that
 is present if no error arises.
 
 For instance, a method that normally returns a 🔡 can declare that it will
-return an instance of 🏜 in case of an error will declare its return type
-like this:
+return an instance of 🏜 in case of an error like this:
 
 ```
 🐖 🙅 ➡️ 🚨🏜🔡 🍇
 ```
 
-### Compatibility of the 🚨 Type
-
-🚨 types are intentionally not very compatible to enforce prompt error handling
-and to prevent errors from being passed round too easily. 🚨 types are only
-compatible to other types with the exact same error enumeration and contained
-type.
+An instance of a 🚨 type therefore either contains an error in the form of an
+enumeration value or a value of the contained type.
 
 ## The 🚨 Statement
 
-Inside a method whose return type is an 🚨 type the 🚨 can be used to return
-an error:
+An error can only ever be created and raised inside a function. In a function
+the 🚨 statement, which works similar to 🍎, is used to create the error and
+return it from the function. Its syntax is:
+
+<pre class="syntax">
+$error$-> 🚨 $expression$
+</pre>
+
+The expression must evaluate to an instance of the error enumeration. The
+example below shows a class, which stands for a microphone. It hash a method
+called 🎬 that in some cases might fail, in which an error is returned:
 
 ```
-🦃 🏜 🍇
+🦃 ⛰ 🍇
   🔘🔋
-  🔘🍟
+  🔘🔇
 🍉
 
-🐇 👩‍🎤 🍇
-  🐇🐖 🙅 ➡️ 🚨🏜🔡 🍇
-    🚨🔷🏜🔋
+🐇 🎤 🍇
+  🍰 battery 🚀
+
+  👴 ...
+
+  🐇🐖 🎬 ➡️ 🚨⛰🔡 🍇
+    🍊 ◀️ battery 0.1 🍇
+      🚨🔷⛰🔋 👴 Too low battery, return an error
+    🍉
+    🍎 🔤Ladies and gentlemen...🔤 👴 Everything fine, we return a string
   🍉
+🍉
+```
+
+## 🥑 Error Check Control
+
+Emojicode provides a control flow mechanism that is specifically designed for
+error checking:
+
+<pre class="syntax">
+$error-check-control$-> 🥑 $variable$ $expression$ $block$ 🍓 $variable$ $block$
+</pre>
+
+The 🥑 works in a straight-forward way. If the expression evaluates to an 🚨
+instance that does not represent an error, the first block is executed an the
+variable is set to the value contained in the 🚨. If, however, the 🚨 does
+represent an error the 🍓 block is entered its variable is set to the error
+enumeration instance.
+
+Example:
+
+```
+🥑 fileData 🍩📇📄 🔤textDocument.txt🔤 🍇
+  😀 🍪🔤Read 🔤 🔡 🐔 fileData 10 🔤 bytes🔤 🍪
+🍉
+🍓 error 🍇
+  😀 🔤😢 Could not read file🔤
 🍉
 ```
 
 ## 🚥 Test for Errors
 
-If you want to make sure that an instance of 🚨 does not represent an error
-but does contain a value you can use the 🚥 expression.
+To test whether an 🚨 instance represents an error the 🚥 expression is used.
 
 Syntax:
 
@@ -57,12 +93,6 @@ $is-error$-> 🚥 $expression$
 
 🚥 returns 👍 if the value is an error or 👎 false if its not an error and
 contains a value.
-
-## 🥑 Error Check Control
-
-<pre class="syntax">
-$error-check-control$-> 🥑 $variable$ $expression$ $block$ 🍓 $variable$ $block$
-</pre>
 
 ## 🚇 Perfect Extraction
 
@@ -75,9 +105,15 @@ Syntax:
 $perfect-extraction$-> 🚇 $expression$
 </pre>
 
-If, tough, the 🚨 instance represents an error at runtime the program will
+If, though, the 🚨 instance represents an error at runtime the program will
 abort with a run-time error similar to:
 
 ```
 🚨 Fatal Error: Unexpectedly found 🚨 with value 2.
 ```
+
+## Compatibility of the 🚨 Type
+
+🚨 types are intentionally not compatible to other types to enforce prompt error
+handling. 🚨 types are only compatible to other types with the exact same error
+enumeration and contained type.

@@ -100,13 +100,16 @@
                   <a href="#the-statement" class="section-link">The 🚨 Statement</a>
                 </li>
                 <li>
-                  <a href="#-test-for-errors" class="section-link">🚥 Test for Errors</a>
-                </li>
-                <li>
                   <a href="#-error-check-control" class="section-link">🥑 Error Check Control</a>
                 </li>
                 <li>
+                  <a href="#-test-for-errors" class="section-link">🚥 Test for Errors</a>
+                </li>
+                <li>
                   <a href="#-perfect-extraction" class="section-link">🚇 Perfect Extraction</a>
+                </li>
+                <li>
+                  <a href="#compatibility-of-the-type" class="section-link">Compatibility of the 🚨 Type</a>
                 </li>
               </ul>
           </li>
@@ -164,35 +167,64 @@
 languages. Being a modern language, Emojicode provides a sophisticated but
 light-weight way to handle errors.</p>
 <h2 id="the-type">The 🚨 Type</h2>
-<p>Emojicode provides a special error type that is denoted by 🚨. 🚨 is always
-followed by two other types: An enumeration that serves as the error enumeration
-indicating the kind of error if one occurs and a contained type – the type that
+<p>Emojicode provides a special type: 🚨. A 🚨 type is always composed pf two other
+types: An enumeration that serves as the <em>error enumeration</em>, which indicates
+the kind of error if an error occurs, and a contained type, i.e. the type that
 is present if no error arises.</p>
 <p>For instance, a method that normally returns a 🔡 can declare that it will
-return an instance of 🏜 in case of an error will declare its return type
-like this:</p>
+return an instance of 🏜 in case of an error like this:</p>
 <pre><code>🐖 🙅 ➡️ 🚨🏜🔡 🍇
-</code></pre><h3 id="compatibility-of-the-type">Compatibility of the 🚨 Type</h3>
-<p>🚨 types are intentionally not very compatible to enforce prompt error handling
-and to prevent errors from being passed round too easily. 🚨 types are only
-compatible to other types with the exact same error enumeration and contained
-type.</p>
+</code></pre><p>An instance of a 🚨 type therefore either contains an error in the form of an
+enumeration value or a value of the contained type.</p>
 <h2 id="the-statement">The 🚨 Statement</h2>
-<p>Inside a method whose return type is an 🚨 type the 🚨 can be used to return
-an error:</p>
-<pre><code>🦃 🏜 🍇
+<p>An error can only ever be created and raised inside a function. In a function
+the 🚨 statement, which works similar to 🍎, is used to create the error and
+return it from the function. Its syntax is:</p>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-error">error</span> ⟶ 🚨 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
+</pre>
+
+<p>The expression must evaluate to an instance of the error enumeration. The
+example below shows a class, which stands for a microphone. It hash a method
+called 🎬 that in some cases might fail, in which an error is returned:</p>
+<pre><code>🦃 ⛰ 🍇
   🔘🔋
-  🔘🍟
+  🔘🔇
 🍉
 
-🐇 👩‍🎤 🍇
-  🐇🐖 🙅 ➡️ 🚨🏜🔡 🍇
-    🚨🔷🏜🔋
+🐇 🎤 🍇
+  🍰 battery 🚀
+
+  👴 ...
+
+  🐇🐖 🎬 ➡️ 🚨⛰🔡 🍇
+    🍊 ◀️ battery 0.1 🍇
+      🚨🔷⛰🔋 👴 Too low battery, return an error
+    🍉
+    🍎 🔤Ladies and gentlemen...🔤 👴 Everything fine, we return a string
   🍉
 🍉
+</code></pre><h2 id="-error-check-control">🥑 Error Check Control</h2>
+<p>Emojicode provides a control flow mechanism that is specifically designed for
+error checking:</p>
+<pre class="syntax">
+<span class="syntax-placeholder" id="srule-error-check-control">error-check-control</span> ⟶ 🥑 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a> 🍓 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
+</pre>
+
+<p>The 🥑 works in a straight-forward way. If the expression evaluates to an 🚨
+instance that does not represent an error, the first block is executed an the
+variable is set to the value contained in the 🚨. If, however, the 🚨 does
+represent an error the 🍓 block is entered its variable is set to the error
+enumeration instance.</p>
+<p>Example:</p>
+<pre><code>🥑 fileData 🍩📇📄 🔤textDocument.txt🔤 🍇
+  😀 🍪🔤Read 🔤 🔡 🐔 fileData 10 🔤 bytes🔤 🍪
+🍉
+🍓 error 🍇
+  😀 🔤😢 Could not read file🔤
+🍉
 </code></pre><h2 id="-test-for-errors">🚥 Test for Errors</h2>
-<p>If you want to make sure that an instance of 🚨 does not represent an error
-but does contain a value you can use the 🚥 expression.</p>
+<p>To test whether an 🚨 instance represents an error the 🚥 expression is used.</p>
 <p>Syntax:</p>
 <pre class="syntax">
 <span class="syntax-placeholder" id="srule-is-error">is-error</span> ⟶ 🚥 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
@@ -200,11 +232,6 @@ but does contain a value you can use the 🚥 expression.</p>
 
 <p>🚥 returns 👍 if the value is an error or 👎 false if its not an error and
 contains a value.</p>
-<h2 id="-error-check-control">🥑 Error Check Control</h2>
-<pre class="syntax">
-<span class="syntax-placeholder" id="srule-error-check-control">error-check-control</span> ⟶ 🥑 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a> 🍓 <a class="syntax-placeholder" href="syntax.html#srule-variable">variable</a> <a class="syntax-placeholder" href="controlflow.html#srule-block">block</a>
-</pre>
-
 <h2 id="-perfect-extraction">🚇 Perfect Extraction</h2>
 <p>If you are sure that an 🚨 instance will never represent an error you can use
 the 🚇 expression to the take contained value without prior error checking.</p>
@@ -213,10 +240,14 @@ the 🚇 expression to the take contained value without prior error checking.</p
 <span class="syntax-placeholder" id="srule-perfect-extraction">perfect-extraction</span> ⟶ 🚇 <a class="syntax-placeholder" href="syntax.html#srule-expression">expression</a>
 </pre>
 
-<p>If, tough, the 🚨 instance represents an error at runtime the program will
+<p>If, though, the 🚨 instance represents an error at runtime the program will
 abort with a run-time error similar to:</p>
 <pre><code>🚨 Fatal Error: Unexpectedly found 🚨 with value 2.
-</code></pre>
+</code></pre><h2 id="compatibility-of-the-type">Compatibility of the 🚨 Type</h2>
+<p>🚨 types are intentionally not compatible to other types to enforce prompt error
+handling. 🚨 types are only compatible to other types with the exact same error
+enumeration and contained type.</p>
+
 
 	<div class="book-navigation-bottom">
 		<a href="types.html" class="left">
