@@ -7,7 +7,7 @@ This is the official documentation for [Emojicode](http://emojicode.org).
 The documentation is built from Markdown and JSON source files by a compiler
 written in JavaScript. A Node.js installation is required to run it.
 
-You can install its dependencies:
+You can install its dependencies with npm:
 
 ```
 cd src && npm install
@@ -20,7 +20,7 @@ node lib/index.js
 ```
 
 The compiler supports the `--watch` option to watch keep running and to
-automatically rebuild when it detects changes to the source files.,
+automatically rebuild when it detects changes to the source files.
 
 ## Source Structure
 
@@ -48,7 +48,7 @@ grammar.
 ### Callouts
 
 To create a *Hint* callout begin all lines with `>!H`. Likewise, *Caution*
-notices is indicated by `>!N`.
+notices are indicated by `>!N`.
 
 Example:
 
@@ -66,8 +66,8 @@ A grammar rule is define like this:
 $defined-rule$-> $rule$
 ```
 
-All rule names must always be enclosed in `$` signs while the rule being defined
-is closed with `$->` instead of just a `$`.
+All rule names must always be enclosed in `$` signs, while the rule being
+defined is closed with `$->` instead of just a `$`.
 
-The documentation compiler parses all rules and adds hyperlinks and warns of
-undefined oder unreachable rules.
+The documentation compiler parses all rules, adds hyperlinks and warns of
+undefined or unreachable rules.
