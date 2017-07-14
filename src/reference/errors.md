@@ -38,7 +38,7 @@ called 🎬 that in some cases might fail, in which an error is returned:
 ```
 🦃 ⛰ 🍇
   🔘🔋
-  🔘🔇
+  🔘🌊
 🍉
 
 🐇 🎤 🍇
@@ -51,6 +51,36 @@ called 🎬 that in some cases might fail, in which an error is returned:
       🚨🔷⛰🔋 👴 Too low battery, return an error
     🍉
     🍎 🔤Ladies and gentlemen...🔤 👴 Everything fine, we return a string
+  🍉
+🍉
+```
+
+## Error Initializer
+
+Since initializers can fail too, Emojicode also allows initializers to return
+errors. The error enumeration is declared after the 🐈 like this:
+
+```
+🐈 🚨⛰ 🦀 frequency 🚀 🍇
+```
+
+A contained value must not be provided, as the contained value is obviosuly
+the type instantiated.
+
+Here's an example of an initializer that returns an error:
+
+```
+🦃 ⛰ 🍇
+  🔘🔋
+  🔘🌊
+🍉
+
+🐇 🎤 🍇
+  🐈 🚨⛰ 🦀 frequency 🚀 🍇
+    🍊 ◀️ frequency 520 🍇
+      🚨🔷⛰🌊 👴 frequency must be greater than 520 MHz so return an error
+    🍉
+    👴 ...
   🍉
 🍉
 ```
