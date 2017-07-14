@@ -30,6 +30,14 @@
           {{/initializers}}
         </div>
       {{/initializers.length}}
+      {{#values.length}}
+        <h3>Enumeration Values</h3>
+        <div class="link-list">
+        {{#values}}
+          <a href="#ev{{value}}">{{value}}</a>
+        {{/values}}
+        </div>
+      {{/values.length}}
       {{#methods.length}}
         <h3>Methods</h3>
         <div class="link-list">
@@ -72,6 +80,20 @@
       {{/procedureVisible}}
     {{/initializers}}
   {{/initializers.length}}
+
+  {{#values.length}}
+    <h2>Enumeration Values</h2>
+
+    {{#values}}
+      <div class="method">
+        <div class="method-heading">
+          <h3 class="method-emoji" id="ev{{value}}">{{value}}</h3>
+        </div>
+
+        {{{mdDocumentation}}}
+      </div>
+    {{/values}}
+  {{/values.length}}
 
   {{#methods.length}}
     <h2>Methods</h2>

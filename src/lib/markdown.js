@@ -13,7 +13,7 @@ class RulesParser {
     const rule = this.rules[ruleName];
     if (rule === undefined) {
       console.log(chalk.yellow.bold(`Rule ${ruleName} is not defined but used in ${fileName}.`));
-      return "";
+      return '';
     }
     rule.used = true;
     return rule.fileName;

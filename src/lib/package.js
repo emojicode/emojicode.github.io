@@ -30,6 +30,7 @@ class Package {
       typeMethods: type.typeMethods,
       superclass: type.superclass,
       typeType,
+      values: type.values,
       genericArguments: type.genericArguments,
       typeLink() {
         return TypeUtils.link(this.type);
@@ -48,20 +49,6 @@ class Package {
       },
       procedureVisible() {
         return this.access !== '🔒';
-      },
-    });
-  }
-
-  templateEnum(type, packageMeta) {
-    const ascii = TypeUtils.asciiName(type.name);
-    this.compiler.template('enum', this.outPath(`${ascii}.html`), 'packages', {
-      typeName: type.name,
-      documentation: type.documentation,
-      package: packageMeta.name,
-      genericArguments: type.genericArguments,
-      values: type.values,
-      mdDocumentation() {
-        return this.documentation && Markdown.toHtml(this.documentation);
       },
     });
   }
@@ -101,7 +88,7 @@ class Package {
     });
     const enums = types.enums.filter(eenum => {
       if (eenum.documentation) {
-        this.templateEnum(eenum, packageMeta);
+        this.templateType(eenum, 'Enumeration', packageMeta);
         return true;
       }
       return false;
@@ -123,7 +110,7 @@ class Package {
       packageDocumentation: types.documentation && Markdown.toHtml(types.documentation),
       title: packageMeta.name,
       firstSentence() {
-        return this.documentation && `${this.documentation.split('.', 2)[0]}.`;
+        return this.documentation && `${this.documentation.split('.', 2)[0].trim()}`;
       },
       asciiName() {
         return TypeUtils.asciiName(this.name);
