@@ -10,10 +10,10 @@ written in JavaScript. A Node.js installation is required to run it.
 You can install its dependencies with npm:
 
 ```
-cd src && npm install
+npm install
 ```
 
-It can then be executed inside the `src` directory:
+It can then be executed:
 
 ```
 node lib/index.js
@@ -39,6 +39,10 @@ The important source files that live in the `src` directory are:
 
   All packages that shall be included in the documentation are listed in
   `packages/packages.json`.
+
+All files and directories execept `lib`, `src`, `CNAME`, `package.json`,
+`package-lock.json`, `README.md` and those beginning with a full stop are not to
+be edited as they are output from the compiler.
 
 ## Emojicode Documentation Syntax
 

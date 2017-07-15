@@ -78,7 +78,7 @@ Don’t worry, ⏲ takes the number of microseconds to wait. And 10,000,000
 microseconds are only 10 seconds. Save the file, compile it and run it. You
 should see something similar to this:
 
-<img src="/docs/static/img/cookiemonster1.png" width="300">
+<img src="/static/img/cookiemonster1.png" width="300">
 
 Not very impressive, is it? Let’s do something more interesting and draw some
 cookies onto the screen. [Download](https://github.com/emojicode/cookie-monster
@@ -158,7 +158,7 @@ and an additional cookie:
 
 Running this should result in something similar to this:
 
-<img src="/docs/static/img/cookiemonster2.png" width="300">
+<img src="/static/img/cookiemonster2.png" width="300">
 
 ## Power to the classes
 
@@ -251,7 +251,7 @@ it to get integers between 50 and 900, which are then converted into 🚀s with 
 
 If you run the program you’ll see something similar to this:
 
-<img src="/docs/static/img/cookiemonster3.png" width="300">
+<img src="/static/img/cookiemonster3.png" width="300">
 
 ## Check out that event
 
@@ -509,7 +509,7 @@ Obviously, this code should be placed after the 🔂 loop for `cookies` and befo
 querying for new events. Once all cookies have been collected, you’ll see the
 following screen:
 
-<img src="/docs/static/img/cookiemonster4.png" width="300">
+<img src="/static/img/cookiemonster4.png" width="300">
 
 ## The acoustic experience
 

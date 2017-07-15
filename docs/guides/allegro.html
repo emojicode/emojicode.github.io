@@ -5,18 +5,18 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link href="&#x2F;docs&#x2F;static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/docs.css" rel="stylesheet" />
 		<title>Emojicode Documentation</title>
 	</head>
 	<body>
-    <nav class="menu" role="navigation">
-      <a class="menu-logo" href="/">Emojicode</a>
+<nav class="menu" role="navigation">
+  <a class="menu-logo" href="/">Emojicode</a>
 
-      <div class="menu-right">
-        <a href="/docs/" class="active">Documentation</a>
-        <a href="https://github.com/emojicode">GitHub</a>
-      </div>
-    </nav>
+  <div class="menu-right">
+    <a href="&#x2F;docs&#x2F;" class="active">Documentation</a>
+    <a href="https://github.com/emojicode">GitHub</a>
+  </div>
+</nav>
 		<header class="docs-header">
 			<a href="&#x2F;docs&#x2F;" class="docs-header-title">
         Emojicode Documentation <span class="docs-header-version">0.5</span>
@@ -132,7 +132,7 @@ wait for a few seconds after the display was created:</p>
 </code></pre><p>Don’t worry, ⏲ takes the number of microseconds to wait. And 10,000,000
 microseconds are only 10 seconds. Save the file, compile it and run it. You
 should see something similar to this:</p>
-<p><img src="/docs/static/img/cookiemonster1.png" width="300"></p>
+<p><img src="/static/img/cookiemonster1.png" width="300"></p>
 <p>Not very impressive, is it? Let’s do something more interesting and draw some
 cookies onto the screen. <a href="https://github.com/emojicode/cookie-monster
 -game/raw/master/cookie.png">Download</a> a cookie image from here, copy it into the
@@ -190,7 +190,7 @@ and an additional cookie:</p>
   🍉
 🍉
 </code></pre><p>Running this should result in something similar to this:</p>
-<p><img src="/docs/static/img/cookiemonster2.png" width="300"></p>
+<p><img src="/static/img/cookiemonster2.png" width="300"></p>
 <h2 id="power-to-the-classes">Power to the classes</h2>
 <p>Everything works, but frankly, it’s not really future-proof code. Emojicode
 is an object-oriented language, so everything would be much better with classes.</p>
@@ -264,7 +264,7 @@ pseudo-random number generator, an object we can ask for random numbers. We use
 it to get integers between 50 and 900, which are then converted into 🚀s with 🚂’s
 🚀 method. Later on this 🍨 is iterated and 🖌 is called on each cookie.</p>
 <p>If you run the program you’ll see something similar to this:</p>
-<p><img src="/docs/static/img/cookiemonster3.png" width="300"></p>
+<p><img src="/static/img/cookiemonster3.png" width="300"></p>
 <h2 id="check-out-that-event">Check out that event</h2>
 <p>Everything is working fine so far but it’s not a game yet. We need to grant the
 user a bit of control over the game. In order to achieve this we need to
@@ -460,7 +460,7 @@ cookies are left.</p>
 </code></pre><p>Obviously, this code should be placed after the 🔂 loop for <code>cookies</code> and before
 querying for new events. Once all cookies have been collected, you’ll see the
 following screen:</p>
-<p><img src="/docs/static/img/cookiemonster4.png" width="300"></p>
+<p><img src="/static/img/cookiemonster4.png" width="300"></p>
 <h2 id="the-acoustic-experience">The acoustic experience</h2>
 <p>Our game is missing something really essential: Sound. So go, and grab <a href="https://github.com/emojicode/cookie-
 monster-game/raw/master/sound.wav">this
@@ -643,7 +643,7 @@ we’ll add the following code:</p>
 </div>
 
 
-    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script src="/static/js/gumshoe.min.js"></script>
     <script>
       gumshoe.init({ activeClass: 'current', offset: 80 });
     </script>

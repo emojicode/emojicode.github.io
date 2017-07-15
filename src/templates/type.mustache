@@ -75,7 +75,7 @@
 
           <pre class="declaration">{{access}} 🐈 {{name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}</pre>
 
-          {{>argdoc}}
+          {{{mdDocumentation}}}
         </div>
       {{/procedureVisible}}
     {{/initializers}}
@@ -108,7 +108,7 @@
 
           <pre class="declaration">{{access}} 🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
-          {{>argdoc}}
+          {{{mdDocumentation}}}
         </div>
       {{/procedureVisible}}
     {{/methods}}
@@ -123,11 +123,11 @@
           <div class="method-heading">
             <h3 class="method-emoji" id="cm{{name}}">{{name}}</h3>
             {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
-        </div>
+          </div>
 
-        <pre class="declaration">{{access}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+          <pre class="declaration">{{access}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
 
-        {{>argdoc}}
+          {{{mdDocumentation}}}
         </div>
       {{/procedureVisible}}
     {{/typeMethods}}

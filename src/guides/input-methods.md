@@ -10,7 +10,7 @@ Entering Emoji on macOS should be as easy as falling off a log. Just press
 ^⌘Space and an emoji picker will show up. If you start dragging it, it will be
 become a window and stay open so you can easily enter code.
 
-<img src="/docs/static/img/macosemoji.png" width="200">
+<img src="/static/img/macosemoji.png" width="200">
 
 ## Editor Syntaxes
 

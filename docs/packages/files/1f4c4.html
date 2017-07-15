@@ -5,18 +5,18 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link href="&#x2F;docs&#x2F;static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/docs.css" rel="stylesheet" />
 		<title>Emojicode Documentation</title>
 	</head>
 	<body>
-    <nav class="menu" role="navigation">
-      <a class="menu-logo" href="/">Emojicode</a>
+<nav class="menu" role="navigation">
+  <a class="menu-logo" href="/">Emojicode</a>
 
-      <div class="menu-right">
-        <a href="/docs/" class="active">Documentation</a>
-        <a href="https://github.com/emojicode">GitHub</a>
-      </div>
-    </nav>
+  <div class="menu-right">
+    <a href="&#x2F;docs&#x2F;" class="active">Documentation</a>
+    <a href="https://github.com/emojicode">GitHub</a>
+  </div>
+</nav>
 		<header class="docs-header">
 			<a href="&#x2F;docs&#x2F;" class="docs-header-title">
         Emojicode Documentation <span class="docs-header-version">0.5</span>
@@ -71,7 +71,7 @@ are no longer needed.</p>
 
           <pre class="declaration">🔓 🐈 📝 🚨<a href="../files/1f327.html">🌧</a> message <a href="../s/1f521.html">🔡</a> </pre>
 
-<p>Opens the file at the given path for writing. The file pointer is set to the
+          <p>Opens the file at the given path for writing. The file pointer is set to the
 beginning of the file and the file is truncated to zero length or created.</p>
 <p>This initializer returns nothingness if the file can not be opened for some
 reason. In many cases this occurs when you don’t have the permission to
@@ -87,7 +87,7 @@ create or open the file.</p>
 
           <pre class="declaration">🔓 🐈 📜 🚨<a href="../files/1f327.html">🌧</a> message <a href="../s/1f521.html">🔡</a> </pre>
 
-<p>Opens the file at the given path for reading. The file pointer is set to the
+          <p>Opens the file at the given path for reading. The file pointer is set to the
 beginning of the file.</p>
 <p>This initializer returns nothingness if the file can not be opened for some
 reason. In many cases this occurs when you don’t have the permission to open
@@ -107,7 +107,7 @@ the file or when it does not exist.</p>
 
           <pre class="declaration">🔓 🐖 ✏ data <a href="../s/1f4c7.html">📇</a> ➡️ <a href="../files/1f327.html">🍬🌧</a></pre>
 
-<p>Write the data at the current file pointer position. </p>
+          <p>Write the data at the current file pointer position. </p>
 
         </div>
         <div class="method">
@@ -118,7 +118,7 @@ the file or when it does not exist.</p>
 
           <pre class="declaration">🔓 🐖 📓 bytesToRead <a href="../s/1f682.html">🚂</a> ➡️ 🚨🌧📇</pre>
 
-<p>Reads as many bytes as specified from the file pointer position.</p>
+          <p>Reads as many bytes as specified from the file pointer position.</p>
 <p>Keep in mind that a byte is not equal to one character!</p>
 
         </div>
@@ -130,7 +130,7 @@ the file or when it does not exist.</p>
 
           <pre class="declaration">🔓 🐖 🔚 ➡️ ✨</pre>
 
-<p>Seeks the file pointer to the end of the file. </p>
+          <p>Seeks the file pointer to the end of the file. </p>
 
         </div>
         <div class="method">
@@ -141,7 +141,7 @@ the file or when it does not exist.</p>
 
           <pre class="declaration">🔓 🐖 🔛 position <a href="../s/1f682.html">🚂</a> ➡️ ✨</pre>
 
-<p>Seeks the file pointer to the given position. </p>
+          <p>Seeks the file pointer to the given position. </p>
 
         </div>
         <div class="method">
@@ -152,7 +152,7 @@ the file or when it does not exist.</p>
 
           <pre class="declaration">🔓 🐖 💧 ➡️ ✨</pre>
 
-<p>Causes any buffered unwritten data to be written to the file. </p>
+          <p>Causes any buffered unwritten data to be written to the file. </p>
 
         </div>
         <div class="method">
@@ -163,7 +163,7 @@ the file or when it does not exist.</p>
 
           <pre class="declaration">🔓 🐖 🙅 ➡️ ✨</pre>
 
-<p>Closes the file. Reading or writing thereafter is undefined behavior. </p>
+          <p>Closes the file. Reading or writing thereafter is undefined behavior. </p>
 
         </div>
 
@@ -173,11 +173,11 @@ the file or when it does not exist.</p>
           <div class="method-heading">
             <h3 class="method-emoji" id="cm📻">📻</h3>
             
-        </div>
+          </div>
 
-        <pre class="declaration">🔓 🐇🐖 📻 path <a href="../s/1f521.html">🔡</a> data <a href="../s/1f4c7.html">📇</a> ➡️ <a href="../files/1f327.html">🍬🌧</a></pre>
+          <pre class="declaration">🔓 🐇🐖 📻 path <a href="../s/1f521.html">🔡</a> data <a href="../s/1f4c7.html">📇</a> ➡️ <a href="../files/1f327.html">🍬🌧</a></pre>
 
-<p>This class method tries to write the given 📇 to the given path. If the file
+          <p>This class method tries to write the given 📇 to the given path. If the file
 already exists, it will be overwritten.</p>
 
         </div>
@@ -185,11 +185,11 @@ already exists, it will be overwritten.</p>
           <div class="method-heading">
             <h3 class="method-emoji" id="cm📇">📇</h3>
             
-        </div>
+          </div>
 
-        <pre class="declaration">🔓 🐇🐖 📇 path <a href="../s/1f521.html">🔡</a> ➡️ 🚨🌧📇</pre>
+          <pre class="declaration">🔓 🐇🐖 📇 path <a href="../s/1f521.html">🔡</a> ➡️ 🚨🌧📇</pre>
 
-<p>This class method tries to read the file at given path <code>path</code> and returns
+          <p>This class method tries to read the file at given path <code>path</code> and returns
 a 📇 object representing its content on success. On failure Nothingness
 is returned.</p>
 
@@ -198,39 +198,39 @@ is returned.</p>
           <div class="method-heading">
             <h3 class="method-emoji" id="cm📤">📤</h3>
             
-        </div>
+          </div>
 
-        <pre class="declaration">🔓 🐇🐖 📤 ➡️ <a href="../files/1f4c4.html">📄</a></pre>
+          <pre class="declaration">🔓 🐇🐖 📤 ➡️ <a href="../files/1f4c4.html">📄</a></pre>
 
-<p>Returns a 📄 object representing the <strong>standard output</strong>. </p>
+          <p>Returns a 📄 object representing the <strong>standard output</strong>. </p>
 
         </div>
         <div class="method">
           <div class="method-heading">
             <h3 class="method-emoji" id="cm📥">📥</h3>
             
-        </div>
+          </div>
 
-        <pre class="declaration">🔓 🐇🐖 📥 ➡️ <a href="../files/1f4c4.html">📄</a></pre>
+          <pre class="declaration">🔓 🐇🐖 📥 ➡️ <a href="../files/1f4c4.html">📄</a></pre>
 
-<p>Returns a 📄 object representing the <strong>standard input</strong>. </p>
+          <p>Returns a 📄 object representing the <strong>standard input</strong>. </p>
 
         </div>
         <div class="method">
           <div class="method-heading">
             <h3 class="method-emoji" id="cm📯">📯</h3>
             
-        </div>
+          </div>
 
-        <pre class="declaration">🔓 🐇🐖 📯 ➡️ <a href="../files/1f4c4.html">📄</a></pre>
+          <pre class="declaration">🔓 🐇🐖 📯 ➡️ <a href="../files/1f4c4.html">📄</a></pre>
 
-<p>Returns a 📄 object representing the <strong>standard error</strong>. </p>
+          <p>Returns a 📄 object representing the <strong>standard error</strong>. </p>
 
         </div>
 </div>
 
 
-    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script src="/static/js/gumshoe.min.js"></script>
     <script>
       gumshoe.init({ activeClass: 'current', offset: 80 });
     </script>

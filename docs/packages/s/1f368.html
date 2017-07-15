@@ -5,18 +5,18 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link href="&#x2F;docs&#x2F;static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/docs.css" rel="stylesheet" />
 		<title>Emojicode Documentation</title>
 	</head>
 	<body>
-    <nav class="menu" role="navigation">
-      <a class="menu-logo" href="/">Emojicode</a>
+<nav class="menu" role="navigation">
+  <a class="menu-logo" href="/">Emojicode</a>
 
-      <div class="menu-right">
-        <a href="/docs/" class="active">Documentation</a>
-        <a href="https://github.com/emojicode">GitHub</a>
-      </div>
-    </nav>
+  <div class="menu-right">
+    <a href="&#x2F;docs&#x2F;" class="active">Documentation</a>
+    <a href="https://github.com/emojicode">GitHub</a>
+  </div>
+</nav>
 		<header class="docs-header">
 			<a href="&#x2F;docs&#x2F;" class="docs-header-title">
         Emojicode Documentation <span class="docs-header-version">0.5</span>
@@ -82,7 +82,7 @@ language reference.</a></p>
 
           <pre class="declaration">🔓 🐈 🐸 </pre>
 
-<p>Creates an empty list. </p>
+          <p>Creates an empty list. </p>
 
         </div>
         <div class="method">
@@ -93,7 +93,7 @@ language reference.</a></p>
 
           <pre class="declaration">🔓 🐈 🐧 capacity <a href="../s/1f682.html">🚂</a> </pre>
 
-<p>Creates an empty list with the given initial capacity. </p>
+          <p>Creates an empty list with the given initial capacity. </p>
 
         </div>
 
@@ -108,7 +108,7 @@ language reference.</a></p>
 
           <pre class="declaration">🔓 🐖 🐮 ➡️ <a href="../s/1f368.html">🍨🐚Element</a></pre>
 
-<p>Returns a shallow copy of this list. </p>
+          <p>Returns a shallow copy of this list. </p>
 
         </div>
         <div class="method">
@@ -119,7 +119,7 @@ language reference.</a></p>
 
           <pre class="declaration">🔓 🐖 🐻 item Element ➡️ ✨</pre>
 
-<p>Appends <code>item</code> to the end of the list in <code>O(1)</code>. </p>
+          <p>Appends <code>item</code> to the end of the list in <code>O(1)</code>. </p>
 
         </div>
         <div class="method">
@@ -130,7 +130,7 @@ language reference.</a></p>
 
           <pre class="declaration">🔓 🐖 🐽 index <a href="../s/1f682.html">🚂</a> ➡️ 🍬Element</pre>
 
-<p>Gets the item at <code>index</code> in <code>O(1)</code>. If the index is invalid Nothingness is
+          <p>Gets the item at <code>index</code> in <code>O(1)</code>. If the index is invalid Nothingness is
 returned.</p>
 
         </div>
@@ -142,7 +142,7 @@ returned.</p>
 
           <pre class="declaration">🔓 🐖 🐷 index <a href="../s/1f682.html">🚂</a> value Element ➡️ ✨</pre>
 
-<p>Sets <code>value</code> at <code>index</code>. If <code>index</code> is bigger than the capacity of the list,
+          <p>Sets <code>value</code> at <code>index</code>. If <code>index</code> is bigger than the capacity of the list,
 the list is resized to a capacity of <code>index + 1</code>. Complexity: <code>O(1)</code>.</p>
 
         </div>
@@ -154,7 +154,7 @@ the list is resized to a capacity of <code>index + 1</code>. Complexity: <code>O
 
           <pre class="declaration">🔓 🐖 🐨 index <a href="../s/1f682.html">🚂</a> ➡️ <a href="../s/1f44c.html">👌</a></pre>
 
-<p>Removes the item at <code>index</code> and shifts all following items to the left in
+          <p>Removes the item at <code>index</code> and shifts all following items to the left in
 <code>O(count - index)</code>.</p>
 <p>Returns 👍 unless the index is out of range.</p>
 
@@ -167,7 +167,7 @@ the list is resized to a capacity of <code>index + 1</code>. Complexity: <code>O
 
           <pre class="declaration">🔓 🐖 🐵 index <a href="../s/1f682.html">🚂</a> item Element ➡️ ✨</pre>
 
-<p>Inserts the given values before the element with the given index.</p>
+          <p>Inserts the given values before the element with the given index.</p>
 <p>All items beginning from <code>index</code> are shifted to the right and <code>item</code> is
 then inserted at <code>index</code>. Complexity: <code>O(count - index)</code>.</p>
 
@@ -180,7 +180,7 @@ then inserted at <code>index</code>. Complexity: <code>O(count - index)</code>.<
 
           <pre class="declaration">🔓 🐖 🐔 ➡️ <a href="../s/1f682.html">🚂</a></pre>
 
-<p>Returns the number of items in the list. </p>
+          <p>Returns the number of items in the list. </p>
 
         </div>
         <div class="method">
@@ -191,7 +191,7 @@ then inserted at <code>index</code>. Complexity: <code>O(count - index)</code>.<
 
           <pre class="declaration">🔓 🐖 🐼 ➡️ 🍬Element</pre>
 
-<p>Removes the last item from the list and returns it in <code>O(1)</code>.
+          <p>Removes the last item from the list and returns it in <code>O(1)</code>.
 If the list is empty ✨ is returned.</p>
 
         </div>
@@ -203,7 +203,7 @@ If the list is empty ✨ is returned.</p>
 
           <pre class="declaration">🔓 🐖 🐗 ➡️ ✨</pre>
 
-<p>Removes all elements from the list but keeps the list’s capacity.</p>
+          <p>Removes all elements from the list but keeps the list’s capacity.</p>
 <p>This can be much more efficient than using a new list. Complexity:
 <code>O(count)</code>.</p>
 
@@ -216,7 +216,7 @@ If the list is empty ✨ is returned.</p>
 
           <pre class="declaration">🔓 🐖 🐴 capacity <a href="../s/1f682.html">🚂</a> ➡️ ✨</pre>
 
-<p>Ensures that the list is large enoguh to store at least <code>capacity</code> elements.</p>
+          <p>Ensures that the list is large enoguh to store at least <code>capacity</code> elements.</p>
 <p>You should use this method if you plan to heavily use 🐷 with large indices
 in order to avoid automatic, useless allocations.</p>
 <p>Complexity: <code>O(1)</code>.</p>
@@ -230,7 +230,7 @@ in order to avoid automatic, useless allocations.</p>
 
           <pre class="declaration">🔓 🐖 🦁 comparator 🍇ElementElement➡️🚂🍉 ➡️ ✨</pre>
 
-<p>Sorts this array in place using the quick sort algorithm.</p>
+          <p>Sorts this array in place using the quick sort algorithm.</p>
 <p><code>comparator</code> must return an integer less than, equal to, or greater than 0,
 if the first argument is considered respectively less than, equal to, or
 greater than the second.</p>
@@ -244,7 +244,7 @@ greater than the second.</p>
 
           <pre class="declaration">🔓 🐖 🐹 ➡️ ✨</pre>
 
-<p>Shuffles the list in place.</p>
+          <p>Shuffles the list in place.</p>
 
         </div>
         <div class="method">
@@ -255,7 +255,7 @@ greater than the second.</p>
 
           <pre class="declaration">🔓 🐖 🐰 🐚A⚪️ callback 🍇Element➡️A🍉 ➡️ <a href="../s/1f368.html">🍨🐚A</a></pre>
 
-<p>Calls callback with each element in the list and appends the returned
+          <p>Calls callback with each element in the list and appends the returned
 value to the end of a new list.</p>
 
         </div>
@@ -267,7 +267,7 @@ value to the end of a new list.</p>
 
           <pre class="declaration">🔓 🐖 🐭 callback 🍇Element➡️👌🍉 ➡️ <a href="../s/1f368.html">🍨🐚Element</a></pre>
 
-<p>Returns a new array with all elements that pass the test implemented by
+          <p>Returns a new array with all elements that pass the test implemented by
 <code>callback</code>.</p>
 
         </div>
@@ -279,7 +279,7 @@ value to the end of a new list.</p>
 
           <pre class="declaration">🔓 🐖 🐯 callback 🍇Element➡️👌🍉 ➡️ <a href="../s/1f44c.html">👌</a></pre>
 
-<p>Tests whether all elements in the array pass the test implemented by
+          <p>Tests whether all elements in the array pass the test implemented by
 <code>callback</code>.</p>
 <p>The method immdiately returns 👎 if <code>callback</code> returned 👎 for one element.</p>
 
@@ -292,7 +292,7 @@ value to the end of a new list.</p>
 
           <pre class="declaration">🔓 🐖 😛 🐚A<a href="../s/1f61b.html">😛🐚Element</a> other <a href="../s/1f368.html">🍨🐚A</a> ➡️ <a href="../s/1f44c.html">👌</a></pre>
 
-<p>Tests whether this array and <code>other</code> are equal. </p>
+          <p>Tests whether this array and <code>other</code> are equal. </p>
 
         </div>
         <div class="method">
@@ -303,14 +303,14 @@ value to the end of a new list.</p>
 
           <pre class="declaration">🔓 🐖 🍡 ➡️ <a href="../s/1f333.html">🌳🐚Element</a></pre>
 
-<p>Returns an iterator to iterate over the elements of this list. </p>
+          <p>Returns an iterator to iterate over the elements of this list. </p>
 
         </div>
 
 </div>
 
 
-    <script src="&#x2F;docs&#x2F;static/js/gumshoe.min.js"></script>
+    <script src="/static/js/gumshoe.min.js"></script>
     <script>
       gumshoe.init({ activeClass: 'current', offset: 80 });
     </script>

@@ -5,32 +5,25 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<link href="{{rootpath}}static/css/style.css" rel="stylesheet" />
+		<link href="/static/css/docs.css" rel="stylesheet" />
 		<title>Emojicode Documentation{{#title}} &middot; {{title}}{{/title}}</title>
 	</head>
 	<body>
-    <nav class="menu" role="navigation">
-      <a class="menu-logo" href="/">Emojicode</a>
-
-      <div class="menu-right">
-        <a href="/docs/" class="active">Documentation</a>
-        <a href="https://github.com/emojicode">GitHub</a>
-      </div>
-    </nav>
+    {{>menu}}
 		<header class="docs-header">
-			<a href="{{rootpath}}" class="docs-header-title">
+			<a href="{{docsRoot}}" class="docs-header-title">
         Emojicode Documentation <span class="docs-header-version">0.5</span>
       </a>
       <div class="docs-header-right">
-	      <a href="{{rootpath}}guides" {{#activeClass}}guides{{/activeClass}}>Guides</a>
-				<a href="{{rootpath}}reference" {{#activeClass}}reference{{/activeClass}}>Language Reference</a>
-				<a href="{{rootpath}}packages" {{#activeClass}}packages{{/activeClass}}>Package Index</a>
+	      <a href="{{docsRoot}}guides" {{#activeClass}}guides{{/activeClass}}>Guides</a>
+				<a href="{{docsRoot}}reference" {{#activeClass}}reference{{/activeClass}}>Language Reference</a>
+				<a href="{{docsRoot}}packages" {{#activeClass}}packages{{/activeClass}}>Package Index</a>
 			</div>
 		</header>
 
 		{{{content}}}
 
-    <script src="{{rootpath}}static/js/gumshoe.min.js"></script>
+    <script src="/static/js/gumshoe.min.js"></script>
     <script>
       gumshoe.init({ activeClass: 'current', offset: 80 });
     </script>
