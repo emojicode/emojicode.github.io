@@ -13,32 +13,33 @@ First of all we need to important the allegro package:
 📦 allegro 🔴
 ```
 
-This makes all types from the *allegro* package available in the namespace 🔴
-(of our package, which by definition is *_*), i.e. we can access all classes
+This makes all types from the `allegro` package available in the namespace 🔴
+(of our package, which by definition is `_`), i.e. we can access all classes
 provided by the allegro package from our application.
 
 Next we need to startup the application, so we’ll create the 🏁 function:
 
 ```
 🏁 🍇
-  🍩🙋🏔 🍇
+  🍩🙋🏔 🍇 app 🏔
 
   🍉
 🍉
 ```
 
-As you’ve seen, there’s already some code in the 🏁 function. `🍩🙋🏔` is a
-type method call. This means we call a method (🙋) directly on a type (🏔).
-There’s one more thing to notice: the following code block. This code block
-creates a closure. Closures are kind of functions that capture the context in
-which they were created. Closures are a special kind of callables. *Callables*
-is what the type of values that can be executed are called in Emojicode.
+As you’ve seen, there’s already some code in the 🏁 function. `🍩🙋🏔` is a type
+method call. This means we call a method (🙋) directly on a type (🏔). There’s one
+more thing to notice: the following code block. This code block creates a
+closure that takes an argument `app` of type `🏔`. Closures are a kind of
+function that capture the context in which they were created, i.e. the variables
+and the object on which a method was called.
 
 So what is this good for? The 🙋 type method of the 🏔 class, which is provided
 by the allegro package, is really important as it initiates the application in
 such a way that it can display windows, receive events and play sounds. This
 method normally doesn’t return but instead calls the given callable in an
-appropriate way.
+appropriate way and passes it an instance of 🏔 that represents the created
+application. We’ll use it to draw in a moment.
 
 To recap: Call this class method, provide it with a callable and setup the
 application from there.
@@ -50,19 +51,13 @@ systems a 📺 will be represented by a window.
 📺 provides a single initializer:
 
 <pre class="declaration">
-🍬 🐈 🆕 width <a href="../s/t5535756962.html">🚂</a> height <a href="../s/t5535756962.html">🚂</a>
-</pre>
+🔓 🐈 🆕 width <a href="../packages/s/1f682.html">🚂</a> height <a href="../packages/s/1f682.html">🚂</a> </pre>
 
-You may have noticed the 🍬 in front of the 🐈. 🍬 indicates that this
-initializer may return Nothingness. Our code to get a display is therefore:
+Our code to get a display is therefore:
 
 ```
-🍦 display 🍺🔷📺🆕 1000 1000
+🍦 display 🔷📺🆕 1000 1000
 ```
-
-Please note that we skipped error checking for the moment and just unwrapped
-the optional with 🍺 here. That’s not a really good idea but we’ll leave it
-like that because it keeps the sample code shorter (and it’s long enough).
 
 Now that we’ve a 📺 instance we can configure it. We’ll set its title:
 
@@ -70,53 +65,62 @@ Now that we’ve a 📺 instance we can configure it. We’ll set its title:
 🏷 display 🔤Cookie Monster Game🔤
 ```
 
-That’s good moment to test if things are working so far. If we however compiled
-and ran this program know we wouldn’t see much due to the fact that program
-would create a display and immediately terminate. So we’ll tell it to wait
-for a few seconds after the display was created:
+That’s good moment to test if things are working so far. If we, however,
+compiled and ran this program know we wouldn’t see much due to the fact that
+program would create a display and immediately terminate. So we’ll tell it to
+wait for a few seconds after the display was created:
 
 ```
-🍩⏳💈 10
+🍩⏲💈 10_000_000
 ```
 
-Save the file, compile it and run it. You should see something similar to this:
+Don’t worry, ⏲ takes the number of microseconds to wait. And 10,000,000
+microseconds are only 10 seconds. Save the file, compile it and run it. You
+should see something similar to this:
 
 <img src="/docs/static/img/cookiemonster1.png" width="300">
 
 Not very impressive, is it? Let’s do something more interesting and draw some
 cookies onto the screen. [Download](https://github.com/emojicode/cookie-monster
 -game/raw/master/cookie.png) a cookie image from here, copy it into the
-same directory as the program.
+directory in which your program is stored.
 
 In order to display the image on the screen, it must be loaded as a bitmap
 first. Fortunately there’s a 🖼 - that’s the bitmap class – initializer that
-can exactly do that. It’s called 📄 takes a path to the image and is also marked
-with 🍬 – it will return Nothingness if the path is invalid or the given file
-is not an image. Still believing we live in a fail-safe, we skip error checking
-once again:
+can exactly do that. It’s called 📄 takes a path to the image and is declared
+like this:
+
+
+You certainly noted the `🚨🌩`, which indicates that the initializer might
+return an error instead of a bitmap object. We must deal with this possibly
+arising error and do so by simply assuming that there will never be an error:
 
 ```
-🍦 cookieBmp 🍺🔷🖼📄 🔤cookie.png🔤
+🍦 cookieBmp 🚇🔷🖼📄 🔤cookie.png🔤
 ```
+
+The `🚇` tells the compiler that we are sure there will never be an error. (If
+in reality there is an error the program will simply crash. Not very elegant.)
+For brevity, let's leave it at that. But make sure that you properly handle
+errors in a real application.
 
 Now that we’ve the bitmap, we’ll draw it onto the screen:
 
 ```
-🍩🚿🏔 🔷🎨🆕 255 255 255 255
-🍩📼🏔 cookieBmp 500 500
-🍩🎦🏔️
+🚿 app 🔷🎨🆕 255 255 255 255
+📼 app cookieBmp 500 500
+🎦 app
 ```
 
-Make sure you place this code *before* `🍩⏳💈 10` or you won’t see everything.
-If everything goes well, you should see a tasty cookie in the center of the
-display in front of a white background.
+Make sure you place this code *before* `🍩⏲💈 10_000_000` or you won’t see
+anything. If everything goes well, you should see a tasty cookie in front of a
+white background, neatly centered in the display.
 
-Wondering what’s going on ’cause that’s a bunch of strange type method calls?
-Well, these are a strange bunch of type method calls but these are all very
-important drawing functions. And they all have one thing in common: They are
-type methods and draw to the current drawing target. By creating a display
-we’ve created a drawing target which was then also set as the current drawing
-target.
+Wondering what’s going on ’cause that’s a bunch of method calls? Well, these are
+all important drawing functions. And they all have one thing in common: They are
+methods called on our `app` and draw to the current drawing target. By creating
+a display we’ve created a drawing target which was then also set as the current
+drawing target.
 
 The 🚿 type method fills the entire drawing target with the given color which
 was here created by providing RGBA values. The 📼 method then draws a bitmap
@@ -127,27 +131,27 @@ once you call the 🎦 method.
 Let’s extend our code to also show the cookie monster ([download](
 https://github.com/emojicode/cookie-monster-game/raw/master/cookie_monster.png)
  here)
-and a additional cookie:
+and an additional cookie:
 
 ```
 📦 allegro 🔴
 
 🏁 🍇
-  🍩🙋🏔 🍇
-    🍦 display 🍺🔷📺🆕 1000 1000
+  🍩🙋🏔 🍇 app 🏔
+    🍦 display 🔷📺🆕 1000 1000
     🏷 display 🔤Cookie Monster Game🔤
 
-    🍦 cookieBmp 🍺🔷🖼📄 🔤cookie.png🔤
-    🍩🚿🏔 🔷🎨🆕 255 255 255 255
-    🍩📼🏔 cookieBmp 500 500
-    🍩📼🏔 cookieBmp 200 400 👴 The Cookie Monster can never get enough cookies
+    🍦 cookieBmp 🚇🔷🖼📄 🔤cookie.png🔤
+    🚿 app 🔷🎨🆕 255 255 255 255
+    📼 app cookieBmp 500 500
+    📼 app cookieBmp 400 400 👴 The Cookie Monster can never get enough cookies
 
-    🍦 monster 🍺🔷🖼📄 🔤cookie_monster.png🔤
-    🍩📼🏔 monster 200 200
+    🍦 monster 🚇🔷🖼📄 🔤cookie_monster.png🔤
+    📼 app monster 200 200
 
-    🍩🎦🏔️
+    🎦 app
 
-    🍩⏳💈 10
+    🍩⏲💈 10_000_000
   🍉
 🍉
 ```
@@ -172,11 +176,11 @@ First of all, let us create a 🦁 class that represents the Cookie Monster:
   🐈 🆕 🍇
     🍮 x 500
     🍮 y 500
-    🍮 monster 🍺🔷🖼📄 🔤cookie_monster.png🔤
+    🍮 monster 🚇🔷🖼📄 🔤cookie_monster.png🔤
   🍉
 
-  🐖 🖌 🍇
-    🍩📼🏔 monster x y
+  🐖 🖌 app 🏔 🍇
+    📼 app monster x y
   🍉
 🍉
 ```
@@ -194,14 +198,10 @@ Next, here’s a class for cookies:
   🍰 x 🚀
   🍰 y 🚀
 
-  🐈 🆕 _x 🚀 _y 🚀 _cookie 🖼  🍇
-    🍮 x _x
-    🍮 y _y
-    🍮 cookie _cookie
-  🍉
+  🐈 🆕 🍼 x 🚀 🍼 y 🚀 🍼 cookie 🖼  🍇🍉
 
-  🐖 🖌 🍇
-    🍩📼🏔 cookie x y
+  🐖 🖌 app 🏔 🍇
+    📼 app cookie x y
   🍉
 🍉
 ```
@@ -216,37 +216,38 @@ So let’s update the 🏁 function to use the new classes:
 
 ```
 🏁 🍇
-  🍩🙋🏔 🍇
-    🍦 display 🍺🔷📺🆕 1000 1000
+  🍩🙋🏔 🍇 app 🏔
+    🍦 display 🔷📺🆕 1000 1000
     🏷 display 🔤Cookie Monster Game🔤
 
-    🍦 cookieBmp 🍺🔷🖼📄 🔤cookie.png🔤 👴 Load the cookie bitmap
+    🍦 cookieBmp 🚇🔷🖼📄 🔤cookie.png🔤  👴 Load the cookie bitmap
 
     🍦 cookies 🔷🍨🐚🍪🐸
-    🔂 i ⏩ 0 10 🍇 👴 Create 10 randomly placed cookies
-      🐻 cookies 🔷🍪🆕 🚀🔷🚂🎰 50 900 🚀🔷🚂🎰 50 900 cookieBmp
+    🍦 prng 🔷🎰🆕
+    🔂 i ⏩ 0 10 🍇  👴 Create 10 randomly placed cookies
+      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
     🍉
 
     🍦 monster 🔷🦁🆕 👴 Instantiate a monster
 
-    🍩🚿🏔 🔷🎨🆕 255 255 255 255
-    🖌 monster 👴 Draw the monster
+    🚿 app 🔷🎨🆕 255 255 255 255
+    🖌 monster app 👴 Draw the monster
     🔂 cookie cookies 🍇 👴 Draw all cookies
-      🖌 cookie
+      🖌 cookie app
     🍉
 
-    🍩🎦🏔️
+    🎦 app
 
-    🍩⏳💈 10
+    🍩⏲💈 10_000_000
   🍉
 🍉
 ```
 
-As you can see we didn’t just replace the drawing calls but also introduced
-a 🍨 `cookies` which stores ten randomly placed cookie objects.
-`🔷🚂🎰 50 900` generates a random integer between 50 and 900 which is then
-converted into a 🚀 with 🚂’s 🚀 method. Later on this 🍨 is iterated and
-the 🖌 is called on each cookie.
+As you can see we didn’t just replace the drawing calls but also introduced a 🍨
+`cookies` which stores ten randomly placed cookie objects. `🔷🎰🆕` creates a
+pseudo-random number generator, an object we can ask for random numbers. We use
+it to get integers between 50 and 900, which are then converted into 🚀s with 🚂’s
+🚀 method. Later on this 🍨 is iterated and 🖌 is called on each cookie.
 
 If you run the program you’ll see something similar to this:
 
@@ -330,15 +331,16 @@ Monster visible:
 
 ```
 🏁 🍇
-  🍩🙋🏔 🍇
-    🍦 display 🍺🔷📺🆕 1000 1000
+  🍩🙋🏔 🍇 app 🏔
+    🍦 display 🔷📺🆕 1000 1000
     🏷 display 🔤Cookie Monster Game🔤
 
-    🍦 cookieBmp 🍺🔷🖼📄 🔤cookie.png🔤
+    🍦 cookieBmp 🚇🔷🖼📄 🔤cookie.png🔤
 
     🍦 cookies 🔷🍨🐚🍪🐸
+    🍦 prng 🔷🎰 🆕
     🔂 i ⏩ 0 10 🍇
-      🐻 cookies 🔷🍪🆕 🚀🔷🚂🎰 50 900 🚀🔷🚂🎰 50 900 cookieBmp
+      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
     🍉
 
     🍦 monster 🔷🦁🆕
@@ -346,12 +348,13 @@ Monster visible:
     🍦 queue 🔷🗃🆕
     ⌨️ queue
     🔁 👍 🍇
-      🍩🚿🏔 🔷🎨🆕 255 255 255 255
-      🖌 monster
+      🚿 app 🔷🎨🆕 255 255 255 255
+      🖌 monster app
+
       🔂 cookie cookies 🍇
-        🖌 cookie
+        🖌 cookie app
       🍉
-      🍩🎦🏔️
+      🎦 app
 
       🍦 event ⏳ queue
 
@@ -403,11 +406,11 @@ that the returned coordinates point to the center of the mouth.
 We’ll now replace 🍪’s 🖌 method by a much more advanced method:
 
 ```
-🐖 🖊 monsterX 🚀 monsterY 🚀 ➡️ 👌 🍇
+🐖 🖊 app 🏔 monsterX 🚀 monsterY 🚀 ➡️ 👌 🍇
   🍊 🎊🎊➡️ monsterX x ⬅️ monsterX ➕ x 50 🎊➡️ monsterY y ⬅️ monsterY ➕ y 50 🍇
     🍎 👍
   🍉
-  🍩📼🏔 cookie x y
+  📼 app cookie x y
   🍎 👎
 🍉
 ```
@@ -421,22 +424,21 @@ returns 👍, otherwise the cookie is drawn as usual and 👎 is returned.
 Clearly, we now also need to update our loop to draw cookies:
 
 ```
-🍦 iterator 🍡 cookies
+🍦 iterator 🔷🌱🐚🍪🆕 cookies
 🔂 cookie iterator 🍇
-  🍊 🖊 cookie 👉️ monster 👇 monster 🍇
-    🚯 iterator
-  🍉
+🍊 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
+  🚯 iterator
 🍉
 ```
 
-The code above is really straightforward. `cookies` is asked for an 🍡 (iterator)
-to which a reference is then stored in `iterator`. Then this iterator is used
-with the 🔂 loop to get each cookie. 🖊 is called on each cookie and the
+The code above is really straightforward. We create an 🌱 iterator instance for
+`cookies`, to which a reference is then stored in `iterator`. Then this iterator
+is used with the 🔂 loop to get each cookie. 🖊 is called on each cookie and the
 coordinates of the monster, which we can get from the new 👉️👇 methods, are
 passed. If the 🖊 method returns true, this means the Cookie Monsters mouth
 touched the cookie, the 🚯 method is called on the iterator, which removes the
-current element from the array. (That’s the reason why we explicitly asked for
-an 🍡.)
+current element from the array. (That’s a special capability of 🌱 and the
+reason why we created it explicitly.)
 
 Try running the game now! The Cookie Monster will be happy to eat the cookies.
 
@@ -454,7 +456,7 @@ it into the same directory as `cookie.emojic`.
 Now we can load that font (and you should do this before the run loop):
 
 ```
-🍦 font 🍺🔷🕉📄 🔤Monoton-Regular.ttf🔤 63
+🍦 font 🚇🔷🕉📄 🔤Monoton-Regular.ttf🔤 63
 ```
 
 The same disclaimer applies again: Don’t skip error checking although we do it
@@ -465,13 +467,13 @@ of the font.
 In the run loop we’ll draw the number of cookies left:
 
 ```
-🍩🔡🏔 font 🔷🎨🆕 0 0 0 255 990 10 🔡 🐔 cookies 10 🔷⚖➡️
+🔡 app font 🔡 🐔 cookies 10 990 10 🔷⚖➡️ 🔷🎨🆕 0 0 0 255
 ```
 
-Place this code before `🍩🎦🏔️`. `🍩🔡🏔` draws a text using the given font.
-The signature of this method is:
+Place this code before `🎦 app`. `🔡` draws a text using the given font.
+It is define like this:
 
-<pre class="declaration">🐇🐖 🔡 font <a href="../allegro/t5535756649.html">🕉</a> color <a href="../allegro/t5535657256.html">🎨</a> x <a href="../s/t5535756960.html">🚀</a> y <a href="../s/t5535756960.html">🚀</a> text <a href="../s/t5535756609.html">🔡</a> align <a href="../allegro/t9878NaN.html">⚖</a> ➡️ ✨</pre>
+<pre class="declaration">🔓 🐖 🔡 font <a href="../packages/allegro/1f549.html">🕉</a> text <a href="../packages/s/1f521.html">🔡</a> x <a href="../packages/s/1f680.html">🚀</a> y <a href="../packages/s/1f680.html">🚀</a> align <a href="../packages/allegro/2696.html">⚖</a> color <a href="../packages/allegro/1f3a8.html">🎨</a> ➡️ ✨</pre>
 
 Quite a lot of arguments. Most things should be pretty clear. `align` is a ⚖,
 an enum, which specifies how the text should be aligned. In our example we used
@@ -484,12 +486,12 @@ cookies are left.
 As mentioned before, a screen at the end of the game would be nice:
 
 ```
-🍊 😛 🐔 cookies 0 🍇 👴 No cookies left!
-  🍩🚿🏔 🔷🎨🆕 4 115 187 255
-  🍩🔡🏔 font 🔷🎨🆕 255 255 255 255 500 500 🔤Well done!🔤 🔷⚖↔
-  🍩🎦🏔️
+🍊 😛 🐔 cookies 0 🍇
+  🚿 app 🔷🎨🆕 4 115 187 255
+  🔡 app font 🔤Well done!🔤 500 500 🔷⚖↔ 🔷🎨🆕 255 255 255 255
+  🎦 app
 
-  🔁 👍 🍇 👴 Custom run loop to wait for the exit command "q"
+  🔁 👍 🍇
     🍦 event ⏳ queue
     🍊🍦 keyboardEvent 🔲 event 📩 🍇
       🍊 🍦 key 🔣 keyboardEvent 🍇
@@ -499,7 +501,7 @@ As mentioned before, a screen at the end of the game would be nice:
       🍉
     🍉
   🍉
-  🍎 ⚡️ 👴 Same here
+  🍎 ⚡️
 🍉
 ```
 
@@ -521,16 +523,18 @@ The `sound.wav` should be played whenever the Cookie Monster is eating a cookie.
 We’ll of course load the file only once and that of course before the run loop.
 
 ```
-🍦 sample 🍺🔷🎶📄 🔤sound.wav🔤
+🍦 sample 🚇🔷🎶📄 🔤sound.wav🔤
 ```
 
 Then let’s add some code to play the sound after a cookie was eaten:
 
 ```
-🍊 🖊 cookie 👉️ monster 👇 monster 🍇
-  🚯 iterator
-  🍊 ▶️ 🐔 cookies 0 🍇 👴 This is new!
-    🏁 sample 1 0 1
+🔂 cookie iterator 🍇
+  🍊 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
+    🚯 iterator
+    🍊 ▶️ 🐔 cookies 0 🍇
+      🏁 sample 1 0 1
+    🍉
   🍉
 🍉
 ```
@@ -543,7 +547,7 @@ When presenting the “Well done!” screen `sound_end.wav` should be played so
 we’ll add the following code:
 
 ```
-🍦 endSample 🍺🔷🎶📄 🔤sound_end.wav🔤
+🍦 endSample 🚇🔷🎶📄 🔤sound_end.wav🔤
 🏁 endSample 1 0 1
 ```
 
@@ -560,11 +564,11 @@ The whole program should now look like this:
   🐈 🆕 🍇
     🍮 x 500
     🍮 y 500
-    🍮 monster 🍺🔷🖼📄 🔤cookie_monster.png🔤
+    🍮 monster 🚇🔷🖼📄 🔤cookie_monster.png🔤
   🍉
 
-  🐖 🖌 🍇
-    🍩📼🏔 monster x y
+  🐖 🖌 app 🏔 🍇
+    📼 app monster x y
   🍉
 
   🐖 ⬇️ 🍇
@@ -598,62 +602,59 @@ The whole program should now look like this:
   🍰 x 🚀
   🍰 y 🚀
 
-  🐈 🆕 _x 🚀 _y 🚀 _cookie 🖼  🍇
-    🍮 x _x
-    🍮 y _y
-    🍮 cookie _cookie
-  🍉
+  🐈 🆕 🍼 x 🚀 🍼 y 🚀 🍼 cookie 🖼  🍇🍉
 
-  🐖 🖊 monsterX 🚀 monsterY 🚀 ➡️ 👌 🍇
+  🐖 🖊 app 🏔 monsterX 🚀 monsterY 🚀 ➡️ 👌 🍇
     🍊 🎊🎊➡️ monsterX x ⬅️ monsterX ➕ x 50 🎊➡️ monsterY y ⬅️ monsterY ➕ y 50 🍇
       🍎 👍
     🍉
-    🍩📼🏔 cookie x y
+    📼 app cookie x y
     🍎 👎
   🍉
 🍉
 
 🏁 🍇
-  🍩🙋🏔 🍇
-    🍦 display 🍺🔷📺🆕 1000 1000
+  🍩🙋🏔 🍇 app 🏔
+    🍦 display 🔷📺🆕 1000 1000
     🏷 display 🔤Cookie Monster Game🔤
 
-    🍦 cookieBmp 🍺🔷🖼📄 🔤cookie.png🔤
+    🍦 cookieBmp 🚇🔷🖼📄 🔤cookie.png🔤
 
     🍦 cookies 🔷🍨🐚🍪🐸
+    🍦 prng 🔷🎰 🆕
     🔂 i ⏩ 0 10 🍇
-      🐻 cookies 🔷🍪🆕 🚀🔷🚂🎰 50 900 🚀🔷🚂🎰 50 900 cookieBmp
+      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
     🍉
 
-    🍦 sample 🍺🔷🎶📄 🔤sound.wav🔤
+    🍦 sample 🚇🔷🎶📄 🔤sound.wav🔤
 
-    🍦 font 🍺🔷🕉📄 🔤Monoton-Regular.ttf🔤 63
+    🍦 font 🚇🔷🕉📄 🔤Monoton-Regular.ttf🔤 63
     🍦 monster 🔷🦁🆕
 
     🍦 queue 🔷🗃🆕
     ⌨️ queue
     🔁 👍 🍇
-      🍩🚿🏔 🔷🎨🆕 255 255 255 255
-      🖌 monster
+      🚿 app 🔷🎨🆕 255 255 255 255
+      🖌 monster app
 
-      🍦 iterator 🍡 cookies
+      🍦 iterator 🔷🌱🐚🍪🆕 cookies
       🔂 cookie iterator 🍇
-        🍊 🖊 cookie 👉️ monster 👇 monster 🍇
+        🍊 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
           🚯 iterator
           🍊 ▶️ 🐔 cookies 0 🍇
             🏁 sample 1 0 1
           🍉
         🍉
       🍉
-      🍩🔡🏔 font 🔷🎨🆕 0 0 0 255 990 10 🔡 🐔 cookies 10 🔷⚖➡️
-      🍩🎦🏔
+      🔡 app font 🔡 🐔 cookies 10 990 10 🔷⚖➡️ 🔷🎨🆕 0 0 0 255
+      🎦 app
 
       🍊 😛 🐔 cookies 0 🍇
-        🍩🚿🏔 🔷🎨🆕 4 115 187 255
-        🍩🔡🏔 font 🔷🎨🆕 255 255 255 255 500 500 🔤Well done!🔤 🔷⚖↔
-        🍩🎦🏔️
+        🚿 app 🔷🎨🆕 4 115 187 255
+        🔡 app font 🔤Well done!🔤 500 500 🔷⚖↔ 🔷🎨🆕 255 255 255 255
+        🎦 app
 
-        🍦 endSample 🍺🔷🎶📄 🔤sound_end.wav🔤
+        🍦 endSample 🚇🔷🎶📄 🔤sound_end.wav🔤
         🏁 endSample 1 0 1
 
         🔁 👍 🍇
