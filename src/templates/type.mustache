@@ -73,7 +73,7 @@
             {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
           </div>
 
-          <pre class="declaration">{{access}} {{#canReturnNothingness}}🍬 {{/canReturnNothingness}}🐈 {{name}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}</pre>
+          <pre class="declaration">{{access}} 🐈 {{name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}</pre>
 
           {{>argdoc}}
         </div>

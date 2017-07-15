@@ -132,10 +132,10 @@ class Compiler {
   createPackages() {
     fs.ensureDirSync(this.outPath('packages'));
 
-    const packages = require(this.srcPath('packages', 'packages.json'));
-    for (const packageName of packages) {
-      new Package(this, packageName).build();
-    }
+    const packages = require(this.srcPath('packages', 'packages.json')).map((name) => {
+      const sentence = new Package(this, name).build();
+      return { name, sentence };
+    });
 
     this.template('packages', this.outPath('packages', 'index.html'), 'packages', {
       packages,

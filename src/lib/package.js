@@ -116,6 +116,8 @@ class Package {
         return TypeUtils.asciiName(this.name);
       },
     });
+
+    return types.documentation && `${types.documentation.split('.', 2)[0].trim()}`;
   }
 }
 

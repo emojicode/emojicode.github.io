@@ -119,22 +119,25 @@ section,
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 13px;
+    padding: 0.2em;
     margin: 0;
-    background-color: $p-gray;
+    border: 2px solid $p-gray;
     text-decoration: none;
+    margin-top: -2px;
 
     &:hover {
-      background: linear-gradient(to top, darken($p-bright, 3%), $p-bright);
+      background: linear-gradient(to top, darken($p-gray, 0.6%), $p-gray);
       text-decoration: none;
     }
 
     .name {
       font-size: 1.8em;
-      margin-right: 0.5em;
+      margin: 0.15em 0.25em;
+      margin-right: 0.4em;
     }
 
     &:first-child {
+      margin-top: 0;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
     }
