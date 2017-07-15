@@ -33,7 +33,7 @@
     <div class="toc">
       <h3>Package</h3>
       <div class="link-list">
-        <a href="../sockets">sockets</a>
+        <a href="../s">s</a>
       </div>
 
         <h3>Initializers</h3>
@@ -42,12 +42,14 @@
         </div>
         <h3>Methods</h3>
         <div class="link-list">
-              <a href="#m🙋">🙋</a>
+              <a href="#m🚂">🚂</a>
+              <a href="#m🚀">🚀</a>
         </div>
     </div>
   </div>
-  <h1>Class 🏄</h1>
-  <p><p>🏄 represents a socket that listens for clients on a given port.</p>
+  <h1>Class 🎰</h1>
+  <p><p>🎰 is a pseudo-random number generator. The default implementation relies on
+the Mersenne Twister algorithm.</p>
 </p>
 
     <h2>Initializers</h2>
@@ -57,11 +59,10 @@
             
           </div>
 
-          <pre class="declaration">🔓 🐈 🆕 port <a href="../s/1f682.html">🚂</a> </pre>
+          <pre class="declaration">🔓 🐈 🆕 </pre>
 
-<p>Creates a 🏄 instance that immediately starts listening on the given port.
-This initializer returns Nothingness if the socket can’t be bound to the
-given port.</p>
+<p>Creates a new generator and seeds it with a random value, if possible using
+hardware entropy.</p>
 
         </div>
 
@@ -70,14 +71,26 @@ given port.</p>
 
         <div class="method">
           <div class="method-heading">
-            <h3 class="method-emoji" id="m🙋">🙋</h3>
+            <h3 class="method-emoji" id="m🚂">🚂</h3>
             
           </div>
 
-          <pre class="declaration">🔓 🐖 🙋 ➡️ <a href="../sockets/1f4de.html">🍬📞</a></pre>
+          <pre class="declaration">🔓 🐖 🚂 a <a href="../s/1f682.html">🚂</a> b <a href="../s/1f682.html">🚂</a> ➡️ <a href="../s/1f682.html">🚂</a></pre>
 
-<p>Waits until a client wants to connect to this socket and returns a socket
-to communicate with it.</p>
+<p>Generates an integer. Integers are uniformly distributed on the
+closed interval <code>[a, b]</code>.</p>
+
+        </div>
+        <div class="method">
+          <div class="method-heading">
+            <h3 class="method-emoji" id="m🚀">🚀</h3>
+            
+          </div>
+
+          <pre class="declaration">🔓 🐖 🚀 ➡️ <a href="../s/1f680.html">🚀</a></pre>
+
+<p>Generates a double, where doubles are uniformly distributed on the interval
+<code>[0, 1)</code>.</p>
 
         </div>
 
