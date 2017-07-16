@@ -3,8 +3,9 @@
   <head>
     <title>Emojicode</title>
     <meta charset="utf8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.1/vue.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="Emojicode is a full-blown programming language consisting of emojis.">
   </head>
   <body>
@@ -29,173 +30,31 @@
         consisting of emojis.
       </h2>
 
-      <a class="l-button" href="/docs/guides/install.html">Install Emojicode 0.5 beta</a>
+      <a class="l-button" href="/docs/guides/install.html">Install Emojicode 0.5</a>
       <a class="l-button" href="/docs/guides/compile-and-run.html">Taste Emojicode</a>
     </div>
 
-    <div class="grid">
-      <div class="feature">
-        <pre class="example-code">🐇 🏛 🍇
-  🐈 🆕 port 🚂 🍇
-    🍦 server 🍺 🔷🏄🆕port
-    🔁 👍 🍇
-    🍉
-  🍉
-
-  🐖 📩 socket 📞 🍇
-    🔷💈🆕 🍇
-      🍦 request 😊 🐕 requestData
-    🍉
-  🍉
-🍉</pre>
-        <h3>Object-Orientation</h3>
-        <p>
-          Emojicode features powerful object-orientation including inheritance,
-          overriding, final methods and classes.
-          <a href="#" class="dont-see-emojis">Don’t see Emojis properly?</a>
-        </p>
-      </div>
-      <div class="feature">
-        <pre class="example-code">
-🏁 🍇
-  👴 Let’s print the first 15 fibonaccis.
-
-  🍮 a 0
-  🍮 b 1
-
-  🔂 i ⏩ 0 15 🍇
-    🍦 r ➕ a b
-    🍮 a b
-    🍮 b r
-    😀 🔡 r 10
-  🍉
-🍉</pre>
-        <h3>Value Types</h3>
-        <p>
-          Emojicode also has value types that are passed by copying. Value
-          types, of course, feature methods too.
-        </p>
-      </div>
-      <div class="feature">
-        <pre class="example-code">
-🏁 🍇
-  👴 Let’s print the first 15 fibonaccis.
-
-  🍮 a 0
-  🍮 b 1
-
-  🔂 i ⏩ 0 15 🍇
-    🍦 r ➕ a b
-    🍮 a b
-    🍮 b r
-    😀 🔡 r 10
-  🍉
-🍉</pre>
-        <h3>Optionals</h3>
-        <p>
-          Emojicode also has value types that are passed by copying. Value
-          types, of course, feature methods too.
-        </p>
-      </div>
-
-      <div class="feature">
-        <pre class="example-code">
-🏁 🍇
-  👴 Let’s print the first 15 fibonaccis.
-
-  🍮 a 0
-  🍮 b 1
-
-  🔂 i ⏩ 0 15 🍇
-    🍦 r ➕ a b
-    🍮 a b
-    🍮 b r
-    😀 🔡 r 10
-  🍉
-🍉</pre>
-        <h3>Generics</h3>
-        <p>
-          Emojicode also has value types that are passed by copying. Value
-          types, of course, feature methods too.
-        </p>
-      </div>
-      <div class="feature">
-        <pre class="example-code">
-🏁 🍇
-  🍦 power 🐈🔡😯 🔤Enter a power of your choice: 🔤
-
-  🍦 starships 🍨🔤Enterprise🔤 🔤Excelsior🔤 🔤Relativity🔤🍆
-
-  🍦 sortedStarships 🐰 sortedStarships 🍇 starship 🔡 ➡️ 🔡
-    🍎 🍪 power starship 🍪
-  🍉
-
-  🍦 starshipsWithPower 🐰 sortedStarships 🍇 starship 🔡 ➡️ 🔡
-    🍎 🍪 power starship 🍪
-  🍉
-🍉</pre>
-        <h3>Closures</h3>
-        <p>
-          Closures are a quick way to define functions within functions that
-          can capture variables and can be passed around like any object.
-        </p>
-      </div>
-      <div class="feature">
-        <pre class="example-code">
-🌮
-  A collection whose elements can be accessed by 🐽. The number of elements must
-  be finite and returned by 🐔.
-🌮
-🌍 🐊 🐽️🐚Element⚪️ 🍇
-  🌮
-    Gets the item at `index`. If the index is invalid Nothingness is returned.
-  🌮
-
-  🐖 🐽 index 🚂 ➡️ 🍬Element
-  🌮 Returns the number of items in the list. 🌮
-  🐖 🐔 ➡️ 🚂
-🍉
-</pre>
-        <h3>Protocols</h3>
-        <p>
-          Protocols define how to implement specific functionality so that
-          the type offering it can be used with other existing types.
-        </p>
-      </div>
-
-      <div class="feature">
-        <h3>Unbelievably Fast</h3>
-        <p>
-          Emojicode has incredible performance! Benchmarks¹ show that Emojicode
-          can execute certain programs nearly 2x as fast as Java and about 10x
-          faster than Ruby.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Low Overhead</h3>
-        <p>
-          Above that, Emojicode is tiny. The prebuilt binaries are just about
-          500KB. Emojicode can be built in a few minutes without any
-          dependencies and is installed within seconds, literally.
-        </p>
-      </div>
-      <div class="feature">
-        <h3>Portable</h3>
-        <p>
-          Not to forget, Emojicode binaries are system independent and work
-          everywhere the Real-Time Engine work – macOS, Linux, and, yes,
-          even Windows.
-        </p>
-      </div>
-    </div>
-
-    <p>
+    <section class="socialize">
       <iframe src="https://ghbtns.com/github-btn.html?user=emojicode&repo=emojicode&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
 
       <a class="twitter-follow-button" href="https://twitter.com/Real_Emojicode" data-size="large" data-show-count="false">
         Follow @Real_Emojicode
       </a>
-    </p>
+    </section>
+
+    {{=<% %>=}}
+
+    <section id="features" class="features">
+      <ol class="features-list">
+        <li class="feature" v-for="feature in features" :class="{ active: feature === activeFeature }" @click="activeFeature = feature">
+          <h3>{{ feature.title }}</h3>
+          <div class="text">{{ feature.text }}</div>
+        </li>
+      </ol>
+      <div class="feature-example">
+        <pre class="feature-pre">{{ activeFeature.example }}</pre>
+      </div>
+    </section>
 
     <div class="action">
       <div class="action-inner">
@@ -208,7 +67,7 @@
         </p>
 
         <div>
-          <a class="l-button" href="/docs/guides/install.html">Install Emojicode 0.5 beta</a>
+          <a class="l-button" href="/docs/guides/install.html">Install Emojicode 0.5</a>
           <a class="l-button" href="/docs/">Emojicode Documentation</a>
         </div>
 
@@ -229,12 +88,7 @@
         Emojis by Twitter &middot; Built and maintained by Theo Weidmann
       </div>
     </div>
-    <script src="//twemoji.maxcdn.com/2/twemoji.min.js" async="true"></script>
+    <script src="/static/js/front.js"></script>
     <script src="https://platform.twitter.com/widgets.js" async="true"></script>
-    <script>
-    document.querySelector(".dont-see-emojis").addEventListener("click", function() {
-      twemoji.parse(document.body);
-    });
-    </script>
   </body>
 </html>

@@ -217,18 +217,6 @@ code {
   }
 }
 
-.example-code {
-  background-color: lighten($menu-color, 58%);
-  border-radius: 0;
-  color: $black;
-  margin: 0;
-  overflow-x: auto;
-}
-
-.example-code-col {
-  padding: 20px;
-}
-
 .dont-see-emojis {
   font-size: 12px;
 }
@@ -261,27 +249,6 @@ code {
   }
 }
 
-.grid {
-  max-width: 960px;
-  margin: 0 auto;
-  margin-top: 1em;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.feature {
-  padding: 0.2em;
-  width: 33.33%;
-
-  h3 {
-    margin-top: 0.6em;
-  }
-
-  pre {
-    font-size: 12px;
-  }
-}
-
 .action {
   background-color: $menu-color;
   color: $white;
@@ -304,10 +271,76 @@ code {
   }
 }
 
+.socialize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 0;
+}
+
 .footer {
   padding: 18px;
   color: $footer-color;
   background-color: $menu-color;
   text-align: center;
   font-size: 14px;
+}
+
+.features {
+  width: 100%;
+  display: flex;
+  padding: 0.8em;
+  align-items: stretch;
+}
+
+.features-list {
+  width: 50%;
+  list-style: none;
+  margin: 0;
+  margin-right: 1em;
+  padding: 0;
+}
+
+.feature {
+  display: block;
+  padding: 0.8888em;
+  cursor: pointer;
+
+  h3 {
+    font-size: 1em;
+    margin-bottom: 1em;
+    margin: 0;
+  }
+
+  .text {
+    display: none;
+  }
+
+  &:hover {
+    background-color: $p-gray;
+  }
+
+  &.active {
+    background-color: $p-gray;
+
+    h3 {
+      color: $p-soft;
+    }
+
+    .text {
+      display: block;
+    }
+  }
+}
+
+.feature-pre {
+  flex: 1;
+  background-color: $p-gray;
+  font-size: 14px;
+  margin: 0;
+}
+
+.feature-example {
+  display: flex;
+  width: 50%;
 }

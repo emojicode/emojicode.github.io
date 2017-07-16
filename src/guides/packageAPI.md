@@ -1,17 +1,11 @@
 # The Package API
 
->!N The Package API is subject to constant change and will drastically change
->!N in Emojicode 0.5.
-
 The package API allows to write a package whose logic can be implemented (partly
-if needed) in C. This allows you to expand Emojicode’s capabilities, like
+if needed) in C++. This allows you to expand Emojicode’s capabilities, like
 accessing special system APIs.
 
 >!H Make sure that you have read [Packages](../reference/packages.html) and
 >!H understand how packages work.
-
-The C API is specific to the Real-Time Engine. APIs of other Emojicode Engines
-may be different.
 
 ## Native Binaries
 
@@ -32,12 +26,13 @@ would look something like:
 
 When starting up and loading a program, the Real-Time Engine dynamically loads
 the static library and basically links all native methods of your package with
-the corresponding native methods, class methods and initializers. The Real-Time
-Engine does this by asking you to provide a C function pointer for each
-procedure which you declared with 📻. It’s noteworthy, however,
-that optimizations might cause that not all methods are compiled into the final
-program and therefore not all native methods your package provides will ever be
-requested.
+the corresponding native methods, class methods and initializers.
+
+Your package must provide a so-called linking table. The linking table is simply
+a long list of functions. The Real-Time Engine then links these functions by
+looking up an index provided with 📻 at a method declaration. You'll learn more
+about this in a minute. Note, however, that not all methods might be linked at
+all due to optimiziations.
 
 We call this procedure *Run-Time Native Linking*.
 
@@ -48,76 +43,44 @@ your package will ever break. Major versions can exist alongside.
 
 ## Minimal Setup
 
-You’ll want to your package binary of by creating a single source file. The name
-doesn’t really matter, but it has become a habit to name it after you package.
-The file in this example will be named `crypto.c` as the package is named
-`crypto` as well.
+To get started import the API header of the latest Emojicode version:
 
-To get started the API header of the latest Emojicode version is required.
+	#include "EmojicodeReal-TimeEngine/EmojicodeAPI.hpp"
 
-	#include "EmojicodeAPI.h"
+This header defines some of the interfaces you will use. For specific tasks,
+however, you’ll have to include additional headers.
 
-This header defines Emojicode’s public interfaces you will use. It also
-includes relevant C standard libraries like `stdlib.h`, `stdio.h`, `stdbool.h`,
-`stdint.h` and `stddef.h`.
+### Version, Linking Table, Class Preparation
 
-If you need to work with Strings and Lists you must also include
-`EmojicodeString.h` and `EmojicodeList.h` respectively. Working with data
-structures can prove to be difficult, though.
-
-### Implementing all provider functions
-
-There are a bunch of functions you must implement or the Real-Time Engine
-will ultimately crash when loading your package. These are the functions which
-are used to get the handles to the C implementations of the procedures declared
-as native, but also a few others.
+Your package must provide the following symbols:
 
 ```
-#include "EmojicodeAPI.h"
+Emojicode::PackageVersion version(0, 1);
 
-PackageVersion getVersion() {
-    // Return the version of the package
-    return (PackageVersion){0, 1};
-}
+LinkingTable {
 
-FunctionFunctionPointer handlerPointerForMethod(EmojicodeChar cl, EmojicodeChar symbol, MethodType t) {
-    // Return a function pointer to the corresponding method
-    return NULL;
-}
+};
 
-InitializerFunctionFunctionPointer handlerPointerForInitializer(EmojicodeChar cl, EmojicodeChar symbol) {
-    // Return a function pointer to the corresponding initializer
-    return NULL;
-}
+extern "C" void prepareClass(Emojicode::Class *klass, EmojicodeChar name) {
 
-// Discussed later on, but important
-
-Marker markerPointerForClass(EmojicodeChar class) {
-    return NULL;
-}
-
-uint_fast32_t sizeForClass(Class *class, EmojicodeChar name) {
-    return 0;
-}
-
-Deinitializer deinitializerPointerForClass(EmojicodeChar className) {
-    return NULL;
 }
 ```
 
-The purpose of `getVersion` should be pretty clear: Return the version of the
-package. The Real-Time Engine uses this to verify everything matches.
-`handlerPointerForMethod` and `handlerPointerForInitializer` are called to get
-function pointers as discussed earlier. Returning `NULL` should actually never
-happen, by the way. We’ll analyze how such a handler looks and what it does
-exactly in a moment. `markerPointerForClass`, `sizeForClass` and
-`deinitializerPointerForClass` are important too but we’ll discuss them a bit
-later.
+The purpose of `version` should be pretty obvious: It represents the version of
+the package. The Real-Time Engine uses this value for verification.
 
-These functions are called *provider functions*.
+`LinkingTable` is actually a macro that expands to an array definition. You’re
+going to list C++ functions that will be the function bodies of methods or
+initializers available from Emojicode in this array.
+
+`prepareClass` is a function that is called for every class defined in your
+package. This is the place where you have to setup the class and this is also
+your change to store the class pointer somewhere for later use (e.g. allocating
+an object of a class).
 
 ## Implementing a handler function
 
+<s>
 We want to implement a handler function for our `crypto` package whose header
 looks like this:
 
@@ -232,6 +195,8 @@ was no need to check whether that’s a type method. Otherwise we should have
 compared `t` against `INSTANCE_METHOD` and `TYPE_METHOD` and used `symbol`,
 which is the name of the method, to find the correct method.
 
+</s>
+
 ## Clashing with the Garbage Collector
 
 One thing that is really important when creating a package binary is to take
@@ -240,29 +205,21 @@ become your enemy when creating a package binary. Read on to learn why.
 
 ### Invocation and Functioning
 
-The Garbage Collector in Emojicode can be invoked when
-performing any of these actions, which we call *Garbage-Collector-invoking*:
+The Garbage Collector in Emojicode can be invoked when performing any of these
+actions, which we call *Garbage Collector Invoking Action*:
 
 - Allocating memory
 - Calling a callable or method
-- special functions perform some of the actions above; refer to the
+- any other function that performs any of the actions above; refer to the
   documentation in the header files
 
 The Garbage Collector will invalidate any object to which it cannot find a
-reference. It is only capable of searching the stack (where all Emojicode
-variables live). If you kept a reference to an object in a C variable, you could
-not be sure whether the reference is still valid after performing a
-Garbage-Collector-invoking operation which obviously could have triggered a
-Garbage Collection cycle. Using an invalid reference is evidently undefined
-behavior and must be avoided. Hence you should store all object references
-you need later on in the stack before performing any operation that could
-invoke the Garbage Collector. You then of course need to retrieve that object
-references from the stack after the operation is finished, as the reference
-could have been updated. To recap:
+reference. The Garbage Collector is, of course, not capable of detecting any
+reference to objects you held in C++ variables. Hence you must store all object
+references at a safe place before performing a GCIA.
 
-1. Store all object references of objects you want to keep in the stack.
-2. Perform the Garbage-Collector-invoking operation(s).
-3. Retrieve the probably new object references from the stack.
+### Retaining Objects
+
 
 >!H The Garbage Collector works in a special way: It copies all referenced,
 >!H still required objects into a new space in memory. The “original” objects
@@ -271,67 +228,16 @@ could have been updated. To recap:
 >!H the “original” but now invalidated object. Watch out for the Garbage
 >!H Collector!
 
-### The Stack
-
-In order to do this properly a deeper knowledge of the stack is absolutely
-required.
-
-The stack in Emojicode is a stack of *stack frames*. A stack frame has a field
-representing the context of a method or initializer and up to 256 *variable
-slots*.
-
-When a native procedure is called, a stack frame which has as many variable
-slots as arguments expected is reserved. The arguments are then placed in
-order of occurrence in the variable slots, starting at index 0.
-
-If you no longer need an argument, you can use its slot just as you like, for
-instance to store an object reference before performing a GC-invoking operation.
-(Like we did in the example above at 4.) Nonetheless, you’ll often need
-additional slots. In this case you can *push* a new stack frame:
-
-```
-void stackPush(Something thisContext, uint8_t variableCount, uint8_t argCount, Thread *thread);
-void stackPop(Thread *thread);
-```
-
-If you use `stackPush` you can also use the `this` to store a value. As the
-`this` field doesn’t count towards the variable count, a call to `stackPush`
-like this would be completely fine:
-
-```
-Object *bytesObject = newArray(length);  // To provide a bit of context
-stackPush(somethingObject(bytesObject), 0, 0, thread);
-```
-
-To get the `this` value you can use:
-
-```
-Something stackGetThisContext(Thread *);
-Object* stackGetThisObject(Thread *);
-```
-
-`stackGetThisObject` returns the `object` field of the this context and should
-therefore only be used if the context is an object context.
-
-If you for whatever reason don’t use the `this` field you should populate it
-with `NOTHINGNESS`. Make sure to provide 0 to `argCount` and an appropriate
-value to `variableCount`. You can then set and get the variables of the current
-stack frame with `stackGetVariable` and `stackSetVariable` as seen before.
-
-It goes without saying that the stack must be kept balanced, so before returning
-from a function handler make sure that you have popped all stack frames you
-previously have pushed.
-
 ### Garbage Collection and Threading
 
 Garbage Collection in an multi-threaded environment like Emojicode requires
 further care. The Garbage Collector can only run while all threads are paused
-(“stop the world”). While this will not affect you and your code usually,
-you should actually think about this when you implement time consuming
-activities. Unlike with Emojicode procedures, the Real-Time Engine has not much
-control about your code and so it’s your task to ensure that your procedures do
-not block Garbage Collector cycles. If your procedure takes exceptionally long,
-you should consider using:
+(“stop the world”). While this will not affect you and your code usually, you
+should actually think about this when you implement time consuming activities.
+Unlike pure Emojicode functions, the Real-Time Engine has no control about your
+code and so it’s your task to ensure that your procedures does not block Garbage
+Collector cycles. If your procedure takes exceptionally long, you should
+consider using:
 
 ```
 void allowGC();
@@ -342,62 +248,18 @@ By calling `allowGC` you allow the Garbage Collector to run at any time while
 you are doing work. After the handler is finished with its work, it’s absolutely
 necessary to call `disallowGCAndPauseIfNeeded`.
 
->!N Between a call to `allowGC` and `disallowGCAndPauseIfNeeded` you must
->!H not perform any allocations or other kind of GC-invoking operations and you
->!H or any called function may not call `allowGC` again. Additionally, the
->!H Garbage Collector might move any objects. Make sure you don’t rely on any
->!H objects between these two function calls.
+>!N Between a call to `allowGC` and `disallowGCAndPauseIfNeeded` you **must
+>!H not perform any allocations or other kind of GCIA** and you
+>!H or any called function **must not call `allowGC`** again. Additionally, the
+>!H Garbage Collector might move any objects. Make sure you don’t rely
+>!H **on any** — not even those retained — objects between these two function
+>!H calls.
 
-If you now wonder what “exceptionally long” is, I must admit, that this is
-difficult to say. Anything above 100ms could be considered exceptionally long
-as it is already human noticeable. Of course one cannot say for sure, how fast
-a given piece of code will execute on another machine, but you get the point.
-
-For the sake of completeness, `void pauseForGC(pthread_mutex_t *mutex);` should
-be mentioned, which you should rather not use. It’s exactly the function that is
-called between execution of different Emojicode instructions to determine
-whether a Garbage Collector pause was requested. Please see the header files for
-further information.
-
-## Something
-
-As mentioned before, `Something` is either a the value of a value type or an
-object reference and keeps track of the type of its value.
-
-To wrap something into a `Something` you should rely on the appropriate macros:
-
-```
-somethingObject(o)
-somethingInteger(o)
-somethingSymbol(o)
-somethingBoolean(o)
-somethingDouble(o)
-EMOJICODE_TRUE
-EMOJICODE_FALSE
-NOTHINGNESS
-```
-
-You should unwrap `Something` with these macros:
-
-```
-unwrapInteger(o)
-unwrapBool(o)
-unwrapSymbol(o)
-unwrapDouble(o)
-```
-
->!H *Unwrapping* is simply retrieving the value from the `Something` wrapper.
->!H You must make sure that you only unwrap an integer if the `Something` wraps
->!H an integer and so on.
-
-To get the object reference from a `Something` access the `object` field
-directly.
-
-To determine whether a `Something` represents Nothingness use:
-
-```
-bool isNothingness(Something sth);
-```
+For the sake of completeness, `void pauseForGC();` should be mentioned, which we
+recommend you rather not use. It’s exactly the function that is called between
+execution of different Emojicode instructions to determine whether a Garbage
+Collector pause was requested. Please see the header files for further
+information.
 
 ## Backing a class
 
@@ -534,12 +396,23 @@ gcc -shared -fPIC -undefined dynamic_lookup crypto.o -o crypto.so
 
 ## Deinitialization
 
-There are two provider functions we haven’t yet discussed:
-`markerPointerForClass` and `deinitializerPointerForClass`.
+In some cases you'll work with resources that need to be freed after they are no
+longer used. Often you’ll then offer an API and let the user do the freeing
+himself. However, it’s can be desirable to free or ensure the resource was
+freed, when the Garbage Collector abandons an object.
 
-If you return a deinitializer handler from `deinitializerPointerForClass` for a
-class it will be called before an instance from the given class is abandoned and
-invalidated, thus no longer accessible.
+You can register an object for deinitalization with this function:
+
+```
+void registerForDeinitialization(Object *object);
+```
+
+You must have provided a deinitializer for the object’s class (set
+`klass->deinit` in `prepareClass`).
+
+Note that deinitalization should only be considered a fall back as there’s
+no guarantee the garbage collector will ever be triggered while the program
+is running.
 
 ## Marking
 
