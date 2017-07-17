@@ -34,31 +34,41 @@
 yourself.</p>
 <p>The following is a very basic example of opening a TCP socket to make an HTTP request and print
 the first 140 characters of the response.</p>
-<pre><code>🍦 socket 🍺 🔷📞🆕 🔤www.emojicode.org🔤 🔤80🔤
-💬 socket 📇 🔤GET / HTTP/1.1❌r❌nHost: www.emojicode.org❌r❌n❌r❌n🔤
+<pre><code>📦 sockets 🔴
 
-🍦 data 🍺 👂 socket 140
-😀 🍺 🔡 data
+🏁 🍇
+  🍦 socket 🚇 🔷📞🆕 🔤www.emojicode.org🔤 80
+  💬 socket 📇 🔤GET / HTTP/1.1❌r❌nHost: www.emojicode.org❌r❌n❌r❌n🔤
+
+  🍦 data 🍺 👂 socket 140
+  😀 🍺 🔡 data
+🍉
 </code></pre><p>At the time of writing this, the above code would return something similar to:</p>
 <pre><code>HTTP/1.1 200 OK
 Server: GitHub.com
 Content-Type: text/html; charset=utf-8
-Last-Modified: Sat, 29 Oct 2016 11:54:03 GMT
+Last-Modified: Thu, 13 Apr 2017 16:49:52 GMT
 Access-Control-Al
 </code></pre><p>Here we’ve an example of a minimal echo-server that listens on port 8728. The server simply sends
 back a copy of the data it received.</p>
-<pre><code>🍦 server 🍺 🔷🏄🆕 8728
+<pre><code>📦 sockets 🔴
 
-🔁 👍 🍇
-  🍦 clientSocket 🍺 🙋 server
+👴 Simple echo server listening on port 8728
+🏁 🍇
+  🍦 server 🚇 🔷🏄🆕 8728
+
   🔁 👍 🍇
-    🍦 readData 👂 clientSocket 50
-    🍊🍦 data readData 🍇
-      💬 clientSocket data
+    🍦 clientSocket 🍺 🙋 server
+    🔁 👍 🍇
+      🍦 readData 👂 clientSocket 50
+      🍊🍦 data readData 🍇
+        👴 We’ve read 50 bytes and send them back
+        💬 clientSocket data
+      🍉
     🍉
   🍉
 🍉
-</code></pre><p>Of course, the code above is very minimal and incomplete. For example, it can handle only one
+</code></pre><p>Of course, the code above is minimal and incomplete. For example, it can handle only one
 connection.</p>
 
 
@@ -81,6 +91,16 @@ connection.</p>
 	</div>
 
 
+  <h2>Enumerations</h2>
+
+  <div class="link-list">
+      <a href="26c8.html" class="link-box">
+        <div class="name">
+          ⛈
+        </div>
+        Errors
+      </a>
+  </div>
 </section>
 
 
