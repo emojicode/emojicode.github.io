@@ -5,6 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/xcode.min.css">
 		<link href="/static/css/docs.css" rel="stylesheet" />
 		<title>Emojicode Documentation</title>
 	</head>
@@ -103,13 +104,15 @@ See <a href="install.html">Installing Emojicode</a> if you haven’t already.</p
 
 <p>Open a command-line and navigate to the directory containing <code>greeter.emojic</code>.
 Then run this command.</p>
-<pre><code>emojicodec greeter.emojic
-</code></pre><p>This asks the compiler to compile <code>greeter.emojic</code>. If everything goes well it
+<pre><code class="lang-bash">emojicodec greeter.emojic
+</code></pre>
+<p>This asks the compiler to compile <code>greeter.emojic</code>. If everything goes well it
 should exit without a message and generate a file called <code>greeter.emojib</code>. This
 is an Emojicode Byte-Code File, which can be executed by the Emojicode Real-Time
 Engine. So let’s type:</p>
-<pre><code>emojicode greeter.emojib
-</code></pre><p>Congratulations! You’ve written your first program. But how does it actually
+<pre><code class="lang-bash">emojicode greeter.emojib
+</code></pre>
+<p>Congratulations! You’ve written your first program. But how does it actually
 work?</p>
 <p>It’s simple: <code>🔤Howdy, partner!🔤</code> is a string literal. Every character between
 two 🔤 is then part of the string.</p>
@@ -188,9 +191,10 @@ now look like this:</p>
   😀 🐷 🔤computer🔤
 🍉
 </code></pre><p>Compile and let’s see:</p>
-<pre><code>emojicodec greeter.emojic
+<pre><code class="lang-bash">emojicodec greeter.emojic
 emojicode greeter.emojib
-</code></pre><pre><code>atcay
+</code></pre>
+<pre><code>atcay
 evelopmentday
 omputercay
 </code></pre><p>Cool! We have successfully translated English words into Pig Latin.</p>

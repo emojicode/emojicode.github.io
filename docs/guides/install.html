@@ -5,6 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/xcode.min.css">
 		<link href="/static/css/docs.css" rel="stylesheet" />
 		<title>Emojicode Documentation</title>
 	</head>
@@ -120,17 +121,20 @@ proceed as specified above.</p>
 <ol>
 <li><p><a href="https://github.com/emojicode/emojicode/releases">Download the SDK</a> for your
 system and extract the tar file. For instance:</p>
-<pre><code>tar -xzf Emojicode-VERSION-YOUR-PLATFORM.tar.gz
-</code></pre></li>
+<pre><code class="lang-bash">tar -xzf Emojicode-VERSION-YOUR-PLATFORM.tar.gz
+</code></pre>
+</li>
 <li><p>Run the <code>install.sh</code> script in the extracted directory:</p>
-<pre><code>cd Emojicode-VERSION-YOUR-PLATFORM
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> Emojicode-VERSION-YOUR-PLATFORM
 ./install.sh
-</code></pre><p>You can find more information about the installer above.</p>
+</code></pre>
+<p>You can find more information about the installer above.</p>
 </li>
 <li><p>Probably your system is not yet ready to display emojis. While Mac OS X is,
 you will likely have to install the <code>ttf-ancient-fonts</code> on Linux.</p>
-<pre><code>sudo apt-get install ttf-ancient-fonts
-</code></pre><p>Instruction to build Emojicode from source can be found in the
+<pre><code class="lang-bash">sudo apt-get install ttf-ancient-fonts
+</code></pre>
+<p>Instruction to build Emojicode from source can be found in the
 <a href="https://github.com/emojicode/emojicode/">GitHub repository</a>.</p>
 </li>
 </ol>

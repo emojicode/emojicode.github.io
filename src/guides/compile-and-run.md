@@ -40,7 +40,7 @@ Before analyzing this new code we’ll give it a try.
 Open a command-line and navigate to the directory containing `greeter.emojic`.
 Then run this command.
 
-```
+```bash
 emojicodec greeter.emojic
 ```
 
@@ -49,7 +49,7 @@ should exit without a message and generate a file called `greeter.emojib`. This
 is an Emojicode Byte-Code File, which can be executed by the Emojicode Real-Time
 Engine. So let’s type:
 
-```
+```bash
 emojicode greeter.emojib
 ```
 
@@ -172,7 +172,7 @@ now look like this:
 
 Compile and let’s see:
 
-```
+```bash
 emojicodec greeter.emojic
 emojicode greeter.emojib
 ```

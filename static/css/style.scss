@@ -16,6 +16,14 @@
        url(/fonts/RobotoMono-Regular);
 }
 
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Mono'), local('RobotoMono-Bold'),
+       url(/fonts/RobotoMono-Bold);
+}
+
 // Emojicode Brand Colors
 
 $white: #fff;
