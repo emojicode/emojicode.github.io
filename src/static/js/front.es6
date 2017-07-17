@@ -112,7 +112,7 @@ const app = new Vue({
 
 👴 Simple echo server listening on port 8728
 🏁 🍇
-  🍦 server 🍺 🔷🏄🆕 8728
+  🍦 server 🚇 🔷🏄🆕 8728
 
   🔁 👍 🍇
     🍦 clientSocket 🍺 🙋 server

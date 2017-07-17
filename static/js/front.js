@@ -22,7 +22,7 @@ var app = new Vue({
     }, {
       title: 'Powerful',
       text: 'Emojicode comes with a few packages that allow you to do all the really fun stuff, like sockets communication. And, of course, you can write a package yourself and expand Emojicode’s capabilities.',
-      example: '\uD83D\uDCE6 sockets \uD83D\uDD34\n\n\uD83D\uDC74 Simple echo server listening on port 8728\n\uD83C\uDFC1 \uD83C\uDF47\n  \uD83C\uDF66 server \uD83C\uDF7A \uD83D\uDD37\uD83C\uDFC4\uD83C\uDD95 8728\n\n  \uD83D\uDD01 \uD83D\uDC4D \uD83C\uDF47\n    \uD83C\uDF66 clientSocket \uD83C\uDF7A \uD83D\uDE4B server\n    \uD83D\uDD01 \uD83D\uDC4D \uD83C\uDF47\n      \uD83C\uDF66 readData \uD83D\uDC42 clientSocket 50\n      \uD83C\uDF4A\uD83C\uDF66 data readData \uD83C\uDF47\n        \uD83D\uDC74 We\u2019ve read 50 bytes and send them back\n        \uD83D\uDCAC clientSocket data\n      \uD83C\uDF49\n    \uD83C\uDF49\n  \uD83C\uDF49\n\uD83C\uDF49'
+      example: '\uD83D\uDCE6 sockets \uD83D\uDD34\n\n\uD83D\uDC74 Simple echo server listening on port 8728\n\uD83C\uDFC1 \uD83C\uDF47\n  \uD83C\uDF66 server \uD83D\uDE87 \uD83D\uDD37\uD83C\uDFC4\uD83C\uDD95 8728\n\n  \uD83D\uDD01 \uD83D\uDC4D \uD83C\uDF47\n    \uD83C\uDF66 clientSocket \uD83C\uDF7A \uD83D\uDE4B server\n    \uD83D\uDD01 \uD83D\uDC4D \uD83C\uDF47\n      \uD83C\uDF66 readData \uD83D\uDC42 clientSocket 50\n      \uD83C\uDF4A\uD83C\uDF66 data readData \uD83C\uDF47\n        \uD83D\uDC74 We\u2019ve read 50 bytes and send them back\n        \uD83D\uDCAC clientSocket data\n      \uD83C\uDF49\n    \uD83C\uDF49\n  \uD83C\uDF49\n\uD83C\uDF49'
     }, {
       title: 'Optionals',
       text: 'Optionals (and more) make Emojicode extremly safe. Programmer safety is the highest precept in Emojicode!',
