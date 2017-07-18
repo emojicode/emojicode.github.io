@@ -76,4 +76,4 @@ proceed as specified above.
 Instruction to build Emojicode from source can be found in the
 [GitHub repository](https://github.com/emojicode/emojicode/).
 
-<script src="/docs/static/js/magicinstall.js"></script>
+<script src="/static/js/magicinstall.js"></script>
