@@ -155,9 +155,9 @@ a message. In exactly this moment another thread comes along, checks the balance
 and also sees there are 10€ left and enters the body of the 🍊. The former
 thread now moves on to withdraw 10€ as the second one will do after it has
 printed a message. So they withdrew 20€! In reality the program is even faster
-and all threads execute this same piece of code at the same time.
+and all threads execute the same piece of code at virtually the same time.
 
-Now how can fix this? The solution is to use an instance of 🔐, which is also
+Now, how can we fix this? The solution is to use an instance of 🔐, which is also
 called a *mutex*. A mutex ensures that only ever one thread can access a data
 structure or run a piece of code.
 
