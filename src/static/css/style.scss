@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: 400;
   src: local('Varela Round'), local('VarelaRound-Regular'),
-       url(/fonts/VarelaRound-Regular.ttf);
+       url(/static/fonts/VarelaRound-Regular.ttf);
 }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-style: normal;
   font-weight: 400;
   src: local('Roboto Mono'), local('RobotoMono-Regular'),
-       url(/fonts/RobotoMono-Regular);
+       url(/static/fonts/RobotoMono-Regular.ttf);
 }
 
 @font-face {
@@ -21,7 +21,7 @@
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Mono'), local('RobotoMono-Bold'),
-       url(/fonts/RobotoMono-Bold);
+       url(/static/fonts/RobotoMono-Bold.ttf);
 }
 
 // Emojicode Brand Colors
