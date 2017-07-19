@@ -139,7 +139,7 @@ Money, money, money – Must be funny
 -40
 ```
 
-Probably you already now, but what happened here is called a *race condition*.
+Probably you already know, but what happened here is called a *race condition*.
 Let’s analyze this part of our code again:
 
 ```
