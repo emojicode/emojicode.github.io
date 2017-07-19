@@ -1,4 +1,4 @@
-@import 'style';
+@import 'base';
 
 $callout-note: #ffb300;
 $callout-hint: rgb(45, 121, 210);
@@ -22,6 +22,35 @@ $toc-width: 280px;
 $toc-margin-right: 36px;
 
 $improve-background: $p-gray;
+
+table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: keep-all;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  th {
+    font-weight: bold;
+  }
+
+  th,
+  td {
+    padding: 6px 13px;
+    border: 1px solid $table-border-color;
+  }
+
+  tr {
+    background-color: $white;
+    border-top: 1px solid $table-row-border-top-color;
+  }
+
+  tr:nth-child(2n) {
+    background-color: $table-alternative-color;
+  }
+}
+
 
 .docs-header {
   display: flex;
@@ -76,6 +105,24 @@ $improve-background: $p-gray;
     :first-child {
       margin-left: 0;
     }
+  }
+}
+
+@media print {
+  .content {
+    font-size: 14px;
+  }
+
+  .book-navigation-bottom,
+  .book-improve {
+    display: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 2rem;
   }
 }
 
@@ -251,24 +298,6 @@ section,
   }
 }
 
-@media print {
-  .content {
-    font-size: 14px;
-  }
-
-  .book-navigation-bottom,
-  .book-improve {
-    display: none;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin-top: 2rem;
-  }
-}
-
 // ===== CALLOUTS =====
 
 @mixin callout($color) {
@@ -298,14 +327,6 @@ section,
 
 .callout-hint {
   @include callout($callout-hint);
-}
-
-.instructions-table {
-  font-size: 16px;
-
-  ol {
-    margin: 0;
-  }
 }
 
 .book-navigation-bottom {
