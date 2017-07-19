@@ -59,6 +59,26 @@ $improve-background: $p-gray;
   font-size: 1rem;
 }
 
+@media (max-width: $break) {
+  .docs-header {
+    display: block;
+    padding: 1em;
+  }
+
+  .docs-header-title {
+    font-size: 1.1em;
+  }
+
+  .docs-header-right {
+    margin-top: 0.5em;
+    font-size: 0.8em;
+
+    :first-child {
+      margin-left: 0;
+    }
+  }
+}
+
 @mixin syntax-before($text, $color) {
   text-transform: uppercase;
   font-size: 10.8px;
@@ -158,6 +178,8 @@ section,
   background-color: $toc-color;
   border-radius: 4px;
   max-height: calc(100vh - #{$menu-height + 73px} - 4.9rem);
+  position: fixed;
+  width: $toc-width;
 
   h2,
   h3 {
@@ -169,6 +191,18 @@ section,
     padding: 0;
     list-style: none;
   }
+}
+
+.toc-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.content {
+  position: relative;
+  padding-left: $toc-width + $toc-margin-right;
+  max-width: $content-width + $toc-width + $toc-margin-right;
 }
 
 .section-link,
@@ -194,22 +228,44 @@ section,
   font-size: 0.875em;
 }
 
-@media (min-width: 750px), print {
+@media (max-width: $break), print {
   .toc-wrapper {
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: static;
   }
 
   .toc {
-    position: fixed;
-    width: $toc-width;
+    margin-top: 1em;
+    position: static;
+    overflow-y: auto;
+    max-height: none;
+    width: auto;
   }
 
   .content {
-    position: relative;
-    padding-left: $toc-width + $toc-margin-right;
-    max-width: $content-width + $toc-width + $toc-margin-right;
+    max-width: none;
+  }
+
+  section,
+  .content {
+    padding: 0 12px;
+  }
+}
+
+@media print {
+  .content {
+    font-size: 14px;
+  }
+
+  .book-navigation-bottom,
+  .book-improve {
+    display: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 2rem;
   }
 }
 
