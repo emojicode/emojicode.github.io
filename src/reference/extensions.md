@@ -1,29 +1,21 @@
 # Extensions
 
-Extensions allow you to extend an existing class. You can do everything in an
-extension you could do in a class definition body.
+Extensions allow you to extend an existing class or value type. You can do
+everything in an extension you could do in the initial definition.
 
 ## Extending
 
 The syntax is:
 
-```
-🐋 class 🍇
+<pre class="syntax">
+$extension$-> 🐋 $type-identifier$ $type-body$
+</pre>
 
-🍉
-```
-
-*class* must be an existing class.
-
-You can also extend classes from other packages. Example:
+You can also extend classes from other packages. For example:
 
 ```
-🐇 📺 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    😀 😈 🔤The Candy Man🔤
-
-    🍎 0
-  🍉
+🏁 🍇
+  😀 😈 🔤James Tiberius Kirk🔤
 🍉
 
 🐋 🔡 🍇
@@ -31,8 +23,8 @@ You can also extend classes from other packages. Example:
   🐖 😈 ➡️ 🔡 🍇
     🍮 out 🔤🔤
 
-    🔂 i ⏩ ➖ 📏 🐕 1 -1 🍇
-      🍮 out 📝 out 🍺 🔬 🐕 i
+    🔂 i ⏩ ➖ 🐔 🐕 1 -1 🍇
+      🍮 out 📝 out 🍺 🐽 🐕 i
     🍉
 
     🍎 out

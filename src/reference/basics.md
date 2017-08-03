@@ -6,7 +6,7 @@ features include classes, optionals, which can handle the absence of a value,
 generics, closures and much more.
 
 Emojicode is a strongly typed language, which means that the compiler will
-verify that all of your operations are correct. This for instance prevents you
+verify that all of your operations are correct. This, for instance, prevents you
 from treating a number as a list of texts.
 
 Although Emojicode only uses Emojis to express the program’s structure, it is
@@ -15,8 +15,8 @@ similar to programming languages you might know, like C.
 Emojicode was designed to allow the development of platform independent
 applications by running them inside a virtual machine. Your code is first
 compiled to bytecode by a compiler and can then be executed. The reference
-implemention of such a virtual machine is called *Emojicode Real-Time* and can,
-as the name suggests, execute your code rather fast.
+implementation of such a virtual machine is called *Emojicode Real-Time* and
+can, as the name suggests, execute your code rather fast.
 
 >!H If you need guidance on how to use the compiler and the Real-Time Engine
 >!H see
@@ -39,22 +39,28 @@ Example:
     👵 This is a multiline comment. You can even make
     line breaks. 👵
 
-## The 🏁 class method
+## The 🏁 block
 
-Emojicode needs to know where your program should start. The compiler will
-therefore look for a class method called 🏁. This method will be  called on the
-program startup. Example:
+Emojicode needs to know what your program should do when it starts, therefore
+it requires you to provide a *🏁 block*. Here’s an example of a 🏁 block.
 
-    🐇 ⚽️ 🍇
-      🐇🐖 🏁 ➡️ 🚂 🍇
-        👴 The code to start up the program goes here.
-        🍎 0
-      🍉
-    🍉
+```
+🏁 🍇
+  👴 Get things up and running here...
+🍉
+```
 
-If you don’t understand all the code above yet don’t worry, you will learn more
-about [class methods ](classes.html#class-methods) and all this stuff in a few
-minutes.
+The 🏁 block can also return an integer which is then used as the exit code:
+
+```
+🏁 ➡️ 🚂 🍇
+  👴 Get things up and running here...
+
+  🍎 0 👴 Return a code here.
+🍉
+```
+
+It occurs at the document level of a document.
 
 ## When to use Emojis?
 
@@ -105,6 +111,10 @@ These variables were justifiably declared as changeable variables because they
 obviously change often. You should however **always prefer frozen variables if
 you don’t intend to modify** the variable.
 
+🍮 can also be used directly followed by an emoji, which is a special use and
+called *assignment by call*. Assignment by call is described in
+[Classes & Value Types](classes-valuetypes.html#assignment-by-call).
+
 ### 🍰 Declaring Variables
 
 You can declare a variable yourself regardless if a variable with the same name
@@ -115,41 +125,39 @@ one time.
 🍰 variableName variableType
 ```
 
-*variableName must be a valid variable name. variableValue may be an expression
-*of any type.
+*variableName* must be a valid variable name. *variableValue* may be an
+expression of any type.
 
 After you declared the variable in the local scope you can use 🍮 to set it to a
 value. The compiler will throw an error if you try to access an uninitialized
 variable. Optionals are automatically initialized to Nothingness.
 
->!N Beware of that 🍰 can shadow variables from parent scopes and can for
->!N instance make instance variables inaccessible.
+>!N Beware of that 🍰 can shadow variables from parent scopes and can, for
+>!N example, make instance variables inaccessible.
 
 ### Scoping
 
 Variables are only accessible from the *scope* in which they were declared.
-Every class method, method or initializer defines an own scope which disappears
-once the procedure has ended. A scope may also allow you to access its *parent
-scope*, which gives you the opportunity to access the variables inside that
-scope. Methods and initializer for instance allow you to access the parent
-scope, which in this case is the *object scope*, in which all instance variables
-live.
+Every code block (everything between a 🍇 and 🍉) defines a separate scope,
+which disappears once the block was executed:
 
-It’s important to note that unlike in other languages flow control blocks do not
-create a scope. If you declare a variable within an flow control it will also
-be available outside. This might change in future versions.
+<pre class="negative-example">
+🏁 🍇
+  🍦 work 🔤Work It Harder Make It Better🔤
+  🍊 👍 🍇
+    😀 work  👴 work is accessible here
+    🍦 doIt 🔤Do It Faster, Makes Us stronger🔤
+  🍉
+  😀 work  👴 work still works, of course
+  😀 doIt  👴 doIt is no longer accessible here
+🍉
+</pre>
 
-### 🍫 & 🍳 Incrementing and Decrementing Variables
-
-Variables containing numbers can be incremented by using 🍫 and decremented by
-using 🍳.
-
-```
-🍫 numberOfCats
-🍳 watermelons
-```
-
-The above example will increment *numberOfCats* and decrement *watermelons*.
+You cannot access scopes beyond the method, class method or initializer from
+your code. Nevertheless, you can access the *object scope* in instance methods
+and initializers. Closures are also considered an exception from this rule.
+You’ll learn more about these two kinds for special scoping in [Classes & Value
+Types](classes-valuetypes.html) and [Callables](callables.html).
 
 ## Numeric Literals
 
@@ -202,22 +210,11 @@ Example:
 🍦 percent 🔟%
 ```
 
-## Context Based Parsing
-
-Emojicode heavily uses *context based parsing*. This means that something can
-have a completely different meaning based on the context.
-
-All statments introduced above are only valid inside a method or initializer
-body. If you however used 🍦 when a type name was expected, 🍦 would be
-interpreted as a type called 🍦.
-
-The statment introduced below is, on the contrary, only valid at document
-level – you can’t use it inside a method or class.
-
 ## Including Other Source Code Files
 
-You can include other source code files into a source file. Basically this
-just inserts the code from the file at the point where you included it.
+An Emojicode program is always compiled from a single file. Nevertheless, you
+can include other source code files. Basically, this just
+inserts the code from the file at the point where you included it.
 
 Syntax:
 
@@ -229,7 +226,7 @@ Syntax:
 file. The path is relative to the directory which included the document with the
 📜 statement.
 
->!H Do **not** use this method to share code accross projects. If you have
+>!H Do **not** use this method to share code across projects. If you have
 >!H written really fancy code,
 >!H [**create a package](/docs/reference/packages.html), which you can easily
 >!H make available to other people**.

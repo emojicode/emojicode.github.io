@@ -1,0 +1,32 @@
+{
+  "name": "EmojicodeDocsCompiler",
+  "version": "2.0.0-beta",
+  "description": "Emojicode documentation compiler",
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "node ./lib/index.js"
+  },
+  "author": "Theo Weidmann",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-preset-es2015": "^6.18.0",
+    "chalk": "^2.0.1",
+    "chokidar": "^1.7.0",
+    "fs-extra": "~0.12.0",
+    "highlight.js": "^9.12.0",
+    "html-minifier": "^3.5.2",
+    "marked": "~0.3.2",
+    "minimist": "^1.2.0",
+    "mustache": "^2.3.0",
+    "node-sass": "^4.5.3",
+    "strip-indent": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0"
+  }
+}

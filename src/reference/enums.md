@@ -1,21 +1,77 @@
-# Enums
+# Enumerations
 
-## Defining an Enum
+Enumerations are a special kind of value type that represent a set of options
+from which one can be chosen.
 
-To define an enum you use the 🦃. For example this defines an enum named 🏷 which has the values 🏁, 🚧 and 📜.
+## Defining an Enumeration
 
-    🦃 🏷 🍇
-        🏁
-        🚧
-        📜
+The syntax to define an enumeration is:
+
+<pre class="syntax">
+$enum$-> 🦃 $type-identifier$ $type-body$
+$enum-value$-> 🔘 $emoji$
+</pre>
+
+For example:
+
+```
+🦃 📜 🍇
+  🔘🌭
+  🔘🍕
+  🔘🍔
+🍉
+```
+
+In this example, an enumeration that named 📜 is defined which offers the values
+🌭, 🍕 and 🍔.
+
+## Instantiating an Enumeration
+
+Every enumeration automatically provides intializers for all its options, named
+after the option the instance will represent. Like any value type, enumerations
+are instantiated with 🔷:
+
+```
+🔷📜🍕
+```
+
+Enumerations cannot have custom initializers.
+
+## Methods
+
+In the manner of any other value types, enumerations can have methods. The
+following examples shows an enumeration which provides a method that returns
+a textual description of the chosen value:
+
+```
+🦃 ⏰ 🍇
+  🔘🥓
+  🔘🥞
+  🔘🥐
+
+  🐖 🔡 ➡️ 🔡 🍇
+    🍊 😛 🐕 🔷⏰🥐 🍇
+      🍎 🔤Croissant🔤
     🍉
+    🍊 😛 🐕 🔷⏰🥞 🍇
+      🍎 🔤Pancakes🔤
+    🍉
+    🍊 😛 🐕 🔷⏰🥓 🍇
+      🍎 🔤Bacon🔤
+    🍉
+    🍎 🔤🔤
+  🍉
+🍉
+```
 
-## Accessing an Enum’s Values
+## Comparing Enums
 
-To access an enum you use the 🔺.
+😛 can be used to compare whether two enum instances are equal:
 
-    🔺🏷📜
-
-## Type compatibility
-
-All enum types are compatible to 🚂 because at runtime the enum values will be represented by 🚂. This of course means that you cannot cast to an enum at runtime.
+```
+🍮 a 🔷📜🍕
+🍮 b 🔷📜🍕
+🍊 😛 a b 🍇
+  😀 🔤Equal🔤
+🍉
+```

@@ -22,12 +22,13 @@ The object of packages is to provide an **easy way to reuse code**. Therefore
 naturally, you can import other packages into a package. The syntax to do this
 is:
 
-```
-📦 packageName destinationNamespace
-```
+<pre class="syntax">
+$package-import$-> 📦 $package-name$ $emoji$
+$package-name$-> $variable$
+</pre>
 
 If such a statment ocours to the compiler, the compiler will search the
-*Package Search Path* for a package with the given name `packageName` and will
+*Package Search Path* for a package with the given name *package-name* and will
 try to import it. The default *Package Search Path* is
 `/usr/local/EmojicodePackages/` for UNIX operating systems.
 
@@ -44,12 +45,8 @@ The progam then uses the class 📄 which was imported from the
 ```
 📦 files 🔴
 
-🐇 💯 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    🍦 file 🔷📄📜 🔤tests/fileTest_testFile.txt🔤
-
-    🍎 0
-  🍉
+🏁 🍇
+  🍦 file 🔷📄📜 🔤tests/fileTest_testFile.txt🔤
 🍉
 ```
 
@@ -76,11 +73,18 @@ applied once. If your package extends a class the extensions will be available
 everywhere after the package with the extension was loaded from somewhere within
 the program.
 
+Keep in mind that types don’t actually belong to a namespace. When exporting a
+type the namespace is completely irrelevant. All exported types will be
+imported into the requested namespace regardless in which namespace they were
+intially exported.
+
 Additionally an importable package must declare its version using 🔮:
 
-```
-🔮 major minor
-```
+<pre class="syntax">
+$version$-> [$documentation-comment$] 🔮 $major$ $minor$
+$major$-> $integer-literal$
+$minor$-> $integer-literal$
+</pre>
 
 The `header.emojic` of a cat-simulator package must look like this:
 
@@ -128,16 +132,12 @@ to access the 💊 class as it was not exported.
 ```
 📦 cat-simulator 🔴
 
-🐇 💯 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    🍦 cat 🔷🐱🎀
-    🎙 cat
+🏁 🍇
+  🍦 cat 🔷🐱🎀
+  🎙 cat
 
-    👴 The line below won't compile and should be removed
-    🍦 drug 🔷💊🔬
-
-    🍎 0
-  🍉
+  👴 The line below won't compile and should be removed
+  🍦 drug 🔷💊🔬
 🍉
 ```
 

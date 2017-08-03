@@ -1,0 +1,52 @@
+<div class="content">
+  <div class="toc-wrapper">
+    <div class="toc">
+      <h2>{{bookTitle}}</h2>
+      <ol data-gumshoe>
+        {{#chapters}}
+          <li>
+            <a href="{{name}}.html"
+                {{#current}}class="chapter-link current"{{/current}}
+                {{^current}}class="chapter-link"{{/current}}>{{title}}</a>
+            {{#current}}
+              <ul>
+              {{#sections}}
+                <li>
+                  <a href="#{{thisHeadingID}}" class="section-link">{{.}}</a>
+                </li>
+              {{/sections}}
+              </ul>
+            {{/current}}
+          </li>
+        {{/chapters}}
+      </ol>
+    </div>
+  </div>
+
+	{{{content}}}
+
+	<div class="book-navigation-bottom">
+		{{#prev}}
+		<a href="{{prev}}" class="left">
+			← Previous
+		</a>
+		{{/prev}}
+		{{#next}}
+		<a href="{{next}}" class="right">
+			Next →
+		</a>
+		{{/next}}
+	</div>
+
+  <div class="book-improve">
+    Want to improve this page?
+    <a href="https://github.com/emojicode/emojicode.github.io/blob/master/{{sourcePath}}" target="_blank">
+      You can edit the source on GitHub and send us a pull request!
+    </a>
+  </div>
+</div>
+
+<script src="/static/js/gumshoe.min.js"></script>
+<script>
+  gumshoe.init({ activeClass: 'current', offset: 80 });
+</script>

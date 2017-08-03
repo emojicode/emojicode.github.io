@@ -1,0 +1,135 @@
+<div class="content">
+  <div class="toc-wrapper">
+    <div class="toc">
+      <h3>Package</h3>
+      <div class="link-list">
+        <a href="../{{package}}">{{package}}</a>
+      </div>
+
+      {{#conformsToItems}}
+        <h3>Conforms to</h3>
+        <div class="link-list">
+          {{#conformsTo}}
+            {{{thisTypeLink}}}
+          {{/conformsTo}}
+        </div>
+      {{/conformsToItems}}
+      {{#superclass}}
+        <h3>Superclass</h3>
+        <div class="link-list">
+          {{{thisTypeLink}}}
+        </div>
+      {{/superclass}}
+      {{#initializers.length}}
+        <h3>Initializers</h3>
+        <div class="link-list">
+          {{#initializers}}
+            {{#procedureVisible}}
+              <a href="#i{{name}}">{{name}}</a>
+            {{/procedureVisible}}
+          {{/initializers}}
+        </div>
+      {{/initializers.length}}
+      {{#values.length}}
+        <h3>Enumeration Values</h3>
+        <div class="link-list">
+        {{#values}}
+          <a href="#ev{{value}}">{{value}}</a>
+        {{/values}}
+        </div>
+      {{/values.length}}
+      {{#methods.length}}
+        <h3>Methods</h3>
+        <div class="link-list">
+          {{#methods}}
+            {{#procedureVisible}}
+              <a href="#m{{name}}">{{name}}</a>
+            {{/procedureVisible}}
+          {{/methods}}
+        </div>
+      {{/methods.length}}
+      {{#classMethods.length}}
+        <h3>Class Methods</h3>
+        <div class="link-list">
+          {{#classMethods}}
+            {{#procedureVisible}}
+              <a href="#cm{{name}}">{{name}}</a>
+            {{/procedureVisible}}
+          {{/classMethods}}
+        </div>
+      {{/classMethods.length}}
+    </div>
+  </div>
+  <h1>{{typeType}} {{typeName}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}}</h1>
+  <p>{{{mdDocumentation}}}</p>
+
+  {{#initializers.length}}
+    <h2>Initializers</h2>
+    {{#initializers}}
+      {{#procedureVisible}}
+        <div class="method">
+          <div class="method-heading">
+            <h3 class="method-emoji" id="i{{name}}">{{name}}</h3>
+            {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+          </div>
+
+          <pre class="declaration">{{access}} 🐈 {{name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}</pre>
+
+          {{{mdDocumentation}}}
+        </div>
+      {{/procedureVisible}}
+    {{/initializers}}
+  {{/initializers.length}}
+
+  {{#values.length}}
+    <h2>Enumeration Values</h2>
+
+    {{#values}}
+      <div class="method">
+        <div class="method-heading">
+          <h3 class="method-emoji" id="ev{{value}}">{{value}}</h3>
+        </div>
+
+        {{{mdDocumentation}}}
+      </div>
+    {{/values}}
+  {{/values.length}}
+
+  {{#methods.length}}
+    <h2>Methods</h2>
+
+    {{#methods}}
+      {{#procedureVisible}}
+        <div class="method">
+          <div class="method-heading">
+            <h3 class="method-emoji" id="m{{name}}">{{name}}</h3>
+            {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+          </div>
+
+          <pre class="declaration">{{access}} 🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+
+          {{{mdDocumentation}}}
+        </div>
+      {{/procedureVisible}}
+    {{/methods}}
+  {{/methods.length}}
+
+  {{#typeMethods.length}}
+    <h2>Class Methods</h2>
+
+    {{#typeMethods}}
+      {{#procedureVisible}}
+        <div class="method">
+          <div class="method-heading">
+            <h3 class="method-emoji" id="cm{{name}}">{{name}}</h3>
+            {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+          </div>
+
+          <pre class="declaration">{{access}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+
+          {{{mdDocumentation}}}
+        </div>
+      {{/procedureVisible}}
+    {{/typeMethods}}
+  {{/typeMethods.length}}
+</div>

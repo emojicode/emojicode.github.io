@@ -1,3 +1,5 @@
 [
-  "index.html"
+  { "source": "index.mustache", "destination": ["index.html"],
+    "noLayout": true, "isDocumentation": false },
+  { "source": "docs_index.html", "destination": ["docs", "index.html"] }
 ]

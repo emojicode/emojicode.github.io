@@ -1,16 +1,21 @@
 # Callables
 
-Emojicode supports a type called Callables which is comparable to function types in other programming languages. Callables are actually just objects and can therefore be stored in variables, passed into other methods, etc.
+Emojicode supports a type called *callables* which is comparable to function
+types in other programming languages. Callables are objects like any other
+object and can therefore be stored in variables, passed as argument, etc.
 
 ## Type
 
 The callable type is declared using this syntax:
 
-```
-🍇 [type ...] [➡️ returnType]🍉
-```
+<pre class="syntax">
+$callable-type$-> 🍇 [$type-list$] [$return-type$] 🍉
+$type-list$-> $type$ | $type$ $type-list$
+</pre>
 
-Each *type* stands for one argument of that type. You can specify a *returnType*. If no return type is specified the callable is assumed to return Nothingness.
+Each *type* stands for one argument of that type. You can specify a
+*returnType*. If no return type is specified the callable is assumed to return
+Nothingness.
 
 Examples:
 
@@ -24,11 +29,12 @@ Examples:
 
 The 🍭 must be used to call a callable.
 
-```
-🍭 callable [arguments ...]
-```
+<pre class="syntax">
+$callable-call$-> 🍭 $expression$ [$arguments$]
+</pre>
 
-*callable* must be a callable. Of course you must provide the required number of correctly typed arguments.
+*expression* must be a callable. Of course you must provide the required number
+of correctly typed arguments.
 
 Example of calling a callable:
 
@@ -37,18 +43,23 @@ Example of calling a callable:
 🍭 greet 🔤Bob🔤
 ```
 
-## Capturing a Method Call
+## Capturing Method Calls
 
-You can *capture* a method call on a given object. This creates a function taking all arguments the method would take and returning the same value the method would return, this function however will always execute the method on the same object.
+You can *capture* method calls on instances and types. This creates a callable
+that takes as many arguments of the same type as the method would take and
+returns the same value as the method would return. This callable will always
+execute the method in the same context, though.
 
 The syntax is:
 
-```
-🌶 methodName object
-```
+<pre class="syntax">
+$method-capture$-> 🌶 [🍩] $method-emoji$ $capturee$
+$capturee$-> $expression$ | $type$
+</pre>
 
-*methodName* is the emoji representing the method. *object* must be an object
-which has a method *methodName* and to which the method will be bound.
+*method-name* is the emoji representing the method. If you want to capture
+a type method, place the 🍩 in front of the method name. Iff a type method is
+to be caputred *capturee* must be a type.
 
 Example:
 
@@ -70,15 +81,14 @@ Strawberry?
 
 ## Closure
 
-You can define closures which remember the environment in which they were defined. The basic syntax to define a closure is:
+You can define closures which remember the environment in which they were
+defined. The basic syntax to define a closure is:
 
-```
-🍇 [(variable type) ...] [➡️ returnType]
+<pre class="syntax">
+$closure$-> 🍇 [$arguments$] [$return-type$] $statements$ 🍉
+</pre>
 
-🍉
-```
-
-This is basically the same syntax that applies to methods and initializers. There may be any number of `variable type`. These define the parameters the closure takes. `variable` must be a valid variable name and type and valid type.
+This is basically the same syntax that applies to methods and initializers.
 
 Example:
 
@@ -86,8 +96,8 @@ Example:
 🍦 greet 🍇 name 🔡 ➡️ 🔡
   🍮 out 🔤🔤
 
-  🔂 i ⏩ ➖ 📏 name 1 -1 🍇
-    🍮 out 📝 out 🍺 🔬 name i
+  🔂 i ⏩ ➖ 🐔 name 1 -1 🍇
+    🍮 out 📝 out 🍺 🐽 name i
   🍉
 
   🍎 out
@@ -96,7 +106,7 @@ Example:
 😀🍭 greet 🔤Franz🔤
 ```
 
-The above is a very simple example of a closure that simply reverses a given 
+The above is a very simple example of a closure that simply reverses a given
 string and will output:
 
 ```
@@ -116,7 +126,9 @@ Let’s take a look at a more advanced use of a closure:
 🍉
 ```
 
-Here we’ve got a class method that returns a closure. The closure actually closes over the `name` variable here and copies it value so that it can be used when the closure is called later.
+Here we’ve got a class method that returns a closure. The closure actually
+closes over the `name` variable here and copies it value so that it can be used
+when the closure is called later.
 
 >!N Closures **copy** the closured **local variables** and freeze them in the scope of the closure.
 >!N If you modify one of the copied variable only the copy local to the closure will be modified.

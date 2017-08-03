@@ -4,15 +4,18 @@ This chapter provides a very brief overview of the s package and its most
 important classes.
 
 The s package can be compared to what’s called standard library in other
-programing languages. It provides some of the most important classes to write
-meaningful programs. Another characteristic of standard libraries is that the
-programming language could theoretically be used without them, which is also the
-case with Emojicode’s s package.
+programing languages. It provides some of the most important classes and value
+types to write meaningful programs.
 
 >!H This chapter only introduces the most important classes although there are
 >!H many more.
 >!H
 >!H You can browse the whole API of the s package [here](../packages/s/).
+
+## 👌 🚂 🚀 🔣
+
+You’ve already got to know the types 👌 🚂 🚀 🔣 in a previous chapter. These
+types are, of course, also defined in the s package.
 
 ## 🔡 Strings
 
@@ -62,6 +65,16 @@ The escape character can also be used to produce the following characters:
 
 All other combinations of a ❌ and another character lead to a compiler error.
 
+Formally, the syntax is:
+
+<pre class="syntax">
+$string-literal$-> 🔤 [$string-literal-characters$] 🔤
+$string-literal-characters$-> $string-literal-character$ |  $string-literal-character$ $string-literal-characters$
+$string-literal-character$-> $unicode$ except 🔤 except ❌ | $string-escape-sequence$
+$string-escape-sequence$-> ❌ $string-escape-tail$
+$string-escape-tail$-> n | t | r | e
+</pre>
+
 ### Comparing Strings
 
 If you want to determine whether to strings represent the same value, you can
@@ -70,6 +83,11 @@ use the equality method 😛.
 ```
 😛 🍪🔤Straw🔤 🔤berries🔤🍪 🔤Strawberries🔤
 ```
+
+>!H Note that the example above used a method call. 😛 is a method defined in
+>!H the 🔡 class. You’ll learn more about classes and methods in the next
+>!H chapter. For now, just remember that methods are called by placing an emoji
+>!H before the object on which the method should be called.
 
 ### Concatenating Strings
 
@@ -87,6 +105,14 @@ will get concatenated in order of appearance into one string.
 🍪s are the most efficient way of concatenating strings as the compiler can
 🍪optimize the concatenation. Please note that 🍪s are not methods but part
 of the language.
+
+The syntax formally is:
+
+<pre class="syntax">
+$concatenate-literal$-> 🍪 $concatenate-expressions$ 🍪
+$concatenate-expressions$-> $concatenate-expression$ | $concatenate-expression$ $concatenate-expressions$
+$concatenate-expression$-> $expression$ except $concatenate-literal$
+</pre>
 
 ### String Pooling
 
@@ -146,11 +172,15 @@ The example below creates a list with the values `14`, `67`, `2434`.
 
 The compiler will try to infer the generic type argument for the list.
 
+<pre class="syntax">
+$list-literal$-> 🍨 [$expressions$] 🍆
+$expressions$-> $expression$ | $expression$ $expressions$
+</pre>
+
 ## 🍯 Dictionaries
 
 Dictionaries can be used to assign values to string keys. The size of a
-dictionary is theoretically unlimited. The Emojicode Real-Time Engine implements
-dictionaries using linear probing and the Fowler–Noll–Vo hash function.
+dictionary is theoretically unlimited.
 
 ### The 🍯 Type
 
@@ -163,19 +193,25 @@ For instance if the values were booleans the type would be written like this:
 
 The shortcut syntax to create a dictionary is:
 
-    🍯 (key value) ... 🍆
+<pre class="syntax">
+$dictionary-literal$-> 🍯 [$kv-pairs$] 🍆
+$kv-pairs$-> $kv-pair$ $kv-pairs$ | $kv-pair$
+$kv-pair$-> $key$ $expression$
+$key$-> $expression$
+</pre>
 
-*key must be a string. The compiler will try to infer the generic type argument
-*for the dictionary.
+*key* must be a string. The compiler will try to infer the generic type argument
+for the dictionary.
 
-Example:
+Here’s an example for a dictionary that associates artists with their birthplaces:
 
-    🍯
-      🔤Tuvok🔤 🔤Lieutenant🔤
-      🔤Seven of Nine🔤 🔤Crewman🔤
-      🔤Chakotay🔤 🔤Commander🔤
-      🔤Kes🔤 🔤Crewman🔤
-    🍆
+```
+🍯
+  🔤Aaron Copland🔤 🔤Brooklyn🔤
+  🔤Michael Jackson🔤 🔤Gary🔤
+  🔤Falco🔤 🔤Vienna🔤
+🍆
+```
 
 ## ⏩ Ranges
 
@@ -191,15 +227,19 @@ that matches the constraint `start ≤ f(x) < stop` is an element of the range. 
 Ranges can be created by using the shortcut syntax, which is depending on your
 needs either
 
-```
-⏭ start stop step
-```
+<pre class="syntax">
+$range-literal$-> $range-literal-with-step$ $range-literal-without-step$
+$range-literal-with-step$-> ⏭ $start$ $stop$ $step$
+$start$-> $expression$
+$stop$-> $expression$
+$step$-> $expression$
+</pre>
 
 or
 
-```
-⏩ start stop
-```
+<pre class="syntax">
+$range-literal-without-step$-> ⏩ $start$ $stop$
+</pre>
 
 The latter uses 1 as *step* value if *start* is less than *stop*, otherwise
 -1 is used as *step* value. If you provide 0 as *step* value *step* will be
@@ -210,22 +250,22 @@ something for a specific number of times:
 
 ```
 🔂 i ⏭ 0 10 2 🍇
-  😀 🔷🔡🚂 i 10
+  😀 🔡 i 10
 🍉
 ```
 ```
 🔂 i ⏩ 0 10 🍇
-  😀 🔷🔡🚂 i 10
+  😀 🔡 i 10
 🍉
 ```
 ```
 🔂 i ⏩ 10 0 🍇
-  😀 🔷🔡🚂 i 10
+  😀 🔡 i 10
 🍉
 ```
 ```
 🔂 i ⏭ 100 -10 -10 🍇
-  😀 🔷🔡🚂 i 10
+  😀 🔡 i 10
 🍉
 ```
 

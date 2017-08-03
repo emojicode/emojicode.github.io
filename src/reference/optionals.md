@@ -1,4 +1,4 @@
-# Optionals and Nothingness
+# Optionals
 
 ## ✨ Nothingness
 
@@ -8,9 +8,9 @@ explicitly declare a return type is assumed to return Nothingness.
 
 To get Nothingness you use:
 
-```
-⚡️
-```
+<pre class="syntax">
+$nothingness$-> ⚡️
+</pre>
 
 While Nothingness is a completely valid type and value on its own, it’s normally
 used in conjunction with *Optionals*.
@@ -49,11 +49,11 @@ like the they make optionals.
 If you want to use the value of `first` or `twelfth` from the example above
 you could unwrap the optional using 🍺:
 
-```
-🍺 object
-```
+<pre class="syntax">
+$unwrap$-> 🍺 $expression$
+</pre>
 
-This tells Emojicode to check that the given value is not Nothingness and
+This tells Emojicode to check that *value* is not Nothingness and
 returns it. If the value, however, is Nothingness the program will terminate
 with an error message like:
 
@@ -61,41 +61,28 @@ with an error message like:
 🚨 Fatal Error: Unexpectedly found ✨ while unwrapping a 🍬.
 ```
 
-Naturally unwrapping an optional without a check is not safe and should not
+Naturally, unwrapping an optional without a check is not safe and should not
 be done. See the sections below for safe ways.
 
 ## ☁️ Nothingness Test
 
 You can use ☁️ to test if an optional is Nothingness.
 
-```
-☁️ value
-```
+<pre class="syntax">
+$is-nothingness$-> ☁️ $expression$
+</pre>
 
-☁️ returns true if *value* is Nothingness.
+☁️ returns true if the expression is Nothingness.
 
 ## 🍊🍦 Condition Assignment
 
 An even more useful way to protect from Nothingness is the Condition Assingment.
-You can combine 🍊 or 🍋 with 🍦 to one statement with this syntax:
+You can use 🍦 in conditions, that is in combination with 🍊, 🍋 or 🔁, and the
+conidition will be true if the value provided for the variable is not
+Nothingness. In that case, the variable *variable* will be set to the unwrapped
+value.
 
-```
-🍊🍦 variableName value
-```
-
-or
-
-```
-🍋🍦 variableName value
-```
-
-This will unwrap and set the value of *value*  into the variable *variableName*
-and execute the code block assigned if *value* is not Nothingness. If *value* is
-not Nothingness the 🍊 or 🍋 statement will behave as if an expression evaluated
-to true; otherwise the 🍊 or 🍋 statement will behave as if the expression
-evaluated to false.
-
-Example:
+Take a look at this example:
 
 ```
 🍊🍦 string 🔲 sth 🔡 🍇
@@ -103,24 +90,5 @@ Example:
 🍉
 ```
 
-## 🍻 Optional method call
-
-Using 🍻 you can perform a method call on an object, without the need to check
-if it’s actually Nothingness inside. The call will only be executed if *object*
-is not Nothingness.
-
-Syntax:
-
-```
-🍻 methodEmoji object [arguments ...]
-```
-
-🍻 returns the return of the method as optional.
-
-You can of course encapsulate several 🍻 calls. E.g.
-
-```
-🍰 w 🍬🔡
-
-🍻 😀 🍻 📝 w 🔟!
-```
+The block of the 🍊 statement will only be executed if `🔲 sth 🔡` does not
+evaluate to Nothingness.
