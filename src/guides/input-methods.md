@@ -14,7 +14,7 @@ become a window and stay open so you can easily enter code.
 
 ## Editor Syntaxes
 
-Syntax files and bundles are also available so that allow you to write Emojicode
+Syntax files and bundles are also available that allow you to write Emojicode
 in your favorite editor:
 
 * [Emojicode Sublime Syntax](https://github.com/orez-/Emojicode-Sublime-Syntax) by orez-

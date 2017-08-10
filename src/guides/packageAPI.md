@@ -165,7 +165,7 @@ function:
 
   Just remember for now, that `thread->variable` returns a `Value`.
 
-- You can see that in case of an error (if `server` is an null pointer),
+- You can see that in case of an error (if `server` is a null pointer),
   the method `returnErrorFromFunction` is called on the thread. It’s used to
   return an error value from a function. We’ll talk about returning in a second
   too.
@@ -183,7 +183,7 @@ The next sections will cover theses APIs in detail.
 ### Value and the Emojicode Word
 
 In Emojicode every value you’ll work with will come wrapped into a `Value` and
-you’ll have to wrap it in a value when you pass it to Emojicode. Conveniently,
+you’ll have to wrap it in a `Value when you pass it to Emojicode. Conveniently,
 wrapping often takes place implicitly with these constructors:
 
 ```C++
@@ -294,7 +294,7 @@ actions, which we call *Garbage Collector Invoking Action* (abbr. GCIA):
 
 The Garbage Collector will invalidate any object to which it cannot find a
 reference. The Garbage Collector is, of course, not capable of detecting any
-reference to objects you held in C++ variables. Hence you must store all object
+reference to objects you hold in C++ variables. Hence you must store all object
 references at a safe place before performing a GCIA, which is achieved by
 retaining.
 
@@ -316,7 +316,7 @@ auto co = thread->retain(newArray(sizeof(EmojicodeChar)));
 `RetainedObjectPointer` implements the `->` operator so you can and should use
 it as if it was an object pointer. Note that while the `RetainedObjectPointer`
 itself stays valid, pointers you get to values inside the object it points to,
-e.g. `co->val<EmojicodeChar>()` do not stay valid across garbage collector
+e.g. `co->val<EmojicodeChar>()` do **not** stay valid across garbage collector
 cycles. You should always retrieve them from the retained pointer after
 performing a GCIA.
 
@@ -366,8 +366,8 @@ necessary to call `disallowGCAndPauseIfNeeded`.
 
 For the sake of completeness, `void pauseForGC();` should be mentioned, which we
 recommend you rather not use. It’s exactly the function that is called between
-execution of different Emojicode instructions to determine whether a Garbage
-Collector pause was requested. Please see the header files for further
+execution of different Emojicode instructions to determine whether the Garbage
+Collector requested that the thread pause. Please see the header files for further
 information.
 
 ## Compiling The Package
