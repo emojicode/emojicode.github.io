@@ -33,7 +33,7 @@ proceed as specified above.
     </label>
     <select id="magic-install-os">
       <option value="darwin">macOS</option>
-      <option value="x86_64-linux">Linux</option>
+      <option value="linux">Linux</option>
     </select>
   </div>
   <div class="magic-install-sw-box">
