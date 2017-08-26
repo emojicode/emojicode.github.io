@@ -1,5 +1,8 @@
 # Generics
 
+>!N This document was not fully revised for Emojicode 0.5 yet. Please
+>!N be aware of that it might contain inaccuracies.
+
 *Generics* allow you to write code in which you can use a placeholder – variable
 names – instead of actual type names, which will then be substituted with real
 types when you use that code later. This is a really powerful feature and is a
@@ -7,10 +10,11 @@ great way to avoid code duplication.
 
 ## Defining a Generic Class
 
-To define a Generic Class you define a class and append
+To define a Generic class you define a class and append
 
 <pre class="syntax">
-🐚 $variable$ $type$
+$generic-parameter$-> 🐚 $variable$ $type$
+$generic-parameters$-> $generic-parameter$ $generic-parameters$ | $generic-parameter$
 </pre>
 
 for each generic argument the class shall take. This structure is called
@@ -83,10 +87,9 @@ kind of type conversion is not allowed.
 
 ## Generic Methods and Intializers
 
-It’s also possible to define a generic method, class method or intializer. A
-generic procedure is a method, class method or intializer that takes generic
-arguments which then can be used as argument types, as return types or as types
-in the method body.
+It’s also possible to define a generic method, type method or intializer. A such
+method, type method or intializer takes generic arguments which then can be used
+as argument types, as return types or as types in the body.
 
 A good example from the standard library is 🍨’s 🐰 method. It is defined like
 this:
@@ -97,14 +100,7 @@ this:
 🍉
 ```
 
-Therefore the complete method syntax is:
-
-<pre class="syntax">
-$generic-arguments$-> $generic-argument$ | $generic-argument$ $generic-arguments$
-$generic-argument$-> 🐚 $variable$ $type$
-</pre>
-
-As you can see above it takes one generic argument named `A` which is restricted
+As you can see above has one generic parameter named `A` which is restricted
 to subtypes of ⚪️, that is any type. Now, if you'd wish to call this method
 you can know provide the generic type arguments after the object or class on
 which on which you call the method:
@@ -112,9 +108,16 @@ which on which you call the method:
 ```
 🍦 list 🍨🔤aa🔤 🔤12345🔤🍆
 🐰 list 🐚🔡 🍇 a 🔡 ➡️ 🔡
-  🍎 🍪a 🔤!🔤🍪
+  🍎 🍪a 🔤!🔤🍪s
 🍉
 ```
+
+The grammar for generic arguments is:
+
+<pre class="syntax">
+$generic-arguments$-> $generic-argument$ | $generic-argument$ $generic-arguments$
+$generic-argument$-> 🐚 $variable$ $type$
+</pre>
 
 Emojicode is, however, actually capable of automatically inferring the generic
 arguments for you, so you could just write:

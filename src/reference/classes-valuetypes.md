@@ -50,7 +50,7 @@ the piece of paper would be an instance of a class, which stores the date.
 The syntax to define a class is:
 
 <pre class="syntax">
-$class$-> 🐇 $type-identifier$ [$superclass$] $type-body$
+$class$-> 🐇 $type-identifier$ [$generic-parameters$] [$superclass$] $type-body$
 $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
 $type-body-declaration$-> $type-body-attributes$ $type-body-declaration-main$
@@ -84,7 +84,7 @@ blowfish – a more concrete type of fish:
 The syntax to define a value type is the following:
 
 <pre class="syntax">
-$value-type$-> 🕊 $type-identifier$ $type-body$
+$value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
 </pre>
 
 >!H The defined types are immediately available in the namespaces provided.
@@ -214,7 +214,7 @@ Methods are functionality bound to a specific type: a class or value type.
 The syntax to define a method is:
 
 <pre class="syntax">
-$method$-> 🐖 $method-emoji$ [$generic-arguments$] [$parameters$] [$return-type$] $block$
+$method$-> 🐖 $method-emoji$ [$generic-parameters$] [$parameters$] [$return-type$] $block$
 $parameters$-> $parameter$ | $parameter$ $parameters$
 $parameter$-> $variable$ $type$
 $return-type$-> ➡️ $type$
@@ -264,7 +264,7 @@ used as method names, that can be found at the end of this chapter.
 The syntax to call a method is special:
 
 <pre class="syntax">
-$method-call$-> $method-emoji$ $callee$ [$arguments$]
+$method-call$-> $method-emoji$ $callee$ [$generic-arguments$] [$arguments$]
 $callee$-> $expression$
 $arguments$-> $expression$ | $expression$ $arguments$
 </pre>
@@ -349,7 +349,7 @@ Type methods are also inherited by subclasses.
 The syntax to call a type method is:
 
 <pre class="syntax">
-$type-method-call$-> 🍩 $method-emoji$ $type$ [$arguments$]
+$type-method-call$-> 🍩 $method-emoji$ $type$ [$generic-arguments$] [$arguments$]
 </pre>
 
 Example:
