@@ -75,7 +75,7 @@ As for example:
 🐇 🌻 🌼 🍇
   ✒️ 🐖 ⏰ time 🚂 🍇
     👴 Sunflowers also rotate to face the sun....
-    🐿 ⏰ 👴 Open and close like other flowers; see below
+    🐿 ⏰ time 👴 Open and close like other flowers; see below
   🍉
 🍉
 ```
