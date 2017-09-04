@@ -97,7 +97,7 @@ The compiler infers the type of the variables from the values given.
 
 ### 🍮 Setting and Declaring a Variable
 
-To declare or change are normal, changeable variable you should use 🍮. If the
+To declare or change a normal, changeable variable you should use 🍮. If the
 variable you want to set is already declared its value will be changed, given
 that it is not frozen; in that particular case an error message would be
 emitted. Otherwise the variable is declared in the current scope.
