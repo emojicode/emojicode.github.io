@@ -7,7 +7,7 @@
 
 Emojicode divides code into so called *packages*. A package is a unit of code
 that can consist of one or more Emojicode source code files. All packages have a
-name associated with them and **all code belongs to a pacakge**. If you tell the
+name associated with them and **all code belongs to a package**. If you tell the
 compiler to **compile a file** this file implicitely becomes the starting point
 for a **package called `_`**. So remember, all code you write belongs to a
 package.
