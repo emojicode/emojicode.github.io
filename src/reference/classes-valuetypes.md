@@ -194,7 +194,7 @@ To get an instance of a class or value type, you must *instantiate* it.
 Its syntax is:
 
 <pre class="syntax">
-$instantiation$-> 🔷 $type$ $initializer$ [$arguments$]
+$instantiation$-> 🔷 $type-expr$ $initializer$ [$arguments$]
 </pre>
 
 *initializer* must be the name of the initializer you
@@ -349,7 +349,7 @@ Type methods are also inherited by subclasses.
 The syntax to call a type method is:
 
 <pre class="syntax">
-$type-method-call$-> 🍩 $method-emoji$ $type$ [$generic-arguments$] [$arguments$]
+$type-method-call$-> 🍩 $method-emoji$ $type-expr$ [$generic-arguments$] [$arguments$]
 </pre>
 
 Example:
