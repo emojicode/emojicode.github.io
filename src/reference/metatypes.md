@@ -28,8 +28,9 @@ $metatype-instance$-> 🔳 $type$
 </pre>
 
 *type* must be a type identifier identifying a type whose meta type is
-available. These types are classes, enums and value types. This
-metatype can then be treated like any other value.
+available. This metatype can then be treated like any other value.
+
+>!N Currently, only the meta types of classes are available.
 
 To populate the variable from the above example, this code could be used:
 
@@ -113,58 +114,3 @@ instantiates them at run-time and calls a method on these instances:
 🍉
 ```
 
-## 🐕 in Type Methods
-
-🐕 is a type available in the context of type methods and in its declarations.
-
-If you declare that a method returns 🐕, the method must return an instance
-of the type on which the type was called. Obviously, this can only be statisfied
-if you actually instantiate an instance of the type thus by using 🐕:
-
-```
-🐇🐖 🎛 ➡️ 🐕 🍇
-  🍎 🔷🐕🆕
-🍉
-```
-
-Because the type methods can be called on subclasses that do not have all non-
-required initializers you can only use required initializers to instantiate 🐕.
-
-You can use 🐕 for flexible and powerful solutions, like shown below.
-
-```
-🐇 🐟 🍇
-  🐇🐖 🎛 ➡️ 🐕 🍇
-    🍎 🔷🐕🆕
-  🍉
-
-  🔑 🐈 🆕 🍇🍉
-
-  🐖 🙋 🍇
-    😀 🔤I’m a fish.🔤
-  🍉
-🍉
-
-🐇 🐡 🐟 🍇
-  ✒️ 🔑 🐈 🆕 🍇
-    🐐 🆕
-  🍉
-
-  ✒️ 🐖 🙋 🍇
-    😀 🔤I’m a blowfish.🔤
-  🍉
-🍉
-
-🐇 📺 🍇
-  🐇🐖 🏁 ➡️ 🚂 🍇
-    🙋 🍩🎛🐟 👴 Prints "I’m a fish."
-    🙋 🍩🎛🐡 👴 Prints "I’m a blowfish."
-    🍎 0
-  🍉
-🍉
-```
-
-As you can see from the example 🐕 can be used in a method or initializer
-declaration and always stands for the class on which a method or initializer is
-called. 🐕 can also be used inside a class method body where it refers to the
-class on which it was called.
