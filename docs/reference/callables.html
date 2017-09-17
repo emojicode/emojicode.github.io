@@ -20,7 +20,7 @@
 😀 🍭 append 🔟?
 </code></pre><p>You might have gueesed it, the output of the above is:</p><pre><code>Strawberry!
 Strawberry?
-</code></pre><h2 id="closure">Closure</h2><p>You can define closures which remember the environment in which they were defined. The basic syntax to define a closure is:</p><pre class="syntax">
+</code></pre><p>You cannot capture method calls on value types.</p><div class="callout-hint"><div class="title">Hint</div><div class="text"><p>Capturing value type methods would be dangerous as the value type’s storage could go out of scope while the callable is retained.</p></div></div><h2 id="closure">Closure</h2><p>You can define closures which remember the environment in which they were defined. The basic syntax to define a closure is:</p><pre class="syntax">
 <span class="syntax-placeholder" id="srule-closure">closure</span> ⟶ 🍇 [<a href="classes-valuetypes.html#srule-arguments" class="syntax-placeholder">arguments</a>] [<a href="classes-valuetypes.html#srule-return-type" class="syntax-placeholder">return-type</a>] <a href="controlflow.html#srule-statements" class="syntax-placeholder">statements</a> 🍉
 </pre><p>This is basically the same syntax that applies to methods and initializers.</p><p>Example:</p><pre><code>🍦 greet 🍇 name 🔡 ➡️ 🔡
   🍮 out 🔤🔤

@@ -79,6 +79,11 @@ Strawberry!
 Strawberry?
 ```
 
+You cannot capture method calls on value types.
+
+>!H Capturing value type methods would be dangerous as the value type’s
+>!H storage could go out of scope while the callable is retained.
+
 ## Closure
 
 You can define closures which remember the environment in which they were
