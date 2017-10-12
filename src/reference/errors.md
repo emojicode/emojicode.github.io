@@ -1,15 +1,15 @@
 # Error Handling
 
-Proper mechanisms to handle errors are an integral part of modern program
+Proper mechanisms to handle errors are an integral part of modern programming
 languages. Being a modern language, Emojicode provides a sophisticated but
 light-weight way to handle errors.
 
-## The 🚨 Type
+## The 🚨 Types
 
-Emojicode provides a special type: 🚨. A 🚨 type is always composed pf two other
-types: An enumeration that serves as the *error enumeration*, which indicates
-the kind of error if an error occurs, and a contained type, i.e. the type that
-is present if no error arises.
+Emojicode provides special types to handle errors. Those are called 🚨 types. A 🚨
+type is always composed pf two other types: An enumeration that serves as the
+*error enumeration*, which indicates the kind of error if an error occurs, and a
+contained type, i.e. the type that is present if no error arises.
 
 For instance, a method that normally returns a 🔡 can declare that it will
 return an instance of 🏜 in case of an error like this:
@@ -32,8 +32,8 @@ $error$-> 🚨 $expression$
 </pre>
 
 The expression must evaluate to an instance of the error enumeration. The
-example below shows a class, which stands for a microphone. It hash a method
-called 🎬 that in some cases might fail, in which an error is returned:
+example below shows a class, which stands for a microphone. It has a method
+called 🎬 that might fail in some cases, in which an error is returned:
 
 ```
 🦃 ⛰ 🍇
