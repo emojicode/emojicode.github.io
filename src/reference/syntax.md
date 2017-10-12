@@ -11,7 +11,7 @@ basic syntactic definitions are described in this chapter.
 
 ## Notation
 
-The Language Reference & Guide uses a slightly BNF grammar notation:
+The Language Reference & Guide uses a slightly modified BNF grammar notation:
 
 <pre class="syntax">
 <span class="syntax-placeholder">hippo</span> ⟶ <span class="syntax-placeholder">rhinoceros</span> 🥘
@@ -22,15 +22,43 @@ The first line of the above example defines a rule called *hippo*, which
 states that a *hippo* consists of a *rhinoceros*, which is another rule as
 indicated by the purple background, and the emoji 🥘.
 
-Each rule begins with a name and ⟶ (read “consists of”). A vertical bar (`|`) is
-used to separate alternatives. Furthermore, rules can be broken into multiple
-lines starting with the same name, the new line then is an alternative. Parts
-enclosed in square brackets (`[` and `]`) are optional: they can occur but do
-not have to. Whitespaces are never terminals but only appear to improve
-formatting. Moreover, the word `except` indicates that the terminals or non-
-terminals thereafter must not appear even though the previous non-terminal has
-indicated it could appear. `except` may appear multiple times one behind another
-to exclude multiple values.
+The grammar notation we use in the documentation follows these rules:
+
+- Every rule begins with a name and ⟶ (read “consists of”).
+- A vertical bar (`|`) is used to separate alternatives. E.g.
+
+  <pre class="syntax">
+  <span class="syntax-placeholder">foo</span> ⟶ <span class="syntax-placeholder">mouse</span> <span class="syntax-placeholder">dog</span> | <span class="syntax-placeholder">hippo</span>
+  </pre>
+
+  denotes that a *foo* may consits of a *mouse* and a *dog* or of only a *hippo*.
+
+- Rules can be broken into multiple lines starting with the same name, the new
+  line then is an alternative as if the contents right to the ⟶ was on the same
+  line with previous definition separated by a vertical bar. E.g.
+
+  <pre class="syntax">
+  <span class="syntax-placeholder">foo</span> ⟶ <span class="syntax-placeholder">mouse</span> <span class="syntax-placeholder">dog</span> | <span class="syntax-placeholder">hippo</span>
+  </pre>
+
+  and
+
+  <pre class="syntax">
+  <span class="syntax-placeholder">foo</span> ⟶ <span class="syntax-placeholder">mouse</span> <span class="syntax-placeholder">dog</span>
+  <span class="syntax-placeholder">foo</span> ⟶ <span class="syntax-placeholder">hippo</span>
+  </pre>
+
+  indicate the same thing.
+
+- Parts enclosed in square brackets (`[` and `]`) are optional: they can occur
+  but do not have to.
+
+- Whitespaces are never terminals but only appear to improve formatting.
+
+- The word `except` indicates that the terminals or non-terminals thereafter
+  must not appear even though the previous non-terminal has indicated it could
+  appear. `except` may appear multiple times one behind another to exclude
+  multiple values.
 
 ## Document Syntax
 
