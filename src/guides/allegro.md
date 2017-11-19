@@ -7,7 +7,7 @@ have a basic knowledge of object-oriented programming and have read
 
 ## Creating an app
 
-First of all we need to important the allegro package:
+First of all we need to import the allegro package:
 
 ```
 📦 allegro 🔴
