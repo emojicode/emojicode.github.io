@@ -43,47 +43,6 @@ Example of calling a callable:
 🍭 greet 🔤Bob🔤
 ```
 
-## Capturing Method Calls
-
-You can *capture* method calls on instances and types. This creates a callable
-that takes as many arguments of the same type as the method would take and
-returns the same value as the method would return. This callable will always
-execute the method in the same context, though.
-
-The syntax is:
-
-<pre class="syntax">
-$method-capture$-> 🌶 [🍩] $method-emoji$ $capturee$
-$capturee$-> $expression$ | $type$
-</pre>
-
-*method-name* is the emoji representing the method. If you want to capture
-a type method, place the 🍩 in front of the method name. Iff a type method is
-to be caputred *capturee* must be a type.
-
-Example:
-
-```
-🍦 string 🔤Strawberry🔤
-
-🍦 append 🌶 📝 string
-
-😀 🍭 append 🔟!
-😀 🍭 append 🔟?
-```
-
-You might have gueesed it, the output of the above is:
-
-```
-Strawberry!
-Strawberry?
-```
-
-You cannot capture method calls on value types.
-
->!H Capturing value type methods would be dangerous as the value type’s
->!H storage could go out of scope while the callable is retained.
-
 ## Closure
 
 You can define closures which remember the environment in which they were
@@ -159,3 +118,47 @@ This will produce:
 Hello, Walfried
 Have a good lunch, Walfried
 ```
+
+## Capturing Method Calls
+
+>!N Capturing is deperecated as of 0.5.4 and will be removed in an upcoming
+>!N version of Emojicode. Use normal closures instead.
+
+You can *capture* method calls on instances and types. This creates a callable
+that takes as many arguments of the same type as the method would take and
+returns the same value as the method would return. This callable will always
+execute the method in the same context, though.
+
+The syntax is:
+
+<pre class="syntax">
+$method-capture$-> 🌶 [🍩] $method-emoji$ $capturee$
+$capturee$-> $expression$ | $type$
+</pre>
+
+*method-name* is the emoji representing the method. If you want to capture
+a type method, place the 🍩 in front of the method name. Iff a type method is
+to be caputred *capturee* must be a type.
+
+Example:
+
+```
+🍦 string 🔤Strawberry🔤
+
+🍦 append 🌶 📝 string
+
+😀 🍭 append 🔟!
+😀 🍭 append 🔟?
+```
+
+You might have gueesed it, the output of the above is:
+
+```
+Strawberry!
+Strawberry?
+```
+
+You cannot capture method calls on value types.
+
+>!H Capturing value type methods would be dangerous as the value type’s
+>!H storage could go out of scope while the callable is retained.
