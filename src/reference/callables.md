@@ -34,7 +34,7 @@ $callable-call$-> 🍭 $expression$ [$arguments$]
 </pre>
 
 *expression* must be a callable. Of course you must provide the required number
-of correctly typed arguments.
+of correctly typed parameters.
 
 Example of calling a callable:
 
