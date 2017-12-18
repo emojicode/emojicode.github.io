@@ -31,7 +31,7 @@ anything about the actual type but all types that conform to 💿 are capable
 of playing music and therefore must provide the 🎶 method.
 
 You can use the normal 🐖 to require instance methods inside the 🐊 body. At
-present it’s not possible to require initializers or class methods.
+present it’s not possible to require initializers or type methods.
 
 ## Conforming
 

@@ -66,7 +66,7 @@ It occurs at the document level of a document.
 
 There’s sometimes confusion when emojis are used. Basically it’s very simple:
 
-All **type, method, class method and initializer** names are **Emojis**. On the
+All **type, method and initializer** names are **emojis**. On the
 other hand **variables cannot include emojis** but must be any combination of
 characters that cannot be confused with numbers.
 
@@ -153,7 +153,7 @@ which disappears once the block was executed:
 🍉
 </pre>
 
-You cannot access scopes beyond the method, class method or initializer from
+You cannot access scopes beyond the method or initializer from
 your code. Nevertheless, you can access the *object scope* in instance methods
 and initializers. Closures are also considered an exception from this rule.
 You’ll learn more about these two kinds for special scoping in [Classes & Value

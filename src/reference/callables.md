@@ -43,57 +43,25 @@ Example of calling a callable:
 🍭 greet 🔤Bob🔤
 ```
 
-## Capturing Method Calls
-
-You can *capture* method calls on instances and types. This creates a callable
-that takes as many arguments of the same type as the method would take and
-returns the same value as the method would return. This callable will always
-execute the method in the same context, though.
-
-The syntax is:
-
-<pre class="syntax">
-$method-capture$-> 🌶 [🍩] $method-emoji$ $capturee$
-$capturee$-> $expression$ | $type$
-</pre>
-
-*method-name* is the emoji representing the method. If you want to capture
-a type method, place the 🍩 in front of the method name. Iff a type method is
-to be caputred *capturee* must be a type.
-
-Example:
-
-```
-🍦 string 🔤Strawberry🔤
-
-🍦 append 🌶 📝 string
-
-😀 🍭 append 🔟!
-😀 🍭 append 🔟?
-```
-
-You might have gueesed it, the output of the above is:
-
-```
-Strawberry!
-Strawberry?
-```
-
-You cannot capture method calls on value types.
-
->!H Capturing value type methods would be dangerous as the value type’s
->!H storage could go out of scope while the callable is retained.
-
 ## Closure
 
-You can define closures which remember the environment in which they were
-defined. The basic syntax to define a closure is:
+Closures are blocks of code that are not immediately executed but remember the
+context in which they were created, i.e. the variables and the context of the
+method, and can be passed around. The type of a closure is, of course,
+a callable.
+
+A closure is created by a block of code that appears when an expression is
+expected. This means that every code block that is not part of an 🍊, 🍓, or 🍋
+🔂 or 🔁 statement or a method or initializer declaration, is a closure.
+
+In contrast to a normal code block, a closure can define arguments and a return
+type similar to a method.
+
+Formally, its syntax is:
 
 <pre class="syntax">
 $closure$-> 🍇 [$arguments$] [$return-type$] $statements$ 🍉
 </pre>
-
-This is basically the same syntax that applies to methods and initializers.
 
 Example:
 
@@ -131,7 +99,7 @@ Let’s take a look at a more advanced use of a closure:
 🍉
 ```
 
-Here we’ve got a class method that returns a closure. The closure actually
+Here we’ve got a type method that returns a closure. The closure actually
 closes over the `name` variable here and copies it value so that it can be used
 when the closure is called later.
 
@@ -140,22 +108,63 @@ when the closure is called later.
 >!N
 >!N **Instance variables** are **not copied** and really change when modified inside a closure.
 
-Now if we call the class method we’ll get a closure:
+Now, if we call that type method we’ll get a closure:
 
 ```
 🍦 walfriedGreeter 🍩🙋🐀 🔤Walfried🔤
 ```
 
-Now we can call the closure with an argument for `hour`:
+We can call the closure with an argument for `hour`
 
 ```
 😀 🍭 walfriedGreeter 7
 😀 🍭 walfriedGreeter 12
 ```
 
-This will produce:
+and will get this:
 
 ```
 Hello, Walfried
 Have a good lunch, Walfried
 ```
+
+
+## Capturing Method Calls
+
+You can *capture* method calls on instances and types. This creates a callable
+that takes as many arguments of the same type as the method would take and
+returns the same value as the method would return. This callable will always
+execute the method in the same context, though.
+
+The syntax is:
+
+<pre class="syntax">
+$method-capture$-> 🌶 [🍩] $method-emoji$ $capturee$
+$capturee$-> $expression$ | $type$
+</pre>
+
+*method-name* is the emoji representing the method. If you want to capture
+a type method, place the 🍩 in front of the method name. Iff a type method is
+to be caputred *capturee* must be a type.
+
+Example:
+
+```
+🍦 string 🔤Strawberry🔤
+
+🍦 append 🌶 📝 string
+
+😀 🍭 append 🔟!
+😀 🍭 append 🔟?
+```
+
+You might have gueesed it, the output of the above is:
+
+```
+Strawberry!
+Strawberry?
+```
+
+You cannot capture method calls on value types. Capturing value type methods
+would be dangerous as the value type’s storage could go out of scope while the
+callable is retained.

@@ -6,7 +6,7 @@
 </pre><p>For example:</p><pre><code>🐊 💿 🍇
     🐖 🎶
 🍉
-</code></pre><p>Here we declared a protocol named 💿. All classes that <em>conform</em> to this protocol will have to implement the method 🎶. This protocol doesn’t tell us anything about the actual type but all types that conform to 💿 are capable of playing music and therefore must provide the 🎶 method.</p><p>You can use the normal 🐖 to require instance methods inside the 🐊 body. At present it’s not possible to require initializers or class methods.</p><h2 id="conforming">Conforming</h2><p>To make a class conform to a protocol you must declare that it conforms to the protocol using the conformance syntax:</p><pre class="syntax">
+</code></pre><p>Here we declared a protocol named 💿. All classes that <em>conform</em> to this protocol will have to implement the method 🎶. This protocol doesn’t tell us anything about the actual type but all types that conform to 💿 are capable of playing music and therefore must provide the 🎶 method.</p><p>You can use the normal 🐖 to require instance methods inside the 🐊 body. At present it’s not possible to require initializers or type methods.</p><h2 id="conforming">Conforming</h2><p>To make a class conform to a protocol you must declare that it conforms to the protocol using the conformance syntax:</p><pre class="syntax">
 <span class="syntax-placeholder" id="srule-protocol-conformance">protocol-conformance</span> ⟶ 🐊 <a href="types.html#srule-type" class="syntax-placeholder">type</a>
 </pre><p>Here a radio is declared to be conform to 💿.</p><pre><code>🐇 📻 🍇
   🐊 💿

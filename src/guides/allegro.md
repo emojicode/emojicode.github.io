@@ -41,7 +41,7 @@ method normally doesn’t return but instead calls the given callable in an
 appropriate way and passes it an instance of 🏔 that represents the created
 application. We’ll use it to draw in a moment.
 
-To recap: Call this class method, provide it with a callable and setup the
+To recap: Call this type method, provide it with a callable and setup the
 application from there.
 
 We’ll do so by creating a 📺 instance. A 📺 instance (say *display*) is

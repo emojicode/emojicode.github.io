@@ -397,15 +397,16 @@ following example would print the value `fries`, for instance.
 
 ## Access Levels
 
-*Access Levels* describe from which context a method, class method or initializer can be called. There are three access levels:
+*Access Levels* describe from which context a method or initializer can be
+called. There are three access levels:
 
 <pre class="syntax">
 $access-level$-> 🔓 | 🔒 | 🔐
 </pre>
 
-- 🔓: The method, initializer, or class method can be accessed from everywhere.
-- 🔒: The method, initializer, or class method may only be accessed within the class it was defined.
-- 🔐: The method, initializer, or class method may only be accessed within the class it was defined or within a class that inherits from that class.
+- 🔓: The method or initializer can be accessed from everywhere.
+- 🔒: The method or initializer may only be accessed within the type it was defined.
+- 🔐: The method or initializer may only be accessed within the type it was defined or within a class that inherits from that class that defined this method.
 
 ## Deprecation
 
