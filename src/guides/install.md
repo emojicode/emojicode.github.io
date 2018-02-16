@@ -1,6 +1,6 @@
 # Installing Emojicode
 
-## 🎩 Magic Installation
+## Magic Installation
 
 The magic installation is the easiest way to install Emojicode. Just select your
 operating system and the version you wish to install below (we’ve already
