@@ -128,8 +128,10 @@ Hello, Walfried
 Have a good lunch, Walfried
 ```
 
-
 ## Capturing Method Calls
+
+>!N Capturing is deperecated as of 0.5.4 and will be removed in an upcoming
+>!N version of Emojicode. Use normal closures instead.
 
 You can *capture* method calls on instances and types. This creates a callable
 that takes as many arguments of the same type as the method would take and
@@ -165,6 +167,6 @@ Strawberry!
 Strawberry?
 ```
 
-You cannot capture method calls on value types. Capturing value type methods
-would be dangerous as the value type’s storage could go out of scope while the
-callable is retained.
+You cannot capture method calls on value types as capturing value type
+methods would be dangerous since the value type’s storage could go out of scope
+while the callable is retained.
