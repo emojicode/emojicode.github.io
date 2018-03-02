@@ -77,7 +77,7 @@ $string-escape-tail$-> n | t | r | e
 
 ### Comparing Strings
 
-If you want to determine whether to strings represent the same value, you can
+If you want to determine whether two strings represent the same value, you can
 use the equality method 😛.
 
 ```
