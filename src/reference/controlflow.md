@@ -11,10 +11,10 @@ or that will be repeated.
 
 Syntactic definition:
 
-<pre class="syntax">
+```syntax
 $block$-> 🍇 $statements$ 🍉
 $statements$-> $statement$ $statements$ | $statement$
-</pre>
+```
 
 Examples of blocks can be seen below.
 
@@ -23,24 +23,23 @@ Examples of blocks can be seen below.
 The 🍊 statement is very important. It allows for conditional execution of a
 code block. The whole syntax is:
 
-<pre class="syntax">
+```syntax
 $if$-> 🍊 $condition$ $block$ [$else-ifs$] [$else$]
 $else-ifs$-> $else-if$ $else-ifs$ | $else-if$
 $else-if$-> 🍋 $condition$ $block$
 $else$-> 🍓 $block$
-$condition$-> $expression$ | $frozen-declaration$
-</pre>
+$condition$-> $expression$ | $assignment$
+```
 
 If the *condition* evaluates to 👍, the code block will be executed, and
 if it evaluates to 👎 it'll be ignored.
 
-This example will display a is bigger b if *a* is bigger *b*:
+This example will display “a is greater than” b if the content for variabe *a*
+is greater than *b*:
 
 ```
-🍦 a 10
-🍦 b 4
-🍊 ▶️ a b 🍇
-  😀 🔤a is bigger than b🔤
+🍊 a ▶️ b 🍇
+  😀 🔤a is greater than🔤❗️
 🍉
 ```
 
@@ -52,13 +51,11 @@ code would display a is greater than b if “a is greater than b” and “a is 
 greater than b” otherwise:
 
 ```
-🍦 a 2
-🍦 b 8
-🍊 ▶️ a b 🍇
-  😀 🔤a is bigger b🔤
+🍊 a ▶️ b 🍇
+  😀 🔤a is greater than🔤❗️
 🍉
 🍓 🍇
-  😀 🔤a is not greater than b🔤
+  😀 🔤a is not greater than b🔤❗️
 🍉
 ```
 
@@ -70,20 +67,18 @@ if all 🍋 statements evaluated to false too.
 🍋 extends an 🍊 statement to execute different statements in case the original
 🍊 condition evaluates to 👎. However, unlike 🍊, it will execute that
 alternative expressions only if the 🍊 expression is 👍. For example, the
-following code would display “a is bigger than b”, “a equal to b” or “a is
+following code would display “a is greater than”, “a equal to b” or “a is
 smaller than b”:
 
 ```
-🍦 a 2
-🍦 b 7
-🍊 ▶️ a b 🍇
-  😀 🔤a is bigger than b🔤
+🍊 a ▶️ b 🍇
+  😀 🔤a is greater than🔤❗️
 🍉
-🍋 😛 a b 🍇
-  😀 🔤a equal to b🔤
+🍋 a 🙌 b 🍇
+  😀 🔤a equal to b🔤❗️
 🍉
 🍓 🍇
-  😀 🔤a is smaller than b🔤
+  😀 🔤a is smaller than b🔤❗️
 🍉
 ```
 
@@ -101,20 +96,20 @@ which conforms to the 🔂🐚Element protocol.
 
 Its syntax is:
 
-<pre class="syntax">
+```syntax
 $for-in$-> 🔂 $variable$ $expression$ $block$
-</pre>
+```
 
 The compiler then transforms the statement into byte code equivalent to the
 statement rewritten to
 
-<pre class="exampe">
-🍦 iterator 🍡<i>iterable</i>
+```
+🍦 iterator iterable
 🔁 ❓ iterator 🍇
-  🍦 <i>variable</i> 🔽 iterator
+  🍦 variable 🔽 iterator
   👴 The provided block is executed here
 🍉
-</pre>
+```
 
 where *iteratable* is the instance to iterate over (the result from evaluating
 the expression) and *variable* the variable name provided. Evidently, the
@@ -124,10 +119,10 @@ when the type of *iterable* declared its conformance to 🔂🐚Element.
 Let’s take a look at an example:
 
 ```
-🍦 list 🍨🔤tree🔤 🔤bee🔤 🔤lee🔤 🔤me🔤🍆
+🍨🔤tree🔤 🔤bee🔤 🔤lee🔤 🔤me🔤🍆 ➡️ list
 
 🔂 name list 🍇
-  😀 name
+  😀 name❗️
 🍉
 ```
 
@@ -147,15 +142,15 @@ inferred.
 that if the *condition* is never 👍 the code block will never be executed.
 The syntax is:
 
-<pre class="syntax">
+```syntax
 $repeat-while$-> 🔁 $condition$ $block$
-</pre>
+```
 
-For example, this program will infinitely print “disko disko partinzani”.
+For example, this program will infinitely print “It goes on and on and on”.
 
 ```
 🔁 👍 🍇
-  😀 🔤disko disko partinzani🔤
+  😀 🔤It goes on and on and on🔤❗️
 🍉
 ```
 

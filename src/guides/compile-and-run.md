@@ -92,11 +92,11 @@ is, according to the [documentation](../packages/s/t5535756609.html#m🔪), capa
 of giving us just part of a string. It’s signature is:
 
 ```
-🐖 🔪 from 🚂 length 🚂 ➡️ 🔡
+🐖 🔪 from 🔢 length 🔢 ➡️ 🔡
 ```
 
-This tells us that the `🔪` method takes two arguments named `from` and `length`, both of them must be of the type 🚂.
-🚂 stands for an integer, and that the method returns an instance of 🔡.
+This tells us that the `🔪` method takes two arguments named `from` and `length`, both of them must be of the type 🔢.
+🔢 stands for an integer, and that the method returns an instance of 🔡.
 
 Let’s call it on the string we are currently working on.
 

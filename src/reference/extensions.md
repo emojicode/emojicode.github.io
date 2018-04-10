@@ -1,21 +1,20 @@
 # Extensions
 
+>!N This chapter has not been revised for Emojicode Symphonic alpha yet.
+
 Extensions allow you to extend an existing class or value type.
 
 In an extension, you can declare and define everything you could when initially
 declaring a class or value type, this includes methods, initializers, type
 methods and protocol conformances.
 
->!N Adding instance varibales is deperecated as of 0.5.4 and will be
->!N removed in an upcoming version of Emojicode.
-
 ## Extending
 
 The syntax is:
 
-<pre class="syntax">
+```syntax
 $extension$-> 🐋 $type-identifier$ $type-body$
-</pre>
+```
 
 You can also extend classes from other packages. For example:
 

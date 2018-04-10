@@ -2,63 +2,16 @@
 	<h1>Package {{name}}</h1>
 	{{{packageDocumentation}}}
 
-  {{#valueTypesItems}}
-  <h2>Value Types</h2>
+  <h2>Types</h2>
 
   <div class="link-list">
-    {{#valueTypes}}
+    {{#types}}
       <a href="{{asciiName}}.html" class="link-box">
         <div class="name">
           {{name}}
         </div>
         {{firstSentence}}
       </a>
-    {{/valueTypes}}
+    {{/types}}
   </div>
-  {{/valueTypesItems}}
-
-	{{#classesItems}}
-	<h2>Classes</h2>
-
-	<div class="link-list">
-		{{#classes}}
-      <a href="{{asciiName}}.html" class="link-box">
-        <div class="name">
-          {{name}}
-        </div>
-        {{firstSentence}}
-      </a>
-		{{/classes}}
-	</div>
-	{{/classesItems}}
-
-	{{#protocolsItems}}
-	<h2>Protocols</h2>
-
-	<div class="link-list">
-		{{#protocols}}
-      <a href="{{asciiName}}.html" class="link-box">
-        <div class="name">
-          {{name}}
-        </div>
-        {{firstSentence}}
-      </a>
-		{{/protocols}}
-	</div>
-	{{/protocolsItems}}
-
-  {{#enumItems}}
-  <h2>Enumerations</h2>
-
-  <div class="link-list">
-    {{#enums}}
-      <a href="{{asciiName}}.html" class="link-box">
-        <div class="name">
-          {{name}}
-        </div>
-        {{firstSentence}}
-      </a>
-    {{/enums}}
-  </div>
-  {{/enumItems}}
 </section>

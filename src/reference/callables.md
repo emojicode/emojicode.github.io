@@ -1,5 +1,7 @@
 # Callables
 
+>!N This chapter has not been revised for Emojicode Symphonic alpha yet.
+
 Emojicode supports a type called *callables* which is comparable to function
 types in other programming languages. Callables are objects like any other
 object and can therefore be stored in variables, passed as argument, etc.
@@ -8,10 +10,10 @@ object and can therefore be stored in variables, passed as argument, etc.
 
 The callable type is declared using this syntax:
 
-<pre class="syntax">
+```syntax
 $callable-type$-> 🍇 [$type-list$] [$return-type$] 🍉
 $type-list$-> $type$ | $type$ $type-list$
-</pre>
+```
 
 Each *type* stands for one argument of that type. You can specify a
 *returnType*. If no return type is specified the callable is assumed to return
@@ -20,7 +22,7 @@ Nothingness.
 Examples:
 
 ```
-🍇🚂➡️🔡🍉 👴Takes an integer argument and returns a string
+🍇🔢➡️🔡🍉 👴Takes an integer argument and returns a string
 🍇➡️🔣🍉 👴Takes no arguments and returns a symbol
 🍇🍉 👴Takes no arguments and returns nothing(ness).
 ```
@@ -29,9 +31,9 @@ Examples:
 
 The 🍭 must be used to call a callable.
 
-<pre class="syntax">
+```syntax
 $callable-call$-> 🍭 $expression$ [$arguments$]
-</pre>
+```
 
 *expression* must be a callable. Of course you must provide the required number
 of correctly typed parameters.
@@ -59,9 +61,9 @@ type similar to a method.
 
 Formally, its syntax is:
 
-<pre class="syntax">
+```syntax
 $closure$-> 🍇 [$arguments$] [$return-type$] $statements$ 🍉
-</pre>
+```
 
 Example:
 
@@ -89,8 +91,8 @@ znarF
 Let’s take a look at a more advanced use of a closure:
 
 ```
-🐇🐖 🙋 name 🔡 ➡️ 🍇🚂➡️🔡🍉 🍇
-  🍎 🍇 hour 🚂 ➡️ 🔡
+🐇🐖 🙋 name 🔡 ➡️ 🍇🔢➡️🔡🍉 🍇
+  🍎 🍇 hour 🔢 ➡️ 🔡
     🍊 😛 hour 12 🍇
       🍎 🍪 🔤Have a good lunch, 🔤 name🍪
     🍉
@@ -127,46 +129,3 @@ and will get this:
 Hello, Walfried
 Have a good lunch, Walfried
 ```
-
-## Capturing Method Calls
-
->!N Capturing is deperecated as of 0.5.4 and will be removed in an upcoming
->!N version of Emojicode. Use normal closures instead.
-
-You can *capture* method calls on instances and types. This creates a callable
-that takes as many arguments of the same type as the method would take and
-returns the same value as the method would return. This callable will always
-execute the method in the same context, though.
-
-The syntax is:
-
-<pre class="syntax">
-$method-capture$-> 🌶 [🍩] $method-emoji$ $capturee$
-$capturee$-> $expression$ | $type$
-</pre>
-
-*method-name* is the emoji representing the method. If you want to capture
-a type method, place the 🍩 in front of the method name. Iff a type method is
-to be caputred *capturee* must be a type.
-
-Example:
-
-```
-🍦 string 🔤Strawberry🔤
-
-🍦 append 🌶 📝 string
-
-😀 🍭 append 🔟!
-😀 🍭 append 🔟?
-```
-
-You might have gueesed it, the output of the above is:
-
-```
-Strawberry!
-Strawberry?
-```
-
-You cannot capture method calls on value types as capturing value type
-methods would be dangerous since the value type’s storage could go out of scope
-while the callable is retained.

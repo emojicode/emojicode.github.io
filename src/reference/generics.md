@@ -1,7 +1,6 @@
 # Generics
 
->!N This document was not fully revised for Emojicode 0.5 yet. Please
->!N be aware of that it might contain inaccuracies.
+>!N This chapter has not been revised for Emojicode Symphonic alpha yet.
 
 *Generics* allow you to write code in which you can use a placeholder – variable
 names – instead of actual type names, which will then be substituted with real
@@ -12,10 +11,10 @@ great way to avoid code duplication.
 
 To define a Generic class you define a class and append
 
-<pre class="syntax">
+```syntax
 $generic-parameter$-> 🐚 $variable$ $type$
 $generic-parameters$-> $generic-parameter$ $generic-parameters$ | $generic-parameter$
-</pre>
+```
 
 for each generic argument the class shall take. This structure is called
 *generic argument*. *variable* is the name of the argument. *type* is a generic
@@ -69,7 +68,7 @@ same arguments. So `🍨🐚🔡` is only compatible to `🍨🐚🔡` but not t
 The following example will **not** compile and illustrates why this
 kind of type conversion is not allowed.
 
-<pre class="negative-example">
+```!
 🍦 listOfStrings 🍨 🔤Curiosity🔤 🔤Doesn’t🔤 🍆
 
 🍰 listOfSomethings 🍨🐚⚪️
@@ -83,7 +82,7 @@ kind of type conversion is not allowed.
   👴 The program would crash as there’s an integer in our list of strings
   😀 string
 🍉
-</pre>
+```
 
 ## Generic Methods and Intializers
 
@@ -114,10 +113,10 @@ which on which you call the method:
 
 The grammar for generic arguments is:
 
-<pre class="syntax">
+```syntax
 $generic-arguments$-> $generic-argument$ | $generic-argument$ $generic-arguments$
 $generic-argument$-> 🐚 $variable$ $type$
-</pre>
+```
 
 Emojicode is, however, actually capable of automatically inferring the generic
 arguments for you, so you could just write:

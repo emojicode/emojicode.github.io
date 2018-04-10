@@ -1,5 +1,7 @@
 # The s package
 
+>!N This chapter has not been revised for Emojicode Symphonic alpha yet.
+
 This chapter provides a very brief overview of the s package and its most
 important classes.
 
@@ -12,10 +14,24 @@ types to write meaningful programs.
 >!H
 >!H You can browse the whole API of the s package [here](../packages/s/).
 
-## 👌 🚂 🚀 🔣
+## 👌 🔢 🚀 🔣
 
-You’ve already got to know the types 👌 🚂 🚀 🔣 in a previous chapter. These
+You’ve already got to know the types 👌 🔢 💯 in a previous chapter. These
 types are, of course, also defined in the s package.
+
+## Symbol literals
+
+A **Symbol** is a **single Unicode character** represented by the symbol type 🔣.
+The symbol type can represent any character defined in Unicode.
+
+You can include the symbol in the source code file by prepending 🔟 before the
+desired symbol. This is called a *Symbol literal*.
+
+Example:
+
+```
+🍦 percent 🔟%
+```
 
 ## 🔡 Strings
 
@@ -67,13 +83,13 @@ All other combinations of a ❌ and another character lead to a compiler error.
 
 Formally, the syntax is:
 
-<pre class="syntax">
+```syntax
 $string-literal$-> 🔤 [$string-literal-characters$] 🔤
 $string-literal-characters$-> $string-literal-character$ |  $string-literal-character$ $string-literal-characters$
-$string-literal-character$-> $unicode$ except 🔤 except ❌ | $string-escape-sequence$
+$string-literal-character$-> $string-escape-sequence$ | --🔤 $unicode$
 $string-escape-sequence$-> ❌ $string-escape-tail$
 $string-escape-tail$-> n | t | r | e
-</pre>
+```
 
 ### Comparing Strings
 
@@ -108,11 +124,11 @@ of the language.
 
 The syntax formally is:
 
-<pre class="syntax">
+```syntax
 $concatenate-literal$-> 🍪 $concatenate-expressions$ 🍪
 $concatenate-expressions$-> $concatenate-expression$ | $concatenate-expression$ $concatenate-expressions$
-$concatenate-expression$-> $expression$ except $concatenate-literal$
-</pre>
+$concatenate-expression$-> --$concatenate-literal$ $expression$
+```
 
 ### String Pooling
 
@@ -172,10 +188,10 @@ The example below creates a list with the values `14`, `67`, `2434`.
 
 The compiler will try to infer the generic type argument for the list.
 
-<pre class="syntax">
+```syntax
 $list-literal$-> 🍨 [$expressions$] 🍆
 $expressions$-> $expression$ | $expression$ $expressions$
-</pre>
+```
 
 ## 🍯 Dictionaries
 
@@ -193,12 +209,12 @@ For instance if the values were booleans the type would be written like this:
 
 The shortcut syntax to create a dictionary is:
 
-<pre class="syntax">
+```syntax
 $dictionary-literal$-> 🍯 [$kv-pairs$] 🍆
 $kv-pairs$-> $kv-pair$ $kv-pairs$ | $kv-pair$
 $kv-pair$-> $key$ $expression$
 $key$-> $expression$
-</pre>
+```
 
 *key* must be a string. The compiler will try to infer the generic type argument
 for the dictionary.
@@ -227,19 +243,6 @@ that matches the constraint `start ≤ f(x) < stop` is an element of the range. 
 Ranges can be created by using the shortcut syntax, which is depending on your
 needs either
 
-<pre class="syntax">
-$range-literal$-> $range-literal-with-step$ $range-literal-without-step$
-$range-literal-with-step$-> ⏭ $start$ $stop$ $step$
-$start$-> $expression$
-$stop$-> $expression$
-$step$-> $expression$
-</pre>
-
-or
-
-<pre class="syntax">
-$range-literal-without-step$-> ⏩ $start$ $stop$
-</pre>
 
 The latter uses 1 as *step* value if *start* is less than *stop*, otherwise
 -1 is used as *step* value. If you provide 0 as *step* value *step* will be

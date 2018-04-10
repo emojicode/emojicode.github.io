@@ -1,13 +1,3 @@
-@import 'latolatinfonts';
-
-@font-face {
-  font-family: 'Varela Round';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Varela Round'), local('VarelaRound-Regular'),
-       url(/static/fonts/VarelaRound-Regular.ttf);
-}
-
 @font-face {
   font-family: 'Roboto Mono';
   font-style: normal;
@@ -16,42 +6,31 @@
        url(/static/fonts/RobotoMono-Regular.ttf);
 }
 
-@font-face {
-  font-family: 'Roboto Mono';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Roboto Mono'), local('RobotoMono-Bold'),
-       url(/static/fonts/RobotoMono-Bold.ttf);
-}
-
 // Emojicode Brand Colors
 
 $white: #fff;
 $black: #000;
-$gray: #eee;
-$p-dark: #25224d;
-$p-intermediate: #312d67;
-$p-soft: #68389c;
-$p-bright: #934edc;
-$p-gray: lighten($p-intermediate, 65%);
+$p-intermediate: hsl(244, 39%, 29%);
+$p-soft: hsl(253, 70%, 68%);
+$p-gray: lighten($p-intermediate, 68%);
 
 // General Colors
 
 $background-color: rgb(254, 254, 254);
-$text-color: rgb(58, 58, 58);
-$link-color: lighten($p-intermediate, 30%);
-$pre-background: $gray;
+$text-color: rgb(55, 55, 55);
+$link-color: desaturate(darken($p-soft, 11%), 6%);
 $code-font: Roboto Mono, Monaco, monospace;
-$code-background: $p-gray;
+$code-background: desaturate(lighten($p-intermediate, 69%), 14%);
+
+$border-radius: 4px;
 
 // Heading Settings
 
-$heading-letter-spacing: -0.03em;
-$heading-color: $p-intermediate;
+$heading-color: darken($p-intermediate, 3%);
 
 // Global Menu Colors
 
-$menu-height: 50px;
+$menu-height: 36px;
 $menu-color: $p-intermediate;
 
 // Table Settings
@@ -63,6 +42,17 @@ $table-row-border-top-color: #ccc;
 $footer-color: #7f7f7f;
 $break: 880px;
 
+%display-font {
+  font-family: AvenirNextRoundedPro-Med;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+%text-font {
+  font-family: HelveticaNeueLTPro, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: normal;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -71,9 +61,11 @@ html,
 body {
   height: 100%;
   padding: 0;
+  font-size: 16px;
 }
 
 body {
+  @extend %text-font;
   padding: 0;
   margin: 0;
 
@@ -84,12 +76,8 @@ body {
   color: $text-color;
   text-rendering: optimizelegibility;
 
-  font-family: LatoLatinWeb, proxima-nova, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: normal;
-
   background-color: $background-color;
-  margin-top: $menu-height;
+  padding-top: $menu-height;
 }
 
 a {
@@ -102,34 +90,33 @@ a {
 }
 
 p {
-  line-height: 1.5em;
+  line-height: 1.5;
 }
 
 h1 {
   font-size: 2.8em;
+  margin-bottom: 0.66666rem;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: Varela Round;
-  font-weight: normal;
+  @extend %display-font;
   color: $heading-color;
-  margin-top: 2.9rem;
-  margin-bottom: 0.6rem;
-  letter-spacing: $heading-letter-spacing;
+  margin-top: 2rem;
+  margin-bottom: 0.3333rem;
 }
 
 pre,
 code {
   font-family: $code-font;
+  background-color: $code-background;
 }
 
 pre {
-  padding: 1.05em;
-  background-color: $pre-background;
-  font-size: 0.9em;
+  padding: 1.3333rem;
+  font-size: 16px;
   overflow-x: scroll;
   position: relative;
 
@@ -142,22 +129,21 @@ pre {
 
 code {
   display: inline-block;
-  background-color: $code-background;
   padding: 0 0.2em;
   font-size: 0.9em;
   border-radius: 2px;
 }
 
 .menu {
+  @extend %display-font;
   -webkit-font-smoothing: subpixel-antialiased;
-  padding: 0 10px;
+  padding: 0 0.5em;
   color: $white;
   position: absolute;
   background-color: $menu-color;
   top: 0;
   right: 0;
   left: 0;
-  font-size: 18px;
   height: $menu-height;
   line-height: $menu-height;
 

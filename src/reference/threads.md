@@ -1,5 +1,7 @@
 # Threads
 
+>!N This chapter has not been revised for Emojicode Symphonic alpha yet.
+
 Emojicode offers concurrency, that is doing more than one thing at a time,
 and allows you to create threads, which can each independently execute code.
 
@@ -76,17 +78,17 @@ Imagine the following program:
 
 ```
 🐇 🏦 🍇
-  🍰 account 🚂
+  🍰 account 🔢
 
   🐈 🆕 🍇
     🍮 account 300
   🍉
 
-  🐖 💸 sum 🚂 🍇
+  🐖 💸 sum 🔢 🍇
     🍮 account ➖ account sum
   🍉
 
-  🐖 💶 ➡️ 🚂 🍇
+  🐖 💶 ➡️ 🔢 🍇
     🍎 account
   🍉
 🍉

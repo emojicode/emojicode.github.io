@@ -51,7 +51,7 @@ systems a 📺 will be represented by a window.
 📺 provides a single initializer:
 
 <pre class="declaration">
-🔓 🐈 🆕 width <a href="../packages/s/1f682.html">🚂</a> height <a href="../packages/s/1f682.html">🚂</a> </pre>
+🔓 🐈 🆕 width <a href="../packages/s/1f682.html">🔢</a> height <a href="../packages/s/1f682.html">🔢</a> </pre>
 
 Our code to get a display is therefore:
 
@@ -225,7 +225,7 @@ So let’s update the 🏁 function to use the new classes:
     🍦 cookies 🔷🍨🐚🍪🐸
     🍦 prng 🔷🎰🆕
     🔂 i ⏩ 0 10 🍇  👴 Create 10 randomly placed cookies
-      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
+      🐻 cookies 🔷🍪🆕 🚀🔢 prng 50 900 🚀🔢 prng 50 900 cookieBmp
     🍉
 
     🍦 monster 🔷🦁🆕 👴 Instantiate a monster
@@ -246,7 +246,7 @@ So let’s update the 🏁 function to use the new classes:
 As you can see we didn’t just replace the drawing calls but also introduced a 🍨
 `cookies` which stores ten randomly placed cookie objects. `🔷🎰🆕` creates a
 pseudo-random number generator, an object we can ask for random numbers. We use
-it to get integers between 50 and 900, which are then converted into 🚀s with 🚂’s
+it to get integers between 50 and 900, which are then converted into 🚀s with 🔢’s
 🚀 method. Later on this 🍨 is iterated and 🖌 is called on each cookie.
 
 If you run the program you’ll see something similar to this:
@@ -340,7 +340,7 @@ Monster visible:
     🍦 cookies 🔷🍨🐚🍪🐸
     🍦 prng 🔷🎰 🆕
     🔂 i ⏩ 0 10 🍇
-      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
+      🐻 cookies 🔷🍪🆕 🚀🔢 prng 50 900 🚀🔢 prng 50 900 cookieBmp
     🍉
 
     🍦 monster 🔷🦁🆕
@@ -623,7 +623,7 @@ The whole program should now look like this:
     🍦 cookies 🔷🍨🐚🍪🐸
     🍦 prng 🔷🎰 🆕
     🔂 i ⏩ 0 10 🍇
-      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
+      🐻 cookies 🔷🍪🆕 🚀🔢 prng 50 900 🚀🔢 prng 50 900 cookieBmp
     🍉
 
     🍦 sample 🚇🔷🎶📄 🔤sound.wav🔤

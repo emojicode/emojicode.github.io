@@ -87,7 +87,7 @@ const app = new Vue({
         title: 'Fast & Portable',
         text: 'Here you can see an recursive implementation to solve the Towers of Hanoi with 20 disks. This basic, naive implementation, for instance, easily beats out Java and Python. Oh, and Emojicode is portable too.',
         example: `🕊 🏤 🍇
-  🐇🐖 👈 n 🚂 origin 🔡 destination 🔡 temp 🔡 🍇
+  🐇🐖 👈 n 🔢 origin 🔡 destination 🔡 temp 🔡 🍇
     🍦 thisMove 🍪 🔤Move disk 🔤 🔡 n 10 🔤 from 🔤 origin 🔤 to 🔤 destination 🍪
 
     🍊 😛 n 1 🍇

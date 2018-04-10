@@ -1,52 +1,54 @@
 # Packages
 
->!H Before reading this chapter make sure you’re familiar with [Emojicode’s
->!H namespacing](types.html#namespaces).
-
 ## What is a Package?
 
-Emojicode divides code into so called *packages*. A package is a unit of code
+Emojicode divides code into so-called packages. A package is a unit of code
 that can consist of one or more Emojicode source code files. All packages have a
-name associated with them and **all code belongs to a package**. If you tell the
-compiler to **compile a file** this file implicitely becomes the starting point
-for a **package called `_`**. So remember, all code you write belongs to a
-package.
+name associated with them and all code belongs to a package.
 
-Each package has its **own set of types and own namespaces**. If you define or
+If you tell the compiler to compile a file this file implicitly becomes the
+main point for a package called `_`. So remember, all code you write
+belongs to a package.
+
+The object of packages is to provide an easy way of reusing code as well as
+allowing the programmer to divide programs into logical units.
+
+Each package has its own set namespaces. If you define or
 import types in one package, this types will not be available in other packages
-without explicitly importing them.
+without explicitly importing them there.
+
+>!H Make sure you’re familiar with [Emojicode’s
+>!H namespaces](types.html#namespaces).
 
 ## Importing other packages
 
-The object of packages is to provide an **easy way to reuse code**. Therefore
-naturally, you can import other packages into a package. The syntax to do this
-is:
+As you probably already know, you can import packages. The syntax to do this is:
 
-<pre class="syntax">
-$package-import$-> 📦 $package-name$ $emoji$
+```syntax
+$package-import$-> 📦 $package-name$ $type-emoji$
 $package-name$-> $variable$
-</pre>
+```
 
-If such a statment ocours to the compiler, the compiler will search the
-*Package Search Path* for a package with the given name *package-name* and will
-try to import it. The default *Package Search Path* is
-`/usr/local/EmojicodePackages/` for UNIX operating systems.
+If such a statement occurs to the compiler, the compiler will search the
+its package search paths for a package with the provided name *package-name*
+and will try to import it. To learn more about the package search paths, please
+see [Appendix: The Emojicode Compiler](compiler.html).
 
-If you import a package, **all types that were exported from the imported
-package will be made available in the importing package**. The types will be
-added to the given namespace `destinationNamespace`. If this would cause a
-naming collision the compiler will emit an error. It’s also important to note
-here, that namespaces are completely local to a package.
+If you import a package, all types that were exported from the imported package
+are made available in the importing package. The types will be added to the
+provided namespace. If this would cause a naming collision the compiler will
+emit an error. It’s also important to note, that each package has individual
+namespaces.
 
-The example below imports the `files` package into the global namespace 🔴.
+The example below imports the `files` package into the default namespace 🏠.
 The progam then uses the class 📄 which was imported from the
 `files` package.
 
 ```
-📦 files 🔴
+📦 files 🏠
 
 🏁 🍇
-  🍦 file 🔷📄📜 🔤tests/fileTest_testFile.txt🔤
+  🍺🆕📄📜 🔤novel.txt🔤❗️ ➡️ readFile
 🍉
 ```
 
@@ -54,134 +56,114 @@ Any package can load other packages as long as this doesn’t lead to a circular
 dependency. The compiler will detect circular dependencies and abort the
 compilation.
 
-The **s package is implicitly imported** into the global namespace 🔴 of
-**every package**.
+The s package is implicitly imported into the default namespace 🏠 of
+every package.
 
-## Making a Package Importable
+## Writing An Importable Package
 
-A package always has a single file as starting point which is either called
-`header.emojic` for an importable package or arbitrarily named for the `_`
-package. This file then can include other files using 📜.
+### Exporting Types
 
-**By default all types** defined within a package are internal and **not
-exported**. If you want to export a type defined in your package you must
-prepend it with 🌍.
+A package always has a main file, which is the file you pass to the compiler.
+This file then can include other files using 📜.
 
-Extensions are always applied to the extended class and can therefore not be
-explicitely marked with 🌍. Packages are cached so an extension will only be
-applied once. If your package extends a class the extensions will be available
-everywhere after the package with the extension was loaded from somewhere within
-the program.
+By default all types defined within a package are internal and not
+exported. If you want to export a type defined in your package you must
+attribute it 🌍.
 
 Keep in mind that types don’t actually belong to a namespace. When exporting a
-type the namespace is completely irrelevant. All exported types will be
-imported into the requested namespace regardless in which namespace they were
-intially exported.
+type the namespace is completely irrelevant.
+
+### Setting a Version
 
 Additionally an importable package must declare its version using 🔮:
 
-<pre class="syntax">
+```syntax
 $version$-> [$documentation-comment$] 🔮 $major$ $minor$
 $major$-> $integer-literal$
 $minor$-> $integer-literal$
-</pre>
+```
 
-The `header.emojic` of a cat-simulator package must look like this:
+For instance, the main file of a cat simulator could look like this:
 
 ```
 🔮 1 4
 
 🌍 🐇 🐱 🍇
-  🐈 🎀 🍇🍉
+  🆕 🍇🍉
 
-  🐖 🎙 🍇
-    😀 🔤Meow🔤
-  🍉
-🍉
-
-🐇 💊 🍇
-  🐈 🔬 🍇🍉
-
-  🐖 💉 🍇
-    👴 ... secret code ...
+  ❗️ 🎙 🍇
+    😀 🔤Meow🔤❗️
   🍉
 🍉
 ```
 
-Now, to make this package finally importable we’ll move this file into the
-Package Search Path. Each package has its own directory which must be named
-`{name}-v{major}` and a symbolic link to this directory just named after the
-package.
+### Compiling the package
 
-So we will need to create a directory `cat-simulator-v1` and a link `cat-
-simulator` to this directory. The directory will then look similiar to this:
+We can now tell the compiler to compile the cat simulator package:
 
 ```
-...
-├── s -> /usr/local/EmojicodePackages/s-v1
-├── s-v1
-│   └── header.emojic
-├── cat-simulator -> /usr/local/EmojicodePackages/cat-simulator-v0
-└── cat-simulator-v0
-    └── header.emojic
+emojicodec -p catsimulator main.emojic
 ```
 
-If we imported this package, we would gain access to the 🐱 but we’d not be able
-to access the 💊 class as it was not exported.
+If you run this command, the compiler will not create an executable binary, but
+an archive (named `libcatsimulator.a` in our example) and an interface file
+called `interface.emojii`. The interface file describes all exported types and
+their public and protected methods and initializers is a subset of Emojicode.
+When the compiler tries to import a package it looks for this interface file to
+determine the interfaces of the package. It is crucial that you not modify this
+file in any way.
+
+If we place these two files inside a directory named `catsimulator` we
+have a package ready for distribution!
+
+Let us test our new package by writing this short program `test.emojic`:
 
 ```
-📦 cat-simulator 🔴
+📦 catsimulator 🏠
 
 🏁 🍇
-  🍦 cat 🔷🐱🎀
-  🎙 cat
-
-  👴 The line below won't compile and should be removed
-  🍦 drug 🔷💊🔬
+  🆕🐱🆕❗️ ➡️ cat
+  🎙cat❗️
 🍉
 ```
 
-## Native Binaries
-
-Packages can be accompanied by a native compiled binary. Native binaries can
-introduce performance issues and are not easy to get right and should only be
-used when absolutely necessary.
-
-To declare that a package comes with a native binary, you place a 📻 at the
-document level.
+Our directory structure looks like this now:
 
 ```
-🔮 0 1
-📻
-
-🌍 🐇 📑 🍇
-  👴 ...
-🍉
+├── packages
+│   └── catsimulator
+│       ├── interface.emojii
+│       └── libcatsimulator.a
+└── test.emojic
 ```
 
-From then on, you can use 📻 instead of initializer and method bodies:
+Finally, we compile `test.emojic`
 
 ```
-🔮 0 1
-📻
-
-🌍 🐇 📑 🍇
-  🐇🐖 📁 path 🔡 ➡️ 🍬🚨 📻
-  🐇🐖 🔫 path 🔡 ➡️ 🍬🚨 📻
-  🍬 🐈 📝 message 🔡 📻
-🍉
+emojicodec test.emojic
 ```
 
-You should consult your virtual machine’s manual to learn more about
-implementing the methods in C. It’s noteworthy that additional to the
-difficulties mentioned at the beginning of this section native APIs
-are not standardised and aren’t even required. A virtual machine can reject
-a bytecode file if it depends on an external native binary.
+and give it a shot:
 
-The Emojicode Real-Time Engine supports native binaries. You can learn more
-in the [The Package API](../guides/packageAPI.html) guide.
+```
+Meow
+```
 
-## Package Register and Manager
+## Linking with non-Emojicode code
 
-There are plans to run an package register and build a package manger for easy
-install, update and use of packages.
+You can also implement methods and initializers in another language.
+
+To do this, you must specify a name for the method or initializer instead
+of a function body. For example:
+
+```
+❗️ 🔡 ➡️ 🍬🔡 📻 🔤sDataAsString🔤
+```
+
+```syntax
+$external-link-name$-> 📻 $string-literal$
+```
+
+You can then implement the function in e.g. C++. Then compile these
+implementations to object files as well and pack them into the package archive.
+It’s important that the implementations conform to the C calling convention.

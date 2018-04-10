@@ -1,74 +1,56 @@
 @import 'base';
 
 .header {
-  background-color: $menu-color;
-  color: $white;
-  padding: 1.7em;
-  padding-bottom: 3em;
-  text-align: center;
+  background-color: $p-gray;
+  font-size: 1.125em;
+  padding: 5em 3em 3em;
+  position: relative;
+  overflow: hidden;
 
   h1,
   h2 {
-    color: $white;
+    color: $p-intermediate;
   }
 
   h2 {
     margin: 0 auto 3rem;
-    max-width: 600px;
+  }
+
+  img {
+    mix-blend-mode: multiply;
+    opacity: 0.16;
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
 }
 
-.dont-see-emojis {
-  font-size: 12px;
+.header-inner {
+  position: relative;
+  z-index: 1000;
 }
 
 .l-button {
+  @extend %display-font;
   appearance: none;
-  border-radius: 50px;
-  margin: 0.5em;
+  border-radius: $border-radius;
   padding: 0.7em 1.2em;
   color: $white;
-  background: $p-bright;
   display: inline-block;
+  background: linear-gradient(to top, $p-soft, adjust-hue($p-soft, 6deg));
+  line-height: normal;
 
   &:hover {
-    background: linear-gradient(to top, darken($p-bright, 3%), $p-bright);
+    background: linear-gradient(to top, $p-soft, lighten(adjust-hue($p-soft, 7deg), 2%));
     text-decoration: none;
   }
 }
 
-.emoji-row {
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  div {
-    width: percentage(1 / 6);
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: $break) {
-  .emoji-row div {
-    width: percentage(1 / 3);
-  }
-
-  h2 {
-    font-size: 1.2em;
-  }
-}
-
 .action {
-  background-color: $menu-color;
-  color: $white;
-  padding: 1.7em;
-  text-align: center;
-
-  h2 {
-    color: $white;
-  }
+  background-color: $p-gray;
+  padding: 4em 0;
 }
 
 .action-inner {
@@ -82,72 +64,88 @@
   }
 }
 
-.socialize {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2em 0;
+.socialize-text {
+  margin-top: 2.5rem;
+  margin-bottom: 0.92em;
+  text-transform: uppercase;
+  font-size: 0.58em;
+  letter-spacing: 0.02em;
 }
 
-.footer {
-  padding: 18px;
-  color: $footer-color;
-  background-color: $menu-color;
-  text-align: center;
-  font-size: 14px;
+.socialize {
+  display: flex;
+}
+
+.features-heading {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 0.34em;
 }
 
 .features {
   width: 100%;
   display: flex;
-  padding: 0.8em;
+  padding: 0 3em;
+  margin: 3em 0;
   align-items: stretch;
 }
 
 .features-list {
   width: 50%;
+}
+
+.features-ol {
   list-style: none;
   margin: 0;
   margin-right: 1em;
   padding: 0;
 }
 
+.feature-check {
+  height: 1em;
+  vertical-align: -0.15em;
+  margin-right: 0.2em;
+}
+
 .feature {
+  $color: lighten($text-color, 58%);
   display: block;
-  padding: 0.8888em;
+  margin: 1em 0;
   cursor: pointer;
+  color: $color;
+  padding-left: 25px;
+  position: relative;
+
+  .icon {
+    display: none;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1.1em;
+  }
 
   h3 {
-    font-size: 1em;
-    margin-bottom: 1em;
+    font-size: 1.1em;
     margin: 0;
+    margin-bottom: 0.3em;
+    color: $color;
   }
 
-  .text {
-    display: none;
-  }
-
-  &:hover {
-    background-color: $p-gray;
-  }
-
+  &:hover,
   &.active {
-    background-color: $p-gray;
+    color: $text-color;
 
-    h3 {
-      color: $p-soft;
+    .icon {
+      display: inline-block;
     }
 
-    .text {
-      display: block;
+    h3 {
+      color: $heading-color;
     }
   }
 }
 
 .feature-pre {
-  flex: 1;
-  background-color: $p-gray;
-  font-size: 14px;
   margin: 0;
 }
 

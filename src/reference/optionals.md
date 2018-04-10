@@ -1,94 +1,115 @@
 # Optionals
 
-## ✨ Nothingness
+Often when designing software applicatins the programmer has to deal with the
+possible absence of a value. To properly model the absence of values, the
+concept of optionals was developed.
 
-Nothingness is a value used to represent a missing value. Many methods, for
-example, return nothingness on failure. Additionally any method that does not
-explicitly declare a return type is assumed to return Nothingness.
+An optional is a type that either does not or does contain a value.
 
-To get Nothingness you use:
-
-<pre class="syntax">
-$nothingness$-> ⚡️
-</pre>
-
-While Nothingness is a completely valid type and value on its own, it’s normally
-used in conjunction with *Optionals*.
-
-## 🍬 Optionals
-
-An optional is a way to make a type optional. This is like saying: either it’s
-something of the declared type, or it’s ⚡. Optionals are very useful
-in cases where a value might be missing or a method might fail and 🍎 nothing
-instead of an expected value.
-
-To make a type optional you need to prepend it with a 🍬. Examples:
+You can declare an optional type with 🍬 followed by the type the optional
+can contain:
 
 ```
-🍰 buildingAge 🍬🚂 👴The age of old buildings is often not known exactly.
-🍰 petName 🍬🔡 👴Some pets have no name.
+🖍🆕 building_age 🍬🔢 👴 The age of old buildings is often not known exactly.
+🖍🆕 pet_name 🍬🔡 👴 Some pets have no name.
 ```
 
-There are many methods that return ⚡ on failure. For instance the
-method 🔬 of 🔡, which returns the 🔣 at the given index or ⚡.
+In the above example, we have declared two variables, both of which are
+optionals. At the moment, they do not contain a value. Note, that when you
+declare a variable of an optional type, it is automatically initialized but does
+not contain a value.
+
+Let us populate these variables with values:
 
 ```
-🍦 first 🔬 🔤Kumquat🔤 0
-🍦 twelfth 🔬 🔤Kumquat🔤 11
+20 ➡️ 🖍building_age
+🔤Albert🔤 ➡️ 🖍pet_name
 ```
 
-As you can see `first` will now actually contain a 🔣 and `twelfth` will
-only contain ⚡.
+Both optionals now do contain a value. We’ll see how to retrieve those values
+in a moment. Let us first have a look at how to make these optionals represent
+no value again.
 
-The point of Optionals is providing more safety. This is achieved by forcing
-the programmer to take special care of optionals as optionals cannot be used
-like the type they make optional.
+## No Value
+
+We established before that optionals sometimes will contain no value. Obviously,
+a way to express “no value” in code is also required. This is exactly what
+the No Value expression does.
+
+```syntax
+$no-value$-> 🤷‍♂️ | 🤷‍♀️ | 🤷‍
+```
+
+The No Value expression can only be used when either an optional value is
+expected or when comparing an optional as we will see below.
+
+Let’s look at an example of the first use. In this example, we
+assign the variable `pet_name` to No Value.
+
+```
+🤷‍♂️ ➡️ 🖍pet_name
+```
+
+After this statement the optional does not have a value.
+
+We can, of course, return no value from a method whose return type is an
+optional with the No Value expression:
+
+```
+↩️ 🤷‍♀️
+```
+
+## Comparing against No Value
+
+We have seen how to create an optional with and without a value. Now, we
+want to determine whether an optional contains a value or not. We can achieve
+this by simply comparing the optional against 🤷‍ with the compare operator 🙌.
+For example:
+
+```
+🍊 pet_name 🙌 🤷‍♀️ 🍇
+  😀 🔤The pet has no name🔤❗️
+🍉
+```
 
 ## 🍺 Unwrapping
 
-If you want to use the value of `first` or `twelfth` from the example above
-you could unwrap the optional using 🍺:
+Now that we know how to determine whether an optional actually contains a value,
+we’ll look at how we can unwrap an optional. Unwrapping means nothing else
+than extracting the value contained in an optional.
 
-<pre class="syntax">
+To extract the value from `pet_name` from the example above and print it we
+use 🍺:
+
+```
+😀 🍺 pet_name❗️
+```
+
+```syntax
 $unwrap$-> 🍺 $expression$
-</pre>
-
-This tells Emojicode to check that *value* is not ⚡ and
-returns it. If the value, however, is ⚡, the program will terminate
-with an error message like:
-
-```
-🚨 Fatal Error: Unexpectedly found ✨ while unwrapping a 🍬.
 ```
 
-Naturally, unwrapping an optional without a check is not safe and should not
-be done. See the sections below for safe ways.
+This will work fine if `petName` actually contains a pet’s name. If it does
+not contain a value though, our program will panic.
 
-## ☁️ Nothingness Test
+Since you will normally want to avoid sudden errors, you should only unwrap
+an optional with 🍺 if you are sure that it does contain a value.
 
-You can use ☁️ to test if an optional is ⚡.
+## Condition Assignment
 
-<pre class="syntax">
-$is-nothingness$-> ☁️ $expression$
-</pre>
-
-☁️ returns 👍 if the expression is ⚡.
-
-## 🍊🍦 Condition Assignment
-
-An even more useful way to protect from ⚡ is the Condition Assingment.
-You can use 🍦 in conditions, that is in combination with 🍊, 🍋 or 🔁, and the
-conidition will be 👍 if the value provided for the variable is not
-✨. In that case, the variable *variable* will be set to the unwrapped
-value.
+As we discussed, unwrapping an optional is not safe without checking it first.
+Because this is a common operation, Emojicode offers a structure called the
+condition assignment.
 
 Take a look at this example:
 
 ```
-🍊🍦 string 🔲 sth 🔡 🍇
-  😀 🍪🔤sth is a string with this content: 🔤 string🍪
+🍊 pet_name ➡️  the_pet_name  🍇
+  😀 🍺 the_pet_name❗️
 🍉
 ```
 
-The block of the 🍊 statement will only be executed if `🔲 sth 🔡` does not
-evaluate to ✨.
+The code above will assign the value of the optional `pet_name` to
+`the_pet_name` — provided it has a value — and the associated 🍊 block will be
+executed. If the optional does not have a value the 🍊 behaves as if the
+condition evaluated to false.

@@ -1,14 +1,13 @@
 @import 'base';
 
-$callout-note: #ffb300;
-$callout-hint: rgb(45, 121, 210);
+$callout-note: #F2CB69;
 
 $pre-before: $p-soft;
 $pre-before-syntax: $p-intermediate;
 $pre-before-negative: $callout-note;
 $pre-before-specification: $p-soft;
 
-$syntax-placeholder-color: lighten($p-intermediate, 60%);
+$syntax-placeholder-color: saturate(lighten($p-intermediate, 64%), 25%);
 
 $version-color: $p-soft;
 
@@ -16,8 +15,8 @@ $content-width: 750px;
 
 $toc-color: $p-gray;
 $toc-item-color: $p-intermediate;
-$toc-current-color: #934edc;
-$toc-hover-color: lighten($p-intermediate, 50%);
+$toc-current-color: $p-soft;
+$toc-hover-color: darken($toc-color, 10%);
 $toc-width: 280px;
 $toc-margin-right: 36px;
 
@@ -53,10 +52,12 @@ table {
 
 
 .docs-header {
+  @extend %display-font;
   display: flex;
   align-items: center;
   background-color: $p-gray;
   padding: 1.25em;
+  font-size: 1.125em;
 
   a {
     color: $heading-color;
@@ -71,7 +72,7 @@ table {
     margin-left: 0.4em;
 
     &.active {
-      border-bottom: 1px solid $heading-color;
+      border-bottom: 3px solid $p-soft;
     }
   }
 }
@@ -82,10 +83,11 @@ table {
 
 .docs-header-version {
   background-color: $p-soft;
-  border-radius: 4px;
+  border-radius: $border-radius;
   padding: 0.2em 0.3em;
   color: $white;
   font-size: 1rem;
+  line-height: 100%;
 }
 
 @media (max-width: $break) {
@@ -129,19 +131,15 @@ table {
 @mixin syntax-before($text, $color) {
   text-transform: uppercase;
   font-size: 10.8px;
-  padding: 0.6em 0.8em;
-  position: absolute;
+  margin-top: -0.2rem;
+  margin-bottom: 0.7rem;
   display: block;
-  right: 0;
-  top: 0;
-  color: $white;
-  border-bottom-left-radius: 4px;
-  background-color: $color;
+  color: $color;
   content: $text;
 }
 
 .syntax {
-  font-size: 0.6875em;
+  font-size: 0.73em;
 
   &::before {
     @include syntax-before('Syntax', $pre-before-syntax);
@@ -149,7 +147,7 @@ table {
 }
 
 .negative-example::before {
-  @include syntax-before('Don’t Example', $pre-before-negative);
+  @include syntax-before('Bad Example', $pre-before-negative);
 }
 
 .declaration::before {
@@ -162,7 +160,7 @@ pre:not(.negative-example):not(.syntax):not(.declaration)::before {
 
 .syntax-placeholder {
   display: inline-block;
-  border-radius: 7px;
+  border-radius: $border-radius;
   margin: 0.1em 0;
   padding: 0.25em 0.38em;
   background-color: $syntax-placeholder-color;
@@ -223,7 +221,6 @@ section,
   font-size: 16px;
   z-index: 100;
   background-color: $toc-color;
-  border-radius: 4px;
   max-height: calc(100vh - #{$menu-height + 73px} - 4.9rem);
   position: fixed;
   width: $toc-width;
@@ -257,7 +254,7 @@ section,
   color: $toc-item-color;
   display: block;
   padding: 0.35em 0.75em;
-  border-left: 10px solid transparent;
+  border-left: 6px solid transparent;
 
   &:hover {
     background-color: $toc-hover-color;
@@ -265,8 +262,7 @@ section,
   }
 
   &.current {
-    border-left: 10px solid $toc-current-color;
-    background-color: $toc-hover-color;
+    border-left-color: $toc-current-color;
   }
 }
 
@@ -302,7 +298,7 @@ section,
 
 @mixin callout($color) {
   margin: 25px 0;
-  background-color: lighten($color, 41%);
+  background-color: lighten($color, 30%);
 
   .title {
     background-color: $color;
@@ -326,7 +322,7 @@ section,
 }
 
 .callout-hint {
-  @include callout($callout-hint);
+  @include callout($p-soft);
 }
 
 .book-navigation-bottom {
@@ -343,7 +339,7 @@ section,
   padding: 1em;
   margin: 1rem 0;
   background-color: $improve-background;
-  border-radius: 4px;
+  border-radius: $border-radius;
 }
 
 // ==== MAGIC INSTALL ====

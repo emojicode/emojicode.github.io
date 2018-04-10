@@ -1,5 +1,7 @@
 # Inheritance and Overriding
 
+>!N This chapter has not been revised for Emojicode Symphonic alpha yet.
+
 Inheritance allows instances of a more concret class to be treated like
 instances of a less concrete class. When you subclass a class, the subclass
 inherits all methods and type methods. Initializers are only inherited under
@@ -67,13 +69,13 @@ As for example:
 
 ```
 🐇 🌼 🍇
-  🐖 ⏰ time 🚂 🍇
+  🐖 ⏰ time 🔢 🍇
     👴 Open and close the blossom according to the time...
   🍉
 🍉
 
 🐇 🌻 🌼 🍇
-  ✒️ 🐖 ⏰ time 🚂 🍇
+  ✒️ 🐖 ⏰ time 🔢 🍇
     👴 Sunflowers also rotate to face the sun....
     🐿 ⏰ time 👴 Open and close like other flowers; see below
   🍉
@@ -86,9 +88,9 @@ The same logic applies to type methods.
 
 Inside a method you can use this syntax to call the super method:
 
-<pre class="syntax">
-$supermethod-call$-> 🐿 $method-emoji$ [$arguments$]
-</pre>
+```syntax
+$super$-> ⤴️ $emoji-id$ [$arguments$]
+```
 
 This simply calls the super method named *method-emoji* and returns it value.
 You have already seen an example above.
@@ -107,5 +109,5 @@ a main characteristic of object orientation. These promises are:
 - The arguments of the method or initializer of the subclass must be of the same
   type or a super type of the argument types of the overriden method or
   intializer.
-- The method or initializer of the subclass must have the same access modifier
-  as the super method or intializer.
+- The method or initializer of the subclass must have the same accessibility
+  or be more accessible.
