@@ -11,8 +11,7 @@ installer.
 The installer will tell you what it is about to do and will prompt you for
 confirmation. By default, the installer will try to install Emojicode into
 /usr/local/bin and /usr/local/EmojicodePackages. If your user doesn’t have
-write access to these directories the installer will offer you to use sudo
-(from 0.3.1 on).
+write access to these directories the installer will offer you to use sudo.
 
 If you're on Windows 10, you can use
 [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
