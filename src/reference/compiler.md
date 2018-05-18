@@ -70,7 +70,7 @@ package search paths. If search paths are exhausted an error is raised.
 ### Example
 
 ```sh
-emojicodec test.emojic -S /opt/a -S /opt/a
+emojicodec test.emojic -S /opt/a -S /opt/b
 ```
 
 If you run the above command in directory `/home/me/` with the environment

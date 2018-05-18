@@ -29,17 +29,16 @@ Examples:
 Callables are called using this syntax.
 
 ```syntax
-$callable-call$-> 🍭 $expression$ [$arguments$]
+$callable-call$-> ⁉️ $expression$ [$arguments$] $mood$
 ```
 
-*expression* must be a callable. Of course you must provide the required number
-of correctly typed parameters.
+The first expression must be a callable.
 
 Example of calling a callable:
 
 ```
-👴 greet is of type 🍇🔡🍉
-🍭 greet 🔤Bob🔤
+💭 greet is of type 🍇🔡🍉
+⁉️ greet 🔤Bob🔤
 ```
 
 ## Closure
@@ -59,7 +58,7 @@ type similar to a method.
 Formally, its syntax is:
 
 ```syntax
-$closure$-> 🍇 [$arguments$] [$return-type$] $statements$ 🍉
+$closure$-> 🍇 [$parameters$] [$return-type$] $statements$ 🍉
 ```
 
 We can define a very simple closure that does not capture any context like this:
