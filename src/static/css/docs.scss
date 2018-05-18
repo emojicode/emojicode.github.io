@@ -20,8 +20,6 @@ $toc-hover-color: darken($toc-color, 10%);
 $toc-width: 280px;
 $toc-margin-right: 36px;
 
-$improve-background: $p-gray;
-
 table {
   display: block;
   width: 100%;
@@ -335,11 +333,18 @@ section,
 }
 
 .book-improve {
+  text-align: center;
   font-size: 0.875em;
-  padding: 1em;
-  margin: 1rem 0;
-  background-color: $improve-background;
+  margin: 0.875rem 0;
   border-radius: $border-radius;
+
+  a, & {
+    color: lighten($p-intermediate, 45%);
+  }
+
+  a {
+    font-weight: bold;
+  }
 }
 
 // ==== MAGIC INSTALL ====
