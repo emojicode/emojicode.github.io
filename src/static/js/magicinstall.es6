@@ -45,11 +45,12 @@ function processReleaseData(data) {
   releases = data.data;
 
   for (const [index, release] of releases.entries()) {
-    if (/^0\.(\d)/.exec(release.name)[1] < 3) continue;
-    const option = document.createElement('option');
-    option.value = index;
-    option.text = release.name;
-    versionSelect.add(option, null);
+    if (/0\.6/.test(release.name)) {
+      const option = document.createElement('option');
+      option.value = index;
+      option.text = release.name;
+      versionSelect.add(option, null);
+    }
   }
 
   const platform = /Mac/.test(window.navigator.platform) ? 'darwin' : 'x86_64-linux';

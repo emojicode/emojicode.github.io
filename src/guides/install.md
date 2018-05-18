@@ -1,18 +1,14 @@
-# Installing Emojicode
+# Installing Emojicode Symphonic
 
 ## Magic Installation
 
 The magic installation is the easiest way to install Emojicode. Just select your
-operating system and the version you wish to install below (we’ve already
-tried to preselected them for you) and copy’n’paste the below commands into your
-shell. The script will download the appropriate Emojicode SDK and run the
+operating system and and copy’n’paste the below commands into your
+shell. The script will download the appropriate Emojicode binaries and run the
 installer.
 
 The installer will tell you what it is about to do and will prompt you for
-confirmation. By default, the installer will try to install Emojicode into
-/usr/local/bin and /usr/local/EmojicodePackages. If your user doesn’t have
-write access to these directories the installer will offer you to use sudo
-(from 0.3.1 on).
+confirmation.
 
 If you're on Windows 10, you can use
 [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
@@ -51,7 +47,7 @@ proceed as specified above.
 
 ## Manual Installation
 
-1. [Download the SDK](https://github.com/emojicode/emojicode/releases) for your
+1. [Download the prebuilt binaries](https://github.com/emojicode/emojicode/releases) for your
   system and extract the tar file. For instance:
 
   ```bash
