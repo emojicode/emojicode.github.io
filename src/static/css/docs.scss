@@ -242,6 +242,7 @@ section,
 }
 
 .content {
+  margin-top: 2rem;
   position: relative;
   padding-left: $toc-width + $toc-margin-right;
   max-width: $content-width + $toc-width + $toc-margin-right;
@@ -340,6 +341,20 @@ section,
 
   a, & {
     color: lighten($p-intermediate, 45%);
+  }
+
+  a {
+    font-weight: bold;
+  }
+}
+
+.pre-release-warning {
+  margin-top: 2rem;
+  padding: 0.75rem;
+  background-color: lighten($callout-note, 29%);
+
+  a, & {
+    color: saturate(darken($callout-note, 40%), 10%);
   }
 
   a {
