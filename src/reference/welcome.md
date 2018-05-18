@@ -1,7 +1,5 @@
 # Welcome to Emojicode
 
->!N ⚠️
-
 >!H Looking for a tutorial? See
 >!H [“Compile and Run Your First Program”](../guides/compile-and-run.html),
 
@@ -16,12 +14,6 @@ verify that all of your operations are correct.
 Although Emojicode only uses Emojis to express the program’s structure, it is
 similar to programming languages you might know, like C.
 
-## What this document is
-
 The whole Language Reference & Guide assumes that you have a basic
 understanding of programming. This is not a tutorial but mainly describes
 the features of Emojicode and its use cases.
-
-## What’s new in Emojicode Symphonic
-
-

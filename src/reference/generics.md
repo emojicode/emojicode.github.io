@@ -1,51 +1,56 @@
 # Generics
 
->!N This chapter has not been revised for Emojicode Symphonic alpha yet.
-
-*Generics* allow you to write code in which you can use a placeholder – variable
-names – instead of actual type names, which will then be substituted with real
+Generics allow you to write code in which you can use a placeholder – variable
+names – instead of an actual type, which will then be substituted with real
 types when you use that code later. This is a really powerful feature and is a
 great way to avoid code duplication.
 
-## Defining a Generic Class
+## Defining a Generic Type
 
-To define a Generic class you define a class and append
+To define a generic class or value type provide generic parameters after
+the name of the type. A generic parameter consits of a name, which can then be
+used instead of a type inside the class or value type, and a type constraint.
 
 ```syntax
 $generic-parameter$-> 🐚 $variable$ $type$
 $generic-parameters$-> $generic-parameter$ $generic-parameters$ | $generic-parameter$
 ```
 
-for each generic argument the class shall take. This structure is called
-*generic argument*. *variable* is the name of the argument. *type* is a generic
-argument constraint and types provided for this argument must be compatible with
-that constraint.
-
-In the class body you can reference to the generic type arguments by its name.
-
-See this example for a “box” that can store objects.
+See this example for a box type that can store objects of a specified type. Note
+that inside the class body `T` is used as a type.
 
 ```
-🐇 🎁 🐚 T 🔵 🍇
-  🍰 content T
+🐇 🎁 🐚T🔵 🍇
+  🖍🆕 something T
 
-  🐈 ✂️ =content T 🍇
-    🍮 content =content
-  🍉
+  🆕 ✂️ 🍼 something T 🍇🍉
 
-  🐖 🎉 ➡️ T 🍇
-    🍎 content
+  ❗️ 🎉 ➡️  T 🍇
+    ↩️ something
   🍉
 🍉
 ```
 
+The following example demonstrates how to instantiate a generic class:
+
+```
+🆕🎁🐚🔡✂️ 🔤Been wishin' for you🔤❗
+```
+
+### Type Constraint
+
+The type constraint constrains which types can be supplied as an arguments for
+a generic type parameter. Type contstraints are useful as they allow you to
+treat values of a generic type as if they were an instance of the type
+constraint.
+
 ## Subclassing a Generic Class
 
 Naturally you can subclass a generic class. Like in any other circumstance you
-have to provide values for the superclass’s generic arguments. For instance:
+have to provide values for the superclass’s generic parameters. For instance:
 
 ```
-🐇 ☑️ 🎁 🐚 🔡 🍇
+🐇 ☑️ 🎁🐚🔡 🍇
 
 🍉
 ```
@@ -54,35 +59,16 @@ If the subclass itself takes a generic argument this argument can be used as
 argument for the superclass:
 
 ```
-🐇 🌟 🐚 A 🔵 🎁 🐚 A 🍇
+🐇 🌟🐚A🔵 🎁🐚A 🍇
 
 🍉
 ```
 
 ## Compatibility
 
-Generic classes with arguments are only compatible if they have exactly the
+Two generic types are only compatible if they were provided with exactly the
 same arguments. So `🍨🐚🔡` is only compatible to `🍨🐚🔡` but not to
 `🍨🐚⚪️` as one might expect.
-
-The following example will **not** compile and illustrates why this
-kind of type conversion is not allowed.
-
-```!
-🍦 listOfStrings 🍨 🔤Curiosity🔤 🔤Doesn’t🔤 🍆
-
-🍰 listOfSomethings 🍨🐚⚪️
-🍮 listOfSomethings listOfStrings
-👴 Our list of strings is now suddenly a list of somethings
-👴 (remember listOfSomethings points to the same list as listOfStrings)
-
-🐻 listOfSomethings 13 👴 Add an integer
-
-🔂 string listOfStrings 🍇
-  👴 The program would crash as there’s an integer in our list of strings
-  😀 string
-🍉
-```
 
 ## Generic Methods and Intializers
 
@@ -94,8 +80,8 @@ A good example from the standard library is 🍨’s 🐰 method. It is defined 
 this:
 
 ```
-🐖 🐰 🐚A⚪️ callback 🍇Element➡️A🍉 ➡️ 🍨🐚A 🍇
-  👴 ...
+❗️ 🐰 🐚A⚪️ callback 🍇Element➡️A🍉 ➡️ 🍨🐚A 🍇
+  💭 ...
 🍉
 ```
 
@@ -105,9 +91,9 @@ you can know provide the generic type arguments after the object or class on
 which on which you call the method:
 
 ```
-🍦 list 🍨🔤aa🔤 🔤12345🔤🍆
+🍨🔤aa🔤 🔤12345🔤🍆 ➡️ list
 🐰 list 🐚🔡 🍇 a 🔡 ➡️ 🔡
-  🍎 🍪a 🔤!🔤🍪s
+  ↩️ 🍪a 🔤!🔤🍪
 🍉
 ```
 
@@ -118,12 +104,12 @@ $generic-arguments$-> $generic-argument$ | $generic-argument$ $generic-arguments
 $generic-argument$-> 🐚 $variable$ $type$
 ```
 
-Emojicode is, however, actually capable of automatically inferring the generic
-arguments for you, so you could just write:
+Emojicode is, however, capable of automatically inferring the generic
+arguments for you, so we can just write:
 
 ```
 🐰 list 🍇 a 🔡 ➡️ 🔡
-  🍎 🍪a 🔤!🔤🍪
+  ↩️ 🍪a 🔤!🔤🍪
 🍉
 ```
 
@@ -138,7 +124,7 @@ A generic protocol which you might use is 🔂.
 
 ```
 🐊 🔂🐚Element⚪️ 🍇
-  🐖 🍡 ➡️ 🍡🐚Element
+  ❗️ 🍡 ➡️ 🍡🐚Element
 🍉
 ```
 
@@ -149,19 +135,19 @@ A class conforming to this protocol must pass a generic argument, like the
 string class does for example:
 
 ```
-🐇 📴 🍇
-  🐊 🍡🐚🔣
+🐇 🌳🐚Element⚪️ 🍇
+  🐊 🍡🐚Element
 
-  👴 ...
+  💭 ...
 🍉
 
 🐋 🔡 🍇
-  🐊 🔂🐚🔣
+  🐊 🔂🐚🍬🔣
 
-  👴 ...
+  💭 ...
 
-  🐖 🍡 ➡️ 📴 🍇
-     👴 ...
+  ❗️ 🍡 ➡️ 🌳🐚🍬🔣 🍇
+    💭 ...
   🍉
 🍇
 ```
@@ -172,31 +158,9 @@ string class does for example:
 >!N but if used incorrectly, it is evil due to the possibility to accomplish
 >!N something like shown in “Compatibility” above. **Try to avoid it.**
 
-At the moment it’s not possible to store the type information of instances of
-generic classes at runtime. Therefore casts to classes with specific generic
-arguments cannot be verified and are forbidden. You will be confronted with the
-following error message if you try that anyway:
-
-> Dynamic casts involving generic type arguments are not possible yet. Please
-> specify the generic argument constraints of the class for compatibility with
-> future versions.
-
 >!H This is a 0.x limitation. Enhancements in the future will possibly
 >!H remove this limitation.
 
-When you perform a cast you must always specify the generic argument constraint
-for each argument. Example:
-
-<pre class="negative-example">
-🍰 box ⚪️
-
-🔲 box 🎁🐚🔡
-</pre>
-
-The above example will not compile. Instead you have to specify:
-
-```
-🍰 box ⚪️
-
-🔲 box 🎁🐚🔵
-```
+At the moment it’s not possible to store the type information of instances of
+generic classes at runtime. Therefore casts to classes with specific generic
+arguments cannot be verified and are forbidden.

@@ -90,13 +90,13 @@ The smallest standalone elements of Emojicode’s normal program code is called
 $statement$-> $expression$ | $assignment$ | $declaration$ | $operator-assignment$
 $statement$-> $return$ | $error-check-control$ | $error$
 $statement$-> $if$ | $for-in$ | $repeat-while$ | $unsafe-block$
-$expression$-> $numeric-literal$ | 👍 | 👎 | $symbol-literal$ | $string-literal$ | 🐕
+$expression$-> $numeric-literal$ | 👍 | 👎 | $symbol-literal$ | $string-literal$ | $this$
 $expression$-> $method-call$ | $no-value$ | $unwrap$
 $expression$-> $operator-expression$ | $group$
 $expression$-> $callable-call$ | $closure$
 $expression$-> $list-literal$ | $dictionary-literal$ | $concatenate-literal$
 $expression$-> $super$ | $is-error$ | $cast$
-$expression$-> $type-value$ | $metatype-instance-from-instance$ | $instantiation$
+$expression$-> $type-value$ | $instantiation$ | $size-of$
 $symbol-literal$-> 🔟 $unicode$
 ```
 

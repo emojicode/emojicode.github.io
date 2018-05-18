@@ -354,10 +354,14 @@ initialized, that is before all instance variables were set and the
 superinitializer was called. If this was allowed, you could call methods on the
 instance which might access instance variable that had not been initialized yet.
 
+```syntax
+$this$-> 🐕
+```
+
 ## Type Methods
 
-It’s possible to define type methods which are called on the type rather than
-on an instance of the type.
+It’s possible to define type methods which are called on the type rather than on
+an instance of the type. Still, type methods are also inherited by subclasses.
 
 Type methods are defined like normal methods but with the 🐇 attribute. As for
 example:
@@ -371,17 +375,16 @@ example:
 🍉
 ```
 
-Since type methods don’t execute in an object context the use of 🐕 is illegal.
-Type methods are also inherited by subclasses.
-
 We can call our type method like this:
 
 ```
 📜🐇🍕❗️
 ```
 
-This calls the type method 📜 on the class 🍕, which we just defined above. To
-learn more about this syntax please see [Types As Values](typevalues.html).
+This calls the type method 📜 on the class 🍕, which we just defined above.
+In class type methods, 🐕 represents the type value on which the method was
+called. To learn more about what this means please see
+[Types As Values](typevalues.html).
 
 ## Access Levels
 

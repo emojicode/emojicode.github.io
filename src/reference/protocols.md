@@ -12,7 +12,7 @@ compatible to this type.
 The syntax to define a protocol is simliar to the way of defining a class:
 
 ```syntax
-$protocol$-> 🐊 $type-identifier$ $protocol-body$
+$protocol$-> 🐊 $type-identifier$ [$generic-parameters$] $protocol-body$
 $protocol-body$-> $protocol-method$ | $protocol-method$ $protocol-body$
 $protocol-method$-> [$documentation-comment$] [⚠️] 🐖 $emoji-id$ $arguments$ $return-type$
 ```

@@ -61,78 +61,59 @@ The following is correct therefore:
 🍉
 ```
 
-## Retrieving the Type of an Instance As Value
+## Using Type Values
 
->!N ⚠️ From here
-
-⬜️ can be used to get the type of a type instance. The syntax is:
-
-```syntax
-$metatype-instance-from-instance$-> ⬜️ $expression$
-```
-
-For instance, this can be used to instantiate another instance of the type on
-which the method was called:
-
-```
-🐖 🦄 🍇
-  🔷⬛️⬜️🐕🆕
-🍉
-```
-
-## Using Metatype Instances
-
-You can use metatype instances as type in functions. Instead of providing a type
-you can prefix an expression that evaluates to a metatype instance with ⬛️:
+You can use type values whenever a type expression is expected with ⬛️:
 
 ```syntax
 $type-from-expr$-> ⬛️ $expression$
 ```
 
-*expresssion* must naturally evaluate to a metatype value. This kind of type
-specification is only available in methods and initializers.
+*expresssion* must naturally evaluate to a type value.
+
+`🐕` is a shortcut for `⬛️🐕` when a type expression is expected.
 
 The following example stores three different metatype instance in a list,
 instantiates them at run-time and calls a method on these instances:
 
 ```
 🐇 🐟 🍇
-  🔑 🐈 🆕 🍇🍉
+  🔑 🆕 🍇🍉
 
-  🐖 🙋 🍇
-    😀 🔤I’m a fish.🔤
+  ❗️ 🙋 🍇
+    😀 🔤I’m a fish.🔤❗️
   🍉
 🍉
 
 🐇 🐡 🐟 🍇
-  ✒️ 🔑 🐈 🆕 🍇 🐐 🆕 🍉
+  🔑 🆕 🍇 ⤴️🆕❗️ 🍉
 
-  ✒️  🐖 🙋 🍇
-    😀 🔤I’m a blowfish.🔤
+  ✒️ ❗️ 🙋 🍇
+    😀 🔤I’m a blowfish.🔤❗️
   🍉
 🍉
 
 🐇 🐋 🐟 🍇
-  ✒️ 🔑 🐈 🆕 🍇 🐐 🆕 🍉
+  🔑 🆕 🍇 ⤴️🆕❗️ 🍉
 
-  ✒️  🐖 🙋 🍇
-    😀 🔤I’m a wale.🔤
+  ✒️ ❗️ 🙋 🍇
+    😀 🔤I’m a wale.🔤❗️
   🍉
 🍉
 
 🐇 🐠 🐟 🍇
-  ✒️ 🔑 🐈 🆕 🍇 🐐 🆕 🍉
+  🔑 🆕 🍇 ⤴️🆕❗️ 🍉
 
-  ✒️  🐖 🙋 🍇
-    😀 🔤I’m a tropical fish.🔤
+  ✒️ ❗️ 🙋 🍇
+    😀 🔤I’m a tropical fish.🔤❗️
   🍉
 🍉
 
 🏁 🍇
-  🍦 classes 🍨🔳🐟 🔳🐡 🔳🐋 🔳🐠  🍆
+  🍨🐇🐟 🐇🐡 🐇🐋 🐇🐠 🍆 ➡️ classes
   🔂 class classes 🍇
-    🍦 fish 🔷⬛️ class 🆕
-    🙋 fish
+    🆕⬛️ class 🆕❗️ ➡️ fish
+    🙋 fish❗️
   🍉
 🍉
 ```

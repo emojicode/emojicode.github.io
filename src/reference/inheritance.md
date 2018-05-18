@@ -1,7 +1,5 @@
 # Inheritance and Overriding
 
->!N This chapter has not been revised for Emojicode Symphonic alpha yet.
-
 Inheritance allows instances of a more concret class to be treated like
 instances of a less concrete class. When you subclass a class, the subclass
 inherits all methods and type methods. Initializers are only inherited under
@@ -29,36 +27,6 @@ for initializer inheritance. These initializer again must then be marked with
 🔑, thereby enforcing that all descendants of the original class provide the
 required intalizer.
 
-This example defines an initializer 🌱 all descendants of 🌼 must provide:
-
-```
-🐇 🌼 🍇
-  🔑 🐈 🌱 🍇 👴 Every flow can be constructed by seeding it
-
-  🍉
-🍉
-
-🐇 🌻 🌼 🍇
-  👴 The sunflower just inherits the initializers
-🍉
-
-🐇 🌺 🌼 🍇
-  👴 The hibiscus additionally stores its color
-  🍰 color 🔡
-
-  👴 Therefore, we must implement 🌱 ourselves and set color to some default
-  🔑 🐈 🌱 🍇
-    🍮 color 🔤red🔤
-    🐐 🌱
-  🍉
-
-  👴 An initializer to get an hibiscus with a specific color
-  🐈 🎨 🍼 color 🔡 🍇
-    🐐 🌱
-  🍉
-🍉
-```
-
 ## Overriding Methods
 
 A subclass can override a method defined in a superclass, that is providing
@@ -69,15 +37,15 @@ As for example:
 
 ```
 🐇 🌼 🍇
-  🐖 ⏰ time 🔢 🍇
-    👴 Open and close the blossom according to the time...
+  ❗️ ⏰ time 🔢 🍇
+    💭 Open and close the blossom according to the time...
   🍉
 🍉
 
 🐇 🌻 🌼 🍇
-  ✒️ 🐖 ⏰ time 🔢 🍇
-    👴 Sunflowers also rotate to face the sun....
-    🐿 ⏰ time 👴 Open and close like other flowers; see below
+  ✒️ ❗️ ⏰ time 🔢 🍇
+    💭 Sunflowers also rotate to face the sun....
+    ⤴️⏰ time  💭 Open and close like other flowers; see below
   🍉
 🍉
 ```

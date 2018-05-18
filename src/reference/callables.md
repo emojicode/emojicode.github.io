@@ -1,35 +1,32 @@
 # Callables
 
->!N This chapter has not been revised for Emojicode Symphonic alpha yet.
-
-Emojicode supports a type called *callables* which is comparable to function
-types in other programming languages. Callables are objects like any other
-object and can therefore be stored in variables, passed as argument, etc.
+Emojicode supports a type called *callables*. *Callables* are like methods (or
+more generally functions) that can be passed like any other object.
 
 ## Type
 
-The callable type is declared using this syntax:
+The type of a callable is denoted using this syntax:
 
 ```syntax
 $callable-type$-> 🍇 [$type-list$] [$return-type$] 🍉
 $type-list$-> $type$ | $type$ $type-list$
 ```
 
-Each *type* stands for one argument of that type. You can specify a
-*returnType*. If no return type is specified the callable is assumed to return
-Nothingness.
+Each of the types provided before the return type stands for one argument of
+that type. The return type is optional. If no return type is specified the
+callable does not return a value.
 
 Examples:
 
 ```
-🍇🔢➡️🔡🍉 👴Takes an integer argument and returns a string
-🍇➡️🔣🍉 👴Takes no arguments and returns a symbol
-🍇🍉 👴Takes no arguments and returns nothing(ness).
+🍇🔢➡️🔡🍉  💭 Takes an integer argument and returns a string
+🍇➡️🔣🍉  💭 Takes no arguments and returns a symbol
+🍇🍉  💭 Takes no arguments and does not return a value.
 ```
 
 ## Calling a Callable
 
-The 🍭 must be used to call a callable.
+Callables are called using this syntax.
 
 ```syntax
 $callable-call$-> 🍭 $expression$ [$arguments$]
@@ -65,38 +62,35 @@ Formally, its syntax is:
 $closure$-> 🍇 [$arguments$] [$return-type$] $statements$ 🍉
 ```
 
-Example:
+We can define a very simple closure that does not capture any context like this:
 
 ```
-🍦 greet 🍇 name 🔡 ➡️ 🔡
-  🍮 out 🔤🔤
+🍇 name 🔡
+  😀 🍪🔤It is a plesaure to welcome the honorable 🔤 name🍪 ❗️
+🍉 ➡️ greet
 
-  🔂 i ⏩ ➖ 🐔 name 1 -1 🍇
-    🍮 out 📝 out 🍺 🐽 name i
-  🍉
-
-  🍎 out
-🍉
-
-😀🍭 greet 🔤Franz🔤
+greet ⁉️ 🔤Linda🔤❗️
 ```
 
-The above is a very simple example of a closure that simply reverses a given
-string and will output:
+Running this code would print:
 
 ```
-znarF
+It is a plesaure to welcome the honorable Linda
 ```
+
+### Capturing Variables
 
 Let’s take a look at a more advanced use of a closure:
 
 ```
-🐇🐖 🙋 name 🔡 ➡️ 🍇🔢➡️🔡🍉 🍇
-  🍎 🍇 hour 🔢 ➡️ 🔡
-    🍊 😛 hour 12 🍇
-      🍎 🍪 🔤Have a good lunch, 🔤 name🍪
+🐇 🍤 🍇
+  🐇❗️ 🙋 name 🔡 ➡️ 🍇🔢➡️🔡🍉 🍇
+    ↩️ 🍇 hour 🔢 ➡️ 🔡
+      🍊 hour 🙌 12 🍇
+        ↩️ 🍪 🔤Have a good lunch, 🔤 name🍪
+      🍉
+      ↩️ 🍪 🔤Hello, 🔤 name🍪
     🍉
-    🍎 🍪 🔤Hello, 🔤 name🍪
   🍉
 🍉
 ```
@@ -105,27 +99,27 @@ Here we’ve got a type method that returns a closure. The closure actually
 closes over the `name` variable here and copies it value so that it can be used
 when the closure is called later.
 
->!N Closures **copy** the closured **local variables** and freeze them in the scope of the closure.
->!N If you modify one of the copied variable only the copy local to the closure will be modified.
->!N
->!N **Instance variables** are **not copied** and really change when modified inside a closure.
-
 Now, if we call that type method we’ll get a closure:
 
 ```
-🍦 walfriedGreeter 🍩🙋🐀 🔤Walfried🔤
+🙋🐇🍤 🔤Violet🔤❗️ ➡️ violetGreeter
 ```
 
 We can call the closure with an argument for `hour`
 
 ```
-😀 🍭 walfriedGreeter 7
-😀 🍭 walfriedGreeter 12
+😀 violetGreeter ⁉️ 14❗️❗️
+😀 violetGreeter ⁉️ 12❗️❗
 ```
 
 and will get this:
 
 ```
-Hello, Walfried
-Have a good lunch, Walfried
+Hello, Violet
+Have a good lunch, Violet
 ```
+
+>!N Closures **copy** the closured **local variables** and freeze them in the scope of the closure.
+>!N If you modify one of the copied variable only the copy local to the closure will be modified.
+>!N
+>!N **Instance variables** are **not copied** and change when modified inside a closure.

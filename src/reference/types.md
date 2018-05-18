@@ -137,10 +137,25 @@ Don’t confuse type casting with type conversion. You can’t cast 🔢 to
 💯. In such a case you would have to use a suitable conversion
 method.
 
+## ⚖️ Size Of Type Instance
+
+The ⚖️ expression allows you to determine the number of bytes an instance of
+a provided type will take up at runtime:
+
+```syntax
+$size-of$-> ⚖️ $type$
+```
+
+The following, for example, prints the size of an integer.
+
+```
+😀 🔡 ⚖️🔢 10❗️❗️
+```
+
 ## Grammar
 
 ```syntax
-$type-expr$-> ⚫️ | $type-from-expr$ | $type$
+$type-expr$-> ⚫️ | $type-from-expr$ | $type$ | $this$
 $type$-> [🍬] $type-main$ | 🚨 $type$ $type$ | 🍱 $types$ 🍱 | $type-value$ | ⚪ | 🔵
 $type-main$-> $variable$ | $callable-type$ | $type-identifier$ $generic-arguments$
 $type-identifier$-> 🔶 $type-emoji$ $type-emoji$ | $type-emoji$
