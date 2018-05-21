@@ -1,12 +1,12 @@
 # Documentation
 
-Documentation is an important part of writing good code. Therefore Emojicode
+Documentation is an important part of writing good code. Emojicode therefore
 offers built-in tools to document your code.
 
 ## Documentation Comments
 
 Emojicode supports a special type of comments which are called *Documentation
-Comments*. The syntax of these documentation tokens is:
+Comments*. The syntax is:
 
 ```syntax
 $documentation-comment$-> 📗 $documentation-comment-characters$ 📗
@@ -55,9 +55,10 @@ Documentation comments can only occur at specific locations:
   🔮 1 0
   ```
 
-Although there is of course no obligation to do so, these comments traditionally
-use Markdown. All packages that ship with Emojicode are documented this way and
-are automatically compiled into the Package Index of this documentation.
+Although there is, of course, no obligation to do so, these comments
+traditionally use Markdown. All packages that ship with Emojicode are documented
+this way and are automatically compiled into the Package Index of this
+documentation.
 
 The compiler furthmore offers an option to create a JSON report about a package,
 including all documentation added with documentation tokens. To learn more about

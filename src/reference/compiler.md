@@ -6,7 +6,7 @@ It is inteded to give more detail on certain options and by no
 mean comprehensive. To obtain a full list of all command line options run
 `emojicodec --help`.
 
-## Compiling files to An Executable Binary
+## Compiling Files to an Executable Binary
 
 The most obvious purpose of the compiler is the compilation of Emojicode source
 files into a binary. The compiler expects the path to a single file, which
@@ -16,7 +16,7 @@ is the main file of the `_` package. E.g.
 emojicodec hello.emojic
 ```
 
-By default the output file will have the same name as the main file. You
+By default, the output file will have the same name as the main file. You
 can explicitly set an output name with the `-o` option:
 
 ```sh
@@ -25,8 +25,8 @@ emojicodec aFile.emojic -o awesomeProgram
 
 ## Compiling A Package
 
-To compile a package to a static library you have to specify the name of the
-package with the `-p` option. E.g.
+To compile a package to a static library you have to specify a package name with
+`-p`. E.g.
 
 ```sh
 emojicodec -p catsimulator main.emojic
@@ -34,7 +34,7 @@ emojicodec -p catsimulator main.emojic
 
 The output will have the name of your package, prefixed with `lib` and suffixed
 with `.a`. You should not change the name of the output, but you can do so
-with the `-o` option. You must suffix the output file name with `.a`.
+with the `-o` option. The output file name must be suffixed with `.a`.
 
 ## Compiling to an Object File
 
@@ -49,7 +49,7 @@ emojicodec hello.emojic -c
 By default the output file will have the name of the main file with suffix `.o`
 instead of `.emojic`. You can change the output path with `-o`.
 
-## Package search paths
+## Package Search Paths
 
 When you import a package, the compiler will search the package search paths for
 the requested package. The search paths are:
@@ -84,10 +84,10 @@ locations:
 4. `/etc/packages/dog`
 5. `/usr/local/EmojicodePackages/dog`
 
-## Switch the compiler into JSON mode
+## Switch the Compiler into JSON Mode
 
 The option `--json` can be used to switch the compiler into JSON mode. When
-working in JSON mode the compiler will  print all errors and warnings to the
+working in JSON mode the compiler will print all errors and warnings to
 standard error as a JSON array.
 
 ## Package Report

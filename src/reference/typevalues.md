@@ -41,10 +41,10 @@ write this:
 
 Voila!
 
-## Compatibility of the Type Value Types
+## Compatibility of Type Values
 
-With the exception of classes, the type of two type values is only compatible
-if the are identical.
+With the exception of classes, the type of two type values are only compatible
+if they are identical.
 The type of class type value, however, is compatible to another, if the former
 inherits from the latter.
 
@@ -73,7 +73,7 @@ $type-from-expr$-> ⬛️ $expression$
 
 `🐕` is a shortcut for `⬛️🐕` when a type expression is expected.
 
-The following example stores three different metatype instance in a list,
+The following example stores three different type values in a list,
 instantiates them at run-time and calls a method on these instances:
 
 ```

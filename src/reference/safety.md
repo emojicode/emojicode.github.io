@@ -16,7 +16,7 @@ When an Emojicode program reaches a state in which it cannot continue execution
 because an irrecoverable error has arosen, it will panic. Panicking occurs
 in the following situations.
 
-- Unwrapping an optional without a value or an error that contains an error.
+- Unwrapping an optional without a value or an error that contains an error
 - Accessing an array out of bounds
 - A call to the panic method 🤯
 - The program runs out of memory (rare)
@@ -58,10 +58,9 @@ So, for instance, to allocate a memory block of 10 bytes we can write this code:
 If we hadn’t wrapped the initialization expression into an unsafe block
 we would get a compiler error.
 
-There is one noteworthy fact about the unsafe block we haven’t mentioned yet:
-The unsafe block does not create its own variable scope. It is just syntactic
-sugar and does not affect flow control. We therefore recommend to keep all code
-that does not need to go into the unsafe block out of it.
+Note that the unsafe block does not create its own variable scope. It is just
+syntactic sugar and does not affect flow control. We therefore recommend to keep
+all code that does not need to go into an unsafe block outside.
 
 >!H You should take that biohazard sign quite seriously. Messing with memory
 >!H can go terribly wrong.
