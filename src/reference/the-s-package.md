@@ -72,7 +72,7 @@ $string-literal$-> 🔤 [$string-literal-characters$] 🔤
 $string-literal-characters$-> $string-literal-character$ |  $string-literal-character$ $string-literal-characters$
 $string-literal-character$-> $unicode$ except 🔤 except ❌ | $string-escape-sequence$
 $string-escape-sequence$-> ❌ $string-escape-tail$
-$string-escape-tail$-> n | t | r | e
+$string-escape-tail$-> ❌ | n | t | r | e
 </pre>
 
 ### Comparing Strings
