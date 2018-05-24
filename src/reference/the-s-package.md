@@ -58,6 +58,7 @@ it as well:
 The escape character can also be used to produce the following characters:
 
 - `❌❌` ❌
+- `❌🔤` 🔤
 - `❌n` New line (`U+A0`)
 - `❌t` Tab (`U+09`)
 - `❌r` Carriage return (`U+0D`)
@@ -72,7 +73,7 @@ $string-literal$-> 🔤 [$string-literal-characters$] 🔤
 $string-literal-characters$-> $string-literal-character$ |  $string-literal-character$ $string-literal-characters$
 $string-literal-character$-> $unicode$ except 🔤 except ❌ | $string-escape-sequence$
 $string-escape-sequence$-> ❌ $string-escape-tail$
-$string-escape-tail$-> ❌ | n | t | r | e
+$string-escape-tail$-> ❌ | 🔤 | n | t | r | e
 </pre>
 
 ### Comparing Strings
