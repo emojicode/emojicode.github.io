@@ -101,7 +101,7 @@ The grammar for generic arguments is:
 
 ```syntax
 $generic-arguments$-> $generic-argument$ | $generic-argument$ $generic-arguments$
-$generic-argument$-> 🐚 $variable$ $type$
+$generic-argument$-> 🐚 $type$
 ```
 
 Emojicode is, however, capable of automatically inferring the generic
