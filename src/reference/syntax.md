@@ -70,7 +70,7 @@ Every Emojicode source code document consists of any number of
 *document-statements*.
 
 ```syntax
-$document-statement$-> $package-import$ | $include$ | $version$
+$document-statement$-> $package-import$ | $include$ | $package-documentation-comment$
 $document-statement$-> [$documentation-comment$] [🌍] $type-definition$
 $document-statement$-> $start-flag$
 $include$-> 📜 $string-literal$

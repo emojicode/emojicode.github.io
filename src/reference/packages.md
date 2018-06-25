@@ -73,21 +73,9 @@ attribute it 🌍.
 Keep in mind that types don’t actually belong to a namespace. When exporting a
 type the namespace is completely irrelevant.
 
-### Setting a Version
-
-Additionally an importable package must declare its version using 🔮:
-
-```syntax
-$version$-> [$documentation-comment$] 🔮 $major$ $minor$
-$major$-> $integer-literal$
-$minor$-> $integer-literal$
-```
-
 For instance, the main file of a cat simulator could look like this:
 
 ```
-🔮 1 4
-
 🌍 🐇 🐱 🍇
   🆕 🍇🍉
 

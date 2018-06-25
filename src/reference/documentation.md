@@ -10,8 +10,10 @@ Comments*. The syntax is:
 
 ```syntax
 $documentation-comment$-> 📗 $documentation-comment-characters$ 📗
-$documentation-comment-characters$-> $documentation-comment-character$ | $documentation-comment-characters$
-$documentation-comment-character$-> --📗 $unicode$
+$documentation-comment-characters$-> --📗 $unicode$ | $documentation-comment-characters$
+
+$package-documentation-comment$-> 📘 $package-documentation-comment-characters$ 📘
+$package-documentation-comment-characters$-> --📘 $unicode$ | $package-documentation-comment-characters$
 ```
 
 Documentation comments can only occur at specific locations:
@@ -46,13 +48,13 @@ Documentation comments can only occur at specific locations:
   🔘 🔴
   ```
 
-- In packages before 🔮 to add documentation about the whole package:
+- In packages a 📘 documentation comment can be used to add documentation about
+  the whole package:
 
   ```
-  📗
+  📘
     Emojicode’s standard library.
-  📗
-  🔮 1 0
+  📘
   ```
 
 Although there is, of course, no obligation to do so, these comments
