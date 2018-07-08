@@ -68,7 +68,7 @@ We can define a very simple closure that does not capture any context like this:
   😀 🍪🔤It is a plesaure to welcome the honorable 🔤 name🍪 ❗️
 🍉 ➡️ greet
 
-greet ⁉️ 🔤Linda🔤❗️
+⁉️ greet 🔤Linda🔤❗️
 ```
 
 Running this code would print:
@@ -85,7 +85,7 @@ Let’s take a look at a more advanced use of a closure:
 🐇 🍤 🍇
   🐇❗️ 🙋 name 🔡 ➡️ 🍇🔢➡️🔡🍉 🍇
     ↩️ 🍇 hour 🔢 ➡️ 🔡
-      🍊 hour 🙌 12 🍇
+      ↪️ hour 🙌 12 🍇
         ↩️ 🍪 🔤Have a good lunch, 🔤 name🍪
       🍉
       ↩️ 🍪 🔤Hello, 🔤 name🍪
@@ -107,8 +107,8 @@ Now, if we call that type method we’ll get a closure:
 We can call the closure with an argument for `hour`
 
 ```
-😀 violetGreeter ⁉️ 14❗️❗️
-😀 violetGreeter ⁉️ 12❗️❗
+😀 ⁉️violetGreeter 14❗️❗️
+😀 ⁉️violetGreeter 12❗️❗
 ```
 
 and will get this:
