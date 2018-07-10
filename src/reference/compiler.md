@@ -49,6 +49,17 @@ emojicodec hello.emojic -c
 By default the output file will have the name of the main file with suffix `.o`
 instead of `.emojic`. You can change the output path with `-o`.
 
+## Compiling with Optimizations
+
+By default, the compiler will compile your package with only some very basic
+optimizations. To get out the most, you can turn on optimizations with the `-O`
+flag. E.g
+
+```
+emojicodec -p catsimulator main.emojic -O
+emojicodec hello.emojic -O
+```
+
 ## Package Search Paths
 
 When you import a package, the compiler will search the package search paths for
