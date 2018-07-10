@@ -102,7 +102,7 @@ Imagine the following program:
     🐻 threads 🔷💈🆕 🍇
 
       🔂 j ⏩ 0 5 🍇
-        🍊 ➡️ 💶 account 10 🍇 👴 There’s money left
+        ↪️ ➡️ 💶 account 10 🍇 👴 There’s money left
           😀 🔤Money, money, money – Must be funny🔤
           💸 account 10
         🍉
@@ -145,16 +145,16 @@ Probably you already know, but what happened here is called a *race condition*.
 Let’s analyze this part of our code again:
 
 ```
-🍊 ➡️ 💶 account 10 🍇 👴 There’s money left
+↪️ ➡️ 💶 account 10 🍇 👴 There’s money left
   😀 🔤Money, money, money – Must be funny🔤
   💸 account 10
 🍉
 ```
 
 Imagine the following situation: A thread comes and sees that exactly 10€
-are left. So the body of the 🍊 is entered and the thread prints
+are left. So the body of the ↪️ is entered and the thread prints
 a message. In exactly this moment another thread comes along, checks the balance
-and also sees there are 10€ left and enters the body of the 🍊. The former
+and also sees there are 10€ left and enters the body of the ↪️. The former
 thread now moves on to withdraw 10€ as the second one will do after it has
 printed a message. So they withdrew 20€! In reality the program is even faster
 and all threads execute the same piece of code at virtually the same time.
@@ -177,7 +177,7 @@ We’ve reworked our example to use a mutex:
     🐻 threads 🔷💈🆕 🍇
       🔂 j ⏩ 0 5 🍇
         🔒 mutex
-        🍊 ➡️ 💶 account 10 🍇
+        ↪️ ➡️ 💶 account 10 🍇
           😀 🔤Money, money, money – Must be funny🔤
           💸 account 10
         🍉

@@ -30,7 +30,7 @@ that.
 ```
 🌍 🕊 🧠 🍇
   ☣️️ 🆕 size 🔢 🍇🍉
-  ☣️️ ❗️ 🐷🐚☣️️T⚪️ value T offset 🔢 📻 🔤ejcBuiltIn🔤
+  ☣️️ ❗️ 🐷🐚☣️️T⚪️🍆 value T offset 🔢 📻 🔤ejcBuiltIn🔤
   💭 ...
 🍉
 ```
@@ -51,7 +51,7 @@ So, for instance, to allocate a memory block of 10 bytes we can write this code:
 
 ```
 ☣️ 🍇
-  🆕🧠🆕 10
+  🆕🧠🆕 10❗
 🍉
 ```
 

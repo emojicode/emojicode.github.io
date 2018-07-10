@@ -67,7 +67,7 @@ this by simply comparing the optional against 🤷‍ with the compare operator 
 For example:
 
 ```
-🍊 pet_name 🙌 🤷‍♀️ 🍇
+↪️ pet_name 🙌 🤷‍♀️ 🍇
   😀 🔤The pet has no name🔤❗️
 🍉
 ```
@@ -104,12 +104,12 @@ condition assignment.
 Take a look at this example:
 
 ```
-🍊 pet_name ➡️  the_pet_name  🍇
+↪️ pet_name ➡️ the_pet_name  🍇
   😀 🍺 the_pet_name❗️
 🍉
 ```
 
 The code above will assign the value of the optional `pet_name` to
-`the_pet_name` — provided it has a value — and the associated 🍊 block will be
-executed. If the optional does not have a value the 🍊 behaves as if the
+`the_pet_name` — provided it has a value — and the associated ↪️ block will be
+executed. If the optional does not have a value the ↪️ behaves as if the
 condition evaluated to false.

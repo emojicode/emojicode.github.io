@@ -48,7 +48,7 @@ called 🎬 that might fail in some cases, in which an error is returned:
   👴 ...
 
   🐇🐖 🎬 ➡️ 🚨⛰🔡 🍇
-    🍊 ◀️ battery 0.1 🍇
+    ↪️ ◀️ battery 0.1 🍇
       🚨🔷⛰🔋 👴 Too low battery, return an error
     🍉
     🍎 🔤Ladies and gentlemen...🔤 👴 Everything fine, we return a string
@@ -78,7 +78,7 @@ Here's an example of an initializer that returns an error:
 
 🐇 🎤 🍇
   🐈 🚨⛰ 🦀 frequency 🚀 🍇
-    🍊 ◀️ frequency 520 🍇
+    ↪️ ◀️ frequency 520 🍇
       🚨🔷⛰🌊 👴 frequency must be greater than 520 MHz so return an error
     🍉
     👴 ...
@@ -101,13 +101,13 @@ Emojicode provides a control flow mechanism that is specifically designed for
 error checking:
 
 ```syntax
-$error-check-control$-> 🥑 $variable$ $expression$ $block$ 🍓 $variable$ $block$
+$error-check-control$-> 🥑 $variable$ $expression$ $block$ 🙅 $variable$ $block$
 ```
 
 The 🥑 works in a straight-forward way. If the expression evaluates to an 🚨
 instance that does not represent an error, the first block is executed an the
 variable is set to the value contained in the 🚨. If, however, the 🚨 does
-represent an error the 🍓 block is entered its variable is set to the error
+represent an error the 🙅 block is entered its variable is set to the error
 enumeration instance.
 
 Example:
@@ -116,7 +116,7 @@ Example:
 🥑 fileData 🍩📇📄 🔤textDocument.txt🔤 🍇
   😀 🍪🔤Read 🔤 🔡 🐔 fileData 10 🔤 bytes🔤 🍪
 🍉
-🍓 error 🍇
+🙅 error 🍇
   😀 🔤😢 Could not read file🔤
 🍉
 ```

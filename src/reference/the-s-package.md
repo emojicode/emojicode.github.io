@@ -169,11 +169,11 @@ The 🍨 class is generic and needs to know of what type the values are. If you 
 the class name you will also have to specify this generic argument. To specify a
 list that can hold strings you would write:
 
-    🍨🐚🔡
+    🍨🐚🔡🍆
 
 If you created a list like this
 
-    🍮 list 🔷 🍨🐚🔡 🐸
+    🍮 list 🔷 🍨🐚🔡🍆 🐸
 
 you would only be able to add strings to the list and you will always get back
 strings from the list. (The syntax used above will be discussed in
@@ -203,7 +203,7 @@ dictionary is theoretically unlimited.
 The 🍯 class is also generic and requires you to specify the type of the values.
 For instance if the values were booleans the type would be written like this:
 
-    🍯🐚👌
+    🍯🐚👌🍆
 
 ### Dictionary Literals
 

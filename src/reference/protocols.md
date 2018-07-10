@@ -81,16 +81,16 @@ by the 💿 protocol. This is where multiprotocols are of service.
 You can use a multiprotocol type like so:
 
 ```
-🍱 🐽️🐚🔡 💿 🍱
+🍱 🐽️🐚🔡🍆 💿 🍱
 ```
 
 For instance, when declaring the arguments to a method:
 
 ```
-❗️ 🌈 a 🍱 🐽️🐚🔡 💿 🍱 🍇
+❗️ 🌈 a 🍱 🐽️🐚🔡🍆 💿 🍱 🍇
   💭 ...
 🍉
 ```
 
 As expected, `a` can now be used both as an instance of a type conforming to
-🐽️🐚🔡 and as an insatnce of a type conforming to 💿.
+🐽️🐚🔡🍆 and as an insatnce of a type conforming to 💿.

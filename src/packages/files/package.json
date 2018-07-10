@@ -12,6 +12,10 @@
             "typeMethods": [],
             "enumerationValues": [
                 {
+                    "documentation": " Function not supported. ",
+                    "value": "⛔"
+                },
+                {
                     "documentation": " Not enough space. ",
                     "value": "🐁"
                 },
@@ -26,10 +30,6 @@
                 {
                     "documentation": " File exists ",
                     "value": "🗿"
-                },
-                {
-                    "documentation": " Function not supported. ",
-                    "value": "🙅"
                 },
                 {
                     "documentation": " Permission denied ",
@@ -516,7 +516,7 @@
                     "parameters": []
                 },
                 {
-                    "name": "🙅",
+                    "name": "🚪",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,

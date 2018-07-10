@@ -12,15 +12,16 @@ the name of the type. A generic parameter consits of a name, which can then be
 used instead of a type inside the class or value type, and a type constraint.
 
 ```syntax
-$generic-parameter$-> 🐚 $variable$ $type$
-$generic-parameters$-> $generic-parameter$ $generic-parameters$ | $generic-parameter$
+$generic-parameter$-> $variable$ $type$
+$generic-parameter-list$-> $generic-parameter$ [$generic-parameter-list$]
+$generic-parameters$-> 🐚 $generic-parameter-list$ 🍆
 ```
 
 See this example for a box type that can store objects of a specified type. Note
 that inside the class body `T` is used as a type.
 
 ```
-🐇 🎁 🐚T🔵 🍇
+🐇 🎁 🐚T🔵🍆 🍇
   🖍🆕 something T
 
   🆕 ✂️ 🍼 something T 🍇🍉
@@ -34,7 +35,7 @@ that inside the class body `T` is used as a type.
 The following example demonstrates how to instantiate a generic class:
 
 ```
-🆕🎁🐚🔡✂️ 🔤Been wishin' for you🔤❗
+🆕🎁🐚🔡🍆✂️ 🔤Been wishin' for you🔤❗
 ```
 
 ### Type Constraint
@@ -50,7 +51,7 @@ Naturally you can subclass a generic class. Like in any other circumstance you
 have to provide values for the superclass’s generic parameters. For instance:
 
 ```
-🐇 ☑️ 🎁🐚🔡 🍇
+🐇 ☑️ 🎁🐚🔡🍆 🍇
 
 🍉
 ```
@@ -59,7 +60,7 @@ If the subclass itself takes a generic argument this argument can be used as
 argument for the superclass:
 
 ```
-🐇 🌟🐚A🔵 🎁🐚A 🍇
+🐇 🌟🐚A🔵🍆 🎁🐚A🍆 🍇
 
 🍉
 ```
@@ -67,8 +68,8 @@ argument for the superclass:
 ## Compatibility
 
 Two generic types are only compatible if they were provided with exactly the
-same arguments. So `🍨🐚🔡` is only compatible to `🍨🐚🔡` but not to
-`🍨🐚⚪️` as one might expect.
+same arguments. So `🍨🐚🔡🍆` is only compatible to `🍨🐚🔡🍆` but not to
+`🍨🐚⚪️🍆` as one might expect.
 
 ## Generic Methods and Intializers
 
@@ -80,7 +81,7 @@ A good example from the standard library is 🍨’s 🐰 method. It is defined 
 this:
 
 ```
-❗️ 🐰 🐚A⚪️ callback 🍇Element➡️A🍉 ➡️ 🍨🐚A 🍇
+❗️ 🐰 🐚A⚪🍆️ callback 🍇Element➡️A🍉 ➡️ 🍨🐚A🍆 🍇
   💭 ...
 🍉
 ```
@@ -92,7 +93,7 @@ which on which you call the method:
 
 ```
 🍨🔤aa🔤 🔤12345🔤🍆 ➡️ list
-🐰 list 🐚🔡 🍇 a 🔡 ➡️ 🔡
+🐰 list 🐚🔡🍆 🍇 a 🔡 ➡️ 🔡
   ↩️ 🍪a 🔤!🔤🍪
 🍉
 ```
@@ -100,8 +101,8 @@ which on which you call the method:
 The grammar for generic arguments is:
 
 ```syntax
-$generic-arguments$-> $generic-argument$ | $generic-argument$ $generic-arguments$
-$generic-argument$-> 🐚 $type$
+$generic-argument-list$-> $type$ [$generic-argument-list$]
+$generic-arguments$-> 🐚 $generic-argument-list$ 🍆
 ```
 
 Emojicode is, however, capable of automatically inferring the generic
@@ -123,8 +124,8 @@ very similar to generic classes and the same compatibility rules apply.
 A generic protocol which you might use is 🔂.
 
 ```
-🐊 🔂🐚Element⚪️ 🍇
-  ❗️ 🍡 ➡️ 🍡🐚Element
+🐊 🔂🐚Element⚪🍆️ 🍇
+  ❗️ 🍡 ➡️ 🍡🐚Element🍆
 🍉
 ```
 
@@ -135,8 +136,8 @@ A class conforming to this protocol must pass a generic argument, like the
 string class does for example:
 
 ```
-🐇 🌳🐚Element⚪️ 🍇
-  🐊 🍡🐚Element
+🐇 🌳🐚Element⚪🍆️ 🍇
+  🐊 🍡🐚Element🍆
 
   💭 ...
 🍉
@@ -146,7 +147,7 @@ string class does for example:
 
   💭 ...
 
-  ❗️ 🍡 ➡️ 🌳🐚🍬🔣 🍇
+  ❗️ 🍡 ➡️ 🌳🐚🍬🔣🍆 🍇
     💭 ...
   🍉
 🍇

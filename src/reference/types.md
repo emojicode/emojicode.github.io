@@ -89,9 +89,9 @@ expectation. Thus, ⚫️ will normally refer to the expected type.
 for example:
 
 ```
-🍰 list 🍨🐚🍀🐚🔡  👴 🍀 is a type that requires a generic argument
+🍰 list 🍨🐚🍀🐚🔡🍆🍆  👴 🍀 is a type that requires a generic argument
 👴 ...
-🍮 list 🔷⚫️🐸 👴 ⚫️ stands for 🍀🐚🔡 here
+🍮 list 🔷⚫️🐸 👴 ⚫️ stands for 🍀🐚🔡🍆 here
 ```
 
 ## Built-In Types

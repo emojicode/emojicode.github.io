@@ -49,7 +49,7 @@ method, and can be passed around. The type of a closure is, of course,
 a callable.
 
 A closure is created by a block of code that appears when an expression is
-expected. This means that every code block that is not part of an 🍊, 🍓, or 🍋
+expected. This means that every code block that is not part of an ↪️, 🙅, or 🙅↪️
 🔂 or 🔁 statement or a method or initializer declaration, is a closure.
 
 In contrast to a normal code block, a closure can define arguments and a return

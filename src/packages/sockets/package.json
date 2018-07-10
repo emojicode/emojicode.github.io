@@ -12,6 +12,10 @@
             "typeMethods": [],
             "enumerationValues": [
                 {
+                    "documentation": " Function not supported. ",
+                    "value": "⛔"
+                },
+                {
                     "documentation": " Not enough space. ",
                     "value": "🐁"
                 },
@@ -26,10 +30,6 @@
                 {
                     "documentation": " File exists ",
                     "value": "🗿"
-                },
-                {
-                    "documentation": " Function not supported. ",
-                    "value": "🙅"
                 },
                 {
                     "documentation": " Permission denied ",
@@ -61,20 +61,6 @@
             "documentation": "\n  🏄 represents a socket that listens for clients on a given port.\n",
             "methods": [
                 {
-                    "name": "🙅",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "NoReturn"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Closes this socket.\n  ",
-                    "parameters": []
-                },
-                {
                     "name": "🙋",
                     "accessLevel": "🔓",
                     "unsafe": false,
@@ -98,6 +84,20 @@
                     "mood": "❗️",
                     "genericParameters": [],
                     "documentation": "\n    Waits until a client wants to connect to this socket and returns a socket\n    to communicate with it.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🚪",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Closes this socket.\n  ",
                     "parameters": []
                 }
             ],
@@ -168,7 +168,7 @@
                     ]
                 },
                 {
-                    "name": "🙅",
+                    "name": "🚪",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,

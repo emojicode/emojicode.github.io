@@ -28,7 +28,7 @@ Documentation comments can only occur at specific locations:
     should conform to this protocol. The number of elements must be finite and
     returned by 🐔.
   📗
-  🌍 🐊 🐽️🐚Element⚪️ 🍇
+  🌍 🐊 🐽️🐚Element⚪️🍆 🍇
   ```
 
 - Before a method, type method or initializer declaration:

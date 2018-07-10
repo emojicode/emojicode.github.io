@@ -57,7 +57,7 @@
 
   {{>pre_release_warning}}
 
-  <h1>{{title}}{{#genericParameters}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericParameters}}</h1>
+  <h1>{{title}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}}</h1>
   <p>{{{mdDocumentation}}}</p>
 
   {{#initializers.length}}
@@ -100,7 +100,7 @@
         {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
       </div>
 
-      <pre class="declaration">{{attributes}}{{access}}{{mood}} {{name}}{{#genericParameters}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericParameters}} {{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}</pre>
+      <pre class="declaration">{{attributes}}{{access}}{{mood}} {{name}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}} {{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}</pre>
 
       {{{mdDocumentation}}}
     </div>
@@ -117,7 +117,7 @@
         {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
       </div>
 
-      <pre class="declaration">{{attributes}}{{access}}🐇{{mood}} {{name}}{{#genericParameters}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericParameters}} {{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}</pre>
+      <pre class="declaration">{{attributes}}{{access}}🐇{{mood}} {{name}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}} {{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}</pre>
 
       {{{mdDocumentation}}}
       </div>

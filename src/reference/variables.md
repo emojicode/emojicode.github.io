@@ -146,11 +146,11 @@ it isn’t. Take a look at this example, in which an assignee method is defined.
 
 ```
 ❗️ 🐽 index 🔢 ➡️ 🍬Element 🍇
-  👴 ...
+  💭 ...
 🍉
 
 ➡️ 🐽 assigned_value Element index 🔢 🍇
-  👴 ...
+  💭 ...
 🍉
 ```
 

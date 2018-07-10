@@ -186,5 +186,5 @@ $emoji-modifier-base$-> U+1F933–U+1F939 | U+1F93D–U+1F93E | U+1F9B5–U+1F9B
 $emoji-modifier$-> U+1F3FB-U+1F3FF
 $regional-indicators$-> $regional-indicator$ [$regional-indicators$]
 $regional-indicator$-> U+1F1E6-U+1F1FF
-$emoji-id$-> --$binary-operator$ --👍 --👎 --🔟 --🆕 --❗️ --❓--🤛 --🤜 --↩️ --⤴️ --🔂 --🔁 --🚨 --🍊 --🍋 --🍉 --🍇 --🥑 --🐕 --☣️ --➡️ --⬅️ --🖍 --🐇 --🐊 --🦃 --🕊 --📗 --🔤  $emoji$
+$emoji-id$-> --$binary-operator$ --👍 --👎 --🔟 --🆕 --❗️ --❓--🤛 --🤜 --↩️ --⤴️ --🔂 --🔁 --🚨 --↪️ --🙅 --🍉 --🍇 --🥑 --🐕 --☣️ --➡️ --⬅️ --🖍 --🐇 --🐊 --🦃 --🕊 --📗 --🔤  $emoji$
 ```
