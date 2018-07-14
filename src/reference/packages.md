@@ -64,14 +64,14 @@ every package.
 ### Exporting Types
 
 A package always has a main file, which is the file you pass to the compiler.
-This file then can include other files using 📜.
+This file can then include other files using 📜.
 
-By default all types defined within a package are internal and not
+By default, all types defined within a package are internal and not
 exported. If you want to export a type defined in your package you must
 attribute it 🌍.
 
 Keep in mind that types don’t actually belong to a namespace. When exporting a
-type the namespace is completely irrelevant.
+type the namespace is irrelevant.
 
 For instance, the main file of a cat simulator could look like this:
 
