@@ -43,15 +43,15 @@ called 🎬 that might fail in some cases, in which an error is returned:
 🍉
 
 🐇 🎤 🍇
-  🍰 battery 🚀
+  🖍🆕 battery 💯
 
-  👴 ...
+  💭 ...
 
-  🐇🐖 🎬 ➡️ 🚨⛰🔡 🍇
-    ↪️ ◀️ battery 0.1 🍇
-      🚨🔷⛰🔋 👴 Too low battery, return an error
+  🐇❗️ 🎬 ➡️ 🚨⛰🔡 🍇
+    ↪️ battery ◀️ 0.1 🍇
+      🚨🆕⛰🔋❗️  💭 Too low on battery, return an error
     🍉
-    🍎 🔤Ladies and gentlemen...🔤 👴 Everything fine, we return a string
+    ↩️ 🔤Ladies and gentlemen...🔤  💭 Everything fine, we return a string
   🍉
 🍉
 ```
@@ -62,7 +62,13 @@ Since initializers can fail too, Emojicode allows initializers to return
 errors. The error enumeration is declared after the 🆕 like this:
 
 ```
-🆕 🚨⛰ 🦀 frequency 🚀 🍇
+🆕 🚨⛰ 🦀 frequency 💯 🍇
+```
+
+Or if the initializer has a name, like this:
+
+```
+🆕 💚🚨⛰ 🦀 frequency 💯 🍇
 ```
 
 A contained value must not be provided, as the contained value is obviously
@@ -77,11 +83,11 @@ Here's an example of an initializer that returns an error:
 🍉
 
 🐇 🎤 🍇
-  🐈 🚨⛰ 🦀 frequency 🚀 🍇
-    ↪️ ◀️ frequency 520 🍇
-      🚨🔷⛰🌊 👴 frequency must be greater than 520 MHz so return an error
+  🆕 🚨⛰ 🦀 frequency 💯 🍇
+    ↪️ frequency ◀️ 520 🍇
+      🚨🆕⛰🌊❗  💭 frequency must be greater than 520 MHz so return an error
     🍉
-    👴 ...
+    💭 ...
   🍉
 🍉
 ```
@@ -113,11 +119,11 @@ enumeration instance.
 Example:
 
 ```
-🥑 fileData 🍩📇📄 🔤textDocument.txt🔤 🍇
-  😀 🍪🔤Read 🔤 🔡 🐔 fileData 10 🔤 bytes🔤 🍪
+🥑 fileData 📇🐇📄 filePath❗️ 🍇
+  💭 Do something with fileData
 🍉
-🙅 error 🍇
-  😀 🔤😢 Could not read file🔤
+🙅‍♀️ error 🍇
+  😀 🔤😢 Could not read file🔤️❗️
 🍉
 ```
 

@@ -121,7 +121,7 @@ $type-body-declaration-main$-> $declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
 $superclass$-> $type$
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
-$initializer$-> 🆕 [$init-error$] $emoji-id$ [$init-parameters$] $body$
+$initializer$-> 🆕 [$emoji-id$] [$init-error$] [$init-parameters$] $body$
 $init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
 $init-parameter$-> [🍼] $variable$ $type$
 $init-error$-> 🚨 $type$
