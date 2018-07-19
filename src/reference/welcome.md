@@ -1,7 +1,7 @@
 # Welcome to Emojicode
 
 >!H Looking for a tutorial? See
->!H [“Compile and Run Your First Program”](../guides/compile-and-run.html),
+>!H [“Compile and Run Your First Program”](../guides/compile-and-run.html).
 
 Emojicode is a language that aims to provide the most modern and powerful
 features to make it easy, fast and fun to write programs. These powerful

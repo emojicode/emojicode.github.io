@@ -1,30 +1,25 @@
 @import 'base';
 
 .header {
-  background-color: $p-gray;
+  background-color: $p-intermediate;
   font-size: 1.125em;
-  padding: 5em 3em 3em;
+  padding: 4.8em 3em 3em;
   position: relative;
   overflow: hidden;
 
   h1,
   h2 {
-    color: $p-intermediate;
+    color: $white;
   }
 
   h2 {
     margin: 0 auto 3rem;
   }
+}
 
-  img {
-    mix-blend-mode: multiply;
-    opacity: 0.16;
-    z-index: 0;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
+.header-grape {
+  float: right;
+  width: 300px;
 }
 
 .header-inner {
@@ -39,7 +34,7 @@
   padding: 0.7em 1.2em;
   color: $white;
   display: inline-block;
-  background: linear-gradient(to top, $p-soft, adjust-hue($p-soft, 6deg));
+  background: linear-gradient(to top, $p-soft, adjust-hue($p-soft, 5deg));
   line-height: normal;
 
   &:hover {
@@ -65,6 +60,7 @@
 }
 
 .socialize-text {
+  color: $white;
   margin-top: 2.5rem;
   margin-bottom: 0.92em;
   text-transform: uppercase;

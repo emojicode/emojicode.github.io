@@ -118,7 +118,7 @@ instances are not.
 
 ## 🔲 Type Casting
 
->!N Type Casting is not available in Emojicode Symphonic alpha.
+>!N Type Casting is not available in Emojicode 0.6 (Symphonic) Beta.
 
 Type casting is a way to determine whether a value is of a given type at
 run-time and to treat the value as an instance of this type.
