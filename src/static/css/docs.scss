@@ -1,6 +1,7 @@
 @import 'base';
 
 $callout-note: #F2CB69;
+$callout-hint: desaturate(adjust-hue($p-soft, -20deg), 2%);
 
 $pre-before: $p-soft;
 $pre-before-syntax: $p-intermediate;
@@ -296,18 +297,25 @@ section,
 // ===== CALLOUTS =====
 
 @mixin callout($color) {
-  margin: 25px 0;
-  background-color: lighten($color, 30%);
+  margin: 1.25rem 0;
+  padding: 1.4rem 1.8rem;
+  background-color: lighten($color, 29%);
 
-  .title {
-    background-color: $color;
-    color: $white;
-    padding: 7px;
-    margin: 0;
+  a, & {
+    color: saturate(darken($color, 40%), 10%);
   }
 
-  .text {
-    padding: 0.75em 0.7em;
+  a {
+    font-weight: bold;
+  }
+
+  .title {
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    letter-spacing: 0.33px;
+    margin-bottom: 0.45rem;
+    display: block;
+    color: saturate(darken($color, 40%), 1%);
   }
 
   p {
@@ -321,7 +329,7 @@ section,
 }
 
 .callout-hint {
-  @include callout($p-soft);
+  @include callout($callout-hint);
 }
 
 .book-navigation-bottom {
