@@ -5,7 +5,7 @@
 Emojicode offers concurrency, that is doing more than one thing at a time,
 and allows you to create threads, which can each independently execute code.
 
-## Creating threads
+## Creating Threads
 
 Threads are represented by the 💈 class of the s package. You can create a new
 thread by using the 🆕 initializer which accepts a callable which will be called
@@ -72,7 +72,7 @@ simultaneously. The order in which a thread will get the opportunity to actually
 print something depends on your hardware as well as many other factors, like
 load factor of the computer.
 
-## Race conditions and mutexes
+## Race Conditions and Mutexes
 
 Imagine the following program:
 
@@ -214,7 +214,7 @@ Money, money, money – Must be funny
 0
 ```
 
-## Atomicity of the s package
+## Atomicity of the s Package
 
 It’s important to note that none of the classes in the s package guarantee
 atomicity. If you access a s package data structures always make sure to use

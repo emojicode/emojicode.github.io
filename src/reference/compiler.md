@@ -23,7 +23,7 @@ can explicitly set an output name with the `-o` option:
 emojicodec aFile.emojic -o awesomeProgram
 ```
 
-## Compiling A Package
+## Compiling a Package
 
 To compile a package to a static library you have to specify a package name with
 `-p`. E.g.

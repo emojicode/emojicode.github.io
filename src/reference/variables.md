@@ -15,7 +15,7 @@ There are two types of variables: mutable and constant variables. Frozen
 variables differ from normal ones in that they cannot be changed after
 they were initially set.
 
-## Assigning a constant variable
+## Assigning a Constant Variable
 
 In many cases you will only assign a variable once, i.e. store a value into it,
 and then use it without ever changing it. These are the cases where you should
@@ -44,7 +44,7 @@ automatically.
 Obviously, you cannot change a constant variable. If you try to reassign a
 constant variable you will get a compiler error.
 
-## Declaring and assigning mutable variables
+## Declaring and Assigning Mutable Variables
 
 Sometimes, however, you will need variables whose value can be modified. This
 is were mutable variables come in.
@@ -121,7 +121,7 @@ i ⬅️➗ 3
 
 Operator Assignment can obviously only be used with mutable variables.
 
-## Assignee instance methods
+## Assignee Instance Methods
 
 >!N Assignee instance methods are not available in Emojicode Symphonic alpha.
 

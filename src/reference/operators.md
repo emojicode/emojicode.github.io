@@ -67,7 +67,7 @@ first.
 - 🤝
 - 👐
 
-## Defining Operations for custom types
+## Defining Operations for Custom Types
 
 You can also define operators for custom types. An operator can be defined
 similar to a method. This is an example from the s package’s 📇 type:

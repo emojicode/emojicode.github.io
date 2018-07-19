@@ -19,7 +19,7 @@ types to write meaningful programs.
 You’ve already got to know the types 👌 🔢 💯 in a previous chapter. These
 types are, of course, also defined in the s package.
 
-## Symbol literals
+## Symbol Literals
 
 A **Symbol** is a **single Unicode character** represented by the symbol type 🔣.
 The symbol type can represent any character defined in Unicode.
