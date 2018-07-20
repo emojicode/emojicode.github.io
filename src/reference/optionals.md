@@ -10,8 +10,8 @@ You can declare an optional type with 🍬 followed by the type the optional
 can contain:
 
 ```
-🖍🆕 building_age 🍬🔢 👴 The age of old buildings is often not known exactly.
-🖍🆕 pet_name 🍬🔡 👴 Some pets have no name.
+🖍🆕 building_age 🍬🔢  💭 The age of old buildings is often not known exactly.
+🖍🆕 pet_name 🍬🔡  💭 Some pets have no name.
 ```
 
 In the above example, we have declared two variables, both of which are
