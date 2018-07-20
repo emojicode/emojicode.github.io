@@ -105,7 +105,7 @@ Take a look at this example:
 
 ```
 ↪️ pet_name ➡️ the_pet_name  🍇
-  😀 🍺 the_pet_name❗️
+  😀 the_pet_name❗️
 🍉
 ```
 
