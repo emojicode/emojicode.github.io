@@ -36,22 +36,40 @@
       </div>
     </section>
 
-    {{=<% %>=}}
+    <section class="features">
+      <div class="features-wrapper">
+        <div class="feature">
+          <div class="feature-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#FFD983" d="M29 11.06c0 6.439-5 7.439-5 13.44 0 3.098-3.123 3.359-5.5 3.359-2.053 0-6.586-.779-6.586-3.361C11.914 18.5 7 17.5 7 11.06 7 5.029 12.285.14 18.083.14 23.883.14 29 5.029 29 11.06z"/><path fill="#CCD6DD" d="M22.167 32.5c0 .828-2.234 2.5-4.167 2.5-1.933 0-4.167-1.672-4.167-2.5 0-.828 2.233-.5 4.167-.5 1.933 0 4.167-.328 4.167.5z"/><path fill="#FFCC4D" d="M22.707 10.293c-.391-.391-1.023-.391-1.414 0L18 13.586l-3.293-3.293c-.391-.391-1.023-.391-1.414 0s-.391 1.023 0 1.414L17 15.414V26c0 .553.448 1 1 1s1-.447 1-1V15.414l3.707-3.707c.391-.391.391-1.023 0-1.414z"/><path fill="#99AAB5" d="M24 31c0 1.104-.896 2-2 2h-8c-1.104 0-2-.896-2-2v-6h12v6z"/><path fill="#CCD6DD" d="M11.999 32c-.48 0-.904-.347-.985-.836-.091-.544.277-1.06.822-1.15l12-2c.544-.098 1.06.277 1.15.822.091.544-.277 1.06-.822 1.15l-12 2c-.055.01-.111.014-.165.014zm0-4c-.48 0-.904-.347-.985-.836-.091-.544.277-1.06.822-1.15l12-2c.544-.097 1.06.277 1.15.822.091.544-.277 1.06-.822 1.15l-12 2c-.055.01-.111.014-.165.014z"/></svg>
+          </div>
+          <h2 class="feature-heading">Conceptually Bright</h2>
+          <p class="feature-text">As a multi-paradigm language Emojicode features object-orientation, optionals, generics, closures and protocols.</p>
+        </div>
 
-    <section id="features" class="features">
-      <div class="features-list">
-        <h1 class="features-heading">Great Power</h1>
-        <p>Emojicode is a language that aims to provide the most modern and powerful features to make it easy, fast and fun to write programs. Here is a short list of its most powerful features:</p>
-        <ol class="features-ol">
-          <li class="feature" v-for="feature in features" :class="{ active: feature === activeFeature }" @click="activeFeature = feature">
-            <img src="/static/img/checkmark-outline.svg" class="icon">
-            <h3>{{ feature.title }}</h3>
-            <div class="text">{{ feature.text }}</div>
-          </li>
-        </ol>
+        <div class="feature">
+          <div class="feature-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#FFAC33" d="M32.938 15.651C32.792 15.26 32.418 15 32 15H19.925L26.89 1.458c.219-.426.106-.947-.271-1.243C26.437.071 26.218 0 26 0c-.233 0-.466.082-.653.243L18 6.588 3.347 19.243c-.316.273-.43.714-.284 1.105S3.582 21 4 21h12.075L9.11 34.542c-.219.426-.106.947.271 1.243.182.144.401.215.619.215.233 0 .466-.082.653-.243L18 29.412l14.653-12.655c.317-.273.43-.714.285-1.106z"/></svg>
+          </div>
+          <h2 class="feature-heading">Lightning Fast</h2>
+          <p class="feature-text">Emojicode compiles to native machine code using lots of optimizations that make your code fast.</p>
+        </div>
       </div>
-      <div class="feature-example">
-        <pre class="feature-pre">{{ activeFeature.example }}</pre>
+      <div class="features-wrapper">
+        <div class="feature">
+          <div class="feature-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#662113" d="M4 11v12.375c0 2.042 1.093 2.484 1.093 2.484l11.574 9.099C18.489 36.39 18 33.375 18 33.375V22L4 11z"/><path fill="#C1694F" d="M32 11v12.375c0 2.042-1.063 2.484-1.063 2.484s-9.767 7.667-11.588 9.099C17.526 36.39 18 33.375 18 33.375V22l14-11z"/><path fill="#D99E82" d="M19.289.5c-.753-.61-1.988-.61-2.742 0L4.565 10.029c-.754.61-.754 1.607 0 2.216l12.023 9.646c.754.609 1.989.609 2.743 0l12.104-9.73c.754-.609.754-1.606 0-2.216L19.289.5z"/><path fill="#D99E82" d="M18 35.75c-.552 0-1-.482-1-1.078V21.745c0-.596.448-1.078 1-1.078.553 0 1 .482 1 1.078v12.927c0 .596-.447 1.078-1 1.078z"/><path fill="#99AAB5" d="M28 18.836c0 1.104.104 1.646-1 2.442l-2.469 1.878c-1.104.797-1.531.113-1.531-.992v-2.961c0-.193-.026-.4-.278-.608C20.144 16.47 10.134 8.519 8.31 7.051l4.625-3.678c1.266.926 10.753 8.252 14.722 11.377.197.156.343.328.343.516v3.57z"/><path fill="#CCD6DD" d="M27.656 14.75C23.688 11.625 14.201 4.299 12.935 3.373l-1.721 1.368-2.904 2.31c1.825 1.468 11.834 9.419 14.412 11.544.151.125.217.25.248.371L27.903 15c-.06-.087-.146-.171-.247-.25z"/><path fill="#CCD6DD" d="M28 18.836v-3.57c0-.188-.146-.359-.344-.516-3.968-3.125-13.455-10.451-14.721-11.377l-2.073 1.649c3.393 2.669 12.481 9.681 14.86 11.573.256.204.278.415.278.608v4.836l1-.761c1.104-.797 1-1.338 1-2.442z"/><path fill="#E1E8ED" d="M27.656 14.75C23.688 11.625 14.201 4.299 12.935 3.373l-2.073 1.649c3.393 2.669 12.481 9.681 14.86 11.573.037.029.06.059.087.088L27.903 15c-.06-.087-.146-.171-.247-.25z"/></svg>
+          </div>
+          <h2 class="feature-heading">Feature Packed</h2>
+          <p class="feature-text">Emojicode comes with a comprehensive set of default packages. And you can easily write your own.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-emoji">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#AA8ED6" d="M35.885 11.833c0-5.45-4.418-9.868-9.867-9.868-3.308 0-6.227 1.633-8.018 4.129-1.791-2.496-4.71-4.129-8.017-4.129-5.45 0-9.868 4.417-9.868 9.868 0 .772.098 1.52.266 2.241C1.751 22.587 11.216 31.568 18 34.034c6.783-2.466 16.249-11.447 17.617-19.959.17-.721.268-1.469.268-2.242z"/></svg>
+          </div>
+          <h2 class="feature-heading">For the Love of Emoji</h2>
+          <p class="feature-text">We believe that Emojis have expressive force. Let’s use that to make programming more fun and accessible.</p>
+        </div>
       </div>
     </section>
 
@@ -82,7 +100,5 @@
     </div>
 
     <script src="https://platform.twitter.com/widgets.js" async="true"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.1/vue.min.js"></script>
-    <script src="/static/js/front.js"></script>
   </body>
 </html>

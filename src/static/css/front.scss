@@ -1,5 +1,9 @@
 @import 'base';
 
+body {
+  background: linear-gradient(to bottom, $background-color, $p-gray);
+}
+
 .header {
   background-color: $p-intermediate;
   font-size: 1.125em;
@@ -43,22 +47,6 @@
   }
 }
 
-.action {
-  background-color: $p-gray;
-  padding: 4em 0;
-}
-
-.action-inner {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-@media (max-width: $break) {
-  .menu {
-    font-size: 15px;
-  }
-}
-
 .socialize-text {
   color: $white;
   margin-top: 2.5rem;
@@ -72,80 +60,75 @@
   display: flex;
 }
 
-.features-heading {
-  font-size: 2em;
-  margin-top: 0;
-  margin-bottom: 0.34em;
-}
-
 .features {
   width: 100%;
+  margin-top: 0.5rem;
+}
+
+.features-wrapper {
   display: flex;
-  padding: 0 3em;
-  margin: 3em 0;
-  align-items: stretch;
-}
-
-.features-list {
-  width: 50%;
-}
-
-.features-ol {
-  list-style: none;
-  margin: 0;
-  margin-right: 1em;
-  padding: 0;
-}
-
-.feature-check {
-  height: 1em;
-  vertical-align: -0.15em;
-  margin-right: 0.2em;
+  justify-content: center;
 }
 
 .feature {
-  $color: lighten($text-color, 58%);
-  display: block;
-  margin: 1em 0;
-  cursor: pointer;
-  color: $color;
-  padding-left: 25px;
-  position: relative;
-
-  .icon {
-    display: none;
-    position: absolute;
-    top: 1px;
-    left: 0;
-    height: 1.1em;
-  }
-
-  h3 {
-    font-size: 1.1em;
-    margin: 0;
-    margin-bottom: 0.3em;
-    color: $color;
-  }
-
-  &:hover,
-  &.active {
-    color: $text-color;
-
-    .icon {
-      display: inline-block;
-    }
-
-    h3 {
-      color: $heading-color;
-    }
-  }
+  text-align: center;
+  padding: 0 0.7rem;
+  width: 290px;
+  margin: 0 2rem;
+  margin-top: 2.8rem;
 }
 
-.feature-pre {
+.feature-emoji svg {
+  max-height: 76px;
+}
+
+.feature-heading {
+  margin-top: 1.2rem;
+}
+
+.feature-text {
   margin: 0;
+  font-size: 0.9rem;
+  color: lighten($text-color, 2.6%);
 }
 
-.feature-example {
-  display: flex;
-  width: 50%;
+.action {
+  padding: 3.5rem 2rem;
+}
+
+.action-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: $break) {
+  .menu {
+    font-size: 15px;
+  }
+
+  .header {
+    padding: 2rem;
+
+    h2 {
+      font-size: 1.55rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  .header-grape {
+    float: none;
+    width: 130px;
+  }
+
+  .socialize {
+    display: block;
+  }
+
+  .features-wrapper {
+    display: block;
+  }
+
+  .feature {
+    width: auto;
+  }
 }
