@@ -6,14 +6,14 @@
         <a href="../{{package}}">{{package}}</a>
       </div>
 
-      {{#conformsToItems}}
+      {{#conformances.length}}
         <h3>Conforms to</h3>
         <div class="link-list">
-          {{#conformsTo}}
+          {{#conformances}}
             {{{thisTypeLink}}}
-          {{/conformsTo}}
+          {{/conformances}}
         </div>
-      {{/conformsToItems}}
+      {{/conformances.length}}
       {{#superclass}}
         <h3>Superclass</h3>
         <div class="link-list">
@@ -24,9 +24,7 @@
         <h3>Initializers</h3>
         <div class="link-list">
           {{#initializers}}
-            {{#procedureVisible}}
-              <a href="#i{{name}}">{{name}}</a>
-            {{/procedureVisible}}
+            <a href="#i{{name}}">{{name}}</a>
           {{/initializers}}
         </div>
       {{/initializers.length}}
@@ -42,9 +40,7 @@
         <h3>Methods</h3>
         <div class="link-list">
           {{#methods}}
-            {{#procedureVisible}}
-              <a href="#m{{name}}">{{name}}</a>
-            {{/procedureVisible}}
+            <a href="#m{{name}}{{mood}}">{{name}}{{mood}}</a>
           {{/methods}}
         </div>
       {{/methods.length}}
@@ -52,32 +48,31 @@
         <h3>Type Methods</h3>
         <div class="link-list">
           {{#typeMethods}}
-            {{#procedureVisible}}
-              <a href="#cm{{name}}">{{name}}</a>
-            {{/procedureVisible}}
+            <a href="#cm{{name}}{{mood}}">{{mood}}{{name}}</a>
           {{/typeMethods}}
         </div>
       {{/typeMethods.length}}
     </div>
   </div>
-  <h1>{{typeType}} {{typeName}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}}</h1>
+
+  {{>pre_release_warning}}
+
+  <h1>{{title}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}}</h1>
   <p>{{{mdDocumentation}}}</p>
 
   {{#initializers.length}}
     <h2>Initializers</h2>
     {{#initializers}}
-      {{#procedureVisible}}
-        <div class="method">
-          <div class="method-heading">
-            <h3 class="method-emoji" id="i{{name}}">{{name}}</h3>
-            {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
-          </div>
-
-          <pre class="declaration">{{access}} 🐈 {{name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}</pre>
-
-          {{{mdDocumentation}}}
+      <div class="method">
+        <div class="method-heading">
+          <h3 class="method-emoji" id="i{{name}}">{{name}}</h3>
+          {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
         </div>
-      {{/procedureVisible}}
+
+        <pre class="declaration">{{attributes}}{{access}}🆕 {{name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}</pre>
+
+        {{{mdDocumentation}}}
+      </div>
     {{/initializers}}
   {{/initializers.length}}
 
@@ -99,18 +94,16 @@
     <h2>Methods</h2>
 
     {{#methods}}
-      {{#procedureVisible}}
-        <div class="method">
-          <div class="method-heading">
-            <h3 class="method-emoji" id="m{{name}}">{{name}}</h3>
-            {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
-          </div>
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="m{{name}}{{mood}}">{{name}}{{mood}}</h3>
+        {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+      </div>
 
-          <pre class="declaration">{{access}} 🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+      <pre class="declaration">{{attributes}}{{access}}{{mood}} {{name}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}} {{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}</pre>
 
-          {{{mdDocumentation}}}
-        </div>
-      {{/procedureVisible}}
+      {{{mdDocumentation}}}
+    </div>
     {{/methods}}
   {{/methods.length}}
 
@@ -118,18 +111,16 @@
     <h2>Type Methods</h2>
 
     {{#typeMethods}}
-      {{#procedureVisible}}
-        <div class="method">
-          <div class="method-heading">
-            <h3 class="method-emoji" id="cm{{name}}">{{name}}</h3>
-            {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
-          </div>
+    <div class="method">
+      <div class="method-heading">
+        <h3 class="method-emoji" id="cm{{name}}">{{name}}</h3>
+        {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
+      </div>
 
-          <pre class="declaration">{{access}} 🐇🐖 {{name}}{{#genericArguments}} 🐚{{name}}{{{constraintTypeLink}}}{{/genericArguments}} {{#arguments}}{{name}} {{{typeLink}}} {{/arguments}}{{#returnType}}➡️ {{{thisTypeLink}}}{{/returnType}}</pre>
+      <pre class="declaration">{{attributes}}{{access}}🐇{{mood}} {{name}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}} {{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}</pre>
 
-          {{{mdDocumentation}}}
-        </div>
-      {{/procedureVisible}}
+      {{{mdDocumentation}}}
+      </div>
     {{/typeMethods}}
   {{/typeMethods.length}}
 </div>

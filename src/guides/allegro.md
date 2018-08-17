@@ -51,7 +51,7 @@ systems a 📺 will be represented by a window.
 📺 provides a single initializer:
 
 <pre class="declaration">
-🔓 🐈 🆕 width <a href="../packages/s/1f682.html">🚂</a> height <a href="../packages/s/1f682.html">🚂</a> </pre>
+🔓 🐈 🆕 width <a href="../packages/s/1f682.html">🔢</a> height <a href="../packages/s/1f682.html">🔢</a> </pre>
 
 Our code to get a display is therefore:
 
@@ -225,7 +225,7 @@ So let’s update the 🏁 function to use the new classes:
     🍦 cookies 🔷🍨🐚🍪🐸
     🍦 prng 🔷🎰🆕
     🔂 i ⏩ 0 10 🍇  👴 Create 10 randomly placed cookies
-      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
+      🐻 cookies 🔷🍪🆕 🚀🔢 prng 50 900 🚀🔢 prng 50 900 cookieBmp
     🍉
 
     🍦 monster 🔷🦁🆕 👴 Instantiate a monster
@@ -246,7 +246,7 @@ So let’s update the 🏁 function to use the new classes:
 As you can see we didn’t just replace the drawing calls but also introduced a 🍨
 `cookies` which stores ten randomly placed cookie objects. `🔷🎰🆕` creates a
 pseudo-random number generator, an object we can ask for random numbers. We use
-it to get integers between 50 and 900, which are then converted into 🚀s with 🚂’s
+it to get integers between 50 and 900, which are then converted into 🚀s with 🔢’s
 🚀 method. Later on this 🍨 is iterated and 🖌 is called on each cookie.
 
 If you run the program you’ll see something similar to this:
@@ -283,17 +283,17 @@ Cookie Monster to be movable with the arrow keys we need to check for a key-down
 event and then check in which direction that Cookie Monster should move.
 
 ```
-🍊🍦 keyboardEvent 🔲 event 📩 🍇
-  🍊 😛📟 keyboardEvent 84 🍇
+↪️🍦 keyboardEvent 🔲 event 📩 🍇
+  ↪️ 😛📟 keyboardEvent 84 🍇
     ⬆️ monster
   🍉
-  🍋 😛📟 keyboardEvent 85 🍇
+  🙅↪️ 😛📟 keyboardEvent 85 🍇
     ⬇️ monster
   🍉
-  🍋 😛📟 keyboardEvent 82 🍇
+  🙅↪️ 😛📟 keyboardEvent 82 🍇
     ⬅️ monster
   🍉
-  🍋 😛📟 keyboardEvent 83 🍇
+  🙅↪️ 😛📟 keyboardEvent 83 🍇
     ➡️ monster
   🍉
 🍉
@@ -340,7 +340,7 @@ Monster visible:
     🍦 cookies 🔷🍨🐚🍪🐸
     🍦 prng 🔷🎰 🆕
     🔂 i ⏩ 0 10 🍇
-      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
+      🐻 cookies 🔷🍪🆕 🚀🔢 prng 50 900 🚀🔢 prng 50 900 cookieBmp
     🍉
 
     🍦 monster 🔷🦁🆕
@@ -358,17 +358,17 @@ Monster visible:
 
       🍦 event ⏳ queue
 
-      🍊🍦 keyboardEvent 🔲 event 📩 🍇
-        🍊 😛📟 keyboardEvent 84 🍇
+      ↪️🍦 keyboardEvent 🔲 event 📩 🍇
+        ↪️ 😛📟 keyboardEvent 84 🍇
           ⬆️ monster
         🍉
-        🍋 😛📟 keyboardEvent 85 🍇
+        🙅↪️ 😛📟 keyboardEvent 85 🍇
           ⬇️ monster
         🍉
-        🍋 😛📟 keyboardEvent 82 🍇
+        🙅↪️ 😛📟 keyboardEvent 82 🍇
           ⬅️ monster
         🍉
-        🍋 😛📟 keyboardEvent 83 🍇
+        🙅↪️ 😛📟 keyboardEvent 83 🍇
           ➡️ monster
         🍉
       🍉
@@ -407,7 +407,7 @@ We’ll now replace 🍪’s 🖌 method by a much more advanced method:
 
 ```
 🐖 🖊 app 🏔 monsterX 🚀 monsterY 🚀 ➡️ 👌 🍇
-  🍊 🎊🎊➡️ monsterX x ⬅️ monsterX ➕ x 50 🎊➡️ monsterY y ⬅️ monsterY ➕ y 50 🍇
+  ↪️ 🎊🎊➡️ monsterX x ⬅️ monsterX ➕ x 50 🎊➡️ monsterY y ⬅️ monsterY ➕ y 50 🍇
     🍎 👍
   🍉
   📼 app cookie x y
@@ -426,7 +426,7 @@ Clearly, we now also need to update our loop to draw cookies:
 ```
 🍦 iterator 🔷🌱🐚🍪🆕 cookies
 🔂 cookie iterator 🍇
-🍊 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
+↪️ 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
   🚯 iterator
 🍉
 ```
@@ -486,16 +486,16 @@ cookies are left.
 As mentioned before, a screen at the end of the game would be nice:
 
 ```
-🍊 😛 🐔 cookies 0 🍇
+↪️ 😛 🐔 cookies 0 🍇
   🚿 app 🔷🎨🆕 4 115 187 255
   🔡 app font 🔤Well done!🔤 500 500 🔷⚖↔ 🔷🎨🆕 255 255 255 255
   🎦 app
 
   🔁 👍 🍇
     🍦 event ⏳ queue
-    🍊🍦 keyboardEvent 🔲 event 📩 🍇
-      🍊 🍦 key 🔣 keyboardEvent 🍇
-        🍊 😛 key 🔟q 🍇
+    ↪️🍦 keyboardEvent 🔲 event 📩 🍇
+      ↪️ 🍦 key 🔣 keyboardEvent 🍇
+        ↪️ 😛 key 🔟q 🍇
           🍎 ⚡️
         🍉
       🍉
@@ -530,16 +530,16 @@ Then let’s add some code to play the sound after a cookie was eaten:
 
 ```
 🔂 cookie iterator 🍇
-  🍊 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
+  ↪️ 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
     🚯 iterator
-    🍊 ▶️ 🐔 cookies 0 🍇
+    ↪️ ▶️ 🐔 cookies 0 🍇
       🏁 sample 1 0 1
     🍉
   🍉
 🍉
 ```
 
-This code might need some explanation. We added a 🍊 to check ensure we don’t
+This code might need some explanation. We added a ↪️ to check ensure we don’t
 play the sound for the last cookie. `🏁 sample 1 0 1` plays the loaded sample
 at full volume, no shift towards the left or right and normal speed.
 
@@ -605,7 +605,7 @@ The whole program should now look like this:
   🐈 🆕 🍼 x 🚀 🍼 y 🚀 🍼 cookie 🖼  🍇🍉
 
   🐖 🖊 app 🏔 monsterX 🚀 monsterY 🚀 ➡️ 👌 🍇
-    🍊 🎊🎊➡️ monsterX x ⬅️ monsterX ➕ x 50 🎊➡️ monsterY y ⬅️ monsterY ➕ y 50 🍇
+    ↪️ 🎊🎊➡️ monsterX x ⬅️ monsterX ➕ x 50 🎊➡️ monsterY y ⬅️ monsterY ➕ y 50 🍇
       🍎 👍
     🍉
     📼 app cookie x y
@@ -623,7 +623,7 @@ The whole program should now look like this:
     🍦 cookies 🔷🍨🐚🍪🐸
     🍦 prng 🔷🎰 🆕
     🔂 i ⏩ 0 10 🍇
-      🐻 cookies 🔷🍪🆕 🚀🚂 prng 50 900 🚀🚂 prng 50 900 cookieBmp
+      🐻 cookies 🔷🍪🆕 🚀🔢 prng 50 900 🚀🔢 prng 50 900 cookieBmp
     🍉
 
     🍦 sample 🚇🔷🎶📄 🔤sound.wav🔤
@@ -639,9 +639,9 @@ The whole program should now look like this:
 
       🍦 iterator 🔷🌱🐚🍪🆕 cookies
       🔂 cookie iterator 🍇
-        🍊 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
+        ↪️ 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
           🚯 iterator
-          🍊 ▶️ 🐔 cookies 0 🍇
+          ↪️ ▶️ 🐔 cookies 0 🍇
             🏁 sample 1 0 1
           🍉
         🍉
@@ -649,7 +649,7 @@ The whole program should now look like this:
       🔡 app font 🔡 🐔 cookies 10 990 10 🔷⚖➡️ 🔷🎨🆕 0 0 0 255
       🎦 app
 
-      🍊 😛 🐔 cookies 0 🍇
+      ↪️ 😛 🐔 cookies 0 🍇
         🚿 app 🔷🎨🆕 4 115 187 255
         🔡 app font 🔤Well done!🔤 500 500 🔷⚖↔ 🔷🎨🆕 255 255 255 255
         🎦 app
@@ -659,9 +659,9 @@ The whole program should now look like this:
 
         🔁 👍 🍇
           🍦 event ⏳ queue
-          🍊🍦 keyboardEvent 🔲 event 📩 🍇
-            🍊 🍦 key 🔣 keyboardEvent 🍇
-              🍊 😛 key 🔟q 🍇
+          ↪️🍦 keyboardEvent 🔲 event 📩 🍇
+            ↪️ 🍦 key 🔣 keyboardEvent 🍇
+              ↪️ 😛 key 🔟q 🍇
                 🍎 ⚡️
               🍉
             🍉
@@ -672,17 +672,17 @@ The whole program should now look like this:
 
       🍦 event ⏳ queue
 
-      🍊🍦 keyboardEvent 🔲 event 📩 🍇
-        🍊 😛📟 keyboardEvent 84 🍇
+      ↪️🍦 keyboardEvent 🔲 event 📩 🍇
+        ↪️ 😛📟 keyboardEvent 84 🍇
           ⬆️ monster
         🍉
-        🍋 😛📟 keyboardEvent 85 🍇
+        🙅↪️ 😛📟 keyboardEvent 85 🍇
           ⬇️ monster
         🍉
-        🍋 😛📟 keyboardEvent 82 🍇
+        🙅↪️ 😛📟 keyboardEvent 82 🍇
           ⬅️ monster
         🍉
-        🍋 😛📟 keyboardEvent 83 🍇
+        🙅↪️ 😛📟 keyboardEvent 83 🍇
           ➡️ monster
         🍉
       🍉

@@ -1,1 +1,258 @@
-{"documentation":"\n  The sockets package allows you to open TCP sockets to servers or to create a TCP server socket\n  yourself.\n\n  The following is a very basic example of opening a TCP socket to make an HTTP request and print\n  the first 140 characters of the response.\n  ```\n  📦 sockets 🔴\n\n  🏁 🍇\n    🍦 socket 🚇 🔷📞🆕 🔤www.emojicode.org🔤 80\n    💬 socket 📇 🔤GET \/ HTTP\/1.1❌r❌nHost: www.emojicode.org❌r❌n❌r❌n🔤\n\n    🍦 data 🍺 👂 socket 140\n    😀 🍺 🔡 data\n  🍉\n  ```\n\n  At the time of writing this, the above code would return something similar to:\n  ```\n  HTTP\/1.1 200 OK\n  Server: GitHub.com\n  Content-Type: text\/html; charset=utf-8\n  Last-Modified: Thu, 13 Apr 2017 16:49:52 GMT\n  Access-Control-Al\n  ```\n\n  Here we’ve an example of a minimal echo-server that listens on port 8728. The server simply sends\n  back a copy of the data it received.\n  ```\n  📦 sockets 🔴\n\n  👴 Simple echo server listening on port 8728\n  🏁 🍇\n    🍦 server 🚇 🔷🏄🆕 8728\n\n    🔁 👍 🍇\n      🍦 clientSocket 🍺 🙋 server\n      🔁 👍 🍇\n        🍦 readData 👂 clientSocket 50\n        🍊🍦 data readData 🍇\n          👴 We’ve read 50 bytes and send them back\n          💬 clientSocket data\n        🍉\n      🍉\n    🍉\n  🍉\n  ```\n\n  Of course, the code above is minimal and incomplete. For example, it can handle only one\n  connection.\n","valueTypes":[],"classes":[{"name": "🏄","conformsTo":[],"genericArguments":[],"documentation":"\n  🏄 represents a socket that listens for clients on a given port.\n","methods":[{"name":"🙋","access":"🔓","returnType":{"package":"sockets","name":"📞","optional":true},"genericArguments":[],"documentation":"\n    Waits until a client wants to connect to this socket and returns a socket\n    to communicate with it.\n  ","arguments":[]},{"name":"🙅","access":"🔓","returnType":{"package":"","name":"✨","optional":false},"genericArguments":[],"documentation":"\n    Closes this socket.\n  ","arguments":[]}],"initializers":[{"name":"🆕","access":"🔓","errorType":{"package":"sockets","name":"⛈","optional":false},"genericArguments":[],"documentation":"\n    Creates a 🏄 instance that immediately starts listening on the given port.\n    This initializer returns Nothingness if the socket can’t be bound to the\n    given port.\n  ","arguments":[{"type":{"package":"s","name":"🚂","optional":false},"name":"port"}]}],"typeMethods":[]},{"name": "📞","conformsTo":[],"genericArguments":[],"documentation":" 📞 represents a socket for communication between client and server. ","methods":[{"name":"💬","access":"🔓","returnType":{"package":"s","name":"👌","optional":false},"genericArguments":[],"documentation":"\n    Sends the given data to the peer. Returns true if the data was successfully\n    sent or false on error.\n  ","arguments":[{"type":{"package":"s","name":"📇","optional":false},"name":"message"}]},{"name":"🙅","access":"🔓","returnType":{"package":"","name":"✨","optional":false},"genericArguments":[],"documentation":"\n    Closes this socket.\n  ","arguments":[]},{"name":"👂","access":"🔓","returnType":{"package":"s","name":"📇","optional":true},"genericArguments":[],"documentation":"\n    Tries to read up to *bytes* bytes from the socket. Nothingness is returned\n    on error or if the socket was closed by the peer.\n  ","arguments":[{"type":{"package":"s","name":"🚂","optional":false},"name":"bytes"}]}],"initializers":[{"name":"🆕","access":"🔓","errorType":{"package":"sockets","name":"⛈","optional":false},"genericArguments":[],"documentation":"\n    Opens a socket to *address*. *address* can be a host name which will be\n    resolved.\n  ","arguments":[{"type":{"package":"s","name":"🔡","optional":false},"name":"host"},{"type":{"package":"s","name":"🚂","optional":false},"name":"socket"}]}],"typeMethods":[]}],"enums": [{"name": "⛈","conformsTo":[],"genericArguments":[],"documentation":" Errors ","methods":[],"initializers":[],"typeMethods":[],"values":[{"documentation":" Indicates a generic error. ","value":"⁉"},{"documentation":" Mathematics argument out of domain of function. ","value":"➗"},{"documentation":" Not enough space. ","value":"🐁"},{"documentation":" Result too large. ","value":"🗻"},{"documentation":" File exists ","value":"🗿"},{"documentation":" Function not supported. ","value":"🙅"},{"documentation":" Permission denied ","value":"🚧"},{"documentation":" Invalid argument. ","value":"🚯"},{"documentation":" Operation not permitted. ","value":"🚷"},{"documentation":" Illegal byte sequence. ","value":"🛃"}]}],"protocols":[]}
+{
+    "documentation": "\n  The sockets package allows you to open TCP sockets to servers or to create a TCP server socket\n  yourself.\n\n  The following is a very basic example of opening a TCP socket to make an HTTP request and print\n  the first 140 characters of the response.\n  ```\n  📦 sockets 🔴\n\n  🏁 🍇\n    🍦 socket 🚇 🔷📞🆕 🔤www.emojicode.org🔤 80\n    💬 socket 📇 🔤GET / HTTP/1.1❌r❌nHost: www.emojicode.org❌r❌n❌r❌n🔤\n\n    🍦 data 🍺 👂 socket 140\n    😀 🍺 🔡 data\n  🍉\n  ```\n\n  At the time of writing this, the above code would return something similar to:\n  ```\n  HTTP/1.1 200 OK\n  Server: GitHub.com\n  Content-Type: text/html; charset=utf-8\n  Last-Modified: Thu, 13 Apr 2017 16:49:52 GMT\n  Access-Control-Al\n  ```\n\n  Here we’ve an example of a minimal echo-server that listens on port 8728. The server simply sends\n  back a copy of the data it received.\n  ```\n  📦 sockets 🔴\n\n  👴 Simple echo server listening on port 8728\n  🏁 🍇\n    🍦 server 🚇 🔷🏄🆕 8728\n\n    🔁 👍 🍇\n      🍦 clientSocket 🍺 🙋 server\n      🔁 👍 🍇\n        🍦 readData 👂 clientSocket 50\n        🍊🍦 data readData 🍇\n          👴 We’ve read 50 bytes and send them back\n          💬 clientSocket data\n        🍉\n      🍉\n    🍉\n  🍉\n  ```\n\n  Of course, the code above is minimal and incomplete. For example, it can handle only one\n  connection.\n",
+    "types": [
+        {
+            "type": "Enumeration",
+            "name": "⛈",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " Errors ",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "enumerationValues": [
+                {
+                    "documentation": " Function not supported. ",
+                    "value": "⛔"
+                },
+                {
+                    "documentation": " Not enough space. ",
+                    "value": "🐁"
+                },
+                {
+                    "documentation": " Indicates a generic error. ",
+                    "value": "🔴"
+                },
+                {
+                    "documentation": " Result too large. ",
+                    "value": "🗻"
+                },
+                {
+                    "documentation": " File exists ",
+                    "value": "🗿"
+                },
+                {
+                    "documentation": " Permission denied ",
+                    "value": "🚧"
+                },
+                {
+                    "documentation": " Invalid argument. ",
+                    "value": "🚯"
+                },
+                {
+                    "documentation": " Mathematics argument out of domain of function. ",
+                    "value": "🚳"
+                },
+                {
+                    "documentation": " Operation not permitted. ",
+                    "value": "🚷"
+                },
+                {
+                    "documentation": " Illegal byte sequence. ",
+                    "value": "🛃"
+                }
+            ]
+        },
+        {
+            "type": "Class",
+            "name": "🏄",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  🏄 represents a socket that listens for clients on a given port.\n",
+            "methods": [
+                {
+                    "name": "🙋",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Error",
+                        "arguments": [
+                            {
+                                "package": "sockets",
+                                "name": "⛈",
+                                "arguments": []
+                            },
+                            {
+                                "package": "sockets",
+                                "name": "📞",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Waits until a client wants to connect to this socket and returns a socket\n    to communicate with it.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🚪",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Closes this socket.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "errorType": {
+                        "package": "sockets",
+                        "name": "⛈",
+                        "arguments": []
+                    },
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a 🏄 instance that immediately starts listening on the given port.\n    This initializer returns Nothingness if the socket can’t be bound to the\n    given port.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "port"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "📞",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 📞 represents a socket for communication between client and server. ",
+            "methods": [
+                {
+                    "name": "💬",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "sockets",
+                                "name": "⛈",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Sends the given data to the peer. Returns true if the data was successfully\n    sent or false on error.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "📇",
+                                "arguments": []
+                            },
+                            "name": "message"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚪",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Closes this socket.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "👂",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Error",
+                        "arguments": [
+                            {
+                                "package": "sockets",
+                                "name": "⛈",
+                                "arguments": []
+                            },
+                            {
+                                "package": "s",
+                                "name": "📇",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Tries to read up to *bytes* bytes from the socket. Nothingness is returned\n    on error or if the socket was closed by the peer.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "bytes"
+                        }
+                    ]
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "errorType": {
+                        "package": "sockets",
+                        "name": "⛈",
+                        "arguments": []
+                    },
+                    "genericParameters": [],
+                    "documentation": "\n    Opens a socket to *address*. *address* can be a host name which will be\n    resolved.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "host"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "socket"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        }
+    ]
+}

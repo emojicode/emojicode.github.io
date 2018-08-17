@@ -2,154 +2,164 @@
 
 ## Namespaces
 
-Each type when defined is loaded into a namespace. By definition the type
-doesn’t basically belong to this namespace but is *reachable* through this
-namespace. A type may actually even be reachable through multiple namespaces.
+Emojicode uses namespaces to avoid problems with equally named types. If you,
+for instance, defined a type called 🌽 and you needed to import another package,
+which exports a type named 🌽 too, there would be a problem. To prevent this,
+you can import the package into another namespace.
 
-Everywhere a type name is expected you can either just use the name of the type
-without explicitely specifying a namespace and the compiler will assume that the
-type is reachable through the default namespace 🔴, or you can explicitly
-specify a namespace with the namespace accessor:
+In Emojicode types are not members of namespaces, but are available *through*
+namespaces. This also implies that a type may be reachable through several
+namespaces. The name of a namespace is always an emoji.
 
-<pre class="syntax">
-🔶 $namespace$ $name$
-$namespace$-> $emoji$
-$name$-> $emoji$
-</pre>
-
-This identifies type *name* of namespace *namespace*. Both must be exactly one
-identifier.
-
-This is an example of explicitly referring to the 🔡 class in 🔴:
+By default, that is when you specify no namespace, you access types through the
+namespace 🏠. You do this all the time, for instance when declaring a variable
+of string type:
 
 ```
-🔶🔴🔡
+🖍🆕 text 🔡
 ```
 
-You can use this syntax everywhere you would specify a type name. You can also
-use it when declaring a type. The example below declares the class 🎁 and makes
-it available in namespace 🎅:
+When writing only 🔡 the compiler assumes that the type is in the default
+namespace 🏠.
+
+You can, of course, explicitly refer to a type in a namespace using the
+namespace accessor 🔶:
 
 ```
-🐇 🔶🎅🎁 🍇
+🖍🆕 text 🔶🏠🔡
+```
+
+This denotes that we want the type 🔡 reachable in the namespace 🏠.
+
+This syntax can be used everywhere a type is expected. For example, to instantiate
+the type 💉 in the namespace 🏥, we would use:
+
+```
+🆕🔶💉🏥🆕❗️
+```
+
+### Namespacing When Declaring a Type
+
+By default, when you declare a type it will be available through the default
+namespace 🏠. It is possible to specify another namespace with the namespace
+accessor though:
+
+```
+🐇 🔶🏨👩‍💼 🍇
 
 🍉
 ```
 
-Remember that the class’s name is nevertheless just 🎁 but the type is
-reachable in the 🎅 namespace.
-
->!H The facts above play a very important role when importing other packages.
->!H It’s also worth noting, that namespaces are per package. To learn more about
->!H this, please see [Packages](packages.html).
-
-## ⚪ Something
-
-Something is a special type as it is compatible to *all* other types. Because of
-this you cannot call methods or perform any actions on ⚪.
-
-It is an abstract type and therefore only known at compile-time. You cannot cast
-to ⚪ at run-time.
-
-## 🔵 Someobject
-
-Someobject is compatible to *all* instances of classes, but not to primitive
-values.
-
-It is an abstract type and therefore only known at compile-time. You
-cannot cast to 🔵 at run-time.
-
-## 🔲 Type Casting
-
-*Type casting* is a way to determine whether a value is of a given type at
-run-time and to treat the value as an instance of this type.
-
-Type casting is implemented with the 🔲 statement:
-
-<pre class="syntax">
-$cast$-> 🔲 $expression$ $type-expr$
-</pre>
-
-*value* is the value to be casted to *type*. If *value* can be casted to *type*
-*value* is returned as *type*. If *value* can’t be casted to *type* Nothingness
-is returned.
-
-Here for instance, a value from a parsed JSON string is down casted:
-
-```
-🍦 object 🗞 🔤"catwalk"🔤 👴 object is of type ⚪️
-🍦 string 🍺 🔲 object 🔡
-
-😀 string 👴 Prints catwalk
-```
-
-Don’t confuse type casting with type conversion. You can’t cast 🚂 to
-🚀. In such a case you would have to use appropriate a suitable conversion
-method.
+This declares a class 👩‍💼 that will be reachable through the namespace 🏨.
 
 ## Type Expectations
 
-Emojicode utilizes so-called *type expectations*. Whenver an expression whose
-result must be compatible to a specific type is evaluated, this type becomes
-a type expectation.
+Emojicode uses a concept we call *type expectations*. Whenever an expression
+whose result must be compatible to a specific type is evaluated, this type
+becomes a type expectation.
 
 When you call a method, for instance, the types of the parameters become type
 expectations. That is, if you defined a method that takes one argument of type 🔡
-and you call the method, the first argument will be expected to be of the type
-string. Another example would be a variable assignment. If you have declared a
-variable of a certain type, the compiler will expect this when assigning to the
-variable.
+and you call the method, the first argument will obviously be expected to be of
+the type string. Another example would be a variable assignment. If you have
+declared a variable of a certain type, the compiler will expect this when
+assigning to the variable.
 
 Type Expectations are used in several cases (apart from ensuring that a value is
 of compatible type):
 
-* The compiler uses expectations to automatically convert 🚂 literals to 🚀
-  literals when a 🚀 is expected. Please note that this only applies to
-  literals.
+* The compiler uses expectations to automatically convert number literals
+  without decimal place   to 🔢, 💯 and 💧.
 
 * Dictionary and list literals don’t infer their type when a list or dictionary
   literal is expected.
 
   If, for instance, an argument of type 🍨🐚⚪️ is expected
-  and you provide `🍨34 21 63🍆` this list literal won’t be of type 🍨🐚🚂
-  (which would be incompatible to the argument) but of type 🍨🐚⚪️. The same
-  applies to dictionary literals.
+  and you provide `🍨34 21 63🍆` this list literal won’t be of type 🍨🐚🔢
+  but of type 🍨🐚⚪️. The same applies to dictionary literals.
 
-## ⚫️ The Inferred Type
+### ⚫️ The Expected Type
 
-The *inferred type* is a reserved emoji that can be used instead of a type name.
+⚫️ (“the expected type”) is an emoji that can be used instead of a type name.
 
 The compiler will try to deduce the substituted type from the type
-expectation. In most cases, ⚫️ will therefore simply refer to the expected type.
+expectation. Thus, ⚫️ will normally refer to the expected type.
 
 ⚫️ can be used in cases where writing out a type name in full is inconvenient,
 for example:
 
 ```
-🍰 list 🍨🐚🍀🐚🔡  👴 🍀 is a type that requires a generic argument
+🍰 list 🍨🐚🍀🐚🔡🍆🍆  👴 🍀 is a type that requires a generic argument
 👴 ...
-🍮 list 🔷⚫️🐸 👴 ⚫️ stands for 🍀🐚🔡 here
+🍮 list 🔷⚫️🐸 👴 ⚫️ stands for 🍀🐚🔡🍆 here
 ```
 
+## Built-In Types
 
-In rare cases the use of the inferred type can be confusing and should be
-avoided. As for example:
+There are two special built-in types ⚪ and 🔵.
+
+### ⚪ Something
+
+⚪ (something) is a special type as all types are compatible to it. This means
+that you can, for instance, store a value of any type into a variable of type ⚪:
 
 ```
-🍰 euler’sNumber 🚀
-🍮 euler’sNumber 🍩⚫️🏹
+🖍🆕 surprise ⚪
+🔤Anything, anything, anything🔤 ➡️ 🖍surprise
+1004 ➡️ 🖍surprise
 ```
 
-For a not so experienced Emojicode programmer it may be confusing what is
-happening, since ⚫️ refers to 🚀. (🚀 is the expected type.) Moreover, it’s
-not really advantageous to use ⚫️ over 🚀 here.
+You cannot you cannot call any methods on ⚪ and you cast to ⚪ at run-time.
+
+### 🔵 Someobject
+
+All instances of classes are compatible to 🔵 (someobject), but value type
+instances are not.
+
+## 🔲 Type Casting
+
+>!N Type Casting is not available in Emojicode 0.6 (Symphonic) Beta.
+
+Type casting is a way to determine whether a value is of a given type at
+run-time and to treat the value as an instance of this type.
+
+Type casting is implemented with the 🔲 statement:
+
+```syntax
+$cast$-> 🔲 $expression$ $type-expr$
+```
+
+*value* is the value to be casted to *type*. If *value* can be casted to *type*
+*value* is returned as *type*. If *value* can’t be casted to *type* no value
+is returned. 🔲 therefore returns an optional.
+
+Don’t confuse type casting with type conversion. You can’t cast 🔢 to
+💯. In such a case you would have to use a suitable conversion
+method.
+
+## ⚖️ Size Of Type Instance
+
+The ⚖️ expression allows you to determine the number of bytes an instance of
+a provided type will take up at runtime:
+
+```syntax
+$size-of$-> ⚖️ $type$
+```
+
+The following, for example, prints the size of an integer.
+
+```
+😀 🔡 ⚖️🔢 10❗️❗️
+```
 
 ## Grammar
 
-<pre class="syntax">
-$type-expr$-> ⚫️  | $type-from-expr$ | $type$
-$type$-> [🍬] $type-main$ |  | 🚨 $type$ $type$ | 🍱 $types$ 🍱 | $metattype$
-$type-main$-> $variable$ | 🐕 | $callable-type$ | $type-identifier$ $generic-arguments$
-$type-identifier$-> 🔶 $emoji$ $emoji$ | $emoji$
+```syntax
+$type-expr$-> ⚫️ | $type-from-expr$ | $type$ | $this$
+$type$-> [🍬] $type-main$ | 🚨 $type$ $type$ | ⚪
+$type-main$-> $variable$ | $callable-type$ | $type-identifier$ $generic-arguments$
+$type-main$-> 🍱 $types$ 🍱 | 🔵 | $type-value$
+$type-identifier$-> 🔶 $type-emoji$ $type-emoji$ | $type-emoji$
 $types$-> $type$ $types$ | $type$
-</pre>
+$type-emoji$-> --⚪ --🔵 --🍬 --🍱 --🔶 $emoji-id$
+```

@@ -7,18 +7,18 @@ from which one can be chosen.
 
 The syntax to define an enumeration is:
 
-<pre class="syntax">
+```syntax
 $enum$-> 🦃 $type-identifier$ $type-body$
-$enum-value$-> 🔘 $emoji$
-</pre>
+$enum-value$-> 🔘 $emoji-id$
+```
 
 For example:
 
 ```
-🦃 📜 🍇
-  🔘🌭
-  🔘🍕
-  🔘🍔
+🦃 ⏰ 🍇
+  🔘🥓
+  🔘🥞
+  🔘🥐
 🍉
 ```
 
@@ -32,7 +32,7 @@ after the option the instance will represent. Like any value type, enumerations
 are instantiated with 🔷:
 
 ```
-🔷📜🍕
+🆕📜🍕❗️
 ```
 
 Enumerations cannot have custom initializers.
@@ -49,29 +49,29 @@ a textual description of the chosen value:
   🔘🥞
   🔘🥐
 
-  🐖 🔡 ➡️ 🔡 🍇
-    🍊 😛 🐕 🔷⏰🥐 🍇
-      🍎 🔤Croissant🔤
+  ❗️ 🔡 ➡️ 🔡 🍇
+    ↪️ 🐕 🙌 🆕⏰🥐 ❗️ 🍇
+      ↩️ 🔤Croissant🔤
     🍉
-    🍊 😛 🐕 🔷⏰🥞 🍇
-      🍎 🔤Pancakes🔤
+    ↪️ 🐕 🙌 🆕⏰🥞 ❗️ 🍇
+      ↩️ 🔤Pancakes🔤
     🍉
-    🍊 😛 🐕 🔷⏰🥓 🍇
-      🍎 🔤Bacon🔤
+    ↪️ 🐕 🙌 🆕⏰🥓 ❗️ 🍇
+      ↩️ 🔤Bacon🔤
     🍉
-    🍎 🔤🔤
+    ↩️ 🔤🔤
   🍉
 🍉
 ```
 
 ## Comparing Enums
 
-😛 can be used to compare whether two enum instances are equal:
+🙌 can be used to compare whether two enum instances are equal:
 
 ```
-🍮 a 🔷📜🍕
-🍮 b 🔷📜🍕
-🍊 😛 a b 🍇
-  😀 🔤Equal🔤
+🆕⏰🥓❗️ ➡️ a
+🆕⏰🥓❗️ ➡️ b
+↪️ a 🙌 b 🍇
+  😀 🔤Equal🔤❗️
 🍉
 ```

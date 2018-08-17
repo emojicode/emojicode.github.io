@@ -32,16 +32,16 @@
 		</a>
 		{{/prev}}
 		{{#next}}
-		<a href="{{next}}" class="right">
-			Next →
+		<a href="{{next.href}}" class="right">
+			Next Up: “{{next.title}}” →
 		</a>
 		{{/next}}
 	</div>
 
   <div class="book-improve">
-    Want to improve this page?
-    <a href="https://github.com/emojicode/emojicode.github.io/blob/master/{{sourcePath}}" target="_blank">
-      You can edit the source on GitHub and send us a pull request!
+    Something not quite right?
+    <a href="https://github.com/emojicode/emojicode.github.io/edit/{{branchName}}/{{sourcePath}}" target="_blank">
+      Improve this page
     </a>
   </div>
 </div>

@@ -1,34 +1,19 @@
 # Classes & Value Types
 
-Emojicode features three kind of types that feature characteristics of object-
-orientation: Classes, Value Types and Enumerations. This chapter is soley
+Emojicode features three kind of types that feature characteristics of
+object-orientation: Classes, Value Types and Enumerations. This chapter is soley
 dedicated to classes and value types. A [separate chapter](enums.html) is
 devoted to enumerations, which have a lot in common with value types.
 
-Object-orientation can be a very broad term, but can be summarized to four
-concepts:
-
-- Dynamic lookup: An object on which a method is called dynamically executes
-  its method. This allows inheritance and overriding methods in classes.
-- Abstraction: The implementation details are hidden and a set of public
-  methods is provided that can manipulate that hidden data.
-- Subtyping means that if an object has all of the functionality of a given
-  type b it can be used in the context of type b. Emojicode accomplishes
-  this using [protocols](protocols.md).
-- Inheritance is the ability to reuse the definition of one type for another.
-
-It should be noted that only classes take advantage of all concepts above, while
-value types and enumerations only provide abstraction and subtyping.
-
 ## Classes versus Value Types
 
-There are significant differences between classes and value types:
+There are two significant differences between classes and value types:
 
 - Instances of classes are always allocated on the heap and are passed
   by reference. Instances of value types are, as their name suggests,
   passed by value.
+
 - Classes feature inheritance while value types don’t.
-- Value Type methods are statically dispatched.
 
 This makes value types suitable when only the actual data represented matters
 and not the identity of the object. In other words, you should use value types
@@ -37,19 +22,96 @@ particular instance of the value type.
 
 Dates or mathematical vectors are good examples of types that should be value
 types, whereas a type representing a customer should be a class, as it does
-matter with which particular customer instance you’re dealing, since every
-instance represents exactly one customer.
-
-This is again contrary to the example of a date or a vector: You can't think of
-them as “the *one* you’re dealing with”. They are abstract ideas and only
-exist in our brains. You could write them on a piece of paper, but then again
-the piece of paper would be an instance of a class, which stores the date.
+matter with *which* customer you’re dealing and not just the data it holds.
+Think of it like this: There may be many customers named “John Smith” but the
+customers are still different people and therefore are represented by different
+objects.
 
 ## Defining a Class
 
-The syntax to define a class is:
+Let us define a class representing a customer:
 
-<pre class="syntax">
+```
+🐇 👩‍💼 🍇
+
+🍉
+```
+
+As mentioned previously, classes feature inheritance. We can therefore also
+declare a subclass of our 👩‍💼 class:
+
+
+```
+🐇 👩‍🚀 👩‍💼 🍇
+
+🍉
+```
+
+Some of our customers are astronauts, so we created the subclass 👩‍🚀.
+To make a class a subclass, denote its superclass behind the new classes name.
+If you don’t provide a superclass, the class doesn’t have one.
+
+## Defining a Value Type
+
+Naturally, we also need to maintain our customers credit card information to
+be able to bill them. Credit card information is a great example of a value
+type so let’s define one:
+
+```
+🕊 💳 🍇
+
+🍉
+```
+
+The definition of a value type is quite similar to the definition of a class. We
+just used 🕊 instead of 🐇. Furthermore, value types cannot have a supertype.
+
+## Instance Variables
+
+We have declared various types now, but so far these are pretty useless as they
+do not store any information at all.
+
+Let us change this by adding instance variables. The normal syntax for declaring
+variables is used in value types and classes too:
+
+```
+🕊 💳 🍇
+  🖍🆕 number 🔡
+  🖍🆕 expiration_date 🔡
+  🖍🆕 security_code 🔡
+🍉
+```
+
+We have added some variables to store the credit card information. (We do not
+maintain that this is a particularly good way of structuring credit card
+information but this is just an example. 🙃)
+
+```
+🐇 👩‍💼 🍇
+  🖍🆕 firstname 🔡
+  🖍🆕 lastname 🔡
+  🖍🆕 creditcard 💳
+🍉
+
+🐇 👩‍🚀 👩‍💼 🍇
+  🖍🆕 days_in_space 🔢
+🍉
+```
+
+We have also added some information to the normal customer 👩‍💼 and the astronaut
+customer 👩‍🚀.
+
+Instance variables are private to the instance and cannot be accessed from
+outside but only in initializers and methods. If you want to access instance
+variables from outside you have to write getters and setters. Instance variables
+are also kept private from subclasses.
+
+## Syntax
+
+We have summarized the syntax here as it is a great deal of definitions and
+we didn’t want to clutter the previous sections.
+
+```syntax
 $class$-> 🐇 $type-identifier$ [$generic-parameters$] [$superclass$] $type-body$
 $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
@@ -58,153 +120,110 @@ $type-body-attributes$-> [$documentation-comment$] [⚠️] [🔏] [$access-leve
 $type-body-declaration-main$-> $declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
 $superclass$-> $type$
-</pre>
-
-If you omit *superclass* the class doesn’t have a superclass.
-
-For example, the code below defines a class named 🐟, that has no superclass.
-
-```
-🐇 🐟 🍇
-
-🍉
-```
-
-We can now subclass this 🐟 class and declare a 🐡 class that represents a
-blowfish – a more concrete type of fish:
-
-```
-🐇 🐡 🐟 🍇
-
-🍉
-```
-
-## Defining a Value Type
-
-The syntax to define a value type is the following:
-
-<pre class="syntax">
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
-</pre>
-
->!H The defined types are immediately available in the namespaces provided.
->!H Please see [Types](types.html) to gain a deeper
->!H understanding of namespaces and their use in declarations.
-
-## Instance Variables
-
-To store information in your type instances, instance variables are used. The
-🍰 syntax is used to declare an instance variable.
-
-The example below defines a 🐟 class with instance variables.
-
-```
-🐇 🐟 🍇
-  🍰 age 🚂
-  🍰 speedInM/s 🚀
-  🍰 name 🍬🔡  👴 Fish kept in aquariums often have names
-🍉
-```
-
-This example defines a value type named 📆 that represents a date:
-
-```
-🕊 📆 🍇
-  🍰 day 🚂
-  🍰 month 🚂
-  🍰 year 🚂
-🍉
-```
-
-When a type is instantiated a scope is created in which the instance variables
-live. This scope is always available in methods and initializers.
-
-Instance variables are **private to the instance** and **cannot be accessed from
-outside**. If you want to allow modification or access of an instance variable
-from outside a class or value type you have to write **getters and setters**.
-Note that instance variables are also kept private from subclasses.
-
-## Initializers
-
-Initializers are responsible to prepare an instance for use and are called to
-instantiate a type, that is gaining an instance of the given type.
-
-The syntax to define an initializer is:
-
-<pre class="syntax">
-$initializer$-> 🐈 [$init-error$] $name$ [$init-parameters$] $block$
+$initializer$-> 🆕 [$emoji-id$] [$init-error$] [$init-parameters$] $body$
 $init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
 $init-parameter$-> [🍼] $variable$ $type$
 $init-error$-> 🚨 $type$
-</pre>
-
-In an initializer **all instance variables must be initialized**. (Remember that
-variables of an optional type are automatically initialized to Nothingness,
-which is also true for instance variables.)
-
-Furthermore, if you’re initializing a class instance whose class has a
-superclass you **must call an initializer** of the superclass . The 🐐 keyword is
-used to call a superinitializer:
-
-<pre class="syntax">
-$superinitializer$-> 🐐 $superinitializer$ [$arguments$]
-</pre>
-
-By enforcing these rules, Emojicode can guarantee that any instance of any type
-is always fully initialized when obtained from the intializer.
-
-The following example is an initializer for the 🐟 class:
-
+$body$-> $block$ | $external-link-name$
 ```
-🐈 🏞 ageGiven 🚂 nameGiven 🍬🔡 🍇
-  🍮 age ageGiven
-  🍮 name nameGiven
-  🍮 speedInM/s 0
+
+## Initializers
+
+Initializers are responsible to prepare an instance for use and when you
+create a new instance of the type.
+
+In an initializer all instance variables must be initialized. Remember that
+variables of an optional type are automatically initialized to no value,
+which is also true for instance variables.
+
+Let us define an initializer:
+
+```!
+🕊 💳 🍇
+  🖍🆕 number 🔡
+  🖍🆕 expiration_date 🔡
+  🖍🆕 security_code 🔡
+
+  🆕 a_number 🔡 an_expiration_date 🔡 a_security_code 🔡 🍇
+    a_number ➡️🖍number
+    an_expiration_date ➡️🖍expiration_date
+    a_security_code ➡️🖍security_code
+  🍉
 🍉
 ```
 
-This initializer initializes all variables to appropriate values. `age` and
-`name` were initialized to values passed by arguments. `speedInM/s` was set to
-a default value.
+Now that was some tedious work, assigning all that instance variables. Because
+it is common to initialize instance variables from parameters, Emojicode
+provides a shortcut: 🍼.
 
-Value type initializers work quite similarly, with one big difference: In
-contrast to class initializers they return a value. This will change in a
-further version of Emojicode.
-
-### Initializing Instance Variables from Arguments
-
-Because it’s so common that instance variables are initialized from arguments,
-there’s a shortcut to this: 🍼. 🍼 can be used in front of the variable name of an
-argument and then automatically copies the value passed into the instance
-variable with the same name.
-
-The example above improved with 🍼:
+🍼 is placed in front of the variable name of an
+parameters. Its value is then copied into the instance variable with the same
+name:
 
 ```
-🐈 🏞 🍼 age 🚂 🍼 name 🍬🔡 🍇
-  🍮 speedInM/s 0
+🆕 🍼 number 🔡 🍼 expiration_date 🔡 🍼 security_code 🔡 🍇🍉
+```
+
+This is much better. Let us add an initializers to 👩‍💼 as well.
+
+```
+🐇 👩‍💼 🍇
+  🖍🆕 firstname 🔡
+  🖍🆕 lastname 🔡
+  🖍🆕 creditcard 💳
+
+  🆕 🍼 firstname 🔡 🍼 lastname 🔡 🍼 creditcard 💳 🍇🍉
 🍉
 ```
+
+Before implementing an initializer for 👩‍🚀 we must review one additional rule:
+If you’re writing an initializer for class that has a superclass you must call
+an initializer of the superclass. ⤴️ is used for that:
+
+```
+🐇 👩‍🚀 👩‍💼 🍇
+  🖍🆕 days_in_space 🔢
+
+  🆕 🍼 days_in_space 🔢 firstname 🔡 lastname 🔡 creditcard 💳 🍇
+    ⤴️🆕 firstname lastname creditcard❗️
+  🍉
+🍉
+```
+
+Let us take a closer look at ⤴️ : The first thing it expects is the name of the
+initializer of the superclass you wish to call.
 
 ## Instantiation
 
-To get an instance of a class or value type, you must *instantiate* it.
-🔷 is used for instantiation.
+We have defined a value type and two classes, defined how to inititalize them,
+but we have yet to actually instantiate (get an instance) of them. Instatiation
+is performed with 🆕.
 
 Its syntax is:
 
-<pre class="syntax">
-$instantiation$-> 🔷 $type-expr$ $initializer$ [$arguments$]
-</pre>
+```syntax
+$instantiation$-> 🆕 $type-expr$ $initializer$ [$arguments$] $mood$
+```
 
-*initializer* must be the name of the initializer you
-want to use. Naturally, you need to provide the correct number of appropriate
-arguments.
-
-To get a 🐟 instance for example, you would use:
+Let us instantiate a credit card information 💳:
 
 ```
-🔷🐟🏞 2 🔤Billy🔤
+🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
+```
+
+Diretly after `🆕` comes 💳, the name of the type we want to instantiate, which
+is followed by another `🆕`, which is the name of the initializer we’d like to
+use. We have only defined this initializer so there is no other option here.
+
+The following expressions are argumetns to the initializer. ❗️ denotes the
+end of the arguments.
+
+Having instantiated a credit card, we can also instantiate a customer:
+
+```
+🆕👩‍💼🆕 🔤Mickey🔤 🔤Mouse🔤 credit_card❗️ ➡️ customer_mouse
+🆕👩‍🚀🆕 3216 🔤Jean-Luc🔤 🔤Picard🔤 credit_card❗️ ➡️ astronaut_picard
 ```
 
 ## Methods
@@ -213,108 +232,119 @@ Methods are functionality bound to a specific type: a class or value type.
 
 The syntax to define a method is:
 
-<pre class="syntax">
-$method$-> 🐖 $method-emoji$ [$generic-parameters$] [$parameters$] [$return-type$] $block$
+```syntax
+$method$-> $identification$ [$generic-parameters$] [$parameters$] [$return-type$] $body$
+$identification$-> $mood$ $emoji-id$ | $binary-operator$
+$mood$-> ❗️ | ❓
 $parameters$-> $parameter$ | $parameter$ $parameters$
 $parameter$-> $variable$ $type$
 $return-type$-> ➡️ $type$
-</pre>
+```
 
-Here’s an example from the 🐟 class:
+Let us define a method for 👩‍💼 to print an invoice:
 
 ```
-🌮 Swim the given distance within one hour. 🌮
-🐖 🏊 distanceInMeters 🚀 🍇
-  🍮 speedInM/s ➗ distanceInMeters 3600
+❗️ 💸 total 💯 🍇
+  😀 🔤Invoice🔤❗️
+  😀 🍪 🔤To 🔤 firstname 🔤 🔤 lastname 🍪❗️
+  😀 🍪 🔤Total: 🔤 🔡total 2❗️ 🍪❗️
+  😀 🍪 🔤Your credit card will be charged. 🔤 🍪❗️
 🍉
 ```
 
-Every methods return a value. As you can see in the syntax definition, you can
-declare return types. If no return type was declared the return type
-defaults to ✨. 🍎 is used to explicitly return a value:
+### Returning values
 
-<pre class="syntax">
-$return$-> 🍎 $expression$
-</pre>
+Methods can, of course, also return a value. Unless you declare a return type,
+the method is assumed to not return a value.
 
-Let’s look at another example from the 🐟 class that uses 🍎:
+Let us add a method to 💳 that returns a value:
 
 ```
-🌮 Determines whether this fish should retire. 🌮
-🐖 👨 ➡️ 👌 🍇
-  🍎 ▶️ age 4
+❗️ 🔖 ➡️  🔡 🍇
+  ↩️ number
 🍉
 ```
 
-This method returns true if the fish is older than four years.
-Let’s also define a method for the 📆 value type:
+This method simply returns the credit card number. It uses the return statement
+↩️ to return the value from the method.
+
+```syntax
+$return$-> ↩️ $expression$
+```
+
+### Method Moods
+
+In Emojicode every method has a mood. The methods we have previously defined,
+are of imperative mood as we used ❗️. The other mood is interrogative.
+Interrogative methods are defined with ❓ instead.
+
+The mood is like part of the name of the method. You can have an interrogative
+and imperative method with the same basic name.
+
+Let us define an interrogative method for the 👩‍🚀 class:
 
 ```
-🌮 Whether the year of the date is a leap year. 🌮
-🐖 🍁 ➡️ 👌 🍇
-  🍎 🎉 😛🚮 year 4 0 🎊 ▶️🚮 year 100 0 😛🚮 year 400 0
+❓ 🚀 ➡️ 👌 🍇
+  ↩️ days_in_space ▶️ 0
 🍉
 ```
 
-There’s a [list of reserved emojis](#reserved-emojis) of emojis which can’t be
-used as method names, that can be found at the end of this chapter.
+This method returns true if the astronaut ever boarded a rocket. We can define
+an imperative method with the same name that allows us to change the number
+of days the astronaut spent in space:
+
+```
+❗️ 🚀 days 🔢 🍇
+  days ➡️ 🖍days_in_space
+🍉
+```
 
 ### Calling Methods
 
-The syntax to call a method is special:
+We have defined two methods, but we have yet to fully understand how to call
+a method.
 
-<pre class="syntax">
-$method-call$-> $method-emoji$ $callee$ [$generic-arguments$] [$arguments$]
+We’ll have a look at some examples first:
+
+```
+💸 astronaut_picard 109.12❗️
+💸 customer_mouse 59.00❗️
+🚀 astronaut_picard❓ 💭 Was he ever in space?
+🚀 astronaut_picard 6390❗️ 💭 Change the number of days to 6390
+```
+
+As you can see above, the syntax to call a method is special:
+
+```syntax
+$method-call$-> $emoji-id$ $callee$ [$generic-arguments$] [$arguments$] $mood$
 $callee$-> $expression$
-$arguments$-> $expression$ | $expression$ $arguments$
-</pre>
-
-*method-emoji* is the name of the method you wish to call. *callee* is the
-instance whose method should be called. Of course all arguments must be provided
-as required.
-
-Let’s take a look at an example using the 🐟 class:
-
-```
-🍦 michaelTheFish 🔷🐟🏞 3 🔤Michael🔤
-🏊 michaelTheFish 300
-
-🍊 👨 michaelTheFish 🍇
-  😀 🔤Michael will retire!🔤
-🍉
+$arguments$-> $expression$ [$arguments$]
 ```
 
-And here is a similar example with the 📆 value type, that prints “It’s a leap
-year” if the content of the variable *date* represents a leap year:
+If an emoji occurs that is not reserved for a built-in statement or expression
+(e.g. ↩️ or 🚨), it is considered a method call. The compiler then expects an
+expression, evaluating to a value that has method with the provided name. Then
+arguments are expected until either ❗️ or ❓ occurs.
 
-```
-🍊 🍁 date 🍇
-  😀 🔤It’s a leap year🔤
-🍉
-```
+A method call expression evaluates to the value the method return. If the
+method does not declare a return type, the call expression returns a value of
+type *no return*, which is neither compatible to any type nor does it offer any
+functionality.
 
->!H It’s worth highlighting again: Every emoji that is not a language defined
->!H statement or expression is a method call!
-
-## This Context
+### This Context
 
 You often will want to get the instance on which the method was called, this is
 the object or the value. This is what 🐕 is for.
 
 🐕 returns the current value, whose method or initializer is being called.
 
-Here, for instance, a method of 🐟 is shown, which calls another method to
-determine whether the fish on which the method was called should retire or can
-sign a new contract of employment:
+For example, we could add a method to the 👩‍🚀 class that bills an astronaut if
+has traveled to space:
 
 ```
-🌮 Signs a new contract of employment. 🌮
-🐖 🖊 🍇
-  🍊 👨 🐕 🍇
-    😀 🔤Sorry, I’d prefer to retire.🔤
-  🍉
-  🍓 🍇
-    😀 🔤I hope they’ll pay me twice as much.🔤
+❗️ 🛸 🍇
+  ↪️ 🚀 🐕❓ 🍇
+    💸🐕 100❗️
   🍉
 🍉
 ```
@@ -324,88 +354,49 @@ initialized, that is before all instance variables were set and the
 superinitializer was called. If this was allowed, you could call methods on the
 instance which might access instance variable that had not been initialized yet.
 
+```syntax
+$this$-> 🐕
+```
+
 ## Type Methods
 
-It’s possible to define type methods which are called on the type rather than
-on an instance of the type.
+It’s possible to define type methods which are called on the type rather than on
+an instance of the type. Still, type methods are also inherited by subclasses.
 
 Type methods are defined like normal methods but with the 🐇 attribute. As for
 example:
 
 ```
 🐇 🍕 🍇
-  🌮 Returns the available pizzas. 🌮
-  🐇🐖 📜 ➡️ 🍨🐚🔡 🍇
-    🍎 🍨 🔤Margherita🔤 🔤Tonno🔤 🔤Quattro Formaggi🔤 🍆
+  🌮 Return available pizza dishes. 🌮
+  🐇❗️ 📜 ➡️ 🍨🐚🔡🍆 🍇
+    ↩️ 🍨 🔤Margherita🔤 🔤Tonno🔤 🔤Quattro Formaggi🔤 🍆
   🍉
 🍉
 ```
 
-Since type methods don’t execute in an object context the use of 🐕 is illegal.
-Type methods are also inherited by subclasses.
-
-### Calling Type Methods
-
-The syntax to call a type method is:
-
-<pre class="syntax">
-$type-method-call$-> 🍩 $method-emoji$ $type-expr$ [$generic-arguments$] [$arguments$]
-</pre>
-
-Example:
+We can call our type method like this:
 
 ```
-🍩 📜 🍕
+📜🐇🍕❗️
 ```
 
 This calls the type method 📜 on the class 🍕, which we just defined above.
-
-## Reserved Emojis
-
-These emojis cannot be used as method names:
-
-<pre class="syntax">
-$method-emoji$-> $emoji$ except $reserved-emoji$
-$reserved-emoji$-> 🍮|🍩|🍰|🍨|🍯|🍦|🍫|🍳|🍪|🍭
-$reserved-emoji$-> 🍺|🍻|🔁|🔂|🍊|🍋|🍇|🍉|🍓|🍆
-$reserved-emoji$-> 🍌|🍎|🔲|🔳|⬜️|🔷|🐕|⚡️|☁️|🐚
-$reserved-emoji$-> 🔤|👵|🔟|👍|👎|👴
-</pre>
-
-## Assignment by Call
-
-*Assignment by Call* is a way of quickly replacing the content of a variable
-with the result of a method call on its value. E.g.
-
-```
-🍮 counter 1
-🍮➕ counter 1
-```
-
-At the end of the code snippet `counter` will be 2. The second line works
-exactly like `🍮 counter ➕ counter 1`.
-
-Any method can be used in an Assignment by Call as long as it returns the type
-of the variable. Note that the method can take any number of arguments. The
-following example would print the value `fries`, for instance.
-
-```
-🍮 string 🔤onion french fries🔤
-🍮🔪 string 13 5
-😀 string
-```
+In class type methods, 🐕 represents the type value on which the method was
+called. To learn more about what this means please see
+[Types As Values](typevalues.html).
 
 ## Access Levels
 
 *Access Levels* describe from which context a method or initializer can be
 called. There are three access levels:
 
-<pre class="syntax">
+```syntax
 $access-level$-> 🔓 | 🔒 | 🔐
-</pre>
+```
 
 - 🔓: The method or initializer can be accessed from everywhere.
-- 🔒: The method or initializer may only be accessed within the type it was defined.
+- 🔒: The method or initializer may only be accessed within the type and package it was defined.
 - 🔐: The method or initializer may only be accessed within the type it was defined or within a class that inherits from that class that defined this method.
 
 ## Deprecation
@@ -415,19 +406,3 @@ allows you to mark a method or initializer as deprecated with the ⚠️ attribu
 
 The compiler will emit a warning wherever a deprecated method or initializer is
 used.
-
-## Identity Check
-
-😜 can be used to determine whether two objects references point to the same
-object in memory.
-
-This isn’t an equality check: Two objects might represents the same value but
-they are still two different object not sharing the same memory location. To
-determine equality use 😛 if available.
-
-<pre class="syntax">
-$identity-check$-> 😜 $expression$ $expression$
-</pre>
-
-😜 returns true if the result of both expression are references to the same
-memory location. Naturally, the expressions’ results must be compatible to 🔵.

@@ -1,11 +1,15 @@
 @import 'base';
 
+body {
+  background: linear-gradient(to bottom, $background-color, $p-gray);
+}
+
 .header {
-  background-color: $menu-color;
-  color: $white;
-  padding: 1.7em;
-  padding-bottom: 3em;
-  text-align: center;
+  background-color: $p-intermediate;
+  font-size: 1.125em;
+  padding: 4.8em 3em 3em;
+  position: relative;
+  overflow: hidden;
 
   h1,
   h2 {
@@ -14,61 +18,82 @@
 
   h2 {
     margin: 0 auto 3rem;
-    max-width: 600px;
   }
 }
 
-.dont-see-emojis {
-  font-size: 12px;
+.header-grape {
+  float: right;
+  width: 300px;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1000;
 }
 
 .l-button {
+  @extend %display-font;
   appearance: none;
-  border-radius: 50px;
-  margin: 0.5em;
+  border-radius: $border-radius;
   padding: 0.7em 1.2em;
   color: $white;
-  background: $p-bright;
   display: inline-block;
+  background: linear-gradient(to top, $p-soft, adjust-hue($p-soft, 5deg));
+  line-height: normal;
 
   &:hover {
-    background: linear-gradient(to top, darken($p-bright, 3%), $p-bright);
+    background: linear-gradient(to top, $p-soft, lighten(adjust-hue($p-soft, 7deg), 2%));
     text-decoration: none;
   }
 }
 
-.emoji-row {
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  div {
-    width: percentage(1 / 6);
-    padding: 0 20px;
-  }
+.socialize-text {
+  color: $white;
+  margin-top: 2.5rem;
+  margin-bottom: 0.92em;
+  text-transform: uppercase;
+  font-size: 0.58em;
+  letter-spacing: 0.02em;
 }
 
-@media (max-width: $break) {
-  .emoji-row div {
-    width: percentage(1 / 3);
-  }
+.socialize {
+  display: flex;
+}
 
-  h2 {
-    font-size: 1.2em;
-  }
+.features {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.features-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.feature {
+  text-align: center;
+  padding: 0 0.7rem;
+  width: 290px;
+  margin: 0 2rem;
+  margin-top: 2.8rem;
+}
+
+.feature-emoji svg {
+  max-height: 76px;
+}
+
+.feature-heading {
+  margin-top: 1.2rem;
+}
+
+.feature-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: lighten($text-color, 2.6%);
 }
 
 .action {
-  background-color: $menu-color;
-  color: $white;
-  padding: 1.7em;
-  text-align: center;
-
-  h2 {
-    color: $white;
-  }
+  padding: 3.5rem 2rem;
 }
 
 .action-inner {
@@ -80,78 +105,30 @@
   .menu {
     font-size: 15px;
   }
-}
 
-.socialize {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2em 0;
-}
+  .header {
+    padding: 2rem;
 
-.footer {
-  padding: 18px;
-  color: $footer-color;
-  background-color: $menu-color;
-  text-align: center;
-  font-size: 14px;
-}
-
-.features {
-  width: 100%;
-  display: flex;
-  padding: 0.8em;
-  align-items: stretch;
-}
-
-.features-list {
-  width: 50%;
-  list-style: none;
-  margin: 0;
-  margin-right: 1em;
-  padding: 0;
-}
-
-.feature {
-  display: block;
-  padding: 0.8888em;
-  cursor: pointer;
-
-  h3 {
-    font-size: 1em;
-    margin-bottom: 1em;
-    margin: 0;
-  }
-
-  .text {
-    display: none;
-  }
-
-  &:hover {
-    background-color: $p-gray;
-  }
-
-  &.active {
-    background-color: $p-gray;
-
-    h3 {
-      color: $p-soft;
-    }
-
-    .text {
-      display: block;
+    h2 {
+      font-size: 1.55rem;
+      margin-bottom: 1.2rem;
     }
   }
-}
 
-.feature-pre {
-  flex: 1;
-  background-color: $p-gray;
-  font-size: 14px;
-  margin: 0;
-}
+  .header-grape {
+    float: none;
+    width: 130px;
+  }
 
-.feature-example {
-  display: flex;
-  width: 50%;
+  .socialize {
+    display: block;
+  }
+
+  .features-wrapper {
+    display: block;
+  }
+
+  .feature {
+    width: auto;
+  }
 }

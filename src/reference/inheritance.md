@@ -27,36 +27,6 @@ for initializer inheritance. These initializer again must then be marked with
 🔑, thereby enforcing that all descendants of the original class provide the
 required intalizer.
 
-This example defines an initializer 🌱 all descendants of 🌼 must provide:
-
-```
-🐇 🌼 🍇
-  🔑 🐈 🌱 🍇 👴 Every flow can be constructed by seeding it
-
-  🍉
-🍉
-
-🐇 🌻 🌼 🍇
-  👴 The sunflower just inherits the initializers
-🍉
-
-🐇 🌺 🌼 🍇
-  👴 The hibiscus additionally stores its color
-  🍰 color 🔡
-
-  👴 Therefore, we must implement 🌱 ourselves and set color to some default
-  🔑 🐈 🌱 🍇
-    🍮 color 🔤red🔤
-    🐐 🌱
-  🍉
-
-  👴 An initializer to get an hibiscus with a specific color
-  🐈 🎨 🍼 color 🔡 🍇
-    🐐 🌱
-  🍉
-🍉
-```
-
 ## Overriding Methods
 
 A subclass can override a method defined in a superclass, that is providing
@@ -67,15 +37,15 @@ As for example:
 
 ```
 🐇 🌼 🍇
-  🐖 ⏰ time 🚂 🍇
-    👴 Open and close the blossom according to the time...
+  ❗️ ⏰ time 🔢 🍇
+    💭 Open and close the blossom according to the time...
   🍉
 🍉
 
 🐇 🌻 🌼 🍇
-  ✒️ 🐖 ⏰ time 🚂 🍇
-    👴 Sunflowers also rotate to face the sun....
-    🐿 ⏰ time 👴 Open and close like other flowers; see below
+  ✒️ ❗️ ⏰ time 🔢 🍇
+    💭 Sunflowers also rotate to face the sun....
+    ⤴️⏰ time  💭 Open and close like other flowers; see below
   🍉
 🍉
 ```
@@ -86,9 +56,9 @@ The same logic applies to type methods.
 
 Inside a method you can use this syntax to call the super method:
 
-<pre class="syntax">
-$supermethod-call$-> 🐿 $method-emoji$ [$arguments$]
-</pre>
+```syntax
+$super$-> ⤴️ $emoji-id$ [$arguments$]
+```
 
 This simply calls the super method named *method-emoji* and returns it value.
 You have already seen an example above.
@@ -107,5 +77,5 @@ a main characteristic of object orientation. These promises are:
 - The arguments of the method or initializer of the subclass must be of the same
   type or a super type of the argument types of the overriden method or
   intializer.
-- The method or initializer of the subclass must have the same access modifier
-  as the super method or intializer.
+- The method or initializer of the subclass must have the same accessibility
+  or be more accessible.

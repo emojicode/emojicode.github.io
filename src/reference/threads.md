@@ -3,7 +3,7 @@
 Emojicode offers concurrency, that is doing more than one thing at a time,
 and allows you to create threads, which can each independently execute code.
 
-## Creating threads
+## Creating Threads
 
 Threads are represented by the 💈 class of the s package. You can create a new
 thread by using the 🆕 initializer which accepts a callable which will be called
@@ -12,9 +12,9 @@ on the newly created thread.
 For example:
 
 ```
-🔷💈🆕 🍇
+🆕💈🆕 🍇
   😀 🔤I execute on a different thread.🔤
-🍉
+🍉❗️
 ```
 
 If you wrapped the above into the 🏁 method compiled it into a program, you
@@ -30,90 +30,89 @@ thread and waiting for it doesn't make much sense) and then waits for each to
 finish.
 
 ```
-🍦 threads 🔷🍨🐚💈🐸
+🏁 🍇
+  🆕🍨🐚💈🍆🐸❗️ ➡️ threads
 
-🔂 i ⏩ 0 5 🍇
-  🐻 threads 🔷💈🆕 🍇
-    😀 🔤On a dark desert highway, cool wind in my hair🔤
-    😀 🔤Warm smell of colitas, rising up through the air🔤
-    😀 🔤Up ahead in the distance, I saw a shimmering light🔤
+  🔂 i 🆕⏩⏩ 0 5❗️ 🍇
+    🐻 threads 🆕💈🆕 🍇
+      😀 🔤On a dark desert highway, cool wind in my hair🔤❗️
+      😀 🔤Warm smell of colitas, rising up through the air🔤❗️
+      😀 🔤Up ahead in the distance, I saw a shimmering light🔤❗️
+    🍉❗️❗️
+  🍉
+
+  🔂 thread threads 🍇
+    🛂 thread❗️
   🍉
 🍉
-
-🔂 thread threads 🍇
-  🛂 thread
-🍉
 ```
 
-The output of running the above program is similar to this:
+The output of running the above code is similar to this:
 
 ```
+On a dark desert highway, cool wind in my hairOn a dark desert highway, cool wind in my hairOn a dark desert highway, cool wind in my hairOn a dark desert highway, cool wind in my hair
 On a dark desert highway, cool wind in my hair
-On a dark desert highway, cool wind in my hair
+
+
+
+Warm smell of colitas, rising up through the airWarm smell of colitas, rising up through the airWarm smell of colitas, rising up through the airWarm smell of colitas, rising up through the air
 Warm smell of colitas, rising up through the air
-Warm smell of colitas, rising up through the air
-Up ahead in the distance, I saw a shimmering light
-On a dark desert highway, cool wind in my hair
-Up ahead in the distance, I saw a shimmering light
-On a dark desert highway, cool wind in my hair
-On a dark desert highway, cool wind in my hair
-Warm smell of colitas, rising up through the air
-Warm smell of colitas, rising up through the air
-Warm smell of colitas, rising up through the air
-Up ahead in the distance, I saw a shimmering light
-Up ahead in the distance, I saw a shimmering light
+
+
+
+Up ahead in the distance, I saw a shimmering lightUp ahead in the distance, I saw a shimmering lightUp ahead in the distance, I saw a shimmering lightUp ahead in the distance, I saw a shimmering light
 Up ahead in the distance, I saw a shimmering light
 ```
 
-The output is randomly ordered because all threads are trying to execute
+The output is messed up because all threads are trying to execute
 simultaneously. The order in which a thread will get the opportunity to actually
 print something depends on your hardware as well as many other factors, like
 load factor of the computer.
 
-## Race conditions and mutexes
+## Race Conditions and Mutexes
 
 Imagine the following program:
 
 ```
 🐇 🏦 🍇
-  🍰 account 🚂
+  🖍🆕 account 🔢
 
-  🐈 🆕 🍇
-    🍮 account 300
+  🆕 🍇
+    300 ➡️ 🖍account
   🍉
 
-  🐖 💸 sum 🚂 🍇
-    🍮 account ➖ account sum
+  ❗️ 💸 sum 🔢 🍇
+    account ⬅️➖ sum
   🍉
 
-  🐖 💶 ➡️ 🚂 🍇
-    🍎 account
+  ❗️ 💶 ➡️ 🔢 🍇
+    ↩️ account
   🍉
 🍉
 
 🏁 🍇
-  🍦 threads 🔷🍨🐚💈🐸
+  🆕🍨🐚💈🍆🐸❗️ ➡️ threads
 
-  🍦 account 🔷🏦🆕
+  🆕🏦🆕❗️ ➡️ account
 
-  🔂 i ⏩ 0 10 🍇
-    🐻 threads 🔷💈🆕 🍇
+  🔂 i 🆕⏩⏩ 0 10❗️ 🍇
+    🐻 threads 🆕💈🆕 🍇
 
-      🔂 j ⏩ 0 5 🍇
-        🍊 ➡️ 💶 account 10 🍇 👴 There’s money left
-          😀 🔤Money, money, money – Must be funny🔤
-          💸 account 10
+      🔂 j 🆕⏩⏩ 0 5❗️ 🍇
+        ↪️ 💶 account❗️ ▶️🙌 10 🍇  💭 There’s money left
+          😀 🔤Money, money, money – Must be funny🔤❗️
+          💸 account 10❗️
         🍉
       🍉
 
-    🍉
+    🍉❗️❗️
   🍉
 
   🔂 thread threads 🍇
-    🛂 thread
+    🛂 thread❗️
   🍉
 
-  😀 🔡 💶 account 10 👴 Print the balance
+  😀 🔡 💶 account❗️ 10❗️❗️  💭 Print the balance
 🍉
 ```
 
@@ -126,7 +125,6 @@ account. Let’s try.
 ```
 ...
 Money, money, money – Must be funny
-Money, money, money – Must be funny
 -70
 ```
 
@@ -135,24 +133,23 @@ Strange, let’s try again.
 ```
 ...
 Money, money, money – Must be funny
-Money, money, money – Must be funny
--40
+-90
 ```
 
-Probably you already know, but what happened here is called a *race condition*.
-Let’s analyze this part of our code again:
+You probably already know what happened. What we experience here is called a
+*race condition*. Let’s analyze this part of our code again:
 
 ```
-🍊 ➡️ 💶 account 10 🍇 👴 There’s money left
-  😀 🔤Money, money, money – Must be funny🔤
-  💸 account 10
+↪️ 💶 account❗️ ▶️🙌 10 🍇  💭 There’s money left
+  😀 🔤Money, money, money – Must be funny🔤❗️
+  💸 account 10❗️
 🍉
 ```
 
 Imagine the following situation: A thread comes and sees that exactly 10€
-are left. So the body of the 🍊 is entered and the thread prints
+are left. So the body of the ↪️ is entered and the thread prints
 a message. In exactly this moment another thread comes along, checks the balance
-and also sees there are 10€ left and enters the body of the 🍊. The former
+and also sees there are 10€ left and enters the body of the ↪️. The former
 thread now moves on to withdraw 10€ as the second one will do after it has
 printed a message. So they withdrew 20€! In reality the program is even faster
 and all threads execute the same piece of code at virtually the same time.
@@ -165,39 +162,41 @@ We’ve reworked our example to use a mutex:
 
 ```
 🏁 🍇
-  🍦 threads 🔷🍨🐚💈🐸
+  🆕🍨🐚💈🍆🐸❗️ ➡️ threads
 
-  🍦 account 🔷🏦🆕
+  🆕🏦🆕❗️ ➡️ account
 
-  🍦 mutex 🔷🔐🆕
+  🆕🔐🆕❗️ ➡️ mutex
 
-  🔂 i ⏩ 0 10 🍇
-    🐻 threads 🔷💈🆕 🍇
-      🔂 j ⏩ 0 5 🍇
-        🔒 mutex
-        🍊 ➡️ 💶 account 10 🍇
-          😀 🔤Money, money, money – Must be funny🔤
-          💸 account 10
+  🔂 i 🆕⏩⏩ 0 10❗️ 🍇
+    🐻 threads 🆕💈🆕 🍇
+
+      🔂 j 🆕⏩⏩ 0 5❗️ 🍇
+        🔒 mutex❗️
+        ↪️ 💶 account❗️ ▶️🙌 10 🍇  💭 There’s money left
+          😀 🔤Money, money, money – Must be funny🔤❗️
+          💸 account 10❗️
         🍉
-        🔓 mutex
+        🔓 mutex❗️
       🍉
-    🍉
+
+    🍉❗️❗️
   🍉
 
   🔂 thread threads 🍇
-    🛂 thread
+    🛂 thread❗️
   🍉
 
-  😀 🔡 💶 account 10 👴 Print the balance
+  😀 🔡 💶 account❗️ 10❗️❗️  💭 Print the balance
 🍉
 ```
 
-If a thread comes to the line `🔒 mutex` it will try to *lock* the mutex. If the
+If a thread comes to the line `🔒 mutex❗️` it will try to *lock* the mutex. If the
 mutex is not already locked, that is if no other thread has already passed this
 line, the thread will be able to do this and will continue. Otherwise however,
 the thread will wait until it itself can lock the mutex. The thread which
 grabbed the mutex *unlocks* the mutex at the end of the critical part by calling
-`🔓 mutex`. At this point another thread can get the chance to lock the mutex –
+`🔓 mutex❗️`. At this point another thread can get the chance to lock the mutex –
 which thread however depends on your hardware, operating system, etc.
 
 An operation like this which is protected from disturbances by other threads is
@@ -212,7 +211,7 @@ Money, money, money – Must be funny
 0
 ```
 
-## Atomicity of the s package
+## Atomicity of the s Package
 
 It’s important to note that none of the classes in the s package guarantee
 atomicity. If you access a s package data structures always make sure to use
