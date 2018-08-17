@@ -2,7 +2,7 @@
 
 This chapter reviews the basics of Emojicode.
 
-## The 🏁 block
+## The 🏁 Block
 
 The 🏁 block is an important part of any Emojicode program as it is the
 part of the program that is executed when it is started.
@@ -45,7 +45,7 @@ line breaks:
 line breaks. 🔚💭
 ```
 
-## So... when to use emojis?
+## So... When to Use Emojis?
 
 There’s sometimes confusion when emojis are used. Basically it’s very simple:
 

@@ -1,6 +1,6 @@
 # Packages
 
-## What is a Package?
+## What Is a Package?
 
 Emojicode divides code into so-called packages. A package is a unit of code
 that can consist of one or more Emojicode source code files. All packages have a
@@ -20,7 +20,7 @@ without explicitly importing them there.
 >!H Make sure you’re familiar with [Emojicode’s
 >!H namespaces](types.html#namespaces).
 
-## Importing other packages
+## Importing Other Packages
 
 As you probably already know, you can import packages. The syntax to do this is:
 
@@ -59,7 +59,7 @@ compilation.
 The s package is implicitly imported into the default namespace 🏠 of
 every package.
 
-## Writing An Importable Package
+## Writing an Importable Package
 
 ### Exporting Types
 
@@ -85,7 +85,7 @@ For instance, the main file of a cat simulator could look like this:
 🍉
 ```
 
-### Compiling the package
+### Compiling the Package
 
 We can now tell the compiler to compile the cat simulator package:
 
@@ -137,7 +137,15 @@ and give it a shot:
 Meow
 ```
 
-## Linking with non-Emojicode code
+## The 🏁 Block in Packages
+
+You can include a 🏁 block in every package. Only the 🏁 block of the package
+which you ask the compiler to create an executable will be executed. This, for
+example, means that if you import a package that provides a 🏁 block it will not
+be exeucted. If you compile that package to an executable, then of
+course, the 🏁 block will be executed.
+
+## Linking with Non-Emojicode Code
 
 You can also implement methods and initializers in another language.
 

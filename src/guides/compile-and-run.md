@@ -4,7 +4,7 @@ This guide is a short introduction to Emojicode and assumes you have a basic
 knowledge of object-orientated programming and familiarity with the command-
 line.
 
-## The basic structure
+## The Basic Structure
 
 All Emojicode source files are named like `file.emojic`. So let’s get started by
 creating a file called `greeter.emojic` and put some content into it:
@@ -67,7 +67,7 @@ arguments. ❗️ ends the list of arguments.
 >!N This tutorial is a lot shorter than it ought to be and will be extended
 >!N before Emojicode Symphonic is finally released.
 
-## What to do next
+## What to Do Next
 
 You should really read the [Language Reference](../reference) now, or you gonna
 miss Emojicode’s incredible power if you don’t.
