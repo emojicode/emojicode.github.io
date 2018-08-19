@@ -1,6 +1,6 @@
 # Optionals
 
-Often when designing software applicatins the programmer has to deal with the
+Often when designing software applications the programmer has to deal with the
 possible absence of a value. To properly model the absence of values, the
 concept of optionals was developed.
 
