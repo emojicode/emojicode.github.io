@@ -89,9 +89,11 @@ expectation. Thus, ⚫️ will normally refer to the expected type.
 for example:
 
 ```
-🍰 list 🍨🐚🍀🐚🔡🍆🍆  👴 🍀 is a type that requires a generic argument
-👴 ...
-🍮 list 🔷⚫️🐸 👴 ⚫️ stands for 🍀🐚🔡🍆 here
+💭 🍀 is a type that requires a generic argument
+🖍🆕 list 🍨🐚🍀🐚🔡🍆🍆
+
+💭 ⚫️ stands for 🍀🐚🔡🍆 here
+🔷⚫️🐸 ➡️ 🖍list
 ```
 
 ## Built-In Types
@@ -118,8 +120,6 @@ instances are not.
 
 ## 🔲 Type Casting
 
->!N Type Casting is not available in Emojicode 0.6 (Symphonic) Beta.
-
 Type casting is a way to determine whether a value is of a given type at
 run-time and to treat the value as an instance of this type.
 
@@ -136,6 +136,8 @@ is returned. 🔲 therefore returns an optional.
 Don’t confuse type casting with type conversion. You can’t cast 🔢 to
 💯. In such a case you would have to use a suitable conversion
 method.
+
+>!N Type Casting may work incorrectly with generics in Emojicode 0.6 Beta 2.
 
 ## ⚖️ Size Of Type Instance
 

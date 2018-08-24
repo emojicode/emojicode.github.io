@@ -14,7 +14,7 @@ The syntax to define a protocol is simliar to the way of defining a class:
 ```syntax
 $protocol$-> 🐊 $type-identifier$ [$generic-parameters$] $protocol-body$
 $protocol-body$-> $protocol-method$ | $protocol-method$ $protocol-body$
-$protocol-method$-> [$documentation-comment$] [⚠️] 🐖 $emoji-id$ $arguments$ $return-type$
+$protocol-method$-> [$documentation-comment$] [⚠️] $mood$ $emoji-id$ $arguments$ $return-type$
 ```
 
 For example:
