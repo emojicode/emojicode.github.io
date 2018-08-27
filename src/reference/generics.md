@@ -152,16 +152,3 @@ string class does for example:
   🍉
 🍇
 ```
-
-## Runtime Typing (Casting)
-
->!N Casting to generic types is not safe at the moment. It is possible,
->!N but if used incorrectly, it is evil due to the possibility to accomplish
->!N something like shown in “Compatibility” above. **Try to avoid it.**
-
->!H This is a 0.x limitation. Enhancements in the future will possibly
->!H remove this limitation.
-
-At the moment it’s not possible to store the type information of instances of
-generic classes at runtime. Therefore casts to classes with specific generic
-arguments cannot be verified and are forbidden.
