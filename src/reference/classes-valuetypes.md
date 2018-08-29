@@ -252,7 +252,7 @@ Let us define a method for 👩‍💼 to print an invoice:
 🍉
 ```
 
-### Returning values
+### Returning Values
 
 Methods can, of course, also return a value. Unless you declare a return type,
 the method is assumed to not return a value.
@@ -260,7 +260,7 @@ the method is assumed to not return a value.
 Let us add a method to 💳 that returns a value:
 
 ```
-❗️ 🔖 ➡️  🔡 🍇
+❗️ 🔖 ➡️ 🔡 🍇
   ↩️ number
 🍉
 ```
@@ -269,7 +269,22 @@ This method simply returns the credit card number. It uses the return statement
 ↩️ to return the value from the method.
 
 ```syntax
-$return$-> ↩️ $expression$
+$return$-> ↩️ $expression$ | ↩️↩️
+```
+
+### Returning from Methods without Return Value
+
+You can also return from a method that does not have a return type at any point
+using `↩️↩️`.
+
+For example, this method will never print `Cheap prices!` because it immediately
+returns:
+
+```
+❗️ 🛎 🍇
+  ↩️↩️
+  😀 🔤Cheap prices!🔤❗️
+🍉
 ```
 
 ### Method Moods

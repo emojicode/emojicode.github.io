@@ -1,6 +1,6 @@
 # Callables
 
-Emojicode supports a type called *callables*. *Callables* are like methods (or
+Emojicode supports a type called *callables*. Callables are like methods (or
 more generally functions) that can be passed like any other object.
 
 ## Type
@@ -38,7 +38,7 @@ Example of calling a callable:
 
 ```
 💭 greet is of type 🍇🔡🍉
-⁉️ greet 🔤Bob🔤
+⁉️ greet 🔤Bob🔤❗️
 ```
 
 ## Closure
