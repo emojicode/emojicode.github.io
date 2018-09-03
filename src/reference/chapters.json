@@ -21,5 +21,6 @@
   "packages.md",
   "threads.md",
   "safety.md",
+  "memory.md",
   "compiler.md"
 ]
