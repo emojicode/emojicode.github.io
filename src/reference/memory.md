@@ -38,6 +38,9 @@ Here we create an instance of  🦍, which we pass an instance of  🐟 to.   �
 
 Emojicode allows you to define a deinitializer for your classes. A deinitializer is a function that is executed right before a class instance is destroyed. It’s syntax is this:
 
+```syntax
+$deinitializer$-> ♻️ $block$
+```
 
 We can define a deinitializer for the  🦍 and  🐟 class, to prove the behavior we have talked about before:
 

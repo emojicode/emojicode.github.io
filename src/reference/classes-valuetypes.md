@@ -119,6 +119,7 @@ $type-body-declaration$-> $type-body-attributes$ $type-body-declaration-main$
 $type-body-attributes$-> [$documentation-comment$] [⚠️] [🔏] [$access-level$] [✒️] [🐇] [🖍] [🔑]
 $type-body-declaration-main$-> $declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
+$type-body-declaration-main$-> $deinitializer$
 $superclass$-> $type$
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
 $initializer$-> 🆕 [$emoji-id$] [$init-error$] [$init-parameters$] $body$
