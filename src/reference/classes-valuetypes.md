@@ -112,6 +112,8 @@ We have summarized the syntax here as it is a great deal of definitions and
 we didn’t want to clutter the previous sections.
 
 ```syntax
+$type-definition$-> [$documentation-comment$] [🌍] [🔏] [📻] $type-definition-main$
+$type-definition-main$-> $class$ | $value-type$ | $extension$ | $protocol$ | $enum$
 $class$-> 🐇 $type-identifier$ [$generic-parameters$] [$superclass$] $type-body$
 $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
@@ -414,6 +416,46 @@ $access-level$-> 🔓 | 🔒 | 🔐
 - 🔓: The method or initializer can be accessed from everywhere.
 - 🔒: The method or initializer may only be accessed within the type and package it was defined.
 - 🔐: The method or initializer may only be accessed within the type it was defined or within a class that inherits from that class that defined this method.
+
+The following example cannot be compiled, as 🙋 is a private method and can
+therefore not be called from 🏁.
+
+```!
+🐇 🐟 🍇
+  🆕 🍇🍉
+
+  🔒 ❗️ 🙋 🍇
+    😀 🔤I’m a fish.🔤❗️
+  🍉
+🍉
+
+🏁 🍇
+  🆕🐟🆕❗️ ➡️ fish
+  🙋 fish❗
+🍉
+```
+
+## Final Classes
+
+The attribute 🔏 marks a class as final. A final class cannot be subclassed or
+an compiler error will be raised.
+
+>!H Marking a class as final not only makes your intent clear but can also
+>!H lead to performance improvements. Although the
+>!H compiler tries to automatically detect final classes, it cannot do so in
+>!H packages that export types.
+
+The following example will raise a compiler error as 🐟 is attributed with 🔏.
+
+```!
+🔏 🐇 🐟 🍇
+  🆕 🍇🍉
+🍉
+
+🐇 🐡 🐟 🍇
+
+🍉
+```
 
 ## Deprecation
 
