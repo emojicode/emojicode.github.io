@@ -139,11 +139,11 @@ Meow
 
 ## The 🏁 Block in Packages
 
-You can include a 🏁 block in every package. Only the 🏁 block of the package
-which you ask the compiler to create an executable will be executed. This, for
+You can include a 🏁 block in every package. Only the 🏁 block of the package from
+which you ask the compiler to create an executable will be executed. This,  for
 example, means that if you import a package that provides a 🏁 block it will not
-be exeucted. If you compile that package to an executable, then of
-course, the 🏁 block will be executed.
+be exeucted. If you compile that package to an executable, then of course, the 🏁
+block will be executed.
 
 ## Linking with Non-Emojicode Code
 

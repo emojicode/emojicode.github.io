@@ -117,7 +117,7 @@ can also copy things into place yourself.
 
    One of these locations is `/usr/local/EmojicodePackages`. See [Package Search Paths](../reference/compiler.html#package-search-paths) for more information.
 4. Finally, you should copy the contents of `include` into a directory named
-   `emojicode` in your C++ compilers search path.
+   `emojicode` in your C++ compiler’s search path.
 
    The installer, for example, copies it to `/usr/local/include/emojicode`.
 
