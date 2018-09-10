@@ -1,4 +1,4 @@
-# Installing Emojicode Symphonic
+# Installing Emojicode 0.6
 
 ## Magic Installation
 

@@ -118,7 +118,7 @@ $class$-> 🐇 $type-identifier$ [$generic-parameters$] [$superclass$] $type-bod
 $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
 $type-body-declaration$-> $type-body-attributes$ $type-body-declaration-main$
-$type-body-attributes$-> [$documentation-comment$] [⚠️] [🔏] [$access-level$] [✒️] [🐇] [🖍] [🔑]
+$type-body-attributes$-> [$documentation-comment$] [⚠️] [🔏] [✒️] [🐇] [🖍] [🔑] [🛅] [$access-level$]
 $type-body-declaration-main$-> $declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
 $type-body-declaration-main$-> $deinitializer$
@@ -206,7 +206,8 @@ is performed with 🆕.
 Its syntax is:
 
 ```syntax
-$instantiation$-> 🆕 $type-expr$ $initializer$ [$arguments$] $mood$
+$instantiation$-> 🆕 $type-expr$ $initializer-id$ [$arguments$] $mood$
+$initializer-id$-> $emoji-id$ | 🆕
 ```
 
 Let us instantiate a credit card information 💳:
@@ -215,9 +216,11 @@ Let us instantiate a credit card information 💳:
 🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
 ```
 
-Diretly after `🆕` comes 💳, the name of the type we want to instantiate, which
-is followed by another `🆕`, which is the name of the initializer we’d like to
-use. We have only defined this initializer so there is no other option here.
+Diretly after 🆕 comes 💳, the name of the type we want to instantiate.
+
+Then the name of the initializer is expected. Since we did not provide a name
+for the initializer above, it was automatically named 🆕. So we use 🆕 as the
+initializer name.
 
 The following expressions are argumetns to the initializer. ❗️ denotes the
 end of the arguments.
@@ -227,6 +230,34 @@ Having instantiated a credit card, we can also instantiate a customer:
 ```
 🆕👩‍💼🆕 🔤Mickey🔤 🔤Mouse🔤 credit_card❗️ ➡️ customer_mouse
 🆕👩‍🚀🆕 3216 🔤Jean-Luc🔤 🔤Picard🔤 credit_card❗️ ➡️ astronaut_picard
+```
+
+### Named Initializer
+
+For completeness, let’s add an initializer with a name:
+
+```
+🐇 👩‍💼 🍇
+  🖍🆕 firstname 🔡
+  🖍🆕 lastname 🔡
+  🖍🆕 creditcard 💳
+
+  🆕 🍼 firstname 🔡 🍼 lastname 🔡 🍼 creditcard 💳 🍇🍉
+
+  🆕 🧜‍♀️ 🍼 firstname 🔡 🍼 creditcard 💳 🍇
+    🔤Mermaid🔤 ➡️ 🖍lastname
+  🍉
+🍉
+```
+
+In the above example, you can see an initializer named 🧜‍♀️. In contrast to the
+other initializer, it does not take the lastname. Instead it initializes
+`lastname` to the string `Mermaid`.
+
+We can use the 🧜‍♀️ initializer like this:
+
+```
+🆕👩‍💼🧜‍♀️ 🔤Ariel🔤 credit_card❗️ ➡️ ariel
 ```
 
 ## Methods
