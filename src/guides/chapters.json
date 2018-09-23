@@ -2,5 +2,6 @@
   "install.md",
   "compile-and-run.md",
   "input-methods.md",
-  "yarn.md"
+  "yarn.md",
+  "api.md"
 ]
