@@ -67,8 +67,8 @@ are written in Emojicode just as you would do normally:
 0.738281
 ```
 
-However, integers not just be written in decimal notation as in the example
-above, but also i hexadecimal notation, with the prefix `0x`, like `0x1D`
+However, integers can not only be written in decimal notation as in the example
+above, but also in hexadecimal notation, with the prefix `0x`, like `0x1D`
 and octal notation, with the prefix `0`, like `035`.
 
 You can use `,` within numbers as a thousands separator:

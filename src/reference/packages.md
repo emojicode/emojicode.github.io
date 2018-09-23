@@ -7,7 +7,7 @@ that can consist of one or more Emojicode source code files. All packages have a
 name associated with them and all code belongs to a package.
 
 If you tell the compiler to compile a file this file implicitly becomes the
-main point for a package called `_`. So remember, all code you write
+main file for a package called `_`. So remember, all code you write
 belongs to a package.
 
 The object of packages is to provide an easy way of reusing code as well as
@@ -15,7 +15,7 @@ allowing the programmer to divide programs into logical units.
 
 Each package has its own set namespaces. If you define or
 import types in one package, this types will not be available in other packages
-without explicitly importing them there.
+without explicitly exporting and importing them.
 
 >!H Make sure you’re familiar with [Emojicode’s
 >!H namespaces](types.html#namespaces).

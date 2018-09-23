@@ -118,6 +118,6 @@ Hello, Violet
 Have a good lunch, Violet
 ```
 
->!N Closures **copy** the closured **local variables** and make them avaiable
+>!N Closures **copy** the closured **local variables** and make them available
 >!N as constant variable in the closure. **Instance variables** are
 >!N **not copied** and change when modified inside a closure.

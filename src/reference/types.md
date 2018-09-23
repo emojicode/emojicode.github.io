@@ -60,10 +60,10 @@ becomes a type expectation.
 
 When you call a method, for instance, the types of the parameters become type
 expectations. That is, if you defined a method that takes one argument of type 🔡
-and you call the method, the first argument will obviously be expected to be of
-the type string. Another example would be a variable assignment. If you have
-declared a variable of a certain type, the compiler will expect this when
-assigning to the variable.
+and you call that method, the first argument will be expected to be a string.
+Another example would be a variable assignment. If you have declared a variable
+of a certain type, the compiler will expect this type when assigning to the
+variable.
 
 Type Expectations are used in several cases (apart from ensuring that a value is
 of compatible type):
@@ -102,7 +102,7 @@ There are two special built-in types ⚪ and 🔵.
 
 ### ⚪ Something
 
-⚪ (something) is a special type as all types are compatible to it. This means
+⚪ (something) is special as all types are compatible to it. This means
 that you can, for instance, store a value of any type into a variable of type ⚪:
 
 ```
@@ -111,7 +111,7 @@ that you can, for instance, store a value of any type into a variable of type �
 1004 ➡️ 🖍surprise
 ```
 
-You cannot you cannot call any methods on ⚪ and you cast to ⚪ at run-time.
+You cannot call any methods on ⚪ and you cast to ⚪ at run-time.
 
 ### 🔵 Someobject
 
