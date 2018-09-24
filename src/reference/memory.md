@@ -75,7 +75,10 @@ Fish deinit!
 Gorilla says Bye-Bye
 ```
 
-Note that you can only specify a deinitalizers for classes.
+You can only specify a deinitalizers for classes.
+
+>!N The deinitializer of a class is not called when initialization is
+>!N aborted by raising an error.
 
 ## Lifetime in General
 
