@@ -1,5 +1,5 @@
 {
-    "documentation": "\n  Emojicode’s standard library.\n",
+    "documentation": "\n  Emojicode’s standard library.\n\n  See [The s package](https://www.emojicode.org/docs/reference/the-s-package.html)\n  for an introduction.\n",
     "types": [
         {
             "type": "Value Type",
@@ -110,49 +110,6 @@
                     "genericParameters": [],
                     "documentation": "\n    Inverts the boolean. Returns true if this boolean is false, and false if\n    this boolean is true.\n  ",
                     "parameters": []
-                }
-            ],
-            "initializers": [],
-            "typeMethods": []
-        },
-        {
-            "type": "Protocol",
-            "name": "😛",
-            "conformances": [],
-            "genericParameters": [
-                {
-                    "name": "T",
-                    "constraint": {
-                        "type": "Literal",
-                        "name": "⚪️"
-                    }
-                }
-            ],
-            "documentation": "\n  Protocol defining equality.\n\n  A type conforming to this protocol provides a method 😛 to determine whether\n  one of its instance is equal to an instance of type T. T is normally the\n  type itself.\n",
-            "methods": [
-                {
-                    "name": "🙌",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "👌",
-                        "arguments": []
-                    },
-                    "mood": "",
-                    "genericParameters": [],
-                    "documentation": " Whether this value and *other* are equal. ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "type": "Literal",
-                                "name": "T"
-                            },
-                            "name": "other"
-                        }
-                    ]
                 }
             ],
             "initializers": [],
@@ -666,7 +623,7 @@
             "name": "🧠",
             "conformances": [],
             "genericParameters": [],
-            "documentation": "\n  Represents a region in memory\n",
+            "documentation": "\n  Represents a region in memory.\n\n  Working with 🧠 requires great care as this interface allows you to directly\n  manipulate memory.\n\n  >!N When working with this class make sure to take into account that it is\n  >!N up to you to make sure that object life-time is properly managed.\n  >!N Especially, pay attention to the notes for ♻️ and 🚜.\n\n  It’s important to understand that instances of 🧠 are basically memory\n  addresses. Always think of a 🧠 instance as pointing to a memory\n  region. Because 🧠 instance always are addresses it is recommmended that you\n  make no more copies than absolutely necessary to avoid unwanted side effects.\n\n  It is not possible to directly manipulate or access memory addresses as this\n  would interfer with the automatic memory management Emojicode provides.\n",
             "methods": [
                 {
                     "name": "🐷",
@@ -687,6 +644,7 @@
                             }
                         }
                     ],
+                    "documentation": "\n    Writes *value* starting *offset* bytes past the address represented by this\n    instance.\n\n    >!H If the memory area represented is smaller than `⚖️T ➕ offset` bytes,\n    >!H undefined behavior is caused!\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -725,6 +683,7 @@
                             }
                         }
                     ],
+                    "documentation": "\n    Reads a value of type T starting *bytes* bytes past the address\n    represented by this instance.\n\n    >!H If the memory area represented is smaller than `⚖️T ➕ offset` bytes,\n    >!H undefined behavior is caused!\n    >!H\n    >!H If the value at specified location is not *exactly* of type T or,\n    >!H in the case T is a class type, a subclass of T, the behavior is\n    >!H undefined!\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -747,6 +706,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
+                    "documentation": "\n    Resizes this memory area.\n\n    >!N Do not call this method if you have copies of this 🧠, i.e. if you have\n    >!N multiple pointers to this area. Calling this method updates the\n    >!N represented address and can invalidate all other 🧠 that pointed to this\n    >!N address. Only ever call this method if there is only one 🧠 representing\n    >!N the memory area.\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -755,6 +715,37 @@
                                 "arguments": []
                             },
                             "name": "newSize"
+                        }
+                    ]
+                },
+                {
+                    "name": "♻",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [
+                        {
+                            "name": "T",
+                            "constraint": {
+                                "type": "Literal",
+                                "name": "⚪️"
+                            }
+                        }
+                    ],
+                    "documentation": "\n    Releases a value of type T that is located *offset* bytes past the\n    beginning of this memory area.\n\n    This method might not actually write to the memory, but it is crucial\n    that you call it on every value that was placed in the memory area that\n    you no longer need.\n\n    >!N Release every value placed in the memory area with this method before\n    >!N overwritting it or entirely abandoning this 🧠 instance!\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "offset"
                         }
                     ]
                 },
@@ -769,6 +760,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
+                    "documentation": "\n    Copies *bytes* bytes from *source* starting from *sourceOffset* to this\n    instane, writing the copied bytes *destinationOffset* bytes past the\n    beginning of this memory area.\n\n    *source* may be the same as the instance on which the method is called\n    and the memory area which is copied may overlap the destination area.\n\n    >!H If the memory area represented is smaller than\n    >!H `bytes ➕ destinationOffset` bytes or *source* is smaller than\n    >!H `bytes ➕ sourceOffset` bytes, undefined behavior is caused!\n\n    >!N Do not copy managed values using this method! Copy each value\n    >!N individually with 🐽 and 🐷!\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -815,11 +807,12 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
+                    "documentation": "\n    Sets the first *bytes* bytes starting from *offset* bytes past the address\n    represented by this instance to *byteValue*.\n\n    >!H If the memory area represented is smaller than `bytes ➕ offset` bytes,\n    >!H undefined behavior is caused!\n  ",
                     "parameters": [
                         {
                             "type": {
                                 "package": "s",
-                                "name": "🔢",
+                                "name": "💧",
                                 "arguments": []
                             },
                             "name": "byteValue"
@@ -855,6 +848,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
+                    "documentation": "\n    Compares the first *bytes* of two memory areas.\n\n    >!H If either the memory area represented by this instance or the one\n    >!H represented by *other* or both are smaller than *bytes*, undefined\n    >!H behavior is caused!\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -883,6 +877,7 @@
                     "mutating": true,
                     "final": false,
                     "genericParameters": [],
+                    "documentation": " Creates an instance by allocating *size* bytes. ",
                     "parameters": [
                         {
                             "type": {
@@ -1988,6 +1983,841 @@
             "typeMethods": []
         },
         {
+            "type": "Protocol",
+            "name": "🍡",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Protocol defining an iterators interface.\n\n  Types conforming to 🍡 can iterate a collection.\n\n  To get the items from an iterator call the 🔽 method on it, until 🔽❓ returns\n  👎 which indicates that there are no more items.\n",
+            "methods": [
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "Literal",
+                        "name": "Element"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the next object. Call this method only if 🔽❓ previously\n    returned 👍.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [],
+                    "documentation": "\n    Whether the iterator has more elements to provide.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Protocol",
+            "name": "🔂",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Protocol defining iterability.\n\n  Types whose instances shall be iterable using the 🔂 loop must\n  implement this protocol.\n",
+            "methods": [
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍡",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    This method must return an instance of a class that conforms to\n    [[🍡]] which will be used to enumerate this instance.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Protocol",
+            "name": "😛",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "T",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Protocol defining equality.\n\n  A type conforming to this protocol provides a method 😛 to determine whether\n  one of its instance is equal to an instance of type T. T is normally the\n  type itself.\n",
+            "methods": [
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Whether this value and *other* are equal. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "T"
+                            },
+                            "name": "other"
+                        }
+                    ]
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Protocol",
+            "name": "🐽",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Protocol defining random-access.\n\n  Types representing a collection whose elements can be accessed by 🐽 randomly\n  should conform to this protocol. The number of elements must be finite and\n  returned by 🐔.\n",
+            "methods": [
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "Literal",
+                        "name": "Element"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Gets the item at *index*. If the index is invalid the behavior is up to\n    the conforming type.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "index"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the number of items in the collection. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Class",
+            "name": "🌳",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🍡",
+                    "arguments": [
+                        {
+                            "type": "Literal",
+                            "name": "Element"
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "type": "Literal",
+                            "name": "Element"
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Iterator over a 🐽.\n\n  This class is an iterator that can iterate over every type that conforms to\n  the 🐽 protocol.\n",
+            "methods": [
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Literal",
+                        "name": "Element"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍡",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🐽",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "iteratee"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "💻",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  Interaction with the operating system.\n\n  💻 provides several class methods that can be used to interact with the\n  operating system. It cannot be instantiated.\n",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [
+                {
+                    "name": "🎞",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍨",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a list of the arguments passed to the programm. Calling this method\n    is rather expensive.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🌳",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Gets an environment variable by its name. If the variable cannot be found\n    ✨ is returned.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "variableName"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚪",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Immediately exits the program with the given status code. The code may\n    not be larger than 255 on most operating systems.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "status"
+                        }
+                    ]
+                },
+                {
+                    "name": "🕴",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the standard output of running `command` in a subshell.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "command"
+                        }
+                    ]
+                },
+                {
+                    "name": "🕰",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the current time in seconds since the Epoch in Greenwich Mean Time.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🤯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Panic. Aborts the program with the provided message.\n\n    >!N Only use this function when the program hits upon an error so serious\n    >!N that recovery is impossible.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "message"
+                        }
+                    ]
+                }
+            ],
+            "final": false
+        },
+        {
+            "type": "Value Type",
+            "name": "⏩",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "🔢",
+                            "arguments": []
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "🐽",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "🔢",
+                            "arguments": []
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [],
+            "documentation": "\n  Range, an immutable sequence of numbers. [Read more in the\n  language reference.](../../reference/the-s-package.html#-ranges)\n",
+            "methods": [
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the *n*th element of the range. *n* is only valid if\n    `start + step * n` is `>= start` and `< stop`. If *n* is invalid, the\n    program will panic.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "n"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the number of numbers in this range. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🌳",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns an iterator to iterate over the symbols of this string. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "⏩",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a range from *start* to *stop*.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "start"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "stop"
+                        }
+                    ]
+                },
+                {
+                    "name": "⏭",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a range from *start* to *stop* with the provided *step*.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "start"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "stop"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "step"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": []
+        },
+        {
+            "type": "Class",
+            "name": "🌱",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🍡",
+                    "arguments": [
+                        {
+                            "type": "Optional",
+                            "arguments": [
+                                {
+                                    "type": "Literal",
+                                    "name": "Element"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "type": "Optional",
+                            "arguments": [
+                                {
+                                    "type": "Literal",
+                                    "name": "Element"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Iterator over a 🍨. This iterator does *not* unwrap any values retrieved from\n  the list and therefore returns optionals. You can use [[🌳]] to have\n  optionals automatically unwrapped.\n",
+            "methods": [
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🚯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Removes the element last returned by 🔽 from the list. Calling this method\n    before having called 🔽 results in undefined behavior.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍡",
+                        "arguments": [
+                            {
+                                "type": "Optional",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🍨",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "iteratee"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🎰",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  Pseudo-random number generator. The default implementation relies on\n  the Mersenne Twister algorithm.\n",
+            "methods": [
+                {
+                    "name": "🔢",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Generates an integer. Integers are uniformly distributed on the\n    closed interval `[a, b]`.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "a"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "b"
+                        }
+                    ]
+                },
+                {
+                    "name": "💯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Generates a real, where reals are uniformly distributed on the interval\n    `[0, 1)`.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a new generator and seeds it with a random value, if possible using\n    hardware entropy.\n  ",
+                    "parameters": []
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
             "type": "Class",
             "name": "🔡",
             "conformances": [
@@ -2753,6 +3583,119 @@
         },
         {
             "type": "Class",
+            "name": "🔠",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " Mutable sequence of characters (“string builder”). ",
+            "methods": [
+                {
+                    "name": "🐻",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Adds the symbols of *string* to this 🔠. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "🧠",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🧠",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the memory area representing the data of this 🔠. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the number of symbols. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the value of this this 🔠 as a 🔡. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an empty 🔠 with an initial capacity of 16. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐧",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an empty 🔠 with the provided *capacity*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "capacity"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
             "name": "🍨",
             "conformances": [
                 {
@@ -3038,6 +3981,42 @@
                     "parameters": []
                 },
                 {
+                    "name": "🦁",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Sorts this array in place using the quick sort algorithm.\n\n    `comparator` must return an integer less than, equal to, or greater than 0,\n    if the first argument is considered respectively less than, equal to, or\n    greater than the second.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Callable",
+                                "arguments": [
+                                    {
+                                        "package": "s",
+                                        "name": "🔢",
+                                        "arguments": []
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "comparator"
+                        }
+                    ]
+                },
+                {
                     "name": "🐹",
                     "accessLevel": "🔓",
                     "unsafe": false,
@@ -3167,6 +4146,50 @@
                                 ]
                             },
                             "name": "callback"
+                        }
+                    ]
+                },
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [
+                        {
+                            "name": "A",
+                            "constraint": {
+                                "package": "s",
+                                "name": "😛",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "documentation": " Tests whether this array and `other` are equal. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🍨",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "A"
+                                    }
+                                ]
+                            },
+                            "name": "other"
                         }
                     ]
                 },
@@ -3416,7 +4439,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
-                    "documentation": "\n    If this object represents the bytes of a UTF8 encoded text this method\n    returns a string representing that text. Nothingness is returned if this\n    object does not represent a valid UTF8 sequence.\n  ",
+                    "documentation": "\n    If this object represents the bytes of a UTF8 encoded text this method\n    returns a string representing that text. No value is returned if this\n    object does not represent a valid UTF8 sequence.\n  ",
                     "parameters": []
                 },
                 {
@@ -3546,7 +4569,7 @@
                     "mutating": true,
                     "final": false,
                     "genericParameters": [],
-                    "documentation": " Creates a string by copying the memory from the provided memory. ",
+                    "documentation": " Creates a 📇 instance by copying the memory from the provided memory. ",
                     "parameters": [
                         {
                             "type": {
@@ -3571,911 +4594,6 @@
             "final": false
         },
         {
-            "type": "Protocol",
-            "name": "🍡",
-            "conformances": [],
-            "genericParameters": [
-                {
-                    "name": "Element",
-                    "constraint": {
-                        "type": "Literal",
-                        "name": "⚪️"
-                    }
-                }
-            ],
-            "documentation": "\n  Protocol defining an iterators interface.\n\n  Types conforming to 🍡 can iterate a collection.\n\n  To get the items from an iterator call the 🔽 method on it, until 🔽❓ returns\n  👎 which indicates that there are no more items.\n",
-            "methods": [
-                {
-                    "name": "🔽",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "type": "Literal",
-                        "name": "Element"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Returns the next object. Call this method only if 🔽❓ previously\n    returned 👍.\n  ",
-                    "parameters": []
-                },
-                {
-                    "name": "🔽",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "👌",
-                        "arguments": []
-                    },
-                    "mood": "❓",
-                    "genericParameters": [],
-                    "documentation": "\n    Whether the iterator has more elements to provide.\n  ",
-                    "parameters": []
-                }
-            ],
-            "initializers": [],
-            "typeMethods": []
-        },
-        {
-            "type": "Protocol",
-            "name": "🔂",
-            "conformances": [],
-            "genericParameters": [
-                {
-                    "name": "Element",
-                    "constraint": {
-                        "type": "Literal",
-                        "name": "⚪️"
-                    }
-                }
-            ],
-            "documentation": "\n  Protocol defining iterability.\n\n  Types whose instances shall be iterable using the 🔂 loop must\n  implement this protocol.\n",
-            "methods": [
-                {
-                    "name": "🍡",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🍡",
-                        "arguments": [
-                            {
-                                "type": "Literal",
-                                "name": "Element"
-                            }
-                        ]
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    This method must return an instance of a class that conforms to\n    [[🍡]] which will be used to enumerate this instance.\n  ",
-                    "parameters": []
-                }
-            ],
-            "initializers": [],
-            "typeMethods": []
-        },
-        {
-            "type": "Protocol",
-            "name": "🐽",
-            "conformances": [],
-            "genericParameters": [
-                {
-                    "name": "Element",
-                    "constraint": {
-                        "type": "Literal",
-                        "name": "⚪️"
-                    }
-                }
-            ],
-            "documentation": "\n  Protocol defining random-access.\n\n  Types representing a collection whose elements can be accessed by 🐽 randomly\n  should conform to this protocol. The number of elements must be finite and\n  returned by 🐔.\n",
-            "methods": [
-                {
-                    "name": "🐽",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "type": "Literal",
-                        "name": "Element"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Gets the item at *index*. If the index is invalid the behavior is up to\n    the conforming type.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "index"
-                        }
-                    ]
-                },
-                {
-                    "name": "🐔",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🔢",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": " Returns the number of items in the collection. ",
-                    "parameters": []
-                }
-            ],
-            "initializers": [],
-            "typeMethods": []
-        },
-        {
-            "type": "Class",
-            "name": "🌳",
-            "conformances": [
-                {
-                    "package": "s",
-                    "name": "🍡",
-                    "arguments": [
-                        {
-                            "type": "Literal",
-                            "name": "Element"
-                        }
-                    ]
-                },
-                {
-                    "package": "s",
-                    "name": "🔂",
-                    "arguments": [
-                        {
-                            "type": "Literal",
-                            "name": "Element"
-                        }
-                    ]
-                }
-            ],
-            "genericParameters": [
-                {
-                    "name": "Element",
-                    "constraint": {
-                        "type": "Literal",
-                        "name": "⚪️"
-                    }
-                }
-            ],
-            "documentation": "\n  Iterator over a 🐽.\n\n  This class is an iterator that can iterate over every type that conforms to\n  the 🐽 protocol.\n",
-            "methods": [
-                {
-                    "name": "🔽",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "Literal",
-                        "name": "Element"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "parameters": []
-                },
-                {
-                    "name": "🔽",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "👌",
-                        "arguments": []
-                    },
-                    "mood": "❓",
-                    "genericParameters": [],
-                    "parameters": []
-                },
-                {
-                    "name": "🍡",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🍡",
-                        "arguments": [
-                            {
-                                "type": "Literal",
-                                "name": "Element"
-                            }
-                        ]
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "parameters": []
-                }
-            ],
-            "initializers": [
-                {
-                    "name": "🆕",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "genericParameters": [],
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🐽",
-                                "arguments": [
-                                    {
-                                        "type": "Literal",
-                                        "name": "Element"
-                                    }
-                                ]
-                            },
-                            "name": "iteratee"
-                        }
-                    ]
-                }
-            ],
-            "typeMethods": [],
-            "final": false
-        },
-        {
-            "type": "Class",
-            "name": "💻",
-            "conformances": [],
-            "genericParameters": [],
-            "documentation": "\n  Interaction with the operating system.\n\n  💻 provides several class methods that can be used to interact with the\n  operating system. It cannot be instantiated.\n",
-            "methods": [],
-            "initializers": [],
-            "typeMethods": [
-                {
-                    "name": "🎞",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🍨",
-                        "arguments": [
-                            {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            }
-                        ]
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Returns a list of the arguments passed to the programm. Calling this method\n    is rather expensive.\n  ",
-                    "parameters": []
-                },
-                {
-                    "name": "🌳",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            }
-                        ]
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Gets an environment variable by its name. If the variable cannot be found\n    ✨ is returned.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            },
-                            "name": "variableName"
-                        }
-                    ]
-                },
-                {
-                    "name": "🚪",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "NoReturn"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Immediately exits the program with the given status code. The code may\n    not be larger than 255 on most operating systems.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "status"
-                        }
-                    ]
-                },
-                {
-                    "name": "🕴",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "NoReturn"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Returns the standard output of running `command` in a subshell.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            },
-                            "name": "command"
-                        }
-                    ]
-                },
-                {
-                    "name": "🕰",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🔢",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Returns the current time in seconds since the Epoch in Greenwich Mean Time.\n  ",
-                    "parameters": []
-                },
-                {
-                    "name": "🤯",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "NoReturn"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Panic. Aborts the program with the provided message.\n\n    >!N Only use this function when the program hits upon an error so serious\n    >!N that recovery is impossible.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            },
-                            "name": "message"
-                        }
-                    ]
-                }
-            ],
-            "final": false
-        },
-        {
-            "type": "Value Type",
-            "name": "⏩",
-            "conformances": [
-                {
-                    "package": "s",
-                    "name": "🔂",
-                    "arguments": [
-                        {
-                            "package": "s",
-                            "name": "🔢",
-                            "arguments": []
-                        }
-                    ]
-                },
-                {
-                    "package": "s",
-                    "name": "🐽",
-                    "arguments": [
-                        {
-                            "package": "s",
-                            "name": "🔢",
-                            "arguments": []
-                        }
-                    ]
-                }
-            ],
-            "genericParameters": [],
-            "documentation": "\n  Range, an immutable sequence of numbers. [Read more in the\n  language reference.](../../reference/the-s-package.html#-ranges)\n",
-            "methods": [
-                {
-                    "name": "🐽",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🔢",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Returns the *n*th element of the range. *n* is only valid if\n    `start + step * n` is `>= start` and `< stop`. If *n* is invalid, the\n    program will panic.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "n"
-                        }
-                    ]
-                },
-                {
-                    "name": "🐔",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🔢",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": " Returns the number of numbers in this range. ",
-                    "parameters": []
-                },
-                {
-                    "name": "🍡",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🌳",
-                        "arguments": [
-                            {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            }
-                        ]
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": " Returns an iterator to iterate over the symbols of this string. ",
-                    "parameters": []
-                }
-            ],
-            "initializers": [
-                {
-                    "name": "⏩",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "genericParameters": [],
-                    "documentation": "\n    Creates a range from *start* to *stop*.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "start"
-                        },
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "stop"
-                        }
-                    ]
-                },
-                {
-                    "name": "⏭",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "genericParameters": [],
-                    "documentation": "\n    Creates a range from *start* to *stop* with the provided *step*.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "start"
-                        },
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "stop"
-                        },
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "step"
-                        }
-                    ]
-                }
-            ],
-            "typeMethods": []
-        },
-        {
-            "type": "Class",
-            "name": "🌱",
-            "conformances": [
-                {
-                    "package": "s",
-                    "name": "🍡",
-                    "arguments": [
-                        {
-                            "type": "Optional",
-                            "arguments": [
-                                {
-                                    "type": "Literal",
-                                    "name": "Element"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "package": "s",
-                    "name": "🔂",
-                    "arguments": [
-                        {
-                            "type": "Optional",
-                            "arguments": [
-                                {
-                                    "type": "Literal",
-                                    "name": "Element"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "genericParameters": [
-                {
-                    "name": "Element",
-                    "constraint": {
-                        "type": "Literal",
-                        "name": "⚪️"
-                    }
-                }
-            ],
-            "documentation": "\n  Iterator over a 🍨. This iterator does *not* unwrap any values retrieved from\n  the list and therefore returns optionals. You can use [[🌳]] to have\n  optionals automatically unwrapped.\n",
-            "methods": [
-                {
-                    "name": "🔽",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "type": "Literal",
-                                "name": "Element"
-                            }
-                        ]
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "parameters": []
-                },
-                {
-                    "name": "🔽",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "👌",
-                        "arguments": []
-                    },
-                    "mood": "❓",
-                    "genericParameters": [],
-                    "parameters": []
-                },
-                {
-                    "name": "🚯",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "NoReturn"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Removes the element last returned by 🔽 from the list. Calling this method\n    before having called 🔽 results in undefined behavior.\n  ",
-                    "parameters": []
-                },
-                {
-                    "name": "🍡",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🍡",
-                        "arguments": [
-                            {
-                                "type": "Optional",
-                                "arguments": [
-                                    {
-                                        "type": "Literal",
-                                        "name": "Element"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "parameters": []
-                }
-            ],
-            "initializers": [
-                {
-                    "name": "🆕",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "genericParameters": [],
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🍨",
-                                "arguments": [
-                                    {
-                                        "type": "Literal",
-                                        "name": "Element"
-                                    }
-                                ]
-                            },
-                            "name": "iteratee"
-                        }
-                    ]
-                }
-            ],
-            "typeMethods": [],
-            "final": false
-        },
-        {
-            "type": "Class",
-            "name": "🎰",
-            "conformances": [],
-            "genericParameters": [],
-            "documentation": "\n  Pseudo-random number generator. The default implementation relies on\n  the Mersenne Twister algorithm.\n",
-            "methods": [
-                {
-                    "name": "🔢",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🔢",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Generates an integer. Integers are uniformly distributed on the\n    closed interval `[a, b]`.\n  ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "a"
-                        },
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "b"
-                        }
-                    ]
-                },
-                {
-                    "name": "💯",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "💯",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": "\n    Generates a real, where reals are uniformly distributed on the interval\n    `[0, 1)`.\n  ",
-                    "parameters": []
-                }
-            ],
-            "initializers": [
-                {
-                    "name": "🆕",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "genericParameters": [],
-                    "documentation": "\n    Creates a new generator and seeds it with a random value, if possible using\n    hardware entropy.\n  ",
-                    "parameters": []
-                }
-            ],
-            "typeMethods": [],
-            "final": false
-        },
-        {
-            "type": "Class",
-            "name": "🔠",
-            "conformances": [],
-            "genericParameters": [],
-            "documentation": " Mutable sequence of characters (“string builder”). ",
-            "methods": [
-                {
-                    "name": "🐻",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "NoReturn"
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": " Adds the symbols of *string* to this 🔠. ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            },
-                            "name": "string"
-                        }
-                    ]
-                },
-                {
-                    "name": "🧠",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🧠",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": " Returns the memory area representing the data of this 🔠. ",
-                    "parameters": []
-                },
-                {
-                    "name": "🐔",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🔢",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": " Returns the number of symbols. ",
-                    "parameters": []
-                },
-                {
-                    "name": "🔡",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "🔡",
-                        "arguments": []
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "documentation": " Returns the value of this this 🔠 as a 🔡. ",
-                    "parameters": []
-                }
-            ],
-            "initializers": [
-                {
-                    "name": "🆕",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "genericParameters": [],
-                    "documentation": " Creates an empty 🔠 with an initial capacity of 16. ",
-                    "parameters": []
-                },
-                {
-                    "name": "🐧",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "genericParameters": [],
-                    "documentation": " Creates an empty 🔠 with the provided *capacity*. ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "capacity"
-                        }
-                    ]
-                }
-            ],
-            "typeMethods": [],
-            "final": false
-        },
-        {
             "type": "Class",
             "name": "🍯",
             "conformances": [],
@@ -4490,95 +4608,6 @@
             ],
             "documentation": "\n  Dictionary, holding key value pairs.\n\n  [Read more in the\n  language reference.](../../reference/the-s-package.html#-dictionaries)\n",
             "methods": [
-                {
-                    "name": "🔑",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "👌",
-                        "arguments": []
-                    },
-                    "mood": "❓",
-                    "genericParameters": [],
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🐝",
-                                "arguments": [
-                                    {
-                                        "package": "s",
-                                        "name": "🔡",
-                                        "arguments": []
-                                    },
-                                    {
-                                        "type": "Literal",
-                                        "name": "Element"
-                                    }
-                                ]
-                            },
-                            "name": "entry"
-                        },
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            },
-                            "name": "key"
-                        },
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            },
-                            "name": "hash"
-                        }
-                    ]
-                },
-                {
-                    "name": "🔍",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": true,
-                    "final": false,
-                    "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "s",
-                                "name": "🐝",
-                                "arguments": [
-                                    {
-                                        "package": "s",
-                                        "name": "🔡",
-                                        "arguments": []
-                                    },
-                                    {
-                                        "type": "Literal",
-                                        "name": "Element"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    "mood": "❗️",
-                    "genericParameters": [],
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            },
-                            "name": "key"
-                        }
-                    ]
-                },
                 {
                     "name": "🐽",
                     "accessLevel": "🔓",
