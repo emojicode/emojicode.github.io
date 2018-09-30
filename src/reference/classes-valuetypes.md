@@ -124,7 +124,8 @@ $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
 $type-body-declaration-main$-> $deinitializer$
 $superclass$-> $type$
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
-$initializer$-> 🆕 [$emoji-id$] [$init-error$] [$init-parameters$] $body$
+$initializer$-> 🆕 [$initializer-emoji-id$] [$init-error$] [$init-parameters$] $body$
+$initializer-emoji-id$-> --🛅 --🍼 --📻 $emoji-id$
 $init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
 $init-parameter$-> [🍼] $variable$ $type$
 $init-error$-> 🚨 $type$
@@ -207,7 +208,7 @@ Its syntax is:
 
 ```syntax
 $instantiation$-> 🆕 $type-expr$ $initializer-id$ [$arguments$] $mood$
-$initializer-id$-> $emoji-id$ | 🆕
+$initializer-id$-> $initializer-emoji-id$ | 🆕
 ```
 
 Let us instantiate a credit card information 💳:
