@@ -71,11 +71,10 @@ Every Emojicode source code document consists of any number of
 
 ```syntax
 $document-statement$-> $package-import$ | $include$ | $package-documentation-comment$
-$document-statement$-> [$documentation-comment$] [🌍] $type-definition$
+$document-statement$-> $type-definition$
 $document-statement$-> $start-flag$
 $include$-> 📜 $string-literal$
 $start-flag$-> 🏁 [$return-type$] $block$
-$type-definition$-> $class$ | $value-type$ | $extension$ | $protocol$ | $enum$
 ```
 
 *start-flag* was already described in the previous chapter.

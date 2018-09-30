@@ -112,16 +112,20 @@ We have summarized the syntax here as it is a great deal of definitions and
 we didn’t want to clutter the previous sections.
 
 ```syntax
+$type-definition$-> [$documentation-comment$] [🌍] [🔏] [📻] $type-definition-main$
+$type-definition-main$-> $class$ | $value-type$ | $extension$ | $protocol$ | $enum$
 $class$-> 🐇 $type-identifier$ [$generic-parameters$] [$superclass$] $type-body$
 $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
 $type-body-declaration$-> $type-body-attributes$ $type-body-declaration-main$
-$type-body-attributes$-> [$documentation-comment$] [⚠️] [🔏] [$access-level$] [✒️] [🐇] [🖍] [🔑]
+$type-body-attributes$-> [$documentation-comment$] [⚠️] [🔏] [✒️] [🐇] [🖍] [🔑] [🛅] [$access-level$]
 $type-body-declaration-main$-> $declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
+$type-body-declaration-main$-> $deinitializer$
 $superclass$-> $type$
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
-$initializer$-> 🆕 [$emoji-id$] [$init-error$] [$init-parameters$] $body$
+$initializer$-> 🆕 [$initializer-emoji-id$] [$init-error$] [$init-parameters$] $body$
+$initializer-emoji-id$-> --🛅 --🍼 --📻 $emoji-id$
 $init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
 $init-parameter$-> [🍼] $variable$ $type$
 $init-error$-> 🚨 $type$
@@ -203,7 +207,8 @@ is performed with 🆕.
 Its syntax is:
 
 ```syntax
-$instantiation$-> 🆕 $type-expr$ $initializer$ [$arguments$] $mood$
+$instantiation$-> 🆕 $type-expr$ $initializer-id$ [$arguments$] $mood$
+$initializer-id$-> $initializer-emoji-id$ | 🆕
 ```
 
 Let us instantiate a credit card information 💳:
@@ -212,9 +217,11 @@ Let us instantiate a credit card information 💳:
 🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
 ```
 
-Diretly after `🆕` comes 💳, the name of the type we want to instantiate, which
-is followed by another `🆕`, which is the name of the initializer we’d like to
-use. We have only defined this initializer so there is no other option here.
+Diretly after 🆕 comes 💳, the name of the type we want to instantiate.
+
+Then the name of the initializer is expected. Since we did not provide a name
+for the initializer above, it was automatically named 🆕. So we use 🆕 as the
+initializer name.
 
 The following expressions are argumetns to the initializer. ❗️ denotes the
 end of the arguments.
@@ -224,6 +231,34 @@ Having instantiated a credit card, we can also instantiate a customer:
 ```
 🆕👩‍💼🆕 🔤Mickey🔤 🔤Mouse🔤 credit_card❗️ ➡️ customer_mouse
 🆕👩‍🚀🆕 3216 🔤Jean-Luc🔤 🔤Picard🔤 credit_card❗️ ➡️ astronaut_picard
+```
+
+### Named Initializer
+
+For completeness, let’s add an initializer with a name:
+
+```
+🐇 👩‍💼 🍇
+  🖍🆕 firstname 🔡
+  🖍🆕 lastname 🔡
+  🖍🆕 creditcard 💳
+
+  🆕 🍼 firstname 🔡 🍼 lastname 🔡 🍼 creditcard 💳 🍇🍉
+
+  🆕 🧜‍♀️ 🍼 firstname 🔡 🍼 creditcard 💳 🍇
+    🔤Mermaid🔤 ➡️ 🖍lastname
+  🍉
+🍉
+```
+
+In the above example, you can see an initializer named 🧜‍♀️. In contrast to the
+other initializer, it does not take the lastname. Instead it initializes
+`lastname` to the string `Mermaid`.
+
+We can use the 🧜‍♀️ initializer like this:
+
+```
+🆕👩‍💼🧜‍♀️ 🔤Ariel🔤 credit_card❗️ ➡️ ariel
 ```
 
 ## Methods
@@ -413,6 +448,46 @@ $access-level$-> 🔓 | 🔒 | 🔐
 - 🔓: The method or initializer can be accessed from everywhere.
 - 🔒: The method or initializer may only be accessed within the type and package it was defined.
 - 🔐: The method or initializer may only be accessed within the type it was defined or within a class that inherits from that class that defined this method.
+
+The following example cannot be compiled, as 🙋 is a private method and can
+therefore not be called from 🏁.
+
+```!
+🐇 🐟 🍇
+  🆕 🍇🍉
+
+  🔒 ❗️ 🙋 🍇
+    😀 🔤I’m a fish.🔤❗️
+  🍉
+🍉
+
+🏁 🍇
+  🆕🐟🆕❗️ ➡️ fish
+  🙋 fish❗
+🍉
+```
+
+## Final Classes
+
+The attribute 🔏 marks a class as final. A final class cannot be subclassed or
+an compiler error will be raised.
+
+>!H Marking a class as final not only makes your intent clear but can also
+>!H lead to performance improvements. Although the
+>!H compiler tries to automatically detect final classes, it cannot do so in
+>!H packages that export types.
+
+The following example will raise a compiler error as 🐟 is attributed with 🔏.
+
+```!
+🔏 🐇 🐟 🍇
+  🆕 🍇🍉
+🍉
+
+🐇 🐡 🐟 🍇
+
+🍉
+```
 
 ## Deprecation
 
