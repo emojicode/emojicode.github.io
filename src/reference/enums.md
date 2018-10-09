@@ -22,17 +22,17 @@ For example:
 🍉
 ```
 
-In this example, an enumeration that named 📜 is defined which offers the values
-🌭, 🍕 and 🍔.
+In this example, an enumeration that named ⏰ is defined which offers the values
+🥓, 🥞 and 🥐.
 
 ## Instantiating an Enumeration
 
 Every enumeration automatically provides intializers for all its options, named
 after the option the instance will represent. Like any value type, enumerations
-are instantiated with 🔷:
+are instantiated with 🆕:
 
 ```
-🆕📜🍕❗️
+🆕⏰🥞❗️
 ```
 
 Enumerations cannot have custom initializers.
