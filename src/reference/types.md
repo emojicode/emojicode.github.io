@@ -137,7 +137,7 @@ Don’t confuse type casting with type conversion. You can’t cast 🔢 to
 💯. In such a case you would have to use a suitable conversion
 method.
 
->!N Type Casting may work incorrectly with generics in Emojicode 0.6 Beta 2.
+>!N Type Casting may work incorrectly with generics in Emojicode 0.6.
 
 ## ⚖️ Size Of Type Instance
 

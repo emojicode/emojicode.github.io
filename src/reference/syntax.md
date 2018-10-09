@@ -31,7 +31,7 @@ The grammar notation we use in the documentation follows these rules:
   <span class="syntax-placeholder">foo</span> ⟶ <span class="syntax-placeholder">mouse</span> <span class="syntax-placeholder">dog</span> | <span class="syntax-placeholder">hippo</span>
   </pre>
 
-  denotes that a *foo* may consits of a *mouse* and a *dog* or of only a *hippo*.
+  denotes that a *foo* may consist of a *mouse* and a *dog* or of only a *hippo*.
 
 - Rules can be broken into multiple lines starting with the same name, the new
   line then is an alternative as if the contents right to the ⟶ was on the same
