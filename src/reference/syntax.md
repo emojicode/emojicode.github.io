@@ -129,15 +129,15 @@ $number$-> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 $emoji$-> $emoji-main$ | $emoji-modifier-base$ $emoji-modifier$ | $zwj$ | $regional-indicator$ $regional-indicators$
 $zwj$-> $emoji$ U+200D $emoji$
 $emoji-main$-> $emoji-main$ U+FE0F
-$emoji-main$-> U+0023 | U+002A | U+0030–U+0039 | U+00A9 | U+00AE
+$emoji-main$-> U+00A9 | U+00AE
 $emoji-main$-> U+203C | U+2049 | U+2122 | U+2139 | U+2194–U+2199
 $emoji-main$-> U+21A9–U+21AA | U+231A–U+231B | U+2328 | U+23CF | U+23E9–U+23F3
 $emoji-main$-> U+23F8–U+23FA | U+24C2 | U+25AA–U+25AB | U+25B6 | U+25C0
 $emoji-main$-> U+25FB–U+25FE | U+2600–U+2604 | U+260E | U+2611 | U+2614–U+2615
 $emoji-main$-> U+2618 | U+261D | U+2620 | U+2622–U+2623 | U+2626
 $emoji-main$-> U+262A | U+262E–U+262F | U+2638–U+263A | U+2640 | U+2642
-$emoji-main$-> U+2648–U+2653 | U+2660 | U+2663 | U+2665–U+2666 | U+2668
-$emoji-main$-> U+267B | U+267F | U+2692–U+2697 | U+2699 | U+269B–U+269C
+$emoji-main$-> U+2648–U+2653 | U+265F–U+2660 | U+2663 | U+2665–U+2666 | U+2668
+$emoji-main$-> U+267B | U+267E–U+267F | U+2692–U+2697 | U+2699 | U+269B–U+269C
 $emoji-main$-> U+26A0–U+26A1 | U+26AA–U+26AB | U+26B0–U+26B1 | U+26BD–U+26BE | U+26C4–U+26C5
 $emoji-main$-> U+26C8 | U+26CE | U+26CF | U+26D1 | U+26D3–U+26D4
 $emoji-main$-> U+26E9–U+26EA | U+26F0–U+26F5 | U+26F7–U+26FA | U+26FD | U+2702
@@ -168,11 +168,13 @@ $emoji-main$-> U+1F61F | U+1F620–U+1F625 | U+1F626–U+1F627 | U+1F628–U+1F6
 $emoji-main$-> U+1F62D | U+1F62E–U+1F62F | U+1F630–U+1F633 | U+1F634 | U+1F635–U+1F640
 $emoji-main$-> U+1F641–U+1F642 | U+1F643–U+1F644 | U+1F645–U+1F64F | U+1F680–U+1F6C5 | U+1F6CB–U+1F6CF
 $emoji-main$-> U+1F6D0 | U+1F6D1–U+1F6D2 | U+1F6E0–U+1F6E5 | U+1F6E9 | U+1F6EB–U+1F6EC
-$emoji-main$-> U+1F6F0 | U+1F6F3 | U+1F6F4–U+1F6F6 | U+1F6F7–U+1F6F8 | U+1F910–U+1F918
-$emoji-main$-> U+1F919–U+1F91E | U+1F91F | U+1F920–U+1F927 | U+1F928–U+1F92F | U+1F930
-$emoji-main$-> U+1F931–U+1F932 | U+1F933–U+1F93A | U+1F93C–U+1F93E | U+1F940–U+1F945 | U+1F947–U+1F94B
-$emoji-main$-> U+1F94C | U+1F950–U+1F95E | U+1F95F–U+1F96B | U+1F980–U+1F984 | U+1F985–U+1F991
-$emoji-main$-> U+1F992–U+1F997 | U+1F9C0 | U+1F9D0–U+1F9E6
+$emoji-main$-> U+1F6F0 | U+1F6F3 | U+1F6F4–U+1F6F6 | U+1F6F7–U+1F6F8 | U+1F6F9
+$emoji-main$-> U+1F910–U+1F918 | U+1F919–U+1F91E | U+1F91F | U+1F920–U+1F927 | U+1F928–U+1F92F
+$emoji-main$-> U+1F930 | U+1F931–U+1F932 | U+1F933–U+1F93A | U+1F93C–U+1F93E | U+1F940–U+1F945
+$emoji-main$-> U+1F947–U+1F94B | U+1F94C | U+1F94D–U+1F94F | U+1F950–U+1F95E | U+1F95F–U+1F96B
+$emoji-main$-> U+1F96C–U+1F970 | U+1F973–U+1F976 | U+1F97A | U+1F97C–U+1F97F | U+1F980–U+1F984
+$emoji-main$-> U+1F985–U+1F991 | U+1F992–U+1F997 | U+1F998–U+1F9A2 | U+1F9B0–U+1F9B9 | U+1F9C0
+$emoji-main$-> U+1F9C1–U+1F9C2 | U+1F9D0–U+1F9E6 | U+1F9E7–U+1F9FF
 $emoji-modifier-base$-> $emoji-modifier-base$ U+FE0F
 $emoji-modifier-base$-> U+261D | U+26F9 | U+270A–U+270B | U+270C–U+270D | U+1F385
 $emoji-modifier-base$-> U+1F3C2–U+1F3C4 | U+1F3C7 | U+1F3CA | U+1F3CB–U+1F3CC | U+1F442–U+1F443
