@@ -408,6 +408,66 @@ instance which might access instance variable that had not been initialized yet.
 $this$-> 🐕
 ```
 
+## Mutability of Value Types
+
+We have seen examples of methods that modify class objects, but we have not seen
+any examples of changing the instance variables of a value type. There’s a good
+reason why: Value types instance cannot be arbitrarily modified.
+
+Methods of value types that wish to mutate instance variables must be attributed
+with 🖍. Let us define a method for the 💳 type that allows us to update the
+card’s security code:
+
+```
+🖍❗️🗝 code 🔡 🍇
+  code ➡️🖍security_code
+🍉
+```
+
+If we hadn’t used the 🖍 attribute, the compiler would emit an error when
+compiling this. Of course, we can only call a method marked with 🖍 on 🐕 if
+the method we are in is attributed with 🖍 too. Thus the following would
+not work:
+
+```!
+🕊 💳 🍇
+  🖍🆕 number 🔡
+  🖍🆕 expiration_date 🔡
+  🖍🆕 security_code 🔡
+
+  🖍❗️🗝 code 🔡 🍇
+    code ➡️🖍security_code
+  🍉
+
+  ❗️🦠 code 🔡 🍇
+    🗝🐕 🔤000🔤❗️ 💭 We cannot call a mutating method from a non-mutating one.
+  🍉
+🍉
+```
+
+We have defined a mutating method. We should call it as well, which brings us
+to another important aspect of value type mutability:
+
+Only value types in a mutable variables are mutable.
+
+Let’s see an example:
+
+```
+🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ 🖍🆕credit_card
+🗝credit_card❗️
+```
+
+This is perfectly fine, while the below example will not compile as
+`credit_card` is not mutable:
+
+```!
+🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
+🗝credit_card❗️
+```
+
+Since instance variables are always mutable, you can always call mutating
+methods on the values of instance variables.
+
 ## Type Methods
 
 It’s possible to define type methods which are called on the type rather than on
