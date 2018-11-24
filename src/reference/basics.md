@@ -67,8 +67,8 @@ are written in Emojicode just as you would do normally:
 0.738281
 ```
 
-However, integers not just be written in decimal notation as in the example
-above, but also i hexadecimal notation, with the prefix `0x`, like `0x1D`
+However, integers can not only be written in decimal notation as in the example
+above, but also in hexadecimal notation, with the prefix `0x`, like `0x1D`
 and octal notation, with the prefix `0`, like `035`.
 
 You can use `,` within numbers as a thousands separator:
@@ -91,8 +91,7 @@ There are only three numeric types in Emojicode:
 The numeric literals we have seen above are converted to an apporpriate type
 in accordance with [Type Expectations](types.html#type-expectations). This means
 that a literal like `130` will be interpreted as 💯 when a 💯 is expected.
-A literal with decimal place will, of course, never be interpreted as 🔢 or 💧
-and the compiler will emit an error.
+A literal with decimal place will, of course, never be interpreted as 🔢 or 💧.
 
 If no type is expected, a literal without decimal place is of type 🔢 and literal
 with is of type 💯.
@@ -105,19 +104,18 @@ using 👎.
 
 ## Including Other Source Code Files
 
-An Emojicode program is always compiled from a single file. Nevertheless, you
-can include other source code files. Basically, this just
-inserts the code from the file at the point where you included it.
+The Emojicode compiler always expects a single file. Nevertheless, you
+can include other source code files. Simply speaking, this just
+inserts the code from the included file.
 
 Syntax:
 
 ```
-📜 string
+📜 🔤path/to/a/file.emojic🔤
+📜 🔤file.emojic🔤
 ```
 
-*string* must be a string whose value is a path to another Emojicode source
-file. The path is relative to the directory which included the document with the
-📜 statement.
+The path is relative to the directory in which the current source document is.
 
 >!H Do not use this method to share code across projects. If you have
 >!H written really fancy code,

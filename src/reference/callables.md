@@ -118,7 +118,6 @@ Hello, Violet
 Have a good lunch, Violet
 ```
 
->!N Closures **copy** the closured **local variables** and freeze them in the scope of the closure.
->!N If you modify one of the copied variable only the copy local to the closure will be modified.
->!N
->!N **Instance variables** are **not copied** and change when modified inside a closure.
+>!N Closures **copy** the closured **local variables** and make them available
+>!N as constant variable in the closure. **Instance variables** are
+>!N **not copied** and change when modified inside a closure.

@@ -378,7 +378,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
-                    "documentation": "\n    Returns an absolute pathname derived from `path` that\n    resolves to the same directory entry, whose resolution does not involve `.`,\n    `..`, or symbolic links. On failure Nothingness is returned.\n  ",
+                    "documentation": "\n    Returns an absolute pathname derived from `path` that\n    resolves to the same directory entry, whose resolution does not involve `.`,\n    `..`, or symbolic links. On failure an error is returned.\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -543,7 +543,7 @@
                         "arguments": []
                     },
                     "genericParameters": [],
-                    "documentation": "\n    Opens the file at the given path for writing. The file pointer is set to the\n    beginning of the file and the file is truncated to zero length or created.\n\n    This initializer returns nothingness if the file can not be opened for some\n    reason. In many cases this occurs when you don’t have the permission to\n    create or open the file.\n\n    You cannot read from a file opened with this initializer.\n  ",
+                    "documentation": "\n    Opens the file at the given path for writing. The file pointer is set to the\n    beginning of the file and the file is truncated to zero length or created.\n\n    You cannot read from a file opened with this initializer.\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -567,7 +567,7 @@
                         "arguments": []
                     },
                     "genericParameters": [],
-                    "documentation": "\n    Opens the file at the given path for reading. The file pointer is set to the\n    beginning of the file.\n\n    This initializer returns nothingness if the file can not be opened for some\n    reason. In many cases this occurs when you don’t have the permission to open\n    the file or when it does not exist.\n\n    You cannot write to a file opened with this initializer.\n  ",
+                    "documentation": "\n    Opens the file at the given path for reading. The file pointer is set to the\n    beginning of the file.\n\n    You cannot write to a file opened with this initializer.\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -642,7 +642,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
-                    "documentation": "\n    This class method tries to read the file at given path `path` and returns\n    a 📇 object representing its content on success. On failure Nothingness\n    is returned.\n  ",
+                    "documentation": "\n    This class method tries to read the file at given path `path` and returns\n    a 📇 object representing its content on success. On failure an error\n    is returned.\n  ",
                     "parameters": [
                         {
                             "type": {

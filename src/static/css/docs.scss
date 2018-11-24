@@ -21,6 +21,10 @@ $toc-hover-color: darken($toc-color, 10%);
 $toc-width: 280px;
 $toc-margin-right: 36px;
 
+body {
+  padding-bottom: 24px;
+}
+
 table {
   display: block;
   width: 100%;

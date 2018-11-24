@@ -11,7 +11,7 @@ incredibly-long-variable-name
 send_email_to:george@washington~
 ```
 
-There are two types of variables: mutable and constant variables. Frozen
+There are two types of variables: mutable and constant variables. Constant
 variables differ from normal ones in that they cannot be changed after
 they were initially set.
 
@@ -38,20 +38,20 @@ hand side of `➡️` while the variable you want to assign the value to is on t
 right hand side. The above code therefore sets `daysInDecember` to `31` and
 `thirdPlanet` to the string `Earth`.
 
-The compiler infers the type of the variables from the provided values
+The compiler infers the type of variables from the provided values
 automatically.
 
 Obviously, you cannot change a constant variable. If you try to reassign a
-constant variable you will get a compiler error.
+constant variable, this will result in a compiler error.
 
 ## Declaring and Assigning Mutable Variables
 
-Sometimes, however, you will need variables whose value can be modified. This
+Sometimes, however, you need variables whose values can be modified. This
 is were mutable variables come in.
 
 Before you can use a mutable variable you need to declare it. There are two
 ways, either you declare and assign the variable to a value in one step or you
-explicitely declare the variable, in which case in won’t have a value initially.
+explicitly declare the variable, in which case it won’t have a value initially.
 
 ```
 5300 ➡️ 🖍🆕 money
@@ -87,7 +87,7 @@ but we need to note that the variable name is preceded by 🖍. You will get
 an error if you omit the 🖍 and you will get an error if you try to assign
 a variable this way, that has not been declared.
 
-This mechanism is intended to prevent bugs that could emerge if you, for
+This mechanism can prevent bugs that could emerge if you, for
 instance, misspell a variable.
 
 ## Scoping

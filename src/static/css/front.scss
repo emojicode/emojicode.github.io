@@ -156,3 +156,19 @@ body {
     font-size: 1.42rem;
   }
 }
+
+.footer {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 13px;
+  color: $p-soft;
+}
+
+.footer--link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
