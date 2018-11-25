@@ -478,17 +478,25 @@ example:
 
 ```
 🐇 🍕 🍇
-  🌮 Return available pizza dishes. 🌮
+  📗 Return available pizza dishes. 📗
   🐇❗️ 📜 ➡️ 🍨🐚🔡🍆 🍇
     ↩️ 🍨 🔤Margherita🔤 🔤Tonno🔤 🔤Quattro Formaggi🔤 🍆
   🍉
 🍉
+
+🕊 💳 🍇
+  📗 Returns some credit card providers. 📗
+  🐇❗️ 🏢 ➡️ 🍨🐚🔡🍆 🍇
+    ↩️ 🍨 🔤Visa🔤 🔤MasterCard🔤 🔤Discover🔤 🍆
+  🍉
+🍉
 ```
 
-We can call our type method like this:
+We can call our type methods like this:
 
 ```
 📜🐇🍕❗️
+🏢🕊💳❗️
 ```
 
 This calls the type method 📜 on the class 🍕, which we just defined above.
