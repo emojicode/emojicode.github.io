@@ -81,8 +81,7 @@ should see something similar to this:
 <img src="/static/img/cookiemonster1.png" width="300">
 
 Not very impressive, is it? Let’s do something more interesting and draw some
-cookies onto the screen. [Download](https://github.com/emojicode/cookie-monster
--game/raw/master/cookie.png) a cookie image from here, copy it into the
+cookies onto the screen. [Download](https://github.com/emojicode/cookie-monster-game/raw/master/cookie.png) a cookie image from here, copy it into the
 directory in which your program is stored.
 
 In order to display the image on the screen, it must be loaded as a bitmap
