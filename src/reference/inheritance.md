@@ -52,6 +52,32 @@ As for example:
 
 The same logic applies to type methods.
 
+### Access Level and Overriding
+
+If you override a method and do not specify an access level, the method inherits
+the overridden method’s access level. In the example below, 🐡’s 🙋 method is 🔐
+because no access level was specified:
+
+```
+🐇 🐟 🍇
+  🆕 🍇🍉
+
+  🔐 ❗️ 🙋 🍇
+    😀 🔤I’m a fish.🔤❗️
+  🍉
+🍉
+
+🐇 🐡 🐟 🍇
+  ✒️❗️ 🙋 🍇
+    😀 🔤I’m a blowfish.🔤❗️
+  🍉
+🍉
+```
+
+An overriding method must be at least as acessible as the method it overrides.
+This means that you cannot make an overriding method 🔒, nor can you
+override a 🔓 method with a 🔐 method.
+
 ## Calling Super Methods
 
 Inside a method you can use this syntax to call the super method:

@@ -130,6 +130,7 @@ $init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
 $init-parameter$-> [🍼] $variable$ $type$
 $init-error$-> 🚨 $type$
 $body$-> $block$ | $external-link-name$
+$access-level$-> 🔓 | 🔒 | 🔐
 ```
 
 ## Initializers
@@ -509,10 +510,6 @@ called. To learn more about what this means please see
 *Access Levels* describe from which context a method or initializer can be
 called. There are three access levels:
 
-```syntax
-$access-level$-> 🔓 | 🔒 | 🔐
-```
-
 - 🔓: The method or initializer can be accessed from everywhere.
 - 🔒: The method or initializer may only be accessed within the type and package it was defined.
 - 🔐: The method or initializer may only be accessed within the type it was defined or within a class that inherits from that class that defined this method.
@@ -534,6 +531,9 @@ therefore not be called from 🏁.
   🙋 fish❗
 🍉
 ```
+
+If you do not specify an access level the method will default to 🔓, unless
+[it overrides another method](inheritance.html#overriding-methods).
 
 ## Final Classes
 
