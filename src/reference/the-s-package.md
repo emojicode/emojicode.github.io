@@ -18,22 +18,9 @@ The most basic types 👌 (boolean), 🔢 (integer), 💯 (real number),
 were already introduced in [The Basics](basics.html).
 These types are, of course, defined in the s package.
 
-## 🔣 Symbols
-
-What we call *Symbol* is a single Unicode code point represented by the
-type 🔣. The symbol type can represent any code point defined in Unicode.
-
-You can include a symbol in source code by prepending a code point with 🔟.
-This is called a *Symbol literal*. For example:
-
-```
-🔟% ➡️ percent
-```
-
 ## 🔡 Strings
 
-Strings are ordered immutable collections of symbols or easily
-speaking texts. Strings are represented by the 🔡 type.
+Strings are textual data that is represented by [the 🔡 type](../packages/s/1f521.html).
 
 ### String Literals
 
@@ -104,34 +91,9 @@ $concatenate-expressions$-> $concatenate-expression$ | $concatenate-expression$ 
 $concatenate-expression$-> --$concatenate-literal$ $expression$
 ```
 
-### Comparing Strings
-
-If you want to determine whether two strings represent the same value, you can
-use the equality operator 🙌.
-
-```
-🍪🔤Straw🔤 🔤berries🔤🍪 🙌 🔤Strawberries🔤
-```
-
-You’ll learn more about the equality operator in [Operators](operators.html).
-
->!N Never use 😜 to compare strings. Use 🙌 instead.
-
-### String Mutablility
-
-Strings are immutable. This means that you can’t modify any string. You can,
-however, call methods on strings that return modified copies of the orginal
-string, but those themselves are then immutable again.
-
 ## 🍨 Lists
 
-Lists are ordered mutable collections of values. They are represeneted by the
-generic type 🍨. Their sizes are theoretically unlimited, but practically
-hardware and the fact that Emojicode’s integers have an upper bound makes them
-limited.
-
-Lists are optimized for fast by index access. You can access by index, pop and
-append in `O(1)`. List indexing starts at 0, as in C or Java.
+Lists are ordered mutable collections of values represented by the [🍨 type](../packages/s/1f368.html).
 
 ### List Literals
 
@@ -149,7 +111,8 @@ $expressions$-> $expression$ | $expression$ $expressions$
 
 ## 🍯 Dictionaries
 
-Dictionaries can be used to assign values to string keys.
+Dictionaries can be used to assign values to keys. They are represented
+by the [🍯 type](../packages/s/1f36f.html).
 
 ### Dictionary Literals
 

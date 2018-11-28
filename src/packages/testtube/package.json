@@ -1,0 +1,317 @@
+{
+    "documentation": "\n  Package providing basic unit testing utility.\n",
+    "types": [
+        {
+            "type": "Class",
+            "name": "🧪",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  This class is a test helper class for unit testing.\n\n  To create a test suite, subclass this class and override 🏁, for instance:\n\n  ```\n  🐇 🦔 🧪  🍇\n    ✒️❗️ 🏁 🍇\n      🔢🐕 20 20 🔤20 equal 20🔤❗️\n    🍉\n  🍉\n  ```\n\n  Than instantiate your class and call 👔. The return of 👔 is an exit code\n  that can be returned from the 🏁 function:\n\n  ```\n  🏁 ➡️ 🔢 🍇\n    ↩️ 👔🆕🦔🆕❗️❗️\n  🍉\n  ```\n",
+            "methods": [
+                {
+                    "name": "⛔",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Asserts that *value* is 👍. *description* should describe\n    what this test asserts exactly.\n\n    >!H Prefer other assertion methods like [[🔡❗️]] if possible as they\n    >!H provide more information in the case of failure.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "👌",
+                                "arguments": []
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "description"
+                        }
+                    ]
+                },
+                {
+                    "name": "❎",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Asserts that *value* is 👎. *description* should describe\n    what this test asserts exactly.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "👌",
+                                "arguments": []
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "description"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔡",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Asserts that *value* equals expectation. *description* should describe\n    what this test asserts exactly.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "expectation"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "description"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔢",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Asserts that *value* equals expectation. *description* should describe\n    what this test asserts exactly.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "expectation"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "description"
+                        }
+                    ]
+                },
+                {
+                    "name": "💧",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Asserts that *value* equals expectation. *description* should describe\n    what this test asserts exactly.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "expectation"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "description"
+                        }
+                    ]
+                },
+                {
+                    "name": "💯",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Asserts that *value* equals expectation. *description* should describe\n    what this test asserts exactly.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "expectation"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "description"
+                        }
+                    ]
+                },
+                {
+                    "name": "🙁",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "description"
+                        }
+                    ]
+                },
+                {
+                    "name": "✅",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "description"
+                        }
+                    ]
+                },
+                {
+                    "name": "👔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🏁",
+                    "accessLevel": "🔒",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "parameters": []
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        }
+    ]
+}
