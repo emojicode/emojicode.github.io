@@ -45,7 +45,7 @@ function processReleaseData(data) {
   releases = data.data;
 
   for (const [index, release] of releases.entries()) {
-    if (/0\.6/.test(release.name)) {
+    if (/0\.7/.test(release.name)) {
       const option = document.createElement('option');
       option.value = index;
       option.text = release.name;
