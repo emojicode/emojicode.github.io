@@ -106,6 +106,22 @@ outside but only in initializers and methods. If you want to access instance
 variables from outside you have to write getters and setters. Instance variables
 are also kept private from subclasses.
 
+### Default Initialization Value
+
+You can also specify a value to which an instance variable will be initialized:
+
+```
+🐇 👩‍💼 🍇
+  🖍🆕 firstname 🔡 ⬅️ 🔤Susan🔤
+  🖍🆕 lastname 🔡 ⬅️ 🔤Rodgers🔤
+  🖍🆕 creditcard 💳 ⬅️ 🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️
+🍉
+```
+
+Note that the expressions are not evaluated in the context of the initializer
+or a class. Furthermore, these expressions are always evaluated when an
+initializer is called.
+
 ## Syntax
 
 We have summarized the syntax here as it is a great deal of definitions and
@@ -119,9 +135,10 @@ $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
 $type-body-declaration$-> $type-body-attributes$ $type-body-declaration-main$
 $type-body-attributes$-> [$documentation-comment$] [⚠️] [🔏] [✒️] [🐇] [🖍] [🔑] [🛅] [$access-level$]
-$type-body-declaration-main$-> $declaration$ | $method$ | $initializer$
+$type-body-declaration-main$-> $instance-variable-declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
 $type-body-declaration-main$-> $deinitializer$
+$instance-variable-declaration$-> $declaration$ [⬅️ $expression$]
 $superclass$-> $type$
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
 $initializer$-> 🆕 [$initializer-emoji-id$] [$init-error$] [$init-parameters$] $body$
