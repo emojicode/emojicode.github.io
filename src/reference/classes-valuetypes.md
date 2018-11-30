@@ -118,8 +118,8 @@ You can also specify a value to which an instance variable will be initialized:
 🍉
 ```
 
-Note that the expressions are not evaluated in the context of the initializer
-or a class. Furthermore, these expressions are always evaluated when an
+Note that the expressions are not evaluated in the context of the initializer.
+Furthermore, these expressions are always evaluated when an
 initializer is called.
 
 ## Syntax
