@@ -626,7 +626,7 @@
             "documentation": "\n  Represents a region in memory.\n\n  Working with 🧠 requires great care as this interface allows you to directly\n  manipulate memory.\n\n  >!N When working with this class make sure to take into account that it is\n  >!N up to you to make sure that object life-time is properly managed.\n  >!N Especially, pay attention to the notes for ♻️ and 🚜.\n\n  It’s important to understand that instances of 🧠 are basically memory\n  addresses. Always think of a 🧠 instance as pointing to a memory\n  region. Because 🧠 instance always are addresses it is recommmended that you\n  make no more copies than absolutely necessary to avoid unwanted side effects.\n\n  It is not possible to directly manipulate or access memory addresses as this\n  would interfer with the automatic memory management Emojicode provides.\n",
             "methods": [
                 {
-                    "name": "🐷",
+                    "name": "🐽",
                     "accessLevel": "🔓",
                     "unsafe": true,
                     "mutating": false,
@@ -634,7 +634,7 @@
                     "returnType": {
                         "type": "NoReturn"
                     },
-                    "mood": "❗️",
+                    "mood": "➡️",
                     "genericParameters": [
                         {
                             "name": "T",
@@ -3541,7 +3541,7 @@
                     ]
                 },
                 {
-                    "name": "🐷",
+                    "name": "🐽",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -3549,10 +3549,17 @@
                     "returnType": {
                         "type": "NoReturn"
                     },
-                    "mood": "❗️",
+                    "mood": "➡️",
                     "genericParameters": [],
                     "documentation": "\n    Sets *value* at *index*. *index* must be greater than or equal\n    to 0 and less than [[🐔❗️]] or the program will panic.\n  ",
                     "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "Element"
+                            },
+                            "name": "value"
+                        },
                         {
                             "type": {
                                 "package": "s",
@@ -3560,13 +3567,6 @@
                                 "arguments": []
                             },
                             "name": "index"
-                        },
-                        {
-                            "type": {
-                                "type": "Literal",
-                                "name": "Element"
-                            },
-                            "name": "value"
                         }
                     ]
                 },
@@ -4062,6 +4062,7 @@
                     }
                 }
             ],
+            "documentation": "\n  Wrapper for 🍨.\n\n  This class wraps around [[🍨]] and allows it to be passed by reference.\n\n  It is mainly provided for backwards compatibility and may be removed in a\n  future version.\n",
             "methods": [
                 {
                     "name": "🐻",
@@ -4074,6 +4075,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
+                    "documentation": " Appends an element to the list. ",
                     "parameters": [
                         {
                             "type": {
@@ -4102,6 +4104,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
+                    "documentation": " Returns a copy of the list. ",
                     "parameters": []
                 },
                 {
@@ -4133,6 +4136,7 @@
                     "mutating": true,
                     "final": false,
                     "genericParameters": [],
+                    "documentation": " Creates an empty list. ",
                     "parameters": []
                 }
             ],
@@ -4501,7 +4505,7 @@
                     ]
                 },
                 {
-                    "name": "🐷",
+                    "name": "🐽",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -4509,10 +4513,17 @@
                     "returnType": {
                         "type": "NoReturn"
                     },
-                    "mood": "❗️",
+                    "mood": "➡️",
                     "genericParameters": [],
                     "documentation": " Assings a value to the provided key. ",
                     "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "Element"
+                            },
+                            "name": "value"
+                        },
                         {
                             "type": {
                                 "package": "s",
@@ -4520,13 +4531,6 @@
                                 "arguments": []
                             },
                             "name": "key"
-                        },
-                        {
-                            "type": {
-                                "type": "Literal",
-                                "name": "Element"
-                            },
-                            "name": "value"
                         }
                     ]
                 },
