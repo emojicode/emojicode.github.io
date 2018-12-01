@@ -288,7 +288,7 @@ The syntax to define a method is:
 ```syntax
 $method$-> $identification$ [$generic-parameters$] [$parameters$] [$return-type$] $body$
 $identification$-> $mood$ $emoji-id$ | $binary-operator$
-$mood$-> ❗️ | ❓
+$mood$-> ❗️ | ❓ | ➡️
 $parameters$-> $parameter$ | $parameter$ $parameters$
 $parameter$-> $variable$ $type$
 $return-type$-> ➡️ $type$
@@ -425,6 +425,47 @@ instance which might access instance variable that had not been initialized yet.
 ```syntax
 $this$-> 🐕
 ```
+
+## Assignable Methods
+
+You can also define instance methods to which values can be assigned.
+
+Consider that to get a value from a list the `🐽` method is used as in this
+example:
+
+```
+🐽 a_list 1❗️
+```
+
+It would be very intuitive, if we could — to assign a value — write this:
+
+```
+🔤Coco🔤 ➡️ 🐽 a_list 1❗️
+```
+
+And, indeed, we can. This works, because Emojicode allows us to define methods
+that can be assigned to. Although this might sound complicated to you, in fact,
+it isn’t. Take a look at this example, in which an assignee method is defined.
+
+```
+❗️ 🐽 index 🔢 ➡️ 🍬Element 🍇
+  💭 ...
+🍉
+
+➡️ 🐽 assigned_value Element index 🔢 🍇
+  💭 ...
+🍉
+```
+
+In this example two methods are defined. The first one is rather obviously just
+the getter we used before. The second method, on the other hand, uses the
+assignment operator (➡️) instead of ❗️. This indicates to the compiler that this
+method should be called, when an assignment to a method of the name `🐽` occurs.
+
+The first argument of the assignee method is always the value that is being
+assigned. It must not be provided on the right hand side of the assignment, as
+we have seen in the assignment example before. The method itself than is free
+to do whatever it needs to do with one limitation: It may not return a value.
 
 ## Mutability of Value Types
 
