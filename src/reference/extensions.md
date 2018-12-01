@@ -7,7 +7,7 @@ declaring a class or value type, this includes methods, initializers, type
 methods and protocol conformances. The only exception are instance variables,
 which can only be added to types declared in the same package.
 
->!N Only types defined in the same package can be extended in Emojicode 0.6.
+>!N Only types defined in the same package can be extended in Emojicode 0.7.
 
 ## Extending
 

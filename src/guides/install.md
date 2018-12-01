@@ -1,4 +1,4 @@
-# Installing Emojicode 0.6
+# Installing Emojicode 0.7
 
 ## Prerequisites
 
