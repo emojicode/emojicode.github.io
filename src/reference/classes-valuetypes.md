@@ -467,6 +467,10 @@ assigned. It must not be provided on the right hand side of the assignment, as
 we have seen in the assignment example before. The method itself than is free
 to do whatever it needs to do with one limitation: It may not return a value.
 
+```syntax
+$method-assignment$-> $expression$ ➡️ $method-call$
+```
+
 ## Mutability of Value Types
 
 We have seen examples of methods that modify class objects, but we have not seen

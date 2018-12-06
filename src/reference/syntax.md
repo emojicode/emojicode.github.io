@@ -87,7 +87,7 @@ The smallest standalone elements of Emojicode’s normal program code is called
 
 ```syntax
 $statement$-> $expression$ | $assignment$ | $declaration$ | $operator-assignment$
-$statement$-> $return$ | $error-check-control$ | $error$
+$statement$-> $return$ | $error-check-control$ | $error$ | $method-assignment$
 $statement$-> $if$ | $for-in$ | $repeat-while$ | $unsafe-block$
 $expression$-> $numeric-literal$ | 👍 | 👎 | $symbol-literal$ | $string-literal$ | $this$
 $expression$-> $method-call$ | $no-value$ | $unwrap$
