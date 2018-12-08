@@ -88,7 +88,7 @@ There are only three numeric types in Emojicode:
 - 💯 represents real numbers (numbers with decimal place).
 - 💧 represents bytes, which are integers in the range of [-127,127] normally.
 
-The numeric literals we have seen above are converted to an apporpriate type
+The numeric literals we have seen above are converted to an appropriate type
 in accordance with [Type Expectations](types.html#type-expectations). This means
 that a literal like `130` will be interpreted as 💯 when a 💯 is expected.
 A literal with decimal place will, of course, never be interpreted as 🔢 or 💧.
