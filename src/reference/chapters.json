@@ -9,7 +9,6 @@
   "operators.md",
   "optionals.md",
   "errors.md",
-  "extensions.md",
   "inheritance.md",
   "protocols.md",
   "enums.md",
@@ -22,5 +21,6 @@
   "threads.md",
   "safety.md",
   "memory.md",
+  "references.md",
   "compiler.md"
 ]

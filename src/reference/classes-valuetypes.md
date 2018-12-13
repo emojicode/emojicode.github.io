@@ -129,12 +129,12 @@ we didn’t want to clutter the previous sections.
 
 ```syntax
 $type-definition$-> [$documentation-comment$] [🌍] [🔏] [📻] $type-definition-main$
-$type-definition-main$-> $class$ | $value-type$ | $extension$ | $protocol$ | $enum$
+$type-definition-main$-> $class$ | $value-type$ | $protocol$ | $enum$
 $class$-> 🐇 $type-identifier$ [$generic-parameters$] [$superclass$] $type-body$
 $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
 $type-body-declaration$-> $type-body-attributes$ $type-body-declaration-main$
-$type-body-attributes$-> [$documentation-comment$] [⚠️] [🔏] [✒️] [🐇] [🖍] [🔑] [🛅] [$access-level$]
+$type-body-attributes$-> [$documentation-comment$] [🥯] [⚠️] [🔏] [✒️] [🐇] [🖍] [🔑] [🛅] [$access-level$]
 $type-body-declaration-main$-> $instance-variable-declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
 $type-body-declaration-main$-> $deinitializer$
@@ -531,6 +531,20 @@ This is perfectly fine, while the below example will not compile as
 Since instance variables are always mutable, you can always call mutating
 methods on the values of instance variables.
 
+The return of a method is always immutable. The following code does not work:
+
+```!
+🕊 🌼 🍇
+  🐇❗️💳 ➡️ 💳 🍇
+    ↩️ 🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️
+  🍉
+🍉
+
+🏁 🍇
+  🗝💳🕊🌼❗️❗️
+🍉
+```
+
 ## Type Methods
 
 It’s possible to define type methods which are called on the type rather than on
@@ -626,3 +640,10 @@ allows you to mark a method or initializer as deprecated with the ⚠️ attribu
 
 The compiler will emit a warning wherever a deprecated method or initializer is
 used.
+
+## Inline
+
+You can attribute a method or an initializer with 🥯, which indicates to the
+compiler that it could be advantegous to inline the method. This attribute
+furthermore causes the compiler to include the function body in the interface
+file if one is generated.

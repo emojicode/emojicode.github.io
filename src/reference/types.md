@@ -158,7 +158,7 @@ The following, for example, prints the size of an integer.
 
 ```syntax
 $type-expr$-> ⚫️ | $type-from-expr$ | $type$ | $this$
-$type$-> [🍬] $type-main$ | 🚨 $type$ $type$ | ⚪
+$type$-> [🍬] [✴️] $type-main$ | 🚨 $type$ $type$ | ⚪
 $type-main$-> $variable$ | $callable-type$ | $type-identifier$ $generic-arguments$
 $type-main$-> 🍱 $types$ 🍱 | 🔵 | $type-value$
 $type-identifier$-> 🔶 $type-emoji$ $type-emoji$ | $type-emoji$

@@ -670,6 +670,7 @@
                     "mutating": false,
                     "final": false,
                     "returnType": {
+                        "reference": true,
                         "type": "Literal",
                         "name": "T"
                     },
@@ -760,7 +761,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
-                    "documentation": "\n    Copies *bytes* bytes from *source* starting from *sourceOffset* to this\n    instane, writing the copied bytes *destinationOffset* bytes past the\n    beginning of this memory area.\n\n    *source* may be the same as the instance on which the method is called\n    and the memory area which is copied may overlap the destination area.\n\n    >!H If the memory area represented is smaller than\n    >!H `bytes ➕ destinationOffset` bytes or *source* is smaller than\n    >!H `bytes ➕ sourceOffset` bytes, undefined behavior is caused!\n\n    >!N Do not copy managed values using this method! Copy each value\n    >!N individually with 🐽 and 🐷!\n  ",
+                    "documentation": "\n    Copies *bytes* bytes from *source* starting from *sourceOffset* to this\n    instane, writing the copied bytes *destinationOffset* bytes past the\n    beginning of this memory area.\n\n    *source* may be the same as the instance on which the method is called\n    and the memory area which is copied may overlap the destination area.\n\n    >!H If the memory area represented is smaller than\n    >!H `bytes ➕ destinationOffset` bytes or *source* is smaller than\n    >!H `bytes ➕ sourceOffset` bytes, undefined behavior is caused!\n\n    >!N Do not copy managed values using this method! Copy each value\n    >!N individually with 🐽 and ➡️ 🐽!\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -3523,6 +3524,7 @@
                     "mutating": false,
                     "final": false,
                     "returnType": {
+                        "reference": true,
                         "type": "Literal",
                         "name": "Element"
                     },
@@ -3876,6 +3878,44 @@
                                 ]
                             },
                             "name": "callback"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐦",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [
+                        {
+                            "name": "A",
+                            "constraint": {
+                                "package": "s",
+                                "name": "😛",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "documentation": "\n    Returns 👍 if at least one element in the list is equal to `value`.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "A"
+                            },
+                            "name": "value"
                         }
                     ]
                 },
