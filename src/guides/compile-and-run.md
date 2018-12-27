@@ -67,7 +67,7 @@ required. ❗️ simply ends the list of arguments.
 ## More Greetings
 
 Now, one greeting is great, but it is a bit boring. Let us a create a list of
-greeting instead:
+greetings instead:
 
 ```
 🏁 🍇
@@ -78,7 +78,7 @@ greeting instead:
 What happens here exactly? Everything that you list between `🍨` and `🍆` is made
 into a list. And `➡️` is used to create a constant variable. Maybe this appears
 odd at first, but in Emojicode the value for a variable is on the left-hand-side
-of `➡️` and the variable name on the right hand side.
+of `➡️` and the variable name on the right-hand-side.
 
 Next, we want to print the first greeting in that list as a test:
 
@@ -179,16 +179,16 @@ You can try and run the above code and should see `Guten Tag!`. But how does
 this work?
 
 First, we need to understand that ↪️ is like an if statement. It executes the
-provided code block if the condition is it provided with evaluates to true.
+provided code block if the condition it is provided with evaluates to true.
 You can see that we have used a variable assignment as condition. You can
-proviee a variable assignment as condition, if the left-hand-side value is
+provide a variable assignment as condition, if the left-hand-side value is
 an optional. In this case, the if will execute its block if the left-hand-side
 value does contain a value and will store that value into the variable specified
 on the right-hand-side.
 
 In short: `greeting` will contain the value returned
 by the dictionary if it does return a value, and if so, the code block will be
-exeucted.
+executed.
 
 So the last step is to retrieve the command line argument specifying the
 language. To do that we need to call a type method. A type method is a method
