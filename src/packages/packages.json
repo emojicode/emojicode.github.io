@@ -1,1 +1,4 @@
-["s", "files", "sockets", "testtube"]
+{
+  "default": ["s", "files", "sockets", "testtube"],
+  "external": ["allegro"]
+}

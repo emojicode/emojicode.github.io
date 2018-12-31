@@ -1,8 +1,11 @@
 <section>
 	<h1>Packages</h1>
 
+  <h2>Default Packages</h2>
+
 	<p>
-		This page lists all packages that ship with Emojicode by default.
+		These packages ship with Emojicode by default and do not need to be
+    installed separately.
   </p>
 
 	<div class="link-list">
@@ -15,4 +18,21 @@
       </a>
 		{{/packages}}
 	</div>
+
+  <h2>Available Packages</h2>
+
+  <p>
+    These packages can be installed separately.
+  </p>
+
+  <div class="link-list">
+    {{#externalPackages}}
+      <a href="{{name}}" class="link-box">
+        <div class="name">
+          {{name}}
+        </div>
+        {{sentence}}
+      </a>
+    {{/externalPackages}}
+  </div>
 </section>

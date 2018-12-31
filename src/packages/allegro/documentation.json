@@ -1,0 +1,1622 @@
+{
+    "documentation": "\n  The Allegro package offers graphics, sounds and input APIs to create simple\n  games.\n",
+    "types": [
+        {
+            "type": "Value Type",
+            "name": "🎨",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  🎨 represents a color.\n",
+            "methods": [],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "r"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "g"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "b"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "a"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔢",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a color from the given RGBA. *r*, *g*, *b* and *a* must be a value\n    from 0 to 255.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "ri"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "gi"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "bi"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "ai"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": []
+        },
+        {
+            "type": "Enumeration",
+            "name": "🌩",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " Errors ",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "enumerationValues": [
+                {
+                    "documentation": " Mathematics argument out of domain of function. ",
+                    "value": "⏺"
+                },
+                {
+                    "documentation": " Function not supported. ",
+                    "value": "🆘"
+                },
+                {
+                    "documentation": " Not enough space. ",
+                    "value": "🐁"
+                },
+                {
+                    "documentation": " Result too large. ",
+                    "value": "🗻"
+                },
+                {
+                    "documentation": " File exists ",
+                    "value": "🗿"
+                },
+                {
+                    "documentation": " Permission denied ",
+                    "value": "🚧"
+                },
+                {
+                    "documentation": " Invalid argument. ",
+                    "value": "🚯"
+                },
+                {
+                    "documentation": " Operation not permitted. ",
+                    "value": "🚷"
+                },
+                {
+                    "documentation": " Illegal byte sequence. ",
+                    "value": "🛃"
+                },
+                {
+                    "documentation": " Indicates a generic error. ",
+                    "value": "🛑"
+                }
+            ]
+        },
+        {
+            "type": "Class",
+            "name": "🖼",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 🖼 represents a bitmap. ",
+            "methods": [],
+            "initializers": [
+                {
+                    "name": "📄",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "errorType": {
+                        "package": "allegro",
+                        "name": "🌩",
+                        "arguments": []
+                    },
+                    "genericParameters": [],
+                    "documentation": " Creates a bitmap from the image at the given path. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "path"
+                        }
+                    ]
+                },
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "errorType": {
+                        "package": "allegro",
+                        "name": "🌩",
+                        "arguments": []
+                    },
+                    "genericParameters": [],
+                    "documentation": " Creates a bitmap with the given height and width. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "width"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "height"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Enumeration",
+            "name": "⚖",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " ⚖ provides values to align text ",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "enumerationValues": [
+                {
+                    "documentation": " Centers the text. ",
+                    "value": "↔"
+                },
+                {
+                    "documentation": " Aligns text to the right. ",
+                    "value": "⏭"
+                },
+                {
+                    "documentation": " Aligns text to the left. ",
+                    "value": "⏮"
+                }
+            ]
+        },
+        {
+            "type": "Class",
+            "name": "🕉",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  🕉 represents a font. 🕉 can be used in conjunction with\n  [🏔🔡](t5535657300.html#cm🔡) to draw texts to a drawing target.\n",
+            "methods": [],
+            "initializers": [
+                {
+                    "name": "📄",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "errorType": {
+                        "package": "allegro",
+                        "name": "🌩",
+                        "arguments": []
+                    },
+                    "genericParameters": [],
+                    "documentation": "\n    Loads a TrueType font from the given path using the FreeType library.\n\n    The *size* parameter determines the size the font will be rendered at,\n    specified in pixels. The standard font size is measured in units per EM, if\n    you instead want to specify the size as the total height of glyphs in\n    pixels, pass it as a negative value.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "path"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "size"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🎉",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 🎉 represents an event. You’ll always receive subclasses of this class. ",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "📩",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 📩 is an event that occurs when a character was typed on the keyboard. ",
+            "methods": [
+                {
+                    "name": "📟",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the keycode associated with this event. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔣",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the character that was typed. No value is returned if the pressed\n    key does not map to a character, e.g. if an arrow key was pressed.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔃",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Whether the character was repeated. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": [],
+            "superclass": {
+                "package": "allegro",
+                "name": "🎉",
+                "arguments": []
+            },
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "📥",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 📥 is an event that occurs when a keyboard key was pressed. ",
+            "methods": [
+                {
+                    "name": "📟",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the keycode associated with this event. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": [],
+            "superclass": {
+                "package": "allegro",
+                "name": "🎉",
+                "arguments": []
+            },
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "📤",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 📤 is an event that occurs when a keyboard key was released. ",
+            "methods": [
+                {
+                    "name": "📟",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the keycode associated with this event. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": [],
+            "superclass": {
+                "package": "allegro",
+                "name": "🎉",
+                "arguments": []
+            },
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🖱",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 🖱 is a mouse event. You’ll always receive subclasses of this class. ",
+            "methods": [
+                {
+                    "name": "⏩",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the x coordinate. ",
+                    "parameters": []
+                },
+                {
+                    "name": "⏬",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the y coordinate. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": [],
+            "superclass": {
+                "package": "allegro",
+                "name": "🎉",
+                "arguments": []
+            },
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "❇",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " ❇️ is an event that occurs when one or more mouse axis changed. ",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "superclass": {
+                "package": "allegro",
+                "name": "🖱",
+                "arguments": []
+            },
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🔛",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 🔛 is an event that occurs when a mouse button was pressed. ",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "superclass": {
+                "package": "allegro",
+                "name": "🖱",
+                "arguments": []
+            },
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🔝",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 🔝 is an event that occurs when a mouse button was released. ",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "superclass": {
+                "package": "allegro",
+                "name": "🖱",
+                "arguments": []
+            },
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🛎",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " 🛎 is an event that occurs for each ⏲ tick. ",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "superclass": {
+                "package": "allegro",
+                "name": "🎉",
+                "arguments": []
+            },
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "⏲",
+            "conformances": [],
+            "genericParameters": [],
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🗃",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  🗃 represents an event queue. An 🗃 instance holds events that have been\n  generated by event sources that are registered with the queue. Events are\n  stored in the order they are generated. Access is in a strictly FIFO\n  (first-in-first-out) order.\n",
+            "methods": [
+                {
+                    "name": "⏳",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "allegro",
+                        "name": "🎉",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Waits for an event and returns it. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🖱",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Registers the mouse as an event source. ",
+                    "parameters": []
+                },
+                {
+                    "name": "⌨",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Registers the keyboard as an event source. ",
+                    "parameters": []
+                },
+                {
+                    "name": "⏲",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Registers a ⏲ instance as an event source. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "allegro",
+                                "name": "⏲",
+                                "arguments": []
+                            },
+                            "name": "timer"
+                        }
+                    ]
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates a new, empty event queue. ",
+                    "parameters": []
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "📺",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  📺 represents a display.\n\n  All drawing operations end up being visible on a display which is the same as\n  a window in windowed environments. Thus, before anything is displayed, a\n  display needs to be created.\n",
+            "methods": [
+                {
+                    "name": "🏷",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Sets the the title of the window. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "title"
+                        }
+                    ]
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates a display with the given width and height. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "width"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "height"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🏔",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  🏔 represents the application.\n",
+            "methods": [
+                {
+                    "name": "🎦",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    *Flips* the drawing target display. Copies or updates the front and back\n    buffers so that what has been drawn previously on the drawing target display\n    becomes visible on screen.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🏓",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Sets *bitmap* as the current drawing target. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "allegro",
+                                "name": "🖼",
+                                "arguments": []
+                            },
+                            "name": "bitmap"
+                        }
+                    ]
+                },
+                {
+                    "name": "🏏",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Sets the bitmap acting as backbuffer of *display* as the current drawing\n    target.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "allegro",
+                                "name": "📺",
+                                "arguments": []
+                            },
+                            "name": "display"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚿",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Fills the entire drawing target with the given color. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "🖊",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws a line between the two points ((*x1*|*y1*) and (*x2*|*y2*)).\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "thickness"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "📐",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws an outlined triangle between the given three points ((*x1*|*y1*),\n    (*x2*|*y2*) and (*x3*|*y3*)).\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x3"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y3"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "thickness"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚩",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws a filled triangle between the given three points ((*x1*|*y1*),\n    (*x2*|*y2*) and (*x3*|*y3*)).\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x3"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y3"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "📋",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws an outlined rectangle between the two points ((*x1*|*y1*) and\n    (*x2*|*y2*)) which are the upper left and lower right point of the rectangle\n    respectively.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "thickness"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "🗄",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws a filled rectangle between the two points ((*x1*|*y1*) and\n    (*x2*|*y2*)) which are the upper left and lower right point of the rectangle\n    respectively.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y2"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "⚽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws an outlined circle. The center of the circle is the given point\n    ((*x1*|*y1*) and the radius is *r*.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "r"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "thickness"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "🏀",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws a filled circle. The center of the circle is the given point\n    (*x1*|*y1*) and the radius is *r*.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "r"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "🏉",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws an outlined rectangle with rounded corners between the two points\n    ((*x1*|*y1*) and (*x2*|*y2*)) which are the upper left and lower right point\n    of the rectangle respectively.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "rx"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "ry"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "thickness"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "🏈",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws a filled rectangle with rounded corners between the two points\n    ((*x1*|*y1*) and (*x2*|*y2*)) which are the upper left and lower right point\n    of the rectangle respectively.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y1"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y2"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "rx"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "ry"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                },
+                {
+                    "name": "📼",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws the given bitmap at the given location.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "allegro",
+                                "name": "🖼",
+                                "arguments": []
+                            },
+                            "name": "bitmap"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "dx"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "dy"
+                        }
+                    ]
+                },
+                {
+                    "name": "💽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws a scaled and cropped version of the given bitmap at the given\n    location.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "allegro",
+                                "name": "🖼",
+                                "arguments": []
+                            },
+                            "name": "bitmap"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "sx"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "sy"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "sw"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "sh"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "dx"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "dy"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "dw"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "dh"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Draws the given text at the given position in the given font and color.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "allegro",
+                                "name": "🕉",
+                                "arguments": []
+                            },
+                            "name": "font"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "text"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "x"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "y"
+                        },
+                        {
+                            "type": {
+                                "package": "allegro",
+                                "name": "⚖",
+                                "arguments": []
+                            },
+                            "name": "align"
+                        },
+                        {
+                            "type": {
+                                "reference": true,
+                                "package": "allegro",
+                                "name": "🎨",
+                                "arguments": []
+                            },
+                            "name": "color"
+                        }
+                    ]
+                }
+            ],
+            "initializers": [],
+            "typeMethods": [
+                {
+                    "name": "🙋",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    You must call this method before using any of the other methods as it\n    initializes the system. The callback will be called and passed an instance\n    of 🏔 once the application is ready.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Callable",
+                                "arguments": [
+                                    {
+                                        "type": "NoReturn"
+                                    },
+                                    {
+                                        "package": "allegro",
+                                        "name": "🏔",
+                                        "arguments": []
+                                    }
+                                ]
+                            },
+                            "name": "main"
+                        }
+                    ]
+                }
+            ],
+            "final": false
+        }
+    ]
+}

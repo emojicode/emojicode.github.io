@@ -2,6 +2,19 @@
 	<h1>Package {{name}}</h1>
 	{{{packageDocumentation}}}
 
+  {{#external}}
+  <h2>Installing</h2>
+
+  <p>You can install this package with Yarn:</p>
+
+  <pre>
+<code class="language-sh"><span class="hljs-built_in">echo</span> <span class="hljs-string">"--modules-folder packages"</span> &gt; .yarnrc
+yarn add {{npmName}}</pre>
+
+  <p>Learn more about <a href="/docs/guides/yarn.html">using Yarn with Emojicode.</a></p>
+
+  {{/external}}
+
   <h2>Types</h2>
 
   <div class="link-list">

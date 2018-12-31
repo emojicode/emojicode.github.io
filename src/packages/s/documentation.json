@@ -1,0 +1,4856 @@
+{
+    "documentation": "\n  Emojicode’s standard library.\n\n  See [The s package](https://www.emojicode.org/docs/reference/the-s-package.html)\n  for an introduction.\n",
+    "types": [
+        {
+            "type": "Value Type",
+            "name": "👌",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "😛",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "👌",
+                            "arguments": []
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [],
+            "documentation": "\n  Boolean\n",
+            "methods": [
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Whether this value and *other* are considered equal. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "👌",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "🤝",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Logical and. Returns true if both, this instance and *other*, are true. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "👌",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "👐",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Logical or. Returns true if this instance or *other* or both are true. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "👌",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "❎",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Inverts the boolean. Returns true if this boolean is false, and false if\n    this boolean is true.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Value Type",
+            "name": "🔢",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "😛",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "🔢",
+                            "arguments": []
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [],
+            "documentation": "\n  Integer\n",
+            "methods": [
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Whether this value and *other* are considered equal. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➖",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver minus *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver plus *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➗",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver divided by *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "✖",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver multiplied by *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚮",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver modulus *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "◀",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is smaller than *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "▶",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is greater than *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "◀🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is smaller than or equal to *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "▶🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is greater than or equal to *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "⭕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns this integer AND *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "💢",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns this integer OR *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "❌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns this integer XOR *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚫",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns NOT applied to this integer. ",
+                    "parameters": []
+                },
+                {
+                    "name": "👈",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Shifts this integer by *n* bits to the left. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "n"
+                        }
+                    ]
+                },
+                {
+                    "name": "👉",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Shifts this integer by *n* bits to the right. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "n"
+                        }
+                    ]
+                },
+                {
+                    "name": "🏧",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the absolute value of this 🔢. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a string representation of this integer. *base* must be greater than\n    or equal to 2 and less than or equal to 35.\n\n    The digits used to represent the integer are\n    `0123456789abcdefghijklmnopqrstuvxyz`.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "base"
+                        }
+                    ]
+                },
+                {
+                    "name": "💯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the double representation of this integer. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔋",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the additive inverse of this integer. If this integer is *x*,\n    the result equals *-x*.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "💧",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Converts this integer to a byte. The value of this integer must be in\n    [-127, 127].\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Value Type",
+            "name": "🧠",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  Represents a region in memory.\n\n  Working with 🧠 requires great care as this interface allows you to directly\n  manipulate memory.\n\n  >!N When working with this class make sure to take into account that it is\n  >!N up to you to make sure that object life-time is properly managed.\n  >!N Especially, pay attention to the notes for ♻️ and 🚜.\n\n  It’s important to understand that instances of 🧠 are basically memory\n  addresses. Always think of a 🧠 instance as pointing to a memory\n  region. Because 🧠 instance always are addresses it is recommmended that you\n  make no more copies than absolutely necessary to avoid unwanted side effects.\n\n  It is not possible to directly manipulate or access memory addresses as this\n  would interfer with the automatic memory management Emojicode provides.\n",
+            "methods": [
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "➡️",
+                    "genericParameters": [
+                        {
+                            "name": "T",
+                            "constraint": {
+                                "type": "Literal",
+                                "name": "⚪️"
+                            }
+                        }
+                    ],
+                    "documentation": "\n    Writes *value* starting *offset* bytes past the address represented by this\n    instance.\n\n    >!H If the memory area represented is smaller than `⚖️T ➕ offset` bytes,\n    >!H undefined behavior is caused!\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "T"
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "offset"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "reference": true,
+                        "type": "Literal",
+                        "name": "T"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [
+                        {
+                            "name": "T",
+                            "constraint": {
+                                "type": "Literal",
+                                "name": "⚪️"
+                            }
+                        }
+                    ],
+                    "documentation": "\n    Reads a value of type T starting *bytes* bytes past the address\n    represented by this instance.\n\n    >!H If the memory area represented is smaller than `⚖️T ➕ offset` bytes,\n    >!H undefined behavior is caused!\n    >!H\n    >!H If the value at specified location is not *exactly* of type T or,\n    >!H in the case T is a class type, a subclass of T, the behavior is\n    >!H undefined!\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "offset"
+                        }
+                    ]
+                },
+                {
+                    "name": "🏗",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Resizes this memory area.\n\n    >!N Do not call this method if you have copies of this 🧠, i.e. if you have\n    >!N multiple pointers to this area. Calling this method updates the\n    >!N represented address and can invalidate all other 🧠 that pointed to this\n    >!N address. Only ever call this method if there is only one 🧠 representing\n    >!N the memory area.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "newSize"
+                        }
+                    ]
+                },
+                {
+                    "name": "♻",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [
+                        {
+                            "name": "T",
+                            "constraint": {
+                                "type": "Literal",
+                                "name": "⚪️"
+                            }
+                        }
+                    ],
+                    "documentation": "\n    Releases a value of type T that is located *offset* bytes past the\n    beginning of this memory area.\n\n    This method might not actually write to the memory, but it is crucial\n    that you call it on every value that was placed in the memory area that\n    you no longer need.\n\n    >!N Release every value placed in the memory area with this method before\n    >!N overwritting it or entirely abandoning this 🧠 instance!\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "offset"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚜",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Copies *bytes* bytes from *source* starting from *sourceOffset* to this\n    instane, writing the copied bytes *destinationOffset* bytes past the\n    beginning of this memory area.\n\n    *source* may be the same as the instance on which the method is called\n    and the memory area which is copied may overlap the destination area.\n\n    >!H If the memory area represented is smaller than\n    >!H `bytes ➕ destinationOffset` bytes or *source* is smaller than\n    >!H `bytes ➕ sourceOffset` bytes, undefined behavior is caused!\n\n    >!N Do not copy managed values using this method! Copy each value\n    >!N individually with 🐽 and ➡️ 🐽!\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "destinationOffset"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🧠",
+                                "arguments": []
+                            },
+                            "name": "source"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "sourceOffset"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "bytes"
+                        }
+                    ]
+                },
+                {
+                    "name": "✍",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Sets the first *bytes* bytes starting from *offset* bytes past the address\n    represented by this instance to *byteValue*.\n\n    >!H If the memory area represented is smaller than `bytes ➕ offset` bytes,\n    >!H undefined behavior is caused!\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "byteValue"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "offset"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "bytes"
+                        }
+                    ]
+                },
+                {
+                    "name": "↔",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Compares the first *bytes* of two memory areas.\n\n    >!H If either the memory area represented by this instance or the one\n    >!H represented by *other* or both are smaller than *bytes*, undefined\n    >!H behavior is caused!\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🧠",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "bytes"
+                        }
+                    ]
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an instance by allocating *size* bytes. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "size"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": []
+        },
+        {
+            "type": "Value Type",
+            "name": "💯",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "😛",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "💯",
+                            "arguments": []
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [],
+            "documentation": "\n  Represents a real number.\n",
+            "methods": [
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Whether this value and *other* are considered equal. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➖",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver minus *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver plus *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➗",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver divided by *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "✖",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver multiplied by *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚮",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the floating-point remainder of the division operation\n    `receiver/other`. This will always be the value of `receiver - n*other` and\n    will always have the same sign as the receiver.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "◀",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is smaller than *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "▶",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is greater than *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "◀🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is smaller than or equal to *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "▶🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is greater than or equal to *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "🏧",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the absolute value of this 💯. ",
+                    "parameters": []
+                },
+                {
+                    "name": "📓",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the sine of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "📕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the cosine of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "📐",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the tangent of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "📔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the arcsine of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "📙",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the arccosine of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "📒",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the arctangent of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🏂",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns this 💯 to the exponent power, that is, base<sup>exponent</sup>.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            },
+                            "name": "exponent"
+                        }
+                    ]
+                },
+                {
+                    "name": "⛷",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the positive square root of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🚴",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the smallest integer greater than or equal to this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🚵",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the largest integer less than or equal to this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🏇",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the value of this 💯 rounded to the nearest integer.\n\n    If the fractional portion of this 💯 is 0.5 or greater, the argument is\n    rounded to the next higher integer. If the fractional portion of this 💯 is\n    less than 0.5, the argument is rounded to the next lower integer.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🚣",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the base 2 logarithm of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🏄",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the natural (base ℇ) logarithm of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔋",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the additive inverse of this 💯. If this 💯 is *x*,\n    the result equals *-x*.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a 🔡 representation of this 💯 and the given precision – the number\n    of digits after the decimal separator “.”.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "precision"
+                        }
+                    ]
+                }
+            ],
+            "initializers": [],
+            "typeMethods": [
+                {
+                    "name": "🥧",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns an approximation of 𝜋.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🛎",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns an approximation of ℇ (Euler’s number).\n  ",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "type": "Value Type",
+            "name": "💧",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "😛",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "💧",
+                            "arguments": []
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [],
+            "documentation": "\n  Byte\n",
+            "methods": [
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Whether this value and *other* are considered equal. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➖",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver minus *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver plus *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "➗",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver divided by *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "✖",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver multiplied by *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚮",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns the receiver modulus *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "◀",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is smaller than *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "▶",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is greater than *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "◀🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is smaller than or equal to *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "▶🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns true if the receiver is greater than or equal to *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "⭕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns this integer AND *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "💢",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns this integer OR *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "❌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns this integer XOR *other*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚫",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns NOT applied to this integer. ",
+                    "parameters": []
+                },
+                {
+                    "name": "👈",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Shifts this integer by *n* bits to the left. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "n"
+                        }
+                    ]
+                },
+                {
+                    "name": "👉",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Shifts this integer by *n* bits to the right. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "n"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔋",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the additive inverse of this byte. If this byte is *x*,\n    the result equals *-x*.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔢",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Converts this byte to an integer.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Protocol",
+            "name": "🍡",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Protocol defining an iterators interface.\n\n  Types conforming to 🍡 can iterate a collection.\n\n  To get the items from an iterator call the 🔽 method on it, until 🔽❓ returns\n  👎 which indicates that there are no more items.\n",
+            "methods": [
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "Literal",
+                        "name": "Element"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the next object. Call this method only if 🔽❓ previously\n    returned 👍.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [],
+                    "documentation": "\n    Whether the iterator has more elements to provide.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Protocol",
+            "name": "🔂",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Protocol defining iterability.\n\n  Types whose instances shall be iterable using the 🔂 loop must\n  implement this protocol.\n",
+            "methods": [
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍡",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    This method must return an instance of a class that conforms to\n    [[🍡]] which will be used to enumerate this instance.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Protocol",
+            "name": "😛",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "T",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Protocol defining equality.\n\n  A type conforming to this protocol provides a method 😛 to determine whether\n  one of its instance is equal to an instance of type T. T is normally the\n  type itself.\n",
+            "methods": [
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Whether this value and *other* are equal. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "T"
+                            },
+                            "name": "other"
+                        }
+                    ]
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Protocol",
+            "name": "🐽",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Protocol defining random-access.\n\n  Types representing a collection whose elements can be accessed by 🐽 randomly\n  should conform to this protocol. The number of elements must be finite and\n  returned by 🐔.\n",
+            "methods": [
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "Literal",
+                        "name": "Element"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Gets the item at *index*. If the index is invalid the behavior is up to\n    the conforming type.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "index"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the number of items in the collection. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [],
+            "typeMethods": []
+        },
+        {
+            "type": "Class",
+            "name": "🌳",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🍡",
+                    "arguments": [
+                        {
+                            "type": "Literal",
+                            "name": "Element"
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "type": "Literal",
+                            "name": "Element"
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Iterator over a 🐽.\n\n  This class is an iterator that can iterate over every type that conforms to\n  the 🐽 protocol.\n",
+            "methods": [
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Literal",
+                        "name": "Element"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍡",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🐽",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "iteratee"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "💻",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  Interaction with the operating system.\n\n  💻 provides several class methods that can be used to interact with the\n  operating system. It cannot be instantiated.\n",
+            "methods": [],
+            "initializers": [],
+            "typeMethods": [
+                {
+                    "name": "🎞",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍨",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a list of the arguments passed to the programm. Calling this method\n    is rather expensive.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🌳",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Gets an environment variable by its name. If the variable cannot be found\n    ✨ is returned.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "variableName"
+                        }
+                    ]
+                },
+                {
+                    "name": "🚪",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Immediately exits the program with the given status code. The code may\n    not be larger than 255 on most operating systems.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "status"
+                        }
+                    ]
+                },
+                {
+                    "name": "🕴",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the standard output of running `command` in a subshell.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "command"
+                        }
+                    ]
+                },
+                {
+                    "name": "🕰",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the current time in seconds since the Epoch in Greenwich Mean Time.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🤯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Panic. Aborts the program with the provided message.\n\n    >!N Only use this function when the program hits upon an error so serious\n    >!N that recovery is impossible.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "message"
+                        }
+                    ]
+                }
+            ],
+            "final": false
+        },
+        {
+            "type": "Value Type",
+            "name": "⏩",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "🔢",
+                            "arguments": []
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "🐽",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "🔢",
+                            "arguments": []
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [],
+            "documentation": "\n  Range, an immutable sequence of numbers. [Read more in the\n  language reference.](../../reference/the-s-package.html#-ranges)\n",
+            "methods": [
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the *n*th element of the range. *n* is only valid if\n    `start + step * n` is `>= start` and `< stop`. If *n* is invalid, the\n    program will panic.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "n"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the number of integers in this range. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🌳",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns an iterator to iterate over integers in this range. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "⏩",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a range from *start* to *stop*.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "start"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "stop"
+                        }
+                    ]
+                },
+                {
+                    "name": "⏭",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a range from *start* to *stop* with the provided *step*.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "start"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "stop"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "step"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": []
+        },
+        {
+            "type": "Class",
+            "name": "🌱",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🍡",
+                    "arguments": [
+                        {
+                            "type": "Optional",
+                            "arguments": [
+                                {
+                                    "type": "Literal",
+                                    "name": "Element"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "type": "Optional",
+                            "arguments": [
+                                {
+                                    "type": "Literal",
+                                    "name": "Element"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Iterator over a 🍨. This iterator does *not* unwrap any values retrieved from\n  the list and therefore returns optionals. You can use [[🌳]] to have\n  optionals automatically unwrapped.\n",
+            "methods": [
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🔽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🚯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Removes the element last returned by 🔽 from the list. Calling this method\n    before having called 🔽 results in undefined behavior.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍡",
+                        "arguments": [
+                            {
+                                "type": "Optional",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🍨",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "iteratee"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🎰",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  Pseudo-random number generator. The default implementation relies on\n  the Mersenne Twister algorithm.\n",
+            "methods": [
+                {
+                    "name": "🔢",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Generates an integer. Integers are uniformly distributed on the\n    closed interval `[a, b]`.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "a"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "b"
+                        }
+                    ]
+                },
+                {
+                    "name": "💯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Generates a real, where reals are uniformly distributed on the interval\n    `[0, 1)`.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a new generator and seeds it with a random value, if possible using\n    hardware entropy.\n  ",
+                    "parameters": []
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🔡",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "🔡",
+                            "arguments": []
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "😛",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "🔡",
+                            "arguments": []
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [],
+            "documentation": "\n  Strings.\n\n  In Emojicode strings are strictly used to represent textual data, i.e. strings\n  are not used to store binary data or the like. If you need to work with binary\n  data see [[📇]].\n\n  ### Characters, Graphemes and Random Access\n\n  Due to the complexity of working with text, 🔡 does not support random access.\n  For instance, consider this character `한`. To a human being, this is one\n  character. Yet, it actually consists of three Unicode code points, as this is\n  the characters ㅎ, ㅏ and ㄴ combined. An even better example is `✋🏾` (you should\n  see a raised hand with darker skin color). While this is one emoji, it is\n  composed by two Unicode code points and encoded with seven bytes in UTF-8.\n\n  Unicode defines ✋🏾 and 한 as graphemes. A grapheme is what humans would\n  recognize as one character.\n\n  Emojicode only allows you to access these graphemes. Finding graphemes is not\n  a constant-time operation, though. Random access is not possible, therefore.\n\n  If you need to deal with the graphemes of a string, you can use the [[🎶❗️]]\n  method, which returns an array of graphemes. Graphemes are always represented\n  as strings.\n\n  To determine the number of graphemes in a string, you can use 🐔 on that array.\n  To determine the number of UTF-8 bytes that make up a string, use 📐.\n\n  ### Comparing Strings\n\n  If you want to determine whether two strings represent the same value, you can\n  use the equality operator 🙌.\n\n  ```\n  🍪🔤Straw🔤 🔤berries🔤🍪 🙌 🔤Strawberries🔤\n  ```\n\n  You can learn more about the equality operator in [Operators](operators.html).\n\n  ### Mutability\n\n  Strings are immutable. This means that you can’t modify any string. You can,\nhowever, call methods on strings that return modified copies of the orginal\nstring, but those themselves are then immutable again.\n\n  ### String Literals and Concatenate Literals\n\n  To learn more about 🔤🔤 String Literals and 🍪🍪 Concatenate Literals [see\n  the Language Reference.](../../reference/the-s-package.html#-strings)\n",
+            "methods": [
+                {
+                    "name": "🧠",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🧠",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the memory area representing the value of this string. ",
+                    "parameters": []
+                },
+                {
+                    "name": "😀",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Puts this 🔡 to the standard output. ",
+                    "parameters": []
+                },
+                {
+                    "name": "👄",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Puts this 🔡 to the standard output without adding a new line. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns 👍 if this string is equal to *b*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "b"
+                        }
+                    ]
+                },
+                {
+                    "name": "↔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Compares this string to *b* and returns -1, 0, or 1 depending on whether\n    this string is less than, equal to, or greater than `b`.\n\n    >!N Note that this method compares the strings byte per byte\n    >!N and is only meant for use with non-localized sorting. The results of\n    >!N the sort will always be the same, but may not appear logical to human\n    >!N beings.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "b"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔪",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a new string consisting of *length* graphemes beginning from\n    the grapheme at index *from* in this string. Complexity: O(n).\n\n    For instance:\n\n    ```\n    🔪🔤🇦🇽👨‍👩‍👧‍👧🤚🏾🔤 1 1❗️ 💭 returns 🔤👨‍👩‍👧‍👧🔤\n    🔪🔤Apples🔤 2 4❗️ 💭 returns 🔤ples🔤\n    ```\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "from"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "length"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔍",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Finds the first occurrences of *search* in this string. Search is\n    performed from left to right.\n\n    Returns the index of the first occurrence or no value if *search* does not\n    occur.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "search"
+                        }
+                    ]
+                },
+                {
+                    "name": "🕵‍♀",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Finds the first occurrences of a string in this string after the\n    index *offset*. Search is performed from left to right.\n\n    Returns the index of the occurrence or no value if *search* does not\n    occur.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "search"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "offset"
+                        }
+                    ]
+                },
+                {
+                    "name": "🎼",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Whether this strings begins with another string. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "testString"
+                        }
+                    ]
+                },
+                {
+                    "name": "⛳",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Whether this strings ends with another string. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "testString"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔫",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍨",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    This string is split up into substring at each place *seperator* is found.\n    *seperator* itself is removed from the string.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "separator"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔧",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    The 🔧 method returns a new string, on which whitespace has been removed\n    from both ends of a string.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "📐",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the number of bytes required to represent the string’s content in\n    UTF8.\n\n    For example:\n\n    ```\n    📐🔤✋🏾🔤❗️  💭 returns 7\n    📐🔤한🔤❗️  💭 returns 3\n    📐🔤A🔤❗️  💭 returns 1\n    ```\n\n    >!H The return value is not at all meaningful from a human perspective.\n    >!H The character `ä` for instance, is encoded with two bytes but clearly\n    >!H perceived as one character.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔢",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    This methods tries to construct an integer from this string in the given\n    base. It returns the integer or no value if the string does not match the\n    regular expression `[+-]?[0-9a-zA-Z]+` or it does not represent a valid\n    value in the given base.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "base"
+                        }
+                    ]
+                },
+                {
+                    "name": "💯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "💯",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    This methods tries to construct a 💯 from this 🔡. It returns the 💯, or no\n    value if the 🔡 does not match the regular expression\n    `[+-]?([0-9]+(\\.[0-9]*)?|[0-9]*\\.[0-9]+)([eE][+-]?[0-9]+)?`\n    or if it does not represent a valid 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "📇",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "📇",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Converts the string to data encoded as UTF8. ",
+                    "parameters": []
+                },
+                {
+                    "name": "⚗",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Hashes this string.\n    The results for strings whose values equal are guaranteed to be the same\n    within a process.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🎶",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍨",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns an array with the graphemes from this string. ",
+                    "parameters": []
+                },
+                {
+                    "name": "📫",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a new string in which all characters have been converted to their\n    respective uppercase equivalents.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "📪",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a new string in which all characters have been converted to their\n    respective lowercase equivalents.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍡",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns an iterator to iterate over the graphemes of this string. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🧠",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates a string by copying the memory from the *memory*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🧠",
+                                "arguments": []
+                            },
+                            "name": "memory"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "count"
+                        }
+                    ]
+                },
+                {
+                    "name": "👂🏼",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Waits for the user to input a text and confirm it with enter.\n    No new line character is included as part of the string.\n    (Via the standard input/output)\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🍨",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a string by joining all elements into a string separated\n    by *separator*.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🍨",
+                                "arguments": [
+                                    {
+                                        "package": "s",
+                                        "name": "🔡",
+                                        "arguments": []
+                                    }
+                                ]
+                            },
+                            "name": "list"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "separator"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🔠",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": " Mutable sequence of characters (“string builder”). ",
+            "methods": [
+                {
+                    "name": "🐻",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Adds the contents of *string* to this 🔠. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "🧠",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🧠",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the memory area representing the data of this 🔠. ",
+                    "parameters": []
+                },
+                {
+                    "name": "📐",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the number of UTF-8 bytes required to represent the content of\n    the instance.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the value of this this 🔠 as a 🔡. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an empty 🔠 with an initial capacity of 16. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a 🔠 with the contents of the provided string and a capacity of\n    the length of the string plus 16.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "string"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐧",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an empty 🔠 with the provided *capacity*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "capacity"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Value Type",
+            "name": "🍨",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "type": "Literal",
+                            "name": "Element"
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "🐽",
+                    "arguments": [
+                        {
+                            "type": "Literal",
+                            "name": "Element"
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  List, an ordered mutable collection.\n\n  🍨 provides random access, appending and removing from the last element in\n  `O(1)`.\n\n  🍨 is a value type. This means that copies of 🍨 are independent:\n\n  ```\n  🍨 🔤red🔤 🔤green🔤 🔤blue🔤 🍆 ➡️ colors\n  colors ➡️ 🖍🆕otherColors\n  🐻 otherColors 🔤pink🔤❗️\n  ```\n\n  In the above example the dictionary in `colors` will still contain only three\n  strings as only `otherColors` was modified.\n\n  To learn more about list literals [see the Language Reference.](../../reference/the-s-package.html#-list)\n",
+            "methods": [
+                {
+                    "name": "🐻",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Appends `item` to the end of the list in `O(1)`. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "Element"
+                            },
+                            "name": "item"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "reference": true,
+                        "type": "Literal",
+                        "name": "Element"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Gets the item at *index* in `O(1)`. *index* must be greater than or equal\n    to 0 and less than [[🐔❗️]] or the program will panic.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "index"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "➡️",
+                    "genericParameters": [],
+                    "documentation": "\n    Sets *value* at *index*. *index* must be greater than or equal\n    to 0 and less than [[🐔❗️]] or the program will panic.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "Element"
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "index"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐨",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Removes the item at `index` and shifts all following items to the left in\n    `O(n)`.\n\n    Returns 👍 unless the index is out of range.\n ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "index"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐵",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Inserts the given values before the element with the given index.\n\n    All items beginning from `index` are shifted to the right and `item` is\n    then inserted at `index`. Complexity: `O(n)`.\n ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "index"
+                        },
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "Element"
+                            },
+                            "name": "item"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the number of items in the list. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐥",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Appends the content of `list` to this list. Complexity: `O(n)`. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🍨",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "list"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐼",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Removes the last item from the list and returns it in `O(1)`.\n    If the list is empty ✨ is returned.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐗",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Removes all elements from the list but keeps the list’s capacity.\n\n    This can be much more efficient than using a new list. Complexity: `O(n)`.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐴",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Ensures that the list is large enough to store at least `capacity` elements.\n\n    You should use this method if you plan to heavily use 🐷 with large indices\n    in order to avoid automatic, useless allocations.\n\n    Complexity: `O(n)`.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "capacity"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐴",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [],
+                    "documentation": " Returns the lists current capacity. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🦁",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Sorts this array in place using the quick sort algorithm.\n\n    `comparator` must return an integer less than, equal to, or greater than 0,\n    if the first argument is considered respectively less than, equal to, or\n    greater than the second.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Callable",
+                                "arguments": [
+                                    {
+                                        "package": "s",
+                                        "name": "🔢",
+                                        "arguments": []
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "comparator"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐹",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Shuffles the list in place using a Fisher–Yates shuffle.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐰",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍨",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "A"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [
+                        {
+                            "name": "A",
+                            "constraint": {
+                                "type": "Literal",
+                                "name": "⚪️"
+                            }
+                        }
+                    ],
+                    "documentation": "\n    Calls callback with each element in the list and appends the returned\n    value to the end of a new list.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Callable",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "A"
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "callback"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐭",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍨",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a new array with all elements that pass the test implemented by\n    `callback`.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Callable",
+                                "arguments": [
+                                    {
+                                        "package": "s",
+                                        "name": "👌",
+                                        "arguments": []
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "callback"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐦",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❓",
+                    "genericParameters": [
+                        {
+                            "name": "A",
+                            "constraint": {
+                                "package": "s",
+                                "name": "😛",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "documentation": "\n    Returns 👍 if at least one element in the list is equal to `value`.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "A"
+                            },
+                            "name": "value"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Tests whether all elements in the array pass the test implemented by\n    `callback`.\n\n    The method immdiately returns 👎 if `callback` returned 👎 for one element.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Callable",
+                                "arguments": [
+                                    {
+                                        "package": "s",
+                                        "name": "👌",
+                                        "arguments": []
+                                    },
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            },
+                            "name": "callback"
+                        }
+                    ]
+                },
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [
+                        {
+                            "name": "A",
+                            "constraint": {
+                                "package": "s",
+                                "name": "😛",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "Element"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "documentation": " Tests whether this array and `other` are equal. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🍨",
+                                "arguments": [
+                                    {
+                                        "type": "Literal",
+                                        "name": "A"
+                                    }
+                                ]
+                            },
+                            "name": "other"
+                        }
+                    ]
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🌳",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns an iterator to iterate over the elements of this list. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🐸",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an empty list. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐴",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates an empty list with the given initial capacity.\n\n    Note that this initializer does not place any values in the list. This\n    initializer can be used for better performance if the number of values that\n    will be added is known in advance.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "capacity"
+                        }
+                    ]
+                },
+                {
+                    "name": "🦊",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an containing the specified number of a single, repeated value. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "Element"
+                            },
+                            "name": "repeatedValue"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "count"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": []
+        },
+        {
+            "type": "Class",
+            "name": "🍦",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "type": "Literal",
+                            "name": "Element"
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Wrapper for 🍨.\n\n  This class wraps around [[🍨]] and allows it to be passed by reference.\n\n  It is mainly provided for backwards compatibility and may be removed in a\n  future version.\n",
+            "methods": [
+                {
+                    "name": "🐻",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Appends an element to the list. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "Element"
+                            },
+                            "name": "item"
+                        }
+                    ]
+                },
+                {
+                    "name": "🥄",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍨",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns a copy of the list. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🌳",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an empty list. ",
+                    "parameters": []
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "📇",
+            "conformances": [
+                {
+                    "package": "s",
+                    "name": "🐽",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "💧",
+                            "arguments": []
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "🔂",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "💧",
+                            "arguments": []
+                        }
+                    ]
+                },
+                {
+                    "package": "s",
+                    "name": "😛",
+                    "arguments": [
+                        {
+                            "package": "s",
+                            "name": "📇",
+                            "arguments": []
+                        }
+                    ]
+                }
+            ],
+            "genericParameters": [],
+            "documentation": " Binary data. ",
+            "methods": [
+                {
+                    "name": "🧠",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🧠",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🙌",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": " Returns 👍 if this is equal to *b*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "📇",
+                                "arguments": []
+                            },
+                            "name": "b"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the number of bytes represented by this instance. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💧",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the value of the byte at *index*. *index* must be greater than 0\n    and less than [[🐔❗️]] or the program will panic.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "index"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    If this object represents the bytes of a UTF8 encoded text this method\n    returns a string representing that text. No value is returned if this\n    object does not represent a valid UTF8 sequence.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔪",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "📇",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a copy of the data within the given range. This method employes\n    various techniques to make this as efficient as possible.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "from"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "length"
+                        }
+                    ]
+                },
+                {
+                    "name": "🔍",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Finds the first occurrences of *search* in the bytes represented by this\n    instance. Search is done from left to right. No value is returned if\n    *search* cannot be found. 0 is returned if *search* is empty.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "📇",
+                                "arguments": []
+                            },
+                            "name": "search"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "offset"
+                        }
+                    ]
+                },
+                {
+                    "name": "➕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "📇",
+                        "arguments": []
+                    },
+                    "mood": "",
+                    "genericParameters": [],
+                    "documentation": "\n    Creates a new data object by with the bytes of this instance and *b*\n    concatenated.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "📇",
+                                "arguments": []
+                            },
+                            "name": "b"
+                        }
+                    ]
+                },
+                {
+                    "name": "🍡",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🌳",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns an iterator to iterate over the bytes of this data object. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🧠",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates a 📇 instance by copying the memory from the provided memory. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🧠",
+                                "arguments": []
+                            },
+                            "name": "memory"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "count"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Value Type",
+            "name": "🍯",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "Element",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "⚪️"
+                    }
+                }
+            ],
+            "documentation": "\n  Dictionary, holding key value pairs.\n\n  Dictionaries allow you to associate keys with values. 🍯 is implemented as a\n  hash table and is `O(1)` on average and `O(n)` in worth case.\n\n  🍯 is a value type. This means that copies of 🍯 are independent:\n\n  ```\n  🍯 🔤Jane🔤 45 🔤Sharon🔤 22 🔤Bob🔤 64 🍆 ➡️ ages\n  ages ➡️ 🖍🆕agesCopy\n  🐷 agesCopy 🔤Jane🔤 46❗️\n  ```\n\n  In the above example the dictionary in `ages` will still contain 45 for the\n  key `🔤Jane🔤` as only `agesCopy` was modified.\n\n  To learn more about dictionary literals [see the Language Reference.](../../reference/the-s-package.html#-dictionaries)\n",
+            "methods": [
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "Element"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the value assigned to *key*. If key is not in the 🍯 no value is\n    returned.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "key"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐨",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Removes *key* and its assigned value from the 🍯. No action is performed if\n    *key* is not in the 🍯.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "key"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "➡️",
+                    "genericParameters": [],
+                    "documentation": " Assings a value to the provided key. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "Element"
+                            },
+                            "name": "value"
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "key"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐙",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🍨",
+                        "arguments": [
+                            {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a list consisting of all keys in this 🍯.\n\n    >!N Note that the keys in the returned list are arbitrarily ordered.\n\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐗",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Removes all key-value pairs in this 🍯 and returns the number of deleted\n    items.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐣",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Checks whether *key* is in this 🍯. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "key"
+                        }
+                    ]
+                },
+                {
+                    "name": "🐔",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": " Returns the number of items. ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🐸",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an empty 🍯. ",
+                    "parameters": []
+                },
+                {
+                    "name": "🐴",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates an empty 🍯 with a capacity of at least *minCapacity*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "minCapacity"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [
+                {
+                    "name": "🛷",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "n"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Class",
+            "name": "🧵",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  Execution thread of the program.\n",
+            "methods": [
+                {
+                    "name": "🛂",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Blocks the calling thread until this thread has finished work.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates an new thread and calls the provided callback on the newly\n    created thread.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Callable",
+                                "arguments": [
+                                    {
+                                        "type": "NoReturn"
+                                    }
+                                ]
+                            },
+                            "name": "callback"
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [
+                {
+                    "name": "⏲",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Suspends the calling thread from execution for at least the number of\n    microseconds specified by the argument *microseconds*.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "microseconds"
+                        }
+                    ]
+                }
+            ],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🔐",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  Mutex, simple semaphore for thread synchronisation.\n  A mutex is a simple semaphore that can be used to\n  coordinate access to shared data from multiple concurrent threads.\n",
+            "methods": [
+                {
+                    "name": "🔒",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Attempts to lock the mutex and waits until it becomes available if it is\n    already locked.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔓",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Unlocks the mutex.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🔐",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Attempts to lock the mutex and returns immediately. Returns 👍 if the mutex\n    could be locked.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": "\n    Creates an new mutex.\n  ",
+                    "parameters": []
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        }
+    ]
+}
