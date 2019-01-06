@@ -79,6 +79,7 @@ map from Emojicode types to the proper C++ type. This table should help you:
 | 🍬 | `runtime::SimpleOptional<...>`
 | 🔡 | `s::String*`
 | 📇 | `s::Data*`
+| 🧠 | `runtime::MemoryPointer<...>`
 | custom class | pointer to appropriate `runtime::Object<T>` subclass
 | custom value type | pointer to appropriate struct
 
@@ -222,13 +223,14 @@ escape, attribute the function with 🛅. Example:
 
 ### Arguments
 
+>!H Objects (class instances), callables and memory pointers are reference
+>!H counted. This section applies to all of them.
+
 Emojicode manages memory with reference counting. It is guaranteed that all
 objects that are passed into any Emojicode method whether implemented in C++
 or not will be retained for the duration of the call. This means that you do
 not need to explicitly retain any of the objects provided to your method. If
 the value does not outlive the call.
-
->!H Callables are objects and thus are reference counted.
 
 If you, however, make a copy of the value or otherwise use the value in a way
 that makes use of it after the function has returned (i.e. starting another)
@@ -340,7 +342,7 @@ them with 📻. The 🧵 is defined like this:
 
 This tells the compiler that the exact definition of the class is unknown.
 Consequently, you must not declare any instance variables or any initializer
-that is implemented in C++.
+that is implemented in Emojicode.
 
 The class defines its initializer like this:
 
