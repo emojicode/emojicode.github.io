@@ -163,3 +163,38 @@ $external-link-name$-> 📻 $string-literal$
 You can then implement the function in e.g. C++. Then compile these
 implementations to object files as well and pack them into the package archive.
 It’s important that the implementations conform to the C calling convention.
+
+Learn more about implementing functins in C++ in [this guide](/docs/guides/api.html).
+
+## Specifying Shared Libaries To Link
+
+Emojicode packages are complied to static archives. If your package depends
+on a shared library this means that the Emojicode Compiler, when linking
+the binary, must be aware of this dependency.
+
+You can list shared libraries that must be linked as *link hints* at document
+level:
+
+```syntax
+$link-hints$-> 🔗 $link-hints-list$ 🔗
+$link-hints-list$-> $string-literal$ | $link-hints-list$
+```
+
+This example is taken from the allegro package:
+
+```
+📜 🔤display.emojic🔤
+📜 🔤app.emojic🔤
+
+🔗
+  🔤allegro🔤
+  🔤allegro_color🔤
+  🔤allegro_primitives🔤
+  🔤allegro_image🔤
+  🔤allegro_ttf🔤
+  🔤allegro_acodec🔤
+  🔤allegro_audio🔤
+  🔤allegro_font🔤
+🔗
+```
+

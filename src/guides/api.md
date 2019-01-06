@@ -400,9 +400,13 @@ The destructor cannot be directly implemented in C++.
 >!N The C++ destructor of a foreign class is not called by default when the
 >!N object is deleted!
 
-## Can I create a list or dictionary from C++?
+## Can I Create a List or Dictionary from C++?
 
 No. Not at this time.
+
+## How to Link to Shared Libraries?
+
+See [Specifying Shared Libaries To Link](/docs/reference/packages.html#specifying-shared-libaries-to-link).
 
 ## How do I do …?
 
