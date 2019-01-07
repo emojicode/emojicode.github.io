@@ -70,6 +70,10 @@ echo '🏁 🍇
 ./hello  # Run it!
 ```
 
+## Installing for Arch Linux
+
+Install the [`emojicode`](https://aur.archlinux.org/packages/emojicode) package from the AUR using your favourite AUR helper or the manual `git`/`makepkg` method.
+
 ## Troubleshooting
 
 If you see a message like the one below
