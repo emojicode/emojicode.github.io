@@ -403,3 +403,62 @@ section,
   font-size: 0.66667em;
   margin-top: 0.15em;
 }
+
+// ==== CARBON ADS =====
+
+#carbonads {
+  float: right;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px;
+  max-width: 180px;
+  background-color: $p-gray;
+  padding: 0.8rem;
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+}
+
+.carbon-text {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+  height: auto;
+}
+
+.carbon-text {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.carbon-poweredby {
+  display: block;
+  font-size: 0.6rem;
+  color: darken(desaturate($p-gray, 30%), 36%);
+}
+
+@media (max-width: 759px) {
+  #carbonads {
+    float: none;
+    margin: 1.25rem 0;
+  }
+}
