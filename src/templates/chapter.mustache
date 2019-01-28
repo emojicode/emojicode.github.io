@@ -2,7 +2,8 @@
   <div class="toc-wrapper">
     <div class="toc">
       <h2>{{bookTitle}}</h2>
-      <ol data-gumshoe>
+      <a href="#toc-content" class="toc-toggle"></a>
+      <ol data-gumshoe class="toc-content" id="toc-content">
         {{#chapters}}
           <li>
             <a href="{{name}}.html"

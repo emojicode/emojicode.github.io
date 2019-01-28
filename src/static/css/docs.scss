@@ -246,6 +246,10 @@ section,
   top: 0;
 }
 
+.toc-toggle {
+  display: none;
+}
+
 .content {
   margin-top: 2rem;
   position: relative;
@@ -281,11 +285,28 @@ section,
   }
 
   .toc {
-    margin-top: 1em;
+    margin-top: 0;
     position: static;
     overflow-y: auto;
     max-height: none;
     width: auto;
+  }
+
+  .toc-content {
+    display: none;
+
+    &:target {
+      display: block;
+    }
+  }
+
+  .toc-toggle {
+    display: block;
+    padding: 0.35rem 1rem;
+
+    &::before {
+      content: 'Show Table of Contents';
+    }
   }
 
   .content {
@@ -301,6 +322,7 @@ section,
 // ===== CALLOUTS =====
 
 @mixin callout($color) {
+  overflow: hidden;
   margin: 1.25rem 0;
   padding: 1.4rem 1.8rem;
   background-color: lighten($color, 29%);
@@ -456,7 +478,7 @@ section,
   color: darken(desaturate($p-gray, 30%), 36%);
 }
 
-@media (max-width: 759px) {
+@media (max-width: $break) {
   #carbonads {
     float: none;
     margin: 1.25rem 0;
