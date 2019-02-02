@@ -26,7 +26,7 @@ body {
 }
 
 .header-grape {
-  z-index: 1500;
+  z-index: 1000;
   position: absolute;
   right: 108px;
   top: 120px;
@@ -36,6 +36,11 @@ body {
 .header-inner {
   position: relative;
   z-index: 1000;
+}
+
+.front-ad {
+  z-index: 1200;
+  position: relative;
 }
 
 .l-button {
