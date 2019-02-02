@@ -6,10 +6,14 @@ body {
 
 .header {
   background-color: $p-intermediate;
-  font-size: 1.125em;
-  padding: 4.8em 3em 3em;
+}
+
+.header__inner {
   position: relative;
-  overflow: hidden;
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 1.125em;
+  padding: 3em 3em 3em;
 
   h1,
   h2 {
@@ -22,8 +26,11 @@ body {
 }
 
 .header-grape {
-  float: right;
-  width: 300px;
+  z-index: 1500;
+  position: absolute;
+  right: 108px;
+  top: 120px;
+  width: 400px;
 }
 
 .header-inner {
@@ -121,7 +128,7 @@ body {
   padding: 0;
 }
 
-@media (max-width: $break) {
+@media (max-width: 1000px) {
   .menu {
     font-size: 15px;
   }
@@ -136,8 +143,7 @@ body {
   }
 
   .header-grape {
-    float: none;
-    width: 130px;
+    display: none;
   }
 
   .socialize {
@@ -155,6 +161,14 @@ body {
   .hello-world__pre {
     font-size: 1.42rem;
   }
+
+  .header__inner {
+    width: auto;
+  }
+
+  .front-ad {
+    display: none;
+  }
 }
 
 .footer {
@@ -171,4 +185,55 @@ body {
   &:hover {
     text-decoration: underline;
   }
+}
+
+#carbonads {
+  float: right;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 20px;
+  max-width: 180px;
+  color: $white;
+  padding: 0.8rem;
+  margin-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+}
+
+.carbon-text {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+  height: auto;
+}
+
+.carbon-text {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.carbon-poweredby {
+  display: block;
+  font-size: 0.6rem;
+  color: darken(desaturate($p-gray, 30%), 36%);
 }
