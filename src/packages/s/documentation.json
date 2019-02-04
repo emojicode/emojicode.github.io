@@ -1392,7 +1392,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
-                    "documentation": "\n    Returns the natural (base ℇ) logarithm of this 💯.\n  ",
+                    "documentation": "\n    Returns the natural (base *e*) logarithm of this 💯.\n  ",
                     "parameters": []
                 },
                 {
@@ -1468,7 +1468,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
-                    "documentation": "\n    Returns an approximation of ℇ (Euler’s number).\n  ",
+                    "documentation": "\n    Returns an approximation of *e* (Euler’s number).\n  ",
                     "parameters": []
                 }
             ]
