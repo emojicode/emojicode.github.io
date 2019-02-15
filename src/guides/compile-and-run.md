@@ -32,7 +32,7 @@ greeting.
 🍉
 ```
 
-Before analyzing this new code we’ll give it a try.
+Before analyzing this new code, we’ll give it a try.
 
 >!H You must have installed Emojicode to run the following commands.
 >!H See [Installing Emojicode](install.html) if you haven’t already.
@@ -44,7 +44,7 @@ Then run this command.
 emojicodec greeter.emojic
 ```
 
-This asks the compiler to compile `greeter.emojic`. If everything goes well it
+This asks the compiler to compile `greeter.emojic`. If everything goes well, it
 should exit without a message and generate a file called `greeter`. This
 is a native executable you can run like any other executable. Let’s try:
 
@@ -60,8 +60,8 @@ two 🔤 is then part of the string.
 
 Then we call the 😀 method on this string. And guess what, it prints the string
 to the standard output. The thing to notice here is, that the method is actually
-called by putting its emoji **before the object**. After the object on which you
-want to call the method. We could then provide arguments, but there are none
+called by putting its emoji **before the object** on which you want to call the
+method. We could then provide arguments, but there are none
 required. ❗️ simply ends the list of arguments.
 
 ## More Greetings
@@ -93,8 +93,8 @@ You already know 😀 from above, but we haven’t talked about 🐽 yet. 🐽 i
 method used to access an element in a list. And as in most other programming
 languages, in Emojicode the first element in a list has index 0. You can see
 that we added `0` after the object on which we call the method (`list`) but
-before the ❗️. This is where arguments to a method call go. There is no special
-separator used.
+before the ❗️. This is where arguments to a method call go. No separator
+is used to separate the callee from metod arguments.
 
 So all `🐽list 0❗️` does is to return the first element in the list,
 which is a string.
@@ -156,7 +156,7 @@ write:
 
 This won’t work, however. 🍯’s 🐽 returns an optional. An optional is like
 a box that can contain something or be empty. We have to check therefore,
-whether our dictionary actually provided a value for the key `🔤de🔤`.
+whether our dictionary actually returned a value for the key `🔤de🔤`.
 
 The easiest way to do this is with the conditional assignment:
 
@@ -178,11 +178,11 @@ The easiest way to do this is with the conditional assignment:
 You can try and run the above code and should see `Guten Tag!`. But how does
 this work?
 
-First, we need to understand that ↪️ is like an if statement. It executes the
+First, we need to understand that ↪️ is an if statement basically. It executes the
 provided code block if the condition it is provided with evaluates to true.
 You can see that we have used a variable assignment as condition. You can
 provide a variable assignment as condition, if the left-hand-side value is
-an optional. In this case, the if will execute its block if the left-hand-side
+an optional. ↪️ will then execute its block only if the left-hand-side
 value does contain a value and will store that value into the variable specified
 on the right-hand-side.
 
