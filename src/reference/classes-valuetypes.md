@@ -134,7 +134,7 @@ $class$-> 🐇 $type-identifier$ [$generic-parameters$] [$superclass$] $type-bod
 $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
 $type-body-declaration$-> $type-body-attributes$ $type-body-declaration-main$
-$type-body-attributes$-> [$documentation-comment$] [🥯] [⚠️] [🔏] [✒️] [🐇] [🖍] [🔑] [🛅] [$access-level$]
+$type-body-attributes$-> [$documentation-comment$] [🥯] [⚠️] [🔏] [✒️] [🐇] [☣️] [🖍] [🔑] [🛅] [$access-level$]
 $type-body-declaration-main$-> $instance-variable-declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
 $type-body-declaration-main$-> $deinitializer$
