@@ -87,14 +87,14 @@ The smallest standalone elements of Emojicode’s normal program code is called
 
 ```syntax
 $statement$-> $expression$ | $assignment$ | $declaration$ | $operator-assignment$
-$statement$-> $return$ | $error-check-control$ | $error$ | $method-assignment$
+$statement$-> $return$ | $error-check-control$ | $raise$ | $method-assignment$
 $statement$-> $if$ | $for-in$ | $repeat-while$ | $unsafe-block$
 $expression$-> $numeric-literal$ | 👍 | 👎 | $symbol-literal$ | $string-literal$ | $this$
 $expression$-> $method-call$ | $no-value$ | $unwrap$
 $expression$-> $operator-expression$ | $group$
 $expression$-> $callable-call$ | $closure$
 $expression$-> $list-literal$ | $dictionary-literal$ | $concatenate-literal$
-$expression$-> $super$ | $is-error$ | $cast$
+$expression$-> $super$ | $reraise$ | $cast$
 $expression$-> $type-value$ | $instantiation$ | $size-of$
 $symbol-literal$-> 🔟 $unicode$
 ```
@@ -187,5 +187,6 @@ $emoji-modifier-base$-> U+1F933–U+1F939 | U+1F93D–U+1F93E | U+1F9B5–U+1F9B
 $emoji-modifier$-> U+1F3FB-U+1F3FF
 $regional-indicators$-> $regional-indicator$ [$regional-indicators$]
 $regional-indicator$-> U+1F1E6-U+1F1FF
-$emoji-id$-> --$binary-operator$ --👍 --👎 --🔟 --🆕 --❗️ --❓--🤛 --🤜 --↩️ --⤴️ --🔂 --🔁 --🚨 --↪️ --🙅 --🍉 --🍇 --🥑 --🐕 --☣️ --➡️ --⬅️ --🖍 --🐇 --🐊 --🦃 --🕊 --📗 --🔤  $emoji$
+$emoji-id$-> --$binary-operator$ --👍 --👎 --🔟 --🆕 --❗️ --❓--🤛 --🤜 --↩️ --⤴️ --🔂 --🔁 --🚨 --↪️ --🙅 --🍉 --🍇 --🥑 --🐕 --☣️ --➡️ --⬅️ --🖍 --🐇 --🐊 --🦃 --🕊 --📗 --🔤  $emoji$ | $multi-emoji$
+$multi-emoji$-> $emoji-id$ 🔸 $emoji-id$
 ```

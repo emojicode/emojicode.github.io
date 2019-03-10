@@ -2,58 +2,6 @@
     "documentation": "\n  The sockets package allows you to open TCP sockets to servers or to create a TCP server socket\n  yourself.\n\n  The following is a very basic example of opening a TCP socket to make an HTTP request and print\n  the first 140 characters of the response.\n  ```\n  📦 sockets 🏠\n\n  🏁 🍇\n    🍺 🆕📞🆕 🔤example.com🔤 80❗️ ➡️ socket\n    💬 socket 📇 🔤GET / HTTP/1.1❌r❌nHost: example.com❌r❌n❌r❌n🔤❗️❗️\n\n    🍺 👂 socket 140❗️ ➡️ data\n    😀 🍺 🔡 data❗️❗️\n  🍉\n  ```\n\n  At the time of writing this, the above code would return something similar to:\n  ```\n  HTTP/1.1 200 OK\n  Cache-Control: max-age=604800\n  Content-Type: text/html; charset=UTF-8\n  Date: Mon, 10 Sep 2018 08:36:28 GMT\n  Etag: \"15410256\n  ```\n\n  Here we’ve an example of a minimal echo-server that listens on port 8728. The server simply sends\n  back a copy of the data it received.\n  ```\n  📦 sockets 🏠\n\n  💭 Simple echo server listening on port 8728\n  🏁 🍇\n    🍺🆕🏄🆕 8728❗️ ➡️ server\n\n    🔁 👍 🍇\n      🍺 🙋 server❗️ ➡️ clientSocket\n\n      🔁 👍 🍇\n        🥑 data 👂 clientSocket 50❗️ 🍇\n          💭 We’ve read 50 bytes and send them back\n          💬 clientSocket data❗️\n        🍉\n        🙅‍♀️ error 🍇🍉\n      🍉\n    🍉\n  🍉\n  ```\n\n  Of course, the code above is minimal. For example, it can handle only one\n  connection.\n",
     "types": [
         {
-            "type": "Enumeration",
-            "name": "⛈",
-            "conformances": [],
-            "genericParameters": [],
-            "documentation": " Errors ",
-            "methods": [],
-            "initializers": [],
-            "typeMethods": [],
-            "enumerationValues": [
-                {
-                    "documentation": " Function not supported. ",
-                    "value": "⛔"
-                },
-                {
-                    "documentation": " Not enough space. ",
-                    "value": "🐁"
-                },
-                {
-                    "documentation": " Indicates a generic error. ",
-                    "value": "🔴"
-                },
-                {
-                    "documentation": " Result too large. ",
-                    "value": "🗻"
-                },
-                {
-                    "documentation": " File exists ",
-                    "value": "🗿"
-                },
-                {
-                    "documentation": " Permission denied ",
-                    "value": "🚧"
-                },
-                {
-                    "documentation": " Invalid argument. ",
-                    "value": "🚯"
-                },
-                {
-                    "documentation": " Mathematics argument out of domain of function. ",
-                    "value": "🚳"
-                },
-                {
-                    "documentation": " Operation not permitted. ",
-                    "value": "🚷"
-                },
-                {
-                    "documentation": " Illegal byte sequence. ",
-                    "value": "🛃"
-                }
-            ]
-        },
-        {
             "type": "Class",
             "name": "🏄",
             "conformances": [],
@@ -66,20 +14,15 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Error",
-                        "arguments": [
-                            {
-                                "package": "sockets",
-                                "name": "⛈",
-                                "arguments": []
-                            },
-                            {
-                                "package": "sockets",
-                                "name": "📞",
-                                "arguments": []
-                            }
-                        ]
+                        "package": "files",
+                        "name": "📞",
+                        "arguments": []
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -109,8 +52,8 @@
                     "mutating": true,
                     "final": false,
                     "errorType": {
-                        "package": "sockets",
-                        "name": "⛈",
+                        "package": "s",
+                        "name": "🚧🔸↕",
                         "arguments": []
                     },
                     "genericParameters": [],
@@ -122,7 +65,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "port"
+                            "name": "port",
+                            "escaping": false
                         }
                     ]
                 }
@@ -143,15 +87,13 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "sockets",
-                                "name": "⛈",
-                                "arguments": []
-                            }
-                        ]
+                        "type": "NoReturn"
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -163,7 +105,8 @@
                                 "name": "📇",
                                 "arguments": []
                             },
-                            "name": "message"
+                            "name": "message",
+                            "escaping": false
                         }
                     ]
                 },
@@ -187,20 +130,15 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Error",
-                        "arguments": [
-                            {
-                                "package": "sockets",
-                                "name": "⛈",
-                                "arguments": []
-                            },
-                            {
-                                "package": "s",
-                                "name": "📇",
-                                "arguments": []
-                            }
-                        ]
+                        "package": "s",
+                        "name": "📇",
+                        "arguments": []
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -212,7 +150,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "bytes"
+                            "name": "bytes",
+                            "escaping": false
                         }
                     ]
                 }
@@ -225,8 +164,8 @@
                     "mutating": true,
                     "final": false,
                     "errorType": {
-                        "package": "sockets",
-                        "name": "⛈",
+                        "package": "s",
+                        "name": "🚧🔸↕",
                         "arguments": []
                     },
                     "genericParameters": [],
@@ -238,7 +177,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "host"
+                            "name": "host",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -246,7 +186,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "socket"
+                            "name": "socket",
+                            "escaping": false
                         }
                     ]
                 }

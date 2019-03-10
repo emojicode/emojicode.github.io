@@ -68,7 +68,7 @@
           {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
         </div>
 
-        <pre class="declaration">{{attributes}}{{access}}🆕 {{name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}</pre>
+        <pre class="declaration">{{attributes}}{{access}}🆕 {{name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#parameters}}{{#escaping}}🛅{{/escaping}} {{name}} {{{typeLink}}} {{/parameters}}{{#errorType}} 🚧{{{thisTypeLink}}}{{/errorType}}</pre>
 
         {{{mdDocumentation}}}
       </div>
@@ -99,7 +99,7 @@
         {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
       </div>
 
-      <pre class="declaration">{{attributes}}{{access}}{{mood}} {{name}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}} {{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}</pre>
+      <pre class="declaration">{{attributes}}{{access}}{{mood}} {{name}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}} {{#parameters}}{{#escaping}}🛅{{/escaping}} {{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}{{#errorType}} 🚧{{{thisTypeLink}}}{{/errorType}}</pre>
 
       {{{mdDocumentation}}}
     </div>
@@ -116,7 +116,7 @@
         {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
       </div>
 
-      <pre class="declaration">{{attributes}}{{access}}🐇{{mood}} {{name}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}} {{#parameters}}{{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}</pre>
+      <pre class="declaration">{{attributes}}{{access}}🐇{{mood}} {{name}}{{#genericParameters.length}}🐚{{#genericParameters}}{{name}}{{{constraintTypeLink}}}{{/genericParameters}}🍆{{/genericParameters.length}} {{#parameters}}{{#escaping}}🛅{{/escaping}} {{name}} {{{typeLink}}} {{/parameters}}{{{returnTypeLink}}}{{#errorType}} 🚧{{{thisTypeLink}}}{{/errorType}}</pre>
 
       {{{mdDocumentation}}}
       </div>

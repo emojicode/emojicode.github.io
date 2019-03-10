@@ -202,18 +202,13 @@ extern "C" void sSystemExit(runtime::ClassInfo*, runtime::Integer code)
 extern "C" runtime::Real sRealSin(runtime::Real *real)
 ```
 
-
 ## Borrowing and Escaping Use
 
-For performance reasons the Emojicode compiler analyses all methods to
-determine whether they just *borrow* a value or let it *escape*. A value is
-considered to escape, if you assign the value to an instance variable or if in
-another way to store it that another thread could access it after you function
-returned.
+>!N Familiarize yourself with [Borrowing and Escaping Use](../reference/classes-valuetypes.html#borrowing-and-escaping-use).
 
 If you let a value escape in a method or initializer you implement in C++ it is
 crucial that you attribute the argument with 🛅. If you let the callee itself
-escape, attribute the function with 🛅. Example:
+escape attribute the function with 🛅. Example:
 
 ```
 🛅 🆕 🛅 callback 🍇🍉 📻 🔤sThreadNew🔤

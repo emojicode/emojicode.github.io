@@ -141,11 +141,10 @@ $type-body-declaration-main$-> $deinitializer$
 $instance-variable-declaration$-> $declaration$ [⬅️ $expression$]
 $superclass$-> $type$
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
-$initializer$-> 🆕 [$initializer-emoji-id$] [$init-error$] [$init-parameters$] $body$
+$initializer$-> 🆕 [$initializer-emoji-id$] [$init-parameters$] [$error-type$] $body$
 $initializer-emoji-id$-> --🛅 --🍼 --📻 $emoji-id$
 $init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
-$init-parameter$-> [🍼] $variable$ $type$
-$init-error$-> 🚨 $type$
+$init-parameter$-> [🛅] [🍼] $variable$ $type$
 $body$-> $block$ | $external-link-name$
 $access-level$-> 🔓 | 🔒 | 🔐
 ```
@@ -286,11 +285,11 @@ Methods are functionality bound to a specific type: a class or value type.
 The syntax to define a method is:
 
 ```syntax
-$method$-> $identification$ [$generic-parameters$] [$parameters$] [$return-type$] $body$
+$method$-> $identification$ [$generic-parameters$] [$parameters$] [$return-type$] [$error-type$] $body$
 $identification$-> $mood$ $emoji-id$ | $binary-operator$
 $mood$-> ❗️ | ❓ | ➡️
 $parameters$-> $parameter$ | $parameter$ $parameters$
-$parameter$-> $variable$ $type$
+$parameter$-> [🛅] $variable$ $type$
 $return-type$-> ➡️ $type$
 ```
 
@@ -647,3 +646,83 @@ You can attribute a method or an initializer with 🥯, which indicates to the
 compiler that it could be advantegous to inline the method. This attribute
 furthermore causes the compiler to include the function body in the interface
 file if one is generated.
+
+## Borrowing and Escaping Use
+
+Emojicode supports the notion of borrowing and escaping use of a value.
+
+This concept only applies to the use of method or initializer parameters and the
+use of the context, i.e. the value returned by 🐕, in the method or initializer.
+
+A value is considered escaping, if it (or a copy of it) can outlive the call of
+the method or initializer. Consider, for instance, this class:
+
+```
+🐇 🥧 🍇
+  💭 ...
+
+  ❗️ 😀 🍇
+    💭 ...
+  🍉
+🍉
+
+🐇 🦡 🍇
+  🖍🆕 pie 🥧
+
+  🆕 🍼 pie 🥧 🍇🍉
+🍉
+```
+
+It is obvious that the pie reference passed to the 🆕 initializer of 🦡 will
+outlive the call as it is assigned to an instance variable. This parameter is
+considered escaping, therefore. On the other hand, the below class method does
+not use its parameter in an escaping way:
+
+```
+🐇 🐟 🍇
+  🐇❗️ 💚 pie 🥧 🍇
+    😀 pie❗️
+  🍉
+🍉
+```
+
+No copy of `pie` is made here that will outlive the call of 💚.
+
+As mentioned before, a method itself can be escaping, if it makes the this
+context outlive the call. The following is an example of such a method:
+
+```
+🐇 🥧 🍇
+  ❗️ 🖲 ➡️ 🦡 🍇
+    ↩️ 🆕🦡🆕 🐕❗️
+  🍉
+🍉
+```
+
+🐕 is passed to an escaping parameter in this example, which obviously causes
+the value to escape.
+
+Simply put, there are four ways in which a value can escape:
+- The value is assigned to an instance variable.
+- The value is passed to an escaping parameter.
+- An escaping method is called on the value.
+- Return the value.
+
+When compiling, the Emojicode compiler analyses all methods to
+determine whether they just borrow a value or let it escape. If you generate
+an interface file for a package, you can see all escaping parameters and methods
+annotated with 🛅. As an example, take a look at 🍨’s 🐻:
+
+```
+🌍 🕊 🍨🐚Element ⚪️ 🍆🍇
+  📗 Appends `item` to the end of the list in `O(1)`. 📗
+  🖍 ❗️ 🐻 🛅 item Element
+🍉
+```
+
+Obviously, appending a value to a list causes the value to escape, which the
+compiler correctly determined and annotated the parameter with 🛅.
+
+In principle, you can manually annotate parameters and methods with 🛅, but
+unless you build a package with methods implemented in another language, there
+is no reason to do so.

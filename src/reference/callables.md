@@ -8,13 +8,13 @@ more generally functions) that can be passed like any other object.
 The type of a callable is denoted using this syntax:
 
 ```syntax
-$callable-type$-> 🍇 [$type-list$] [$return-type$] 🍉
+$callable-type$-> 🍇 [$type-list$] [$return-type$] [$error-type$] 🍉
 $type-list$-> $type$ | $type$ $type-list$
 ```
 
 Each of the types provided before the return type stands for one argument of
 that type. The return type is optional. If no return type is specified the
-callable does not return a value.
+callable does not return a value. An error-type can be specified.
 
 Examples:
 
@@ -22,6 +22,7 @@ Examples:
 🍇🔢➡️🔡🍉  💭 Takes an integer argument and returns a string
 🍇➡️🔣🍉  💭 Takes no arguments and returns a symbol
 🍇🍉  💭 Takes no arguments and does not return a value.
+🍇🔢➡️🔡🚧🚧🍉  💭 May raise a 🚧
 ```
 
 ## Calling a Callable
@@ -41,6 +42,9 @@ Example of calling a callable:
 ⁉️ greet 🔤Bob🔤❗️
 ```
 
+An error-prone callable must be handled like any error-prone call by using
+🔺, 🍺 or 🥑.
+
 ## Closure
 
 Closures are blocks of code that are not immediately executed but remember the
@@ -58,7 +62,8 @@ type similar to a method.
 Formally, its syntax is:
 
 ```syntax
-$closure$-> 🍇 [$parameters$] [$return-type$] $statements$ 🍉
+$closure$-> 🍇 [🛅] [$closure-parameters$] [$return-type$] $statements$ 🍉
+$closure-parameters$-> $variable$ $type$ [$closure-parameters$]
 ```
 
 We can define a very simple closure that does not capture any context like this:
@@ -77,47 +82,119 @@ Running this code would print:
 It is a plesaure to welcome the honorable Linda
 ```
 
-### Capturing Variables
+### Capturing Variables and Context
 
-Let’s take a look at a more advanced use of a closure:
+>!H You should be familiar with [Borrowing and Escaping Use](../reference/classes-valuetypes.html#borrowing-and-escaping-use) before reading this section.
+
+Let’s take a look at this example:
 
 ```
 🐇 🍤 🍇
-  🐇❗️ 🙋 name 🔡 ➡️ 🍇🔢➡️🔡🍉 🍇
-    ↩️ 🍇 hour 🔢 ➡️ 🔡
-      ↪️ hour 🙌 12 🍇
-        ↩️ 🍪 🔤Have a good lunch, 🔤 name🍪
-      🍉
-      ↩️ 🍪 🔤Hello, 🔤 name🍪
+  🐇❗️💚 g 🍇🔡➡️🔡🍉 🍇
+    😀 ⁉️g 🔤DARTH VADER🔤❗️❗️
+  🍉
+🍉
+
+🏁 🍇
+  🔤LUKE🔤 ➡️ 🖍🆕var
+
+  💚🐇🍤 🍇 g🔡 ➡️🔡
+    ↩️ var
+  🍉❗️
+🍉
+```
+
+Running the above code will print `LUKE`. In the above example the value `var`
+was declared and assigned outside the closure. This is called a captured
+variable. Much the same, you can capture the this context in a closure.
+
+Actually, however, we need to distinguish between escaping and non-escaping
+closures. By default, every closure is non-escaping and cannot be used as an
+escaping value. To define an escaping closure the 🍇 must be immediately
+followed by 🛅. When creating a thread, for instance, an escaping closure is
+required:
+
+```
+🆕🧵🆕 🍇🛅
+
+🍉❗️
+```
+
+Escaping closures like non-escaping closures can capture variables. However,
+in escaping closures captured variables are constant. In non-escaping closures,
+the captured variables can be modified, as seen in this example:
+
+```
+🏁 🍇
+  🔤LUKE🔤 ➡️ 🖍🆕var
+
+  😀 var❗️
+
+  💚🐇🍤 🍇 g🔡 ➡️🔡
+    g ➡️ 🖍var
+    ↩️ 🔤DEATH STAR🔤
+  🍉❗️
+
+  😀 var❗️
+🍉
+```
+
+The output of the above code (💚🐇🍤 is defined in a previous example) will be:
+
+```
+LUKE
+DEATH STAR
+DARTH VADER
+```
+
+`var` was modified inside the closure and is set to the value `g` passed into
+the closure, which in our case was “DARTH VADER”. This does not work with an
+escaping closure.
+
+The following example demonstrates capturing the this context and modifying
+and instance variable:
+
+```
+🐇 🕵 🍇
+  🖍🆕 name 🔡
+
+  🆕 🍼 name 🔡 🍇🍉
+
+  ❗️ 🛍 title 🔡 ➡️ 🍇🔡🍉 🍇
+    ↩️ 🍇🛅 a 🔡  💭 Returning lets the value escape
+      🍪 title 🔤 🔤 a 🍪 ➡️ 🖍name
     🍉
+  🍉
+🍉
+
+🏁 🍇
+  🆕🕵🆕 🔤Arthur Lemming🔤❗️ ➡️ pi
+  🛍pi 🔤Dr🔤❗️ ➡️ nameSetterDr
+  ⁉️nameSetterDr 🔤Jessica Jones🔤 ❗️
+  😀 ⁉️nameGetter️❗️❗️
+🍉
+```
+
+Note that you can capture the object context of a class type in non-escaping as
+well as in escaping closures and also modify its instance variables. The context
+of value types and enums, though, can only be captured in non-escaping closures.
+Thus the above sample would not compile if 🕵 was a value type.
+
+The example belows shows how the instance variable of a value type can be
+captured in a non-escaping closure:
+
+```
+🕊 🌼 🍇
+  🖍🆕 string 🔡 ⬅️ 🔤YODA🔤
+
+  🆕 🍇🍉
+
+  🖍❗️ ☄️ 🍇
+    💚🐇🍤 🍇 g🔡 ➡️🔡
+      g ➡️ 🖍string
+      ↩️ 🔤STORMTROOPER🔤
+    🍉❗️
   🍉
 🍉
 ```
 
-Here we’ve got a type method that returns a closure. The closure actually
-closes over the `name` variable here and copies it value so that it can be used
-when the closure is called later.
-
-Now, if we call that type method we’ll get a closure:
-
-```
-🙋🐇🍤 🔤Violet🔤❗️ ➡️ violetGreeter
-```
-
-We can call the closure with an argument for `hour`
-
-```
-😀 ⁉️violetGreeter 14❗️❗️
-😀 ⁉️violetGreeter 12❗️❗
-```
-
-and will get this:
-
-```
-Hello, Violet
-Have a good lunch, Violet
-```
-
->!N Closures **copy** the closured **local variables** and make them available
->!N as constant variable in the closure. **Instance variables** are
->!N **not copied** and change when modified inside a closure.
