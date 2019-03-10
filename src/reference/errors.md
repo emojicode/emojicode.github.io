@@ -1,147 +1,169 @@
-# Error Handling
+# Errors
 
 Proper mechanisms to handle errors are an integral part of modern programming
 languages. Being a modern language, Emojicode provides a sophisticated but
 light-weight way to handle errors.
 
-## The 🚨 Types
+## Error-Proness
 
-Emojicode provides special types to handle errors. Those are called 🚨 types or
-error types. An error type is always composed of two other types: An enumeration
-that serves as the *error enumeration*, which indicates the kind of error if an
-error occurs, and a contained type, i.e. the type that is present if no error
-arises.
+Emojicode supports error handling for any kind of method, initializer or
+closure.
 
-For instance, a method that normally returns a 🔡 can declare that it will
-return an instance of 🏜 in case of an error like this:
+In Emojicode errors are represented by instance of the 🚧 or its subclasses.
+For instnace, the class 🚧🔸↕️ is used to represent errors that occur during
+input/output operations, such as when reading a file.
 
-```
-❗️ 🙅 ➡️ 🚨🏜🔡 🍇
-```
-
-An instance of a 🚨 type therefore either contains an error in the form of an
-enumeration value or a value of the contained type.
-
-## The 🚨 Statement
-
-An error can only ever be created and raised inside a function. In a function
-the 🚨 statement, which works similar to ↩️, is used to create the error and
-return it from the function.
+In case a method, initializer or closure may fail, it should be declared as
+error-prone. Error-proness is indicated using the identifier 🚧 directly before
+the function’s body.
 
 ```syntax
-$error$-> 🚨 $expression$
+$error-type$-> 🚧 $type$
 ```
 
-The expression must evaluate to an instance of the error enumeration. The
-example below shows a class, which stands for a microphone. It has a method
-called 🎬 that might fail in some cases, in which an error is returned:
+The 🚧 identifier is immediately followed by the type of error that may be raised
+by the function. In the example bloew, the first and second declaration indicate
+that the declared class method and initializer may raise input/output errors
+while the last method could raise any kind of error. This type is referred to as
+the error type.
 
 ```
-🦃 ⛰ 🍇
-  🔘🔋
-  🔘🌊
-🍉
+🐇❗️ 📁 path 🔡 🚧🚧🔸↕️ 🍇 💭 ...
 
-🐇 🎤 🍇
-  🖍🆕 battery 💯
+🆕📝 path 🔡 🚧🚧🔸↕️ 🍇 💭 ...
 
-  💭 ...
+🐇❗️ 🤦‍♂️ ➡️ 🔡 🚧🚧 🍇 💭 ...
 
-  🐇❗️ 🎬 ➡️ 🚨⛰🔡 🍇
-    ↪️ battery ◀️ 0.1 🍇
-      🚨🆕⛰🔋❗️  💭 Too low on battery, return an error
-    🍉
-    ↩️ 🔤Ladies and gentlemen...🔤  💭 Everything fine, we return a string
-  🍉
-🍉
+🐇❗️ 💛 🚧🚧 🍇 💭 ...
 ```
 
-## Error Initializer
+## Raising Errors
 
-Since initializers can fail too, Emojicode allows initializers to return
-errors. The error enumeration is declared after the 🆕 like this:
-
-```
-🆕 🚨⛰ 🦀 frequency 💯 🍇
-```
-
-Or if the initializer has a name, like this:
-
-```
-🆕 💚🚨⛰ 🦀 frequency 💯 🍇
-```
-
-A contained value must not be provided, as the contained value is obviously
-the type instantiated.
-
-Here's an example of an initializer that returns an error:
-
-```
-🦃 ⛰ 🍇
-  🔘🔋
-  🔘🌊
-🍉
-
-🐇 🎤 🍇
-  🆕 🚨⛰ 🦀 frequency 💯 🍇
-    ↪️ frequency ◀️ 520 🍇
-      🚨🆕⛰🌊❗  💭 frequency must be greater than 520 MHz so return an error
-    🍉
-    💭 ...
-  🍉
-🍉
-```
-
-### Error Initializers and Super Initializer Calls
-
-Note that if you call a super initializer that could raise an error, your
-initializer must also declare that it can return an error. The error enumeration
-of your initializer and the super initializer must be identical.
-
-If the super initializer then returns an error, your initializer will also
-return immediately with the same error.
-
-## 🥑 Error Check Control
-
-Emojicode provides a control flow mechanism that is specifically designed for
-error checking:
+To raise an error the 🚨 statement, which works similar to ↩️, is used.
 
 ```syntax
-$error-check-control$-> 🥑 $variable$ $expression$ $block$ 🙅 $variable$ $block$
+$raise$-> 🚨 $expression$
 ```
 
-The 🥑 works in a straight-forward way. If the expression evaluates to an 🚨
-instance that does not represent an error, the first block is executed an the
-variable is set to the value contained in the 🚨. If, however, the 🚨 does
-represent an error the 🙅 block is entered its variable is set to the error
-enumeration instance.
+The expression must evaluate to an object instance compatible to the declared
+error type:
+
+```
+🐇❗️ 🤦‍♂️ ➡️ 🔡 🚧🚧 🍇
+  🚨🆕🚧🆕🔤Too low on charge🔤❗️
+🍉
+```
+
+## Calling Error-Prone Functions
+
+An error-prone method, initializer or callable cannot be called without
+explicit handling of potential errors. If you try anyway, you’ll get a compiler
+error. There are three options.
+
+### 🍺 Not Handling Errors
+
+As with optionals, you can use 🍺 to make a call to an error-prone function
+and disregard the possibility of an error arising. If an error, however, is
+raised during execution the program will panic.
+
+```
+🍺🆕📄📝 🔤file.txt🔤❗️ ➡️ file
+```
+
+Unless you are absolutely sure that a call will never raise an error, using 🍺
+is a bad idea.
+
+### 🔺 Reraising Errors
+
+🔺 can be used to reraise all arising errors. This means that if an error
+is returned by the called function, the calling function itself will raise the
+error and return immediately. Naturally, the calling function must declare an
+error type to which the error type of the called function is compatible.
+
+```
+🐇❗️ 🍌 ➡️ 🔡 🚧🚧 🍇
+  ↩️🔺🤦‍♂️🐇🐟❗️
+🍉
+```
+
+In the above example, the 🍌 class method will return the value returned by 🤦‍♂️
+if returns normally. If 🤦‍♂️ raises an error though, 🍌 will forward it to its
+own caller.
+
+```syntax
+$reraise$-> 🔺 $expression$
+```
+
+### 🥑 Handling Errors
+
+The third mechanism is a control flow statment. It allows you to specify to
+code blocks. While one is executed in the case of error-free execution, the
+other is called in the case of an error and provided with the error object.
+
+```syntax
+$error-check-control$-> 🥑 [$variable$] $expression$ $block$ 🙅 $variable$ $block$
+```
+
+The provided expression must be an error-prone call. If no error is raised,
+the first block is called and the variable, if provided, will contain the
+returned value. If an error does occur, the second block is called an the
+specified variable will be set to the error. The variable’s type is the error
+type of the called function.
 
 Example:
 
 ```
-🥑 fileData 📇🐇📄 filePath❗️ 🍇
-  💭 Do something with fileData
+🥑 a 🤦‍♂️🐇🐟❗️ 🍇
+  😀 a ❗️
 🍉
-🙅‍♀️ error 🍇
-  😀 🔤😢 Could not read file🔤️❗️
+🙅 error 🍇
+  😀 🍪🔤An error occured: 🔤 💬error❗️ 🍪 ❗️
 🍉
 ```
 
-## 🚥 Test for Errors
+You must not provide a variable if the call does not return a value. You may
+omit a variable name even though the function returns a value if you do not
+require the return.
 
-To test whether an 🚨 instance represents an error the 🚥 expression is used.
+```
+🥑 🤦‍♂️🐇🐟❗️ 🍇  💭 We are not interested in the return
+  💭 ...
+🍉
+🙅 error 🍇
+  😀 🍪🔤An error occured: 🔤 💬error❗️ 🍪 ❗️
+🍉
 
-Syntax:
-
-```syntax
-$is-error$-> 🚥 $expression$
+🥑 💛🐇🐟❗️ 🍇  💭 💛 does not return a vlue
+  💭 ...
+🍉
+🙅 error 🍇
+  😀 🍪🔤An error occured: 🔤 💬error❗️ 🍪 ❗️
+🍉
 ```
 
-🚥 returns 👍 if the value is an error or 👎 false if its not an error and
-contains a value.
+## Error-Prone Super Initializer Calls
 
-## Unwrapping Errors
+If you call a super initializer that might fail, your initializer must be
+declared error-prone with an error type to which the error type of the super
+initializer is compatible to. In case the super initializer raises an error,
+initialization is aborted and the calling initializer reraises the error.
 
-As with optionals, you can use 🍺 to unwrap an error, that is to fetch its
-contained value without any prior checking. If the error, however, does not
-contain a value but does represent an error state the program will panic.
+```
+🐇 🐫 🚧 🍇
+  💭 ...
+🍉
+
+🐇 🐟 🍇
+  🆕 🆒 🚧🐫 🍇
+    💭 ...
+  🍉
+🍉
+
+🐇 🐡 🐟 🍇
+  🆕👅 🚧🐫 🍇
+    ⤴️🆒❗️
+  🍉
+🍉
+```
+
+

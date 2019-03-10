@@ -2,58 +2,6 @@
     "documentation": "\n  The files packages provides an API to interact with the file system. Files can\n  be read, written to and deleted. Moreover, the [[📑]] class provides class\n  methods to work with directories, create symbolic links etc.\n",
     "types": [
         {
-            "type": "Enumeration",
-            "name": "🌧",
-            "conformances": [],
-            "genericParameters": [],
-            "documentation": " Errors ",
-            "methods": [],
-            "initializers": [],
-            "typeMethods": [],
-            "enumerationValues": [
-                {
-                    "documentation": " Function not supported. ",
-                    "value": "⛔"
-                },
-                {
-                    "documentation": " Not enough space. ",
-                    "value": "🐁"
-                },
-                {
-                    "documentation": " Indicates a generic error. ",
-                    "value": "🔴"
-                },
-                {
-                    "documentation": " Result too large. ",
-                    "value": "🗻"
-                },
-                {
-                    "documentation": " File exists ",
-                    "value": "🗿"
-                },
-                {
-                    "documentation": " Permission denied ",
-                    "value": "🚧"
-                },
-                {
-                    "documentation": " Invalid argument. ",
-                    "value": "🚯"
-                },
-                {
-                    "documentation": " Mathematics argument out of domain of function. ",
-                    "value": "🚳"
-                },
-                {
-                    "documentation": " Operation not permitted. ",
-                    "value": "🚷"
-                },
-                {
-                    "documentation": " Illegal byte sequence. ",
-                    "value": "🛃"
-                }
-            ]
-        },
-        {
             "type": "Value Type",
             "name": "📑",
             "conformances": [],
@@ -68,15 +16,13 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            }
-                        ]
+                        "type": "NoReturn"
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -88,7 +34,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -98,15 +45,13 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            }
-                        ]
+                        "type": "NoReturn"
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -118,7 +63,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -128,15 +74,13 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            }
-                        ]
+                        "type": "NoReturn"
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -148,7 +92,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -158,15 +103,13 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            }
-                        ]
+                        "type": "NoReturn"
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -178,7 +121,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -188,15 +132,13 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            }
-                        ]
+                        "type": "NoReturn"
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -208,7 +150,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "originalFile"
+                            "name": "originalFile",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -216,7 +159,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "destination"
+                            "name": "destination",
+                            "escaping": false
                         }
                     ]
                 },
@@ -241,7 +185,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -266,7 +211,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -291,7 +237,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -316,7 +263,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -326,20 +274,15 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Error",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            },
-                            {
-                                "package": "s",
-                                "name": "🔢",
-                                "arguments": []
-                            }
-                        ]
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -351,7 +294,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 },
@@ -361,20 +305,15 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Error",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            },
-                            {
-                                "package": "s",
-                                "name": "🔡",
-                                "arguments": []
-                            }
-                        ]
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -386,7 +325,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 }
@@ -405,15 +345,13 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            }
-                        ]
+                        "type": "NoReturn"
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -425,7 +363,8 @@
                                 "name": "📇",
                                 "arguments": []
                             },
-                            "name": "data"
+                            "name": "data",
+                            "escaping": false
                         }
                     ]
                 },
@@ -435,20 +374,15 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Error",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            },
-                            {
-                                "package": "s",
-                                "name": "📇",
-                                "arguments": []
-                            }
-                        ]
+                        "package": "s",
+                        "name": "📇",
+                        "arguments": []
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -460,7 +394,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "bytesToRead"
+                            "name": "bytesToRead",
+                            "escaping": false
                         }
                     ]
                 },
@@ -497,7 +432,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "position"
+                            "name": "position",
+                            "escaping": false
                         }
                     ]
                 },
@@ -538,8 +474,8 @@
                     "mutating": true,
                     "final": false,
                     "errorType": {
-                        "package": "files",
-                        "name": "🌧",
+                        "package": "s",
+                        "name": "🚧🔸↕",
                         "arguments": []
                     },
                     "genericParameters": [],
@@ -551,7 +487,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "message"
+                            "name": "message",
+                            "escaping": false
                         }
                     ]
                 },
@@ -562,8 +499,8 @@
                     "mutating": true,
                     "final": false,
                     "errorType": {
-                        "package": "files",
-                        "name": "🌧",
+                        "package": "s",
+                        "name": "🚧🔸↕",
                         "arguments": []
                     },
                     "genericParameters": [],
@@ -575,7 +512,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "message"
+                            "name": "message",
+                            "escaping": false
                         }
                     ]
                 }
@@ -587,15 +525,13 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Optional",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            }
-                        ]
+                        "type": "NoReturn"
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -607,7 +543,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -615,7 +552,8 @@
                                 "name": "📇",
                                 "arguments": []
                             },
-                            "name": "data"
+                            "name": "data",
+                            "escaping": false
                         }
                     ]
                 },
@@ -625,20 +563,15 @@
                     "unsafe": false,
                     "mutating": true,
                     "final": false,
+                    "errorType": {
+                        "package": "s",
+                        "name": "🚧🔸↕",
+                        "arguments": []
+                    },
                     "returnType": {
-                        "type": "Error",
-                        "arguments": [
-                            {
-                                "package": "files",
-                                "name": "🌧",
-                                "arguments": []
-                            },
-                            {
-                                "package": "s",
-                                "name": "📇",
-                                "arguments": []
-                            }
-                        ]
+                        "package": "s",
+                        "name": "📇",
+                        "arguments": []
                     },
                     "mood": "❗️",
                     "genericParameters": [],
@@ -650,7 +583,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "path"
+                            "name": "path",
+                            "escaping": false
                         }
                     ]
                 }

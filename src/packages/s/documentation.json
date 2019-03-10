@@ -41,7 +41,8 @@
                                 "name": "👌",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -66,7 +67,8 @@
                                 "name": "👌",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -91,7 +93,8 @@
                                 "name": "👌",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -155,7 +158,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -180,7 +184,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -205,7 +210,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -230,7 +236,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -255,7 +262,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -280,7 +288,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -305,7 +314,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -330,7 +340,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -355,7 +366,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -380,7 +392,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -405,7 +418,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -430,7 +444,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -455,7 +470,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -496,7 +512,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "n"
+                            "name": "n",
+                            "escaping": false
                         }
                     ]
                 },
@@ -521,7 +538,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "n"
+                            "name": "n",
+                            "escaping": false
                         }
                     ]
                 },
@@ -562,7 +580,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "base"
+                            "name": "base",
+                            "escaping": false
                         }
                     ]
                 },
@@ -651,7 +670,8 @@
                                 "type": "Literal",
                                 "name": "T"
                             },
-                            "name": "value"
+                            "name": "value",
+                            "escaping": true
                         },
                         {
                             "type": {
@@ -659,7 +679,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "offset"
+                            "name": "offset",
+                            "escaping": false
                         }
                     ]
                 },
@@ -692,7 +713,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "offset"
+                            "name": "offset",
+                            "escaping": false
                         }
                     ]
                 },
@@ -715,7 +737,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "newSize"
+                            "name": "newSize",
+                            "escaping": false
                         }
                     ]
                 },
@@ -746,7 +769,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "offset"
+                            "name": "offset",
+                            "escaping": false
                         }
                     ]
                 },
@@ -769,7 +793,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "destinationOffset"
+                            "name": "destinationOffset",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -777,7 +802,8 @@
                                 "name": "🧠",
                                 "arguments": []
                             },
-                            "name": "source"
+                            "name": "source",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -785,7 +811,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "sourceOffset"
+                            "name": "sourceOffset",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -793,7 +820,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "bytes"
+                            "name": "bytes",
+                            "escaping": false
                         }
                     ]
                 },
@@ -816,7 +844,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "byteValue"
+                            "name": "byteValue",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -824,7 +853,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "offset"
+                            "name": "offset",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -832,7 +862,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "bytes"
+                            "name": "bytes",
+                            "escaping": false
                         }
                     ]
                 },
@@ -857,7 +888,8 @@
                                 "name": "🧠",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -865,7 +897,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "bytes"
+                            "name": "bytes",
+                            "escaping": false
                         }
                     ]
                 }
@@ -886,7 +919,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "size"
+                            "name": "size",
+                            "escaping": false
                         }
                     ]
                 }
@@ -933,7 +967,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -958,7 +993,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -983,7 +1019,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1008,7 +1045,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1033,7 +1071,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1058,7 +1097,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1083,7 +1123,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1108,7 +1149,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1133,7 +1175,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1158,7 +1201,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1295,7 +1339,8 @@
                                 "name": "💯",
                                 "arguments": []
                             },
-                            "name": "exponent"
+                            "name": "exponent",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1432,7 +1477,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "precision"
+                            "name": "precision",
+                            "escaping": false
                         }
                     ]
                 }
@@ -1513,7 +1559,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1538,7 +1585,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1563,7 +1611,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1588,7 +1637,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1613,7 +1663,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1638,7 +1689,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1663,7 +1715,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1688,7 +1741,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1713,7 +1767,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1738,7 +1793,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1763,7 +1819,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1788,7 +1845,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1813,7 +1871,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1854,7 +1913,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "n"
+                            "name": "n",
+                            "escaping": false
                         }
                     ]
                 },
@@ -1879,7 +1939,8 @@
                                 "name": "💧",
                                 "arguments": []
                             },
-                            "name": "n"
+                            "name": "n",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2044,7 +2105,8 @@
                                 "type": "Literal",
                                 "name": "T"
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": true
                         }
                     ]
                 }
@@ -2087,7 +2149,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "index"
+                            "name": "index",
+                            "escaping": true
                         }
                     ]
                 },
@@ -2217,7 +2280,8 @@
                                     }
                                 ]
                             },
-                            "name": "iteratee"
+                            "name": "iteratee",
+                            "escaping": true
                         }
                     ]
                 }
@@ -2282,7 +2346,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "variableName"
+                            "name": "variableName",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2305,7 +2370,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "status"
+                            "name": "status",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2328,7 +2394,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "command"
+                            "name": "command",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2367,7 +2434,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "message"
+                            "name": "message",
+                            "escaping": false
                         }
                     ]
                 }
@@ -2425,7 +2493,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "n"
+                            "name": "n",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2484,7 +2553,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "start"
+                            "name": "start",
+                            "escaping": true
                         },
                         {
                             "type": {
@@ -2492,7 +2562,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "stop"
+                            "name": "stop",
+                            "escaping": true
                         }
                     ]
                 },
@@ -2511,7 +2582,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "start"
+                            "name": "start",
+                            "escaping": true
                         },
                         {
                             "type": {
@@ -2519,7 +2591,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "stop"
+                            "name": "stop",
+                            "escaping": true
                         },
                         {
                             "type": {
@@ -2527,7 +2600,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "step"
+                            "name": "step",
+                            "escaping": true
                         }
                     ]
                 }
@@ -2674,7 +2748,8 @@
                                     }
                                 ]
                             },
-                            "name": "iteratee"
+                            "name": "iteratee",
+                            "escaping": true
                         }
                     ]
                 }
@@ -2710,7 +2785,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "a"
+                            "name": "a",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -2718,7 +2794,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "b"
+                            "name": "b",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2849,7 +2926,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "b"
+                            "name": "b",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2874,7 +2952,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "b"
+                            "name": "b",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2899,7 +2978,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "from"
+                            "name": "from",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -2907,7 +2987,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "length"
+                            "name": "length",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2937,7 +3018,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "search"
+                            "name": "search",
+                            "escaping": false
                         }
                     ]
                 },
@@ -2967,7 +3049,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "search"
+                            "name": "search",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -2975,7 +3058,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "offset"
+                            "name": "offset",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3000,7 +3084,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "testString"
+                            "name": "testString",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3025,7 +3110,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "testString"
+                            "name": "testString",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3056,7 +3142,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "separator"
+                            "name": "separator",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3118,7 +3205,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "base"
+                            "name": "base",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3268,7 +3356,8 @@
                                 "name": "🧠",
                                 "arguments": []
                             },
-                            "name": "memory"
+                            "name": "memory",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -3276,7 +3365,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "count"
+                            "name": "count",
+                            "escaping": true
                         }
                     ]
                 },
@@ -3311,7 +3401,8 @@
                                     }
                                 ]
                             },
-                            "name": "list"
+                            "name": "list",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -3319,7 +3410,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "separator"
+                            "name": "separator",
+                            "escaping": false
                         }
                     ]
                 }
@@ -3353,7 +3445,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "string"
+                            "name": "string",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3432,7 +3525,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "string"
+                            "name": "string",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3451,7 +3545,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "capacity"
+                            "name": "capacity",
+                            "escaping": true
                         }
                     ]
                 }
@@ -3513,7 +3608,8 @@
                                 "type": "Literal",
                                 "name": "Element"
                             },
-                            "name": "item"
+                            "name": "item",
+                            "escaping": true
                         }
                     ]
                 },
@@ -3538,7 +3634,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "index"
+                            "name": "index",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3560,7 +3657,8 @@
                                 "type": "Literal",
                                 "name": "Element"
                             },
-                            "name": "value"
+                            "name": "value",
+                            "escaping": true
                         },
                         {
                             "type": {
@@ -3568,7 +3666,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "index"
+                            "name": "index",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3593,7 +3692,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "index"
+                            "name": "index",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3618,14 +3718,16 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "index"
+                            "name": "index",
+                            "escaping": false
                         },
                         {
                             "type": {
                                 "type": "Literal",
                                 "name": "Element"
                             },
-                            "name": "item"
+                            "name": "item",
+                            "escaping": true
                         }
                     ]
                 },
@@ -3669,7 +3771,8 @@
                                     }
                                 ]
                             },
-                            "name": "list"
+                            "name": "list",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3726,7 +3829,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "capacity"
+                            "name": "capacity",
+                            "escaping": true
                         }
                     ]
                 },
@@ -3762,12 +3866,7 @@
                         {
                             "type": {
                                 "type": "Callable",
-                                "arguments": [
-                                    {
-                                        "package": "s",
-                                        "name": "🔢",
-                                        "arguments": []
-                                    },
+                                "parameters": [
                                     {
                                         "type": "Literal",
                                         "name": "Element"
@@ -3776,9 +3875,15 @@
                                         "type": "Literal",
                                         "name": "Element"
                                     }
-                                ]
+                                ],
+                                "return": {
+                                    "package": "s",
+                                    "name": "🔢",
+                                    "arguments": []
+                                }
                             },
-                            "name": "comparator"
+                            "name": "comparator",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3827,18 +3932,19 @@
                         {
                             "type": {
                                 "type": "Callable",
-                                "arguments": [
-                                    {
-                                        "type": "Literal",
-                                        "name": "A"
-                                    },
+                                "parameters": [
                                     {
                                         "type": "Literal",
                                         "name": "Element"
                                     }
-                                ]
+                                ],
+                                "return": {
+                                    "type": "Literal",
+                                    "name": "A"
+                                }
                             },
-                            "name": "callback"
+                            "name": "callback",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3865,19 +3971,20 @@
                         {
                             "type": {
                                 "type": "Callable",
-                                "arguments": [
-                                    {
-                                        "package": "s",
-                                        "name": "👌",
-                                        "arguments": []
-                                    },
+                                "parameters": [
                                     {
                                         "type": "Literal",
                                         "name": "Element"
                                     }
-                                ]
+                                ],
+                                "return": {
+                                    "package": "s",
+                                    "name": "👌",
+                                    "arguments": []
+                                }
                             },
-                            "name": "callback"
+                            "name": "callback",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3915,7 +4022,8 @@
                                 "type": "Literal",
                                 "name": "A"
                             },
-                            "name": "value"
+                            "name": "value",
+                            "escaping": true
                         }
                     ]
                 },
@@ -3937,19 +4045,20 @@
                         {
                             "type": {
                                 "type": "Callable",
-                                "arguments": [
-                                    {
-                                        "package": "s",
-                                        "name": "👌",
-                                        "arguments": []
-                                    },
+                                "parameters": [
                                     {
                                         "type": "Literal",
                                         "name": "Element"
                                     }
-                                ]
+                                ],
+                                "return": {
+                                    "package": "s",
+                                    "name": "👌",
+                                    "arguments": []
+                                }
                             },
-                            "name": "callback"
+                            "name": "callback",
+                            "escaping": false
                         }
                     ]
                 },
@@ -3993,7 +4102,8 @@
                                     }
                                 ]
                             },
-                            "name": "other"
+                            "name": "other",
+                            "escaping": false
                         }
                     ]
                 },
@@ -4045,7 +4155,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "capacity"
+                            "name": "capacity",
+                            "escaping": true
                         }
                     ]
                 },
@@ -4063,7 +4174,8 @@
                                 "type": "Literal",
                                 "name": "Element"
                             },
-                            "name": "repeatedValue"
+                            "name": "repeatedValue",
+                            "escaping": true
                         },
                         {
                             "type": {
@@ -4071,7 +4183,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "count"
+                            "name": "count",
+                            "escaping": true
                         }
                     ]
                 }
@@ -4122,7 +4235,8 @@
                                 "type": "Literal",
                                 "name": "Element"
                             },
-                            "name": "item"
+                            "name": "item",
+                            "escaping": true
                         }
                     ]
                 },
@@ -4260,7 +4374,8 @@
                                 "name": "📇",
                                 "arguments": []
                             },
-                            "name": "b"
+                            "name": "b",
+                            "escaping": false
                         }
                     ]
                 },
@@ -4301,7 +4416,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "index"
+                            "name": "index",
+                            "escaping": false
                         }
                     ]
                 },
@@ -4347,7 +4463,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "from"
+                            "name": "from",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -4355,7 +4472,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "length"
+                            "name": "length",
+                            "escaping": true
                         }
                     ]
                 },
@@ -4385,7 +4503,8 @@
                                 "name": "📇",
                                 "arguments": []
                             },
-                            "name": "search"
+                            "name": "search",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -4393,7 +4512,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "offset"
+                            "name": "offset",
+                            "escaping": false
                         }
                     ]
                 },
@@ -4418,7 +4538,8 @@
                                 "name": "📇",
                                 "arguments": []
                             },
-                            "name": "b"
+                            "name": "b",
+                            "escaping": false
                         }
                     ]
                 },
@@ -4461,7 +4582,8 @@
                                 "name": "🧠",
                                 "arguments": []
                             },
-                            "name": "memory"
+                            "name": "memory",
+                            "escaping": false
                         },
                         {
                             "type": {
@@ -4469,7 +4591,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "count"
+                            "name": "count",
+                            "escaping": true
                         }
                     ]
                 }
@@ -4517,7 +4640,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "key"
+                            "name": "key",
+                            "escaping": false
                         }
                     ]
                 },
@@ -4540,7 +4664,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "key"
+                            "name": "key",
+                            "escaping": false
                         }
                     ]
                 },
@@ -4562,7 +4687,8 @@
                                 "type": "Literal",
                                 "name": "Element"
                             },
-                            "name": "value"
+                            "name": "value",
+                            "escaping": true
                         },
                         {
                             "type": {
@@ -4570,7 +4696,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "key"
+                            "name": "key",
+                            "escaping": true
                         }
                     ]
                 },
@@ -4633,7 +4760,8 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "key"
+                            "name": "key",
+                            "escaping": false
                         }
                     ]
                 },
@@ -4680,7 +4808,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "minCapacity"
+                            "name": "minCapacity",
+                            "escaping": false
                         }
                     ]
                 }
@@ -4706,7 +4835,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "n"
+                            "name": "n",
+                            "escaping": false
                         }
                     ]
                 }
@@ -4747,13 +4877,13 @@
                         {
                             "type": {
                                 "type": "Callable",
-                                "arguments": [
-                                    {
-                                        "type": "NoReturn"
-                                    }
-                                ]
+                                "parameters": [],
+                                "return": {
+                                    "type": "NoReturn"
+                                }
                             },
-                            "name": "callback"
+                            "name": "callback",
+                            "escaping": true
                         }
                     ]
                 }
@@ -4778,7 +4908,8 @@
                                 "name": "🔢",
                                 "arguments": []
                             },
-                            "name": "microseconds"
+                            "name": "microseconds",
+                            "escaping": false
                         }
                     ]
                 }
@@ -4850,6 +4981,112 @@
                 }
             ],
             "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🚧",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  General error superclass.\n\n  All errors that are raised must inherit from this class.\n",
+            "methods": [
+                {
+                    "name": "💬",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": true,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔡",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
+                },
+                {
+                    "name": "🤯",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": true,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "location",
+                            "escaping": false
+                        }
+                    ]
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "message",
+                            "escaping": true
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "final": false
+        },
+        {
+            "type": "Class",
+            "name": "🚧🔸↕",
+            "conformances": [],
+            "genericParameters": [],
+            "documentation": "\n  Input/output error.\n\n  An error raised when an input/output operation fails.\n",
+            "methods": [],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔡",
+                                "arguments": []
+                            },
+                            "name": "message",
+                            "escaping": true
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": [],
+            "superclass": {
+                "package": "s",
+                "name": "🚧",
+                "arguments": []
+            },
             "final": false
         }
     ]
