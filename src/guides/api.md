@@ -64,6 +64,9 @@ by the Emojicode compiler. The following table shows these requirements:
 | Value Type | Method | Pointer to Callee Value | as declared
 | Value Type | Initializer | Pointer to Initialized Value | `void`
 
+Additionally, an error-prone method or initializer takes a `runtime::Raiser*` as
+last argument.
+
 In order to be able to find the correct function signature, you’ll also need to
 map from Emojicode types to the proper C++ type. This table should help you:
 
@@ -396,6 +399,44 @@ The destructor cannot be directly implemented in C++.
 
 >!N The C++ destructor of a foreign class is not called by default when the
 >!N object is deleted!
+
+## Raising an Error
+
+An error-prone method or initializer takes a `runtime::Raiser*` as its last
+argument. For instance:
+
+```c++
+extern "C" Data* filesFileReadFile(runtime::ClassInfo*, String *path, runtime::Raiser *raiser) {
+    // ...
+}
+```
+
+`runtime::Raiser` only provides one method:
+
+```c++
+template <typename T>
+void raise(T *errorObj, const char *location)
+```
+
+It can be used to raise an error. The first argument must be an error object
+allocated by the usual `init` call. The second argument should describe
+the location where the error was raised. You must immediately return from the
+function after raising an error. The return value of the function will be
+ignored and can thus be an undefined value.
+
+>!H It is strongly recommended that you use the macros `EJC_RAISE` and
+>!H `EJC_RAISE_VOID` to raise errors, which also handle returning.
+
+```c++
+extern "C" Data* filesFileReadFile(runtime::ClassInfo*, String *path, runtime::Raiser *raiser) {
+    // ...
+    if (/* error condition */) {
+        EJC_RAISE(raiser, s::IOError::init());
+        // this line is unreachable as EJC_RAISE returns
+    }
+    // ...
+}
+```
 
 ## Can I Create a List or Dictionary from C++?
 
