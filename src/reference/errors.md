@@ -22,7 +22,7 @@ $error-type$-> 🚧 $type$
 ```
 
 The 🚧 identifier is immediately followed by the type of error that may be raised
-by the function. In the example bloew, the first and second declaration indicate
+by the function. In the example below, the first and second declaration indicate
 that the declared class method and initializer may raise input/output errors
 while the last method could raise any kind of error. This type is referred to as
 the error type.
