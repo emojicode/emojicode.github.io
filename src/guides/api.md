@@ -210,11 +210,11 @@ extern "C" runtime::Real sRealSin(runtime::Real *real)
 >!N Familiarize yourself with [Borrowing and Escaping Use](../reference/classes-valuetypes.html#borrowing-and-escaping-use).
 
 If you let a value escape in a method or initializer you implement in C++ it is
-crucial that you attribute the argument with 🛅. If you let the callee itself
-escape attribute the function with 🛅. Example:
+crucial that you attribute the argument with 🎍🥡. If you let the callee itself
+escape attribute the function with 🎍🥡. Example:
 
 ```
-🛅 🆕 🛅 callback 🍇🍉 📻 🔤sThreadNew🔤
+🎍🥡 🆕 🎍🥡 callback 🍇🍉 📻 🔤sThreadNew🔤
 ```
 
 ## Managing Memory
@@ -346,7 +346,7 @@ The class defines its initializer like this:
 
 ```c++
 🌍 📻 🐇 🧵 🍇
-  🆕 🛅 callback 🍇🍉 📻 🔤sThreadNew🔤
+  🆕 🎍🥡 callback 🍇🍉 📻 🔤sThreadNew🔤
 
   💭 ...
 🍉
@@ -379,9 +379,8 @@ initializer does.
 >!H Do not abuse foreign classes. If the class can be defined in Emojicode,
 >!H define it there (too).
 
-If your foreign class stores an object that requires destruction define a
-private method for destruction that you implement in C++. Then call that method
-from the destructor you define in C++:
+If your foreign class stores an object that requires destruction make sure to
+implement an appropriate deinitializer and call your C++ class’ destructor:
 
 ```c++
 extern "C" void sThreadDestruct(Thread *thread) {
@@ -389,13 +388,8 @@ extern "C" void sThreadDestruct(Thread *thread) {
 }
 ```
 ```
-♻️ 🍇
-  ♻️🐕❗️
-🍉
-
-🔒❗️♻️ 📻 🔤sThreadDestruct🔤
+♻️ 📻 🔤sThreadDestruct🔤
 ```
-The destructor cannot be directly implemented in C++.
 
 >!N The C++ destructor of a foreign class is not called by default when the
 >!N object is deleted!

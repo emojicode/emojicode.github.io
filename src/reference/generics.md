@@ -132,23 +132,21 @@ A generic protocol which you might use is 🔂.
 It takes one generic argument `Element` which determines the generic argument
 for the iterator (🍡) the 🍡 method must return.
 
-A class conforming to this protocol must pass a generic argument, like the
-string class does for example:
+## Disabling Generic Dynamism
+
+The decorator 🎍🛢 can be used with a class or value type to disable generic
+dynamism, like in the example below.
 
 ```
-🐇 🌳🐚Element⚪🍆️ 🍇
-  🐊 🍡🐚Element🍆
-
+🎍🛢 🔏 🐇 🍧🐚Element ⚪🍆️ 🍇
   💭 ...
 🍉
-
-🐋 🔡 🍇
-  🐊 🔂🐚🍬🔣
-
-  💭 ...
-
-  ❗️ 🍡 ➡️ 🌳🐚🍬🔣🍆 🍇
-    💭 ...
-  🍉
-🍇
 ```
+
+Every time you instantiate a generic class, the types you provided as generic
+arguments will be stored in the newly created instance, which enables casting
+with generics, for example. This, however, requires additional time and space.
+In special cases it can thus be useful to disable this feature.
+
+If you disable generic dynamism, casting to this type is no longer possible.
+

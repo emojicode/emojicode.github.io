@@ -1,4 +1,4 @@
 {
-  "default": ["s", "files", "sockets", "testtube"],
+  "default": ["s", "files", "sockets", "testtube", "json"],
   "external": []
 }

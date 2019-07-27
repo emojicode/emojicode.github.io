@@ -47,58 +47,6 @@
                     ]
                 },
                 {
-                    "name": "🤝",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "👌",
-                        "arguments": []
-                    },
-                    "mood": "",
-                    "genericParameters": [],
-                    "documentation": " Logical and. Returns true if both, this instance and *other*, are true. ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "👌",
-                                "arguments": []
-                            },
-                            "name": "other",
-                            "escaping": false
-                        }
-                    ]
-                },
-                {
-                    "name": "👐",
-                    "accessLevel": "🔓",
-                    "unsafe": false,
-                    "mutating": false,
-                    "final": false,
-                    "returnType": {
-                        "package": "s",
-                        "name": "👌",
-                        "arguments": []
-                    },
-                    "mood": "",
-                    "genericParameters": [],
-                    "documentation": " Logical or. Returns true if this instance or *other* or both are true. ",
-                    "parameters": [
-                        {
-                            "type": {
-                                "package": "s",
-                                "name": "👌",
-                                "arguments": []
-                            },
-                            "name": "other",
-                            "escaping": false
-                        }
-                    ]
-                },
-                {
                     "name": "❎",
                     "accessLevel": "🔓",
                     "unsafe": false,
@@ -722,7 +670,7 @@
                     "name": "🏗",
                     "accessLevel": "🔓",
                     "unsafe": true,
-                    "mutating": false,
+                    "mutating": true,
                     "final": false,
                     "returnType": {
                         "type": "NoReturn"
@@ -1368,7 +1316,7 @@
                     "final": false,
                     "returnType": {
                         "package": "s",
-                        "name": "🔢",
+                        "name": "💯",
                         "arguments": []
                     },
                     "mood": "❗️",
@@ -1384,7 +1332,7 @@
                     "final": false,
                     "returnType": {
                         "package": "s",
-                        "name": "🔢",
+                        "name": "💯",
                         "arguments": []
                     },
                     "mood": "❗️",
@@ -1400,7 +1348,7 @@
                     "final": false,
                     "returnType": {
                         "package": "s",
-                        "name": "🔢",
+                        "name": "💯",
                         "arguments": []
                     },
                     "mood": "❗️",
@@ -1438,6 +1386,22 @@
                     "mood": "❗️",
                     "genericParameters": [],
                     "documentation": "\n    Returns the natural (base ℇ) logarithm of this 💯.\n  ",
+                    "parameters": []
+                },
+                {
+                    "name": "🥏",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "💯",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the base 10 logarithm of this 💯.\n  ",
                     "parameters": []
                 },
                 {
@@ -1481,6 +1445,22 @@
                             "escaping": false
                         }
                     ]
+                },
+                {
+                    "name": "🔢",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "🔢",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns the 🔢 representation of this 💯.\n  ",
+                    "parameters": []
                 }
             ],
             "initializers": [],
@@ -2814,6 +2794,19 @@
                     "genericParameters": [],
                     "documentation": "\n    Generates a real, where reals are uniformly distributed on the interval\n    `[0, 1)`.\n  ",
                     "parameters": []
+                },
+                {
+                    "name": "deinit",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
                 }
             ],
             "initializers": [
@@ -3446,6 +3439,98 @@
                                 "arguments": []
                             },
                             "name": "string",
+                            "escaping": false
+                        }
+                    ]
+                },
+                {
+                    "name": "🐺",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Copies `bytes` bytes from `offset` of `strdata` to the end of the string.\n    The data must be valid UTF-8 data or the behavior is undefined.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🧠",
+                                "arguments": []
+                            },
+                            "name": "strdata",
+                            "escaping": false
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "offset",
+                            "escaping": false
+                        },
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "bytes",
+                            "escaping": false
+                        }
+                    ]
+                },
+                {
+                    "name": "🐻🔸💧",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Appends a single byte to the end of the string. The caller is reponsible\n    for ensuring that the resulting string is still valid UTF-8 or undefined\n    behavior is called.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "💧",
+                                "arguments": []
+                            },
+                            "name": "byte",
+                            "escaping": true
+                        }
+                    ]
+                },
+                {
+                    "name": "🐻🔸🔣",
+                    "accessLevel": "🔓",
+                    "unsafe": true,
+                    "mutating": true,
+                    "final": false,
+                    "returnType": {
+                        "package": "s",
+                        "name": "👌",
+                        "arguments": []
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Appends a single codepoint to the end of the string.\n    If the codepoint is not valid, the method returns 👎 and the sting builder\n    is not modified.\n  ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "package": "s",
+                                "name": "🔢",
+                                "arguments": []
+                            },
+                            "name": "codepoint",
                             "escaping": false
                         }
                     ]
@@ -4613,7 +4698,7 @@
                     }
                 }
             ],
-            "documentation": "\n  Dictionary, holding key value pairs.\n\n  Dictionaries allow you to associate keys with values. 🍯 is implemented as a\n  hash table and is `O(1)` on average and `O(n)` in worth case.\n\n  🍯 is a value type. This means that copies of 🍯 are independent:\n\n  ```\n  🍯 🔤Jane🔤 45 🔤Sharon🔤 22 🔤Bob🔤 64 🍆 ➡️ ages\n  ages ➡️ 🖍🆕agesCopy\n  🐷 agesCopy 🔤Jane🔤 46❗️\n  ```\n\n  In the above example the dictionary in `ages` will still contain 45 for the\n  key `🔤Jane🔤` as only `agesCopy` was modified.\n\n  To learn more about dictionary literals [see the Language Reference.](../../reference/the-s-package.html#-dictionaries)\n",
+            "documentation": "\n  Dictionary, holding key value pairs.\n\n  Dictionaries allow you to associate keys with values. 🍯 is implemented as a\n  hash table and is `O(1)` on average and `O(n)` in worth case.\n\n  🍯 is a value type. This means that copies of 🍯 are independent:\n\n  ```\n  🍯 🔤Jane🔤 45 🔤Sharon🔤 22 🔤Bob🔤 64 🍆 ➡️ ages\n  ages ➡️ 🖍🆕agesCopy\n  46 ➡️ 🐽agesCopy 🔤Jane🔤❗️\n  ```\n\n  In the above example the dictionary in `ages` will still contain 45 for the\n  key `🔤Jane🔤` as only `agesCopy` was modified.\n\n  To learn more about dictionary literals [see the Language Reference.](../../reference/the-s-package.html#-dictionaries)\n",
             "methods": [
                 {
                     "name": "🐽",
@@ -4862,6 +4947,19 @@
                     "genericParameters": [],
                     "documentation": "\n    Blocks the calling thread until this thread has finished work.\n  ",
                     "parameters": []
+                },
+                {
+                    "name": "deinit",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
                 }
             ],
             "initializers": [
@@ -4966,6 +5064,19 @@
                     "genericParameters": [],
                     "documentation": "\n    Attempts to lock the mutex and returns immediately. Returns 👍 if the mutex\n    could be locked.\n  ",
                     "parameters": []
+                },
+                {
+                    "name": "deinit",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "parameters": []
                 }
             ],
             "initializers": [
@@ -4988,7 +5099,7 @@
             "name": "🚧",
             "conformances": [],
             "genericParameters": [],
-            "documentation": "\n  General error superclass.\n\n  All errors that are raised must inherit from this class.\n",
+            "documentation": "\n  General error superclass.\n\n  All errors that are raised must inherit from this class. An error has always\n  an associated error message that should provide more precise information.\n",
             "methods": [
                 {
                     "name": "💬",
@@ -5003,6 +5114,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
+                    "documentation": "\n    Returns the error message.\n  ",
                     "parameters": []
                 },
                 {
@@ -5016,6 +5128,7 @@
                     },
                     "mood": "❗️",
                     "genericParameters": [],
+                    "documentation": "\n    Called at runtime when 🍺 detects an unhandled error. Causes the program\n    to panic. `location` is the location included in the error message.\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -5037,6 +5150,7 @@
                     "mutating": true,
                     "final": false,
                     "genericParameters": [],
+                    "documentation": "\n    Creates a 🚧 instance whose message is `message`.\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -5068,6 +5182,7 @@
                     "mutating": true,
                     "final": false,
                     "genericParameters": [],
+                    "documentation": "\n    Creates a 🚧🔸↕️ instance whose message is `message`.\n  ",
                     "parameters": [
                         {
                             "type": {
@@ -5088,6 +5203,65 @@
                 "arguments": []
             },
             "final": false
+        },
+        {
+            "type": "Value Type",
+            "name": "📶",
+            "conformances": [],
+            "genericParameters": [
+                {
+                    "name": "T",
+                    "constraint": {
+                        "type": "Literal",
+                        "name": "🔵"
+                    }
+                }
+            ],
+            "documentation": "\n  Weak reference.\n\n  To read more about weak references see\n  [Memory management](https://www.emojicode.org/docs/reference/memory.html).\n",
+            "methods": [
+                {
+                    "name": "🐽",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "Optional",
+                        "arguments": [
+                            {
+                                "type": "Literal",
+                                "name": "T"
+                            }
+                        ]
+                    },
+                    "mood": "❗️",
+                    "genericParameters": [],
+                    "documentation": "\n    Returns a strong reference to the object if it has not been deallocated.\n    Otherwise no value is returned.\n  ",
+                    "parameters": []
+                }
+            ],
+            "initializers": [
+                {
+                    "name": "🆕",
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": true,
+                    "final": false,
+                    "genericParameters": [],
+                    "documentation": " Creates a weak reference to *object*. ",
+                    "parameters": [
+                        {
+                            "type": {
+                                "type": "Literal",
+                                "name": "T"
+                            },
+                            "name": "object",
+                            "escaping": true
+                        }
+                    ]
+                }
+            ],
+            "typeMethods": []
         }
     ]
 }

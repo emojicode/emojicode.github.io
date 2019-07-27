@@ -62,7 +62,7 @@ type similar to a method.
 Formally, its syntax is:
 
 ```syntax
-$closure$-> 🍇 [🛅] [$closure-parameters$] [$return-type$] $statements$ 🍉
+$closure$-> 🍇 [🎍🥡] [$closure-parameters$] [$return-type$] $statements$ 🍉
 $closure-parameters$-> $variable$ $type$ [$closure-parameters$]
 ```
 
@@ -111,11 +111,11 @@ variable. Much the same, you can capture the this context in a closure.
 Actually, however, we need to distinguish between escaping and non-escaping
 closures. By default, every closure is non-escaping and cannot be used as an
 escaping value. To define an escaping closure the 🍇 must be immediately
-followed by 🛅. When creating a thread, for instance, an escaping closure is
+followed by 🎍🥡. When creating a thread, for instance, an escaping closure is
 required:
 
 ```
-🆕🧵🆕 🍇🛅
+🆕🧵🆕 🍇🎍🥡
 
 🍉❗️
 ```
@@ -161,7 +161,7 @@ and instance variable:
   🆕 🍼 name 🔡 🍇🍉
 
   ❗️ 🛍 title 🔡 ➡️ 🍇🔡🍉 🍇
-    ↩️ 🍇🛅 a 🔡  💭 Returning lets the value escape
+    ↩️ 🍇🎍🥡 a 🔡  💭 Returning lets the value escape
       🍪 title 🔤 🔤 a 🍪 ➡️ 🖍name
     🍉
   🍉

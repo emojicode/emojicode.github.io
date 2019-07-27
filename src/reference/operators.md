@@ -56,6 +56,7 @@ In order to have well-defined code, there is a clearly defined order in which
 operators are evaluated, which is as follows. Operators at top at evaluated
 first.
 
+1. 🔲, ⬛, 🔺, ⁉️, 🍺
 - 🚮, ➗, ✖️
 - ➖, ➕
 - 👈, 👉
@@ -66,6 +67,15 @@ first.
 - 💢
 - 🤝
 - 👐
+
+## Short-Circuiting with 🤝 and 👐
+
+The logical and operator 🤝 and the logical or operator 👐 are short-circuited.
+This means that 🤝 will only evaluate its right-hand side if the left was true.
+👐, on the opposite, only evaluates the right-hand side if the left was false.
+
+Due to this special behavior 🤝 and 👐 cannot be defined for any other type
+than 👌.
 
 ## Defining Operations for Custom Types
 
@@ -92,4 +102,4 @@ they are still two different object not sharing the same memory location. To
 determine equality use 😛 if available.
 
 😜 returns true if the result of both expression are references to the same
-memory location.
+memory location. To avoid confusion it cannot be customly defined.

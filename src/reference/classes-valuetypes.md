@@ -128,13 +128,13 @@ We have summarized the syntax here as it is a great deal of definitions and
 we didn’t want to clutter the previous sections.
 
 ```syntax
-$type-definition$-> [$documentation-comment$] [🌍] [🔏] [📻] $type-definition-main$
+$type-definition$-> [$documentation-comment$] [🌍] [🎍🛢] [🔏] [📻] $type-definition-main$
 $type-definition-main$-> $class$ | $value-type$ | $protocol$ | $enum$
 $class$-> 🐇 $type-identifier$ [$generic-parameters$] [$superclass$] $type-body$
 $type-body$-> 🍇 $type-body-declarations$ 🍉
 $type-body-declarations$-> $type-body-declaration$ | $type-body-declaration$ $type-body-declarations$
 $type-body-declaration$-> $type-body-attributes$ $type-body-declaration-main$
-$type-body-attributes$-> [$documentation-comment$] [🥯] [⚠️] [🔏] [✒️] [🐇] [☣️] [🖍] [🔑] [🛅] [$access-level$]
+$type-body-attributes$-> [$documentation-comment$] [🥯] [⚠️] [🔏] [✒️] [🐇] [☣️] [🖍] [🔑] [🎍🥡] [$access-level$]
 $type-body-declaration-main$-> $instance-variable-declaration$ | $method$ | $initializer$
 $type-body-declaration-main$-> $protocol-conformance$ | $enum-value$
 $type-body-declaration-main$-> $deinitializer$
@@ -142,9 +142,9 @@ $instance-variable-declaration$-> $declaration$ [⬅️ $expression$]
 $superclass$-> $type$
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
 $initializer$-> 🆕 [$initializer-emoji-id$] [$init-parameters$] [$error-type$] $body$
-$initializer-emoji-id$-> --🛅 --🍼 --📻 $emoji-id$
+$initializer-emoji-id$-> --🍼 --📻 $emoji-id$
 $init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
-$init-parameter$-> [🛅] [🍼] $variable$ $type$
+$init-parameter$-> [🎍🥡] [🍼] $variable$ $type$
 $body$-> $block$ | $external-link-name$
 $access-level$-> 🔓 | 🔒 | 🔐
 ```
@@ -289,7 +289,7 @@ $method$-> $identification$ [$generic-parameters$] [$parameters$] [$return-type$
 $identification$-> $mood$ $emoji-id$ | $binary-operator$
 $mood$-> ❗️ | ❓ | ➡️
 $parameters$-> $parameter$ | $parameter$ $parameters$
-$parameter$-> [🛅] $variable$ $type$
+$parameter$-> [🎍🥡] $variable$ $type$
 $return-type$-> ➡️ $type$
 ```
 
@@ -423,6 +423,13 @@ instance which might access instance variable that had not been initialized yet.
 
 ```syntax
 $this$-> 🐕
+```
+
+Note that when you want to call a method on 🐕 that does not take any arguments
+you can omit 🐕:
+
+```
+🙋❗
 ```
 
 ## Assignable Methods
@@ -711,18 +718,18 @@ Simply put, there are four ways in which a value can escape:
 When compiling, the Emojicode compiler analyses all methods to
 determine whether they just borrow a value or let it escape. If you generate
 an interface file for a package, you can see all escaping parameters and methods
-annotated with 🛅. As an example, take a look at 🍨’s 🐻:
+annotated with 🎍🥡. As an example, take a look at 🍨’s 🐻:
 
 ```
 🌍 🕊 🍨🐚Element ⚪️ 🍆🍇
   📗 Appends `item` to the end of the list in `O(1)`. 📗
-  🖍 ❗️ 🐻 🛅 item Element
+  🖍 ❗️ 🐻 🎍🥡 item Element
 🍉
 ```
 
 Obviously, appending a value to a list causes the value to escape, which the
-compiler correctly determined and annotated the parameter with 🛅.
+compiler correctly determined and annotated the parameter with 🎍🥡.
 
-In principle, you can manually annotate parameters and methods with 🛅, but
+In principle, you can manually annotate parameters and methods with 🎍🥡, but
 unless you build a package with methods implemented in another language, there
 is no reason to do so.

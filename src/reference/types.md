@@ -118,6 +118,11 @@ You cannot call any methods on ⚪ and you cast to ⚪ at run-time.
 All instances of classes are compatible to 🔵 (someobject), but value type
 instances are not.
 
+### ◼️ No Return
+
+◼️ represents the return type of a method or closure that returns nothing.
+It has no use other than that.
+
 ## 🔲 Type Casting
 
 Type casting is a way to determine whether a value is of a given type at
@@ -133,11 +138,14 @@ $cast$-> 🔲 $expression$ $type-expr$
 *value* is returned as *type*. If *value* can’t be casted to *type* no value
 is returned. 🔲 therefore returns an optional.
 
-Don’t confuse type casting with type conversion. You can’t cast 🔢 to
-💯. In such a case you would have to use a suitable conversion
-method.
+```
+🔲 txt 🔡  💭 Tries to cast txt to 🔡
+🔲 a 🐟  💭 Tries to cast a to 🐟
+🔲 b 🥠🐚🥞🐚🦑🐚🍬🥞🐚🔡🍆🍆🍆🔢💯🍆  💭 Tries to cast b to 🥠🐚🥞🐚🦑🐚🍬🥞🐚🔡🍆🍆🍆🔢💯🍆
+```
 
->!N Type Casting may work incorrectly with generics in Emojicode 0.7.
+Don’t confuse type casting with type conversion. You can’t cast 🔢 to
+💯. You need to use a suitable conversion method instead.
 
 ## ⚖️ Size Of Type Instance
 
@@ -158,7 +166,7 @@ The following, for example, prints the size of an integer.
 
 ```syntax
 $type-expr$-> ⚫️ | $type-from-expr$ | $type$ | $this$
-$type$-> [🍬] [✴️] $type-main$ | 🚨 $type$ $type$ | ⚪
+$type$-> [🍬] [✴️] $type-main$ | 🚨 $type$ $type$ | ⚪ | ◼️
 $type-main$-> $variable$ | $callable-type$ | $type-identifier$ $generic-arguments$
 $type-main$-> 🍱 $types$ 🍱 | 🔵 | $type-value$
 $type-identifier$-> 🔶 $type-emoji$ $type-emoji$ | $type-emoji$

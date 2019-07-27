@@ -24,10 +24,10 @@ The ↪️ statement is very important. It allows for conditional execution of a
 code block. The whole syntax is:
 
 ```syntax
-$if$-> ↪️ $condition$ $block$ [$else-ifs$] [$else$]
+$if$-> ↪️ $condition$ $decorator$ $block$ [$else-ifs$] [$else$]
 $else-ifs$-> $else-if$ $else-ifs$ | $else-if$
-$else-if$-> 🙅‍↪️ $condition$ $block$
-$else$-> 🙅‍ $block$
+$else-if$-> 🙅‍↪️ $condition$ $decorator$ $block$
+$else$-> 🙅‍ $decorator$ $block$
 $condition$-> $expression$ | $assignment$
 ```
 
@@ -155,3 +155,25 @@ For example, this program will infinitely print “It goes on and on and on”.
 ```
 
 Due to the ease of use of the 🔂 statement 🔁 is only used very seldom.
+
+## 🎍🐌 🎍🏎 Branch Speed
+
+>!H Don’t bother adding these decorators. The effects are minimal and only
+>!H useful in very specific cases. If you used improperly they might even
+>!H harm performance.
+
+The decorators 🎍🐌 (slow) and 🎍🏎 (fast) allow you to specify to the compiler
+which branches in an ↪️ will be slow or fast. This can enable better
+opitmizations in performance sensitive code.
+
+The example below shows an if statement whose only branch has been marked as
+slow:
+
+```
+↪️ size 🙌 count 🎍🐌🍇
+  size ⬅️✖️ 2
+  ☣️ 🍇
+    🏗 data size✖️⚖️Element❗️
+  🍉
+🍉
+```
