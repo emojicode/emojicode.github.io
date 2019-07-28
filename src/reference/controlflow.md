@@ -159,7 +159,7 @@ Due to the ease of use of the 🔂 statement 🔁 is only used very seldom.
 ## 🎍🐌 🎍🏎 Branch Speed
 
 >!H Don’t bother adding these decorators. The effects are minimal and only
->!H useful in very specific cases. If you used improperly they might even
+>!H useful in very specific cases. If used improperly they might even
 >!H harm performance.
 
 The decorators 🎍🐌 (slow) and 🎍🏎 (fast) allow you to specify to the compiler

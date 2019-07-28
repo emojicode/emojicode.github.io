@@ -52,9 +52,8 @@ and the result will be 10.
 We have seen before that Emojicode knows that it must evaluate the ✖️  operation
 before the ➕ operation. This knowledge is called *operator precedence.*
 
-In order to have well-defined code, there is a clearly defined order in which
-operators are evaluated, which is as follows. Operators at top at evaluated
-first.
+The order in which operators are evaluated is clearly defined.
+Operators at top are evaluated first.
 
 1. 🔲, ⬛, 🔺, ⁉️, 🍺
 - 🚮, ➗, ✖️

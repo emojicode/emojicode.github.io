@@ -13,7 +13,7 @@ belongs to a package.
 The object of packages is to provide an easy way of reusing code as well as
 allowing the programmer to divide programs into logical units.
 
-Each package has its own set namespaces. If you define or
+Each package has its own set of namespaces. If you define or
 import types in one package, this types will not be available in other packages
 without explicitly exporting and importing them.
 
@@ -37,8 +37,7 @@ see [Appendix: The Emojicode Compiler](compiler.html).
 If you import a package, all types that were exported from the imported package
 are made available in the importing package. The types will be added to the
 provided namespace. If this would cause a naming collision the compiler will
-emit an error. It’s also important to note, that each package has individual
-namespaces.
+emit an error.
 
 The example below imports the `files` package into the default namespace 🏠.
 The progam then uses the class 📄 which was imported from the
@@ -95,8 +94,8 @@ emojicodec -p catsimulator main.emojic
 
 If you run this command, the compiler will not create an executable binary, but
 an archive (named `libcatsimulator.a` in our example) and an interface file
-called `interface.emojii`. The interface file describes all exported types and
-their public and protected methods and initializers is a subset of Emojicode.
+called `interface.emojii`. The interface file describes your package in a
+special subset of Emojicode.
 When the compiler tries to import a package it looks for this interface file to
 determine the interfaces of the package. It is crucial that you not modify this
 file in any way.

@@ -32,7 +32,7 @@ whose method returned the reference was mutated.
 
 References cannot be copied. Assigning a reference to a variable immediately
 causes the reference to be dereferenced and a copy to be stored into the
-variable. The following program will crash therefore:
+variable. The following program will panic therefore:
 
 ```!
 🏁🍇
@@ -69,7 +69,7 @@ return a reference to an instance variable, like in the example below:
 ```
 
 You cannot return a reference to value type in a local variable or to a
-temporary object, which clearly contradicts the purporse of references.
+temporary object, which clearly contradicts the purpose of references.
 
 ## Forwarding References
 
@@ -77,7 +77,7 @@ Sometimes it is necessary to return a reference, that was returned from another
 function.
 
 This cannot be considered a safe operation, though. Consider the following
-example that would lead to a crash if allowed:
+example that would lead to undefined behavior if allowed:
 
 ```!
 🕊 🐭 🍇
