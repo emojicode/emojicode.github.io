@@ -97,11 +97,15 @@ intializers of a class can be used the same way as the ones of the superclass â€
 a main characteristic of object orientation. These promises are:
 
 - The method or initializer of the subclass must take the same number of
-  arguments.
+  parameters.
 - The return type of the method or initializer of the subclass must be the
   same or a subtype of the return type of the overriden method or intializer.
-- The arguments of the method or initializer of the subclass must be of the same
+- The parameters of the method or initializer of the subclass must be of the same
   type or a super type of the argument types of the overriden method or
   intializer.
 - The method or initializer of the subclass must have the same accessibility
   or be more accessible.
+- If the super method or initializer is not escaping, the overriding method or
+  initializer may not be escaping.
+- If a parameter of the overriding method or initializer is escaping, so must
+  be the respective parameter of the super method or initializer.
