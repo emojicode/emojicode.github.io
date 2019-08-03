@@ -152,7 +152,7 @@ the closure, which in our case was “DARTH VADER”. This does not work with an
 escaping closure.
 
 The following example demonstrates capturing the this context and modifying
-and instance variable:
+an instance variable:
 
 ```
 🐇 🕵 🍇
