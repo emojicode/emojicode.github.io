@@ -86,7 +86,7 @@ There are only three numeric types in Emojicode:
 - 🔢 represents integer in the interval [-2<sup>63</sup>+1,
 2<sup>63</sup>-1].
 - 💯 represents real numbers (numbers with decimal place).
-- 💧 represents bytes, which are integers in the range of [-127,127] normally.
+- 💧 represents bytes, which are integers in the range of [-128,127] normally.
 
 The numeric literals we have seen above are converted to an appropriate type
 in accordance with [Type Expectations](types.html#type-expectations). This means
