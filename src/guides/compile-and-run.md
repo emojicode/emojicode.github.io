@@ -110,11 +110,12 @@ You should see `Hey!`. If that wasn’t impressive enough, let’s try something
 more advanced. Let us print a random greeting.
 
 As it turns out, this is rather simple as the list offers a method 🐹 that
-shuffles it. All we need to do is:
+shuffles it. After making `list` a mutable variable, all we need to call
+the method is:
 
 ```
 🏁 🍇
-  🍨 🔤Hey!🔤 🔤Hi!🔤 🔤Howdy!🔤 🔤Aloha!🔤 🍆 ➡️ list
+  🍨 🔤Hey!🔤 🔤Hi!🔤 🔤Howdy!🔤 🔤Aloha!🔤 🍆 ➡️ 🖍️🆕list
   🐹 list❗️
   😀 🐽list 0❗️❗️
 🍉
