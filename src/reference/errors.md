@@ -4,7 +4,7 @@ Proper mechanisms to handle errors are an integral part of modern programming
 languages. Being a modern language, Emojicode provides a sophisticated but
 light-weight way to handle errors.
 
-## Error-Proness
+## Error-Proneness
 
 Emojicode supports error handling for any kind of method, initializer or
 closure.
@@ -14,7 +14,7 @@ For instnace, the class 🚧🔸↕️ is used to represent errors that occur du
 input/output operations, such as when reading a file.
 
 In case a method, initializer or closure may fail, it should be declared as
-error-prone. Error-proness is indicated using the identifier 🚧 directly before
+error-prone. Error-proneness is indicated using the identifier 🚧 directly before
 the function’s body.
 
 ```syntax

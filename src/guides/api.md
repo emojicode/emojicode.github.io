@@ -65,7 +65,7 @@ by the Emojicode compiler. The following table shows these requirements:
 | Value Type | Initializer | Pointer to Initialized Value | `void`
 
 Additionally, an error-prone method or initializer takes a `runtime::Raiser*` as
-last argument.
+the last argument.
 
 In order to be able to find the correct function signature, you’ll also need to
 map from Emojicode types to the proper C++ type. This table should help you:

@@ -106,7 +106,7 @@ Let’s take a look at this example:
 
 Running the above code will print `LUKE`. In the above example the value `var`
 was declared and assigned outside the closure. This is called a captured
-variable. Much the same, you can capture the this context in a closure.
+variable. Much the same, you can capture the 🐕 context in a closure.
 
 Actually, however, we need to distinguish between escaping and non-escaping
 closures. By default, every closure is non-escaping and cannot be used as an
@@ -120,8 +120,9 @@ required:
 🍉❗️
 ```
 
-Escaping closures like non-escaping closures can capture variables. However,
-in escaping closures captured variables are constant. In non-escaping closures,
+Escaping closures can capture variables, just like non-escaping closures.
+However, in escaping closures, the captured variables are constant.
+In non-escaping closures,
 the captured variables can be modified, as seen in this example:
 
 ```
@@ -151,7 +152,7 @@ DARTH VADER
 the closure, which in our case was “DARTH VADER”. This does not work with an
 escaping closure.
 
-The following example demonstrates capturing the this context and modifying
+The following example demonstrates capturing the 🐕 context and modifying
 an instance variable:
 
 ```
@@ -175,8 +176,8 @@ an instance variable:
 🍉
 ```
 
-Note that you can capture the object context of a class type in non-escaping as
-well as in escaping closures and also modify its instance variables. The context
+Note that you can capture the object context of a class type in both non-escaping
+and escaping closures and also modify its instance variables. The context
 of value types and enums, though, can only be captured in non-escaping closures.
 Thus the above sample would not compile if 🕵 was a value type.
 

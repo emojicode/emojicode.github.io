@@ -7,8 +7,8 @@ great way to avoid code duplication.
 
 ## Defining a Generic Type
 
-To define a generic class or value type provide generic parameters after
-the name of the type. A generic parameter consits of a name, which can then be
+To define a generic class or value type, provide generic parameters after
+the name of the type. A generic parameter consists of a name, which can then be
 used instead of a type inside the class or value type, and a type constraint.
 
 ```syntax
@@ -41,7 +41,7 @@ The following example demonstrates how to instantiate a generic class:
 ### Type Constraint
 
 The type constraint constrains which types can be supplied as an arguments for
-a generic type parameter. Type contstraints are useful as they allow you to
+a generic type parameter. Type constraints are useful as they allow you to
 treat values of a generic type as if they were an instance of the type
 constraint.
 
@@ -73,7 +73,7 @@ same arguments. So `🍨🐚🔡🍆` is only compatible to `🍨🐚🔡🍆` b
 
 ## Generic Methods and Intializers
 
-It’s also possible to define a generic method, type method or intializer. A such
+It’s also possible to define a generic method, type method or intializer. Such a
 method, type method or intializer takes generic arguments which then can be used
 as argument types, as return types or as types in the body.
 
