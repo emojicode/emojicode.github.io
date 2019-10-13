@@ -146,3 +146,82 @@ Fish deinit!
 ```
 
 You can see that the 💳 is not immediately destroyed because we copied it into a variable. The variable is destroyed at the end of the scope, so is the  💳 in it. Hence we first see 💛 and then `Fish deinit!`.
+
+## Weak References
+
+In the case of a circular reference, automatic reference counting cannot
+detect objects that should be deleted. A circular reference occurs if
+objects point at each other in a circle.
+
+Circular references can be worked around by so called weak references. Weak
+references are not taken into account when counting the references left to an
+object and thus allow breaking up circular references.
+
+Consider this program as an example:
+
+```
+🐇 🌍 🍇
+  🖍🆕 moon 🌕
+
+  🆕 🍼 moon 🌕 🍇
+    🐕 ➡️ 🌍moon❗️
+  🍉
+
+  ♻️ 🍇
+    😀 🔤Earth deinit🔤❗️
+  🍉
+🍉
+
+🐇 🌕 🍇
+  🖍🆕 earth 🍬🌍
+
+  🆕 🍇🍉
+
+  ➡️🌍 new_earth 🌍 🍇
+    new_earth ➡️ 🖍earth
+  🍉
+
+  ♻️ 🍇
+    😀 🔤Moon deinit🔤❗️
+  🍉
+🍉
+
+🏁🍇
+  🆕🌍🆕 🆕🌕🆕❗️❗️
+🍉
+```
+
+When run, the program will exit without ever printing “Earth deinit” or “Moon
+deinit” as the 🌍 and 🌕 instance a pointer at each other. Neither of them
+can be deleted as both have a reference count of one.
+
+The solution is using a weak reference in one of the classes:
+
+```
+🐇 🌕 🍇
+  🖍🆕 earth 🍬📶🐚🌍🍆
+
+  🆕 🍇🍉
+
+  ➡️🌍 new_earth 🌍 🍇
+    🆕📶🆕new_earth❗️ ➡️ 🖍earth
+  🍉
+
+  ♻️ 🍇
+    😀 🔤Moon deinit🔤❗️
+  🍉
+🍉
+```
+
+In the above program the reference from the moon back to the earth does not
+count when determining whether the earth instance can be deleted.
+
+The program prints:
+
+```
+Earth deinit
+Moon deinit
+```
+
+Weak references are part of the s package. See the [package documentation](../packages/s/1f4f6.html) to
+learn more about their usage.
