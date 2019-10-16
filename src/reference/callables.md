@@ -161,6 +161,10 @@ an instance variable:
 
   🆕 🍼 name 🔡 🍇🍉
 
+  ❓ 📛 ➡️ 🔡 🍇
+    ↩️ name
+  🍉
+
   ❗️ 🛍 title 🔡 ➡️ 🍇🔡🍉 🍇
     ↩️ 🍇🎍🥡 a 🔡  💭 Returning lets the value escape
       🍪 title 🔤 🔤 a 🍪 ➡️ 🖍name
@@ -172,7 +176,7 @@ an instance variable:
   🆕🕵🆕 🔤Arthur Lemming🔤❗️ ➡️ pi
   🛍pi 🔤Dr🔤❗️ ➡️ nameSetterDr
   ⁉️nameSetterDr 🔤Jessica Jones🔤 ❗️
-  😀 ⁉️nameGetter️❗️❗️
+  😀 📛pi❓ ❗
 🍉
 ```
 
