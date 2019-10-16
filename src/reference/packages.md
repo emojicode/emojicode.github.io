@@ -1,6 +1,6 @@
 # Packages
 
-## What is a Package?
+## What Is a Package?
 
 Emojicode divides code into packages. A package is a unit of code
 that can consist of one or more Emojicode source code files. All packages have a

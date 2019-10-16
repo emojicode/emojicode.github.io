@@ -2,7 +2,7 @@
 
 The return of a method is normally immutable (which, of course, only concerns
 value types). However, the
-following code does work and it is very desirable that it does so:
+following code does work and it is very desirable that it do so:
 
 ```
 🏁🍇

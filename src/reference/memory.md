@@ -229,5 +229,3 @@ learn more about their usage.
 ## Detecting shared values
 
 In some cases, you might want to know whether your reference to a value is unique. This can be done by calling 🏮❗ on it.
-
->! TODO: Provide an example
