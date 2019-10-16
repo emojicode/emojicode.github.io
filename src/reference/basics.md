@@ -83,7 +83,7 @@ You can use `,` within numbers as a thousands separator:
 
 There are only three numeric types in Emojicode:
 
-- 🔢 represents integer in the interval [-2<sup>63</sup>+1,
+- 🔢 represents integer in the interval [-2<sup>63</sup>,
 2<sup>63</sup>-1].
 - 💯 represents real numbers (numbers with decimal place).
 - 💧 represents bytes, which are integers in the range of [-128,127] normally.
