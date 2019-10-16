@@ -32,7 +32,7 @@ whose method returned the reference was mutated.
 
 References cannot be copied. Assigning a reference to a variable immediately
 causes the reference to be dereferenced and a copy to be stored into the
-variable. The following program will panic therefore:
+variable. The following program will therefore panic:
 
 ```!
 🏁🍇

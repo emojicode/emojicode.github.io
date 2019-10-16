@@ -36,7 +36,7 @@ Here we create an instance of  🦍, which we pass an instance of  🐟 to.   �
 
 ## Deinitializers
 
-Emojicode allows you to define a deinitializer for your classes. A deinitializer is a function that is executed right before a class instance is destroyed. It’s syntax is this:
+Emojicode allows you to define a deinitializer for your classes. A deinitializer is a function that is executed right before a class instance is destroyed. Its syntax is this:
 
 ```syntax
 $deinitializer$-> ♻️ $block$
@@ -82,7 +82,7 @@ You can only specify a deinitalizers for classes.
 
 ## Lifetime in General
 
-We will know adjust our program and make the gorilla actually store its pet:
+We will now adjust our program and make the gorilla actually store its pet:
 
 ```
 🐇 🦍 🍇
@@ -225,3 +225,7 @@ Moon deinit
 
 Weak references are part of the s package. See the [package documentation](../packages/s/1f4f6.html) to
 learn more about their usage.
+
+## Detecting shared values
+
+In some cases, you might want to know whether your reference to a value is unique. This can be done by calling 🏮❗ on it.

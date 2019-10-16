@@ -196,5 +196,5 @@ Money, money, money – Must be funny
 ## Atomicity of the s Package
 
 It’s important to note that none of the classes in the s package guarantee
-atomicity. If you access a s package data structures always make sure to use
+atomicity. If you access an s package data structures always make sure to use
 a mutex to avoid race conditions.

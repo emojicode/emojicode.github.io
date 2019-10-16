@@ -2,7 +2,7 @@
 
 ## What Is a Package?
 
-Emojicode divides code into so-called packages. A package is a unit of code
+Emojicode divides code into packages. A package is a unit of code
 that can consist of one or more Emojicode source code files. All packages have a
 name associated with them and all code belongs to a package.
 
@@ -10,11 +10,11 @@ If you tell the compiler to compile a file this file implicitly becomes the
 main file for a package called `_`. So remember, all code you write
 belongs to a package.
 
-The object of packages is to provide an easy way of reusing code as well as
+The objective of packages is to provide an easy way of reusing code as well as
 allowing the programmer to divide programs into logical units.
 
 Each package has its own set of namespaces. If you define or
-import types in one package, this types will not be available in other packages
+import types in one package, these types will not be available in other packages
 without explicitly exporting and importing them.
 
 >!H Make sure you’re familiar with [Emojicode’s
@@ -36,7 +36,7 @@ see [Appendix: The Emojicode Compiler](compiler.html).
 
 If you import a package, all types that were exported from the imported package
 are made available in the importing package. The types will be added to the
-provided namespace. If this would cause a naming collision the compiler will
+provided namespace. If this would cause a naming collision, the compiler will
 emit an error.
 
 The example below imports the `files` package into the default namespace 🏠.
@@ -67,10 +67,10 @@ This file can then include other files using 📜.
 
 By default, all types defined within a package are internal and not
 exported. If you want to export a type defined in your package you must
-attribute it 🌍.
+attribute it with 🌍.
 
 Keep in mind that types don’t actually belong to a namespace. When exporting a
-type the namespace is irrelevant.
+type, the namespace is irrelevant.
 
 For instance, the main file of a cat simulator could look like this:
 
@@ -141,7 +141,7 @@ Meow
 You can include a 🏁 block in every package. Only the 🏁 block of the package from
 which you ask the compiler to create an executable will be executed. This,  for
 example, means that if you import a package that provides a 🏁 block it will not
-be exeucted. If you compile that package to an executable, then of course, the 🏁
+be exeucted. If you compile that package to an executable then, of course, the 🏁
 block will be executed.
 
 ## Linking with Non-Emojicode Code

@@ -4,7 +4,7 @@ Emojicode is designed to make your programs safe.
 
 But what exactly does this mean? In contrast to other programming languages,
 your program will never terminate without stating a clear reason and should do
-so only in a few predictable and avoidable cases. These cases are called panic.
+so only in a few predictable and avoidable cases. These cases are called a panic.
 
 To achieve this goal Emojicode imposes certain restrictions. For instance,
 you can normally not allocate memory or perform random operations on allocated

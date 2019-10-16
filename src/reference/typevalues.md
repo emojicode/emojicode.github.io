@@ -45,10 +45,10 @@ Voila!
 
 With the exception of classes, the type of two type values are only compatible
 if they are identical.
-The type of class type value, however, is compatible to another, if the former
-inherits from the latter.
+The type of a class type value, however,
+is compatible with the type of the type value of its superclass.
 
-The following is correct therefore:
+The following is therefore correct:
 
 ```
 🐇 🌷 🍇🍉

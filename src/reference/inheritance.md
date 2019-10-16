@@ -1,6 +1,6 @@
 # Inheritance and Overriding
 
-Inheritance allows instances of a more concret class to be treated like
+Inheritance allows instances of a more concrete class to be treated like
 instances of a less concrete class. When you subclass a class, the subclass
 inherits all methods and type methods. Initializers are only inherited under
 special conditions.
@@ -21,7 +21,7 @@ any initializers.
 Sometimes it’s desired that all subclasses of a class have a specific
 initializer. In this case, a required initializer can be used.
 
-An initializer can be marked as required witt the 🔑 attribute. Subclasses must
+An initializer can be marked as required with the 🔑 attribute. Subclasses must
 implement all initializers marked with 🔑 themselves if they aren't eligible
 for initializer inheritance. These initializer again must then be marked with
 🔑, thereby enforcing that all descendants of the original class provide the
