@@ -393,7 +393,10 @@ If an emoji occurs that is not reserved for a built-in statement or expression
 expression, evaluating to a value that has method with the provided name. Then
 arguments are expected until either ❗️ or ❓ occurs.
 
-A method call expression evaluates to the value the method return. If the
+In a method or initializer call all arguments are evaluated from
+left to right, but after the callee in the case of a method call.
+
+A method call expression evaluates to the value the method returned. If the
 method does not declare a return type, the call expression returns a value of
 type *no return*, which is neither compatible to any type nor does it offer any
 functionality.

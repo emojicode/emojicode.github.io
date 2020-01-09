@@ -120,3 +120,11 @@ i ⬅️➗ 3
 ```
 
 Operator Assignment can obviously only be used with mutable variables.
+
+Note that the evaluation of operation assignment is strictly equivalent to the
+following expression where `a` is the variable of the assignment, `➕` the
+respective operator, and `e` the expression.
+
+```
+a ⬅️ a ➕ e
+```
