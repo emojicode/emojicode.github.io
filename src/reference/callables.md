@@ -70,7 +70,7 @@ We can define a very simple closure that does not capture any context like this:
 
 ```
 🍇 name 🔡
-  😀 🍪🔤It is a plesaure to welcome the honorable 🔤 name🍪 ❗️
+  😀 🔤It is a pleasure to welcome the honorable 🧲name🧲🔤 ❗️
 🍉 ➡️ greet
 
 ⁉️ greet 🔤Linda🔤❗️
@@ -79,7 +79,7 @@ We can define a very simple closure that does not capture any context like this:
 Running this code would print:
 
 ```
-It is a plesaure to welcome the honorable Linda
+It is a pleasure to welcome the honorable Linda
 ```
 
 ### Capturing Variables and Context
@@ -167,7 +167,7 @@ an instance variable:
 
   ❗️ 🛍 title 🔡 ➡️ 🍇🔡🍉 🍇
     ↩️ 🍇🎍🥡 a 🔡  💭 Returning lets the value escape
-      🍪 title 🔤 🔤 a 🍪 ➡️ 🖍name
+      🔤🧲title🧲 🧲a🧲🔤 ➡️ 🖍name
     🍉
   🍉
 🍉
@@ -185,7 +185,7 @@ and escaping closures and also modify its instance variables. The context
 of value types and enums, though, can only be captured in non-escaping closures.
 Thus the above sample would not compile if 🕵 was a value type.
 
-The example belows shows how the instance variable of a value type can be
+The example below shows how the instance variable of a value type can be
 captured in a non-escaping closure:
 
 ```

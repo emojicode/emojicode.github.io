@@ -117,7 +117,7 @@ Example:
   😀 a ❗️
 🍉
 🙅 error 🍇
-  😀 🍪🔤An error occured: 🔤 💬error❗️ 🍪 ❗️
+  😀 🔤An error occured: 🧲💬error❗️🧲🔤❗️
 🍉
 ```
 
@@ -130,14 +130,14 @@ require the return.
   💭 ...
 🍉
 🙅 error 🍇
-  😀 🍪🔤An error occured: 🔤 💬error❗️ 🍪 ❗️
+  😀 🔤An error occured: 🧲💬error❗️🧲🔤❗️
 🍉
 
 🆗 💛🐇🐟❗️ 🍇  💭 💛 does not return a vlue
   💭 ...
 🍉
 🙅 error 🍇
-  😀 🍪🔤An error occured: 🔤 💬error❗️ 🍪 ❗️
+  😀 🔤An error occured: 🧲💬error❗️🧲🔤❗️
 🍉
 ```
 

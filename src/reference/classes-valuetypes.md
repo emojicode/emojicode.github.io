@@ -297,9 +297,9 @@ Let us define a method for 👩‍💼 to print an invoice:
 ```
 ❗️ 💸 total 💯 🍇
   😀 🔤Invoice🔤❗️
-  😀 🍪 🔤To 🔤 firstname 🔤 🔤 lastname 🍪❗️
-  😀 🍪 🔤Total: 🔤 🔡total 2❗️ 🍪❗️
-  😀 🍪 🔤Your credit card will be charged. 🔤 🍪❗️
+  😀 🔤To 🧲firstname🧲 🧲lastname🧲🔤 ❗️
+  😀 🔤Total: 🧲🔡total 2❗️🧲🔤❗️
+  😀 🔤Your credit card will be charged. 🔤❗️
 🍉
 ```
 
