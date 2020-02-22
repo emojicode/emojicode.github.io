@@ -466,7 +466,7 @@ of the font.
 In the run loop we’ll draw the number of cookies left:
 
 ```
-🔡 app font 🔡 🐔 cookies 10 990 10 🔷⚖➡️ 🔷🎨🆕 0 0 0 255
+🔡 app font 🔡 📏 cookies 10 990 10 🔷⚖➡️ 🔷🎨🆕 0 0 0 255
 ```
 
 Place this code before `🎦 app`. `🔡` draws a text using the given font.
@@ -485,7 +485,7 @@ cookies are left.
 As mentioned before, a screen at the end of the game would be nice:
 
 ```
-↪️ 😛 🐔 cookies 0 🍇
+↪️ 😛 📏 cookies 0 🍇
   🚿 app 🔷🎨🆕 4 115 187 255
   🔡 app font 🔤Well done!🔤 500 500 🔷⚖↔ 🔷🎨🆕 255 255 255 255
   🎦 app
@@ -531,7 +531,7 @@ Then let’s add some code to play the sound after a cookie was eaten:
 🔂 cookie iterator 🍇
   ↪️ 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
     🚯 iterator
-    ↪️ ▶️ 🐔 cookies 0 🍇
+    ↪️ ▶️ 📏 cookies 0 🍇
       🏁 sample 1 0 1
     🍉
   🍉
@@ -640,15 +640,15 @@ The whole program should now look like this:
       🔂 cookie iterator 🍇
         ↪️ 🖊 🍺cookie app 👉️ monster 👇 monster 🍇
           🚯 iterator
-          ↪️ ▶️ 🐔 cookies 0 🍇
+          ↪️ ▶️ 📏 cookies 0 🍇
             🏁 sample 1 0 1
           🍉
         🍉
       🍉
-      🔡 app font 🔡 🐔 cookies 10 990 10 🔷⚖➡️ 🔷🎨🆕 0 0 0 255
+      🔡 app font 🔡 📏 cookies 10 990 10 🔷⚖➡️ 🔷🎨🆕 0 0 0 255
       🎦 app
 
-      ↪️ 😛 🐔 cookies 0 🍇
+      ↪️ 😛 📏 cookies 0 🍇
         🚿 app 🔷🎨🆕 4 115 187 255
         🔡 app font 🔤Well done!🔤 500 500 🔷⚖↔ 🔷🎨🆕 255 255 255 255
         🎦 app

@@ -32,7 +32,7 @@ after the option the instance will represent. Like any value type, enumerations
 are instantiated with 🆕:
 
 ```
-🆕⏰🥞❗️
+⏰🥞❗️
 ```
 
 Enumerations cannot have custom initializers.
@@ -50,13 +50,13 @@ a textual description of the chosen value:
   🔘🥐
 
   ❗️ 🔡 ➡️ 🔡 🍇
-    ↪️ 🐕 🙌 🆕⏰🥐 ❗️ 🍇
+    ↪️ 👇 🙌 🆕⏰🥐 ❗️ 🍇
       ↩️ 🔤Croissant🔤
     🍉
-    ↪️ 🐕 🙌 🆕⏰🥞 ❗️ 🍇
+    ↪️ 👇 🙌 🆕⏰🥞 ❗️ 🍇
       ↩️ 🔤Pancakes🔤
     🍉
-    ↪️ 🐕 🙌 🆕⏰🥓 ❗️ 🍇
+    ↪️ 👇 🙌 🆕⏰🥓 ❗️ 🍇
       ↩️ 🔤Bacon🔤
     🍉
     ↩️ 🔤🔤

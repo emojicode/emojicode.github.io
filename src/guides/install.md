@@ -1,4 +1,4 @@
-# Installing Emojicode 1.0 beta 1
+# Installing Emojicode 1.0 beta 2
 
 ## Prerequisites
 

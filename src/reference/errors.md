@@ -50,7 +50,7 @@ error type:
 
 ```
 🐇❗️ 🤦‍♂️ ➡️ 🔡 🚧🚧 🍇
-  🚨🆕🚧🆕🔤Too low on charge🔤❗️
+  🚨🆕🚧🔤Too low on charge🔤❗️
 🍉
 ```
 
@@ -94,14 +94,14 @@ own caller.
 $reraise$-> 🔺 $expression$
 ```
 
-### 🥑 Handling Errors
+### 🆗 Handling Errors
 
 The third mechanism is a control flow statment. It allows you to specify to
 code blocks. While one is executed in the case of error-free execution, the
 other is called in the case of an error and provided with the error object.
 
 ```syntax
-$error-check-control$-> 🥑 [$variable$] $expression$ $block$ 🙅 $variable$ $block$
+$error-check-control$-> 🆗 [$variable$] $expression$ $block$ 🙅 $variable$ $block$
 ```
 
 The provided expression must be an error-prone call. If no error is raised,
@@ -113,7 +113,7 @@ type of the called function.
 Example:
 
 ```
-🥑 a 🤦‍♂️🐇🐟❗️ 🍇
+🆗 a 🤦‍♂️🐇🐟❗️ 🍇
   😀 a ❗️
 🍉
 🙅 error 🍇
@@ -126,14 +126,14 @@ omit a variable name even though the function returns a value if you do not
 require the return.
 
 ```
-🥑 🤦‍♂️🐇🐟❗️ 🍇  💭 We are not interested in the return
+🆗 🤦‍♂️🐇🐟❗️ 🍇  💭 We are not interested in the return
   💭 ...
 🍉
 🙅 error 🍇
   😀 🍪🔤An error occured: 🔤 💬error❗️ 🍪 ❗️
 🍉
 
-🥑 💛🐇🐟❗️ 🍇  💭 💛 does not return a vlue
+🆗 💛🐇🐟❗️ 🍇  💭 💛 does not return a vlue
   💭 ...
 🍉
 🙅 error 🍇

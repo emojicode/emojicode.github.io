@@ -133,13 +133,41 @@ declared its conformance to 🔂 as `🔂🐚Element🍆` and therefore also ret
 an iterator of type `🍡🐚Element🍆` from which the type of the variable is
 inferred.
 
->!H If you need to repeat something for a given amount of times you
->!H should use [⏩ Ranges](the-s-package.html#-ranges) in combination with 🔂.
+### Interlude: ⏩ Ranges
+
+The s package provides a type ⏩, representing a range. A range is an immutable
+sequence of integers and is defined by three values:
+*start*, *stop* and *step*.
+
+If `step` is positive, every number `f(x) = start + x * step`
+that matches the constraint `start ≤ f(x) < stop` is an element of the range. If
+`step` is negative the constraint `stop < f(x) ≤ start` applies instead.
+
+Ranges are helpful in if you need to repeat
+something for a specific number of times:
+
+```
+🔂 i 🆕⏩ 0 10 2❗️ 🍇
+  😀 🔡 i❗️❗️  💭 Prints numbers 0 through 8 (including).
+🍉
+
+🔂 i 🆕⏩ 0 10❗️ 🍇
+  😀 🔡 i❗️❗️  💭 Prints numbers 0 through 9 (including).
+🍉
+
+🔂 i 🆕⏩ 10 0❗️ 🍇
+  😀 🔡 i❗️❗️  💭 Prints numbers 10 through 1 (including).
+🍉
+
+🔂 i 🆕⏩ 100 -10 -10❗️ 🍇
+  😀 🔡 i❗️❗️  💭 Prints numbers 100 through 0 (including).
+🍉
+```
 
 ## 🔁 Repeat While
 
-🔁 repeats a given code block as long as *condition* is 👍. This also means
-that if the *condition* is never 👍 the code block will never be executed.
+🔁 repeats a given code block as long as a condition is 👍. This also means
+that if the condition is never 👍 the code block will never be executed.
 The syntax is:
 
 ```syntax

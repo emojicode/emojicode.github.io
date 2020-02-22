@@ -440,7 +440,7 @@ No. Not at this time.
 
 See [Specifying Shared Libaries To Link](/docs/reference/packages.html#specifying-shared-libaries-to-link).
 
-## How do I do …?
+## How Do I Do …?
 
 Please check if the [s package](https://github.com/emojicode/emojicode/tree/master/s)
 does something similar. It is a great resource for examples.

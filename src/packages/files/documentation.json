@@ -11,7 +11,6 @@
             "initializers": [],
             "typeMethods": [
                 {
-                    "name": "📁",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -25,6 +24,8 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "📁",
+                    "mangled": "files.vt_1f4d1.type.1f4c1-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    This method creates a directory at the given path.\n    If the directory already exists an error is returned.\n  ",
                     "parameters": [
@@ -40,7 +41,6 @@
                     ]
                 },
                 {
-                    "name": "🔫",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -54,6 +54,8 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "🔫",
+                    "mangled": "files.vt_1f4d1.type.1f52b-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    This method deletes the file at the given path.\n    >!N This method may not be used to delete directories.\n  ",
                     "parameters": [
@@ -69,7 +71,6 @@
                     ]
                 },
                 {
-                    "name": "🔥",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -83,6 +84,8 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "🔥",
+                    "mangled": "files.vt_1f4d1.type.1f525-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    This method deletes an *empty* directory at the given path.\n    If you need to delete a whole directory hierarchy use 💣.\n  ",
                     "parameters": [
@@ -98,7 +101,6 @@
                     ]
                 },
                 {
-                    "name": "💣",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -112,6 +114,8 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "💣",
+                    "mangled": "files.vt_1f4d1.type.1f4a3-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    This method deletes an directory with its content. The method recursively\n    descends the directory hierarchy and deletes every file or directory it\n    finds. Once finished, it deletes the directory itself.\n  ",
                     "parameters": [
@@ -127,7 +131,6 @@
                     ]
                 },
                 {
-                    "name": "🔗",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -141,6 +144,8 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "🔗",
+                    "mangled": "files.vt_1f4d1.type.1f517-s.class_1f521-s.class_1f521",
                     "genericParameters": [],
                     "documentation": " This method creates a symbolic link to another. ",
                     "parameters": [
@@ -165,7 +170,6 @@
                     ]
                 },
                 {
-                    "name": "📃",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -176,6 +180,8 @@
                         "arguments": []
                     },
                     "mood": "❗️",
+                    "name": "📃",
+                    "mangled": "files.vt_1f4d1.type.1f4c3-s.class_1f521",
                     "genericParameters": [],
                     "documentation": " Determines whether a file exists at the given path. ",
                     "parameters": [
@@ -191,7 +197,6 @@
                     ]
                 },
                 {
-                    "name": "📜",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -202,6 +207,8 @@
                         "arguments": []
                     },
                     "mood": "❗️",
+                    "name": "📜",
+                    "mangled": "files.vt_1f4d1.type.1f4dc-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    Determines whether a file exists and the given path and if it is readable.\n  ",
                     "parameters": [
@@ -217,7 +224,6 @@
                     ]
                 },
                 {
-                    "name": "📝",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -228,6 +234,8 @@
                         "arguments": []
                     },
                     "mood": "❗️",
+                    "name": "📝",
+                    "mangled": "files.vt_1f4d1.type.1f4dd-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    Determines whether a file exists and the given path and if it is writeable.\n  ",
                     "parameters": [
@@ -243,7 +251,6 @@
                     ]
                 },
                 {
-                    "name": "👟",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -254,6 +261,8 @@
                         "arguments": []
                     },
                     "mood": "❗️",
+                    "name": "👟",
+                    "mangled": "files.vt_1f4d1.type.1f45f-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    Determines whether a file exists and the given path and if it is executable.\n  ",
                     "parameters": [
@@ -269,7 +278,6 @@
                     ]
                 },
                 {
-                    "name": "📏",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -285,6 +293,8 @@
                         "arguments": []
                     },
                     "mood": "❗️",
+                    "name": "📏",
+                    "mangled": "files.vt_1f4d1.type.1f4cf-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    Determines the size of a file at a given path. If the file cannot be found\n    or any other error occurs the method returns -1.\n  ",
                     "parameters": [
@@ -300,7 +310,6 @@
                     ]
                 },
                 {
-                    "name": "⛓",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -316,6 +325,8 @@
                         "arguments": []
                     },
                     "mood": "❗️",
+                    "name": "⛓",
+                    "mangled": "files.vt_1f4d1.type.26d3-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    Returns an absolute pathname derived from `path` that\n    resolves to the same directory entry, whose resolution does not involve `.`,\n    `..`, or symbolic links. On failure an error is returned.\n  ",
                     "parameters": [
@@ -340,7 +351,6 @@
             "documentation": "\n    The 📄 class allows you to read and write to files.\n\n    It provides several class methods which are shortcuts to reading and\n    writing. They operate always on the whole file and reading can be very\n    inefficient using these shortcuts when working with big files, because they\n    will read the whole file into memory.\n\n    You must close files openend with 📝 and 📜 appropriately with 🙅 when they\n    are no longer needed.\n",
             "methods": [
                 {
-                    "name": "✏",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -354,6 +364,8 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "✏",
+                    "mangled": "files.class_1f4c4.270f-s.class_1f4c7",
                     "genericParameters": [],
                     "documentation": " Write the data at the current file pointer position. ",
                     "parameters": [
@@ -369,7 +381,6 @@
                     ]
                 },
                 {
-                    "name": "📓",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -385,6 +396,8 @@
                         "arguments": []
                     },
                     "mood": "❗️",
+                    "name": "📓",
+                    "mangled": "files.class_1f4c4.1f4d3-s.vt_1f522",
                     "genericParameters": [],
                     "documentation": "\n    Reads as many bytes as specified from the file pointer position.\n\n    Keep in mind that a byte is not equal to one character!\n  ",
                     "parameters": [
@@ -400,7 +413,6 @@
                     ]
                 },
                 {
-                    "name": "🔚",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -409,12 +421,13 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "🔚",
+                    "mangled": "files.class_1f4c4.1f51a",
                     "genericParameters": [],
                     "documentation": " Seeks the file pointer to the end of the file. ",
                     "parameters": []
                 },
                 {
-                    "name": "🔛",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -423,6 +436,8 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "🔛",
+                    "mangled": "files.class_1f4c4.1f51b-s.vt_1f522",
                     "genericParameters": [],
                     "documentation": " Seeks the file pointer to the given position. ",
                     "parameters": [
@@ -438,7 +453,6 @@
                     ]
                 },
                 {
-                    "name": "💧",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -447,12 +461,13 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "💧",
+                    "mangled": "files.class_1f4c4.1f4a7",
                     "genericParameters": [],
                     "documentation": " Causes any buffered unwritten data to be written to the file. ",
                     "parameters": []
                 },
                 {
-                    "name": "🚪",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -461,14 +476,29 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "🚪",
+                    "mangled": "files.class_1f4c4.1f6aa",
                     "genericParameters": [],
                     "documentation": " Closes the file. Reading or writing thereafter is undefined behavior. ",
+                    "parameters": []
+                },
+                {
+                    "accessLevel": "🔓",
+                    "unsafe": false,
+                    "mutating": false,
+                    "final": false,
+                    "returnType": {
+                        "type": "NoReturn"
+                    },
+                    "mood": "❗️",
+                    "name": "deinit",
+                    "mangled": "files.class_1f4c4.deinit",
+                    "genericParameters": [],
                     "parameters": []
                 }
             ],
             "initializers": [
                 {
-                    "name": "📝",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -478,6 +508,8 @@
                         "name": "🚧🔸↕",
                         "arguments": []
                     },
+                    "name": "📝",
+                    "mangled": "files.class_1f4c4.init.1f4dd-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    Opens the file at the given path for writing. The file pointer is set to the\n    beginning of the file and the file is truncated to zero length or created.\n\n    You cannot read from a file opened with this initializer.\n  ",
                     "parameters": [
@@ -487,13 +519,12 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "message",
+                            "name": "path",
                             "escaping": false
                         }
                     ]
                 },
                 {
-                    "name": "📜",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -503,6 +534,8 @@
                         "name": "🚧🔸↕",
                         "arguments": []
                     },
+                    "name": "📜",
+                    "mangled": "files.class_1f4c4.init.1f4dc-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    Opens the file at the given path for reading. The file pointer is set to the\n    beginning of the file.\n\n    You cannot write to a file opened with this initializer.\n  ",
                     "parameters": [
@@ -512,7 +545,7 @@
                                 "name": "🔡",
                                 "arguments": []
                             },
-                            "name": "message",
+                            "name": "path",
                             "escaping": false
                         }
                     ]
@@ -520,7 +553,6 @@
             ],
             "typeMethods": [
                 {
-                    "name": "📻",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -534,6 +566,8 @@
                         "type": "NoReturn"
                     },
                     "mood": "❗️",
+                    "name": "📻",
+                    "mangled": "files.class_1f4c4.type.1f4fb-s.class_1f521-s.class_1f4c7",
                     "genericParameters": [],
                     "documentation": "\n    This class method tries to write the given 📇 to the given path. If the file\n    already exists, it will be overwritten.\n  ",
                     "parameters": [
@@ -558,7 +592,6 @@
                     ]
                 },
                 {
-                    "name": "📇",
                     "accessLevel": "🔓",
                     "unsafe": false,
                     "mutating": true,
@@ -574,6 +607,8 @@
                         "arguments": []
                     },
                     "mood": "❗️",
+                    "name": "📇",
+                    "mangled": "files.class_1f4c4.type.1f4c7-s.class_1f521",
                     "genericParameters": [],
                     "documentation": "\n    This class method tries to read the file at given path `path` and returns\n    a 📇 object representing its content on success. On failure an error\n    is returned.\n  ",
                     "parameters": [

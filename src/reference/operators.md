@@ -83,7 +83,7 @@ similar to a method. This is an example from the s package’s 📇 type:
 
 ```
 ➕ b 📇 ➡️ 📇 🍇
-  count ➕ 🐔b❗️ ➡️ new_count
+  count ➕ 📏b❗️ ➡️ new_count
   💭 ...
 🍉
 ```

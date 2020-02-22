@@ -1,6 +1,14 @@
 # The Basics
 
-This chapter reviews the basics of Emojicode.
+This chapter reviews the basics of Emojicode that occur in mosts programs or
+are of importance in the following sections of this Language Reference & Guide.
+
+## Source Files
+
+Emojicode source files are UTF-8 encoded text documents in accordance with the
+syntax specified by the grammar in this documentation.
+
+Source code files must have the extension `.🍇` or `.emojic`.
 
 ## The 🏁 Block
 
@@ -53,55 +61,6 @@ All **type, method and initializer** names are **emojis**. On the
 other hand **variables cannot include emojis** but must be any combination of
 characters that cannot be confused with numbers.
 
-## Numeric Literals
-
-In the example at the very beginning of this chapter you saw `↩️ 0`. Numbers
-are written in Emojicode just as you would do normally:
-
-```
-2018
-12
-
-💭 some numbers with decimal place
-10.234
-0.738281
-```
-
-However, integers can not only be written in decimal notation as in the example
-above, but also in hexadecimal notation, with the prefix `0x`, like `0x1D`
-and octal notation, with the prefix `0`, like `035`.
-
-You can use `,` within numbers as a thousands separator:
-
-```
-344,000,000
-12,000
-12,421.5291
-```
-
-### Number Types
-
-There are only three numeric types in Emojicode:
-
-- 🔢 represents integer in the interval [-2<sup>63</sup>,
-2<sup>63</sup>-1].
-- 💯 represents real numbers (numbers with decimal place).
-- 💧 represents bytes, which are integers in the range of [-128,127] normally.
-
-The numeric literals we have seen above are converted to an appropriate type
-in accordance with [Type Expectations](types.html#type-expectations). This means
-that a literal like `130` will be interpreted as 💯 when a 💯 is expected.
-A literal with decimal place will, of course, never be interpreted as 🔢 or 💧.
-
-If no type is expected, a literal without decimal place is of type 🔢 and literal
-with is of type 💯.
-
-## Booleans
-
-Emojicode has a type to represent Boolean values: 👌. A boolean value can either
-be true or false. A true value is created using 👍 and a false value is created
-using 👎.
-
 ## Including Other Source Code Files
 
 The Emojicode compiler always expects a single file. Nevertheless, you
@@ -120,4 +79,4 @@ The path is relative to the directory in which the current source document is.
 >!H Do not use this method to share code across projects. If you have
 >!H written really fancy code,
 >!H [create a package](/docs/reference/packages.html), which you can easily
->!H make available to other people**.
+>!H make available to other people.

@@ -26,7 +26,7 @@ Documentation comments can only occur at specific locations:
 
     Types representing a collection whose elements can be accessed by 🐽 randomly
     should conform to this protocol. The number of elements must be finite and
-    returned by 🐔.
+    returned by 📏.
   📗
   🌍 🐊 🐽️🐚Element⚪️🍆 🍇
   ```

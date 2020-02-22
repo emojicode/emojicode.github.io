@@ -52,6 +52,9 @@ As for example:
 
 The same logic applies to type methods.
 
+You cannot override generic methods and the compiler will never consider a
+generic method the super-method of another method.
+
 ### Access Level and Overriding
 
 If you override a method and do not specify an access level, the method inherits
@@ -88,6 +91,28 @@ $super$-> ⤴️ $emoji-id$ [$arguments$]
 
 This simply calls the super method named *method-emoji* and returns it value.
 You have already seen an example above.
+
+## Final Classes
+
+The attribute 🔏 marks a class as final. A final class cannot be subclassed or
+an compiler error will be raised.
+
+>!H Marking a class as final not only makes your intent clear but can also
+>!H lead to performance improvements. Although the
+>!H compiler tries to automatically detect final classes, it cannot do so in
+>!H packages that export types.
+
+The following example will raise a compiler error as 🐟 is attributed with 🔏.
+
+```!
+🔏 🐇 🐟 🍇
+  🆕 🍇🍉
+🍉
+
+🐇 🐡 🐟 🍇
+
+🍉
+```
 
 ## Promises
 

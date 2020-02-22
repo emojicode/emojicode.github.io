@@ -1,4 +1,4 @@
-# Types As Values
+# Types as Values
 
 Emojicode allows you to pass types as value. You can then call
 type methods on these types or instantiate them.
@@ -71,7 +71,7 @@ $type-from-expr$-> ⬛️ $expression$
 
 *expresssion* must naturally evaluate to a type value.
 
-`🐕` is a shortcut for `⬛️🐕` when a type expression is expected.
+`👇` is a shortcut for `⬛️👇` when a type expression is expected.
 
 The following example stores three different type values in a list,
 instantiates them at run-time and calls a method on these instances:

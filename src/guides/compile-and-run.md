@@ -71,7 +71,7 @@ greetings instead:
 
 ```
 🏁 🍇
-  🍨 🔤Hey!🔤 🔤Hi!🔤 🔤Howdy!🔤 🔤Aloha!🔤 🍆 ➡️ list
+  🍿 🔤Hey!🔤 🔤Hi!🔤 🔤Howdy!🔤 🔤Aloha!🔤 🍆 ➡️ list
 🍉
 ```
 
@@ -84,7 +84,7 @@ Next, we want to print the first greeting in that list as a test:
 
 ```
 🏁 🍇
-  🍨 🔤Hey!🔤 🔤Hi!🔤 🔤Howdy!🔤 🔤Aloha!🔤 🍆 ➡️ list
+  🍿 🔤Hey!🔤 🔤Hi!🔤 🔤Howdy!🔤 🔤Aloha!🔤 🍆 ➡️ list
   😀 🐽list 0❗️❗️
 🍉
 ```
@@ -115,7 +115,7 @@ the method is:
 
 ```
 🏁 🍇
-  🍨 🔤Hey!🔤 🔤Hi!🔤 🔤Howdy!🔤 🔤Aloha!🔤 🍆 ➡️ 🖍️🆕list
+  🍿 🔤Hey!🔤 🔤Hi!🔤 🔤Howdy!🔤 🔤Aloha!🔤 🍆 ➡️ 🖍️🆕list
   🐹 list❗️
   😀 🐽list 0❗️❗️
 🍉
@@ -124,7 +124,7 @@ the method is:
 Try to execute this several times and you should be greeted with one of our
 greetings randomly.
 
-## Internationalizing our Greeter
+## Internationalizing Our Greeter
 
 Printing random greetings is funny, but it would be much more useful if our
 program could be used to print a greeting in a specified language. Something
@@ -135,12 +135,12 @@ We’ll start off by creating a dictionary to map languages to a greeting:
 
 ```
 🏁 🍇
-  🍯
-    🔤fr🔤 🔤Salut!🔤
-    🔤it🔤 🔤Ciao!🔤
-    🔤de🔤 🔤Guten Tag!🔤
-    🔤en🔤 🔤Hey!🔤
-    🔤es🔤 🔤Hola!🔤
+  🍿
+    🔤fr🔤 ➡️ 🔤Salut!🔤
+    🔤it🔤 ➡️ 🔤Ciao!🔤
+    🔤de🔤 ➡️ 🔤Guten Tag!🔤
+    🔤en🔤 ➡️ 🔤Hey!🔤
+    🔤es🔤 ➡️ 🔤Hola!🔤
   🍆 ➡️ dictionary
 🍉
 ```
@@ -163,12 +163,12 @@ The easiest way to do this is with the conditional assignment:
 
 ```
 🏁 🍇
-  🍯
-    🔤fr🔤 🔤Salut!🔤
-    🔤it🔤 🔤Ciao!🔤
-    🔤de🔤 🔤Guten Tag!🔤
-    🔤en🔤 🔤Hey!🔤
-    🔤es🔤 🔤Hola!🔤
+  🍿
+    🔤fr🔤 ➡️ 🔤Salut!🔤
+    🔤it🔤 ➡️ 🔤Ciao!🔤
+    🔤de🔤 ➡️ 🔤Guten Tag!🔤
+    🔤en🔤 ➡️ 🔤Hey!🔤
+    🔤es🔤 ➡️ 🔤Hola!🔤
   🍆 ➡️ dictionary
   ↪️ 🐽dictionary 🔤de🔤❗️ ➡️ greeting 🍇
     😀 greeting❗️
@@ -206,12 +206,12 @@ and pass it to dictionary’s 🐽:
 
 ```
 🏁 🍇
-  🍯
-    🔤fr🔤 🔤Salut!🔤
-    🔤it🔤 🔤Ciao!🔤
-    🔤de🔤 🔤Guten Tag!🔤
-    🔤en🔤 🔤Hey!🔤
-    🔤es🔤 🔤Hola!🔤
+  🍿
+    🔤fr🔤 ➡️ 🔤Salut!🔤
+    🔤it🔤 ➡️ 🔤Ciao!🔤
+    🔤de🔤 ➡️ 🔤Guten Tag!🔤
+    🔤en🔤 ➡️ 🔤Hey!🔤
+    🔤es🔤 ➡️ 🔤Hola!🔤
   🍆 ➡️ dictionary
   🎞🐇💻❗️ ➡️ args
   ↪️ 🐽dictionary 🐽args 1❗️❗️ ➡️ greeting 🍇

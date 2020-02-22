@@ -43,7 +43,7 @@ Example of calling a callable:
 ```
 
 An error-prone callable must be handled like any error-prone call by using
-🔺, 🍺 or 🥑.
+🔺, 🍺 or 🆗.
 
 ## Closure
 
@@ -106,7 +106,7 @@ Let’s take a look at this example:
 
 Running the above code will print `LUKE`. In the above example the value `var`
 was declared and assigned outside the closure. This is called a captured
-variable. Much the same, you can capture the 🐕 context in a closure.
+variable. Much the same, you can capture the 👇 context in a closure.
 
 Actually, however, we need to distinguish between escaping and non-escaping
 closures. By default, every closure is non-escaping and cannot be used as an
@@ -115,7 +115,7 @@ followed by 🎍🥡. When creating a thread, for instance, an escaping closure 
 required:
 
 ```
-🆕🧵🆕 🍇🎍🥡
+🆕🧵 🍇🎍🥡
 
 🍉❗️
 ```
@@ -152,7 +152,7 @@ DARTH VADER
 the closure, which in our case was “DARTH VADER”. This does not work with an
 escaping closure.
 
-The following example demonstrates capturing the 🐕 context and modifying
+The following example demonstrates capturing the 👇 context and modifying
 an instance variable:
 
 ```
@@ -173,7 +173,7 @@ an instance variable:
 🍉
 
 🏁 🍇
-  🆕🕵🆕 🔤Arthur Lemming🔤❗️ ➡️ pi
+  🆕🕵 🔤Arthur Lemming🔤❗️ ➡️ pi
   🛍pi 🔤Dr🔤❗️ ➡️ nameSetterDr
   ⁉️nameSetterDr 🔤Jessica Jones🔤 ❗️
   😀 📛pi❓ ❗

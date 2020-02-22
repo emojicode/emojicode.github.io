@@ -35,7 +35,7 @@ This syntax can be used everywhere a type is expected. For example, to instantia
 the type 💉 in the namespace 🏥, we would use:
 
 ```
-🆕🔶💉🏥🆕❗️
+🆕🔶💉🏥❗️
 ```
 
 ### Namespacing When Declaring a Type
@@ -54,29 +54,17 @@ This declares a class 👩‍💼 that will be reachable through the namespace �
 
 ## Type Expectations
 
-Emojicode uses a concept we call *type expectations*. Whenever an expression
-whose result must be compatible to a specific type is evaluated, this type
-becomes a type expectation.
+Emojicode uses so-called type expectations for type inference. Whenever an
+expression, whose type is determined by type inference, is evaluated, type
+expectations are considered to determine the type. This mainly concerns
+[literals](literals.html).
 
 When you call a method, for instance, the types of the parameters become type
-expectations. That is, if you defined a method that takes one argument of type 🔡
+expectations. If, for example, you defined a method that takes one argument of type 🔡
 and you call that method, the first argument will be expected to be a string.
 Another example would be a variable assignment. If you have declared a variable
 of a certain type, the compiler will expect this type when assigning to the
 variable.
-
-Type Expectations are used in several cases (apart from ensuring that a value is
-of compatible type):
-
-* The compiler uses expectations to automatically convert number literals
-  without decimal place   to 🔢, 💯 and 💧.
-
-* Dictionary and list literals don’t infer their type when a list or dictionary
-  literal is expected.
-
-  If, for instance, an argument of type 🍨🐚⚪️ is expected
-  and you provide `🍨34 21 63🍆` this list literal won’t be of type 🍨🐚🔢
-  but of type 🍨🐚⚪️. The same applies to dictionary literals.
 
 ### ⚫️ The Expected Type
 
@@ -85,24 +73,18 @@ of compatible type):
 The compiler will try to deduce the substituted type from the type
 expectation. Thus, ⚫️ will normally refer to the expected type.
 
-⚫️ can be used in cases where writing out a type name in full is inconvenient,
-for example:
+⚫️ can be used in cases where writing out a type name in full is inconvenient.
 
-```
-💭 🍀 is a type that requires a generic argument
-🖍🆕 list 🍨🐚🍀🐚🔡🍆🍆
-
-💭 ⚫️ stands for 🍀🐚🔡🍆 here
-🔷⚫️🐸 ➡️ 🖍list
-```
+>!N ⚫️ does not work correctly in 1.0 beta 2.
 
 ## Built-In Types
 
-There are two special built-in types ⚪ and 🔵.
+These types are built right into the language and are not defined in any
+package.
 
 ### ⚪ Something
 
-⚪ (something) is special as all types are compatible to it. This means
+⚪ is special as all types are compatible to it. This means
 that you can, for instance, store a value of any type into a variable of type ⚪:
 
 ```
@@ -111,12 +93,11 @@ that you can, for instance, store a value of any type into a variable of type �
 1004 ➡️ 🖍surprise
 ```
 
-You cannot call any methods on ⚪ and you cast to ⚪ at run-time.
+You cannot call any methods on ⚪ and you cannot cast to ⚪ at run-time.
 
 ### 🔵 Someobject
 
-All instances of classes are compatible to 🔵 (someobject), but value type
-instances are not.
+All instances of classes are compatible to 🔵, but value type instances are not.
 
 ### ◼️ No Return
 
@@ -147,7 +128,7 @@ is returned. 🔲 therefore returns an optional.
 Don’t confuse type casting with type conversion. You can’t cast 🔢 to
 💯. You need to use a suitable conversion method instead.
 
-## ⚖️ Size Of Type Instance
+## ⚖️ Size of Type Instance
 
 The ⚖️ expression allows you to determine the number of bytes an instance of
 a provided type will take up at runtime:
@@ -159,10 +140,10 @@ $size-of$-> ⚖️ $type$
 The following, for example, prints the size of an integer.
 
 ```
-😀 🔡 ⚖️🔢 10❗️❗️
+😀 🔡 ⚖️🔢 ❗️❗️
 ```
 
-## Grammar
+## Syntax
 
 ```syntax
 $type-expr$-> ⚫️ | $type-from-expr$ | $type$ | $this$

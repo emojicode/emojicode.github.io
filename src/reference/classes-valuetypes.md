@@ -114,7 +114,7 @@ You can also specify a value to which an instance variable will be initialized:
 🐇 👩‍💼 🍇
   🖍🆕 firstname 🔡 ⬅️ 🔤Susan🔤
   🖍🆕 lastname 🔡 ⬅️ 🔤Rodgers🔤
-  🖍🆕 creditcard 💳 ⬅️ 🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️
+  🖍🆕 creditcard 💳 ⬅️ 🆕💳 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️
 🍉
 ```
 
@@ -141,8 +141,8 @@ $type-body-declaration-main$-> $deinitializer$
 $instance-variable-declaration$-> $declaration$ [⬅️ $expression$]
 $superclass$-> $type$
 $value-type$-> 🕊 $type-identifier$ [$generic-parameters$] $type-body$
-$initializer$-> 🆕 [$initializer-emoji-id$] [$init-parameters$] [$error-type$] $body$
-$initializer-emoji-id$-> --🍼 --📻 $emoji-id$
+$initializer$-> 🆕 [$initializer-name$] [$init-parameters$] [$error-type$] $body$
+$initializer-name$-> ▶️ $emoji-id$
 $init-parameters$-> $init-parameter$ | $init-parameter$ $init-parameters$
 $init-parameter$-> [🎍🥡] [🍼] $variable$ $type$
 $body$-> $block$ | $external-link-name$
@@ -224,33 +224,32 @@ is performed with 🆕.
 Its syntax is:
 
 ```syntax
-$instantiation$-> 🆕 $type-expr$ $initializer-id$ [$arguments$] $mood$
-$initializer-id$-> $initializer-emoji-id$ | 🆕
+$instantiation$-> 🆕 $type-expr$ [$initializer-name$] [$arguments$] $mood$
 ```
 
 Let us instantiate a credit card information 💳:
 
 ```
-🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
+🆕💳 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
 ```
 
-Diretly after 🆕 comes 💳, the name of the type we want to instantiate.
+Directly after 🆕 comes 💳, the name of the type we want to instantiate.
 
-Then the name of the initializer is expected. Since we did not provide a name
-for the initializer above, it was automatically named 🆕. So we use 🆕 as the
-initializer name.
-
-The following expressions are argumetns to the initializer. ❗️ denotes the
+The following expressions are arguments to the initializer. ❗️ denotes the
 end of the arguments.
 
 Having instantiated a credit card, we can also instantiate a customer:
 
 ```
-🆕👩‍💼🆕 🔤Mickey🔤 🔤Mouse🔤 credit_card❗️ ➡️ customer_mouse
-🆕👩‍🚀🆕 3216 🔤Jean-Luc🔤 🔤Picard🔤 credit_card❗️ ➡️ astronaut_picard
+🆕👩‍💼 🔤Mickey🔤 🔤Mouse🔤 credit_card❗️ ➡️ customer_mouse
+🆕👩‍🚀 3216 🔤Jean-Luc🔤 🔤Picard🔤 credit_card❗️ ➡️ astronaut_picard
 ```
 
 ### Named Initializer
+
+>!N Note that initializers support overloading, which makes the use of named
+>!N initializers unnecessary in most cases, and will be discussed in the [next
+>!N chapter](overloading.html).
 
 For completeness, let’s add an initializer with a name:
 
@@ -262,7 +261,7 @@ For completeness, let’s add an initializer with a name:
 
   🆕 🍼 firstname 🔡 🍼 lastname 🔡 🍼 creditcard 💳 🍇🍉
 
-  🆕 🧜‍♀️ 🍼 firstname 🔡 🍼 creditcard 💳 🍇
+  🆕 ▶️🧜‍♀️ 🍼 firstname 🔡 🍼 creditcard 💳 🍇
     🔤Mermaid🔤 ➡️ 🖍lastname
   🍉
 🍉
@@ -275,7 +274,7 @@ other initializer, it does not take the lastname. Instead it initializes
 We can use the 🧜‍♀️ initializer like this:
 
 ```
-🆕👩‍💼🧜‍♀️ 🔤Ariel🔤 credit_card❗️ ➡️ ariel
+🆕👩‍💼▶️🧜‍♀️ 🔤Ariel🔤 credit_card❗️ ➡️ ariel
 ```
 
 ## Methods
@@ -384,6 +383,7 @@ As you can see above, the syntax to call a method is special:
 
 ```syntax
 $method-call$-> $emoji-id$ $callee$ [$generic-arguments$] [$arguments$] $mood$
+$method-call$-> $emoji-id$ $mood$
 $callee$-> $expression$
 $arguments$-> $expression$ [$arguments$]
 ```
@@ -401,35 +401,37 @@ method does not declare a return type, the call expression returns a value of
 type *no return*, which is neither compatible to any type nor does it offer any
 functionality.
 
+>!H Note that methods like initializers support overloading as we will
+>!H see in the next chapter.
+
 ### This Context
 
-You often will want to get the instance on which the method was called, this is
-the object or the value. This is what 🐕 is for.
-
-🐕 returns the current value, whose method or initializer is being called.
+You will naturally need to access the instance on which the method was called.
+This is what 👇 is for.👇 returns the value on which the method or initializer
+was called.
 
 For example, we could add a method to the 👩‍🚀 class that bills an astronaut if
 has traveled to space:
 
 ```
 ❗️ 🛸 🍇
-  ↪️ 🚀 🐕❓ 🍇
-    💸🐕 100❗️
+  ↪️ 🚀 👇❓ 🍇
+    💸👇 100❗️
   🍉
 🍉
 ```
 
-Note that in an initializer, you can’t use 🐕 before the object is fully
+Note that in an initializer, you can’t use 👇 before the object is fully
 initialized, that is before all instance variables were set and the
 superinitializer was called. If this was allowed, you could call methods on the
 instance which might access instance variable that had not been initialized yet.
 
 ```syntax
-$this$-> 🐕
+$this$-> 👇
 ```
 
-Note that when you want to call a method on 🐕 that does not take any arguments
-you can omit 🐕:
+Note that when you want to call a method on 👇 that does not take any arguments
+you can omit 👇:
 
 ```
 🙋❗
@@ -497,7 +499,7 @@ card’s security code:
 ```
 
 If we hadn’t used the 🖍 attribute, the compiler would emit an error when
-compiling this. Of course, we can only call a method marked with 🖍 on 🐕 if
+compiling this. Of course, we can only call a method marked with 🖍 on 👇 if
 the method we are in is attributed with 🖍 too. Thus the following would
 not work:
 
@@ -512,7 +514,7 @@ not work:
   🍉
 
   ❗️🦠 code 🔡 🍇
-    🗝🐕 🔤000🔤❗️ 💭 We cannot call a mutating method from a non-mutating one.
+    🗝👇 🔤000🔤❗️ 💭 We cannot call a mutating method from a non-mutating one.
   🍉
 🍉
 ```
@@ -525,7 +527,7 @@ Only value types in a mutable variables are mutable.
 Let’s see an example:
 
 ```
-🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ 🖍🆕credit_card
+🆕💳 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ 🖍🆕credit_card
 🗝credit_card❗️
 ```
 
@@ -533,7 +535,7 @@ This is perfectly fine, while the below example will not compile as
 `credit_card` is not mutable:
 
 ```!
-🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
+🆕💳 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
 🗝credit_card❗️
 ```
 
@@ -545,7 +547,7 @@ The return of a method is always immutable. The following code does not work:
 ```!
 🕊 🌼 🍇
   🐇❗️💳 ➡️ 💳 🍇
-    ↩️ 🆕💳🆕 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️
+    ↩️ 🆕💳 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️
   🍉
 🍉
 
@@ -586,7 +588,7 @@ We can call our type methods like this:
 ```
 
 This calls the type method 📜 on the class 🍕, which we just defined above.
-In class type methods, 🐕 represents the type value on which the method was
+In class type methods, 👇 represents the type value on which the method was
 called. To learn more about what this means please see
 [Types As Values](typevalues.html).
 
@@ -612,35 +614,13 @@ therefore not be called from 🏁.
 🍉
 
 🏁 🍇
-  🆕🐟🆕❗️ ➡️ fish
+  🆕🐟❗️ ➡️ fish
   🙋 fish❗
 🍉
 ```
 
 If you do not specify an access level the method will default to 🔓, unless
 [it overrides another method](inheritance.html#overriding-methods).
-
-## Final Classes
-
-The attribute 🔏 marks a class as final. A final class cannot be subclassed or
-an compiler error will be raised.
-
->!H Marking a class as final not only makes your intent clear but can also
->!H lead to performance improvements. Although the
->!H compiler tries to automatically detect final classes, it cannot do so in
->!H packages that export types.
-
-The following example will raise a compiler error as 🐟 is attributed with 🔏.
-
-```!
-🔏 🐇 🐟 🍇
-  🆕 🍇🍉
-🍉
-
-🐇 🐡 🐟 🍇
-
-🍉
-```
 
 ## Deprecation
 
@@ -656,83 +636,3 @@ You can attribute a method or an initializer with 🥯, which indicates to the
 compiler that it could be advantegous to inline the method. This attribute
 furthermore causes the compiler to include the function body in the interface
 file if one is generated.
-
-## Borrowing and Escaping Use
-
-Emojicode supports the notion of borrowing and escaping use of a value.
-
-This concept only applies to the use of method or initializer parameters and the
-use of the context, i.e. the value returned by 🐕, in the method or initializer.
-
-A value is considered escaping, if it (or a copy of it) can outlive the call of
-the method or initializer. Consider, for instance, this class:
-
-```
-🐇 🥧 🍇
-  💭 ...
-
-  ❗️ 😀 🍇
-    💭 ...
-  🍉
-🍉
-
-🐇 🦡 🍇
-  🖍🆕 pie 🥧
-
-  🆕 🍼 pie 🥧 🍇🍉
-🍉
-```
-
-It is obvious that the pie reference passed to the 🆕 initializer of 🦡 will
-outlive the call as it is assigned to an instance variable. This parameter is
-considered escaping, therefore. On the other hand, the below class method does
-not use its parameter in an escaping way:
-
-```
-🐇 🐟 🍇
-  🐇❗️ 💚 pie 🥧 🍇
-    😀 pie❗️
-  🍉
-🍉
-```
-
-No copy of `pie` is made here that will outlive the call of 💚.
-
-As mentioned before, a method itself can be escaping, if it makes the this
-context outlive the call. The following is an example of such a method:
-
-```
-🐇 🥧 🍇
-  ❗️ 🖲 ➡️ 🦡 🍇
-    ↩️ 🆕🦡🆕 🐕❗️
-  🍉
-🍉
-```
-
-🐕 is passed to an escaping parameter in this example, which obviously causes
-the value to escape.
-
-Simply put, there are four ways in which a value can escape:
-- The value is assigned to an instance variable.
-- The value is passed to an escaping parameter.
-- An escaping method is called on the value.
-- Return the value.
-
-When compiling, the Emojicode compiler analyses all methods to
-determine whether they just borrow a value or let it escape. If you generate
-an interface file for a package, you can see all escaping parameters and methods
-annotated with 🎍🥡. As an example, take a look at 🍨’s 🐻:
-
-```
-🌍 🕊 🍨🐚Element ⚪️ 🍆🍇
-  📗 Appends `item` to the end of the list in `O(1)`. 📗
-  🖍 ❗️ 🐻 🎍🥡 item Element
-🍉
-```
-
-Obviously, appending a value to a list causes the value to escape, which the
-compiler correctly determined and annotated the parameter with 🎍🥡.
-
-In principle, you can manually annotate parameters and methods with 🎍🥡, but
-unless you build a package with methods implemented in another language, there
-is no reason to do so.

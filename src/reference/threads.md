@@ -12,7 +12,7 @@ on the newly created thread.
 For example:
 
 ```
-🆕🧵🆕 🍇
+🆕🧵 🍇
   😀 🔤I execute on a different thread.🔤
 🍉❗️
 ```
@@ -31,10 +31,10 @@ finish.
 
 ```
 🏁 🍇
-  🆕🍨🐚🧵🍆🐸❗️ ➡️ 🖍🆕threads
+  🆕🍨🐚🧵🍆❗️ ➡️ 🖍🆕threads
 
-  🔂 i 🆕⏩⏩ 0 5❗️ 🍇
-    🐻 threads 🆕🧵🆕 🍇
+  🔂 i 🆕⏩ 0 5❗️ 🍇
+    🐻 threads 🆕🧵 🍇 🎍🥡
       😀 🔤On a dark desert highway, cool wind in my hair🔤❗️
       😀 🔤Warm smell of colitas, rising up through the air🔤❗️
       😀 🔤Up ahead in the distance, I saw a shimmering light🔤❗️
@@ -74,14 +74,30 @@ load factor of the computer.
 Imagine the following program:
 
 ```
+🐇 🏦 🍇
+  🖍🆕 account 🔢
+
+  🆕 🍇
+    300 ➡️ 🖍account
+  🍉
+
+  ❗️ 💸 sum 🔢 🍇
+    account ⬅️➖ sum
+  🍉
+
+  ❗️ 💶 ➡️ 🔢 🍇
+    ↩️ account
+  🍉
+🍉
+
 🏁 🍇
-  🆕🍨🐚🧵🍆🐸❗️ ➡️ 🖍🆕threads
+  🆕🍨🐚🧵🍆❗️ ➡️ 🖍🆕threads
 
-  🆕🏦🆕❗️ ➡️ account
+  🆕🏦❗️ ➡️ account
 
-  🔂 i 🆕⏩⏩ 0 10❗️ 🍇
-    🐻 threads  🆕🧵🆕 🍇
-      🔂 j 🆕⏩⏩ 0 5❗️ 🍇
+  🔂 i 🆕⏩ 0 10❗️ 🍇
+    🐻 threads  🆕🧵 🍇 🎍🥡
+      🔂 j 🆕⏩ 0 5❗️ 🍇
 
         ↪️ 💶 account❗️ ▶️🙌 10 🍇
           😀 🔤Money, money, money – Must be funny🔤❗️
@@ -146,15 +162,15 @@ We’ve reworked our example to use a mutex:
 
 ```
 🏁 🍇
-  🆕🍨🐚🧵🍆🐸❗️ ➡️ 🖍🆕threads
+  🆕🍨🐚🧵🍆❗️ ➡️ 🖍🆕threads
 
-  🆕🏦🆕❗️ ➡️ account
+  🆕🏦❗️ ➡️ account
 
-  🆕🔐🆕❗️ ➡️ mutex
+  🆕🔐❗️ ➡️ mutex
 
-  🔂 i 🆕⏩⏩ 0 10❗️ 🍇
-    🐻 threads  🆕🧵🆕 🍇
-      🔂 j 🆕⏩⏩ 0 5❗️ 🍇
+  🔂 i 🆕⏩ 0 10❗️ 🍇
+    🐻 threads  🆕🧵 🍇 🎍🥡
+      🔂 j 🆕⏩ 0 5❗️ 🍇
         🔒 mutex❗️
         ↪️ 💶 account❗️ ▶️🙌 10 🍇
           😀 🔤Money, money, money – Must be funny🔤❗️

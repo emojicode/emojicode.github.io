@@ -24,7 +24,7 @@
         <h3>Initializers</h3>
         <div class="link-list">
           {{#initializers}}
-            <a href="#i{{name}}">{{name}}</a>
+            <a href="#{{mangled}}">🆕{{#name}}▶️{{.}}{{/name}}</a>
           {{/initializers}}
         </div>
       {{/initializers.length}}
@@ -40,7 +40,7 @@
         <h3>Methods</h3>
         <div class="link-list">
           {{#methods}}
-            <a href="#m{{name}}{{mood}}">{{name}}{{mood}}</a>
+            <a href="#{{mangled}}">{{name}}{{mood}}</a>
           {{/methods}}
         </div>
       {{/methods.length}}
@@ -48,7 +48,7 @@
         <h3>Type Methods</h3>
         <div class="link-list">
           {{#typeMethods}}
-            <a href="#cm{{name}}{{mood}}">{{mood}}{{name}}</a>
+            <a href="#{{mangled}}">{{mood}}{{name}}</a>
           {{/typeMethods}}
         </div>
       {{/typeMethods.length}}
@@ -64,11 +64,11 @@
     {{#initializers}}
       <div class="method">
         <div class="method-heading">
-          <h3 class="method-emoji" id="i{{name}}">{{name}}</h3>
+          <h3 class="method-emoji" id="{{mangled}}">🆕{{#name}}▶️{{.}}{{/name}}</h3>
           {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
         </div>
 
-        <pre class="declaration">{{attributes}}{{access}}🆕 {{name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#parameters}}{{#escaping}}🎍🥡{{/escaping}} {{name}} {{{typeLink}}} {{/parameters}}{{#errorType}} 🚧{{{thisTypeLink}}}{{/errorType}}</pre>
+        <pre class="declaration">{{attributes}}{{access}} 🆕{{#name}}▶️{{.}}{{/name}} {{#errorType}}🚨{{{thisTypeLink}}} {{/errorType}}{{#parameters}}{{#escaping}}🎍🥡{{/escaping}} {{name}} {{{typeLink}}} {{/parameters}}{{#errorType}} 🚧{{{thisTypeLink}}}{{/errorType}}</pre>
 
         {{{mdDocumentation}}}
       </div>
@@ -95,7 +95,7 @@
     {{#methods}}
     <div class="method">
       <div class="method-heading">
-        <h3 class="method-emoji" id="m{{name}}{{mood}}">{{name}}{{mood}}</h3>
+        <h3 class="method-emoji" id="{{mangled}}">{{name}}{{mood}}</h3>
         {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
       </div>
 
@@ -112,7 +112,7 @@
     {{#typeMethods}}
     <div class="method">
       <div class="method-heading">
-        <h3 class="method-emoji" id="cm{{name}}">{{name}}</h3>
+        <h3 class="method-emoji" id="{{mangled}}">{{name}}</h3>
         {{#deprecated}}<span class="label label-danger">Deprecated since {{deprecated}}</span>{{/deprecated}}
       </div>
 

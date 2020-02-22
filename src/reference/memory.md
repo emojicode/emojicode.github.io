@@ -9,7 +9,7 @@ Emojicode manages memory with reference counting. This means that Emojicode main
 Consider the following example:
 
 ```
-🆕🐟🆕  🔤Shawn🔤❗️
+🆕🐟  🔤Shawn🔤❗️
 ```
 
 The above code sample creates an instance of the class 🐟. Since this object is not assigned to any variable or returned, we call it a temporary value. Temporary values are destroyed at the end of the statement in the order they were created.
@@ -28,11 +28,91 @@ Let’s have a look at this more complicated example:
 🍉
 
 🏁 🍇
-  🆕🦍🆕️ 🆕🐟🆕  🔤Shawn🔤❗️❗
+  🆕🦍 🆕🐟 🔤Shawn🔤❗️❗
 🍉
 
 ```
 Here we create an instance of  🦍, which we pass an instance of  🐟 to.   🦍 does not anything with the fish instance (like assigning it to an instance variable). So both the fish instance and the gorilla instance will be destroyed at the end of the statement. Because the fish instance was created first, it will be destroyed first.
+
+## Borrowing and Escaping Use
+
+Emojicode supports the notion of borrowing and escaping use of a value.
+
+This concept only applies to the use of method or initializer parameters and the
+use of the context, i.e. the value returned by 👇, in the method or initializer.
+
+A value is considered escaping, if it (or a copy of it) can outlive the call of
+the method or initializer. Consider, for instance, this class:
+
+```
+🐇 🥧 🍇
+  💭 ...
+
+  ❗️ 😀 🍇
+    💭 ...
+  🍉
+🍉
+
+🐇 🦡 🍇
+  🖍🆕 pie 🥧
+
+  🆕 🍼 pie 🥧 🍇🍉
+🍉
+```
+
+It is obvious that the pie reference passed to the 🆕 initializer of 🦡 will
+outlive the call as it is assigned to an instance variable. This parameter is
+considered escaping, therefore. On the other hand, the below class method does
+not use its parameter in an escaping way:
+
+```
+🐇 🐟 🍇
+  🐇❗️ 💚 pie 🥧 🍇
+    😀 pie❗️
+  🍉
+🍉
+```
+
+No copy of `pie` is made here that will outlive the call of 💚.
+
+As mentioned before, a method itself can be escaping, if it makes the this
+context outlive the call. The following is an example of such a method:
+
+```
+🐇 🥧 🍇
+  ❗️ 🖲 ➡️ 🦡 🍇
+    ↩️ 🆕🦡 👇❗️
+  🍉
+🍉
+```
+
+👇 is passed to an escaping parameter in this example, which obviously causes
+the value to escape.
+
+Simply put, there are four ways in which a value can escape:
+- The value is assigned to an instance variable.
+- The value is passed to an escaping parameter.
+- An escaping method is called on the value.
+- Return the value.
+
+When compiling, the Emojicode compiler analyses all methods to
+determine whether they just borrow a value or let it escape. If you generate
+an interface file for a package, you can see all escaping parameters and methods
+annotated with 🎍🥡. As an example, take a look at 🍨’s 🐻:
+
+```
+🌍 🕊 🍨🐚Element ⚪️ 🍆🍇
+  📗 Appends `item` to the end of the list in `O(1)`. 📗
+  🖍 ❗️ 🐻 🎍🥡 item Element
+🍉
+```
+
+Obviously, appending a value to a list causes the value to escape, which the
+compiler correctly determined and annotated the parameter with 🎍🥡.
+
+In principle, you can manually annotate parameters and methods with 🎍🥡, but
+unless you build a package with methods implemented in another language, there
+is no reason to do so.
 
 ## Deinitializers
 
@@ -64,7 +144,7 @@ We can define a deinitializer for the  🦍 and  🐟 class, to prove the behavi
 🍉
 
 🏁 🍇
-  🆕🦍🆕️ 🆕🐟🆕  🔤Shawn🔤❗️❗
+  🆕🦍 🆕🐟 🔤Shawn🔤❗️❗
 🍉
 ```
 
@@ -125,7 +205,7 @@ The same is true when working with value types, like in the following example.
 🍉
 
 🏁 🍇
-  🆕💳🆕️ 🆕🐟🆕  🔤Shawn🔤❗️❗
+  🆕💳 🆕🐟 🔤Shawn🔤❗️❗
 🍉
 ```
 
@@ -133,7 +213,7 @@ We can, however, update our program slightly to see a change:
 
 ```
 🏁 🍇
-  🆕💳🆕️ 🆕🐟🆕  🔤Shawn🔤❗️❗ ➡️ card
+  🆕💳 🆕🐟 🔤Shawn🔤❗️❗ ➡️ card
   😀 🔤💛🔤❗️
 🍉
 ```
@@ -164,7 +244,7 @@ Consider this program as an example:
   🖍🆕 moon 🌕
 
   🆕 🍼 moon 🌕 🍇
-    🐕 ➡️ 🌍moon❗️
+    👇 ➡️ 🌍moon❗️
   🍉
 
   ♻️ 🍇
@@ -187,7 +267,7 @@ Consider this program as an example:
 🍉
 
 🏁🍇
-  🆕🌍🆕 🆕🌕🆕❗️❗️
+  🆕🌍 🆕🌕❗️❗️
 🍉
 ```
 
@@ -204,7 +284,7 @@ The solution is using a weak reference in one of the classes:
   🆕 🍇🍉
 
   ➡️🌍 new_earth 🌍 🍇
-    🆕📶🆕new_earth❗️ ➡️ 🖍earth
+    🆕📶new_earth❗️ ➡️ 🖍earth
   🍉
 
   ♻️ 🍇
@@ -226,6 +306,12 @@ Moon deinit
 Weak references are part of the s package. See the [package documentation](../packages/s/1f4f6.html) to
 learn more about their usage.
 
-## Detecting shared values
+## Detecting Shared Values
 
-In some cases, you might want to know whether your reference to a value is unique. This can be done by calling 🏮❗ on it.
+In some cases, you might want to know whether your reference to a value is
+unique. This can be done by using the 🏮 operator on the variable holding the
+reference.
+
+```syntax
+$unique$-> 🏮 $variable$
+```

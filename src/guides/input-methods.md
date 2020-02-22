@@ -1,4 +1,4 @@
-# Input methods
+# Input Methods
 
 So, you've installed Emojicode and are willing to spend the rest of the weekend and maybe your life programming with it. It is a language crafted by Gods, you think. But, suddenly, a realization comes to you. Your keyboard has no worthy symbols. Just those letters you used for your old programming activities.
 
@@ -28,6 +28,6 @@ If you happen to run Arch Linux you would have to follow this:  [https://wiki.ar
 
 For other OSes, the installation is similar. Please do refer to your OS documentation.
 
-## Compose (Hex code)
+## Compose (Hex Code)
 
 Although less user-friendly, it might feel more hacky for you. Just hit `ctrl` + `shift` + `u`, type the hex code of the Emoji and then press `enter`.

@@ -67,8 +67,8 @@ Methods on protocol values are called like any other methods:
 
 ```
 🖍🆕 cd_like 💿
-🆕📱🆕  ➡️ 🖍 cd_like
-🎶 cd_like
+🆕📱  ➡️ 🖍 cd_like
+🎶 cd_like❗️
 ```
 
 ## Multiprotocols

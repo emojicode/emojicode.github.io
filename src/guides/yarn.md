@@ -31,7 +31,7 @@ Next, we create the main file of our project `main.emojic`:
 📦 catsimulator 🏠
 
 🏁 🍇
-  🆕🐱🆕❗️ ➡️ cat
+  🆕🐱❗️ ➡️ cat
   🎙cat❗️
 🍉
 ```

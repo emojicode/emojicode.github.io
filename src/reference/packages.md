@@ -94,11 +94,12 @@ emojicodec -p catsimulator main.emojic
 
 If you run this command, the compiler will not create an executable binary, but
 an archive (named `libcatsimulator.a` in our example) and an interface file
-called `interface.emojii`. The interface file describes your package in a
+called `🏛`. The interface file describes your package in a
 special subset of Emojicode.
 When the compiler tries to import a package it looks for this interface file to
 determine the interfaces of the package. It is crucial that you not modify this
-file in any way.
+file in any way. Note that the file may also be called `interface.emojii` but
+no such file can coexist with a `🏛` file in a package.
 
 If we place these two files inside a directory named `catsimulator` we
 have a package ready for distribution!
@@ -109,7 +110,7 @@ Let us test our new package by writing this short program `test.emojic`:
 📦 catsimulator 🏠
 
 🏁 🍇
-  🆕🐱🆕❗️ ➡️ cat
+  🆕🐱❗️ ➡️ cat
   🎙cat❗️
 🍉
 ```
@@ -119,7 +120,7 @@ Our directory structure looks like this now:
 ```
 ├── packages
 │   └── catsimulator
-│       ├── interface.emojii
+│       ├── 🏛
 │       └── libcatsimulator.a
 └── test.emojic
 ```
@@ -165,7 +166,7 @@ It’s important that the implementations conform to the C calling convention.
 
 Learn more about implementing functins in C++ in [this guide](/docs/guides/api.html).
 
-## Specifying Shared Libaries To Link
+## Specifying Shared Libraries to Link
 
 Emojicode packages are complied to static archives. If your package depends
 on a shared library this means that the Emojicode Compiler, when linking

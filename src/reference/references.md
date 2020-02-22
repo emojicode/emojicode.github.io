@@ -47,7 +47,7 @@ variable. The following program will therefore panic:
 Because references to value types could be an origin of severe memory bugs,
 Emojicode emposes strict rules that make their use very safe.
 
-## Obtaining A Reference
+## Obtaining a Reference
 
 The only way to obtain a reference to a value type is by using the return
 statement inside a method whose return type is a reference. You can only safely
@@ -58,7 +58,7 @@ return a reference to an instance variable, like in the example below:
 🍉
 
 🕊 🐭 🍇
-  🖍🆕 bacon 🥓 ⬅️ 🆕🥓🆕❗️
+  🖍🆕 bacon 🥓 ⬅️ 🆕🥓❗️
 
   🆕🍇🍉
 
@@ -81,7 +81,7 @@ example that would lead to undefined behavior if allowed:
 
 ```!
 🕊 🐭 🍇
-  🖍🆕 bacon 🥓 ⬅️ 🆕🥓🆕❗️
+  🖍🆕 bacon 🥓 ⬅️ 🆕🥓❗️
 
   🆕🍇🍉
 
@@ -90,7 +90,7 @@ example that would lead to undefined behavior if allowed:
   🍉
 
   🐇❗️ 🍄 ➡️ ✴️🥓 🍇
-    ↩️ 🍳🆕🐭🆕❗️❗️
+    ↩️ 🍳🆕🐭❗️❗️
   🍉
 🍉
 
