@@ -75,7 +75,7 @@ greetings instead:
 🍉
 ```
 
-What happens here exactly? Everything that you list between `🍨` and `🍆` is made
+What happens here exactly? Everything that you list between `🍿` and `🍆` is made
 into a list. And `➡️` is used to create a constant variable. Maybe this appears
 odd at first, but in Emojicode the value for a variable is on the left-hand-side
 of `➡️` and the variable name on the right-hand-side.
