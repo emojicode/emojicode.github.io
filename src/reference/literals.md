@@ -1,18 +1,18 @@
 # Literals
 
-This chapter provides introduces the literals that can be used in Emojicode
+This chapter introduces the literals that can be used in Emojicode
 source and their meaning.
 
 ## Typing of Literals
 
-In Emojicode, the types of some literals not fixed but will be inferred based on
-[Type Expectations](types.html#type-expectations). If there is no expectation or
-the literal cannot satisfy the expectation, the literal will create an instance
-of a default type that is specified for each literal.
+In Emojicode, the types of some literals are not fixed but will be inferred
+based on [Type Expectations](types.html#type-expectations). If there is no
+expectation or the literal cannot satisfy the expectation, the literal will
+create an instance of a default type that is specified for each literal.
 
-These default types will come from the s package that can be compared to what’s
-called standard library in other programing languages. It provides some of the
-most important classes and value types to write meaningful programs.
+These default types will come from the s package, which can be compared to
+what’s called the standard library in other programing languages. It provides
+some of the most important classes and value types to write meaningful programs.
 
 ## Numeric Literals
 
