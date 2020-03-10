@@ -47,7 +47,7 @@ constant variable, this will result in a compiler error.
 ## Declaring and Assigning Mutable Variables
 
 Sometimes, however, you need variables whose values can be modified. This
-is were mutable variables come in.
+is where mutable variables come in.
 
 Before you can use a mutable variable you need to declare it. There are two
 ways, either you declare and assign the variable to a value in one step or you
