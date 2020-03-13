@@ -94,7 +94,7 @@ method used to access an element in a list. And as in most other programming
 languages, in Emojicode the first element in a list has index 0. You can see
 that we added `0` after the object on which we call the method (`list`) but
 before the ❗️. This is where arguments to a method call go. No separator
-is used to separate the callee from metod arguments.
+is used to separate the callee from the method's arguments.
 
 So all `🐽list 0❗️` does is to return the first element in the list,
 which is a string.
