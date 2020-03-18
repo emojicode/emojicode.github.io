@@ -68,7 +68,7 @@ Additionally, an error-prone method or initializer takes a `runtime::Raiser*` as
 the last argument.
 
 In order to be able to find the correct function signature, you’ll also need to
-map from Emojicode types to the proper C++ type. This table should help you:
+map from Emojicode types to the proper C++ type. This table will help you:
 
 | Emojicode Type | C++ Type
 |----------------|----------
@@ -76,7 +76,6 @@ map from Emojicode types to the proper C++ type. This table should help you:
 | 💯 | `runtime::Real`
 | 💧 | `runtime::Byte`
 | 👌 | `runtime::Boolean`
-| 🔣 | `runtime::Symbol`
 | any enumeration | `runtime::Enum`
 | 🍇🍉 | `runtime::Callable<...>`
 | 🍬 | `runtime::SimpleOptional<...>`
@@ -231,8 +230,8 @@ not need to explicitly retain any of the objects provided to your method. If
 the value does not outlive the call.
 
 If you, however, make a copy of the value or otherwise use the value in a way
-that makes use of it after the function has returned (i.e. starting another)
-thread you need to explicitly retain and release it appropriately.
+that makes use of it after the function has returned (i.e. starting another
+thread) you need to explicitly retain and release it appropriately.
 
 Take the following simplified example from the s package:
 
@@ -324,13 +323,13 @@ The 🔡 class is therefore defined in Emojicode like this:
 🍉
 ```
 
-Sometimes, however, a class has to store something that cannot be represented
-in Emojicode, because it is a platform dependent value or system resource for
-example. An example from the s package is the 🧵 class. Threads are very
-platform dependent and there is no safe way to represent `std::thread` in
-Emojicode. Thus, there is no way to fully define the class 🧵 in Emojicode. This
-is where *foreign classes* come in. Foreign classes are defined by attributing
-them with 📻. The 🧵 is defined like this:
+Sometimes, however, a class has to store something that cannot be represented in
+Emojicode, because it is a platform dependent value or system resource for
+example. An example from the s package is the 🧵 class. Threads are very platform
+dependent and there is no safe way to represent `std::thread` in Emojicode.
+Thus, there is no way to fully define the class 🧵 in Emojicode. This is where
+*foreign classes* come in. Foreign classes are defined by attributing them with
+📻. The 🧵 is defined like this:
 
 ```
 🌍 📻 🐇 🧵 🍇

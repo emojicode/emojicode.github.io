@@ -9,7 +9,32 @@ also overload initializers.
 
 Defining overloads is straightforward. You declare another method with the same mood and name as the method you wish to overload:
 
+```
+🐇 🐟 🍇
+  ❗️ 🙋 string 🔡 🍇
+    😀string❗️
+  🍉
+
+  ❗️ 🙋 number 🔢 🍇
+    😀🔤a number🔤❗️
+  🍉
+🍉
+```
+
 Initializers are overloaded alike:
+
+```
+🕊 🍨🐚Element ⚪🍆️ 🍇
+  🆕 🍇
+    💭 ...
+  🍉
+
+  🆕 repeatedValue Element count 🔢 🍇
+    💭 ...
+  🍉
+
+💭 ...
+```
 
 ## Overload Resolution
 
