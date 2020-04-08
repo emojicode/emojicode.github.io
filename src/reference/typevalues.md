@@ -97,7 +97,7 @@ instantiates them at run-time and calls a method on these instances:
   🔑 🆕 🍇 ⤴️🆕❗️ 🍉
 
   ✒️ ❗️ 🙋 🍇
-    😀 🔤I’m a wale.🔤❗️
+    😀 🔤I’m a whale.🔤❗️
   🍉
 🍉
 
