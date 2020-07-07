@@ -75,7 +75,7 @@ smaller than b”:
   😀 🔤a is greater than b🔤❗️
 🍉
 🙅↪️ a 🙌 b 🍇
-  😀 🔤a equal to b🔤❗️
+  😀 🔤a is equal to b🔤❗️
 🍉
 🙅 🍇
   😀 🔤a is smaller than b🔤❗️
