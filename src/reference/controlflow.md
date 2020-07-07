@@ -34,12 +34,12 @@ $condition$-> $expression$ | $assignment$
 If the *condition* evaluates to 👍, the code block will be executed, and
 if it evaluates to 👎 it'll be ignored.
 
-This example will display “a is greater than” b if the content for variable *a*
+This example will display “a is greater than b” if the content for variable *a*
 is greater than *b*:
 
 ```
 ↪️ a ▶️ b 🍇
-  😀 🔤a is greater than🔤❗️
+  😀 🔤a is greater than b🔤❗️
 🍉
 ```
 
@@ -47,12 +47,12 @@ is greater than *b*:
 
 🙅 extends an ↪️ statement to execute an additional code block in case the
 expression in the if statement evaluates to false. For example, the following
-code would display a is greater than b if “a is greater than b” and “a is not
+code would display “a is greater than b” if a is greater than b, and “a is not
 greater than b” otherwise:
 
 ```
 ↪️ a ▶️ b 🍇
-  😀 🔤a is greater than🔤❗️
+  😀 🔤a is greater than b🔤❗️
 🍉
 🙅 🍇
   😀 🔤a is not greater than b🔤❗️
@@ -67,12 +67,12 @@ if all 🙅↪️ statements evaluated to false too.
 🙅↪️ extends an ↪️ statement to execute different statements in case the original
 ↪️ condition evaluates to 👎. However, unlike ↪️, it will execute that
 alternative expressions only if the ↪️ expression is 👍. For example, the
-following code would display “a is greater than”, “a equal to b” or “a is
+following code would display “a is greater than b”, “a is equal to b”, or “a is
 smaller than b”:
 
 ```
 ↪️ a ▶️ b 🍇
-  😀 🔤a is greater than🔤❗️
+  😀 🔤a is greater than b🔤❗️
 🍉
 🙅↪️ a 🙌 b 🍇
   😀 🔤a equal to b🔤❗️
@@ -104,7 +104,7 @@ The compiler then transforms the statement into byte code equivalent to the
 statement rewritten to
 
 ```
-🍡 iterable❗️ ➡️ iterator
+🍡 iteratable❗️ ➡️ iterator
 🔁 🔽 iterator❓️ 🍇
   🔽 iterator❗️ ➡️ variable
   💭 The provided block is executed here
