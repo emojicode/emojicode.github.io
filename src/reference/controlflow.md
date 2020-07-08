@@ -47,7 +47,7 @@ is greater than *b*:
 
 🙅 extends an ↪️ statement to execute an additional code block in case the
 expression in the if statement evaluates to false. For example, the following
-code would display “a is greater than b” if a is greater than b and “a is not
+code would display “a is greater than b” if a is greater than b, and “a is not
 greater than b” otherwise:
 
 ```
@@ -67,15 +67,15 @@ if all 🙅↪️ statements evaluated to false too.
 🙅↪️ extends an ↪️ statement to execute different statements in case the original
 ↪️ condition evaluates to 👎. However, unlike ↪️, it will execute that
 alternative expressions only if the ↪️ expression is 👍. For example, the
-following code would display “a is greater than”, “a equal to b” or “a is
+following code would display “a is greater than b”, “a is equal to b”, or “a is
 smaller than b”:
 
 ```
 ↪️ a ▶️ b 🍇
-  😀 🔤a is greater than🔤❗️
+  😀 🔤a is greater than b🔤❗️
 🍉
 🙅↪️ a 🙌 b 🍇
-  😀 🔤a equal to b🔤❗️
+  😀 🔤a is equal to b🔤❗️
 🍉
 🙅 🍇
   😀 🔤a is smaller than b🔤❗️
