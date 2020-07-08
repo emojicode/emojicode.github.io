@@ -104,7 +104,7 @@ The compiler then transforms the statement into byte code equivalent to the
 statement rewritten to
 
 ```
-🍡 iteratable❗️ ➡️ iterator
+🍡 iterable❗️ ➡️ iterator
 🔁 🔽 iterator❓️ 🍇
   🔽 iterator❗️ ➡️ variable
   💭 The provided block is executed here
