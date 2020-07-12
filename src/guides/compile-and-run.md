@@ -6,8 +6,11 @@ line.
 
 ## The Basic Structure
 
-All Emojicode source files are named like `file.emojic`. So let’s get started by
-creating a file called `greeter.emojic` and put some content into it:
+All Emojicode source files are named like `file.🍇` or `file.emojic`. Although,
+of course, 🍇 is the file extension that suits Emojicode the best, `.emojic` is
+is used for compatibility with systems that do not support emoji filenames
+well. So let’s get started by creating a file called `greeter.emojic` and put
+some content into it:
 
 ```
 🏁 🍇
