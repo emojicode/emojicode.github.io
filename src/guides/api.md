@@ -102,10 +102,10 @@ arguments of a generic type or return a generic type in C++.
 ## C++ Types for Emojicode Types
 
 You can define C++ types that match Emojicode types you defined, to interact
-with them from Emojicode.
+with them from C++.
 
-In order to interact with objects you have to create a C++ copy of the class.
-For example:
+In order to interact with class instances you have to create a C++ copy of the
+class. For example:
 
 ```
 🌍 🐇 🐱 🍇
