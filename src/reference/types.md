@@ -66,17 +66,6 @@ Another example would be a variable assignment. If you have declared a variable
 of a certain type, the compiler will expect this type when assigning to the
 variable.
 
-### ⚫️ The Expected Type
-
-⚫️ (“the expected type”) is an emoji that can be used instead of a type name.
-
-The compiler will try to deduce the substituted type from the type
-expectation. Thus, ⚫️ will normally refer to the expected type.
-
-⚫️ can be used in cases where writing out a type name in full is inconvenient.
-
->!N ⚫️ does not work correctly in 1.0 beta 2.
-
 ## Built-In Types
 
 These types are built right into the language and are not defined in any
