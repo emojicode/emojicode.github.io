@@ -47,7 +47,7 @@ The progam then uses the class 📄 which was imported from the
 📦 files 🏠
 
 🏁 🍇
-  🍺🆕📄📜 🔤novel.txt🔤❗️ ➡️ readFile
+  🍺🆕📄▶️📜 🔤novel.txt🔤❗️ ➡️ readFile
 🍉
 ```
 
