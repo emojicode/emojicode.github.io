@@ -148,8 +148,8 @@ We’ll start off by creating a dictionary to map languages to a greeting:
 🍉
 ```
 
-`🍯` works like 🍨 and creates a dictionary from the listed values. This
-dictionary is stored into `dictionary`.
+This creates a dictionary from the listed values and stores it in the
+`dictionary` variable.
 
 The method to access a dictionary is also called `🐽`, so intuitively we would
 write:
@@ -158,9 +158,10 @@ write:
 😀 🐽dictionary 🔤de🔤❗️❗️
 ```
 
-This won’t work, however. 🍯’s 🐽 returns an optional. An optional is like
-a box that can contain something or be empty. We have to check therefore,
-whether our dictionary actually returned a value for the key `🔤de🔤`.
+This won’t work, however. 🐽 on a dictionary returns an optional. An
+optional is like a box that can contain something or be empty. We have
+to check therefore, whether our dictionary actually returned a value
+for the key `🔤de🔤`.
 
 The easiest way to do this is with the conditional assignment:
 
