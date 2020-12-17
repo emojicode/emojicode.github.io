@@ -111,7 +111,7 @@ arguments for you, so we can just write:
 ```
 🐰 list 🍇 a 🔡 ➡️ 🔡
   ↩️ 🔤🧲a🧲!🔤
-🍉
+🍉❗️
 ```
 
 and Emojicode will automatically provide `🔡` as generic argument for `A`.
