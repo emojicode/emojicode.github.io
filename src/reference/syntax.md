@@ -11,9 +11,9 @@ structures will be described in detail in the following chapters.
 >!H them.
 
 Note that the grammar specified in the Language Reference & Guide is not a
-complete description of the Emojicode language. The syntax alone allows programs
-that are not valid. The accompanying text will outline further rules that
-programs must obey.
+complete description of the Emojicode language. The grammar alone allows
+programs that are not valid. The accompanying text will outline further rules
+that programs must obey.
 
 ## Notation
 
