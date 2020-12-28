@@ -522,13 +522,13 @@ not work:
 We have defined a mutating method. We should call it as well, which brings us
 to another important aspect of value type mutability:
 
-Only value types in a mutable variables are mutable.
+Only value types in mutable variables are mutable.
 
 Let’s see an example:
 
 ```
 🆕💳 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ 🖍🆕credit_card
-🗝credit_card❗️
+🗝credit_card 🔤126🔤❗️
 ```
 
 This is perfectly fine, while the below example will not compile as
@@ -536,7 +536,7 @@ This is perfectly fine, while the below example will not compile as
 
 ```!
 🆕💳 🔤48829284848291🔤 🔤12/22🔤 🔤513🔤❗️ ➡️ credit_card
-🗝credit_card❗️
+🗝credit_card 🔤789🔤❗️
 ```
 
 Since instance variables are always mutable, you can always call mutating
@@ -568,14 +568,14 @@ example:
 🐇 🍕 🍇
   📗 Return available pizza dishes. 📗
   🐇❗️ 📜 ➡️ 🍨🐚🔡🍆 🍇
-    ↩️ 🍨 🔤Margherita🔤 🔤Tonno🔤 🔤Quattro Formaggi🔤 🍆
+    ↩️ 🍿 🔤Margherita🔤 🔤Tonno🔤 🔤Quattro Formaggi🔤 🍆
   🍉
 🍉
 
 🕊 💳 🍇
   📗 Returns some credit card providers. 📗
   🐇❗️ 🏢 ➡️ 🍨🐚🔡🍆 🍇
-    ↩️ 🍨 🔤Visa🔤 🔤MasterCard🔤 🔤Discover🔤 🍆
+    ↩️ 🍿 🔤Visa🔤 🔤MasterCard🔤 🔤Discover🔤 🍆
   🍉
 🍉
 ```
