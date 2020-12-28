@@ -3,15 +3,22 @@
 The Language Reference & Guide aims to be – as the title suggests – a reference
 and guide in one. Since a programming language needs formal definitions, you’ll
 see syntactic definitions from time to time. The notation used and the most
-basic syntactic definitions are described in this chapter.
+basic syntactic definitions are described in this chapter. The meaning of these
+structures will be described in detail in the following chapters.
 
 >!H If you don’t really care about syntactic definitions, no worries! You should
 >!H be able to follow along without problems. Just skip this chapter and ignore
 >!H them.
 
+Note that the grammar specified in the Language Reference & Guide is not a
+complete description of the Emojicode language. The syntax alone allows programs
+that are not valid. The accompanying text will outline further rules that
+programs must obey.
+
 ## Notation
 
-The Language Reference & Guide uses a modified BNF grammar notation:
+The Language Reference & Guide uses a modified BNF grammar notation. Consider
+this example:
 
 <pre class="syntax">
 <span class="syntax-placeholder">hippo</span> ⟶ <span class="syntax-placeholder">rhinoceros</span> 🥘
@@ -76,9 +83,6 @@ $document-statement$-> $start-flag$
 $include$-> 📜 $string-literal$
 $start-flag$-> 🏁 [$return-type$] $block$
 ```
-
-*start-flag* was already described in the previous chapter.
-All other rules will be explained in detail later on.
 
 ## Statement and Expression
 
