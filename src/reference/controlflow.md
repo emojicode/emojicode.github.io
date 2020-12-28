@@ -119,7 +119,7 @@ when the type of *iterable* declared its conformance to 🔂🐚Element🍆.
 Let’s take a look at an example:
 
 ```
-🍨🔤tree🔤 🔤bee🔤 🔤lee🔤 🔤me🔤🍆 ➡️ list
+🍿🔤tree🔤 🔤bee🔤 🔤lee🔤 🔤me🔤🍆 ➡️ list
 
 🔂 name list 🍇
   😀 name❗️

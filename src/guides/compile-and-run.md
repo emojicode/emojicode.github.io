@@ -79,9 +79,10 @@ greetings instead:
 ```
 
 What happens here exactly? Everything that you list between `🍿` and `🍆` is made
-into a list. And `➡️` is used to create a constant variable. Maybe this appears
-odd at first, but in Emojicode the value for a variable is on the left-hand-side
-of `➡️` and the variable name on the right-hand-side.
+into a list, which is represented by an instance of type 🍨. The `➡️` operator is
+used to create a constant variable. Maybe this appears odd at first, but in
+Emojicode the value for a variable is on the left-hand-side of `➡️` and the
+variable name on the right-hand-side.
 
 Next, we want to print the first greeting in that list as a test:
 
@@ -148,8 +149,9 @@ We’ll start off by creating a dictionary to map languages to a greeting:
 🍉
 ```
 
-`🍯` works like 🍨 and creates a dictionary from the listed values. This
-dictionary is stored into `dictionary`.
+🍿 with can also be used to list key value pairs, where each key is separated
+from its value with a ➡️. This will create an instance of 🍯 is stored into
+`dictionary`. The type 🍯 is known as dictionary or hash map in other languages.
 
 The method to access a dictionary is also called `🐽`, so intuitively we would
 write:

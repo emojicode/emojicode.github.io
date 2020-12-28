@@ -6,7 +6,7 @@ following code does work and it is very desirable that it do so:
 
 ```
 🏁🍇
-  🍨🍨 🔤A🔤 🍆🍆 ➡️ 🖍🆕 array
+  🍿🍿 🔤A🔤 🍆🍆 ➡️ 🖍🆕 array
   🐻🐽array 0❗️ 🔤B🔤❗️
 
   😀 🐽🐽array 0❗️1❗️❗️
@@ -36,7 +36,7 @@ variable. The following program will therefore panic:
 
 ```!
 🏁🍇
-  🍨🍨 🔤A🔤 🍆🍆 ➡️ 🖍🆕 array
+  🍿🍿 🔤A🔤 🍆🍆 ➡️ 🖍🆕 array
   🐽array 0❗️➡️ 🖍🆕 subarray
   🐻subarray 🔤B🔤❗️
 
