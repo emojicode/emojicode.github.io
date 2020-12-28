@@ -150,8 +150,9 @@ We’ll start off by creating a dictionary to map languages to a greeting:
 ```
 
 🍿 with can also be used to list key value pairs, where each key is separated
-from its value with a ➡️. This will create an instance of 🍯 is stored into
-`dictionary`. The type 🍯 is known as dictionary or hash map in other languages.
+from its value with a ➡️. This will create an instance of 🍯, which is stored
+into `dictionary`. The type 🍯 is known as dictionary or hash map in other
+languages.
 
 The method to access a dictionary is also called `🐽`, so intuitively we would
 write:
