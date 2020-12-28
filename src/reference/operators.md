@@ -53,7 +53,8 @@ We have seen before that Emojicode knows that it must evaluate the ✖️  opera
 before the ➕ operation. This knowledge is called *operator precedence.*
 
 The order in which operators are evaluated is clearly defined.
-Operators at top are evaluated first.
+Operators at top are evaluated first. Operators with equal precedence are
+evaluated from left to right.
 
 1. 🔲, ⬛, 🔺, ⁉️, 🍺
 - 🚮, ➗, ✖️
@@ -98,7 +99,7 @@ object in memory.
 
 This isn’t an equality check: Two objects might represents the same value but
 they are still two different object not sharing the same memory location. To
-determine equality use 😛 if available.
+determine equality use 🤝 if available.
 
 😜 returns true if the result of both expression are references to the same
 memory location. To avoid confusion it cannot be customly defined.
