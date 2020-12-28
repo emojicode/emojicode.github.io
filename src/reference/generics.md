@@ -92,10 +92,10 @@ you can know provide the generic type arguments after the object or class on
 which on which you call the method:
 
 ```
-🍨🔤aa🔤 🔤12345🔤🍆 ➡️ list
-🐰 list 🐚🔡🍆 🍇 a 🔡 ➡️ 🔡
+🍿🔤aa🔤 🔤12345🔤🍆 ➡️ list
+🐰🐚🔡🍆 list 🍇 a 🔡 ➡️ 🔡
   ↩️ 🔤🧲a🧲!🔤
-🍉
+🍉❗️
 ```
 
 The grammar for generic arguments is:
