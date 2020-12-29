@@ -345,7 +345,7 @@ The class defines its initializer like this:
 
 ```c++
 🌍 📻 🐇 🧵 🍇
-  🆕 🎍🥡 callback 📻 🔤sThreadNew🔤
+  🆕 🎍🥡 callback 🍇🍉 📻 🔤sThreadNew🔤
 
   💭 ...
 🍉
