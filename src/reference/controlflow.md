@@ -192,7 +192,7 @@ Due to the ease of use of the 🔂 statement 🔁 is only used very seldom.
 
 The decorators 🎍🐌 (slow) and 🎍🏎 (fast) allow you to specify to the compiler
 which branches in an ↪️ will be slow or fast. This can enable better
-opitmizations in performance sensitive code.
+optimizations in performance sensitive code.
 
 The example below shows an if statement whose only branch has been marked as
 slow:
