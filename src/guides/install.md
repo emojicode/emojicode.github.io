@@ -9,7 +9,7 @@ only link binaries if such a compiler is available.
 ## Magic Installation
 
 The magic installation is the easiest way to install Emojicode. Select your
-operating system and and copy’n’paste the below commands into your
+operating system and copy’n’paste the below commands into your
 shell. The script will download the appropriate Emojicode binaries and run the
 installer.
 
