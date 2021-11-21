@@ -10,24 +10,17 @@ written in JavaScript. A Node.js installation is required to run it.
 You can install its dependencies with npm:
 
 ```sh
-npm install
-```
-
-To compile the documentation run:
-
-```sh
-node lib/index.js
+yarn
 ```
 
 If you want to work on the documentation you can use
 
 ```sh
-node lib/index.js --serve
+./serve
 ```
 
 which starts a web server on port 8080 and automatically rebuilds the
-documentation when changes are made. You can also use `--watch` to rebuild
-automatically without running a web server.
+documentation when changes are made.
 
 ## Source Structure
 

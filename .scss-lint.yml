@@ -1,7 +1,0 @@
-linters:
-  PropertySortOrder:
-    enabled: false
-  IdSelector:
-    enabled: false
-  LeadingZero:
-    style: include_zero

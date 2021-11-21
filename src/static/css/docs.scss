@@ -70,6 +70,8 @@ table {
 
 .docs-header-right {
   margin-left: auto;
+  display: flex;
+  align-items: center;
 
   a {
     margin-left: 0.4em;
@@ -78,6 +80,10 @@ table {
       border-bottom: 3px solid $p-soft;
     }
   }
+}
+
+.docs-header-search {
+  margin-left: 0.125em;
 }
 
 .docs-header-title {
