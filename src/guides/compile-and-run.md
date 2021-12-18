@@ -31,14 +31,14 @@ greeting.
 
 ```
 🏁 🍇
-  😀 🔤Hey!🔤❗️
+  😀 🔤👋🌍🔤❗️
 🍉
 ```
 
 Before analyzing this new code, we’ll give it a try.
 
->!H You must have installed Emojicode to run the following commands.
->!H See [Installing Emojicode](install.html) if you haven’t already.
+> !H You must have installed Emojicode to run the following commands.
+> !H See [Installing Emojicode](install.html) if you haven’t already.
 
 Open a command-line and navigate to the directory containing `greeter.emojic`.
 Then run this command.
@@ -55,10 +55,16 @@ is a native executable you can run like any other executable. Let’s try:
 ./greeter
 ```
 
+You should see the following greeting output in the console:
+
+```
+👋🌍
+```
+
 Congratulations! You’ve written your first program. But how does it actually
 work?
 
-It’s simple: `🔤Hey!🔤` is a string literal. Every character between
+It’s simple: `🔤👋🌍🔤` is a string literal. Every character between
 two 🔤 is then part of the string.
 
 Then we call the 😀 method on this string. And guess what, it prints the string
