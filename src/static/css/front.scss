@@ -133,6 +133,27 @@ body {
   padding: 0;
 }
 
+.featured {
+  text-align: center;
+  max-width: 800px;
+  margin: 5.4rem auto;
+}
+
+.featured-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.5rem;
+  margin: 0 1rem;
+}
+
+.featuring-img {
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  display: block;
+  padding: 0 3rem;
+}
+
 @media (max-width: 1000px) {
   .menu {
     font-size: 15px;
@@ -161,6 +182,19 @@ body {
 
   .feature {
     width: auto;
+  }
+
+  .featured-flex {
+    display: block;
+  }
+
+  .featuring {
+    margin: 5rem 0;
+  }
+
+  .featuring-img {
+    height: auto;
+    min-height: 100px;
   }
 
   .hello-world__pre {
