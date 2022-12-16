@@ -92,7 +92,7 @@ export CXX=clang++  # or g++ or whatever your compiler is
 ## Manual Installation
 
 1. [Download the prebuilt binaries](https://github.com/emojicode/emojicode/releases) for your
-    system and extract the tar file. For instance:
+  system and extract the tar file. For instance:
 
   ```bash
   tar -xzf Emojicode-VERSION-YOUR-PLATFORM.tar.gz
@@ -105,7 +105,7 @@ export CXX=clang++  # or g++ or whatever your compiler is
   ./install.sh
   ```
 
-You can find more information about the installer above.
+  You can find more information about the installer above.
 
 ### Very Manual Installation
 
@@ -121,7 +121,6 @@ can also copy things into place yourself.
    Emojicode Compiler can find it.
 
    One of these locations is `/usr/local/EmojicodePackages`. See [Package Search Paths](../reference/compiler.html#package-search-paths) for more information.
-
 4. Finally, you should copy the contents of `include` into a directory named
    `emojicode` in your C++ compiler’s search path.
 
@@ -131,5 +130,7 @@ can also copy things into place yourself.
 
 Instruction to build Emojicode from source can be found in the
 [GitHub repository](https://github.com/emojicode/emojicode/).
+
+
 
 <script src="/static/js/magicinstall.js"></script>
