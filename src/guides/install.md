@@ -128,6 +128,7 @@ can also copy things into place yourself.
 
 ## Building from Source
 
+
 Instruction to build Emojicode from source can be found in the
 [GitHub repository](https://github.com/emojicode/emojicode/).
 
