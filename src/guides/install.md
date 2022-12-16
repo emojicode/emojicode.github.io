@@ -113,11 +113,11 @@ If the installer doesn’t work for you or you simply don‘t want to use it, yo
 can also copy things into place yourself.
 
 1. [Download the prebuilt binaries](https://github.com/emojicode/emojicode/releases)
-    for your system and extract the tar file.
+  for your system and extract the tar file.
 
 2. Copy `emojicodec` (the compiler executable) to the place you keep executables.
 
-3. Copy the contents of the `packages` somewhere where the
+3. Copy the contents of the  `packages` somewhere where the
    Emojicode Compiler can find it.
 
    One of these locations is `/usr/local/EmojicodePackages`. See [Package Search Paths](../reference/compiler.html#package-search-paths) for more information.
