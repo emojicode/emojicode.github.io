@@ -37,8 +37,8 @@ greeting.
 
 Before analyzing this new code, we’ll give it a try.
 
-> !H You must have installed Emojicode to run the following commands.
-> !H See [Installing Emojicode](install.html) if you haven’t already.
+>!H You must have installed Emojicode to run the following commands.
+>!H See [Installing Emojicode](install.html) if you haven’t already.
 
 Open a command-line and navigate to the directory containing `greeter.emojic`.
 Then run this command.
