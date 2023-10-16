@@ -10,7 +10,7 @@ Emojicode supports error handling for any kind of method, initializer or
 closure.
 
 In Emojicode errors are represented by instance of the 🚧 or its subclasses.
-For instnace, the class 🚧🔸↕️ is used to represent errors that occur during
+For instance, the class 🚧🔸↕️ is used to represent errors that occur during
 input/output operations, such as when reading a file.
 
 In case a method, initializer or closure may fail, it should be declared as
