@@ -64,10 +64,11 @@ You’re ready to go! Try this, for example:
 
 ```bash
 echo '🏁 🍇
-  😀 🔤Hello World!🔤❗️
+  😀 🔤👋🌍🔤❗️
 🍉' > hello.emojic
 ./emojicodec hello.emojic  # Compile it
 ./hello  # Run it!
+# the text '👋🌍' should print to the console
 ```
 
 ## Installing for Arch Linux
