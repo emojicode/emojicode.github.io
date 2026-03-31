@@ -29,7 +29,7 @@ Consider the following example:
 Anybody with a reasonable understanding of maths will rightly expect the
 result to be 7 because `2 ✖️ 2` will be evaluated first.
 
-However, what if we wanted `3 ➕ 2` to be evaluated first and add 2 to the
+However, what if we wanted `3 ➕ 2` to be evaluated first and multiply 2 to the
 result of that? Thisis what grouping is for.
 
 Grouping allows you specify that the result of an operation is to be evaluated
