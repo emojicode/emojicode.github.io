@@ -189,6 +189,21 @@ section,
   font-size: 36px;
 }
 
+.toc .link-list {
+  > * {
+    display: block;
+  }
+
+  .type {
+    display: block;
+
+    > * {
+      display: inline-block;
+      width: unset;
+    }
+  }
+}
+
 .link-list {
   a {
     display: flex;
